@@ -204,7 +204,7 @@ public class FragmentMimoji extends FragmentLiveBase implements OnClickListener 
     public void initView(View view) {
         this.mContext = getContext();
         this.mNoneItemView = view.findViewById(R.id.mimoji_none_item);
-        this.mMimojiRecylerView = view.findViewById(R.id.mimoji_list);
+        this.mMimojiRecylerView = (RecyclerView) view.findViewById(R.id.mimoji_list);
         RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(R.id.ll_bubble_pop_occupation);
         DefaultItemAnimator defaultItemAnimator = new DefaultItemAnimator();
         defaultItemAnimator.setChangeDuration(150);
@@ -215,7 +215,7 @@ public class FragmentMimoji extends FragmentLiveBase implements OnClickListener 
         this.bubbleEditMimojiPresenter = new BubbleEditMimojiPresenter(getContext(), this, relativeLayout);
         this.mMimojiRecylerView.addOnScrollListener(new OnScrollListener() {
             public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-                FragmentMimoji.super.onScrollStateChanged(recyclerView, i);
+                super.onScrollStateChanged(recyclerView, i);
                 FragmentMimoji.this.bubbleEditMimojiPresenter.processBubbleAni(-2, -2);
             }
         });

@@ -43,7 +43,7 @@ public class BeautyLevelFragment extends BaseBeautyFragment {
     }
 
     private void initView(View view) {
-        this.mLevelItemList = view.findViewById(R.id.beauty_level_item_list);
+        this.mLevelItemList = (RecyclerView) view.findViewById(R.id.beauty_level_item_list);
         MyLayoutManager myLayoutManager = new MyLayoutManager(getActivity());
         myLayoutManager.setOrientation(0);
         this.mLevelItemList.setLayoutManager(myLayoutManager);

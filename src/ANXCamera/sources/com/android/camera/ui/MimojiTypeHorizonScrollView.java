@@ -9,6 +9,7 @@ import android.graphics.PorterDuff.Mode;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Shader.TileMode;
 import android.support.annotation.Nullable;
+import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.HorizontalScrollView;
@@ -72,7 +73,7 @@ public class MimojiTypeHorizonScrollView extends HorizontalScrollView {
         this.mPaint.setStyle(Style.FILL);
         this.mPaint.setXfermode(new PorterDuffXfermode(Mode.DST_OUT));
         Paint paint = this.mPaint;
-        LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, 0.0f, (float) this.mWidth, new int[]{-16777216, -939524096, 0}, new float[]{0.0f, 0.2f, 1.0f}, TileMode.CLAMP);
+        LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, 0.0f, (float) this.mWidth, new int[]{ViewCompat.MEASURED_STATE_MASK, -939524096, 0}, new float[]{0.0f, 0.2f, 1.0f}, TileMode.CLAMP);
         paint.setShader(linearGradient);
         setFocusable(false);
     }

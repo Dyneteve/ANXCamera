@@ -56,6 +56,7 @@ import android.provider.Settings.Secure;
 import android.provider.Settings.SettingNotFoundException;
 import android.provider.Settings.System;
 import android.support.annotation.NonNull;
+import android.support.v4.os.EnvironmentCompat;
 import android.support.v4.view.ViewCompat;
 import android.telephony.TelephonyManager;
 import android.text.SpannableStringBuilder;
@@ -855,7 +856,7 @@ public final class Util {
             case 5:
                 return "precapture";
             default:
-                return "unknown";
+                return EnvironmentCompat.MEDIA_UNKNOWN;
         }
     }
 
@@ -879,7 +880,7 @@ public final class Util {
             case 6:
                 return "passive_unfocused";
             default:
-                return "unknown";
+                return EnvironmentCompat.MEDIA_UNKNOWN;
         }
     }
 
@@ -897,7 +898,7 @@ public final class Util {
             case 3:
                 return "locked";
             default:
-                return "unknown";
+                return EnvironmentCompat.MEDIA_UNKNOWN;
         }
     }
 

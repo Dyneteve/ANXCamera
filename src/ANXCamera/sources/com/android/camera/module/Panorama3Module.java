@@ -687,8 +687,6 @@ public class Panorama3Module extends BaseModule implements SensorEventListener, 
                 }
             }
 
-            /* JADX WARNING: type inference failed for: r0v24, types: [com.android.camera.Camera] */
-            /* JADX WARNING: type inference failed for: r14v1, types: [android.content.Context] */
             /* JADX WARNING: Code restructure failed: missing block: B:33:?, code lost:
                 r1.this$1.this$0.getActivity().runOnUiThread(r1.mPostAttachRunnable);
                 r0 = r18;
@@ -706,11 +704,9 @@ public class Panorama3Module extends BaseModule implements SensorEventListener, 
             /* JADX WARNING: Code restructure failed: missing block: B:45:0x0123, code lost:
                 r0 = th;
              */
-            /* JADX WARNING: Multi-variable type inference failed */
             /* JADX WARNING: Removed duplicated region for block: B:58:0x0147  */
             /* JADX WARNING: Removed duplicated region for block: B:60:0x0161  */
             /* JADX WARNING: Unknown top exception splitter block from list: {B:27:0x00b9=Splitter:B:27:0x00b9, B:49:0x0129=Splitter:B:49:0x0129} */
-            /* JADX WARNING: Unknown variable types count: 2 */
             /* Code decompiled incorrectly, please refer to instructions dump. */
             public void run() {
                 int i;
@@ -1047,36 +1043,12 @@ public class Panorama3Module extends BaseModule implements SensorEventListener, 
             return null;
         }
 
-        /* JADX WARNING: type inference failed for: r9v3, types: [android.content.Context, com.android.camera.Camera] */
         /* access modifiers changed from: protected */
-        /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r9v3, types: [android.content.Context, com.android.camera.Camera]
-  assigns: [com.android.camera.Camera]
-  uses: [?[int, boolean, OBJECT, ARRAY, byte, short, char], com.android.camera.Camera, android.content.Context]
-  mth insns count: 46
-        	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-        	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-        	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-        	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-        	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-        	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$0(DepthTraversal.java:13)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:13)
-        	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-        	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-        	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-        	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-         */
-        /* JADX WARNING: Unknown variable types count: 1 */
-        /* Code decompiled incorrectly, please refer to instructions dump. */
         public void onPostExecute(Integer num) {
             Log.d(Panorama3Module.TAG, "PanoramaFinish done");
-            ? r9 = Panorama3Module.this.mActivity;
-            if (r9 != 0) {
-                AutoLockManager.getInstance(r9).hibernateDelayed();
+            Camera camera = Panorama3Module.this.mActivity;
+            if (camera != null) {
+                AutoLockManager.getInstance(camera).hibernateDelayed();
             }
             if (Panorama3Module.this.mPaused) {
                 Panorama3Module.this.mIsShooting = false;
@@ -1086,8 +1058,8 @@ public class Panorama3Module extends BaseModule implements SensorEventListener, 
             if (Panorama3Module.this.mDispPreviewImage != null) {
                 Panorama3Module.this.mDispPreviewImage.eraseColor(0);
             }
-            if (r9 != 0) {
-                r9.getThumbnailUpdater().updateThumbnailView(true);
+            if (camera != null) {
+                camera.getThumbnailUpdater().updateThumbnailView(true);
             }
             Panorama3Module.this.onSaveFinish();
             Panorama3Module.this.mHandler.post(new Runnable() {
@@ -1169,28 +1141,7 @@ public class Panorama3Module extends BaseModule implements SensorEventListener, 
         }
     }
 
-    /* JADX WARNING: type inference failed for: r0v3, types: [android.content.Context, com.android.camera.Camera] */
     /* access modifiers changed from: private */
-    /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r0v3, types: [android.content.Context, com.android.camera.Camera]
-  assigns: [com.android.camera.Camera]
-  uses: [?[int, boolean, OBJECT, ARRAY, byte, short, char], com.android.camera.Camera, android.content.Context]
-  mth insns count: 60
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-    	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-    	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-    	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-    	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-    	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-     */
-    /* JADX WARNING: Unknown variable types count: 1 */
-    /* Code decompiled incorrectly, please refer to instructions dump. */
     public void addImageAsApplication(String str, String str2, int i, int i2, int i3) {
         String str3 = str;
         Location currentLocation = LocationManager.instance().getCurrentLocation();
@@ -1216,14 +1167,14 @@ public class Panorama3Module extends BaseModule implements SensorEventListener, 
         Log.d(str5, sb2.toString());
         trackGeneralInfo(1, false);
         trackPictureTaken(1, false, z, null, false, false);
-        ? r0 = this.mActivity;
-        if (isCreated() && r0 != 0) {
-            r0.getScreenHint().updateHint();
+        Camera camera = this.mActivity;
+        if (isCreated() && camera != null) {
+            camera.getScreenHint().updateHint();
             if (uri != null) {
-                r0.onNewUriArrived(uri, str2);
-                Thumbnail createThumbnailFromUri = Thumbnail.createThumbnailFromUri(r0.getContentResolver(), uri, false);
-                Util.broadcastNewPicture(r0, uri);
-                r0.getThumbnailUpdater().setThumbnail(createThumbnailFromUri, false, false);
+                camera.onNewUriArrived(uri, str2);
+                Thumbnail createThumbnailFromUri = Thumbnail.createThumbnailFromUri(camera.getContentResolver(), uri, false);
+                Util.broadcastNewPicture(camera, uri);
+                camera.getThumbnailUpdater().setThumbnail(createThumbnailFromUri, false, false);
             }
         }
     }
@@ -1304,29 +1255,7 @@ public class Panorama3Module extends BaseModule implements SensorEventListener, 
         return simpleDateFormat.format(date);
     }
 
-    /* JADX WARNING: type inference failed for: r2v7, types: [android.content.Context, com.android.camera.Camera] */
-    /* JADX WARNING: type inference failed for: r0v9, types: [android.app.Activity, com.android.camera.Camera] */
     /* access modifiers changed from: private */
-    /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r2v7, types: [android.content.Context, com.android.camera.Camera]
-  assigns: [com.android.camera.Camera]
-  uses: [android.content.Context]
-  mth insns count: 106
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-    	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-    	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-    	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-    	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-    	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-     */
-    /* JADX WARNING: Unknown variable types count: 2 */
-    /* Code decompiled incorrectly, please refer to instructions dump. */
     public boolean createEngine() {
         if (this.mMorphoPanoramaGP3 != null) {
             return false;
@@ -2141,28 +2070,7 @@ public class Panorama3Module extends BaseModule implements SensorEventListener, 
         }
     }
 
-    /* JADX WARNING: type inference failed for: r1v0, types: [android.content.Context, com.android.camera.Camera] */
     /* access modifiers changed from: protected */
-    /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r1v0, types: [android.content.Context, com.android.camera.Camera]
-  assigns: [com.android.camera.Camera]
-  uses: [android.content.Context]
-  mth insns count: 22
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-    	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-    	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-    	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-    	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-    	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-     */
-    /* JADX WARNING: Unknown variable types count: 1 */
-    /* Code decompiled incorrectly, please refer to instructions dump. */
     public void openSettingActivity() {
         Intent intent = new Intent();
         intent.setClass(this.mActivity, CameraPreferenceActivity.class);
@@ -2233,27 +2141,6 @@ public class Panorama3Module extends BaseModule implements SensorEventListener, 
         return isRecording();
     }
 
-    /* JADX WARNING: type inference failed for: r0v6, types: [android.content.Context, com.android.camera.Camera] */
-    /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r0v6, types: [android.content.Context, com.android.camera.Camera]
-  assigns: [com.android.camera.Camera]
-  uses: [android.content.Context]
-  mth insns count: 79
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-    	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-    	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-    	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-    	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-    	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-     */
-    /* JADX WARNING: Unknown variable types count: 1 */
-    /* Code decompiled incorrectly, please refer to instructions dump. */
     public void startPanoramaShooting() {
         if (isProcessingFinishTask()) {
             Log.e(TAG, "previous save task is on going");
@@ -2354,28 +2241,7 @@ public class Panorama3Module extends BaseModule implements SensorEventListener, 
         this.mCamera2Device.startPreviewSession(new Surface(this.mActivity.getCameraScreenNail().getSurfaceTexture()), true, false, getOperatingMode(), false, this);
     }
 
-    /* JADX WARNING: type inference failed for: r0v0, types: [android.content.Context, com.android.camera.Camera] */
     /* access modifiers changed from: protected */
-    /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r0v0, types: [android.content.Context, com.android.camera.Camera]
-  assigns: [com.android.camera.Camera]
-  uses: [android.content.Context]
-  mth insns count: 3
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-    	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-    	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-    	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-    	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-    	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-     */
-    /* JADX WARNING: Unknown variable types count: 1 */
-    /* Code decompiled incorrectly, please refer to instructions dump. */
     public void trackModeCustomInfo(int i) {
         CameraStatUtil.trackPictureTakenInPanorama(this.mActivity, i);
     }

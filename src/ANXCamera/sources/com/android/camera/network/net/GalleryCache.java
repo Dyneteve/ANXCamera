@@ -2,12 +2,12 @@ package com.android.camera.network.net;
 
 import com.android.camera.log.Log;
 import com.android.camera.network.net.base.Cacheable;
-import com.android.volley.Cache.Entry;
-import com.android.volley.toolbox.DiskBasedCache;
+import com.android.volley.C0014Cache.Entry;
+import com.android.volley.toolbox.C0038DiskBasedCache;
 import java.io.File;
 import java.util.HashMap;
 
-public class GalleryCache extends DiskBasedCache {
+public class GalleryCache extends C0038DiskBasedCache {
     private static final String TAG = "GalleryCache";
 
     public GalleryCache(File file, int i) {

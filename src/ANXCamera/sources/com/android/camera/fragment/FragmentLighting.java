@@ -164,7 +164,7 @@ public class FragmentLighting extends BaseFragment implements OnClickListener {
 
     /* access modifiers changed from: protected */
     public void initView(View view) {
-        this.mRecyclerView = view.findViewById(R.id.lighting_list);
+        this.mRecyclerView = (RecyclerView) view.findViewById(R.id.lighting_list);
         this.mComponentRunningLighting = DataRepository.dataItemRunning().getComponentRunningLighting();
         this.mLightingAdapter = new LightingAdapter(getContext(), this.mCurrentMode, this, this.mComponentRunningLighting);
         this.mLayoutManager = new LinearLayoutManagerWrapper(getContext(), 0, false, "lighting_list");

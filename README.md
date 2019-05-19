@@ -99,8 +99,12 @@ Steps to Port MiuiCamera from scratch:
    3. to `src\ANXCamera\smali_classes2`. It should finally contain two folders
       1. `android` and `com`
 9.  Set required = false in AndroidManifest of these libs as their code is now included
-10. Add missing smali files from decompiled miui rom
-11. Add native libs
-12. Edit Smali
+10. We will make additional changes to AndroidManifest
+    1.  Change `android:allowBackup="true"` to `android:allowBackup="false"`
+    2.  Remove `android:backupAgent`
+    3.  And add `<uses-sdk android:minSdkVersion="26" android:targetSdkVersion="28"/>`
+11. Add missing smali files from decompiled miui rom
+12. Add native libs
+13. Edit Smali
    4. ...
 

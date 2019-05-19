@@ -128,21 +128,21 @@ public class l implements Callback {
 
     @NonNull
     private SupportRequestManagerFragment a(@NonNull android.support.v4.app.FragmentManager fragmentManager, @Nullable Fragment fragment, boolean z) {
-        SupportRequestManagerFragment findFragmentByTag = fragmentManager.findFragmentByTag(FRAGMENT_TAG);
-        if (findFragmentByTag == null) {
-            findFragmentByTag = (SupportRequestManagerFragment) this.pendingSupportRequestManagerFragments.get(fragmentManager);
-            if (findFragmentByTag == null) {
-                findFragmentByTag = new SupportRequestManagerFragment();
-                findFragmentByTag.c(fragment);
+        SupportRequestManagerFragment supportRequestManagerFragment = (SupportRequestManagerFragment) fragmentManager.findFragmentByTag(FRAGMENT_TAG);
+        if (supportRequestManagerFragment == null) {
+            supportRequestManagerFragment = (SupportRequestManagerFragment) this.pendingSupportRequestManagerFragments.get(fragmentManager);
+            if (supportRequestManagerFragment == null) {
+                supportRequestManagerFragment = new SupportRequestManagerFragment();
+                supportRequestManagerFragment.c(fragment);
                 if (z) {
-                    findFragmentByTag.cX().onStart();
+                    supportRequestManagerFragment.cX().onStart();
                 }
-                this.pendingSupportRequestManagerFragments.put(fragmentManager, findFragmentByTag);
-                fragmentManager.beginTransaction().add(findFragmentByTag, FRAGMENT_TAG).commitAllowingStateLoss();
+                this.pendingSupportRequestManagerFragments.put(fragmentManager, supportRequestManagerFragment);
+                fragmentManager.beginTransaction().add((Fragment) supportRequestManagerFragment, FRAGMENT_TAG).commitAllowingStateLoss();
                 this.handler.obtainMessage(2, fragmentManager).sendToTarget();
             }
         }
-        return findFragmentByTag;
+        return supportRequestManagerFragment;
     }
 
     @NonNull
@@ -325,16 +325,16 @@ public class l implements Callback {
 
     public boolean handleMessage(Message message) {
         Object obj;
-        android.support.v4.app.FragmentManager fragmentManager = null;
+        Object obj2 = null;
         boolean z = true;
         switch (message.what) {
             case 1:
-                fragmentManager = (FragmentManager) message.obj;
-                obj = this.pendingRequestManagerFragments.remove(fragmentManager);
+                obj2 = (FragmentManager) message.obj;
+                obj = this.pendingRequestManagerFragments.remove(obj2);
                 break;
             case 2:
-                fragmentManager = (android.support.v4.app.FragmentManager) message.obj;
-                obj = this.pendingSupportRequestManagerFragments.remove(fragmentManager);
+                obj2 = (android.support.v4.app.FragmentManager) message.obj;
+                obj = this.pendingSupportRequestManagerFragments.remove(obj2);
                 break;
             default:
                 z = false;
@@ -345,7 +345,7 @@ public class l implements Callback {
             String str = TAG;
             StringBuilder sb = new StringBuilder();
             sb.append("Failed to remove expected request manager fragment, manager: ");
-            sb.append(fragmentManager);
+            sb.append(obj2);
             Log.w(str, sb.toString());
         }
         return z;

@@ -326,7 +326,7 @@ public class FragmentLiveMusicPager extends Fragment implements OnClickListener,
 
     /* access modifiers changed from: protected */
     public void initView(View view) {
-        this.mRecyclerView = view.findViewById(R.id.music_recycler_view);
+        this.mRecyclerView = (RecyclerView) view.findViewById(R.id.music_recycler_view);
         LinearLayoutManagerWrapper linearLayoutManagerWrapper = new LinearLayoutManagerWrapper(getContext(), "music_recycler_view");
         linearLayoutManagerWrapper.setOrientation(1);
         this.mRecyclerView.setLayoutManager(linearLayoutManagerWrapper);
@@ -387,7 +387,7 @@ public class FragmentLiveMusicPager extends Fragment implements OnClickListener,
     }
 
     public void onDestroy() {
-        FragmentLiveMusicPager.super.onDestroy();
+        super.onDestroy();
         this.mIsDestroyed = true;
         this.mMediaPlayer.release();
         this.mRecyclerView.setAdapter(null);
@@ -399,7 +399,7 @@ public class FragmentLiveMusicPager extends Fragment implements OnClickListener,
     }
 
     public void onPause() {
-        FragmentLiveMusicPager.super.onPause();
+        super.onPause();
         if (this.mMediaPlayer.isPlaying()) {
             this.mMediaPlayer.pause();
             this.mMusicPlayPosition = this.mMediaPlayer.getCurrentPosition();
@@ -411,7 +411,7 @@ public class FragmentLiveMusicPager extends Fragment implements OnClickListener,
     }
 
     public void onResume() {
-        FragmentLiveMusicPager.super.onResume();
+        super.onResume();
         if (this.mMusicPlayPosition != 0) {
             ((AudioManager) getContext().getSystemService("audio")).requestAudioFocus(this.mFocusChangeListener, 3, 1);
             this.mMediaPlayer.seekTo(this.mMusicPlayPosition);
@@ -439,7 +439,7 @@ public class FragmentLiveMusicPager extends Fragment implements OnClickListener,
     }
 
     public void setUserVisibleHint(boolean z) {
-        FragmentLiveMusicPager.super.setUserVisibleHint(z);
+        super.setUserVisibleHint(z);
         if (!z && this.mMediaPlayer != null && this.mMediaPlayer.isPlaying()) {
             this.mMediaPlayer.stop();
             this.mMediaPlayer.reset();

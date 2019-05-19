@@ -7,6 +7,7 @@ import android.graphics.Paint.Style;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
+import android.support.v4.view.ViewCompat;
 import com.android.camera.Util;
 import com.android.camera.constant.ColorConstant;
 import com.android.camera.ui.drawable.CameraPaintBase;
@@ -112,7 +113,7 @@ public class CameraSnapPaintCircle extends CameraPaintBase {
         this.mOffsetPaint.setAntiAlias(true);
         this.mOffsetPaint.setStyle(Style.STROKE);
         this.mOffsetPaint.setStrokeWidth((float) Util.dpToPixel(1.0f));
-        this.mOffsetPaint.setColor(-16777216);
+        this.mOffsetPaint.setColor(ViewCompat.MEASURED_STATE_MASK);
         this.mOffsetPaint.setXfermode(new PorterDuffXfermode(Mode.CLEAR));
     }
 

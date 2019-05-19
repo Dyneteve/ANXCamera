@@ -694,31 +694,6 @@ public class f implements Cloneable {
         return this.eC;
     }
 
-    /* JADX WARNING: type inference failed for: r1v3, types: [java.util.Map<java.lang.Class<?>, com.bumptech.glide.load.i<?>>, com.bumptech.glide.util.CachedHashCodeArrayMap] */
-    /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r1v3, types: [java.util.Map<java.lang.Class<?>, com.bumptech.glide.load.i<?>>, com.bumptech.glide.util.CachedHashCodeArrayMap]
-  assigns: [com.bumptech.glide.util.CachedHashCodeArrayMap]
-  uses: [java.util.Map<java.lang.Class<?>, com.bumptech.glide.load.i<?>>]
-  mth insns count: 19
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-    	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-    	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-    	at jadx.core.ProcessClass.lambda$processDependencies$0(ProcessClass.java:49)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.ProcessClass.processDependencies(ProcessClass.java:49)
-    	at jadx.core.ProcessClass.process(ProcessClass.java:35)
-    	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-    	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-    	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-     */
-    /* JADX WARNING: Unknown variable types count: 1 */
-    /* Code decompiled incorrectly, please refer to instructions dump. */
     @CheckResult
     /* renamed from: dx */
     public f clone() {
@@ -806,7 +781,7 @@ public class f implements Cloneable {
         if (n(fVar.oo, 262144)) {
             this.oC = fVar.oC;
         }
-        if (n(fVar.oo, of)) {
+        if (n(fVar.oo, 1048576)) {
             this.gy = fVar.gy;
         }
         if (n(fVar.oo, 4)) {
@@ -840,7 +815,7 @@ public class f implements Cloneable {
         if (n(fVar.oo, 4096)) {
             this.eR = fVar.eR;
         }
-        if (n(fVar.oo, nY)) {
+        if (n(fVar.oo, 8192)) {
             this.oy = fVar.oy;
         }
         if (n(fVar.oo, 16384)) {
@@ -859,7 +834,7 @@ public class f implements Cloneable {
             this.eT.putAll(fVar.eT);
             this.eZ = fVar.eZ;
         }
-        if (n(fVar.oo, oe)) {
+        if (n(fVar.oo, 524288)) {
             this.fl = fVar.fl;
         }
         if (!this.ox) {
@@ -919,7 +894,7 @@ public class f implements Cloneable {
             return clone().j(drawable);
         }
         this.oy = drawable;
-        this.oo |= nY;
+        this.oo |= 8192;
         return dN();
     }
 
@@ -963,7 +938,7 @@ public class f implements Cloneable {
             return clone().k(z);
         }
         this.gy = z;
-        this.oo |= of;
+        this.oo |= 1048576;
         return dN();
     }
 
@@ -974,7 +949,7 @@ public class f implements Cloneable {
             return clone().l(z);
         }
         this.fl = z;
-        this.oo |= oe;
+        this.oo |= 524288;
         return dN();
     }
 

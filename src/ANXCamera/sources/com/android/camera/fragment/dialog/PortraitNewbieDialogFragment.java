@@ -40,15 +40,15 @@ public class PortraitNewbieDialogFragment extends BaseDialogFragment {
     private void resumeMode() {
         ((BackStack) ModeCoordinatorImpl.getInstance().getAttachProtocol(171)).removeBackStack(this);
         if (isAdded()) {
-            Camera activity = getActivity();
-            if (!activity.isActivityPaused() && !activity.isSwitchingModule()) {
+            Camera camera = (Camera) getActivity();
+            if (!camera.isActivityPaused() && !camera.isSwitchingModule()) {
                 ScenarioTrackUtil.trackScenarioAbort(ScenarioTrackUtil.sSwitchModeTimeScenario);
                 Camera2Proxy currentCamera2Device = Camera2OpenManager.getInstance().getCurrentCamera2Device();
                 if (currentCamera2Device == null) {
                     Log.w(TAG, "resumeMode: return, as Camera2Device is null");
                     return;
                 }
-                BaseModule baseModule = (BaseModule) getActivity().getCurrentModule();
+                BaseModule baseModule = (BaseModule) ((Camera) getActivity()).getCurrentModule();
                 baseModule.setCameraDevice(currentCamera2Device);
                 baseModule.onCreate(DataRepository.dataItemGlobal().getCurrentMode(), DataRepository.dataItemGlobal().getCurrentCameraId());
                 baseModule.onResume();

@@ -1118,7 +1118,7 @@ EDGE_INSN: B:27:0x004a->B:17:0x004a ?: BREAK  , SYNTHETIC] */
                 if (Util.isAccessible()) {
                     if (162 != this.mCurrentMode) {
                         this.mEdgeHorizonScrollView.setContentDescription(getString(R.string.accessibility_camera_shutter_finish));
-                    } else if (getActivity().isRecording()) {
+                    } else if (((Camera) getActivity()).isRecording()) {
                         this.mEdgeHorizonScrollView.setContentDescription(getString(R.string.accessibility_camera_record_start));
                     } else {
                         this.mEdgeHorizonScrollView.setContentDescription(getString(R.string.accessibility_camera_record_stop));

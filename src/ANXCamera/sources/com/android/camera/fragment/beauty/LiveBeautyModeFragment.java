@@ -77,7 +77,7 @@ public class LiveBeautyModeFragment extends BaseBeautyMakeupFragment {
             this.mHeaderImageView.setRotation(0.0f);
             ViewCompat.animate(this.mHeaderImageView).rotation(360.0f).setDuration(500).setListener(new ViewPropertyAnimatorListenerAdapter() {
                 public void onAnimationEnd(View view) {
-                    LiveBeautyModeFragment.super.onAnimationEnd(view);
+                    super.onAnimationEnd(view);
                     LiveBeautyModeFragment.this.mHeaderImageView.setRotation(0.0f);
                 }
             }).start();

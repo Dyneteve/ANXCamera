@@ -198,7 +198,7 @@ public class BeautyEyeLightFragment extends BaseBeautyFragment implements OnClic
         this.mTotalWidth = getResources().getDisplayMetrics().widthPixels;
         this.mBackButtonWidth = getResources().getDimensionPixelSize(R.dimen.fragment_eye_light_back_width);
         this.mBackView = view.findViewById(R.id.eye_light_back_button);
-        this.mRecyclerView = view.findViewById(R.id.eye_light_type_list);
+        this.mRecyclerView = (RecyclerView) view.findViewById(R.id.eye_light_type_list);
         this.mLayoutManager = new LinearLayoutManagerWrapper(getContext(), "eye_light_type_list");
         String str = TAG;
         StringBuilder sb = new StringBuilder();

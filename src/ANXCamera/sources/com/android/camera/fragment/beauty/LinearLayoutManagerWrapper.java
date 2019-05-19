@@ -27,7 +27,7 @@ public class LinearLayoutManagerWrapper extends LinearLayoutManager {
 
     public void onLayoutChildren(Recycler recycler, State state) {
         try {
-            LinearLayoutManagerWrapper.super.onLayoutChildren(recycler, state);
+            super.onLayoutChildren(recycler, state);
         } catch (IndexOutOfBoundsException e) {
             StringBuilder sb = new StringBuilder();
             sb.append("IndexOutOfBoundsException from bussiness:");

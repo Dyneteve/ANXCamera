@@ -42,13 +42,13 @@ public abstract class BaseBeautyFragment extends Fragment {
 
     @CallSuper
     public void onCreate(Bundle bundle) {
-        BaseBeautyFragment.super.onCreate(bundle);
+        super.onCreate(bundle);
         this.isOnCreate = true;
     }
 
     public Animation onCreateAnimation(int i, boolean z, int i2) {
         if (z) {
-            return BaseBeautyFragment.super.onCreateAnimation(i, z, i2);
+            return super.onCreateAnimation(i, z, i2);
         }
         AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
         alphaAnimation.setInterpolator(new QuinticEaseInInterpolator());
@@ -58,7 +58,7 @@ public abstract class BaseBeautyFragment extends Fragment {
 
     @CallSuper
     public void onDestroyView() {
-        BaseBeautyFragment.super.onDestroyView();
+        super.onDestroyView();
         this.isViewCreated = false;
         if (this.isViewCreatedAndVisibleToUser) {
             beforeViewGoneToUser();
@@ -68,7 +68,7 @@ public abstract class BaseBeautyFragment extends Fragment {
 
     @CallSuper
     public void onViewCreated(View view, Bundle bundle) {
-        BaseBeautyFragment.super.onViewCreated(view, bundle);
+        super.onViewCreated(view, bundle);
         this.isViewCreated = true;
         if (!this.isVisibleToUser) {
             return;
@@ -102,7 +102,7 @@ public abstract class BaseBeautyFragment extends Fragment {
     @CallSuper
     public void setUserVisibleHint(boolean z) {
         this.isVisibleToUser = z;
-        BaseBeautyFragment.super.setUserVisibleHint(z);
+        super.setUserVisibleHint(z);
         if (this.isViewCreated && z) {
             if (this.isOnCreate) {
                 this.isOnCreate = false;

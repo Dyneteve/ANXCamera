@@ -141,7 +141,7 @@ public class FragmentManuallyExtra extends BaseFragment {
 
     /* access modifiers changed from: protected */
     public void initView(View view) {
-        this.mExtraList = view.findViewById(R.id.manually_extra_list);
+        this.mExtraList = (RecyclerView) view.findViewById(R.id.manually_extra_list);
         this.mExtraListHorizontal = (HorizontalListView) view.findViewById(R.id.manually_extra_list_horizon);
         this.mHorizontalSlideView = (HorizontalSlideView) view.findViewById(R.id.manually_extra_horizon_slideview);
         if (this.mData != null) {

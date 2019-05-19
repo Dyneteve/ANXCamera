@@ -231,7 +231,7 @@ public class FragmentFullScreen extends BaseFragment implements OnClickListener,
         this.mPreviewShare = (ImageView) view.findViewById(R.id.live_preview_share);
         this.mPreviewStart = (ImageView) view.findViewById(R.id.live_preview_play);
         this.mShareLayout = (ViewGroup) view.findViewById(R.id.live_share_layout);
-        this.mShareRecyclerView = this.mShareLayout.findViewById(R.id.live_share_list);
+        this.mShareRecyclerView = (RecyclerView) this.mShareLayout.findViewById(R.id.live_share_list);
         this.mShareCancel = this.mShareLayout.findViewById(R.id.live_share_cancel);
         this.mShareCancel.setOnClickListener(this);
         this.mPreviewLayout.setOnClickListener(this);

@@ -206,7 +206,7 @@ public class FragmentMimojiEdit extends BaseFragment implements OnClickListener,
         this.mOperateSelectLayout = view.findViewById(R.id.operate_select_layout);
         this.mMimojiConfigAdjustLayout = view.findViewById(R.id.mimoji_config_adjust_layout);
         this.mMimojiTypeSelectView = (MimojiTypeSelectView) view.findViewById(R.id.mimoji_type_select_view);
-        this.mLevelRecyleView = view.findViewById(R.id.color_level);
+        this.mLevelRecyleView = (RecyclerView) view.findViewById(R.id.color_level);
         LinearLayoutManagerWrapper linearLayoutManagerWrapper = new LinearLayoutManagerWrapper(this.mContext, "color_level");
         linearLayoutManagerWrapper.setOrientation(1);
         this.mLevelRecyleView.setLayoutManager(linearLayoutManagerWrapper);

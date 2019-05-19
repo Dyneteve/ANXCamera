@@ -37,22 +37,22 @@ public class RecyclerAdapterWrapper<T extends Adapter> extends Adapter<ViewHolde
         T t2 = this.mBase;
         AnonymousClass1 r0 = new AdapterDataObserver() {
             public void onChanged() {
-                RecyclerAdapterWrapper.super.onChanged();
+                super.onChanged();
                 RecyclerAdapterWrapper.this.notifyDataSetChanged();
             }
 
             public void onItemRangeChanged(int i, int i2) {
-                RecyclerAdapterWrapper.super.onItemRangeChanged(i, i2);
+                super.onItemRangeChanged(i, i2);
                 RecyclerAdapterWrapper.this.notifyItemRangeChanged(RecyclerAdapterWrapper.this.getHeaderCount() + i, i2);
             }
 
             public void onItemRangeInserted(int i, int i2) {
-                RecyclerAdapterWrapper.super.onItemRangeInserted(i, i2);
+                super.onItemRangeInserted(i, i2);
                 RecyclerAdapterWrapper.this.notifyItemRangeInserted(RecyclerAdapterWrapper.this.getHeaderCount() + i, i2);
             }
 
             public void onItemRangeRemoved(int i, int i2) {
-                RecyclerAdapterWrapper.super.onItemRangeRemoved(i, i2);
+                super.onItemRangeRemoved(i, i2);
                 RecyclerAdapterWrapper.this.notifyItemRangeRemoved(RecyclerAdapterWrapper.this.getHeaderCount() + i, i2);
             }
         };
@@ -165,7 +165,7 @@ public class RecyclerAdapterWrapper<T extends Adapter> extends Adapter<ViewHolde
     }
 
     public boolean onFailedToRecycleView(ViewHolder viewHolder) {
-        return this.mBaseHolderClass.isInstance(viewHolder) ? this.mBase.onFailedToRecycleView((ViewHolder) this.mBaseHolderClass.cast(viewHolder)) : RecyclerAdapterWrapper.super.onFailedToRecycleView(viewHolder);
+        return this.mBaseHolderClass.isInstance(viewHolder) ? this.mBase.onFailedToRecycleView((ViewHolder) this.mBaseHolderClass.cast(viewHolder)) : super.onFailedToRecycleView(viewHolder);
     }
 
     public void onViewAttachedToWindow(ViewHolder viewHolder) {

@@ -1,7 +1,7 @@
 package com.android.volley.toolbox;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
+import com.android.volley.C0013AuthFailureError;
+import com.android.volley.C0024Request;
 import java.io.IOException;
 import java.net.SocketTimeoutException;
 import java.util.ArrayList;
@@ -11,13 +11,13 @@ import org.apache.http.HttpResponse;
 import org.apache.http.conn.ConnectTimeoutException;
 
 class AdaptedHttpStack extends BaseHttpStack {
-    private final HttpStack mHttpStack;
+    private final C0041HttpStack mHttpStack;
 
-    AdaptedHttpStack(HttpStack httpStack) {
+    AdaptedHttpStack(C0041HttpStack httpStack) {
         this.mHttpStack = httpStack;
     }
 
-    public HttpResponse executeRequest(Request<?> request, Map<String, String> map) throws IOException, AuthFailureError {
+    public HttpResponse executeRequest(C0024Request<?> request, Map<String, String> map) throws IOException, C0013AuthFailureError {
         try {
             HttpResponse performRequest = this.mHttpStack.performRequest(request, map);
             int statusCode = performRequest.getStatusLine().getStatusCode();

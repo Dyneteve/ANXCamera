@@ -52,12 +52,12 @@ public abstract class BaseBeautyMakeupFragment extends BaseBeautyFragment {
         }
 
         public boolean canScrollHorizontally() {
-            return this.isScrollEnabled && BaseBeautyMakeupFragment.super.canScrollHorizontally();
+            return this.isScrollEnabled && super.canScrollHorizontally();
         }
 
         public void onLayoutChildren(Recycler recycler, State state) {
             try {
-                BaseBeautyMakeupFragment.super.onLayoutChildren(recycler, state);
+                super.onLayoutChildren(recycler, state);
             } catch (IndexOutOfBoundsException e) {
                 e.printStackTrace();
             }
@@ -169,7 +169,7 @@ public abstract class BaseBeautyMakeupFragment extends BaseBeautyFragment {
     /* access modifiers changed from: protected */
     public void initView(View view) {
         this.mHeaderRecyclerView = (LinearLayout) view.findViewById(R.id.header_recyclerView);
-        this.mMakeupItemList = view.findViewById(R.id.makeup_item_list);
+        this.mMakeupItemList = (RecyclerView) view.findViewById(R.id.makeup_item_list);
         initHeaderView();
         this.mLayoutManager = new MyLayoutManager(getActivity());
         this.mLayoutManager.setOrientation(0);

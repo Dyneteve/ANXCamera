@@ -29,11 +29,11 @@ public class AiSceneNewbieDialogFragment extends BaseDialogFragment {
     private void resumeMode() {
         ((BackStack) ModeCoordinatorImpl.getInstance().getAttachProtocol(171)).removeBackStack(this);
         if (isAdded()) {
-            Camera activity = getActivity();
-            if (!activity.isActivityPaused() && !activity.isSwitchingModule()) {
+            Camera camera = (Camera) getActivity();
+            if (!camera.isActivityPaused() && !camera.isSwitchingModule()) {
                 ScenarioTrackUtil.trackScenarioAbort(ScenarioTrackUtil.sLaunchTimeScenario);
-                activity.resetStartTime();
-                BaseModule baseModule = (BaseModule) getActivity().getCurrentModule();
+                camera.resetStartTime();
+                BaseModule baseModule = (BaseModule) ((Camera) getActivity()).getCurrentModule();
                 baseModule.setCameraDevice(Camera2OpenManager.getInstance().getCurrentCamera2Device());
                 baseModule.onCreate(DataRepository.dataItemGlobal().getCurrentMode(), DataRepository.dataItemGlobal().getCurrentCameraId());
                 baseModule.onResume();

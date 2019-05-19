@@ -138,10 +138,10 @@ public class SingleCheckAdapter extends Adapter<SingleCheckViewHolder> {
                     if (adapterPosition != SingleCheckAdapter.this.mSelectedItem) {
                         SingleCheckAdapter.this.mPreSelectedItem = SingleCheckAdapter.this.mSelectedItem;
                         SingleCheckAdapter.this.mSelectedItem = adapterPosition;
-                        SingleCheckViewHolder findViewHolderForAdapterPosition = SingleCheckAdapter.this.mRecyclerView.findViewHolderForAdapterPosition(SingleCheckAdapter.this.mPreSelectedItem);
-                        SingleCheckViewHolder findViewHolderForAdapterPosition2 = SingleCheckAdapter.this.mRecyclerView.findViewHolderForAdapterPosition(SingleCheckAdapter.this.mSelectedItem);
-                        animateOut(findViewHolderForAdapterPosition.mBase, findViewHolderForAdapterPosition.mText);
-                        animateIn(findViewHolderForAdapterPosition2.mBase, findViewHolderForAdapterPosition2.mText);
+                        SingleCheckViewHolder singleCheckViewHolder = (SingleCheckViewHolder) SingleCheckAdapter.this.mRecyclerView.findViewHolderForAdapterPosition(SingleCheckAdapter.this.mPreSelectedItem);
+                        SingleCheckViewHolder singleCheckViewHolder2 = (SingleCheckViewHolder) SingleCheckAdapter.this.mRecyclerView.findViewHolderForAdapterPosition(SingleCheckAdapter.this.mSelectedItem);
+                        animateOut(singleCheckViewHolder.mBase, singleCheckViewHolder.mText);
+                        animateIn(singleCheckViewHolder2.mBase, singleCheckViewHolder2.mText);
                         this.mAdapter.onItemHolderClick(this);
                     }
                 }
@@ -200,7 +200,7 @@ public class SingleCheckAdapter extends Adapter<SingleCheckViewHolder> {
     }
 
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {
-        SingleCheckAdapter.super.onAttachedToRecyclerView(recyclerView);
+        super.onAttachedToRecyclerView(recyclerView);
         this.mRecyclerView = recyclerView;
     }
 

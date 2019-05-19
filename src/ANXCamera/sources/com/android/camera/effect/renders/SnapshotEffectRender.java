@@ -707,31 +707,6 @@ public class SnapshotEffectRender {
             }
         }
 
-        /* JADX WARNING: type inference failed for: r1v3, types: [com.android.camera.ActivityBase, android.content.Context] */
-        /* JADX WARNING: type inference failed for: r0v9, types: [com.android.camera.ActivityBase, android.content.Context] */
-        /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r1v3, types: [com.android.camera.ActivityBase, android.content.Context]
-  assigns: [com.android.camera.ActivityBase]
-  uses: [android.content.Context]
-  mth insns count: 64
-        	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-        	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-        	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-        	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-        	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-        	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$0(DepthTraversal.java:13)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:13)
-        	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-        	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-        	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-        	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-         */
-        /* JADX WARNING: Unknown variable types count: 2 */
-        /* Code decompiled incorrectly, please refer to instructions dump. */
         private WaterMark drawDoubleShotWaterMark(DrawJPEGAttribute drawJPEGAttribute, int i, int i2, int i3, int i4, int i5, WaterMark waterMark) {
             if (!b.hJ()) {
                 return null;
@@ -788,30 +763,6 @@ public class SnapshotEffectRender {
             return true;
         }
 
-        /* JADX WARNING: type inference failed for: r9v0, types: [com.android.camera.ActivityBase, android.content.Context] */
-        /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r9v0, types: [com.android.camera.ActivityBase, android.content.Context]
-  assigns: [com.android.camera.ActivityBase]
-  uses: [android.content.Context]
-  mth insns count: 65
-        	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-        	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-        	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-        	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-        	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-        	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$0(DepthTraversal.java:13)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:13)
-        	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-        	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-        	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-        	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-         */
-        /* JADX WARNING: Unknown variable types count: 1 */
-        /* Code decompiled incorrectly, please refer to instructions dump. */
         private boolean drawThumbJpeg(DrawJPEGAttribute drawJPEGAttribute, boolean z) {
             DrawJPEGAttribute drawJPEGAttribute2 = drawJPEGAttribute;
             if (drawJPEGAttribute2.mExif == null) {
@@ -857,31 +808,6 @@ public class SnapshotEffectRender {
             }
         }
 
-        /* JADX WARNING: type inference failed for: r8v2, types: [com.android.camera.ActivityBase, android.content.Context] */
-        /* JADX WARNING: type inference failed for: r5v8, types: [com.android.camera.ActivityBase, android.content.Context] */
-        /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r8v2, types: [com.android.camera.ActivityBase, android.content.Context]
-  assigns: [com.android.camera.ActivityBase]
-  uses: [android.content.Context]
-  mth insns count: 87
-        	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-        	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-        	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-        	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-        	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-        	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$0(DepthTraversal.java:13)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:13)
-        	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-        	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-        	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-        	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-         */
-        /* JADX WARNING: Unknown variable types count: 2 */
-        /* Code decompiled incorrectly, please refer to instructions dump. */
         private void drawWaterMark(DrawJPEGAttribute drawJPEGAttribute, int i, int i2, int i3, int i4, int i5, int i6, int i7) {
             DrawJPEGAttribute drawJPEGAttribute2 = drawJPEGAttribute;
             int i8 = i;
@@ -1024,31 +950,6 @@ public class SnapshotEffectRender {
             SnapshotEffectRender.this.destroy();
         }
 
-        /* JADX WARNING: type inference failed for: r5v5, types: [com.android.camera.ActivityBase, android.content.Context] */
-        /* JADX WARNING: type inference failed for: r4v9, types: [com.android.camera.ActivityBase, android.app.Activity] */
-        /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r5v5, types: [com.android.camera.ActivityBase, android.content.Context]
-  assigns: [com.android.camera.ActivityBase]
-  uses: [android.content.Context]
-  mth insns count: 132
-        	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-        	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-        	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-        	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-        	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-        	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$0(DepthTraversal.java:13)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:13)
-        	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-        	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-        	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-        	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-         */
-        /* JADX WARNING: Unknown variable types count: 2 */
-        /* Code decompiled incorrectly, please refer to instructions dump. */
         private boolean saveMainJpeg(DrawJPEGAttribute drawJPEGAttribute, boolean z, boolean z2, byte[] bArr) {
             String str;
             DrawJPEGAttribute drawJPEGAttribute2 = drawJPEGAttribute;
@@ -1078,7 +979,7 @@ public class SnapshotEffectRender {
                     access$3200.addImage(bArr3, z3, str3, str2, drawJPEGAttribute2.mDate, drawJPEGAttribute2.mUri, drawJPEGAttribute2.mLoc, drawJPEGAttribute2.mWidth, drawJPEGAttribute2.mHeight, drawJPEGAttribute2.mExif, drawJPEGAttribute2.mJpegOrientation, false, false, str == null ? drawJPEGAttribute2.mFinalImage : false, false, z2, drawJPEGAttribute2.mAlgorithmName, drawJPEGAttribute2.mInfo, drawJPEGAttribute2.mPreviewThumbnailHash);
                 } else if (drawJPEGAttribute2.mUri == null) {
                     Log.d(SnapshotEffectRender.TAG, "addImageForEffect");
-                    ? access$000 = SnapshotEffectRender.this.mActivity;
+                    ActivityBase access$000 = SnapshotEffectRender.this.mActivity;
                     if (str == null) {
                         str = drawJPEGAttribute2.mTitle;
                     }
@@ -1089,7 +990,7 @@ public class SnapshotEffectRender {
                     sb2.append("updateImage: uri=");
                     sb2.append(drawJPEGAttribute2.mUri);
                     Log.d(access$22002, sb2.toString());
-                    ? access$0002 = SnapshotEffectRender.this.mActivity;
+                    ActivityBase access$0002 = SnapshotEffectRender.this.mActivity;
                     byte[] bArr4 = drawJPEGAttribute2.mData;
                     ExifInterface exifInterface = drawJPEGAttribute2.mExif;
                     Uri uri = drawJPEGAttribute2.mUri;
@@ -1224,13 +1125,9 @@ public class SnapshotEffectRender {
         }
     }
 
-    /* JADX WARNING: type inference failed for: r4v0, types: [com.android.camera.ActivityBase, android.content.Context] */
-    /* JADX WARNING: Incorrect type for immutable var: ssa=com.android.camera.ActivityBase, code=null, for r4v0, types: [com.android.camera.ActivityBase, android.content.Context] */
-    /* JADX WARNING: Unknown variable types count: 1 */
-    /* Code decompiled incorrectly, please refer to instructions dump. */
-    public SnapshotEffectRender(ActivityBase r4, boolean z) {
+    public SnapshotEffectRender(ActivityBase activityBase, boolean z) {
         Log.d(TAG, "SnapshotEffectRender: has been created!!!");
-        this.mActivity = r4;
+        this.mActivity = activityBase;
         this.mIsImageCaptureIntent = z;
         if (this.mMemImage == null) {
             this.mMemImage = new MemImage();
@@ -1248,7 +1145,7 @@ public class SnapshotEffectRender {
         this.mRelease = false;
         this.mInitGraphicBuffer = false;
         if (CameraSettings.isSupportedDualCameraWaterMark()) {
-            this.mDualCameraWaterMarkBitmap = loadCameraWatermark(r4);
+            this.mDualCameraWaterMarkBitmap = loadCameraWatermark(activityBase);
             this.mCurrentCustomWaterMarkText = CameraSettings.getCustomWatermark();
             this.mDualCameraWaterMarkSizeRatio = getResourceFloat(R.dimen.dualcamera_watermark_size_ratio, 0.0f);
             this.mDualCameraWaterMarkPaddingXRatio = getResourceFloat(R.dimen.dualcamera_watermark_padding_x_ratio, 0.0f);
@@ -1379,27 +1276,6 @@ public class SnapshotEffectRender {
         throw th2;
     }
 
-    /* JADX WARNING: type inference failed for: r0v1, types: [com.android.camera.ActivityBase, android.content.Context] */
-    /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r0v1, types: [com.android.camera.ActivityBase, android.content.Context]
-  assigns: [com.android.camera.ActivityBase]
-  uses: [android.content.Context]
-  mth insns count: 15
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-    	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-    	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-    	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-    	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-    	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-     */
-    /* JADX WARNING: Unknown variable types count: 1 */
-    /* Code decompiled incorrectly, please refer to instructions dump. */
     private void processorThumAsync(DrawJPEGAttribute drawJPEGAttribute) {
         if (this.mExifNeeded) {
             this.mEglHandler.obtainMessage(3, drawJPEGAttribute).sendToTarget();
@@ -1408,27 +1284,6 @@ public class SnapshotEffectRender {
         }
     }
 
-    /* JADX WARNING: type inference failed for: r0v1, types: [com.android.camera.ActivityBase, android.content.Context] */
-    /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r0v1, types: [com.android.camera.ActivityBase, android.content.Context]
-  assigns: [com.android.camera.ActivityBase]
-  uses: [android.content.Context]
-  mth insns count: 30
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-    	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-    	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-    	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-    	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-    	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-     */
-    /* JADX WARNING: Unknown variable types count: 1 */
-    /* Code decompiled incorrectly, please refer to instructions dump. */
     private boolean processorThumSync(DrawJPEGAttribute drawJPEGAttribute) {
         if (this.mExifNeeded) {
             drawJPEGAttribute.mExif = getExif(drawJPEGAttribute);

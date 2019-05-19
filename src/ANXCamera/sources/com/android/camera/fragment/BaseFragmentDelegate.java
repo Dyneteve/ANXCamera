@@ -109,37 +109,37 @@ public class BaseFragmentDelegate implements BaseDelegate {
                         break;
                     case 2:
                         this.animationComposite.remove(i);
-                        BaseFragment findFragmentByTag = supportFragmentManager.findFragmentByTag(String.valueOf(i));
-                        if (findFragmentByTag != null) {
-                            findFragmentByTag.pendingGone(false);
-                            beginTransaction.remove(findFragmentByTag);
+                        BaseFragment baseFragment = (BaseFragment) supportFragmentManager.findFragmentByTag(String.valueOf(i));
+                        if (baseFragment != null) {
+                            baseFragment.pendingGone(false);
+                            beginTransaction.remove(baseFragment);
                         }
                         updateCurrentFragments(baseFragmentOperation.containerViewId, i, baseFragmentOperation.operateType);
                         break;
                     case 3:
                         this.animationComposite.remove(activeFragment);
-                        BaseFragment findFragmentByTag2 = supportFragmentManager.findFragmentByTag(String.valueOf(activeFragment));
-                        if (findFragmentByTag2 != null) {
-                            findFragmentByTag2.pendingGone(false);
-                            beginTransaction.remove(findFragmentByTag2);
+                        BaseFragment baseFragment2 = (BaseFragment) supportFragmentManager.findFragmentByTag(String.valueOf(activeFragment));
+                        if (baseFragment2 != null) {
+                            baseFragment2.pendingGone(false);
+                            beginTransaction.remove(baseFragment2);
                         }
                         updateCurrentFragments(baseFragmentOperation.containerViewId, activeFragment, baseFragmentOperation.operateType);
                         break;
                     case 4:
-                        BaseFragment findFragmentByTag3 = supportFragmentManager.findFragmentByTag(String.valueOf(activeFragment));
-                        if (findFragmentByTag3 != null) {
-                            findFragmentByTag3.pendingGone(false);
-                            beginTransaction.hide(findFragmentByTag3);
+                        BaseFragment baseFragment3 = (BaseFragment) supportFragmentManager.findFragmentByTag(String.valueOf(activeFragment));
+                        if (baseFragment3 != null) {
+                            baseFragment3.pendingGone(false);
+                            beginTransaction.hide(baseFragment3);
                         }
-                        BaseFragment findFragmentByTag4 = supportFragmentManager.findFragmentByTag(String.valueOf(i));
-                        if (findFragmentByTag4 != null) {
-                            findFragmentByTag4.pendingShow();
-                            beginTransaction.show(findFragmentByTag4);
+                        BaseFragment baseFragment4 = (BaseFragment) supportFragmentManager.findFragmentByTag(String.valueOf(i));
+                        if (baseFragment4 != null) {
+                            baseFragment4.pendingShow();
+                            beginTransaction.show(baseFragment4);
                         } else {
-                            findFragmentByTag4 = constructFragment(false, i, activeFragment, baseLifecycleListener);
-                            beginTransaction.add(baseFragmentOperation.containerViewId, findFragmentByTag4, findFragmentByTag4.getFragmentTag());
+                            baseFragment4 = constructFragment(false, i, activeFragment, baseLifecycleListener);
+                            beginTransaction.add(baseFragmentOperation.containerViewId, baseFragment4, baseFragment4.getFragmentTag());
                         }
-                        this.animationComposite.put(findFragmentByTag4.getFragmentInto(), findFragmentByTag4);
+                        this.animationComposite.put(baseFragment4.getFragmentInto(), baseFragment4);
                         updateCurrentFragments(baseFragmentOperation.containerViewId, i, baseFragmentOperation.operateType);
                         break;
                     case 5:
@@ -148,41 +148,41 @@ public class BaseFragmentDelegate implements BaseDelegate {
                             int intValue = ((Integer) list2.get(i2)).intValue();
                             if (intValue != i) {
                                 this.animationComposite.remove(intValue);
-                                BaseFragment findFragmentByTag5 = supportFragmentManager.findFragmentByTag(String.valueOf(intValue));
-                                if (findFragmentByTag5 != null) {
+                                BaseFragment baseFragment5 = (BaseFragment) supportFragmentManager.findFragmentByTag(String.valueOf(intValue));
+                                if (baseFragment5 != null) {
                                     if (intValue != activeFragment) {
-                                        findFragmentByTag5.pendingGone(true);
+                                        baseFragment5.pendingGone(true);
                                     } else {
-                                        findFragmentByTag5.pendingGone(false);
+                                        baseFragment5.pendingGone(false);
                                     }
-                                    beginTransaction.remove(findFragmentByTag5);
+                                    beginTransaction.remove(baseFragment5);
                                 }
                             }
                         }
-                        BaseFragment findFragmentByTag6 = supportFragmentManager.findFragmentByTag(String.valueOf(i));
-                        findFragmentByTag6.setLastFragmentInfo(activeFragment);
-                        findFragmentByTag6.pendingShow();
-                        beginTransaction.show(findFragmentByTag6);
+                        BaseFragment baseFragment6 = (BaseFragment) supportFragmentManager.findFragmentByTag(String.valueOf(i));
+                        baseFragment6.setLastFragmentInfo(activeFragment);
+                        baseFragment6.pendingShow();
+                        beginTransaction.show(baseFragment6);
                         updateCurrentFragments(baseFragmentOperation.containerViewId, i, baseFragmentOperation.operateType);
                         break;
                     case 6:
                         if (activeFragment != i) {
-                            BaseFragment findFragmentByTag7 = supportFragmentManager.findFragmentByTag(String.valueOf(activeFragment));
-                            if (findFragmentByTag7 != null) {
-                                findFragmentByTag7.pendingGone(true);
-                                beginTransaction.hide(findFragmentByTag7);
+                            BaseFragment baseFragment7 = (BaseFragment) supportFragmentManager.findFragmentByTag(String.valueOf(activeFragment));
+                            if (baseFragment7 != null) {
+                                baseFragment7.pendingGone(true);
+                                beginTransaction.hide(baseFragment7);
                             }
                         }
-                        BaseFragment findFragmentByTag8 = supportFragmentManager.findFragmentByTag(String.valueOf(i));
-                        findFragmentByTag8.setLastFragmentInfo(activeFragment);
-                        findFragmentByTag8.pendingShow();
-                        beginTransaction.show(findFragmentByTag8);
+                        BaseFragment baseFragment8 = (BaseFragment) supportFragmentManager.findFragmentByTag(String.valueOf(i));
+                        baseFragment8.setLastFragmentInfo(activeFragment);
+                        baseFragment8.pendingShow();
+                        beginTransaction.show(baseFragment8);
                         updateCurrentFragments(baseFragmentOperation.containerViewId, i, baseFragmentOperation.operateType);
                         break;
                     case 7:
-                        BaseFragment findFragmentByTag9 = supportFragmentManager.findFragmentByTag(String.valueOf(activeFragment));
-                        if (findFragmentByTag9 != null) {
-                            beginTransaction.hide(findFragmentByTag9);
+                        BaseFragment baseFragment9 = (BaseFragment) supportFragmentManager.findFragmentByTag(String.valueOf(activeFragment));
+                        if (baseFragment9 != null) {
+                            beginTransaction.hide(baseFragment9);
                         }
                         updateCurrentFragments(baseFragmentOperation.containerViewId, activeFragment, baseFragmentOperation.operateType);
                         break;
@@ -212,7 +212,7 @@ public class BaseFragmentDelegate implements BaseDelegate {
             public void setBlockingLifeCycles(List<String> list) {
             }
         }, BaseLifeCircleBindFragment.FRAGMENT_TAG);
-        childFragmentManager.beginTransaction().add(baseLifeCircleBindFragment, BaseLifeCircleBindFragment.FRAGMENT_TAG).commitAllowingStateLoss();
+        childFragmentManager.beginTransaction().add((Fragment) baseLifeCircleBindFragment, BaseLifeCircleBindFragment.FRAGMENT_TAG).commitAllowingStateLoss();
     }
 
     private BaseFragment constructFragment(boolean z, int i, int i2, BaseLifecycleListener baseLifecycleListener) {

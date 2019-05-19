@@ -222,7 +222,7 @@ public class FragmentDualCameraBokehAdjust extends BaseFragment implements OnCli
         String readFNumber = CameraSettings.readFNumber();
         Util.appendInApi26(this.mStringBuilder, readFNumber, this.mDigitsTextStyle, 33);
         if (Util.isAccessible()) {
-            this.mDualBokehFButton.setContentDescription(getString(R.string.accessibility_bokeh_level, new Object[]{readFNumber}));
+            this.mDualBokehFButton.setContentDescription(getString(R.string.accessibility_bokeh_level, readFNumber));
             this.mDualBokehFButton.postDelayed(new Runnable() {
                 public void run() {
                     if (FragmentDualCameraBokehAdjust.this.isAdded()) {

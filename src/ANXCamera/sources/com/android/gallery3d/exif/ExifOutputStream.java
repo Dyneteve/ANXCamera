@@ -1,5 +1,6 @@
 package com.android.gallery3d.exif;
 
+import com.android.gallery3d.exif.ExifInterface.ColorSpace;
 import java.io.BufferedOutputStream;
 import java.io.FilterOutputStream;
 import java.io.IOException;
@@ -234,7 +235,7 @@ class ExifOutputStream extends FilterOutputStream {
             ArrayList stripNullValueTags = stripNullValueTags(this.mExifData);
             createRequiredIfdAndTag();
             int calculateAllOffset = calculateAllOffset() + 8;
-            if (calculateAllOffset <= MAX_EXIF_SIZE) {
+            if (calculateAllOffset <= 65535) {
                 OrderedDataOutputStream orderedDataOutputStream = new OrderedDataOutputStream(this.out);
                 orderedDataOutputStream.setByteOrder(ByteOrder.BIG_ENDIAN);
                 orderedDataOutputStream.writeShort(-31);
@@ -411,11 +412,11 @@ class ExifOutputStream extends FilterOutputStream {
                                 this.mBuffer.rewind();
                                 short s = this.mBuffer.getShort();
                                 if (s == -31) {
-                                    this.mByteToSkip = (this.mBuffer.getShort() & MAX_EXIF_SIZE) - 2;
+                                    this.mByteToSkip = (this.mBuffer.getShort() & ColorSpace.UNCALIBRATED) - 2;
                                     this.mState = 2;
                                 } else if (!JpegHeader.isSofMarker(s)) {
                                     this.out.write(this.mBuffer.array(), 0, 4);
-                                    this.mByteToCopy = (this.mBuffer.getShort() & MAX_EXIF_SIZE) - 2;
+                                    this.mByteToCopy = (this.mBuffer.getShort() & ColorSpace.UNCALIBRATED) - 2;
                                 } else {
                                     this.out.write(this.mBuffer.array(), 0, 4);
                                     this.mState = 2;

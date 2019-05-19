@@ -1,5 +1,6 @@
 package okhttp3.internal.cache2;
 
+import android.support.v4.media.session.PlaybackStateCompat;
 import java.io.EOFException;
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -8,7 +9,7 @@ import okio.Buffer;
 
 final class FileOperator {
     private static final int BUFFER_SIZE = 8192;
-    private final byte[] byteArray = new byte[BUFFER_SIZE];
+    private final byte[] byteArray = new byte[8192];
     private final ByteBuffer byteBuffer = ByteBuffer.wrap(this.byteArray);
     private final FileChannel fileChannel;
 
@@ -20,7 +21,7 @@ final class FileOperator {
         if (j2 >= 0) {
             while (j2 > 0) {
                 try {
-                    this.byteBuffer.limit((int) Math.min(8192, j2));
+                    this.byteBuffer.limit((int) Math.min(PlaybackStateCompat.ACTION_PLAY_FROM_URI, j2));
                     if (this.fileChannel.read(this.byteBuffer, j) != -1) {
                         int position = this.byteBuffer.position();
                         buffer.write(this.byteArray, 0, position);
@@ -45,7 +46,7 @@ final class FileOperator {
         }
         while (j2 > 0) {
             try {
-                int min = (int) Math.min(8192, j2);
+                int min = (int) Math.min(PlaybackStateCompat.ACTION_PLAY_FROM_URI, j2);
                 buffer.read(this.byteArray, 0, min);
                 this.byteBuffer.limit(min);
                 do {

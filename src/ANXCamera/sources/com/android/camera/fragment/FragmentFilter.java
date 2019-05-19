@@ -220,7 +220,7 @@ public class FragmentFilter extends BaseBeautyFragment implements OnClickListene
     }
 
     private void initView(View view) {
-        this.mRecyclerView = view.findViewById(R.id.effect_list);
+        this.mRecyclerView = (RecyclerView) view.findViewById(R.id.effect_list);
         ArrayList filterInfo = getFilterInfo();
         this.mComponentConfigFilter = DataRepository.dataItemRunning().getComponentConfigFilter();
         this.mComponentConfigFilter.mapToItems(filterInfo);
@@ -239,7 +239,7 @@ public class FragmentFilter extends BaseBeautyFragment implements OnClickListene
         this.mRecyclerView.setAdapter(this.mEffectItemAdapter);
         this.mRecyclerView.addOnScrollListener(new OnScrollListener() {
             public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-                FragmentFilter.super.onScrollStateChanged(recyclerView, i);
+                super.onScrollStateChanged(recyclerView, i);
                 FragmentFilter.this.isAnimation = false;
             }
         });

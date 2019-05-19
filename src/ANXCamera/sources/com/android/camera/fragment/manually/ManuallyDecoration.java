@@ -32,7 +32,7 @@ public class ManuallyDecoration extends ItemDecoration {
         int childCount = recyclerView.getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = recyclerView.getChildAt(i);
-            LayoutParams layoutParams = childAt.getLayoutParams();
+            LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
             int left = childAt.getLeft();
             int right = childAt.getRight();
             int bottom = childAt.getBottom() + layoutParams.bottomMargin;

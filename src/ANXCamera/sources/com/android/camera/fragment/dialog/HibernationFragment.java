@@ -34,9 +34,9 @@ public class HibernationFragment extends DialogFragment implements OnKeyListener
     private void resumeMode() {
         ((BackStack) ModeCoordinatorImpl.getInstance().getAttachProtocol(171)).removeBackStack(this);
         if (isAdded()) {
-            Camera activity = getActivity();
-            if (!activity.isActivityPaused() && !activity.isSwitchingModule()) {
-                activity.onAwaken();
+            Camera camera = (Camera) getActivity();
+            if (!camera.isActivityPaused() && !camera.isSwitchingModule()) {
+                camera.onAwaken();
             }
         }
     }
@@ -58,7 +58,7 @@ public class HibernationFragment extends DialogFragment implements OnKeyListener
     }
 
     public void onCancel(DialogInterface dialogInterface) {
-        HibernationFragment.super.onCancel(dialogInterface);
+        super.onCancel(dialogInterface);
         resumeMode();
     }
 
@@ -69,7 +69,7 @@ public class HibernationFragment extends DialogFragment implements OnKeyListener
     }
 
     public Dialog onCreateDialog(Bundle bundle) {
-        Dialog onCreateDialog = HibernationFragment.super.onCreateDialog(bundle);
+        Dialog onCreateDialog = super.onCreateDialog(bundle);
         onCreateDialog.getWindow().setGravity(48);
         return onCreateDialog;
     }
@@ -87,7 +87,7 @@ public class HibernationFragment extends DialogFragment implements OnKeyListener
         if (backStack != null) {
             backStack.removeBackStack(this);
         }
-        HibernationFragment.super.onDestroyView();
+        super.onDestroyView();
     }
 
     public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
@@ -99,12 +99,12 @@ public class HibernationFragment extends DialogFragment implements OnKeyListener
     }
 
     public void onResume() {
-        HibernationFragment.super.onResume();
+        super.onResume();
         getDialog().setOnKeyListener(this);
     }
 
     public void onViewCreated(View view, @Nullable Bundle bundle) {
-        HibernationFragment.super.onViewCreated(view, bundle);
+        super.onViewCreated(view, bundle);
         BackStack backStack = (BackStack) ModeCoordinatorImpl.getInstance().getAttachProtocol(171);
         if (backStack != null) {
             backStack.addInBackStack(this);

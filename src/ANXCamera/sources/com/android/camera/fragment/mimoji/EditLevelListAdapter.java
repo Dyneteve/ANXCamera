@@ -63,7 +63,7 @@ public class EditLevelListAdapter extends Adapter<ViewHolder> {
         public ViewHolder(View view) {
             super(view);
             this.mTvSubTitle = (TextView) view.findViewById(R.id.tv_subtitle);
-            this.mColorRecycleView = view.findViewById(R.id.color_select);
+            this.mColorRecycleView = (RecyclerView) view.findViewById(R.id.color_select);
             LinearLayoutManagerWrapper linearLayoutManagerWrapper = new LinearLayoutManagerWrapper(EditLevelListAdapter.this.mContext, "color_select");
             linearLayoutManagerWrapper.setOrientation(0);
             this.mColorRecycleView.setLayoutManager(linearLayoutManagerWrapper);

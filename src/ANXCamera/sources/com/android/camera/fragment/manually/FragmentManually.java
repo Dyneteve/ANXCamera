@@ -250,7 +250,7 @@ public class FragmentManually extends BaseFragment implements OnClickListener, M
         this.mIndicatorButton.setOnClickListener(this);
         this.mManuallyParent = (ViewGroup) view.findViewById(R.id.manually_adjust_layout);
         this.mRecyclerViewLayout = (ViewGroup) this.mManuallyParent.findViewById(R.id.manually_recycler_view_layout);
-        this.mRecyclerView = this.mRecyclerViewLayout.findViewById(R.id.manually_recycler_view);
+        this.mRecyclerView = (RecyclerView) this.mRecyclerViewLayout.findViewById(R.id.manually_recycler_view);
         this.mDecoration = new ManuallyDecoration(1, getResources().getColor(R.color.effect_divider_color));
         LinearLayoutManagerWrapper linearLayoutManagerWrapper = new LinearLayoutManagerWrapper(getContext(), "manually_recycler_view");
         linearLayoutManagerWrapper.setOrientation(0);
@@ -317,18 +317,18 @@ public class FragmentManually extends BaseFragment implements OnClickListener, M
                             this.mFragmentManuallyExtra = new FragmentManuallyExtra();
                             this.mFragmentManuallyExtra.setComponentData(componentData, this.mCurrentMode, true, this);
                             FragmentUtils.addFragmentWithTag(getChildFragmentManager(), (int) R.id.manually_popup, (Fragment) this.mFragmentManuallyExtra, this.mFragmentManuallyExtra.getFragmentTag());
-                            this.mRecyclerView.getAdapter().setSelectedTitle(displayTitleString);
+                            ((ManuallyAdapter) this.mRecyclerView.getAdapter()).setSelectedTitle(displayTitleString);
                         } else if (this.mFragmentManuallyExtra.getCurrentTitle() == displayTitleString) {
                             this.mFragmentManuallyExtra.animateOut();
-                            this.mRecyclerView.getAdapter().setSelectedTitle(-1);
+                            ((ManuallyAdapter) this.mRecyclerView.getAdapter()).setSelectedTitle(-1);
                         } else {
                             hideTips();
                             this.mFragmentManuallyExtra.resetData(componentData);
-                            this.mRecyclerView.getAdapter().setSelectedTitle(displayTitleString);
+                            ((ManuallyAdapter) this.mRecyclerView.getAdapter()).setSelectedTitle(displayTitleString);
                         }
                     } else {
                         FragmentUtils.removeFragmentByTag(getChildFragmentManager(), String.valueOf(254));
-                        this.mRecyclerView.getAdapter().setSelectedTitle(-1);
+                        ((ManuallyAdapter) this.mRecyclerView.getAdapter()).setSelectedTitle(-1);
                         onManuallyDataChanged(componentData, null, null, false);
                     }
                 } else {

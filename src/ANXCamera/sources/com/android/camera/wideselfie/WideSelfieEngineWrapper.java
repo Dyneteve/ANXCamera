@@ -178,7 +178,7 @@ public class WideSelfieEngineWrapper {
             Log.w(TAG, "onBurstCapture mEngineInitialized false");
             return;
         }
-        if (this.mState == AWS_STATE_CAPTURING) {
+        if (this.mState == 8194) {
             Log.d(TAG, "onBurstCapture AWS_STATE_CAPTURING");
             this.mWideSelfieCurrentCommand = 0;
             WideSelfieEngine.getSingleInstance().process(0, bArr);
@@ -279,7 +279,7 @@ public class WideSelfieEngineWrapper {
         this.mEngineInitialized = true;
         Log.d(TAG, "WideSelfieEngine init");
         WideSelfieEngine.getSingleInstance().setOnCallback(this.mWideSelfieCallback);
-        this.mState = AWS_STATE_CAPTURING;
+        this.mState = 8194;
         return init;
     }
 

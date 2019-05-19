@@ -1,6 +1,7 @@
 package com.android.camera.fragment.top;
 
 import android.os.Bundle;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -191,7 +192,7 @@ public class FragmentTopConfigExtra extends BaseFragment implements OnClickListe
 
     private void adjustViewBackground(int i) {
         if (DataRepository.dataItemRunning().getUiStyle() != 3) {
-            this.mBackgroundView.setBackgroundColor(-16777216);
+            this.mBackgroundView.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
         } else {
             this.mBackgroundView.setBackgroundResource(R.color.halfscreen_background);
         }
@@ -271,7 +272,7 @@ public class FragmentTopConfigExtra extends BaseFragment implements OnClickListe
     /* access modifiers changed from: protected */
     public void initView(View view) {
         this.mBackgroundView = view.findViewById(R.id.top_config_extra_background);
-        this.mRecyclerView = view.findViewById(R.id.top_config_extra_recyclerview);
+        this.mRecyclerView = (RecyclerView) view.findViewById(R.id.top_config_extra_recyclerview);
         this.mDisplayRectTopMargin = Util.getDisplayRect(getContext()).top;
         int currentCameraId = DataRepository.dataItemGlobal().getCurrentCameraId();
         SupportedConfigs supportedExtraConfigs = SupportedConfigFactory.getSupportedExtraConfigs(this.mCurrentMode, currentCameraId, DataRepository.dataCloudMgr().DataCloudFeature(), Camera2DataContainer.getInstance().getCapabilitiesByBogusCameraId(currentCameraId, this.mCurrentMode), DataRepository.dataItemGlobal().isNormalIntent());

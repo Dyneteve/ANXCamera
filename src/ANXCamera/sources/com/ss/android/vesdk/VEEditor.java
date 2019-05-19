@@ -7,6 +7,8 @@ import android.graphics.SurfaceTexture.OnFrameAvailableListener;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.internal.view.SupportMenu;
+import android.support.v4.view.ViewCompat;
 import android.text.TextUtils;
 import android.view.Surface;
 import android.view.SurfaceHolder;
@@ -76,7 +78,7 @@ public class VEEditor implements OnFrameAvailableListener {
     public boolean mBCompileHighQualityGif = false;
     private boolean mBReversePlay = false;
     @ColorInt
-    private int mBackGroundColor = -16777216;
+    private int mBackGroundColor = ViewCompat.MEASURED_STATE_MASK;
     /* access modifiers changed from: private */
     public boolean mCancelReverse = false;
     private int mColorFilterIndex = -1;
@@ -343,7 +345,7 @@ public class VEEditor implements OnFrameAvailableListener {
     }
 
     public enum VEState {
-        ANY(65535),
+        ANY(SupportMenu.USER_MASK),
         ERROR(0),
         NOTHING(1048576),
         IDLE(1),

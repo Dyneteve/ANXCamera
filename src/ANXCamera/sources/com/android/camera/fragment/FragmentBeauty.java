@@ -180,62 +180,12 @@ public class FragmentBeauty extends BaseFragment implements OnClickListener, Han
         }
     }
 
-    /* JADX WARNING: type inference failed for: r0v2, types: [com.android.camera.ui.NoScrollViewPager, android.view.View] */
-    /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r0v2, types: [com.android.camera.ui.NoScrollViewPager, android.view.View]
-  assigns: [com.android.camera.ui.NoScrollViewPager]
-  uses: [android.view.View]
-  mth insns count: 14
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-    	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-    	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-    	at jadx.core.ProcessClass.lambda$processDependencies$0(ProcessClass.java:49)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.ProcessClass.processDependencies(ProcessClass.java:49)
-    	at jadx.core.ProcessClass.process(ProcessClass.java:35)
-    	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-    	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-    	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-     */
-    /* JADX WARNING: Unknown variable types count: 1 */
-    /* Code decompiled incorrectly, please refer to instructions dump. */
     private void extraEnterAnim() {
         this.mViewPager.setTranslationX(0.0f);
         this.mViewPager.setAlpha(1.0f);
         ViewCompat.animate(this.mViewPager).translationX(-100.0f).alpha(0.0f).setDuration(120).setStartDelay(0).setInterpolator(new QuinticEaseInInterpolator()).start();
     }
 
-    /* JADX WARNING: type inference failed for: r0v2, types: [com.android.camera.ui.NoScrollViewPager, android.view.View] */
-    /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r0v2, types: [com.android.camera.ui.NoScrollViewPager, android.view.View]
-  assigns: [com.android.camera.ui.NoScrollViewPager]
-  uses: [android.view.View]
-  mth insns count: 14
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-    	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-    	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-    	at jadx.core.ProcessClass.lambda$processDependencies$0(ProcessClass.java:49)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.ProcessClass.processDependencies(ProcessClass.java:49)
-    	at jadx.core.ProcessClass.process(ProcessClass.java:35)
-    	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-    	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-    	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-     */
-    /* JADX WARNING: Unknown variable types count: 1 */
-    /* Code decompiled incorrectly, please refer to instructions dump. */
     private void extraExitAnim() {
         this.mViewPager.setTranslationX(-100.0f);
         this.mViewPager.setAlpha(0.0f);
@@ -822,11 +772,9 @@ public class FragmentBeauty extends BaseFragment implements OnClickListener, Han
     public void setClickEnable(boolean z) {
         super.setClickEnable(z);
         if (this.mFragments != null) {
-            Iterator it = this.mFragments.iterator();
-            while (it.hasNext()) {
-                BeautyLevelFragment beautyLevelFragment = (Fragment) it.next();
-                if (beautyLevelFragment instanceof BeautyLevelFragment) {
-                    beautyLevelFragment.setEnableClick(z);
+            for (Fragment fragment : this.mFragments) {
+                if (fragment instanceof BeautyLevelFragment) {
+                    ((BeautyLevelFragment) fragment).setEnableClick(z);
                     return;
                 }
             }

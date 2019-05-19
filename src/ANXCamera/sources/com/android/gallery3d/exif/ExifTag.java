@@ -1,6 +1,7 @@
 package com.android.gallery3d.exif;
 
 import com.android.camera.network.net.base.HTTP;
+import com.android.gallery3d.exif.ExifInterface.ColorSpace;
 import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -101,7 +102,7 @@ public class ExifTag {
         int length = iArr.length;
         for (int i = 0; i < length; i++) {
             int i2 = iArr[i];
-            if (i2 > UNSIGNED_SHORT_MAX || i2 < 0) {
+            if (i2 > 65535 || i2 < 0) {
                 return true;
             }
         }
@@ -438,7 +439,7 @@ public class ExifTag {
             return false;
         }
         if (obj instanceof Short) {
-            return setValue((int) ((Short) obj).shortValue() & UNSIGNED_SHORT_MAX);
+            return setValue((int) ((Short) obj).shortValue() & ColorSpace.UNCALIBRATED);
         }
         if (obj instanceof String) {
             return setValue((String) obj);
@@ -471,7 +472,7 @@ public class ExifTag {
             Short[] shArr = (Short[]) obj;
             int[] iArr = new int[shArr.length];
             for (int i = 0; i < shArr.length; i++) {
-                iArr[i] = shArr[i] == null ? 0 : shArr[i].shortValue() & UNSIGNED_SHORT_MAX;
+                iArr[i] = shArr[i] == null ? 0 : shArr[i].shortValue() & ColorSpace.UNCALIBRATED;
             }
             return setValue(iArr);
         } else if (obj instanceof Integer[]) {

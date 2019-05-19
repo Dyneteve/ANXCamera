@@ -11,7 +11,7 @@ public class ColorAdapter extends Adapter<CommonRecyclerViewHolder> {
     }
 
     public long getItemId(int i) {
-        return ColorAdapter.super.getItemId(i);
+        return super.getItemId(i);
     }
 
     public void onBindViewHolder(@NonNull CommonRecyclerViewHolder commonRecyclerViewHolder, int i) {

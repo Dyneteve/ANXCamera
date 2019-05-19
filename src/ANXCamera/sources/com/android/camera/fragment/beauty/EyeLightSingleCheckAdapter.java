@@ -96,14 +96,14 @@ public class EyeLightSingleCheckAdapter extends Adapter<SingleCheckViewHolder> {
             if (adapterPosition != EyeLightSingleCheckAdapter.this.mSelectedItem) {
                 EyeLightSingleCheckAdapter.this.mPreSelectedItem = EyeLightSingleCheckAdapter.this.mSelectedItem;
                 EyeLightSingleCheckAdapter.this.mSelectedItem = adapterPosition;
-                SingleCheckViewHolder findViewHolderForAdapterPosition = EyeLightSingleCheckAdapter.this.mRecyclerView.findViewHolderForAdapterPosition(EyeLightSingleCheckAdapter.this.mPreSelectedItem);
-                SingleCheckViewHolder findViewHolderForAdapterPosition2 = EyeLightSingleCheckAdapter.this.mRecyclerView.findViewHolderForAdapterPosition(EyeLightSingleCheckAdapter.this.mSelectedItem);
+                SingleCheckViewHolder singleCheckViewHolder = (SingleCheckViewHolder) EyeLightSingleCheckAdapter.this.mRecyclerView.findViewHolderForAdapterPosition(EyeLightSingleCheckAdapter.this.mPreSelectedItem);
+                SingleCheckViewHolder singleCheckViewHolder2 = (SingleCheckViewHolder) EyeLightSingleCheckAdapter.this.mRecyclerView.findViewHolderForAdapterPosition(EyeLightSingleCheckAdapter.this.mSelectedItem);
                 EyeLightSingleCheckAdapter.this.mContext.getResources();
-                if (findViewHolderForAdapterPosition != null) {
-                    colorAnimate(findViewHolderForAdapterPosition.mBase, EyeLightSingleCheckAdapter.this.mBackgroundColorPressed, EyeLightSingleCheckAdapter.this.mBackgroundColorNormal);
+                if (singleCheckViewHolder != null) {
+                    colorAnimate(singleCheckViewHolder.mBase, EyeLightSingleCheckAdapter.this.mBackgroundColorPressed, EyeLightSingleCheckAdapter.this.mBackgroundColorNormal);
                 }
-                colorAnimate(findViewHolderForAdapterPosition2.mBase, EyeLightSingleCheckAdapter.this.mBackgroundColorNormal, EyeLightSingleCheckAdapter.this.mBackgroundColorPressed);
-                if (findViewHolderForAdapterPosition == null) {
+                colorAnimate(singleCheckViewHolder2.mBase, EyeLightSingleCheckAdapter.this.mBackgroundColorNormal, EyeLightSingleCheckAdapter.this.mBackgroundColorPressed);
+                if (singleCheckViewHolder == null) {
                     this.mAdapter.notifyItemChanged(EyeLightSingleCheckAdapter.this.mPreSelectedItem);
                 }
                 this.mAdapter.onItemHolderClick(this);
@@ -152,7 +152,7 @@ public class EyeLightSingleCheckAdapter extends Adapter<SingleCheckViewHolder> {
     }
 
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {
-        EyeLightSingleCheckAdapter.super.onAttachedToRecyclerView(recyclerView);
+        super.onAttachedToRecyclerView(recyclerView);
         this.mRecyclerView = recyclerView;
     }
 
