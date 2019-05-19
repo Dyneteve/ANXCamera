@@ -103,8 +103,33 @@ Steps to Port MiuiCamera from scratch:
     1.  Change `android:allowBackup="true"` to `android:allowBackup="false"`
     2.  Remove `android:backupAgent`
     3.  And add `<uses-sdk android:minSdkVersion="26" android:targetSdkVersion="28"/>`
-11. Add missing smali files from decompiled miui rom
-12. Add native libs
-13. Edit Smali
+11. Run `redo.bat`. Only keep following enabled
+    1.  call .\recompile.bat
+    2.  call .\sign.bat
+    3.  call .\jadx.bat >nul 2>&1
+    4.  call .\reinstall.bat
+12. The APK should Install now, But we get errors when we run
+    1.  `System.err: android.content.pm.PackageManager$NameNotFoundException: com.miui.core...`
+    2.  It fails because it tries to start miui sdk.
+    3.  We will disable this by no-op'ing the SDK initialization code in `src\ANXCamera\smali\miui\external\Application.smali`
+    4.  We will comment out the existing code of `loadSdk(), initializeSdk(), startSdk()`
+    5.  and put in below
+        1.      .locals 1
+        2.      .prologue
+        3.      const/4 v0, 0x1
+        4.      return v0
+    6.  This will make the code return immediately avoiding 
+        1.  `System.err:    at miui.external.Application.loadSdk(Unknown Source:18)`
+    7.  Run `redo.bat`
+13. If we run the apk now we get a different error, thats progress. We will start getting Class Not Found Errors. like
+    1.  `java.lang.ClassNotFoundException: Didn't find class "miui.os.Build" on path`
+    2.  This can be fixed by including the missing classes
+    3.  But not always, As you will end up including the entire Miui ROM in your apk
+    4.  Include only those where we don't have corresponding replacement class in AOSP
+    5.  Other wise use AOSP classes, or no-op the operation.
+14. Add missing smali files from decompiled miui rom.
+    1.  We will add the missing classes to `src\ANXCamera\smali_classes3`
+15. Add native libs
+16. Edit Smali
    4. ...
 
