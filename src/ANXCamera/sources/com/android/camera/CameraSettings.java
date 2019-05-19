@@ -8,6 +8,9 @@ import android.hardware.input.InputManager;
 import android.media.CamcorderProfile;
 import android.media.MediaRecorder;
 import android.os.SystemProperties;
+import android.provider.MiuiSettings;
+import android.provider.MiuiSettings.Key;
+import android.provider.MiuiSettings.ScreenEffect;
 import android.provider.Settings.Global;
 import android.provider.Settings.System;
 import android.support.annotation.Nullable;
@@ -345,7 +348,7 @@ public class CameraSettings {
     }
 
     public static int addExtraHeight(Context context, int i) {
-        return (b.rz || !Util.checkDeviceHasNavigationBar(context) || Global.getInt(context.getContentResolver(), "can_nav_bar_hide", 0) != 1) ? i : i + Util.getNavigationBarHeight(context);
+        return (b.rz || !Util.checkDeviceHasNavigationBar(context) || Global.getInt(context.getContentResolver(), MiuiSettings.Global.CAN_NAV_BAR_HIDE, 0) != 1) ? i : i + Util.getNavigationBarHeight(context);
     }
 
     public static void addLensDirtyDetectedTimes() {
@@ -669,7 +672,7 @@ public class CameraSettings {
 
     public static String getJpegQuality(boolean z) {
         String string = DataRepository.dataItemConfig().getString(KEY_JPEG_QUALITY, getString(R.string.pref_camera_jpegquality_default));
-        String str = JpegEncodingQualityMappings.HIGH;
+        String str = "high";
         if (z) {
             str = "normal";
         }
@@ -728,7 +731,7 @@ public class CameraSettings {
     }
 
     public static String getMiuiSettingsKeyForStreetSnap(String str) {
-        return str.equals(getString(R.string.pref_camera_snap_value_take_picture)) ? "Street-snap-picture" : str.equals(getString(R.string.pref_camera_snap_value_take_movie)) ? "Street-snap-movie" : "none";
+        return str.equals(getString(R.string.pref_camera_snap_value_take_picture)) ? Key.LONG_PRESS_VOLUME_DOWN_STREET_SNAP_PICTURE : str.equals(getString(R.string.pref_camera_snap_value_take_movie)) ? Key.LONG_PRESS_VOLUME_DOWN_STREET_SNAP_MOVIE : "none";
     }
 
     public static int getNewSlowMotionIQ() {
@@ -789,7 +792,7 @@ public class CameraSettings {
             if (indexOf > 0) {
                 str = string2.substring(0, indexOf);
                 String substring = string2.substring(indexOf + 1);
-                if (isSupportFpsRange(3840, 2160, i) || isSupportFpsRange(1920, 1080, i)) {
+                if (isSupportFpsRange(3840, 2160, i) || isSupportFpsRange(1920, ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_END_DEAULT, i)) {
                     str2 = substring;
                 } else {
                     Log.d(TAG, "getPreferVideoQuality: do not support 60fps");
@@ -978,9 +981,9 @@ public class CameraSettings {
                 arrayList.add(getString(R.string.pref_video_quality_entry_value_4kuhd_60fps));
             }
         }
-        if (supportedOutputSize.contains(new CameraSize(1920, 1080)) && CamcorderProfile.hasProfile(bogusCameraId, 6)) {
+        if (supportedOutputSize.contains(new CameraSize(1920, ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_END_DEAULT)) && CamcorderProfile.hasProfile(bogusCameraId, 6)) {
             arrayList.add(Integer.toString(6));
-            if (isSupportFpsRange(1920, 1080, i)) {
+            if (isSupportFpsRange(1920, ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_END_DEAULT, i)) {
                 arrayList.add(getString(R.string.pref_video_quality_entry_value_1080p_60fps));
             }
         }
@@ -1014,7 +1017,7 @@ public class CameraSettings {
         if (!b.hK()) {
             return 0;
         }
-        return (System.getInt(context.getContentResolver(), EDGE_HANDGRIP_MODE_SCREENSHOT, 0) | ((System.getInt(context.getContentResolver(), EDGE_HANDGRIP_MODE, 0) | System.getInt(context.getContentResolver(), EDGE_HANDGRIP_MODE_CLEAN, 0)) | System.getInt(context.getContentResolver(), EDGE_HANDGRIP_MODE_BACK, 0))) == 1 ? 2 : 0;
+        return (System.getInt(context.getContentResolver(), "edge_handgrip_screenshot", 0) | ((System.getInt(context.getContentResolver(), "edge_handgrip", 0) | System.getInt(context.getContentResolver(), "edge_handgrip_clean", 0)) | System.getInt(context.getContentResolver(), "edge_handgrip_back", 0))) == 1 ? 2 : 0;
     }
 
     public static String getTTLiveMusicJsonCache() {
@@ -1730,7 +1733,7 @@ public class CameraSettings {
     public static void readEdgePhotoSetting(Context context) {
         if (b.hK()) {
             boolean z = true;
-            if (System.getInt(context.getContentResolver(), EDGE_HANDGRIP_MODE_PHOTO, 0) != 1) {
+            if (System.getInt(context.getContentResolver(), "edge_handgrip_photo", 0) != 1) {
                 z = false;
             }
             sEdgePhotoEnable = z;

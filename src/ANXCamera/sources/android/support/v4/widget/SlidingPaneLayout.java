@@ -645,10 +645,10 @@ public class SlidingPaneLayout extends ViewGroup {
                 child.measure(childWidthSpec, childHeightSpec4);
                 int childWidth = child.getMeasuredWidth();
                 int i5 = childHeightSpec4;
-                int childHeightSpec5 = child.getMeasuredHeight();
+                int childHeight = child.getMeasuredHeight();
                 int i6 = childWidthSpec;
-                if (heightMode2 == Integer.MIN_VALUE && childHeightSpec5 > layoutHeight2) {
-                    layoutHeight2 = Math.min(childHeightSpec5, maxLayoutHeight2);
+                if (heightMode2 == Integer.MIN_VALUE && childHeight > layoutHeight2) {
+                    layoutHeight2 = Math.min(childHeight, maxLayoutHeight2);
                 }
                 widthRemaining2 -= childWidth;
                 boolean z = widthRemaining2 < 0;

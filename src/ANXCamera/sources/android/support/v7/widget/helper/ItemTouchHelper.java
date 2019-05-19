@@ -977,16 +977,16 @@ public class ItemTouchHelper extends ItemDecoration implements OnChildAttachStat
                             int pos2 = 0;
                             while (true) {
                                 left = j;
-                                int j2 = pos2;
-                                if (j2 >= cnt) {
+                                int left2 = pos2;
+                                if (left2 >= cnt) {
                                     break;
                                 }
                                 int cnt2 = cnt;
-                                if (dist <= ((Integer) this.mDistances.get(j2)).intValue()) {
+                                if (dist <= ((Integer) this.mDistances.get(left2)).intValue()) {
                                     break;
                                 }
                                 pos++;
-                                pos2 = j2 + 1;
+                                pos2 = left2 + 1;
                                 j = left;
                                 cnt = cnt2;
                             }

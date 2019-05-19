@@ -5,6 +5,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.provider.MiuiSettings.ScreenEffect;
 import android.util.Range;
 import com.android.camera.log.Log;
 import java.util.Locale;
@@ -86,11 +87,11 @@ public class RoundDetector implements SensorEventListener {
     }
 
     private static int correctionCircleDegree(int i) {
-        return i < 0 ? i + 360 : 360 < i ? i - 360 : i;
+        return i < 0 ? i + ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT : 360 < i ? i - ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT : i;
     }
 
     private LoopRange emptyRange() {
-        return new LoopRange(-1, -1, 360);
+        return new LoopRange(-1, -1, ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT);
     }
 
     protected static int radianToDegree(float f) {
@@ -150,13 +151,13 @@ public class RoundDetector implements SensorEventListener {
             SensorManager.getOrientation(this.mOutR, fArr);
             int radianToDegree = radianToDegree(fArr[0]);
             if (radianToDegree < 0) {
-                radianToDegree += 360;
+                radianToDegree += ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT;
             }
             SensorManager.remapCoordinateSystem(this.mInR, 1, 3, this.mOutR);
             SensorManager.getOrientation(this.mOutR, fArr);
             int radianToDegree2 = radianToDegree(fArr[0]);
             if (radianToDegree2 < 0) {
-                radianToDegree2 += 360;
+                radianToDegree2 += ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT;
             }
             synchronized (SynchronizedObject) {
                 this.mCurrentDegreeLandscape = radianToDegree;
@@ -202,12 +203,12 @@ public class RoundDetector implements SensorEventListener {
                 if (correctionCircleDegree < i3) {
                     correctionCircleDegree = 360;
                 }
-                this.mEndDegreeRange = new LoopRangeLeft(correctionCircleDegree, correctionCircleDegree2, 360);
+                this.mEndDegreeRange = new LoopRangeLeft(correctionCircleDegree, correctionCircleDegree2, ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT);
             } else {
                 if (i3 < correctionCircleDegree2) {
                     correctionCircleDegree2 = 0;
                 }
-                this.mEndDegreeRange = new LoopRange(correctionCircleDegree, correctionCircleDegree2, 360);
+                this.mEndDegreeRange = new LoopRange(correctionCircleDegree, correctionCircleDegree2, ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT);
             }
             this.mDirection = i2;
             this.mStartDegree = i3;

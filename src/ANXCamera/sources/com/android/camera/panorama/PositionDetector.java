@@ -2,6 +2,7 @@ package com.android.camera.panorama;
 
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.provider.MiuiSettings.ScreenEffect;
 import android.view.ViewGroup;
 import com.android.camera.Util;
 import com.android.camera.log.Log;
@@ -117,7 +118,7 @@ public class PositionDetector {
         this.cur_x = 0.0d;
         switch (this.direction) {
             case 0:
-                if ((this.mInitParam.output_rotation + this.mCameraOrientation) % 360 == 90 || (this.mInitParam.output_rotation + this.mCameraOrientation) % 360 == 180) {
+                if ((this.mInitParam.output_rotation + this.mCameraOrientation) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT == 90 || (this.mInitParam.output_rotation + this.mCameraOrientation) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT == 180) {
                     this.peak = (double) i5;
                 } else {
                     this.peak = 0.0d;
@@ -131,7 +132,7 @@ public class PositionDetector {
                 this.too_fast_thres = d * 0.008d;
                 return;
             case 1:
-                if ((this.mInitParam.output_rotation + this.mCameraOrientation) % 360 == 90 || (this.mInitParam.output_rotation + this.mCameraOrientation) % 360 == 180) {
+                if ((this.mInitParam.output_rotation + this.mCameraOrientation) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT == 90 || (this.mInitParam.output_rotation + this.mCameraOrientation) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT == 180) {
                     this.peak = 0.0d;
                 } else {
                     this.peak = (double) i5;
@@ -145,7 +146,7 @@ public class PositionDetector {
                 this.too_fast_thres = d2 * 0.008d;
                 return;
             case 2:
-                if ((this.mInitParam.output_rotation + this.mCameraOrientation) % 360 == 90 || (this.mInitParam.output_rotation + this.mCameraOrientation) % 360 == 180) {
+                if ((this.mInitParam.output_rotation + this.mCameraOrientation) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT == 90 || (this.mInitParam.output_rotation + this.mCameraOrientation) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT == 180) {
                     this.peak = (double) i6;
                 } else {
                     this.peak = 0.0d;
@@ -159,7 +160,7 @@ public class PositionDetector {
                 this.too_fast_thres = d3 * 0.008d;
                 return;
             case 3:
-                if ((this.mInitParam.output_rotation + this.mCameraOrientation) % 360 == 90 || (this.mInitParam.output_rotation + this.mCameraOrientation) % 360 == 180) {
+                if ((this.mInitParam.output_rotation + this.mCameraOrientation) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT == 90 || (this.mInitParam.output_rotation + this.mCameraOrientation) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT == 180) {
                     this.peak = 0.0d;
                 } else {
                     this.peak = (double) i6;
@@ -310,12 +311,12 @@ public class PositionDetector {
         }
         int i2 = this.direction;
         boolean z2 = false;
-        boolean z3 = i2 == 1 || i2 == 3 ? !((this.mInitParam.output_rotation + this.mCameraOrientation) % 360 == 90 || (this.mInitParam.output_rotation + this.mCameraOrientation) % 360 == 180) : !((this.mInitParam.output_rotation + this.mCameraOrientation) % 360 == 0 || (this.mInitParam.output_rotation + this.mCameraOrientation) % 360 == 270);
+        boolean z3 = i2 == 1 || i2 == 3 ? !((this.mInitParam.output_rotation + this.mCameraOrientation) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT == 90 || (this.mInitParam.output_rotation + this.mCameraOrientation) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT == 180) : !((this.mInitParam.output_rotation + this.mCameraOrientation) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT == 0 || (this.mInitParam.output_rotation + this.mCameraOrientation) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT == 270);
         if (z3) {
             if (d - d2 > this.reverse_thres2) {
                 return true;
             }
-            if ((this.mInitParam.output_rotation + this.mCameraOrientation) % 360 == 90 || (this.mInitParam.output_rotation + this.mCameraOrientation) % 360 == 180) {
+            if ((this.mInitParam.output_rotation + this.mCameraOrientation) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT == 90 || (this.mInitParam.output_rotation + this.mCameraOrientation) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT == 180) {
                 switch (this.direction) {
                     case 0:
                     case 2:

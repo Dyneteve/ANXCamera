@@ -51,6 +51,7 @@ import android.os.ServiceManager;
 import android.os.SystemClock;
 import android.os.SystemProperties;
 import android.provider.MiuiSettings;
+import android.provider.MiuiSettings.ScreenEffect;
 import android.provider.Settings.Global;
 import android.provider.Settings.Secure;
 import android.provider.Settings.SettingNotFoundException;
@@ -213,7 +214,7 @@ public final class Util {
     public static final String REVIEW_ACTIVITY_PACKAGE = "com.miui.gallery";
     public static final String REVIEW_SCAN_RESULT_PACKAGE = "com.xiaomi.scanner";
     public static final int SCREEN_EFFECT_CAMERA_STATE = 14;
-    public static final Uri SCREEN_SLIDE_STATUS_SETTING_URI = System.getUriFor("sc_status");
+    public static final Uri SCREEN_SLIDE_STATUS_SETTING_URI = System.getUriFor(MiuiSettings.System.MIUI_SLIDER_COVER_STATUS);
     private static final String SCREEN_VENDOR = SystemProperties.get("sys.panel.display");
     private static final String TAG = "CameraUtil";
     private static final String TEMP_SUFFIX = ".tmp";
@@ -241,7 +242,7 @@ public final class Util {
     public static float sPixelDensity = 1.0f;
     public static int sStatusBarHeight;
     private static HashMap<String, Typeface> sTypefaces = new HashMap<>();
-    public static int sWindowHeight = 1080;
+    public static int sWindowHeight = ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_END_DEAULT;
     private static IWindowManager sWindowManager;
     public static int sWindowWidth = LIMIT_SURFACE_WIDTH;
 
@@ -1613,7 +1614,7 @@ public final class Util {
             return 90;
         }
         int sensorOrientation = capabilities.getSensorOrientation();
-        return capabilities.getFacing() == 0 ? (360 - ((sensorOrientation + i) % 360)) % 360 : ((sensorOrientation - i) + 360) % 360;
+        return capabilities.getFacing() == 0 ? (360 - ((sensorOrientation + i) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT)) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT : ((sensorOrientation - i) + ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT;
     }
 
     public static Rect getDisplayRect(Context context) {
@@ -1680,7 +1681,7 @@ public final class Util {
         try {
             fileInputStream = new FileInputStream(str);
             try {
-                bArr = IOUtils.toByteArray(fileInputStream);
+                bArr = IOUtils.toByteArray((InputStream) fileInputStream);
                 try {
                     $closeResource(null, fileInputStream);
                 } catch (IOException e) {
@@ -1822,7 +1823,7 @@ public final class Util {
         CameraCapabilities capabilities = Camera2DataContainer.getInstance().getCapabilities(i);
         int sensorOrientation = capabilities.getSensorOrientation();
         if (i2 != -1) {
-            return capabilities.getFacing() == 0 ? ((sensorOrientation - i2) + 360) % 360 : (sensorOrientation + i2) % 360;
+            return capabilities.getFacing() == 0 ? ((sensorOrientation - i2) + ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT : (sensorOrientation + i2) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT;
         }
         Log.w(TAG, "getJpegRotation: orientation UNKNOWN!!! return sensorOrientation...");
         return sensorOrientation;
@@ -1940,7 +1941,7 @@ public final class Util {
             return null;
         }
         int integer = d.getInteger(d.uG, 0);
-        int i4 = 1080;
+        int i4 = ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_END_DEAULT;
         if (integer != 0) {
             boolean z2 = i2 == Camera2DataContainer.getInstance().getFrontCameraId();
             if (sWindowWidth < 1080) {
@@ -2196,7 +2197,7 @@ public final class Util {
     }
 
     public static int getShootOrientation(Activity activity, int i) {
-        return ((i - getDisplayRotation(activity)) + 360) % 360;
+        return ((i - getDisplayRotation(activity)) + ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT;
     }
 
     public static float getShootRotation(Activity activity, float f) {
@@ -2506,7 +2507,7 @@ EDGE_INSN: B:64:0x0104->B:47:0x0104 ?: BREAK  , SYNTHETIC] */
                                 int attributeIntValue = getAttributeIntValue(xmlPullParser, "CCT", 0);
                                 int attributeIntValue2 = getAttributeIntValue(xmlPullParser, "R", 0);
                                 int attributeIntValue3 = getAttributeIntValue(xmlPullParser, "G", 0);
-                                int attributeIntValue4 = getAttributeIntValue(xmlPullParser, "B", 0);
+                                int attributeIntValue4 = getAttributeIntValue(xmlPullParser, Field.BYTE_SIGNATURE_PRIMITIVE, 0);
                                 COLOR_TEMPERATURE_LIST.add(Integer.valueOf(attributeIntValue));
                                 COLOR_TEMPERATURE_MAP.add(Integer.valueOf(Color.rgb(attributeIntValue2, attributeIntValue3, attributeIntValue4)));
                             }
@@ -2572,7 +2573,7 @@ EDGE_INSN: B:64:0x0104->B:47:0x0104 ?: BREAK  , SYNTHETIC] */
             Class cls = Class.forName("miui.content.pm.PreloadedAppPolicy");
             Method of = Method.of(cls, "installPreloadedDataApp", CompatibilityUtils.getInstallMethodDescription());
             int i = z ? 1 : z2 ? 2 : 0;
-            boolean invokeBoolean = of.invokeBoolean(cls, null, new Object[]{context, str, packageInstallObserver, Integer.valueOf(i)});
+            boolean invokeBoolean = of.invokeBoolean(cls, null, context, str, packageInstallObserver, Integer.valueOf(i));
             String str3 = TAG;
             StringBuilder sb2 = new StringBuilder();
             sb2.append("installPackage: result=");
@@ -2625,7 +2626,7 @@ EDGE_INSN: B:64:0x0104->B:47:0x0104 ?: BREAK  , SYNTHETIC] */
 
     public static final boolean isAppLocked(Context context, String str) {
         boolean z = false;
-        if (!(Secure.getInt(context.getContentResolver(), "access_control_lock_enabled", -1) == 1)) {
+        if (!(Secure.getInt(context.getContentResolver(), MiuiSettings.Secure.ACCESS_CONTROL_LOCK_ENABLED, -1) == 1)) {
             return false;
         }
         SecurityManager securityManager = (SecurityManager) context.getSystemService("security");
@@ -2757,7 +2758,7 @@ EDGE_INSN: B:64:0x0104->B:47:0x0104 ?: BREAK  , SYNTHETIC] */
     }
 
     public static boolean isFullScreenNavBarHidden(Context context) {
-        return MiuiSettings.Global.getBoolean(context.getContentResolver(), "force_fsg_nav_bar");
+        return MiuiSettings.Global.getBoolean(context.getContentResolver(), MiuiSettings.Global.FORCE_FSG_NAV_BAR);
     }
 
     public static boolean isGlobalVersion() {
@@ -2905,7 +2906,7 @@ EDGE_INSN: B:64:0x0104->B:47:0x0104 ?: BREAK  , SYNTHETIC] */
     }
 
     public static boolean isScreenSlideOff(Context context) {
-        return System.getInt(context.getContentResolver(), "sc_status", -1) == 1;
+        return System.getInt(context.getContentResolver(), MiuiSettings.System.MIUI_SLIDER_COVER_STATUS, -1) == 1;
     }
 
     public static boolean isSetContentDesc() {
@@ -3283,7 +3284,7 @@ EDGE_INSN: B:64:0x0104->B:47:0x0104 ?: BREAK  , SYNTHETIC] */
         Matrix matrix = new Matrix();
         if (z) {
             matrix.postScale(-1.0f, 1.0f);
-            i = (i + 360) % 360;
+            i = (i + ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT;
             if (i == 0 || i == 180) {
                 matrix.postTranslate((float) bitmap.getWidth(), 0.0f);
             } else if (i == 90 || i == 270) {
@@ -3372,7 +3373,7 @@ EDGE_INSN: B:64:0x0104->B:47:0x0104 ?: BREAK  , SYNTHETIC] */
         if (!z) {
             return i2;
         }
-        int i3 = (((i + 45) / 90) * 90) % 360;
+        int i3 = (((i + 45) / 90) * 90) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT;
         String str = TAG;
         StringBuilder sb = new StringBuilder();
         sb.append("onOrientationChanged: orientation = ");

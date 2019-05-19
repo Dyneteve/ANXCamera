@@ -1,5 +1,6 @@
 package com.google.zxing.oned;
 
+import android.provider.MiuiSettings.ScreenEffect;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.ChecksumException;
 import com.google.zxing.DecodeHintType;
@@ -15,7 +16,7 @@ public final class Code93Reader extends OneDReader {
     private static final char[] ALPHABET = ALPHABET_STRING.toCharArray();
     private static final String ALPHABET_STRING = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-. $/+%abcd*";
     private static final int ASTERISK_ENCODING = CHARACTER_ENCODINGS[47];
-    private static final int[] CHARACTER_ENCODINGS = {276, 328, 324, 322, 296, 292, 290, 336, 274, 266, 424, 420, 418, 404, 402, 394, 360, 356, 354, 308, 282, 344, 332, 326, 300, 278, 436, 434, 428, 422, 406, 410, 364, 358, 310, 314, 302, 468, 466, 458, 366, 374, 430, 294, 474, 470, 306, 350};
+    private static final int[] CHARACTER_ENCODINGS = {276, 328, 324, 322, 296, 292, 290, 336, 274, 266, 424, 420, 418, 404, 402, 394, ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT, 356, 354, 308, 282, 344, 332, 326, 300, 278, 436, 434, 428, 422, 406, 410, 364, 358, 310, 314, 302, 468, 466, 458, 366, 374, 430, 294, 474, 470, 306, 350};
     private final int[] counters = new int[6];
     private final StringBuilder decodeRowResult = new StringBuilder(20);
 
@@ -109,21 +110,21 @@ public final class Code93Reader extends OneDReader {
     private static int toPattern(int[] counters2) {
         int max = counters2.length;
         int sum = 0;
-        for (int counter : counters2) {
-            sum += counter;
+        for (int scaled : counters2) {
+            sum += scaled;
         }
         int pattern = 0;
         for (int i = 0; i < max; i++) {
-            int scaled = Math.round((((float) counters2[i]) * 9.0f) / ((float) sum));
-            if (scaled < 1 || scaled > 4) {
+            int scaled2 = Math.round((((float) counters2[i]) * 9.0f) / ((float) sum));
+            if (scaled2 < 1 || scaled2 > 4) {
                 return -1;
             }
             if ((i & 1) == 0) {
-                for (int j = 0; j < scaled; j++) {
+                for (int j = 0; j < scaled2; j++) {
                     pattern = (pattern << 1) | 1;
                 }
             } else {
-                pattern <<= scaled;
+                pattern <<= scaled2;
             }
         }
         return pattern;

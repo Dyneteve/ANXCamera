@@ -1,7 +1,6 @@
 package com.bytedance.frameworks.core.monitor.net;
 
 import android.text.TextUtils;
-import com.bytedance.frameworks.core.monitor.MonitorCommonConstants;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class MonitorLogSender {
@@ -13,11 +12,11 @@ public class MonitorLogSender {
     }
 
     public static boolean send(String str) {
-        return send(MonitorCommonConstants.DEFAULT_AID, "monitor", str);
+        return send("default", "monitor", str);
     }
 
     public static boolean send(String str, String str2) {
-        return send(MonitorCommonConstants.DEFAULT_AID, str, str2);
+        return send("default", str, str2);
     }
 
     public static boolean send(String str, String str2, String str3) {
@@ -36,7 +35,7 @@ public class MonitorLogSender {
     }
 
     public static void setISendLog(ISendLog iSendLog) {
-        setISendLog(MonitorCommonConstants.DEFAULT_AID, iSendLog);
+        setISendLog("default", iSendLog);
     }
 
     public static void setISendLog(String str, ISendLog iSendLog) {
@@ -44,7 +43,7 @@ public class MonitorLogSender {
     }
 
     public static void setImpl(String str, ILogSendImpl iLogSendImpl) {
-        setImpl(MonitorCommonConstants.DEFAULT_AID, str, iLogSendImpl);
+        setImpl("default", str, iLogSendImpl);
     }
 
     public static void setImpl(String str, String str2, ILogSendImpl iLogSendImpl) {

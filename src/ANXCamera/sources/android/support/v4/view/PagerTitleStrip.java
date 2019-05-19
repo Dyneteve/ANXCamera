@@ -324,28 +324,28 @@ public class PagerTitleStrip extends ViewGroup implements Decor {
         int i2 = contentWidth;
         int currRight = currLeft + currWidth;
         int i3 = currWidth;
-        int prevBaseline = this.mPrevText.getBaseline();
+        int currWidth2 = this.mPrevText.getBaseline();
         int i4 = halfCurrWidth;
         int currBaseline = this.mCurrText.getBaseline();
         int i5 = textPaddedLeft;
         int nextBaseline = this.mNextText.getBaseline();
         int i6 = textPaddedRight;
-        int maxBaseline = Math.max(Math.max(prevBaseline, currBaseline), nextBaseline);
-        int prevTopOffset = maxBaseline - prevBaseline;
-        int currTopOffset = maxBaseline - currBaseline;
-        int nextTopOffset = maxBaseline - nextBaseline;
-        int i7 = prevBaseline;
+        int textPaddedRight2 = Math.max(Math.max(currWidth2, currBaseline), nextBaseline);
+        int prevTopOffset = textPaddedRight2 - currWidth2;
+        int currTopOffset = textPaddedRight2 - currBaseline;
+        int nextTopOffset = textPaddedRight2 - nextBaseline;
+        int i7 = currWidth2;
         int alignedPrevHeight = prevTopOffset + this.mPrevText.getMeasuredHeight();
         int i8 = currBaseline;
         int alignedCurrHeight = currTopOffset + this.mCurrText.getMeasuredHeight();
         int i9 = nextBaseline;
-        int i10 = maxBaseline;
-        int maxBaseline2 = Math.max(Math.max(alignedPrevHeight, alignedCurrHeight), nextTopOffset + this.mNextText.getMeasuredHeight());
+        int i10 = textPaddedRight2;
+        int maxTextHeight = Math.max(Math.max(alignedPrevHeight, alignedCurrHeight), nextTopOffset + this.mNextText.getMeasuredHeight());
         int i11 = alignedPrevHeight;
         int alignedPrevHeight2 = this.mGravity & 112;
         int i12 = alignedCurrHeight;
         if (alignedPrevHeight2 == 16) {
-            int centeredTop = (((stripHeight2 - paddingTop) - paddingBottom) - maxBaseline2) / 2;
+            int centeredTop = (((stripHeight2 - paddingTop) - paddingBottom) - maxTextHeight) / 2;
             int i13 = alignedPrevHeight2;
             int i14 = stripHeight2;
             vgrav = centeredTop + prevTopOffset;
@@ -358,7 +358,7 @@ public class PagerTitleStrip extends ViewGroup implements Decor {
             prevTop = paddingTop + currTopOffset;
             stripHeight = paddingTop + nextTopOffset;
         } else {
-            int bottomGravTop = (stripHeight2 - paddingBottom) - maxBaseline2;
+            int bottomGravTop = (stripHeight2 - paddingBottom) - maxTextHeight;
             int i17 = alignedPrevHeight2;
             int i18 = stripHeight2;
             vgrav = bottomGravTop + prevTopOffset;

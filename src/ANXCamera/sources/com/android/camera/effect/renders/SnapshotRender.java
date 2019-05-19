@@ -13,6 +13,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
+import android.provider.MiuiSettings.ScreenEffect;
 import android.support.annotation.NonNull;
 import android.util.Size;
 import com.android.camera.CameraAppImpl;
@@ -156,7 +157,7 @@ public class SnapshotRender {
                 bArr = null;
                 iArr = null;
             } else {
-                int[] watermarkRange = Util.getWatermarkRange(drawYuvAttribute3.mPictureSize.getWidth(), drawYuvAttribute3.mPictureSize.getHeight(), (drawYuvAttribute3.mJpegRotation + 270) % 360, drawYuvAttribute3.mApplyWaterMark, drawYuvAttribute3.mTimeWatermark != null, 0.11f);
+                int[] watermarkRange = Util.getWatermarkRange(drawYuvAttribute3.mPictureSize.getWidth(), drawYuvAttribute3.mPictureSize.getHeight(), (drawYuvAttribute3.mJpegRotation + 270) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT, drawYuvAttribute3.mApplyWaterMark, drawYuvAttribute3.mTimeWatermark != null, 0.11f);
                 byte[] yuvData = ImageUtil.getYuvData(drawYuvAttribute3.mImage);
                 if (rowStride != drawYuvAttribute3.mPictureSize.getWidth()) {
                     watermarkRange[2] = watermarkRange[2] - 4;
@@ -225,7 +226,7 @@ public class SnapshotRender {
                 }
                 long currentTimeMillis3 = System.currentTimeMillis();
                 if (!z) {
-                    iArr = Util.getWatermarkRange(i5, i4, (drawYuvAttribute2.mJpegRotation + 270) % 360, drawYuvAttribute2.mApplyWaterMark, drawYuvAttribute2.mTimeWatermark != null, 0.11f);
+                    iArr = Util.getWatermarkRange(i5, i4, (drawYuvAttribute2.mJpegRotation + 270) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT, drawYuvAttribute2.mApplyWaterMark, drawYuvAttribute2.mTimeWatermark != null, 0.11f);
                     i15 = iArr[0];
                     i16 = iArr[1];
                 } else {
@@ -357,7 +358,7 @@ public class SnapshotRender {
                     i12 = width3;
                     i11 = height4;
                 }
-                iArr = Util.getWatermarkRange(i12, i11, (drawYuvAttribute2.mJpegRotation + 270) % 360, drawYuvAttribute2.mApplyWaterMark, drawYuvAttribute2.mTimeWatermark != null, 0.11f);
+                iArr = Util.getWatermarkRange(i12, i11, (drawYuvAttribute2.mJpegRotation + 270) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT, drawYuvAttribute2.mApplyWaterMark, drawYuvAttribute2.mTimeWatermark != null, 0.11f);
             }
             byte[] bArr4 = bArr3;
             int[] iArr2 = iArr;
