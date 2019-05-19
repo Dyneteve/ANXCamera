@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="accessibility_focus_face_detect">
+        <item quantity="other">Iffukat. %d wiċċ misjub</item>
+        <item quantity="one">Iffukat. Wiċċ %d misjub</item>
+        <item quantity="few">Iffukat. %d uċuħ misjub</item>
+        <item quantity="many">Iffukat. %d-il wiċċ misjub</item>
+    </plurals>
+</resources>

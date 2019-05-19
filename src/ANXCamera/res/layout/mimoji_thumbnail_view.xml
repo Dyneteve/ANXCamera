@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="160.0dip" android:layout_height="wrap_content" android:layout_margin="5.0dip" android:layout_centerInParent="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/thumbnail_image_view" android:layout_width="80.0dip" android:layout_height="80.0dip" android:layout_centerInParent="true" />
+    <ImageView android:id="@id/thumbnail_select_view" android:layout_width="90.0dip" android:layout_height="90.0dip" android:src="@drawable/bg_live_sticker_selected" android:scaleType="fitCenter" android:layout_centerInParent="true" />
+</RelativeLayout>
