@@ -1,5 +1,6 @@
 package com.android.camera;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
@@ -19,7 +20,6 @@ import android.widget.Toast;
 import com.android.camera.sensitive.SensitiveFilter;
 import miui.R;
 import miui.app.ActionBar;
-import miui.app.Activity;
 
 public class UserDefineWatermarkActivity extends Activity implements TextWatcher {
     private static final int MSG_BG_FILTER_WORDS = 1;
@@ -73,7 +73,6 @@ public class UserDefineWatermarkActivity extends Activity implements TextWatcher
         return SensitiveFilter.getInstance().getSensitiveWord((String) charSequence);
     }
 
-    /* JADX WARNING: type inference failed for: r4v0, types: [android.content.Context, com.android.camera.UserDefineWatermarkActivity] */
     private boolean checkContentlength() {
         this.mUserDefineWords = this.mEtUserDefineWords.getText().toString();
         if (getTextLength(this.mUserDefineWords) <= 14.0d) {
@@ -99,7 +98,6 @@ public class UserDefineWatermarkActivity extends Activity implements TextWatcher
         }
     }
 
-    /* JADX WARNING: type inference failed for: r3v0, types: [android.content.Context, com.android.camera.UserDefineWatermarkActivity] */
     /* access modifiers changed from: private */
     public void doInMainThread(Message message) {
         if (message.what == 2) {
@@ -208,7 +206,7 @@ public class UserDefineWatermarkActivity extends Activity implements TextWatcher
 
     /* access modifiers changed from: protected */
     public void onCreate(@Nullable Bundle bundle) {
-        UserDefineWatermarkActivity.super.onCreate(bundle);
+        super.onCreate(bundle);
         setContentView(R.layout.fragment_userdefine_watermark);
         if (getIntent().getBooleanExtra("StartActivityWhenLocked", false)) {
             getWindow().addFlags(524288);
@@ -235,7 +233,7 @@ public class UserDefineWatermarkActivity extends Activity implements TextWatcher
 
     /* access modifiers changed from: protected */
     public void onDestroy() {
-        UserDefineWatermarkActivity.super.onDestroy();
+        super.onDestroy();
         if (this.mBackgroundHandler != null) {
             this.mBackgroundHandler.removeCallbacksAndMessages(null);
         }
@@ -249,18 +247,18 @@ public class UserDefineWatermarkActivity extends Activity implements TextWatcher
 
     /* access modifiers changed from: protected */
     public void onPause() {
-        UserDefineWatermarkActivity.super.onPause();
+        super.onPause();
     }
 
     /* access modifiers changed from: protected */
     public void onResume() {
-        UserDefineWatermarkActivity.super.onResume();
+        super.onResume();
         showSoftInputFromWindow();
     }
 
     /* access modifiers changed from: protected */
     public void onStart() {
-        UserDefineWatermarkActivity.super.onStart();
+        super.onStart();
         initTitle();
     }
 

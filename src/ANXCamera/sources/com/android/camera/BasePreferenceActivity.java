@@ -10,6 +10,7 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.PreferenceActivity;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.provider.MiuiSettings;
@@ -35,7 +36,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
-import miui.preference.PreferenceActivity;
 
 public abstract class BasePreferenceActivity extends PreferenceActivity implements OnPreferenceChangeListener, OnPreferenceClickListener {
     public static final String FROM_WHERE = "from_where";
@@ -347,31 +347,7 @@ public abstract class BasePreferenceActivity extends PreferenceActivity implemen
     /* access modifiers changed from: private */
     public void installQRCodeReceiver() {
         new AsyncTask<Void, Void, Void>() {
-            /* JADX WARNING: type inference failed for: r5v2, types: [android.content.Context, com.android.camera.BasePreferenceActivity] */
             /* access modifiers changed from: protected */
-            /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r5v2, types: [android.content.Context, com.android.camera.BasePreferenceActivity]
-  assigns: [com.android.camera.BasePreferenceActivity]
-  uses: [android.content.Context]
-  mth insns count: 9
-            	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-            	at java.util.ArrayList.forEach(Unknown Source)
-            	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-            	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-            	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-            	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-            	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-            	at java.util.ArrayList.forEach(Unknown Source)
-            	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-            	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$0(DepthTraversal.java:13)
-            	at java.util.ArrayList.forEach(Unknown Source)
-            	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:13)
-            	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-            	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-            	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-            	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-             */
-            /* JADX WARNING: Unknown variable types count: 1 */
-            /* Code decompiled incorrectly, please refer to instructions dump. */
             public Void doInBackground(Void... voidArr) {
                 Log.v(BasePreferenceActivity.TAG, "install...");
                 Util.installPackage(BasePreferenceActivity.this, "com.xiaomi.scanner", BasePreferenceActivity.this.mAppInstalledListener, false, true);
@@ -629,7 +605,6 @@ public abstract class BasePreferenceActivity extends PreferenceActivity implemen
         }
     }
 
-    /* JADX WARNING: type inference failed for: r4v0, types: [android.content.Context, com.android.camera.BasePreferenceActivity] */
     private void updateQRCodeEntry() {
         CheckBoxPreference checkBoxPreference = (CheckBoxPreference) this.mPreferenceGroup.findPreference(CameraSettings.KEY_SCAN_QRCODE);
         if (checkBoxPreference != null && this.mPreferences.getBoolean(CameraSettings.KEY_SCAN_QRCODE, checkBoxPreference.isChecked()) && !CameraSettings.isQRCodeReceiverAvailable(this)) {
@@ -679,12 +654,11 @@ public abstract class BasePreferenceActivity extends PreferenceActivity implemen
 
     public void onBackPressed() {
         resetTimeOutFlag();
-        BasePreferenceActivity.super.onBackPressed();
+        super.onBackPressed();
     }
 
-    /* JADX WARNING: type inference failed for: r2v0, types: [android.content.Context, miui.preference.PreferenceActivity, com.android.camera.BasePreferenceActivity] */
     public void onCreate(Bundle bundle) {
-        BasePreferenceActivity.super.onCreate(bundle);
+        super.onCreate(bundle);
         Util.updateCountryIso(this);
         this.mFromWhere = getIntent().getIntExtra(FROM_WHERE, 0);
         this.mPreferences = CameraSettingPreferences.instance();
@@ -698,7 +672,7 @@ public abstract class BasePreferenceActivity extends PreferenceActivity implemen
 
     public boolean onOptionsItemSelected(MenuItem menuItem) {
         if (menuItem.getItemId() != 16908332) {
-            return BasePreferenceActivity.super.onOptionsItemSelected(menuItem);
+            return super.onOptionsItemSelected(menuItem);
         }
         resetTimeOutFlag();
         finish();
@@ -747,7 +721,6 @@ public abstract class BasePreferenceActivity extends PreferenceActivity implemen
         return true;
     }
 
-    /* JADX WARNING: type inference failed for: r11v0, types: [android.content.Context, com.android.camera.BasePreferenceActivity] */
     public boolean onPreferenceClick(Preference preference) {
         if (preference.getKey().equals(PREF_KEY_RESTORE)) {
             RotateDialogController.showSystemAlertDialog(this, getString(R.string.confirm_restore_title), getString(R.string.confirm_restore_message), getString(17039370), new Runnable() {
@@ -784,7 +757,7 @@ public abstract class BasePreferenceActivity extends PreferenceActivity implemen
 
     /* access modifiers changed from: protected */
     public void onRestart() {
-        BasePreferenceActivity.super.onRestart();
+        super.onRestart();
         if (this.mGoToActivity) {
             this.mGoToActivity = false;
         } else {
@@ -792,10 +765,9 @@ public abstract class BasePreferenceActivity extends PreferenceActivity implemen
         }
     }
 
-    /* JADX WARNING: type inference failed for: r2v0, types: [android.content.Context, miui.preference.PreferenceActivity, com.android.camera.BasePreferenceActivity] */
     /* access modifiers changed from: protected */
     public void onResume() {
-        BasePreferenceActivity.super.onResume();
+        super.onResume();
         updateQRCodeEntry();
         if (Util.isLabOptionsVisible()) {
             Toast.makeText(this, R.string.camera_facedetection_sub_option_hint, 1).show();

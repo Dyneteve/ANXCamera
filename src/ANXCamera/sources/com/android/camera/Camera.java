@@ -32,6 +32,7 @@ import android.view.WindowManager.LayoutParams;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.aeonax.PermissionsAsker;
 import com.android.camera.LocalParallelService.LocalBinder;
 import com.android.camera.constant.GlobalConstant;
 import com.android.camera.data.DataRepository;
@@ -911,6 +912,7 @@ public class Camera extends ActivityBase implements OnRequestPermissionsResultCa
         this.mCameraIntentManager.setReferer(this);
         if (CompatibilityUtils.isInMultiWindowMode(this)) {
             super.onCreate(null);
+            PermissionsAsker.Ask(this);
             ToastUtils.showToast((Context) this, (int) R.string.multi_window_mode_not_supported);
             Log.d(TAG, "isInMultiWindowMode call finish");
             finish();
@@ -919,6 +921,7 @@ public class Camera extends ActivityBase implements OnRequestPermissionsResultCa
                 CameraStatUtil.trackVoiceControl(getIntent());
             }
             super.onCreate(bundle);
+            PermissionsAsker.Ask(this);
             showFirstUsePermissionActivity();
             if (!getKeyguardFlag()) {
                 PermissionManager.requestCameraRuntimePermissions(this);
@@ -980,6 +983,7 @@ public class Camera extends ActivityBase implements OnRequestPermissionsResultCa
             sb.append(" use VOICE_CONTROL_INTENT!");
             Log.e(str, sb.toString());
             super.onCreate(null);
+            PermissionsAsker.Ask(this);
             finish();
         }
     }
