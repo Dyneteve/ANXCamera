@@ -584,7 +584,7 @@ public class ViewDragHelper {
                                     int oldLeft = toCapture2.getLeft();
                                     int targetLeft = ((int) dx) + oldLeft;
                                     action = action2;
-                                    int action3 = this.mCallback.clampViewPositionHorizontal(toCapture2, targetLeft, (int) dx);
+                                    int newLeft = this.mCallback.clampViewPositionHorizontal(toCapture2, targetLeft, (int) dx);
                                     int oldTop = toCapture2.getTop();
                                     actionIndex = actionIndex2;
                                     int targetTop = ((int) dy) + oldTop;

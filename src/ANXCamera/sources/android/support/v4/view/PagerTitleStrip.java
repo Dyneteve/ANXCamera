@@ -322,44 +322,44 @@ public class PagerTitleStrip extends ViewGroup implements Decor {
         }
         int currLeft = ((stripWidth - textPaddedRight) - ((int) (((float) contentWidth) * currOffset))) - (currWidth / 2);
         int i2 = contentWidth;
-        int contentWidth2 = currLeft + currWidth;
+        int currRight = currLeft + currWidth;
         int i3 = currWidth;
-        int currWidth2 = this.mPrevText.getBaseline();
+        int prevBaseline = this.mPrevText.getBaseline();
         int i4 = halfCurrWidth;
-        int currBaseline = this.mCurrText.getBaseline();
+        int halfCurrWidth2 = this.mCurrText.getBaseline();
         int i5 = textPaddedLeft;
         int nextBaseline = this.mNextText.getBaseline();
         int i6 = textPaddedRight;
-        int textPaddedRight2 = Math.max(Math.max(currWidth2, currBaseline), nextBaseline);
-        int prevTopOffset = textPaddedRight2 - currWidth2;
-        int currTopOffset = textPaddedRight2 - currBaseline;
-        int nextTopOffset = textPaddedRight2 - nextBaseline;
-        int i7 = currWidth2;
+        int maxBaseline = Math.max(Math.max(prevBaseline, halfCurrWidth2), nextBaseline);
+        int prevTopOffset = maxBaseline - prevBaseline;
+        int currTopOffset = maxBaseline - halfCurrWidth2;
+        int nextTopOffset = maxBaseline - nextBaseline;
+        int i7 = prevBaseline;
         int alignedPrevHeight = prevTopOffset + this.mPrevText.getMeasuredHeight();
-        int i8 = currBaseline;
+        int i8 = halfCurrWidth2;
         int alignedCurrHeight = currTopOffset + this.mCurrText.getMeasuredHeight();
         int i9 = nextBaseline;
-        int i10 = textPaddedRight2;
-        int maxTextHeight = Math.max(Math.max(alignedPrevHeight, alignedCurrHeight), nextTopOffset + this.mNextText.getMeasuredHeight());
+        int i10 = maxBaseline;
+        int maxBaseline2 = Math.max(Math.max(alignedPrevHeight, alignedCurrHeight), nextTopOffset + this.mNextText.getMeasuredHeight());
         int i11 = alignedPrevHeight;
-        int alignedPrevHeight2 = this.mGravity & 112;
+        int vgrav2 = this.mGravity & 112;
         int i12 = alignedCurrHeight;
-        if (alignedPrevHeight2 == 16) {
-            int centeredTop = (((stripHeight2 - paddingTop) - paddingBottom) - maxTextHeight) / 2;
-            int i13 = alignedPrevHeight2;
+        if (vgrav2 == 16) {
+            int centeredTop = (((stripHeight2 - paddingTop) - paddingBottom) - maxBaseline2) / 2;
+            int i13 = vgrav2;
             int i14 = stripHeight2;
             vgrav = centeredTop + prevTopOffset;
             prevTop = centeredTop + currTopOffset;
             stripHeight = centeredTop + nextTopOffset;
-        } else if (alignedPrevHeight2 != 80) {
-            int i15 = alignedPrevHeight2;
+        } else if (vgrav2 != 80) {
+            int i15 = vgrav2;
             vgrav = paddingTop + prevTopOffset;
             int i16 = stripHeight2;
             prevTop = paddingTop + currTopOffset;
             stripHeight = paddingTop + nextTopOffset;
         } else {
-            int bottomGravTop = (stripHeight2 - paddingBottom) - maxTextHeight;
-            int i17 = alignedPrevHeight2;
+            int bottomGravTop = (stripHeight2 - paddingBottom) - maxBaseline2;
+            int i17 = vgrav2;
             int i18 = stripHeight2;
             vgrav = bottomGravTop + prevTopOffset;
             stripHeight = bottomGravTop + nextTopOffset;
@@ -367,13 +367,13 @@ public class PagerTitleStrip extends ViewGroup implements Decor {
         }
         int i19 = paddingTop;
         int i20 = paddingBottom;
-        this.mCurrText.layout(currLeft, prevTop, contentWidth2, this.mCurrText.getMeasuredHeight() + prevTop);
+        this.mCurrText.layout(currLeft, prevTop, currRight, this.mCurrText.getMeasuredHeight() + prevTop);
         int prevLeft = Math.min(paddingLeft, (currLeft - this.mScaledTextSpacing) - prevWidth);
         int i21 = currLeft;
         int i22 = prevWidth;
         this.mPrevText.layout(prevLeft, vgrav, prevLeft + prevWidth, this.mPrevText.getMeasuredHeight() + vgrav);
-        int nextLeft = Math.max((stripWidth - paddingRight) - nextWidth, this.mScaledTextSpacing + contentWidth2);
-        int i23 = contentWidth2;
+        int nextLeft = Math.max((stripWidth - paddingRight) - nextWidth, this.mScaledTextSpacing + currRight);
+        int i23 = currRight;
         this.mNextText.layout(nextLeft, stripHeight, nextLeft + nextWidth, this.mNextText.getMeasuredHeight() + stripHeight);
         this.mLastKnownPositionOffset = f;
         this.mUpdatingPositions = false;

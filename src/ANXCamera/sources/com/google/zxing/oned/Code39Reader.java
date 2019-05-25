@@ -152,29 +152,29 @@ public final class Code39Reader extends OneDReader {
             int length = counters2.length;
             int minCounter = Integer.MAX_VALUE;
             for (int minCounter2 = 0; minCounter2 < length; minCounter2++) {
-                int counter = counters2[minCounter2];
-                if (counter < minCounter && counter > wideCounters) {
-                    minCounter = counter;
+                int maxNarrowCounter = counters2[minCounter2];
+                if (maxNarrowCounter < minCounter && maxNarrowCounter > wideCounters) {
+                    minCounter = maxNarrowCounter;
                 }
             }
-            int maxNarrowCounter = minCounter;
+            int maxNarrowCounter2 = minCounter;
             int wideCounters2 = 0;
             int totalWideCountersWidth = 0;
             int pattern = 0;
             for (int i = 0; i < numCounters; i++) {
-                int counter2 = counters2[i];
-                if (counter2 > maxNarrowCounter) {
+                int counter = counters2[i];
+                if (counter > maxNarrowCounter2) {
                     pattern |= 1 << ((numCounters - 1) - i);
                     wideCounters2++;
-                    totalWideCountersWidth += counter2;
+                    totalWideCountersWidth += counter;
                 }
             }
             if (wideCounters2 == 3) {
                 for (int i2 = 0; i2 < numCounters && wideCounters2 > 0; i2++) {
-                    int counter3 = counters2[i2];
-                    if (counter3 > maxNarrowCounter) {
+                    int counter2 = counters2[i2];
+                    if (counter2 > maxNarrowCounter2) {
                         wideCounters2--;
-                        if (counter3 * 2 >= totalWideCountersWidth) {
+                        if (counter2 * 2 >= totalWideCountersWidth) {
                             return -1;
                         }
                     }
@@ -183,7 +183,7 @@ public final class Code39Reader extends OneDReader {
             } else if (wideCounters2 <= 3) {
                 return -1;
             } else {
-                wideCounters = maxNarrowCounter;
+                wideCounters = maxNarrowCounter2;
             }
         }
     }

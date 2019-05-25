@@ -1629,11 +1629,13 @@ public final class R {
         /* added by JADX */
         public static final int feature_dipper = 2131230726;
         /* added by JADX */
-        public static final int feature_perseus = 2131230727;
+        public static final int feature_lavender = 2131230727;
         /* added by JADX */
-        public static final int feature_polaris = 2131230728;
+        public static final int feature_perseus = 2131230728;
         /* added by JADX */
-        public static final int feature_violet = 2131230729;
+        public static final int feature_polaris = 2131230729;
+        /* added by JADX */
+        public static final int feature_violet = 2131230730;
     }
 
     public static final class string {
