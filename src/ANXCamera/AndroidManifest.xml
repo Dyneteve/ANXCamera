@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" 
     android:compileSdkVersion="28" 
     android:compileSdkVersionCodename="9"
-    android:versionCode="90" 
-    android:versionName="90.HomelyChubbyAnnelida" 
+    android:versionCode="94" 
+    android:versionName="94.ComfortableMulticoloredNoctule" 
     package="com.android.camera" 
     platformBuildVersionCode="28" 
     platformBuildVersionName="9">
@@ -19,7 +19,6 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_MEDIA_STORAGE"/>
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"/>
     <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>

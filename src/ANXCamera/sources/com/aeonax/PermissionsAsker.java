@@ -31,9 +31,6 @@ public class PermissionsAsker {
             if (activity.checkSelfPermission("android.permission.INTERACT_ACROSS_USERS") != 0) {
                 permissons.add("android.permission.INTERACT_ACROSS_USERS");
             }
-            if (activity.checkSelfPermission("android.permission.WRITE_MEDIA_STORAGE") != 0) {
-                permissons.add("android.permission.WRITE_MEDIA_STORAGE");
-            }
             if (activity.checkSelfPermission("android.permission.WRITE_SECURE_SETTINGS") != 0) {
                 permissons.add("android.permission.WRITE_SECURE_SETTINGS");
             }
