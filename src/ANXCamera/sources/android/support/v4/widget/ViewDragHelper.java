@@ -584,22 +584,22 @@ public class ViewDragHelper {
                                     int oldLeft = toCapture2.getLeft();
                                     int targetLeft = ((int) dx) + oldLeft;
                                     action = action2;
-                                    int action3 = this.mCallback.clampViewPositionHorizontal(toCapture2, targetLeft, (int) dx);
+                                    int newLeft = this.mCallback.clampViewPositionHorizontal(toCapture2, targetLeft, (int) dx);
                                     int oldTop = toCapture2.getTop();
                                     actionIndex = actionIndex2;
-                                    int actionIndex3 = ((int) dy) + oldTop;
+                                    int targetTop = ((int) dy) + oldTop;
                                     pointerCount = pointerCount2;
                                     int i4 = targetLeft;
-                                    int newTop = this.mCallback.clampViewPositionVertical(toCapture2, actionIndex3, (int) dy);
+                                    int newTop = this.mCallback.clampViewPositionVertical(toCapture2, targetTop, (int) dy);
                                     int horizontalDragRange = this.mCallback.getViewHorizontalDragRange(toCapture2);
-                                    int i5 = actionIndex3;
-                                    int verticalDragRange = this.mCallback.getViewVerticalDragRange(toCapture2);
+                                    int i5 = targetTop;
+                                    int targetTop2 = this.mCallback.getViewVerticalDragRange(toCapture2);
                                     if (horizontalDragRange != 0) {
                                         if (horizontalDragRange > 0) {
                                         }
                                     }
-                                    if (verticalDragRange != 0) {
-                                        if (verticalDragRange > 0 && newTop == oldTop) {
+                                    if (targetTop2 != 0) {
+                                        if (targetTop2 > 0 && newTop == oldTop) {
                                         }
                                     }
                                 } else {

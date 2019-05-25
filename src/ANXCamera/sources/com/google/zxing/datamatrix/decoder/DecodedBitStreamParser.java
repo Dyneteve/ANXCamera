@@ -400,13 +400,13 @@ final class DecodedBitStreamParser {
         int count;
         int codewordPosition = 1 + bits.getByteOffset();
         int codewordPosition2 = codewordPosition + 1;
-        int codewordPosition3 = unrandomize255State(bits.readBits(8), codewordPosition);
-        if (codewordPosition3 == 0) {
+        int d1 = unrandomize255State(bits.readBits(8), codewordPosition);
+        if (d1 == 0) {
             count = bits.available() / 8;
-        } else if (codewordPosition3 < 250) {
-            count = codewordPosition3;
+        } else if (d1 < 250) {
+            count = d1;
         } else {
-            count = (250 * (codewordPosition3 - 249)) + unrandomize255State(bits.readBits(8), codewordPosition2);
+            count = (250 * (d1 - 249)) + unrandomize255State(bits.readBits(8), codewordPosition2);
             codewordPosition2++;
         }
         if (count >= 0) {
@@ -414,10 +414,10 @@ final class DecodedBitStreamParser {
             int i = 0;
             while (i < count) {
                 if (bits.available() >= 8) {
-                    int codewordPosition4 = codewordPosition2 + 1;
+                    int codewordPosition3 = codewordPosition2 + 1;
                     bytes[i] = (byte) unrandomize255State(bits.readBits(8), codewordPosition2);
                     i++;
-                    codewordPosition2 = codewordPosition4;
+                    codewordPosition2 = codewordPosition3;
                 } else {
                     throw FormatException.getFormatInstance();
                 }

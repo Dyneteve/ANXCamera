@@ -342,24 +342,24 @@ public class PagerTitleStrip extends ViewGroup implements Decor {
         int i10 = textPaddedRight2;
         int maxTextHeight = Math.max(Math.max(alignedPrevHeight, alignedCurrHeight), nextTopOffset + this.mNextText.getMeasuredHeight());
         int i11 = alignedPrevHeight;
-        int vgrav2 = this.mGravity & 112;
+        int alignedPrevHeight2 = this.mGravity & 112;
         int i12 = alignedCurrHeight;
-        if (vgrav2 == 16) {
+        if (alignedPrevHeight2 == 16) {
             int centeredTop = (((stripHeight2 - paddingTop) - paddingBottom) - maxTextHeight) / 2;
-            int i13 = vgrav2;
+            int i13 = alignedPrevHeight2;
             int i14 = stripHeight2;
             vgrav = centeredTop + prevTopOffset;
             prevTop = centeredTop + currTopOffset;
             stripHeight = centeredTop + nextTopOffset;
-        } else if (vgrav2 != 80) {
-            int i15 = vgrav2;
+        } else if (alignedPrevHeight2 != 80) {
+            int i15 = alignedPrevHeight2;
             vgrav = paddingTop + prevTopOffset;
             int i16 = stripHeight2;
             prevTop = paddingTop + currTopOffset;
             stripHeight = paddingTop + nextTopOffset;
         } else {
             int bottomGravTop = (stripHeight2 - paddingBottom) - maxTextHeight;
-            int i17 = vgrav2;
+            int i17 = alignedPrevHeight2;
             int i18 = stripHeight2;
             vgrav = bottomGravTop + prevTopOffset;
             stripHeight = bottomGravTop + nextTopOffset;

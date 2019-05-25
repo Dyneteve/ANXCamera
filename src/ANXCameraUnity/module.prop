@@ -1,7 +1,7 @@
 id=ANXMiuiCamera
-name=ANXMiuiCamera
+name=ANXCamera
 version=90.HomelyChubbyAnnelida
 versionCode=90
 author=AEonAX
 description=ANXCamera Magisk Module
-minMagisk=17000
+support=https://forum.xda-developers.com/poco-f1/themes/port-t3879357

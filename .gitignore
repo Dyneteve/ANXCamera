@@ -8,3 +8,4 @@ LiveShare.txt
 src/ANXCameraX/
 
 src/ANXCameraMagisk/system/priv-app/ANXCamera/lib/arm64/*.so
+src/ANXCameraUnity/system/priv-app/ANXCamera/lib/arm64/*.so

@@ -233,32 +233,32 @@ public final class CodaBarReader extends OneDReader {
         int maxBar = 0;
         int minBar = Integer.MAX_VALUE;
         for (int j = position; j < end; j += 2) {
-            int currentCounter = theCounters[j];
-            if (currentCounter < minBar) {
-                minBar = currentCounter;
+            int thresholdBar = theCounters[j];
+            if (thresholdBar < minBar) {
+                minBar = thresholdBar;
             }
-            if (currentCounter > maxBar) {
-                maxBar = currentCounter;
+            if (thresholdBar > maxBar) {
+                maxBar = thresholdBar;
             }
         }
-        int thresholdBar = (minBar + maxBar) / 2;
+        int thresholdBar2 = (minBar + maxBar) / 2;
         int maxSpace = 0;
         int minSpace = Integer.MAX_VALUE;
         for (int j2 = position + 1; j2 < end; j2 += 2) {
-            int currentCounter2 = theCounters[j2];
-            if (currentCounter2 < minSpace) {
-                minSpace = currentCounter2;
+            int thresholdSpace = theCounters[j2];
+            if (thresholdSpace < minSpace) {
+                minSpace = thresholdSpace;
             }
-            if (currentCounter2 > maxSpace) {
-                maxSpace = currentCounter2;
+            if (thresholdSpace > maxSpace) {
+                maxSpace = thresholdSpace;
             }
         }
-        int thresholdSpace = (minSpace + maxSpace) / 2;
+        int thresholdSpace2 = (minSpace + maxSpace) / 2;
         int bitmask = 128;
         int pattern = 0;
         for (int i = 0; i < 7; i++) {
             bitmask >>= 1;
-            if (theCounters[position + i] > ((i & 1) == 0 ? thresholdBar : thresholdSpace)) {
+            if (theCounters[position + i] > ((i & 1) == 0 ? thresholdBar2 : thresholdSpace2)) {
                 pattern |= bitmask;
             }
         }
