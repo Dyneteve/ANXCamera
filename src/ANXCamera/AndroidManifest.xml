@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="28" android:compileSdkVersionCodename="9" android:versionCode="91" android:versionName="91.ClassicQualifiedLemming" package="com.oneplus.camera" platformBuildVersionCode="28" platformBuildVersionName="9">
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="28" android:compileSdkVersionCodename="9" android:versionCode="92" android:versionName="92.ClassicQualifiedLemming" package="com.oneplus.camera" platformBuildVersionCode="28" platformBuildVersionName="9">
     <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="28"/>
     <original-package android:name="com.oneplus.camera"/>
     <uses-permission android:name="android.permission.CAMERA"/>
