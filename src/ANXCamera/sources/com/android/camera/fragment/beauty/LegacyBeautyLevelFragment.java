@@ -1,8 +1,8 @@
 package com.android.camera.fragment.beauty;
 
-import com.android.camera.R;
 import com.android.camera.Util;
 import com.android.camera.fragment.beauty.SingleCheckAdapter.LevelItem;
+import com.oneplus.camera.R;
 import java.util.ArrayList;
 import java.util.List;
 

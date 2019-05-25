@@ -14,7 +14,6 @@ import com.android.camera.CameraSettings;
 import com.android.camera.CameraSize;
 import com.android.camera.HybridZoomingSystem;
 import com.android.camera.MutexModeManager;
-import com.android.camera.R;
 import com.android.camera.ThermalDetector;
 import com.android.camera.ToastUtils;
 import com.android.camera.constant.BeautyConstant;
@@ -66,6 +65,7 @@ import com.android.camera.protocol.ModeProtocol.VerticalProtocol;
 import com.android.camera.statistic.CameraStat;
 import com.android.camera.statistic.CameraStatUtil;
 import com.android.camera2.Camera2Proxy;
+import com.oneplus.camera.R;
 import java.util.HashMap;
 
 public class ConfigChangeImpl implements ConfigChanges {

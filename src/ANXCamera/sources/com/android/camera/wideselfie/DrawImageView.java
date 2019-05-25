@@ -9,7 +9,7 @@ import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
-import com.android.camera.R;
+import com.oneplus.camera.R;
 
 public class DrawImageView extends View {
     private static final String TAG = "DrawImageView";

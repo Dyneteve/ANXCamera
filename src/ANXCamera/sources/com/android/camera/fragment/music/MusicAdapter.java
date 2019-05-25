@@ -10,11 +10,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.android.camera.R;
 import com.android.camera.fragment.CommonRecyclerViewHolder;
 import com.bumptech.glide.c;
 import com.bumptech.glide.load.i;
 import com.bumptech.glide.request.f;
+import com.oneplus.camera.R;
 import java.util.List;
 
 public class MusicAdapter extends Adapter<CommonRecyclerViewHolder> {

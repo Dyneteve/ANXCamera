@@ -6,7 +6,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import com.android.camera.R;
+import com.oneplus.camera.R;
 import miui.app.AlertDialog.Builder;
 
 public class GoogleLensFragment extends DialogFragment {

@@ -1,12 +1,12 @@
 package com.android.camera.data.data.runing;
 
-import com.android.camera.R;
 import com.android.camera.constant.BeautyConstant;
 import com.android.camera.data.DataRepository;
 import com.android.camera.data.data.TypeElements;
 import com.android.camera.data.data.TypeItem;
 import com.android.camera.data.data.runing.ComponentRunningShine.ShineType;
 import com.android.camera2.CameraCapabilities;
+import com.oneplus.camera.R;
 import java.util.ArrayList;
 import java.util.List;
 

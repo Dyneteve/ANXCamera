@@ -2,12 +2,12 @@ package com.android.camera.fragment.mimoji;
 
 import android.content.Context;
 import android.content.res.Resources;
-import com.android.camera.R;
 import com.android.camera.log.Log;
 import com.arcsoft.avatar.AvatarConfig.ASAvatarConfigInfo;
 import com.arcsoft.avatar.AvatarConfig.ASAvatarConfigType;
 import com.arcsoft.avatar.AvatarConfig.ASAvatarConfigValue;
 import com.arcsoft.avatar.AvatarEngine;
+import com.oneplus.camera.R;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

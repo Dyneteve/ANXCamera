@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import com.android.camera.CameraAppImpl;
-import com.android.camera.R;
 import com.android.camera.constant.ColorConstant;
 import com.android.camera.data.DataRepository;
 import com.android.camera.fragment.beauty.MenuItem;
@@ -15,6 +14,7 @@ import com.android.camera.protocol.ModeCoordinatorImpl;
 import com.android.camera.protocol.ModeProtocol.BottomPopupTips;
 import com.android.camera.protocol.ModeProtocol.MiBeautyProtocol;
 import com.android.camera.ui.ColorActivateTextView;
+import com.oneplus.camera.R;
 
 public class BackBeautyMenu extends AbBottomMenu implements OnClickListener {
     private SparseArray<MenuItem> mBackBeautyMenuTabList;

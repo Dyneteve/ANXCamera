@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import com.android.camera.Camera;
 import com.android.camera.CameraAppImpl;
 import com.android.camera.CameraSettings;
-import com.android.camera.R;
 import com.android.camera.Util;
 import com.android.camera.constant.BeautyConstant;
 import com.android.camera.constant.GlobalConstant;
@@ -29,6 +28,7 @@ import com.android.camera.module.BaseModule;
 import com.android.camera.module.ModuleManager;
 import com.android.camera.permission.PermissionManager;
 import com.mi.config.b;
+import com.oneplus.camera.R;
 import io.reactivex.Scheduler;
 import io.reactivex.annotations.NonNull;
 

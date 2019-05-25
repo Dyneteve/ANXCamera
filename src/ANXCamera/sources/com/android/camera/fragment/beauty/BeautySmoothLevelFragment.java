@@ -8,13 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SeekBar;
 import com.android.camera.CameraSettings;
-import com.android.camera.R;
 import com.android.camera.Util;
 import com.android.camera.constant.BeautyConstant;
 import com.android.camera.fragment.beauty.SingleCheckAdapter.LevelItem;
 import com.android.camera.ui.SeekBarCompat;
 import com.android.camera.ui.SeekBarCompat.OnSeekBarCompatChangeListener;
 import com.android.camera.ui.SeekBarCompat.OnSeekBarCompatTouchListener;
+import com.oneplus.camera.R;
 import java.util.List;
 
 public class BeautySmoothLevelFragment extends BaseBeautyFragment {

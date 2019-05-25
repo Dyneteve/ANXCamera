@@ -36,7 +36,6 @@ import android.widget.RelativeLayout;
 import android.widget.Space;
 import android.widget.TextView;
 import com.android.camera.ActivityBase;
-import com.android.camera.R;
 import com.android.camera.Util;
 import com.android.camera.animation.type.AlphaInOnSubscribe;
 import com.android.camera.animation.type.AlphaOutOnSubscribe;
@@ -61,6 +60,7 @@ import com.android.camera.protocol.ModeProtocol.ModeCoordinator;
 import com.android.camera.statistic.CameraStat;
 import com.android.camera.statistic.CameraStatUtil;
 import com.android.camera.ui.CameraSnapView;
+import com.oneplus.camera.R;
 import com.ss.android.vesdk.VECommonCallback;
 import io.reactivex.Completable;
 import io.reactivex.Single;
@@ -422,7 +422,7 @@ public class FragmentFullScreen extends BaseFragment implements OnClickListener,
                 shareMore();
                 return;
             }
-            ShareInfo shareInfo2 = new ShareInfo(length + 1, "com.android.camera", "more", R.drawable.ic_live_share_more, R.string.accessibility_more);
+            ShareInfo shareInfo2 = new ShareInfo(length + 1, "com.oneplus.camera", "more", R.drawable.ic_live_share_more, R.string.accessibility_more);
             arrayList.add(shareInfo2);
             Collections.sort(arrayList, new Comparator<ShareInfo>() {
                 public int compare(ShareInfo shareInfo, ShareInfo shareInfo2) {

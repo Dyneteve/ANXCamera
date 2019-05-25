@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
-import com.android.camera.R;
 import com.android.camera.constant.BeautyConstant;
 import com.android.camera.data.data.TypeItem;
 import com.android.camera.data.data.runing.ComponentRunningShine;
@@ -16,6 +15,7 @@ import com.android.camera.protocol.ModeCoordinatorImpl;
 import com.android.camera.protocol.ModeProtocol.MakeupProtocol;
 import com.android.camera.statistic.CameraStatUtil;
 import com.android.camera.ui.ColorImageView;
+import com.oneplus.camera.R;
 
 public class LiveBeautyModeFragment extends BaseBeautyMakeupFragment {
     /* access modifiers changed from: private */

@@ -15,13 +15,13 @@ import android.text.style.TextAppearanceSpan;
 import android.util.Spline;
 import com.android.camera.ActivityBase;
 import com.android.camera.HybridZoomingSystem;
-import com.android.camera.R;
 import com.android.camera.Util;
 import com.android.camera.data.data.ComponentData;
 import com.android.camera.fragment.manually.ManuallyListener;
 import com.android.camera.fragment.manually.adapter.AbstractZoomSliderAdapter;
 import com.android.camera.module.BaseModule;
 import com.android.camera.ui.HorizontalSlideView;
+import com.oneplus.camera.R;
 
 public class DuoSatZoomSliderAdapter extends AbstractZoomSliderAdapter {
     private static final int ENTRY_COUNT_1X_TO_2X = 11;

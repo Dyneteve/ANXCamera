@@ -16,12 +16,12 @@ import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
 import android.util.SizeF;
-import com.android.camera.R;
 import com.android.camera.log.Log;
 import com.arcsoft.camera.wideselfie.AwsInitParameter;
 import com.arcsoft.camera.wideselfie.ProcessResult;
 import com.arcsoft.camera.wideselfie.WideSelfieCallback;
 import com.arcsoft.camera.wideselfie.WideSelfieEngine;
+import com.oneplus.camera.R;
 import java.lang.ref.WeakReference;
 
 public class WideSelfieEngineWrapper {

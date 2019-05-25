@@ -12,7 +12,7 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
-import com.android.camera.R;
+import com.oneplus.camera.R;
 
 public class BubbleEditMimojiPresenter {
     private static final int DELETE_PROCESS = 102;

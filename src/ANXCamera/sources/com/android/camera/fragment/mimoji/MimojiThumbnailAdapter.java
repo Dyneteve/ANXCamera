@@ -7,12 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import com.android.camera.R;
 import com.android.camera.fragment.music.RoundedCornersTransformation;
 import com.arcsoft.avatar.AvatarConfig.ASAvatarConfigInfo;
 import com.bumptech.glide.c;
 import com.bumptech.glide.load.i;
 import com.bumptech.glide.request.f;
+import com.oneplus.camera.R;
 import java.util.ArrayList;
 import java.util.List;
 

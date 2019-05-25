@@ -89,6 +89,7 @@ import com.android.camera.ui.V9EdgeShutterView;
 import com.android.camera2.Camera2Proxy;
 import com.android.lens.LensAgent;
 import com.mi.config.b;
+import com.oneplus.camera.R;
 import com.ss.android.ugc.effectmanager.effect.model.ComposerHelper;
 import io.reactivex.Completable;
 import io.reactivex.Single;
@@ -346,7 +347,7 @@ public class Camera extends ActivityBase implements OnRequestPermissionsResultCa
         if (z) {
             try {
                 Log.d(TAG, "boostParallelServiceAdj");
-                Class.forName("miui.process.ProcessManager").getDeclaredMethod("adjBoost", new Class[]{String.class, Integer.TYPE, Long.TYPE, Integer.TYPE}).invoke(null, new Object[]{"com.android.camera", Integer.valueOf(0), Long.valueOf(60000), Integer.valueOf(((Integer) Class.forName("android.os.UserHandle").getMethod("myUserId", new Class[0]).invoke(null, new Object[0])).intValue())});
+                Class.forName("miui.process.ProcessManager").getDeclaredMethod("adjBoost", new Class[]{String.class, Integer.TYPE, Long.TYPE, Integer.TYPE}).invoke(null, new Object[]{"com.oneplus.camera", Integer.valueOf(0), Long.valueOf(60000), Integer.valueOf(((Integer) Class.forName("android.os.UserHandle").getMethod("myUserId", new Class[0]).invoke(null, new Object[0])).intValue())});
             } catch (ClassNotFoundException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
                 Log.e(TAG, e.getMessage(), e);
             }
@@ -617,7 +618,7 @@ public class Camera extends ActivityBase implements OnRequestPermissionsResultCa
                 arrayList.add(getResources().getString(R.string.permission_storage));
                 arrayList.add(getResources().getString(R.string.permission_microphone));
                 intent.putStringArrayListExtra("extra_main_permission_groups", arrayList);
-                intent.putExtra("extra_pkgname", "com.android.camera");
+                intent.putExtra("extra_pkgname", "com.oneplus.camera");
                 try {
                     startActivityForResult(intent, 1);
                 } catch (Exception e) {

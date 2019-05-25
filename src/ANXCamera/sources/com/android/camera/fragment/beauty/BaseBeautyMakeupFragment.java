@@ -16,7 +16,6 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
-import com.android.camera.R;
 import com.android.camera.ToastUtils;
 import com.android.camera.Util;
 import com.android.camera.data.data.TypeItem;
@@ -26,6 +25,7 @@ import com.android.camera.log.Log;
 import com.android.camera.protocol.ModeCoordinatorImpl;
 import com.android.camera.protocol.ModeProtocol.MakeupProtocol;
 import com.android.camera.protocol.ModeProtocol.MiBeautyProtocol;
+import com.oneplus.camera.R;
 import java.util.List;
 
 public abstract class BaseBeautyMakeupFragment extends BaseBeautyFragment {

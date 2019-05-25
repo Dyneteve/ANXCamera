@@ -2,8 +2,8 @@ package com.android.camera.wideselfie;
 
 import android.content.Context;
 import android.content.res.Resources;
-import com.android.camera.R;
 import com.android.camera.log.Log;
+import com.oneplus.camera.R;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class WideSelfieConfig {

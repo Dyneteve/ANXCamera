@@ -15,12 +15,12 @@ import android.view.ViewGroup.MarginLayoutParams;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import com.android.camera.CameraSettings;
-import com.android.camera.R;
 import com.android.camera.Util;
 import com.android.camera.constant.BeautyConstant;
 import com.android.camera.fragment.beauty.SingleCheckAdapter.LevelItem;
 import com.android.camera.protocol.ModeCoordinatorImpl;
 import com.android.camera.protocol.ModeProtocol.BottomMenuProtocol;
+import com.oneplus.camera.R;
 import java.util.ArrayList;
 import java.util.List;
 

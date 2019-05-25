@@ -16,7 +16,6 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 import com.android.camera.CameraSettings;
-import com.android.camera.R;
 import com.android.camera.Util;
 import com.android.camera.data.DataRepository;
 import com.android.camera.log.Log;
@@ -25,6 +24,7 @@ import com.google.android.libraries.lens.lenslite.LensliteApi;
 import com.google.android.libraries.lens.lenslite.LensliteUiContainer;
 import com.google.android.libraries.lens.lenslite.LensliteUiController;
 import com.google.android.libraries.lens.lenslite.LensliteUiController.FocusType;
+import com.oneplus.camera.R;
 
 public class LensAgent {
     private static final String TAG = "LensAgent";

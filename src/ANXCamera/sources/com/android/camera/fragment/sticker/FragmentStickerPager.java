@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
-import com.android.camera.R;
 import com.android.camera.data.DataRepository;
 import com.android.camera.data.provider.DataProvider.ProviderEditor;
 import com.android.camera.effect.EffectController;
@@ -34,6 +33,7 @@ import com.android.camera.protocol.ModeProtocol.FilterProtocol;
 import com.android.camera.protocol.ModeProtocol.StickerProtocol;
 import com.android.camera.sticker.StickerHelper;
 import com.android.camera.sticker.StickerInfo;
+import com.oneplus.camera.R;
 import java.util.List;
 
 public class FragmentStickerPager extends Fragment {

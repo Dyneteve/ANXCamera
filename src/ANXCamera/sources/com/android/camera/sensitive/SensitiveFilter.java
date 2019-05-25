@@ -21,9 +21,9 @@ import miui.hardware.display.DisplayFeatureManager;
 import miui.util.IOUtils;
 
 public class SensitiveFilter implements Serializable {
-    public static final String CLOUD_FILE_PATH = "/data/data/com.android.camera/sensi_words";
+    public static final String CLOUD_FILE_PATH = "/data/data/com.oneplus.camera/sensi_words";
     static final int DEFAULT_INITIAL_CAPACITY = 8388608;
-    public static final String LOCAL_FILE_PATH = "/data/data/com.android.camera/";
+    public static final String LOCAL_FILE_PATH = "/data/data/com.oneplus.camera/";
     private static SensitiveFilter sensitiveFilter = null;
     private static final long serialVersionUID = 1;
     protected SensitiveNode[] nodes = new SensitiveNode[8388608];

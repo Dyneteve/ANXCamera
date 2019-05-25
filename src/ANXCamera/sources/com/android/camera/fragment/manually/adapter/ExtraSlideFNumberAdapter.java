@@ -8,7 +8,6 @@ import android.graphics.Paint;
 import android.graphics.Paint.Align;
 import com.android.camera.ActivityBase;
 import com.android.camera.CameraSettings;
-import com.android.camera.R;
 import com.android.camera.data.DataRepository;
 import com.android.camera.data.data.ComponentData;
 import com.android.camera.data.data.runing.ComponentRunningShine;
@@ -17,6 +16,7 @@ import com.android.camera.module.BaseModule;
 import com.android.camera.ui.HorizontalSlideView;
 import com.android.camera.ui.HorizontalSlideView.HorizontalDrawAdapter;
 import com.android.camera.ui.HorizontalSlideView.OnPositionSelectListener;
+import com.oneplus.camera.R;
 import java.util.Arrays;
 import java.util.List;
 

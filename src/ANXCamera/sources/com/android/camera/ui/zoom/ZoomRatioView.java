@@ -8,9 +8,9 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.android.camera.HybridZoomingSystem;
-import com.android.camera.R;
 import com.android.camera.Util;
 import com.android.camera.log.Log;
+import com.oneplus.camera.R;
 
 public class ZoomRatioView extends FrameLayout {
     private static final String TAG = "ZoomRatioView";

@@ -13,8 +13,8 @@ import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.HorizontalScrollView;
-import com.android.camera.R;
 import com.android.camera.Util;
+import com.oneplus.camera.R;
 
 public class MimojiTypeHorizonScrollView extends HorizontalScrollView {
     private boolean mIsRTL;

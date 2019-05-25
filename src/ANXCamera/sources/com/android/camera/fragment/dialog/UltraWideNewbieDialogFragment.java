@@ -7,9 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.android.camera.HybridZoomingSystem;
-import com.android.camera.R;
 import com.android.camera.protocol.ModeCoordinatorImpl;
 import com.android.camera.protocol.ModeProtocol.BottomPopupTips;
+import com.oneplus.camera.R;
 
 public class UltraWideNewbieDialogFragment extends AiSceneNewbieDialogFragment {
     public static final String TAG = "UltraWideHint";

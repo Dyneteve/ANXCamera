@@ -27,7 +27,6 @@ import com.android.camera.ActivityBase;
 import com.android.camera.Camera;
 import com.android.camera.CameraSettings;
 import com.android.camera.HybridZoomingSystem;
-import com.android.camera.R;
 import com.android.camera.Util;
 import com.android.camera.animation.FragmentAnimationFactory;
 import com.android.camera.animation.type.AlphaInOnSubscribe;
@@ -56,6 +55,7 @@ import com.android.camera.protocol.ModeProtocol.VerticalProtocol;
 import com.android.camera.statistic.CameraStat;
 import com.android.camera.statistic.CameraStatUtil;
 import com.mi.config.b;
+import com.oneplus.camera.R;
 import io.reactivex.Completable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -632,7 +632,7 @@ public class FragmentBottomPopupTips extends BaseFragment implements OnClickList
      */
     /* JADX WARNING: Code restructure failed: missing block: B:54:0x00ac, code lost:
         r10 = checkLeftImageTipClose(r10);
-        r0 = com.android.camera.R.drawable.ic_live_sticker_normal;
+        r0 = com.oneplus.camera.R.drawable.ic_live_sticker_normal;
      */
     /* JADX WARNING: Code restructure failed: missing block: B:55:0x00b6, code lost:
         if (r10 == -1) goto L_0x0102;
@@ -656,15 +656,15 @@ public class FragmentBottomPopupTips extends BaseFragment implements OnClickList
         r1 = 0;
      */
     /* JADX WARNING: Code restructure failed: missing block: B:61:0x00c5, code lost:
-        r0 = com.android.camera.R.drawable.ic_light;
-        r1 = com.android.camera.R.string.accessibility_lighting_panel_on;
+        r0 = com.oneplus.camera.R.drawable.ic_light;
+        r1 = com.oneplus.camera.R.string.accessibility_lighting_panel_on;
         r2 = true;
      */
     /* JADX WARNING: Code restructure failed: missing block: B:63:0x00d8, code lost:
         if ("".equals(com.android.camera.CameraSettings.getCurrentLiveSticker()) == false) goto L_0x00db;
      */
     /* JADX WARNING: Code restructure failed: missing block: B:64:0x00db, code lost:
-        r0 = com.android.camera.R.drawable.ic_live_sticker_on;
+        r0 = com.oneplus.camera.R.drawable.ic_live_sticker_on;
      */
     /* JADX WARNING: Code restructure failed: missing block: B:65:0x00e1, code lost:
         r2 = true;
@@ -677,19 +677,19 @@ public class FragmentBottomPopupTips extends BaseFragment implements OnClickList
         if (r0 == false) goto L_0x00f0;
      */
     /* JADX WARNING: Code restructure failed: missing block: B:68:0x00ec, code lost:
-        r1 = com.android.camera.R.drawable.icon_config_ultra_wide_on;
+        r1 = com.oneplus.camera.R.drawable.icon_config_ultra_wide_on;
      */
     /* JADX WARNING: Code restructure failed: missing block: B:69:0x00f0, code lost:
-        r1 = com.android.camera.R.drawable.icon_config_ultra_wide_off;
+        r1 = com.oneplus.camera.R.drawable.icon_config_ultra_wide_off;
      */
     /* JADX WARNING: Code restructure failed: missing block: B:70:0x00f3, code lost:
         if (r0 == false) goto L_0x00f9;
      */
     /* JADX WARNING: Code restructure failed: missing block: B:71:0x00f5, code lost:
-        r0 = com.android.camera.R.string.accessibility_ultra_wide_on;
+        r0 = com.oneplus.camera.R.string.accessibility_ultra_wide_on;
      */
     /* JADX WARNING: Code restructure failed: missing block: B:72:0x00f9, code lost:
-        r0 = com.android.camera.R.string.accessibility_ultra_wide_off;
+        r0 = com.oneplus.camera.R.string.accessibility_ultra_wide_off;
      */
     /* JADX WARNING: Code restructure failed: missing block: B:73:0x00fc, code lost:
         r2 = true;

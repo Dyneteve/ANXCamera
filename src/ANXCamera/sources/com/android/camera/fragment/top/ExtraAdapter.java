@@ -8,7 +8,6 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.android.camera.CameraSettings;
-import com.android.camera.R;
 import com.android.camera.Util;
 import com.android.camera.constant.ColorConstant;
 import com.android.camera.data.DataRepository;
@@ -24,6 +23,7 @@ import com.android.camera.data.data.runing.DataItemRunning;
 import com.android.camera.fragment.CommonRecyclerViewHolder;
 import com.android.camera.module.ModuleManager;
 import com.android.camera.ui.ColorImageView;
+import com.oneplus.camera.R;
 
 public class ExtraAdapter extends Adapter<CommonRecyclerViewHolder> {
     private DataItemConfig mDataItemConfig;

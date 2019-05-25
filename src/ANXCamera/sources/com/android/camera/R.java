@@ -1612,14 +1612,6 @@ public final class R {
 
     public static final class mipmap {
         public static final int ic_launcher_camera = 2130903040;
-        /* added by JADX */
-        public static final int ic_launcher = 2130903041;
-        /* added by JADX */
-        public static final int ic_launcher_background = 2130903042;
-        /* added by JADX */
-        public static final int ic_launcher_foreground = 2130903043;
-        /* added by JADX */
-        public static final int ic_launcher_round = 2130903044;
     }
 
     public static final class plurals {
@@ -1632,18 +1624,6 @@ public final class R {
         public static final int feature_beryllium = 2131230722;
         public static final int goofy_face = 2131230723;
         public static final int xiaomi_static_config = 2131230724;
-        /* added by JADX */
-        public static final int feature_cepheus = 2131230725;
-        /* added by JADX */
-        public static final int feature_dipper = 2131230726;
-        /* added by JADX */
-        public static final int feature_lavender = 2131230727;
-        /* added by JADX */
-        public static final int feature_perseus = 2131230728;
-        /* added by JADX */
-        public static final int feature_polaris = 2131230729;
-        /* added by JADX */
-        public static final int feature_violet = 2131230730;
     }
 
     public static final class string {
@@ -2406,12 +2386,6 @@ public final class R {
         public static final int wideselfie_rotate_to_left_slowly = 2131296930;
         public static final int wideselfie_rotate_to_right_slowly = 2131296931;
         public static final int zoom_no_support_tip_48M = 2131296900;
-        /* added by JADX */
-        public static final int accessibility_camera_module_picker = 2131296938;
-        /* added by JADX */
-        public static final int accessibility_video_module_picker = 2131296939;
-        /* added by JADX */
-        public static final int accessibility_audio_shutter_bg = 2131296940;
     }
 
     public static final class style {
@@ -2455,32 +2429,32 @@ public final class R {
     }
 
     public static final class styleable {
-        public static final int[] CameraPreference = {R.attr.cameraTitle};
+        public static final int[] CameraPreference = {com.oneplus.camera.R.attr.cameraTitle};
         public static final int CameraPreference_cameraTitle = 0;
-        public static final int[] IconIndicator = {R.attr.icons, R.attr.modes};
+        public static final int[] IconIndicator = {com.oneplus.camera.R.attr.icons, com.oneplus.camera.R.attr.modes};
         public static final int IconIndicator_icons = 0;
         public static final int IconIndicator_modes = 1;
-        public static final int[] IconListPreference = {R.attr.icons, R.attr.singleIcon, R.attr.largeIcons, R.attr.images};
+        public static final int[] IconListPreference = {com.oneplus.camera.R.attr.icons, com.oneplus.camera.R.attr.singleIcon, com.oneplus.camera.R.attr.largeIcons, com.oneplus.camera.R.attr.images};
         public static final int IconListPreference_icons = 0;
         public static final int IconListPreference_images = 3;
         public static final int IconListPreference_largeIcons = 2;
         public static final int IconListPreference_singleIcon = 1;
-        public static final int[] ListPreference = {R.attr.key, R.attr.defaultValue, R.attr.entryValues, R.attr.entries, R.attr.hasPopup};
+        public static final int[] ListPreference = {com.oneplus.camera.R.attr.key, com.oneplus.camera.R.attr.defaultValue, com.oneplus.camera.R.attr.entryValues, com.oneplus.camera.R.attr.entries, com.oneplus.camera.R.attr.hasPopup};
         public static final int ListPreference_defaultValue = 1;
         public static final int ListPreference_entries = 3;
         public static final int ListPreference_entryValues = 2;
         public static final int ListPreference_hasPopup = 4;
         public static final int ListPreference_key = 0;
-        public static final int[] PreviewListPreference = {R.attr.labelList, R.attr.showArrow};
+        public static final int[] PreviewListPreference = {com.oneplus.camera.R.attr.labelList, com.oneplus.camera.R.attr.showArrow};
         public static final int PreviewListPreference_labelList = 0;
         public static final int PreviewListPreference_showArrow = 1;
-        public static final int[] RecyclerView = {16842948, R.attr.layoutManager, R.attr.spanCount, R.attr.reverseLayout, R.attr.stackFromEnd};
+        public static final int[] RecyclerView = {16842948, com.oneplus.camera.R.attr.layoutManager, com.oneplus.camera.R.attr.spanCount, com.oneplus.camera.R.attr.reverseLayout, com.oneplus.camera.R.attr.stackFromEnd};
         public static final int RecyclerView_android_orientation = 0;
         public static final int RecyclerView_layoutManager = 1;
         public static final int RecyclerView_reverseLayout = 3;
         public static final int RecyclerView_spanCount = 2;
         public static final int RecyclerView_stackFromEnd = 4;
-        public static final int[] ToggleSwitch = {R.attr.backgroundColor, R.attr.backgroundStrokeColor, R.attr.backgroundStrokeWidth, R.attr.thumbPadding, R.attr.thumbColor, R.attr.thumbShadowColor, R.attr.thumbShadowRadius, R.attr.textOn, R.attr.textOnColor, R.attr.textOff, R.attr.textOffColor, R.attr.textOffShadowColor, R.attr.textSize, R.attr.textOffShadowRadius, R.attr.duration, R.attr.checked};
+        public static final int[] ToggleSwitch = {com.oneplus.camera.R.attr.backgroundColor, com.oneplus.camera.R.attr.backgroundStrokeColor, com.oneplus.camera.R.attr.backgroundStrokeWidth, com.oneplus.camera.R.attr.thumbPadding, com.oneplus.camera.R.attr.thumbColor, com.oneplus.camera.R.attr.thumbShadowColor, com.oneplus.camera.R.attr.thumbShadowRadius, com.oneplus.camera.R.attr.textOn, com.oneplus.camera.R.attr.textOnColor, com.oneplus.camera.R.attr.textOff, com.oneplus.camera.R.attr.textOffColor, com.oneplus.camera.R.attr.textOffShadowColor, com.oneplus.camera.R.attr.textSize, com.oneplus.camera.R.attr.textOffShadowRadius, com.oneplus.camera.R.attr.duration, com.oneplus.camera.R.attr.checked};
         public static final int ToggleSwitch_backgroundColor = 0;
         public static final int ToggleSwitch_backgroundStrokeColor = 1;
         public static final int ToggleSwitch_backgroundStrokeWidth = 2;

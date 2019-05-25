@@ -4,12 +4,12 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import com.android.camera.CameraSettings;
 import com.android.camera.CameraSize;
-import com.android.camera.R;
 import com.android.camera.data.DataRepository;
 import com.android.camera.data.data.ComponentData;
 import com.android.camera.data.data.ComponentDataItem;
 import com.android.camera2.CameraCapabilities;
 import com.mi.config.b;
+import com.oneplus.camera.R;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -140,20 +140,20 @@ public class ComponentConfigRatio extends ComponentData {
     }
 
     /* JADX WARNING: Code restructure failed: missing block: B:41:0x011a, code lost:
-        r6.mItems.add(new com.android.camera.data.data.ComponentDataItem(com.android.camera.R.drawable.ic_config_timer, com.android.camera.R.drawable.ic_config_timer, com.android.camera.R.string.pref_camera_picturesize_entry_4_3, RATIO_4X3));
-        r6.mItems.add(new com.android.camera.data.data.ComponentDataItem(com.android.camera.R.drawable.ic_config_timer, com.android.camera.R.drawable.ic_config_timer, com.android.camera.R.string.pref_camera_picturesize_entry_16_9, RATIO_16X9));
+        r6.mItems.add(new com.android.camera.data.data.ComponentDataItem(com.oneplus.camera.R.drawable.ic_config_timer, com.oneplus.camera.R.drawable.ic_config_timer, com.oneplus.camera.R.string.pref_camera_picturesize_entry_4_3, RATIO_4X3));
+        r6.mItems.add(new com.android.camera.data.data.ComponentDataItem(com.oneplus.camera.R.drawable.ic_config_timer, com.oneplus.camera.R.drawable.ic_config_timer, com.oneplus.camera.R.string.pref_camera_picturesize_entry_16_9, RATIO_16X9));
      */
     /* JADX WARNING: Code restructure failed: missing block: B:42:0x0134, code lost:
         if (r6.sSupport18x9 == false) goto L_0x0143;
      */
     /* JADX WARNING: Code restructure failed: missing block: B:43:0x0136, code lost:
-        r6.mItems.add(new com.android.camera.data.data.ComponentDataItem(com.android.camera.R.drawable.ic_config_timer, com.android.camera.R.drawable.ic_config_timer, com.android.camera.R.string.pref_camera_picturesize_entry_18_9, RATIO_FULL_18X9));
+        r6.mItems.add(new com.android.camera.data.data.ComponentDataItem(com.oneplus.camera.R.drawable.ic_config_timer, com.oneplus.camera.R.drawable.ic_config_timer, com.oneplus.camera.R.string.pref_camera_picturesize_entry_18_9, RATIO_FULL_18X9));
      */
     /* JADX WARNING: Code restructure failed: missing block: B:45:0x0145, code lost:
         if (r6.sSupport195x9 == false) goto L_0x01a8;
      */
     /* JADX WARNING: Code restructure failed: missing block: B:46:0x0147, code lost:
-        r6.mItems.add(new com.android.camera.data.data.ComponentDataItem(com.android.camera.R.drawable.ic_config_timer, com.android.camera.R.drawable.ic_config_timer, com.android.camera.R.string.pref_camera_picturesize_entry_195_9, RATIO_FULL_195X9));
+        r6.mItems.add(new com.android.camera.data.data.ComponentDataItem(com.oneplus.camera.R.drawable.ic_config_timer, com.oneplus.camera.R.drawable.ic_config_timer, com.oneplus.camera.R.string.pref_camera_picturesize_entry_195_9, RATIO_FULL_195X9));
      */
     /* JADX WARNING: Code restructure failed: missing block: B:48:0x0158, code lost:
         if (r8 != 0) goto L_0x0165;
@@ -171,20 +171,20 @@ public class ComponentConfigRatio extends ComponentData {
         r6.mForceValue = RATIO_4X3;
      */
     /* JADX WARNING: Code restructure failed: missing block: B:55:0x016f, code lost:
-        r6.mItems.add(new com.android.camera.data.data.ComponentDataItem(com.android.camera.R.drawable.ic_config_timer, com.android.camera.R.drawable.ic_config_timer, com.android.camera.R.string.pref_camera_picturesize_entry_4_3, RATIO_4X3));
-        r6.mItems.add(new com.android.camera.data.data.ComponentDataItem(com.android.camera.R.drawable.ic_config_timer, com.android.camera.R.drawable.ic_config_timer, com.android.camera.R.string.pref_camera_picturesize_entry_16_9, RATIO_16X9));
+        r6.mItems.add(new com.android.camera.data.data.ComponentDataItem(com.oneplus.camera.R.drawable.ic_config_timer, com.oneplus.camera.R.drawable.ic_config_timer, com.oneplus.camera.R.string.pref_camera_picturesize_entry_4_3, RATIO_4X3));
+        r6.mItems.add(new com.android.camera.data.data.ComponentDataItem(com.oneplus.camera.R.drawable.ic_config_timer, com.oneplus.camera.R.drawable.ic_config_timer, com.oneplus.camera.R.string.pref_camera_picturesize_entry_16_9, RATIO_16X9));
      */
     /* JADX WARNING: Code restructure failed: missing block: B:56:0x0189, code lost:
         if (r6.sSupport18x9 == false) goto L_0x0198;
      */
     /* JADX WARNING: Code restructure failed: missing block: B:57:0x018b, code lost:
-        r6.mItems.add(new com.android.camera.data.data.ComponentDataItem(com.android.camera.R.drawable.ic_config_timer, com.android.camera.R.drawable.ic_config_timer, com.android.camera.R.string.pref_camera_picturesize_entry_18_9, RATIO_FULL_18X9));
+        r6.mItems.add(new com.android.camera.data.data.ComponentDataItem(com.oneplus.camera.R.drawable.ic_config_timer, com.oneplus.camera.R.drawable.ic_config_timer, com.oneplus.camera.R.string.pref_camera_picturesize_entry_18_9, RATIO_FULL_18X9));
      */
     /* JADX WARNING: Code restructure failed: missing block: B:59:0x019a, code lost:
         if (r6.sSupport195x9 == false) goto L_0x01a8;
      */
     /* JADX WARNING: Code restructure failed: missing block: B:60:0x019c, code lost:
-        r6.mItems.add(new com.android.camera.data.data.ComponentDataItem(com.android.camera.R.drawable.ic_config_timer, com.android.camera.R.drawable.ic_config_timer, com.android.camera.R.string.pref_camera_picturesize_entry_195_9, RATIO_FULL_195X9));
+        r6.mItems.add(new com.android.camera.data.data.ComponentDataItem(com.oneplus.camera.R.drawable.ic_config_timer, com.oneplus.camera.R.drawable.ic_config_timer, com.oneplus.camera.R.string.pref_camera_picturesize_entry_195_9, RATIO_FULL_195X9));
      */
     /* JADX WARNING: Code restructure failed: missing block: B:62:0x01aa, code lost:
         return r6.mItems;

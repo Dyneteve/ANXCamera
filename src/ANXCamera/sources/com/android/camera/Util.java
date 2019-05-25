@@ -107,6 +107,7 @@ import com.android.gallery3d.ui.StringTexture;
 import com.bytedance.frameworks.core.monitor.MonitorCommonConstants;
 import com.mi.config.b;
 import com.mi.config.d;
+import com.oneplus.camera.R;
 import com.ss.android.ttve.BuildConfig;
 import com.ss.android.ttve.common.TEDefine;
 import com.xiaomi.camera.core.PictureInfo;
@@ -145,7 +146,6 @@ import java.util.Objects;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
-import miui.R;
 import miui.hardware.display.DisplayFeatureManager;
 import miui.os.Build;
 import miui.reflect.Field;
@@ -3913,7 +3913,7 @@ EDGE_INSN: B:64:0x0104->B:47:0x0104 ?: BREAK  , SYNTHETIC] */
                     broadcastKillService(activity);
                 }
                 final Button button = show.getButton(-3);
-                button.setTextAppearance(R.style.Widget_Button_Dialog);
+                button.setTextAppearance(miui.R.style.Widget_Button_Dialog);
                 button.setEnabled(false);
                 final Activity activity2 = activity;
                 AnonymousClass2 r3 = new CountDownTimer(5000, 1000) {
