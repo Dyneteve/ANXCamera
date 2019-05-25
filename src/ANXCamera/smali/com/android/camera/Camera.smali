@@ -535,7 +535,7 @@
 
     new-array v2, v2, [Ljava/lang/Object;
 
-    const-string v5, "com.android.camera"
+    const-string v5, "com.oneplus.camera"
 
     aput-object v5, v2, v4
 
@@ -1750,7 +1750,7 @@
 
     const-string v1, "extra_pkgname"
 
-    const-string v3, "com.android.camera"
+    const-string v3, "com.oneplus.camera"
 
     invoke-virtual {v0, v1, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 

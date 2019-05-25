@@ -7,11 +7,11 @@
 
 
 # static fields
-.field public static final CLOUD_FILE_PATH:Ljava/lang/String; = "/data/data/com.android.camera/sensi_words"
+.field public static final CLOUD_FILE_PATH:Ljava/lang/String; = "/data/data/com.oneplus.camera/sensi_words"
 
 .field static final DEFAULT_INITIAL_CAPACITY:I = 0x800000
 
-.field public static final LOCAL_FILE_PATH:Ljava/lang/String; = "/data/data/com.android.camera/"
+.field public static final LOCAL_FILE_PATH:Ljava/lang/String; = "/data/data/com.oneplus.camera/"
 
 .field private static sensitiveFilter:Lcom/android/camera/sensitive/SensitiveFilter; = null
 
@@ -57,7 +57,7 @@
     :try_start_0
     new-instance v1, Ljava/io/File;
 
-    const-string v2, "/data/data/com.android.camera/sensi_words"
+    const-string v2, "/data/data/com.oneplus.camera/sensi_words"
 
     invoke-direct {v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 

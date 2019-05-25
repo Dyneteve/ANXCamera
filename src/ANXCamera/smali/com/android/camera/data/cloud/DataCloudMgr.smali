@@ -625,7 +625,7 @@
 
     new-instance v0, Ljava/io/File;
 
-    const-string v1, "/data/data/com.android.camera/sensi_words"
+    const-string v1, "/data/data/com.oneplus.camera/sensi_words"
 
     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
@@ -658,7 +658,7 @@
 
     if-eqz v0, :cond_1
 
-    const-string v0, "/data/data/com.android.camera/"
+    const-string v0, "/data/data/com.oneplus.camera/"
 
     invoke-static {p2, v0}, Lcom/android/camera/sensitive/SensitiveFilter;->loadSensitiveWords(Ljava/lang/String;Ljava/lang/String;)Z
 

@@ -226,7 +226,7 @@
     <bool name="support_audio_loopback">true</bool>
     <!--These app has permission to access aux camera -->
     <string-array name="camera_aux_package_list">
-        <item>com.android.camera</item>
+        <item>com.oneplus.camera</item>
         <item>org.codeaurora.snapcam</item>
         <item>com.lctautotest.camera</item>
         <item>com.android.lightboxtest</item>
