@@ -196,9 +196,6 @@ public class a extends DataItemBase implements c {
     }
 
     public boolean fL() {
-        if (Util.isGlobalVersion()) {
-            return false;
-        }
         return getBoolean(c.sG, false);
     }
 

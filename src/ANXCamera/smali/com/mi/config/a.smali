@@ -570,18 +570,9 @@
 .method public fL()Z
     .locals 2
 
-    invoke-static {}, Lcom/android/camera/Util;->isGlobalVersion()Z
-
-    move-result v0
+    const-string v0, "c_0x00_s_l_s"
 
     const/4 v1, 0x0
-
-    if-eqz v0, :cond_0
-
-    return v1
-
-    :cond_0
-    const-string v0, "c_0x00_s_l_s"
 
     invoke-virtual {p0, v0, v1}, Lcom/mi/config/a;->getBoolean(Ljava/lang/String;Z)Z
 
