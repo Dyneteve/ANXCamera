@@ -391,9 +391,9 @@ public final class PDF417ScanningDecoder {
             endColumn = startColumn2 + codewordBitCount;
         } else {
             for (int i = 0; i < moduleBitCount.length / 2; i++) {
-                int decodedValue = moduleBitCount[i];
+                int tmpCount = moduleBitCount[i];
                 moduleBitCount[i] = moduleBitCount[(moduleBitCount.length - 1) - i];
-                moduleBitCount[(moduleBitCount.length - 1) - i] = decodedValue;
+                moduleBitCount[(moduleBitCount.length - 1) - i] = tmpCount;
             }
             endColumn = startColumn2;
             startColumn2 = endColumn - codewordBitCount;
@@ -401,12 +401,12 @@ public final class PDF417ScanningDecoder {
         if (!checkCodewordSkew(codewordBitCount, minCodewordWidth, maxCodewordWidth)) {
             return null;
         }
-        int decodedValue2 = PDF417CodewordDecoder.getDecodedValue(moduleBitCount);
-        int codeword = PDF417Common.getCodeword(decodedValue2);
+        int decodedValue = PDF417CodewordDecoder.getDecodedValue(moduleBitCount);
+        int codeword = PDF417Common.getCodeword(decodedValue);
         if (codeword == -1) {
             return null;
         }
-        return new Codeword(startColumn2, endColumn, getCodewordBucketNumber(decodedValue2), codeword);
+        return new Codeword(startColumn2, endColumn, getCodewordBucketNumber(decodedValue), codeword);
     }
 
     private static int[] getModuleBitCount(BitMatrix image, int minColumn, int maxColumn, boolean leftToRight, int startColumn, int imageRow) {

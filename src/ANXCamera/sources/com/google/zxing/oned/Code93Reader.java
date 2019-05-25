@@ -110,21 +110,21 @@ public final class Code93Reader extends OneDReader {
     private static int toPattern(int[] counters2) {
         int max = counters2.length;
         int sum = 0;
-        for (int scaled : counters2) {
-            sum += scaled;
+        for (int counter : counters2) {
+            sum += counter;
         }
         int pattern = 0;
         for (int i = 0; i < max; i++) {
-            int scaled2 = Math.round((((float) counters2[i]) * 9.0f) / ((float) sum));
-            if (scaled2 < 1 || scaled2 > 4) {
+            int scaled = Math.round((((float) counters2[i]) * 9.0f) / ((float) sum));
+            if (scaled < 1 || scaled > 4) {
                 return -1;
             }
             if ((i & 1) == 0) {
-                for (int j = 0; j < scaled2; j++) {
+                for (int j = 0; j < scaled; j++) {
                     pattern = (pattern << 1) | 1;
                 }
             } else {
-                pattern <<= scaled2;
+                pattern <<= scaled;
             }
         }
         return pattern;

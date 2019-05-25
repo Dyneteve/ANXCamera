@@ -636,18 +636,18 @@ public final class RSSExpandedReader extends AbstractRSSReader {
                 numModules = numModules4;
                 BitArray bitArray5 = row;
             }
-            int checksumPortion = oddChecksumPortion + evenChecksumPortion;
+            int i15 = oddChecksumPortion + evenChecksumPortion;
             if ((oddSum & 1) != 0 || oddSum > 13 || oddSum < i4) {
                 throw NotFoundException.getNotFoundInstance();
             }
             int group = (13 - oddSum) / 2;
             int oddWidest = SYMBOL_WIDEST[group];
             int evenWidest = 9 - oddWidest;
-            int i15 = numModules;
-            int i16 = oddWidest;
-            int i17 = evenWidest;
-            int i18 = group;
-            return new DataCharacter((RSSUtils.getRSSvalue(oddCounts, oddWidest, true) * EVEN_TOTAL_SUBSET[group]) + RSSUtils.getRSSvalue(evenCounts, evenWidest, false) + GSUM[group], checksumPortion);
+            int i16 = numModules;
+            int i17 = oddWidest;
+            int i18 = evenWidest;
+            int i19 = group;
+            return new DataCharacter((RSSUtils.getRSSvalue(oddCounts, oddWidest, true) * EVEN_TOTAL_SUBSET[group]) + RSSUtils.getRSSvalue(evenCounts, evenWidest, false) + GSUM[group], i15);
         }
         throw NotFoundException.getNotFoundInstance();
     }

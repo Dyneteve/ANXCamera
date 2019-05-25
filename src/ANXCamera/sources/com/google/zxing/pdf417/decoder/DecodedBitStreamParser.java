@@ -180,13 +180,13 @@ final class DecodedBitStreamParser {
                 boolean end = false;
                 while (code < codewords[0] && !end) {
                     int codeIndex3 = code + 1;
-                    int codeIndex4 = codewords[code];
-                    if (codeIndex4 < TEXT_COMPACTION_MODE_LATCH) {
+                    int code2 = codewords[code];
+                    if (code2 < TEXT_COMPACTION_MODE_LATCH) {
                         int additionalOptionCodeWordsIndex2 = additionalOptionCodeWordsIndex + 1;
-                        additionalOptionCodeWords[additionalOptionCodeWordsIndex] = codeIndex4;
+                        additionalOptionCodeWords[additionalOptionCodeWordsIndex] = code2;
                         code = codeIndex3;
                         additionalOptionCodeWordsIndex = additionalOptionCodeWordsIndex2;
-                    } else if (codeIndex4 == MACRO_PDF417_TERMINATOR) {
+                    } else if (code2 == MACRO_PDF417_TERMINATOR) {
                         resultMetadata.setLastSegment(true);
                         end = true;
                         code = codeIndex3 + 1;
@@ -214,14 +214,14 @@ final class DecodedBitStreamParser {
         boolean end = false;
         while (codeIndex < codewords[0] && !end) {
             int codeIndex2 = codeIndex + 1;
-            int code = codewords[codeIndex];
-            if (code < TEXT_COMPACTION_MODE_LATCH) {
-                textCompactionData[index] = code / 30;
-                textCompactionData[index + 1] = code % 30;
+            int codeIndex3 = codewords[codeIndex];
+            if (codeIndex3 < TEXT_COMPACTION_MODE_LATCH) {
+                textCompactionData[index] = codeIndex3 / 30;
+                textCompactionData[index + 1] = codeIndex3 % 30;
                 index += 2;
-            } else if (code != MODE_SHIFT_TO_BYTE_COMPACTION_MODE) {
-                if (code != 928) {
-                    switch (code) {
+            } else if (codeIndex3 != MODE_SHIFT_TO_BYTE_COMPACTION_MODE) {
+                if (codeIndex3 != 928) {
+                    switch (codeIndex3) {
                         case TEXT_COMPACTION_MODE_LATCH /*900*/:
                             int index2 = index + 1;
                             textCompactionData[index] = TEXT_COMPACTION_MODE_LATCH;
@@ -232,7 +232,7 @@ final class DecodedBitStreamParser {
                         case NUMERIC_COMPACTION_MODE_LATCH /*902*/:
                             break;
                         default:
-                            switch (code) {
+                            switch (codeIndex3) {
                                 case MACRO_PDF417_TERMINATOR /*922*/:
                                 case BEGIN_MACRO_PDF417_OPTIONAL_FIELD /*923*/:
                                 case BYTE_COMPACTION_MODE_LATCH_6 /*924*/:
@@ -244,10 +244,10 @@ final class DecodedBitStreamParser {
                 end = true;
             } else {
                 textCompactionData[index] = MODE_SHIFT_TO_BYTE_COMPACTION_MODE;
-                int codeIndex3 = codeIndex2 + 1;
+                int codeIndex4 = codeIndex2 + 1;
                 byteCompactionData[index] = codewords[codeIndex2];
                 index++;
-                codeIndex = codeIndex3;
+                codeIndex = codeIndex4;
             }
             codeIndex = codeIndex2;
             continue;
@@ -516,14 +516,14 @@ final class DecodedBitStreamParser {
             int codeIndex5 = codeIndex;
             for (char c = 0; codeIndex2 < codewords[c] && !end2; c = 0) {
                 int codeIndex6 = codeIndex2 + 1;
-                int code = codewords[codeIndex2];
-                if (code < TEXT_COMPACTION_MODE_LATCH) {
+                int codeIndex7 = codewords[codeIndex2];
+                if (codeIndex7 < TEXT_COMPACTION_MODE_LATCH) {
                     count4++;
-                    value2 = (900 * value2) + ((long) code);
+                    value2 = (900 * value2) + ((long) codeIndex7);
                 } else {
-                    if (code != TEXT_COMPACTION_MODE_LATCH && code != BYTE_COMPACTION_MODE_LATCH && code != i4 && code != i5) {
-                        if (code != 928) {
-                            if (code != BEGIN_MACRO_PDF417_OPTIONAL_FIELD) {
+                    if (codeIndex7 != TEXT_COMPACTION_MODE_LATCH && codeIndex7 != BYTE_COMPACTION_MODE_LATCH && codeIndex7 != i4 && codeIndex7 != i5) {
+                        if (codeIndex7 != 928) {
+                            if (codeIndex7 != BEGIN_MACRO_PDF417_OPTIONAL_FIELD) {
                             }
                             codeIndex6--;
                             end2 = true;
@@ -562,18 +562,18 @@ final class DecodedBitStreamParser {
         int[] numericCodewords = new int[15];
         while (codeIndex < codewords[0] && !end) {
             int codeIndex2 = codeIndex + 1;
-            int code = codewords[codeIndex];
+            int codeIndex3 = codewords[codeIndex];
             if (codeIndex2 == codewords[0]) {
                 end = true;
             }
-            if (code < TEXT_COMPACTION_MODE_LATCH) {
-                numericCodewords[count] = code;
+            if (codeIndex3 < TEXT_COMPACTION_MODE_LATCH) {
+                numericCodewords[count] = codeIndex3;
                 count++;
-            } else if (code == TEXT_COMPACTION_MODE_LATCH || code == BYTE_COMPACTION_MODE_LATCH || code == BYTE_COMPACTION_MODE_LATCH_6 || code == 928 || code == BEGIN_MACRO_PDF417_OPTIONAL_FIELD || code == MACRO_PDF417_TERMINATOR) {
+            } else if (codeIndex3 == TEXT_COMPACTION_MODE_LATCH || codeIndex3 == BYTE_COMPACTION_MODE_LATCH || codeIndex3 == BYTE_COMPACTION_MODE_LATCH_6 || codeIndex3 == 928 || codeIndex3 == BEGIN_MACRO_PDF417_OPTIONAL_FIELD || codeIndex3 == MACRO_PDF417_TERMINATOR) {
                 codeIndex2--;
                 end = true;
             }
-            if ((count % 15 == 0 || code == NUMERIC_COMPACTION_MODE_LATCH || end) && count > 0) {
+            if ((count % 15 == 0 || codeIndex3 == NUMERIC_COMPACTION_MODE_LATCH || end) && count > 0) {
                 result.append(decodeBase900toBase10(numericCodewords, count));
                 count = 0;
             }

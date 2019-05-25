@@ -217,9 +217,9 @@ public final class Encoder {
         String str2 = encoding;
         ByteMatrix matrix = new ByteMatrix(dimension, dimension);
         int i = dimension;
-        int maskPattern = chooseMaskPattern(finalBits, errorCorrectionLevel, version, matrix);
-        qrCode.setMaskPattern(maskPattern);
-        MatrixUtil.buildMatrix(finalBits, errorCorrectionLevel, version, maskPattern, matrix);
+        int dimension2 = chooseMaskPattern(finalBits, errorCorrectionLevel, version, matrix);
+        qrCode.setMaskPattern(dimension2);
+        MatrixUtil.buildMatrix(finalBits, errorCorrectionLevel, version, dimension2, matrix);
         qrCode.setMatrix(matrix);
         return qrCode;
     }

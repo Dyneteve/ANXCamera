@@ -2927,11 +2927,11 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
                                 hresult = hresult2;
                                 int left = view.getLeft();
                                 vresult = vresult2;
-                                int top = view.getTop();
+                                int vresult3 = view.getTop();
                                 count = count2;
-                                if (left != shadowingView.getLeft() || top != shadowingView.getTop()) {
+                                if (left != shadowingView.getLeft() || vresult3 != shadowingView.getTop()) {
                                     View view2 = view;
-                                    shadowingView.layout(left, top, shadowingView.getWidth() + left, top + shadowingView.getHeight());
+                                    shadowingView.layout(left, vresult3, shadowingView.getWidth() + left, vresult3 + shadowingView.getHeight());
                                 }
                             }
                             i2++;
@@ -2941,7 +2941,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
                         }
                     }
                     int hresult3 = hresult2;
-                    int vresult3 = vresult2;
+                    int vresult4 = vresult2;
                     RecyclerView.this.onExitLayoutOrScroll();
                     RecyclerView.this.resumeRequestLayout(false);
                     if (smoothScroller != null && !smoothScroller.isPendingInitialRun() && smoothScroller.isRunning()) {
@@ -2956,7 +2956,7 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
                         }
                     }
                     hresult2 = hresult3;
-                    vresult2 = vresult3;
+                    vresult2 = vresult4;
                 }
                 if (!RecyclerView.this.mItemDecorations.isEmpty()) {
                     RecyclerView.this.invalidate();

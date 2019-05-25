@@ -1624,6 +1624,16 @@ public final class R {
         public static final int feature_beryllium = 2131230722;
         public static final int goofy_face = 2131230723;
         public static final int xiaomi_static_config = 2131230724;
+        /* added by JADX */
+        public static final int feature_cepheus = 2131230725;
+        /* added by JADX */
+        public static final int feature_dipper = 2131230726;
+        /* added by JADX */
+        public static final int feature_perseus = 2131230727;
+        /* added by JADX */
+        public static final int feature_polaris = 2131230728;
+        /* added by JADX */
+        public static final int feature_violet = 2131230729;
     }
 
     public static final class string {

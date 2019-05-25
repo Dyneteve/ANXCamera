@@ -129,7 +129,37 @@ Steps to Port MiuiCamera from scratch:
     5.  Other wise use AOSP classes, or no-op the operation.
 14. Add missing smali files from decompiled miui rom.
     1.  We will add the missing classes to `src\ANXCamera\smali_classes3`
-15. Add native libs
-16. Edit Smali
+15. Once we solve most missing classes errors we will see an error related to `dark greylist`
+    1.   `java.lang.NoSuchFieldError: No field noncompatDensity of type F in class Landroid/util/DisplayMetrics; or its superclasses (declaration of 'android.util.DisplayMetrics' appears in /system/framework/framework.jar!classes2.dex)`
+    2.  Few lines above the crash error we will find 
+    3.  `W .android.camer: Accessing hidden field Landroid/util/DisplayMetrics;->noncompatDensity:F (dark greylist, linking)` 
+16. To fix this we will need to add our app to hiddenapi whitelist
+    1.  we need to use `src\ANXCameraMagisk\system\etc\sysconfig\anxcamera-hiddenapi-package-whitelist.xml`
+    2.  For that we also create a Magisk Module, that will do other things like
+        1.  Add `device_features` xmls
+        2.  Grant Permissions
+        3.  Provide Libs to our apk
+        4.  Easy Install/Uninstall
+17. Magisk Mod Source Located at
+    1.  `src\ANXCameraMagisk`
+    2.  Important Files
+        1.  `src\ANXCameraMagisk\system\etc\default-permissions\anxcamera-permissions.xml`
+        2.  `src\ANXCameraMagisk\system\etc\permissions\privapp-permissions-anxcamera.xml`
+            1.  Fixes permissions
+        3.  `src\ANXCameraMagisk\system\etc\sysconfig\anxcamera-hiddenapi-package-whitelist.xml`
+            1.  Fixes API Blacklist
+        4.  `src\ANXCameraMagisk\system\etc\device_features\<DeviceName>.xml`
+            1.  Device Features are mentioned in this file
+        5.  `src\ANXCameraMagisk\common\system.prop`
+            1.  Build.prop modifications are done by this
+            2.  Note for Porters of above devices:
+                1.  `persist.vendor.camera.enableAdvanceFeatures=0x347` might need changes as per your devices
+        6.  `src\ANXCameraMagisk\system\priv-app\ANXCamera\lib\arm64`
+            1.  Contains all camera specific libs
+18. Camera Features are decided By Two Types of files
+    1.  `src\ANXCameraMagisk\system\etc\device_features\<DeviceName>.xml` --> Device Features
+    2.  `src\ANXCamera\res\raw\feature_<DeviceName>` --> Camera App Features
+19. 
+20. Edit Smali
    4. ...
 
