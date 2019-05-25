@@ -1825,9 +1825,9 @@ public class StaggeredGridLayoutManager extends LayoutManager {
         } else {
             diff = getMaxEnd(this.mPrimaryOrientation.getEndAfterPadding()) - this.mPrimaryOrientation.getEndAfterPadding();
         }
-        int maxEnd = diff;
-        if (maxEnd > 0) {
-            return Math.min(layoutState2.mAvailable, maxEnd);
+        int diff2 = diff;
+        if (diff2 > 0) {
+            return Math.min(layoutState2.mAvailable, diff2);
         }
         return 0;
     }
