@@ -214,14 +214,14 @@ final class DecodedBitStreamParser {
         boolean end = false;
         while (codeIndex < codewords[0] && !end) {
             int codeIndex2 = codeIndex + 1;
-            int codeIndex3 = codewords[codeIndex];
-            if (codeIndex3 < TEXT_COMPACTION_MODE_LATCH) {
-                textCompactionData[index] = codeIndex3 / 30;
-                textCompactionData[index + 1] = codeIndex3 % 30;
+            int code = codewords[codeIndex];
+            if (code < TEXT_COMPACTION_MODE_LATCH) {
+                textCompactionData[index] = code / 30;
+                textCompactionData[index + 1] = code % 30;
                 index += 2;
-            } else if (codeIndex3 != MODE_SHIFT_TO_BYTE_COMPACTION_MODE) {
-                if (codeIndex3 != 928) {
-                    switch (codeIndex3) {
+            } else if (code != MODE_SHIFT_TO_BYTE_COMPACTION_MODE) {
+                if (code != 928) {
+                    switch (code) {
                         case TEXT_COMPACTION_MODE_LATCH /*900*/:
                             int index2 = index + 1;
                             textCompactionData[index] = TEXT_COMPACTION_MODE_LATCH;
@@ -232,7 +232,7 @@ final class DecodedBitStreamParser {
                         case NUMERIC_COMPACTION_MODE_LATCH /*902*/:
                             break;
                         default:
-                            switch (codeIndex3) {
+                            switch (code) {
                                 case MACRO_PDF417_TERMINATOR /*922*/:
                                 case BEGIN_MACRO_PDF417_OPTIONAL_FIELD /*923*/:
                                 case BYTE_COMPACTION_MODE_LATCH_6 /*924*/:
@@ -244,10 +244,10 @@ final class DecodedBitStreamParser {
                 end = true;
             } else {
                 textCompactionData[index] = MODE_SHIFT_TO_BYTE_COMPACTION_MODE;
-                int codeIndex4 = codeIndex2 + 1;
+                int codeIndex3 = codeIndex2 + 1;
                 byteCompactionData[index] = codewords[codeIndex2];
                 index++;
-                codeIndex = codeIndex4;
+                codeIndex = codeIndex3;
             }
             codeIndex = codeIndex2;
             continue;
