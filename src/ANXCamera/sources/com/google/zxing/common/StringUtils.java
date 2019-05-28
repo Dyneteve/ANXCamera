@@ -62,28 +62,28 @@ public final class StringUtils {
                     break;
                 }
                 int length3 = length2;
-                int length4 = bArr[i] & 255;
+                int value = bArr[i] & 255;
                 if (canBeUTF82) {
                     if (utf8BytesLeft > 0) {
-                        if ((length4 & 128) == 0) {
+                        if ((value & 128) == 0) {
                             canBeUTF8 = false;
                         } else {
                             utf8BytesLeft--;
                         }
-                    } else if ((length4 & 128) != 0) {
-                        if ((length4 & 64) == 0) {
+                    } else if ((value & 128) != 0) {
+                        if ((value & 64) == 0) {
                             canBeUTF8 = false;
                         } else {
                             utf8BytesLeft++;
-                            if ((length4 & 32) == 0) {
+                            if ((value & 32) == 0) {
                                 utf2BytesChars++;
                             } else {
                                 utf8BytesLeft++;
-                                if ((length4 & 16) == 0) {
+                                if ((value & 16) == 0) {
                                     utf3BytesChars++;
                                 } else {
                                     utf8BytesLeft++;
-                                    if ((length4 & 8) == 0) {
+                                    if ((value & 8) == 0) {
                                         utf4BytesChars++;
                                     } else {
                                         canBeUTF8 = false;
@@ -95,29 +95,29 @@ public final class StringUtils {
                     canBeUTF82 = canBeUTF8;
                 }
                 if (canBeISO88591) {
-                    if (length4 > 127 && length4 < 160) {
+                    if (value > 127 && value < 160) {
                         canBeISO88591 = false;
-                    } else if (length4 > 159 && (length4 < 192 || length4 == 215 || length4 == 247)) {
+                    } else if (value > 159 && (value < 192 || value == 215 || value == 247)) {
                         isoHighOther++;
                     }
                 }
                 if (canBeShiftJIS2) {
                     if (sjisBytesLeft > 0) {
-                        if (length4 < 64 || length4 == 127 || length4 > 252) {
+                        if (value < 64 || value == 127 || value > 252) {
                             canBeShiftJIS = false;
                         } else {
                             sjisBytesLeft--;
                         }
-                    } else if (length4 == 128 || length4 == 160 || length4 > 239) {
+                    } else if (value == 128 || value == 160 || value > 239) {
                         canBeShiftJIS = false;
-                    } else if (length4 > 160 && length4 < 224) {
+                    } else if (value > 160 && value < 224) {
                         sjisKatakanaChars++;
                         sjisCurKatakanaWordLength++;
                         if (sjisCurKatakanaWordLength > sjisMaxKatakanaWordLength) {
                             sjisMaxKatakanaWordLength = sjisCurKatakanaWordLength;
                         }
                         sjisCurDoubleBytesWordLength = 0;
-                    } else if (length4 > 127) {
+                    } else if (value > 127) {
                         sjisBytesLeft++;
                         sjisCurDoubleBytesWordLength++;
                         if (sjisCurDoubleBytesWordLength > sjisMaxDoubleBytesWordLength) {
