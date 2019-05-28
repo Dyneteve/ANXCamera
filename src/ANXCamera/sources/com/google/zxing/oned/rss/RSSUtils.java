@@ -7,36 +7,36 @@ public final class RSSUtils {
     public static int getRSSvalue(int[] widths, int maxWidth, boolean noNarrow) {
         int elements = widths.length;
         int n = 0;
-        for (int bar : widths) {
-            n += bar;
+        for (int width : widths) {
+            n += width;
         }
         int val = 0;
         int narrowMask = 0;
-        int bar2 = 0;
+        int bar = 0;
         int n2 = n;
-        while (bar2 < elements - 1) {
+        while (bar < elements - 1) {
             int elmWidth = 1;
-            narrowMask |= 1 << bar2;
-            while (elmWidth < widths[bar2]) {
-                int subVal = combins((n2 - elmWidth) - 1, (elements - bar2) - 2);
-                if (noNarrow && narrowMask == 0 && (n2 - elmWidth) - ((elements - bar2) - 1) >= (elements - bar2) - 1) {
-                    subVal -= combins((n2 - elmWidth) - (elements - bar2), (elements - bar2) - 2);
+            narrowMask |= 1 << bar;
+            while (elmWidth < widths[bar]) {
+                int subVal = combins((n2 - elmWidth) - 1, (elements - bar) - 2);
+                if (noNarrow && narrowMask == 0 && (n2 - elmWidth) - ((elements - bar) - 1) >= (elements - bar) - 1) {
+                    subVal -= combins((n2 - elmWidth) - (elements - bar), (elements - bar) - 2);
                 }
-                if ((elements - bar2) - 1 > 1) {
+                if ((elements - bar) - 1 > 1) {
                     int lessVal = 0;
-                    for (int mxwElement = (n2 - elmWidth) - ((elements - bar2) - 2); mxwElement > maxWidth; mxwElement--) {
-                        lessVal += combins(((n2 - elmWidth) - mxwElement) - 1, (elements - bar2) - 3);
+                    for (int mxwElement = (n2 - elmWidth) - ((elements - bar) - 2); mxwElement > maxWidth; mxwElement--) {
+                        lessVal += combins(((n2 - elmWidth) - mxwElement) - 1, (elements - bar) - 3);
                     }
-                    subVal -= ((elements - 1) - bar2) * lessVal;
+                    subVal -= ((elements - 1) - bar) * lessVal;
                 } else if (n2 - elmWidth > maxWidth) {
                     subVal--;
                 }
                 val += subVal;
                 elmWidth++;
-                narrowMask &= ~(1 << bar2);
+                narrowMask &= ~(1 << bar);
             }
             n2 -= elmWidth;
-            bar2++;
+            bar++;
         }
         return val;
     }

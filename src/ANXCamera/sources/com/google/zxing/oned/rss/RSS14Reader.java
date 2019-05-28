@@ -245,17 +245,17 @@ public final class RSS14Reader extends AbstractRSSReader {
             int evenWidest = 9 - oddWidest;
             int vOdd = RSSUtils.getRSSvalue(oddCounts, oddWidest, true);
             int i6 = oddWidest;
-            int oddWidest2 = RSSUtils.getRSSvalue(evenCounts, evenWidest, false);
+            int vEven = RSSUtils.getRSSvalue(evenCounts, evenWidest, false);
             int i7 = group;
-            int i8 = oddWidest2;
-            return new DataCharacter((oddWidest2 * INSIDE_ODD_TOTAL_SUBSET[group]) + vOdd + INSIDE_GSUM[group], checksumPortion);
+            int i8 = vEven;
+            return new DataCharacter((vEven * INSIDE_ODD_TOTAL_SUBSET[group]) + vOdd + INSIDE_GSUM[group], checksumPortion);
         } else if ((oddSum & 1) != 0 || oddSum > 12 || oddSum < 4) {
             throw NotFoundException.getNotFoundInstance();
         } else {
             int group2 = (12 - oddSum) / 2;
-            int oddWidest3 = OUTSIDE_ODD_WIDEST[group2];
-            int evenWidest2 = 9 - oddWidest3;
-            int vOdd2 = RSSUtils.getRSSvalue(oddCounts, oddWidest3, false);
+            int oddWidest2 = OUTSIDE_ODD_WIDEST[group2];
+            int evenWidest2 = 9 - oddWidest2;
+            int vOdd2 = RSSUtils.getRSSvalue(oddCounts, oddWidest2, false);
             int i9 = evenWidest2;
             int i10 = vOdd2;
             return new DataCharacter((vOdd2 * OUTSIDE_EVEN_TOTAL_SUBSET[group2]) + RSSUtils.getRSSvalue(evenCounts, evenWidest2, true) + OUTSIDE_GSUM[group2], checksumPortion);

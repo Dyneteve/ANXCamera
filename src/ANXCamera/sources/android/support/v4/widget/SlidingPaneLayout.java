@@ -697,9 +697,9 @@ public class SlidingPaneLayout extends ViewGroup {
                                     int newWidth = widthAvailable - (lp2.leftMargin + lp2.rightMargin);
                                     fixedPanelWidthLimit = fixedPanelWidthLimit2;
                                     maxLayoutHeight = maxLayoutHeight2;
-                                    int maxLayoutHeight3 = MeasureSpec.makeMeasureSpec(newWidth, 1073741824);
+                                    int childWidthSpec2 = MeasureSpec.makeMeasureSpec(newWidth, 1073741824);
                                     if (measuredWidth2 != newWidth) {
-                                        child2.measure(maxLayoutHeight3, childHeightSpec);
+                                        child2.measure(childWidthSpec2, childHeightSpec);
                                     }
                                 } else {
                                     fixedPanelWidthLimit = fixedPanelWidthLimit2;
