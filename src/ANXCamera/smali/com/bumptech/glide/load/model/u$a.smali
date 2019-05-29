@@ -29,7 +29,7 @@
 
 
 # static fields
-.field private static final kq:Lcom/bumptech/glide/load/model/u$a;
+.field private static final kr:Lcom/bumptech/glide/load/model/u$a;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/model/u$a<",
@@ -47,7 +47,7 @@
 
     invoke-direct {v0}, Lcom/bumptech/glide/load/model/u$a;-><init>()V
 
-    sput-object v0, Lcom/bumptech/glide/load/model/u$a;->kq:Lcom/bumptech/glide/load/model/u$a;
+    sput-object v0, Lcom/bumptech/glide/load/model/u$a;->kr:Lcom/bumptech/glide/load/model/u$a;
 
     return-void
 .end method
@@ -74,7 +74,7 @@
         }
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/load/model/u$a;->kq:Lcom/bumptech/glide/load/model/u$a;
+    sget-object v0, Lcom/bumptech/glide/load/model/u$a;->kr:Lcom/bumptech/glide/load/model/u$a;
 
     return-object v0
 .end method

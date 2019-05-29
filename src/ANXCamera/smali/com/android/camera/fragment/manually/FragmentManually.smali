@@ -106,7 +106,7 @@
     :pswitch_0
     iget-object p1, p0, Lcom/android/camera/fragment/manually/FragmentManually;->mRecyclerViewLayout:Landroid/view/ViewGroup;
 
-    const v0, 0x7f0b0048
+    const v0, 0x7f0b004a
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->setBackgroundResource(I)V
 
@@ -116,7 +116,7 @@
     :pswitch_1
     iget-object p1, p0, Lcom/android/camera/fragment/manually/FragmentManually;->mRecyclerViewLayout:Landroid/view/ViewGroup;
 
-    const v0, 0x7f0b0049
+    const v0, 0x7f0b004b
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->setBackgroundResource(I)V
 
@@ -225,7 +225,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0013
+    const v3, 0x7f0a0014
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -294,7 +294,7 @@
 
     invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    invoke-static {}, Lcom/mi/config/b;->hp()Z
+    invoke-static {}, Lcom/mi/config/b;->hs()Z
 
     move-result v1
 
@@ -499,7 +499,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0a0014
+    const v2, 0x7f0a0015
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -583,7 +583,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0a0013
+    const v2, 0x7f0a0014
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -860,7 +860,7 @@
 .method protected getLayoutResourceId()I
     .locals 1
 
-    const v0, 0x7f040029
+    const v0, 0x7f04002a
 
     return v0
 .end method
@@ -940,7 +940,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0047
+    const v1, 0x7f0b0049
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1819,7 +1819,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a009d
+    const v2, 0x7f0a008d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

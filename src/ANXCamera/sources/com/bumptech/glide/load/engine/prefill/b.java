@@ -6,38 +6,38 @@ import java.util.Map;
 
 /* compiled from: PreFillQueue */
 final class b {
-    private final Map<c, Integer> jk;
-    private final List<c> jl;
-    private int jm;
+    private final Map<c, Integer> jl;
+    private final List<c> jm;
     private int jn;
+    private int jo;
 
     public b(Map<c, Integer> map) {
-        this.jk = map;
-        this.jl = new ArrayList(map.keySet());
+        this.jl = map;
+        this.jm = new ArrayList(map.keySet());
         for (Integer intValue : map.values()) {
-            this.jm += intValue.intValue();
+            this.jn += intValue.intValue();
         }
     }
 
     public c bV() {
-        c cVar = (c) this.jl.get(this.jn);
-        Integer num = (Integer) this.jk.get(cVar);
+        c cVar = (c) this.jm.get(this.jo);
+        Integer num = (Integer) this.jl.get(cVar);
         if (num.intValue() == 1) {
-            this.jk.remove(cVar);
-            this.jl.remove(this.jn);
+            this.jl.remove(cVar);
+            this.jm.remove(this.jo);
         } else {
-            this.jk.put(cVar, Integer.valueOf(num.intValue() - 1));
+            this.jl.put(cVar, Integer.valueOf(num.intValue() - 1));
         }
-        this.jm--;
-        this.jn = this.jl.isEmpty() ? 0 : (this.jn + 1) % this.jl.size();
+        this.jn--;
+        this.jo = this.jm.isEmpty() ? 0 : (this.jo + 1) % this.jm.size();
         return cVar;
     }
 
     public int getSize() {
-        return this.jm;
+        return this.jn;
     }
 
     public boolean isEmpty() {
-        return this.jm == 0;
+        return this.jn == 0;
     }
 }

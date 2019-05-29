@@ -1149,7 +1149,7 @@
 
     sget-object v0, Lcom/xiaomi/camera/imagecodec/JpegEncoder;->TAG:Ljava/lang/String;
 
-    const-string v1, "getSessionId: failed! "
+    const-string v1, "getSessionId: failed!"
 
     invoke-static {v0, v1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
@@ -2012,6 +2012,8 @@
 
     if-eqz v0, :cond_3
 
+    nop
+
     invoke-virtual {p1}, Lcom/xiaomi/camera/imagecodec/ReprocessData;->isImageFromPool()Z
 
     move-result v0
@@ -2034,7 +2036,7 @@
 
     move-result-object v2
 
-    const/4 v3, 0x0
+    const/4 v3, 0x2
 
     invoke-virtual {v2, v1, v3}, Lcom/xiaomi/camera/imagecodec/ImagePool;->isImageQueueFull(Lcom/xiaomi/camera/imagecodec/ImagePool$ImageFormat;I)Z
 
@@ -2052,7 +2054,9 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v1, v3, v3}, Lcom/xiaomi/camera/imagecodec/ImagePool;->waitIfImageQueueFull(Lcom/xiaomi/camera/imagecodec/ImagePool$ImageFormat;II)V
+    const/4 v4, 0x0
+
+    invoke-virtual {v2, v1, v3, v4}, Lcom/xiaomi/camera/imagecodec/ImagePool;->waitIfImageQueueFull(Lcom/xiaomi/camera/imagecodec/ImagePool$ImageFormat;II)V
 
     sget-object v1, Lcom/xiaomi/camera/imagecodec/JpegEncoder;->TAG:Ljava/lang/String;
 

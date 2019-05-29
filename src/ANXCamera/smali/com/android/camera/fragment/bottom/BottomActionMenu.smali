@@ -549,6 +549,41 @@
     return-void
 .end method
 
+.method public clearBottomMenu()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/camera/fragment/bottom/BottomActionMenu;->beautyOperateMenuView:Landroid/widget/LinearLayout;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/camera/fragment/bottom/BottomActionMenu;->beautyOperateMenuView:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v0}, Landroid/widget/LinearLayout;->getVisibility()I
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/camera/fragment/bottom/BottomActionMenu;->beautyOperateMenuView:Landroid/widget/LinearLayout;
+
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    iget-object v0, p0, Lcom/android/camera/fragment/bottom/BottomActionMenu;->mCameraOperateMenuView:Lcom/android/camera/ui/EdgeHorizonScrollView;
+
+    invoke-static {v0}, Lcom/android/camera/animation/type/AlphaInOnSubscribe;->directSetResult(Landroid/view/View;)V
+
+    return-void
+
+    :cond_1
+    :goto_0
+    return-void
+.end method
+
 .method public expandShine(Lcom/android/camera/data/data/runing/ComponentRunningShine;I)V
     .locals 11
 
@@ -635,7 +670,7 @@
 
     check-cast v6, Lcom/android/camera/data/data/ComponentDataItem;
 
-    const v8, 0x7f040003
+    const v8, 0x7f040004
 
     iget-object v9, p0, Lcom/android/camera/fragment/bottom/BottomActionMenu;->mContainerView:Landroid/widget/FrameLayout;
 
@@ -667,9 +702,9 @@
 
     invoke-virtual {v8, v9}, Lcom/android/camera/ui/ColorActivateTextView;->setTag(Ljava/lang/Object;)V
 
-    invoke-virtual {v8, p0}, Lcom/android/camera/ui/ColorActivateTextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
     if-eqz v4, :cond_2
+
+    invoke-virtual {v8, p0}, Lcom/android/camera/ui/ColorActivateTextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     iget-object v9, v6, Lcom/android/camera/data/data/ComponentDataItem;->mValue:Ljava/lang/String;
 
@@ -898,15 +933,15 @@
 
     iget-object v0, p0, Lcom/android/camera/fragment/bottom/BottomActionMenu;->mLastSelectedView:Lcom/android/camera/ui/ColorActivateTextView;
 
-    const/4 v1, 0x1
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const/4 v2, 0x1
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/camera/fragment/bottom/BottomActionMenu;->mLastSelectedView:Lcom/android/camera/ui/ColorActivateTextView;
 
-    invoke-virtual {v0, v2}, Lcom/android/camera/ui/ColorActivateTextView;->setActivated(Z)V
+    invoke-virtual {v0, v1}, Lcom/android/camera/ui/ColorActivateTextView;->setActivated(Z)V
 
     move-object v0, p1
 
@@ -916,7 +951,7 @@
 
     iget-object v0, p0, Lcom/android/camera/fragment/bottom/BottomActionMenu;->mLastSelectedView:Lcom/android/camera/ui/ColorActivateTextView;
 
-    invoke-virtual {v0, v1}, Lcom/android/camera/ui/ColorActivateTextView;->setActivated(Z)V
+    invoke-virtual {v0, v2}, Lcom/android/camera/ui/ColorActivateTextView;->setActivated(Z)V
 
     :cond_0
     invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
@@ -954,7 +989,18 @@
     goto :goto_0
 
     :pswitch_0
-    const-string v1, "11"
+    const-string v4, "11"
+
+    invoke-virtual {p1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    goto :goto_1
+
+    :pswitch_1
+    const-string v1, "10"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -963,17 +1009,6 @@
     if-eqz v1, :cond_2
 
     move v1, v2
-
-    goto :goto_1
-
-    :pswitch_1
-    const-string v2, "10"
-
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
 
     goto :goto_1
 
@@ -1010,7 +1045,7 @@
     nop
 
     :goto_2
-    invoke-interface {v0, p1}, Lcom/android/camera/protocol/ModeProtocol$MiBeautyProtocol;->switchShineType(Ljava/lang/String;)V
+    invoke-interface {v0, p1, v2}, Lcom/android/camera/protocol/ModeProtocol$MiBeautyProtocol;->switchShineType(Ljava/lang/String;Z)V
 
     :cond_3
     return-void

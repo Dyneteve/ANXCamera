@@ -1,6 +1,5 @@
 package com.android.camera.constant;
 
-import android.text.TextUtils;
 import com.android.camera.CameraSettings;
 import com.android.camera.module.ModuleManager;
 import java.lang.annotation.Retention;
@@ -9,9 +8,11 @@ import java.lang.annotation.RetentionPolicy;
 public class BeautyConstant {
     public static final int AI_HUMAN_BEAUTY_SMOOTH_LEVEL = 10;
     public static final String[] BEAUTY_CATEGORY_BACK_FIGURE = {"pref_beauty_whole_body_slim_ratio", "key_beauty_leg_slim_ratio", "pref_beauty_head_slim_ratio", "pref_beauty_body_slim_ratio", "pref_beauty_shoulder_slim_ratio"};
+    public static final String[] BEAUTY_CATEGORY_FRONT_ADVANCE = {"pref_beautify_skin_smooth_ratio_key", "pref_beautify_slim_face_ratio_key", "pref_beautify_enlarge_eye_ratio_key", "pref_beautify_skin_color_ratio_key"};
     public static final String[] BEAUTY_CATEGORY_FRONT_MAKEUP = {"pref_beautify_eyebrow_dye_ratio_key", "pref_beautify_pupil_line_ratio_key", "pref_beautify_jelly_lips_ratio_key", "pref_eye_light_type_key", "pref_beautify_blusher_ratio_key"};
-    public static final String[] BEAUTY_CATEGORY_FRONT_REMODELING = {"pref_beautify_slim_face_ratio_key", "pref_beautify_enlarge_eye_ratio_key", "pref_beautify_nose_ratio_key", "pref_beautify_chin_ratio_key", "pref_beautify_lips_ratio_key", "pref_beautify_risorius_ratio_key", "pref_beautify_neck_ratio_key", "pref_beautify_smile_ratio_key", "pref_beautify_slim_nose_ratio_key"};
+    public static final String[] BEAUTY_CATEGORY_FRONT_REMODELING = {"pref_beautify_slim_face_ratio_key", "pref_beautify_enlarge_eye_ratio_key", "pref_beautify_nose_ratio_key", "pref_beautify_chin_ratio_key", "pref_beautify_lips_ratio_key", "pref_beautify_risorius_ratio_key", "pref_beautify_neck_ratio_key", "pref_beautify_smile_ratio_key", "pref_beautify_slim_nose_ratio_key", "pref_beautify_hairline_ratio_key"};
     public static final String[] BEAUTY_CATEGORY_LEVEL = {"pref_beautify_level_key_capture", "pref_beautify_skin_smooth_ratio_key"};
+    public static final String[] BEAUTY_CATEGORY_LIVE = {"key_live_shrink_face_ratio", "key_live_enlarge_eye_ratio", "key_live_smooth_strength"};
     public static final int BEAUTY_INVALID_VALUE = 0;
     public static final String BEAUTY_LEVEL = "pref_beautify_level_key_capture";
     public static final String BEAUTY_RESET = "RESET";
@@ -22,6 +23,7 @@ public class BeautyConstant {
     public static final String ENLARGE_EYE_RATIO = "pref_beautify_enlarge_eye_ratio_key";
     public static final String EYEBROW_DYE_RATIO = "pref_beautify_eyebrow_dye_ratio_key";
     public static final String EYE_LIGHT = "pref_eye_light_type_key";
+    public static final String HAIRLINE_RATIO = "pref_beautify_hairline_ratio_key";
     public static final String HEAD_SLIM_RATIO = "pref_beauty_head_slim_ratio";
     public static final String JELLY_LIPS_RATIO = "pref_beautify_jelly_lips_ratio_key";
     public static final String LEG_SLIM_RATIO = "key_beauty_leg_slim_ratio";
@@ -140,63 +142,59 @@ public class BeautyConstant {
         }
     }
 
-    /* JADX WARNING: Removed duplicated region for block: B:20:0x0040 A[RETURN] */
-    /* JADX WARNING: Removed duplicated region for block: B:21:0x0041 A[RETURN] */
-    /* JADX WARNING: Removed duplicated region for block: B:22:0x0042 A[RETURN] */
-    /* JADX WARNING: Removed duplicated region for block: B:23:0x0043 A[RETURN] */
+    /* JADX WARNING: Removed duplicated region for block: B:17:0x0038 A[RETURN] */
+    /* JADX WARNING: Removed duplicated region for block: B:18:0x0039 A[RETURN] */
+    /* JADX WARNING: Removed duplicated region for block: B:19:0x003a A[RETURN] */
+    /* JADX WARNING: Removed duplicated region for block: B:20:0x003b A[RETURN] */
     /* Code decompiled incorrectly, please refer to instructions dump. */
     public static boolean isLiveBeautyModeKey(String str) {
         char c;
-        if (!TextUtils.isEmpty(str)) {
-            int hashCode = str.hashCode();
-            if (hashCode == -2110473153) {
-                if (str.equals("key_live_smooth_strength")) {
-                    c = 2;
-                    switch (c) {
-                        case 0:
-                            break;
-                        case 1:
-                            break;
-                        case 2:
-                            break;
-                    }
-                }
-            } else if (hashCode == 175697132) {
-                if (str.equals("key_live_shrink_face_ratio")) {
-                    c = 0;
-                    switch (c) {
-                        case 0:
-                            break;
-                        case 1:
-                            break;
-                        case 2:
-                            break;
-                    }
-                }
-            } else if (hashCode == 1771202045 && str.equals("key_live_enlarge_eye_ratio")) {
-                c = 1;
+        int hashCode = str.hashCode();
+        if (hashCode == -2110473153) {
+            if (str.equals("key_live_smooth_strength")) {
+                c = 2;
                 switch (c) {
                     case 0:
-                        return true;
+                        break;
                     case 1:
-                        return true;
+                        break;
                     case 2:
-                        return true;
-                    default:
-                        return false;
+                        break;
                 }
             }
-            c = 65535;
+        } else if (hashCode == 175697132) {
+            if (str.equals("key_live_shrink_face_ratio")) {
+                c = 0;
+                switch (c) {
+                    case 0:
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                }
+            }
+        } else if (hashCode == 1771202045 && str.equals("key_live_enlarge_eye_ratio")) {
+            c = 1;
             switch (c) {
                 case 0:
-                    break;
+                    return true;
                 case 1:
-                    break;
+                    return true;
                 case 2:
-                    break;
+                    return true;
+                default:
+                    return false;
             }
-        } else {
-            return false;
+        }
+        c = 65535;
+        switch (c) {
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
         }
     }
 
@@ -233,6 +231,10 @@ public class BeautyConstant {
         }
     }
 
+    public static String warppedSettingForLive(String str) {
+        return str;
+    }
+
     public static String wrappedSettingKey(String str) {
         int activeModuleIndex = ModuleManager.getActiveModuleIndex();
         if (activeModuleIndex == 161) {
@@ -242,17 +244,18 @@ public class BeautyConstant {
             if (activeModuleIndex == 171) {
                 return wrappedSettingKeyForPortrait(str);
             }
-            if (activeModuleIndex != 173) {
-                switch (activeModuleIndex) {
-                    case 175:
-                        break;
-                    case 176:
-                        return wrappedSettingKeyForWideSelfie(str);
-                    case 177:
-                        return wrappedSettingKeyForMimoji(str);
-                    default:
-                        return wrappedSettingKeyForVideo(str);
-                }
+            switch (activeModuleIndex) {
+                case 173:
+                case 175:
+                    break;
+                case 174:
+                    return warppedSettingForLive(str);
+                case 176:
+                    return wrappedSettingKeyForWideSelfie(str);
+                case 177:
+                    return wrappedSettingKeyForMimoji(str);
+                default:
+                    return wrappedSettingKeyForVideo(str);
             }
         }
         return wrappedSettingKeyForCapture(str);

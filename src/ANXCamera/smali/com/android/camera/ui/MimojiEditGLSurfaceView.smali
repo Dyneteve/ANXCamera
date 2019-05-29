@@ -47,6 +47,8 @@
 
 .field private mIsStopRender:Z
 
+.field private mNeedRenderBG:Z
+
 .field private mSaveConfigThum:Z
 
 
@@ -122,31 +124,33 @@
 
     iput-boolean p1, p0, Lcom/android/camera/ui/MimojiEditGLSurfaceView;->mSaveConfigThum:Z
 
-    const/4 p2, 0x2
+    const/4 p2, 0x1
 
-    invoke-virtual {p0, p2}, Lcom/android/camera/ui/MimojiEditGLSurfaceView;->setEGLContextClientVersion(I)V
+    iput-boolean p2, p0, Lcom/android/camera/ui/MimojiEditGLSurfaceView;->mNeedRenderBG:Z
 
-    iget-object p2, p0, Lcom/android/camera/ui/MimojiEditGLSurfaceView;->mEglConfigChooser:Lcom/android/camera/ui/MimojiEditGLSurfaceView$MyEGLConfigChooser;
+    const/4 v0, 0x2
 
-    invoke-virtual {p0, p2}, Lcom/android/camera/ui/MimojiEditGLSurfaceView;->setEGLConfigChooser(Landroid/opengl/GLSurfaceView$EGLConfigChooser;)V
+    invoke-virtual {p0, v0}, Lcom/android/camera/ui/MimojiEditGLSurfaceView;->setEGLContextClientVersion(I)V
+
+    iget-object v0, p0, Lcom/android/camera/ui/MimojiEditGLSurfaceView;->mEglConfigChooser:Lcom/android/camera/ui/MimojiEditGLSurfaceView$MyEGLConfigChooser;
+
+    invoke-virtual {p0, v0}, Lcom/android/camera/ui/MimojiEditGLSurfaceView;->setEGLConfigChooser(Landroid/opengl/GLSurfaceView$EGLConfigChooser;)V
 
     invoke-virtual {p0, p0}, Lcom/android/camera/ui/MimojiEditGLSurfaceView;->setRenderer(Landroid/opengl/GLSurfaceView$Renderer;)V
 
     invoke-virtual {p0, p1}, Lcom/android/camera/ui/MimojiEditGLSurfaceView;->setRenderMode(I)V
 
-    const/4 p1, 0x1
-
-    invoke-virtual {p0, p1}, Lcom/android/camera/ui/MimojiEditGLSurfaceView;->setPreserveEGLContextOnPause(Z)V
+    invoke-virtual {p0, p2}, Lcom/android/camera/ui/MimojiEditGLSurfaceView;->setPreserveEGLContextOnPause(Z)V
 
     invoke-virtual {p0}, Lcom/android/camera/ui/MimojiEditGLSurfaceView;->getHolder()Landroid/view/SurfaceHolder;
 
     move-result-object p1
 
-    const/4 p2, -0x3
+    const/4 p2, 0x4
 
     invoke-interface {p1, p2}, Landroid/view/SurfaceHolder;->setFormat(I)V
 
-    invoke-static {}, Lcom/mi/config/b;->hC()Z
+    invoke-static {}, Lcom/mi/config/b;->hF()Z
 
     move-result p1
 
@@ -274,20 +278,13 @@
 .end method
 
 .method public onDrawFrame(Ljavax/microedition/khronos/opengles/GL10;)V
-    .locals 10
+    .locals 11
 
-    iget-boolean p1, p0, Lcom/android/camera/ui/MimojiEditGLSurfaceView;->mIsStopRender:Z
+    const p1, 0x3da88ce7    # 0.0823f
 
-    if-eqz p1, :cond_0
+    const/high16 v0, 0x3f800000    # 1.0f
 
-    return-void
-
-    :cond_0
-    const/high16 p1, 0x3f800000    # 1.0f
-
-    const/4 v0, 0x0
-
-    invoke-static {v0, v0, v0, p1}, Landroid/opengl/GLES20;->glClearColor(FFFF)V
+    invoke-static {p1, p1, p1, v0}, Landroid/opengl/GLES20;->glClearColor(FFFF)V
 
     const/16 p1, 0xb71
 
@@ -297,6 +294,13 @@
 
     invoke-static {p1}, Landroid/opengl/GLES20;->glClear(I)V
 
+    iget-boolean p1, p0, Lcom/android/camera/ui/MimojiEditGLSurfaceView;->mIsStopRender:Z
+
+    if-eqz p1, :cond_0
+
+    return-void
+
+    :cond_0
     invoke-virtual {p0}, Lcom/android/camera/ui/MimojiEditGLSurfaceView;->getWidth()I
 
     move-result v2
@@ -335,15 +339,21 @@
 
     new-array p1, p1, [B
 
-    iget-object v0, p0, Lcom/android/camera/ui/MimojiEditGLSurfaceView;->mAvatar:Lcom/arcsoft/avatar/AvatarEngine;
+    invoke-static {}, Lcom/android/camera/fragment/mimoji/AvatarEngineManager;->getInstance()Lcom/android/camera/fragment/mimoji/AvatarEngineManager;
 
-    const/16 v1, 0xc8
+    move-result-object v0
 
-    const/16 v2, 0xc8
+    invoke-virtual {v0}, Lcom/android/camera/fragment/mimoji/AvatarEngineManager;->queryAvatar()Lcom/arcsoft/avatar/AvatarEngine;
 
-    const/4 v3, 0x0
+    move-result-object v0
 
-    const/4 v4, 0x0
+    const/16 v1, 0xf4
+
+    const/16 v2, 0x124
+
+    const/16 v3, 0x15
+
+    const/16 v4, 0x14
 
     const/16 v6, 0xc8
 
@@ -353,9 +363,11 @@
 
     sget-object v9, Lcom/android/camera/ui/MimojiEditGLSurfaceView;->BACKGROUND_COLOR:[F
 
+    const/high16 v10, 0x3f800000    # 1.0f
+
     move-object v5, p1
 
-    invoke-virtual/range {v0 .. v9}, Lcom/arcsoft/avatar/AvatarEngine;->renderThumb(IIII[BIII[F)I
+    invoke-virtual/range {v0 .. v10}, Lcom/arcsoft/avatar/AvatarEngine;->renderThumb(IIII[BIII[FF)I
 
     iget-object v0, p0, Lcom/android/camera/ui/MimojiEditGLSurfaceView;->mHandler:Landroid/os/Handler;
 
@@ -403,6 +415,14 @@
     return-void
 .end method
 
+.method public setNeedRenderBG(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/camera/ui/MimojiEditGLSurfaceView;->mNeedRenderBG:Z
+
+    return-void
+.end method
+
 .method public setSaveConfigThum(Z)V
     .locals 0
 
@@ -444,7 +464,7 @@
 
     const/4 v1, 0x0
 
-    const/high16 v2, 0x3f800000    # 1.0f
+    const v2, 0x3f59999a    # 0.85f
 
     invoke-virtual {v0, v1, v2}, Lcom/arcsoft/avatar/AvatarEngine;->setRenderScene(ZF)V
 

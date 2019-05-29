@@ -45,7 +45,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/FragmentBeauty$5;->this$0:Lcom/android/camera/fragment/FragmentBeauty;
 
-    invoke-static {p1}, Lcom/android/camera/fragment/FragmentBeauty;->access$900(Lcom/android/camera/fragment/FragmentBeauty;)Lcom/android/camera/fragment/beauty/BeautyEyeLightFragment;
+    invoke-static {p1}, Lcom/android/camera/fragment/FragmentBeauty;->access$500(Lcom/android/camera/fragment/FragmentBeauty;)Lcom/android/camera/fragment/beauty/BeautyEyeLightFragment;
 
     move-result-object p1
 

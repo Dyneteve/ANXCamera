@@ -37,114 +37,74 @@
 
 # virtual methods
 .method protected getExtSDCardPaths()[Ljava/lang/String;
-    .locals 9
+    .locals 6
     .annotation build Landroid/annotation/TargetApi;
         value = 0x13
     .end annotation
 
     const/4 v0, 0x0
 
-    new-array v1, v0, [Ljava/lang/String;
+    new-array v0, v0, [Ljava/lang/String;
+
+    new-instance v1, Ljava/util/ArrayList;
+
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     invoke-static {}, Lcom/android/camera/CameraAppImpl;->getAndroidContext()Landroid/content/Context;
 
     move-result-object v2
 
-    const-string v3, "ExternalTest"
-
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getExternalFilesDirs(Ljava/lang/String;)[Ljava/io/File;
+    invoke-static {v2}, Lcom/android/camera/lib/compatibility/util/CompatibilityUtils;->getSdcardPath(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v2
 
-    if-nez v2, :cond_0
+    const-string v3, "FileCompat"
 
-    return-object v1
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "getExtSDCardPaths: activePath = "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_0
-    invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;
+    invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
 
-    move-result-object v3
+    move-result v2
 
-    invoke-virtual {v3}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+    if-nez v2, :cond_1
 
-    move-result-object v3
-
-    new-instance v4, Ljava/util/ArrayList;
-
-    invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
-
-    array-length v5, v2
-
-    move v6, v0
-
-    :goto_0
-    if-ge v6, v5, :cond_4
-
-    aget-object v7, v2, v6
-
-    if-nez v7, :cond_1
-
-    goto :goto_1
-
-    :cond_1
-    invoke-virtual {v7}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
-
-    move-result-object v7
-
-    const-string v8, "/Android/data"
-
-    invoke-virtual {v7, v8}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
-
-    move-result v8
-
-    if-gtz v8, :cond_2
-
-    goto :goto_1
-
-    :cond_2
-    invoke-virtual {v7, v0, v8}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v3, v7}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_3
-
-    goto :goto_1
-
-    :cond_3
-    invoke-interface {v4, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    :goto_1
-    add-int/lit8 v6, v6, 0x1
-
-    goto :goto_0
-
-    :cond_4
-    invoke-interface {v4}, Ljava/util/List;->isEmpty()Z
-
-    move-result v0
-
-    if-nez v0, :cond_5
-
-    invoke-interface {v4}, Ljava/util/List;->size()I
+    invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v0
 
     new-array v0, v0, [Ljava/lang/String;
 
-    invoke-interface {v4, v0}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-interface {v1, v0}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object v0
 
-    move-object v1, v0
+    check-cast v0, [Ljava/lang/String;
 
-    check-cast v1, [Ljava/lang/String;
-
-    :cond_5
-    return-object v1
+    :cond_1
+    return-object v0
 .end method
 
 .method public getSDPath(Ljava/lang/String;)Ljava/lang/String;

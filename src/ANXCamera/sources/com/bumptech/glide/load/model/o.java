@@ -11,20 +11,20 @@ import java.util.Map;
 
 /* compiled from: ModelLoaderRegistry */
 public class o {
-    private final q jY;
-    private final a jZ;
+    private final q jZ;
+    private final a ka;
 
     /* compiled from: ModelLoaderRegistry */
     private static class a {
-        private final Map<Class<?>, C0007a<?>> ka = new HashMap();
+        private final Map<Class<?>, C0007a<?>> kb = new HashMap();
 
         /* compiled from: ModelLoaderRegistry */
         /* renamed from: com.bumptech.glide.load.model.o$a$a reason: collision with other inner class name */
         private static class C0007a<Model> {
-            final List<m<Model, ?>> kb;
+            final List<m<Model, ?>> kc;
 
             public C0007a(List<m<Model, ?>> list) {
-                this.kb = list;
+                this.kc = list;
             }
         }
 
@@ -32,7 +32,7 @@ public class o {
         }
 
         public <Model> void a(Class<Model> cls, List<m<Model, ?>> list) {
-            if (((C0007a) this.ka.put(cls, new C0007a(list))) != null) {
+            if (((C0007a) this.kb.put(cls, new C0007a(list))) != null) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("Already cached loaders for model: ");
                 sb.append(cls);
@@ -41,16 +41,16 @@ public class o {
         }
 
         public void clear() {
-            this.ka.clear();
+            this.kb.clear();
         }
 
         @Nullable
         public <Model> List<m<Model, ?>> j(Class<Model> cls) {
-            C0007a aVar = (C0007a) this.ka.get(cls);
+            C0007a aVar = (C0007a) this.kb.get(cls);
             if (aVar == null) {
                 return null;
             }
-            return aVar.kb;
+            return aVar.kc;
         }
     }
 
@@ -59,8 +59,8 @@ public class o {
     }
 
     private o(@NonNull q qVar) {
-        this.jZ = new a();
-        this.jY = qVar;
+        this.ka = new a();
+        this.jZ = qVar;
     }
 
     private <Model, Data> void d(@NonNull List<n<? extends Model, ? extends Data>> list) {
@@ -71,12 +71,12 @@ public class o {
 
     @NonNull
     private <A> List<m<A, ?>> i(@NonNull Class<A> cls) {
-        List<m<A, ?>> j = this.jZ.j(cls);
+        List<m<A, ?>> j = this.ka.j(cls);
         if (j != null) {
             return j;
         }
-        List<m<A, ?>> unmodifiableList = Collections.unmodifiableList(this.jY.k(cls));
-        this.jZ.a(cls, unmodifiableList);
+        List<m<A, ?>> unmodifiableList = Collections.unmodifiableList(this.jZ.k(cls));
+        this.ka.a(cls, unmodifiableList);
         return unmodifiableList;
     }
 
@@ -86,22 +86,22 @@ public class o {
     }
 
     public synchronized <Model, Data> void a(@NonNull Class<Model> cls, @NonNull Class<Data> cls2) {
-        d(this.jY.c(cls, cls2));
-        this.jZ.clear();
+        d(this.jZ.c(cls, cls2));
+        this.ka.clear();
     }
 
     public synchronized <Model, Data> m<Model, Data> b(@NonNull Class<Model> cls, @NonNull Class<Data> cls2) {
-        return this.jY.b(cls, cls2);
+        return this.jZ.b(cls, cls2);
     }
 
     public synchronized <Model, Data> void d(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull n<? extends Model, ? extends Data> nVar) {
-        this.jY.d(cls, cls2, nVar);
-        this.jZ.clear();
+        this.jZ.d(cls, cls2, nVar);
+        this.ka.clear();
     }
 
     public synchronized <Model, Data> void e(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull n<? extends Model, ? extends Data> nVar) {
-        this.jY.e(cls, cls2, nVar);
-        this.jZ.clear();
+        this.jZ.e(cls, cls2, nVar);
+        this.ka.clear();
     }
 
     @NonNull
@@ -120,12 +120,12 @@ public class o {
     }
 
     public synchronized <Model, Data> void f(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull n<? extends Model, ? extends Data> nVar) {
-        d(this.jY.g(cls, cls2, nVar));
-        this.jZ.clear();
+        d(this.jZ.g(cls, cls2, nVar));
+        this.ka.clear();
     }
 
     @NonNull
     public synchronized List<Class<?>> h(@NonNull Class<?> cls) {
-        return this.jY.h(cls);
+        return this.jZ.h(cls);
     }
 }

@@ -23,6 +23,7 @@ public class BeautyValues implements Parcelable {
     public int mBeautyChin;
     public int mBeautyEnlargeEye;
     public int mBeautyEyebrowDye;
+    public int mBeautyHairLine;
     public int mBeautyHeadSlim;
     public int mBeautyJellyLips;
     public int mBeautyLegSlim;
@@ -45,7 +46,7 @@ public class BeautyValues implements Parcelable {
 
     protected BeautyValues(Parcel parcel) {
         this.mBeautyLevel = parcel.readString();
-        if (b.iw()) {
+        if (b.iz()) {
             this.mBeautySkinSmooth = parcel.readInt();
             this.mBeautySlimFace = parcel.readInt();
             this.mBeautyEnlargeEye = parcel.readInt();
@@ -56,6 +57,7 @@ public class BeautyValues implements Parcelable {
             this.mBeautyNeck = parcel.readInt();
             this.mBeautySmile = parcel.readInt();
             this.mBeautySlimNose = parcel.readInt();
+            this.mBeautyHairLine = parcel.readInt();
             this.mBeautyEyebrowDye = parcel.readInt();
             this.mBeautyPupilLine = parcel.readInt();
             this.mBeautyJellyLips = parcel.readInt();
@@ -88,6 +90,7 @@ public class BeautyValues implements Parcelable {
             this.mBeautyNeck = beautyValues.mBeautyNeck;
             this.mBeautySmile = beautyValues.mBeautySmile;
             this.mBeautySlimNose = beautyValues.mBeautySlimNose;
+            this.mBeautyHairLine = beautyValues.mBeautyHairLine;
             this.mBeautyEyebrowDye = beautyValues.mBeautyEyebrowDye;
             this.mBeautyPupilLine = beautyValues.mBeautyPupilLine;
             this.mBeautyJellyLips = beautyValues.mBeautyJellyLips;
@@ -111,22 +114,22 @@ public class BeautyValues implements Parcelable {
         switch (str.hashCode()) {
             case -1735290593:
                 if (str.equals("pref_beauty_body_slim_ratio")) {
-                    c = 16;
+                    c = 17;
                     break;
                 }
             case -1584074159:
                 if (str.equals("pref_beautify_jelly_lips_ratio_key")) {
-                    c = 13;
+                    c = 14;
                     break;
                 }
             case -1518569458:
                 if (str.equals("pref_beauty_butt_slim_ratio")) {
-                    c = 20;
+                    c = 21;
                     break;
                 }
             case -1262324777:
                 if (str.equals("pref_beauty_whole_body_slim_ratio")) {
-                    c = 19;
+                    c = 20;
                     break;
                 }
             case -1110975408:
@@ -136,7 +139,7 @@ public class BeautyValues implements Parcelable {
                 }
             case -958841118:
                 if (str.equals("pref_beautify_eyebrow_dye_ratio_key")) {
-                    c = 11;
+                    c = 12;
                     break;
                 }
             case -897176419:
@@ -161,7 +164,7 @@ public class BeautyValues implements Parcelable {
                 }
             case -146567779:
                 if (str.equals("key_beauty_leg_slim_ratio")) {
-                    c = 18;
+                    c = 19;
                     break;
                 }
             case -39674120:
@@ -196,22 +199,27 @@ public class BeautyValues implements Parcelable {
                 }
             case 1427427765:
                 if (str.equals("pref_beautify_blusher_ratio_key")) {
-                    c = 14;
+                    c = 15;
                     break;
                 }
             case 1644342645:
                 if (str.equals("pref_beautify_pupil_line_ratio_key")) {
-                    c = 12;
+                    c = 13;
+                    break;
+                }
+            case 1659922406:
+                if (str.equals("pref_beautify_hairline_ratio_key")) {
+                    c = 11;
                     break;
                 }
             case 1709402593:
                 if (str.equals("pref_beauty_shoulder_slim_ratio")) {
-                    c = 17;
+                    c = 18;
                     break;
                 }
             case 1945143841:
                 if (str.equals("pref_beauty_head_slim_ratio")) {
-                    c = 15;
+                    c = 16;
                     break;
                 }
             default:
@@ -242,24 +250,26 @@ public class BeautyValues implements Parcelable {
             case 10:
                 return this.mBeautySlimNose;
             case 11:
-                return this.mBeautyEyebrowDye;
+                return this.mBeautyHairLine;
             case 12:
-                return this.mBeautyPupilLine;
+                return this.mBeautyEyebrowDye;
             case 13:
-                return this.mBeautyJellyLips;
+                return this.mBeautyPupilLine;
             case 14:
-                return this.mBeautyBlusher;
+                return this.mBeautyJellyLips;
             case 15:
-                return this.mBeautyHeadSlim;
+                return this.mBeautyBlusher;
             case 16:
-                return this.mBeautyBodySlim;
+                return this.mBeautyHeadSlim;
             case 17:
-                return this.mBeautyShoulderSlim;
+                return this.mBeautyBodySlim;
             case 18:
-                return this.mBeautyLegSlim;
+                return this.mBeautyShoulderSlim;
             case 19:
-                return this.mBeautyWholeBodySlim;
+                return this.mBeautyLegSlim;
             case 20:
+                return this.mBeautyWholeBodySlim;
+            case 21:
                 return this.mBeautyButtSlim;
             default:
                 return 0;
@@ -279,11 +289,15 @@ public class BeautyValues implements Parcelable {
     }
 
     public boolean isBeautyModelOn() {
-        return this.mBeautySlimFace > 0 || this.mBeautyEnlargeEye > 0 || this.mBeautyNose > 0 || this.mBeautyRisorius > 0 || !(this.mBeautyLips == 0 || this.mBeautyLips == 0) || (!(this.mBeautyChin == 0 || this.mBeautyChin == 0) || this.mBeautyNeck > 0 || this.mBeautySmile > 0 || this.mBeautySlimNose > 0);
+        return this.mBeautySlimFace > 0 || this.mBeautyEnlargeEye > 0 || this.mBeautyNose > 0 || this.mBeautyRisorius > 0 || !(this.mBeautyLips == 0 || this.mBeautyLips == 0) || (!(this.mBeautyChin == 0 || this.mBeautyChin == 0) || this.mBeautyNeck > 0 || this.mBeautySmile > 0 || this.mBeautySlimNose > 0 || this.mBeautyHairLine > 0);
     }
 
     public boolean isFaceBeautyOn() {
         return isBeautyLevelOn() || isSmoothLevelOn() || isBeautyModelOn() || isBeautyMakeUpOn() || isBeautyBodyOn();
+    }
+
+    public boolean isFaceBeautyOnWithOutSlim() {
+        return isBeautyLevelOn() || isSmoothLevelOn() || isBeautyModelOn() || isBeautyMakeUpOn();
     }
 
     public boolean isSmoothLevelOn() {
@@ -329,6 +343,7 @@ public class BeautyValues implements Parcelable {
         this.mBeautyNeck = 0;
         this.mBeautySmile = 0;
         this.mBeautySlimNose = 0;
+        this.mBeautyHairLine = 0;
     }
 
     public void resetBeautyModelLegacy() {
@@ -343,15 +358,15 @@ public class BeautyValues implements Parcelable {
     }
 
     public String toString() {
-        if (!b.iw()) {
+        if (!b.iz()) {
             return String.format(Locale.ENGLISH, "beauty level: %s | sc: %d | sf: %d | ss: %d | ee: %d ", new Object[]{this.mBeautyLevel, Integer.valueOf(this.mBeautySkinColor), Integer.valueOf(this.mBeautySlimFace), Integer.valueOf(this.mBeautySkinSmooth), Integer.valueOf(this.mBeautyEnlargeEye)});
         }
-        return String.format(Locale.ENGLISH, "3d beauty level: %s | sf: %d | ee: %d | ns: %d | rs: %d | lp: %d | cn: %d | nk: %d | se: %d | sn: %d | ed: %d | pl: %d | jl: %d | blusher: %d| headSlim: %d | bodySlim: %d | shoulderSlim: %d | legSlim: %d ", new Object[]{this.mBeautyLevel, Integer.valueOf(this.mBeautySlimFace), Integer.valueOf(this.mBeautyEnlargeEye), Integer.valueOf(this.mBeautyNose), Integer.valueOf(this.mBeautyRisorius), Integer.valueOf(this.mBeautyLips), Integer.valueOf(this.mBeautyChin), Integer.valueOf(this.mBeautyNeck), Integer.valueOf(this.mBeautySmile), Integer.valueOf(this.mBeautySlimNose), Integer.valueOf(this.mBeautyEyebrowDye), Integer.valueOf(this.mBeautyPupilLine), Integer.valueOf(this.mBeautyJellyLips), Integer.valueOf(this.mBeautyBlusher), Integer.valueOf(this.mBeautyHeadSlim), Integer.valueOf(this.mBeautyBodySlim), Integer.valueOf(this.mBeautyShoulderSlim), Integer.valueOf(this.mBeautyLegSlim)});
+        return String.format(Locale.ENGLISH, "3d beauty level: %s | ss: %d |sf: %d | ee: %d | ns: %d | rs: %d | lp: %d | cn: %d | nk: %d | se: %d | sn: %d | hl: %d |ed: %d | pl: %d | jl: %d | blusher: %d| headSlim: %d | bodySlim: %d | shoulderSlim: %d | legSlim: %d ", new Object[]{this.mBeautyLevel, Integer.valueOf(this.mBeautySkinSmooth), Integer.valueOf(this.mBeautySlimFace), Integer.valueOf(this.mBeautyEnlargeEye), Integer.valueOf(this.mBeautyNose), Integer.valueOf(this.mBeautyRisorius), Integer.valueOf(this.mBeautyLips), Integer.valueOf(this.mBeautyChin), Integer.valueOf(this.mBeautyNeck), Integer.valueOf(this.mBeautySmile), Integer.valueOf(this.mBeautySlimNose), Integer.valueOf(this.mBeautyHairLine), Integer.valueOf(this.mBeautyEyebrowDye), Integer.valueOf(this.mBeautyPupilLine), Integer.valueOf(this.mBeautyJellyLips), Integer.valueOf(this.mBeautyBlusher), Integer.valueOf(this.mBeautyHeadSlim), Integer.valueOf(this.mBeautyBodySlim), Integer.valueOf(this.mBeautyShoulderSlim), Integer.valueOf(this.mBeautyLegSlim)});
     }
 
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(this.mBeautyLevel);
-        if (b.iw()) {
+        if (b.iz()) {
             parcel.writeInt(this.mBeautySkinSmooth);
             parcel.writeInt(this.mBeautySlimFace);
             parcel.writeInt(this.mBeautyEnlargeEye);
@@ -362,6 +377,7 @@ public class BeautyValues implements Parcelable {
             parcel.writeInt(this.mBeautyNeck);
             parcel.writeInt(this.mBeautySmile);
             parcel.writeInt(this.mBeautySlimNose);
+            parcel.writeInt(this.mBeautyHairLine);
             parcel.writeInt(this.mBeautyEyebrowDye);
             parcel.writeInt(this.mBeautyPupilLine);
             parcel.writeInt(this.mBeautyJellyLips);

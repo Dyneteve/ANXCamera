@@ -14,17 +14,17 @@
 # static fields
 .field private static final TAG:Ljava/lang/String; = "TransformationUtils"
 
-.field public static final lK:I = 0x6
+.field public static final lL:I = 0x6
 
-.field private static final lL:Landroid/graphics/Paint;
+.field private static final lM:Landroid/graphics/Paint;
 
-.field private static final lM:I = 0x7
-
-.field private static final lN:Landroid/graphics/Paint;
+.field private static final lN:I = 0x7
 
 .field private static final lO:Landroid/graphics/Paint;
 
-.field private static final lP:Ljava/util/Set;
+.field private static final lP:Landroid/graphics/Paint;
+
+.field private static final lQ:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set<",
@@ -34,7 +34,7 @@
     .end annotation
 .end field
 
-.field private static final lQ:Ljava/util/concurrent/locks/Lock;
+.field private static final lR:Ljava/util/concurrent/locks/Lock;
 
 
 # direct methods
@@ -47,7 +47,7 @@
 
     invoke-direct {v0, v1}, Landroid/graphics/Paint;-><init>(I)V
 
-    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/w;->lL:Landroid/graphics/Paint;
+    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/w;->lM:Landroid/graphics/Paint;
 
     new-instance v0, Landroid/graphics/Paint;
 
@@ -55,7 +55,7 @@
 
     invoke-direct {v0, v1}, Landroid/graphics/Paint;-><init>(I)V
 
-    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/w;->lN:Landroid/graphics/Paint;
+    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/w;->lO:Landroid/graphics/Paint;
 
     new-instance v0, Ljava/util/HashSet;
 
@@ -127,9 +127,9 @@
 
     invoke-direct {v0, v2}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V
 
-    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/w;->lP:Ljava/util/Set;
+    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/w;->lQ:Ljava/util/Set;
 
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/w;->lP:Ljava/util/Set;
+    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/w;->lQ:Ljava/util/Set;
 
     sget-object v2, Landroid/os/Build;->MODEL:Ljava/lang/String;
 
@@ -151,15 +151,15 @@
     invoke-direct {v0}, Lcom/bumptech/glide/load/resource/bitmap/w$a;-><init>()V
 
     :goto_0
-    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/w;->lQ:Ljava/util/concurrent/locks/Lock;
+    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/w;->lR:Ljava/util/concurrent/locks/Lock;
 
     new-instance v0, Landroid/graphics/Paint;
 
     invoke-direct {v0, v1}, Landroid/graphics/Paint;-><init>(I)V
 
-    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/w;->lO:Landroid/graphics/Paint;
+    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/w;->lP:Landroid/graphics/Paint;
 
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/w;->lO:Landroid/graphics/Paint;
+    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/w;->lP:Landroid/graphics/Paint;
 
     new-instance v1, Landroid/graphics/PorterDuffXfermode;
 
@@ -591,7 +591,7 @@
         .end annotation
     .end param
 
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/w;->lQ:Ljava/util/concurrent/locks/Lock;
+    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/w;->lR:Ljava/util/concurrent/locks/Lock;
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->lock()V
 
@@ -600,7 +600,7 @@
 
     invoke-direct {v0, p1}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
-    sget-object p1, Lcom/bumptech/glide/load/resource/bitmap/w;->lL:Landroid/graphics/Paint;
+    sget-object p1, Lcom/bumptech/glide/load/resource/bitmap/w;->lM:Landroid/graphics/Paint;
 
     invoke-virtual {v0, p0, p2, p1}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Matrix;Landroid/graphics/Paint;)V
 
@@ -608,7 +608,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    sget-object p0, Lcom/bumptech/glide/load/resource/bitmap/w;->lQ:Ljava/util/concurrent/locks/Lock;
+    sget-object p0, Lcom/bumptech/glide/load/resource/bitmap/w;->lR:Ljava/util/concurrent/locks/Lock;
 
     invoke-interface {p0}, Ljava/util/concurrent/locks/Lock;->unlock()V
 
@@ -619,7 +619,7 @@
     :catchall_0
     move-exception p0
 
-    sget-object p1, Lcom/bumptech/glide/load/resource/bitmap/w;->lQ:Ljava/util/concurrent/locks/Lock;
+    sget-object p1, Lcom/bumptech/glide/load/resource/bitmap/w;->lR:Ljava/util/concurrent/locks/Lock;
 
     invoke-interface {p1}, Ljava/util/concurrent/locks/Lock;->unlock()V
 
@@ -776,7 +776,7 @@
 
     invoke-direct {v1, v7, v7, v4, v6}, Landroid/graphics/RectF;-><init>(FFFF)V
 
-    sget-object v4, Lcom/bumptech/glide/load/resource/bitmap/w;->lQ:Ljava/util/concurrent/locks/Lock;
+    sget-object v4, Lcom/bumptech/glide/load/resource/bitmap/w;->lR:Ljava/util/concurrent/locks/Lock;
 
     invoke-interface {v4}, Ljava/util/concurrent/locks/Lock;->lock()V
 
@@ -797,7 +797,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    sget-object p2, Lcom/bumptech/glide/load/resource/bitmap/w;->lQ:Ljava/util/concurrent/locks/Lock;
+    sget-object p2, Lcom/bumptech/glide/load/resource/bitmap/w;->lR:Ljava/util/concurrent/locks/Lock;
 
     invoke-interface {p2}, Ljava/util/concurrent/locks/Lock;->unlock()V
 
@@ -817,7 +817,7 @@
     :catchall_0
     move-exception p0
 
-    sget-object p1, Lcom/bumptech/glide/load/resource/bitmap/w;->lQ:Ljava/util/concurrent/locks/Lock;
+    sget-object p1, Lcom/bumptech/glide/load/resource/bitmap/w;->lR:Ljava/util/concurrent/locks/Lock;
 
     invoke-interface {p1}, Ljava/util/concurrent/locks/Lock;->unlock()V
 
@@ -1169,7 +1169,7 @@
 .method public static cA()Ljava/util/concurrent/locks/Lock;
     .locals 1
 
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/w;->lQ:Ljava/util/concurrent/locks/Lock;
+    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/w;->lR:Ljava/util/concurrent/locks/Lock;
 
     return-object v0
 .end method
@@ -1251,7 +1251,7 @@
 
     invoke-virtual {p2, v2}, Landroid/graphics/Bitmap;->setHasAlpha(Z)V
 
-    sget-object v2, Lcom/bumptech/glide/load/resource/bitmap/w;->lQ:Ljava/util/concurrent/locks/Lock;
+    sget-object v2, Lcom/bumptech/glide/load/resource/bitmap/w;->lR:Ljava/util/concurrent/locks/Lock;
 
     invoke-interface {v2}, Ljava/util/concurrent/locks/Lock;->lock()V
 
@@ -1260,13 +1260,13 @@
 
     invoke-direct {v2, p2}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
-    sget-object v3, Lcom/bumptech/glide/load/resource/bitmap/w;->lN:Landroid/graphics/Paint;
+    sget-object v3, Lcom/bumptech/glide/load/resource/bitmap/w;->lO:Landroid/graphics/Paint;
 
     invoke-virtual {v2, v1, v1, v1, v3}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
 
     const/4 v1, 0x0
 
-    sget-object v3, Lcom/bumptech/glide/load/resource/bitmap/w;->lO:Landroid/graphics/Paint;
+    sget-object v3, Lcom/bumptech/glide/load/resource/bitmap/w;->lP:Landroid/graphics/Paint;
 
     invoke-virtual {v2, p3, v1, v0, v3}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/RectF;Landroid/graphics/Paint;)V
 
@@ -1274,7 +1274,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/w;->lQ:Ljava/util/concurrent/locks/Lock;
+    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/w;->lR:Ljava/util/concurrent/locks/Lock;
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
 
@@ -1294,7 +1294,7 @@
     :catchall_0
     move-exception p0
 
-    sget-object p1, Lcom/bumptech/glide/load/resource/bitmap/w;->lQ:Ljava/util/concurrent/locks/Lock;
+    sget-object p1, Lcom/bumptech/glide/load/resource/bitmap/w;->lR:Ljava/util/concurrent/locks/Lock;
 
     invoke-interface {p1}, Ljava/util/concurrent/locks/Lock;->unlock()V
 

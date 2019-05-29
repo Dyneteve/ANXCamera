@@ -136,7 +136,7 @@ public class DataItemConfig extends DataItemBase {
                                             str2 = ComponentConfigFlash.FLASH_VALUE_SCREEN_LIGHT_AUTO;
                                             break;
                                         }
-                                    } else if (!b.hj()) {
+                                    } else if (!b.hm()) {
                                         str2 = "0";
                                         break;
                                     } else {

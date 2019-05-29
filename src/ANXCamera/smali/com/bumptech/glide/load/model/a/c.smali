@@ -25,7 +25,7 @@
 
 
 # static fields
-.field private static final kr:Ljava/util/Set;
+.field private static final ks:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set<",
@@ -37,7 +37,7 @@
 
 
 # instance fields
-.field private final kt:Lcom/bumptech/glide/load/model/m;
+.field private final ku:Lcom/bumptech/glide/load/model/m;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/model/m<",
@@ -73,7 +73,7 @@
 
     move-result-object v0
 
-    sput-object v0, Lcom/bumptech/glide/load/model/a/c;->kr:Ljava/util/Set;
+    sput-object v0, Lcom/bumptech/glide/load/model/a/c;->ks:Ljava/util/Set;
 
     return-void
 .end method
@@ -92,7 +92,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/model/a/c;->kt:Lcom/bumptech/glide/load/model/m;
+    iput-object p1, p0, Lcom/bumptech/glide/load/model/a/c;->ku:Lcom/bumptech/glide/load/model/m;
 
     return-void
 .end method
@@ -122,7 +122,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/a/c;->kt:Lcom/bumptech/glide/load/model/m;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/a/c;->ku:Lcom/bumptech/glide/load/model/m;
 
     new-instance v1, Lcom/bumptech/glide/load/model/g;
 
@@ -166,7 +166,7 @@
         .end annotation
     .end param
 
-    sget-object v0, Lcom/bumptech/glide/load/model/a/c;->kr:Ljava/util/Set;
+    sget-object v0, Lcom/bumptech/glide/load/model/a/c;->ks:Ljava/util/Set;
 
     invoke-virtual {p1}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
 

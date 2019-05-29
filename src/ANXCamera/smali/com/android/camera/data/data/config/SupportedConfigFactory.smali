@@ -383,19 +383,19 @@
 
     if-ne p1, p0, :cond_11
 
-    invoke-virtual {v2}, Lcom/mi/config/a;->gB()Z
+    invoke-virtual {v2}, Lcom/mi/config/a;->gC()Z
 
     move-result p0
 
     if-eqz p0, :cond_11
 
-    invoke-static {}, Lcom/mi/config/b;->gP()Z
+    invoke-static {}, Lcom/mi/config/b;->gS()Z
 
     move-result p0
 
     if-eqz p0, :cond_0
 
-    invoke-static {}, Lcom/mi/config/b;->gO()Z
+    invoke-static {}, Lcom/mi/config/b;->gR()Z
 
     move-result p0
 
@@ -404,7 +404,7 @@
     invoke-virtual {v0, v6}, Lcom/android/camera/data/data/config/SupportedConfigs;->add(I)Lcom/android/camera/data/data/config/SupportedConfigs;
 
     :cond_0
-    invoke-static {}, Lcom/mi/config/b;->hQ()Z
+    invoke-static {}, Lcom/mi/config/b;->hT()Z
 
     move-result p0
 
@@ -446,7 +446,7 @@
 
     invoke-virtual {p0, p1}, Lcom/android/camera/data/data/config/SupportedConfigs;->add(I)Lcom/android/camera/data/data/config/SupportedConfigs;
 
-    invoke-static {}, Lcom/mi/config/b;->he()Z
+    invoke-static {}, Lcom/mi/config/b;->hh()Z
 
     move-result p0
 
@@ -493,7 +493,7 @@
     :pswitch_6
     if-eqz p4, :cond_5
 
-    invoke-static {}, Lcom/mi/config/b;->id()Z
+    invoke-static {}, Lcom/mi/config/b;->ig()Z
 
     move-result p1
 
@@ -511,13 +511,13 @@
     if-ne p0, p1, :cond_10
 
     :cond_6
-    invoke-static {}, Lcom/mi/config/b;->gP()Z
+    invoke-static {}, Lcom/mi/config/b;->gS()Z
 
     move-result v2
 
     if-eqz v2, :cond_7
 
-    invoke-static {}, Lcom/mi/config/b;->gO()Z
+    invoke-static {}, Lcom/mi/config/b;->gR()Z
 
     move-result v2
 
@@ -526,7 +526,7 @@
     invoke-virtual {v0, v6}, Lcom/android/camera/data/data/config/SupportedConfigs;->add(I)Lcom/android/camera/data/data/config/SupportedConfigs;
 
     :cond_7
-    invoke-static {}, Lcom/mi/config/b;->hQ()Z
+    invoke-static {}, Lcom/mi/config/b;->hT()Z
 
     move-result v2
 
@@ -559,7 +559,7 @@
     goto :goto_1
 
     :pswitch_7
-    invoke-static {}, Lcom/mi/config/b;->hL()Z
+    invoke-static {}, Lcom/mi/config/b;->hO()Z
 
     move-result p1
 
@@ -570,7 +570,7 @@
     invoke-virtual {v0, p1}, Lcom/android/camera/data/data/config/SupportedConfigs;->add(I)Lcom/android/camera/data/data/config/SupportedConfigs;
 
     :cond_a
-    invoke-static {}, Lcom/mi/config/b;->hE()Z
+    invoke-static {}, Lcom/mi/config/b;->hH()Z
 
     move-result p1
 
@@ -581,7 +581,7 @@
     invoke-virtual {v0, p1}, Lcom/android/camera/data/data/config/SupportedConfigs;->add(I)Lcom/android/camera/data/data/config/SupportedConfigs;
 
     :cond_b
-    invoke-static {}, Lcom/mi/config/b;->hl()Z
+    invoke-static {}, Lcom/mi/config/b;->ho()Z
 
     move-result p1
 
@@ -596,7 +596,7 @@
 
     if-eqz p4, :cond_d
 
-    invoke-static {}, Lcom/mi/config/b;->id()Z
+    invoke-static {}, Lcom/mi/config/b;->ig()Z
 
     move-result p0
 
@@ -926,7 +926,7 @@
 
     move-result-object p1
 
-    invoke-static {}, Lcom/mi/config/b;->hA()Z
+    invoke-static {}, Lcom/mi/config/b;->hD()Z
 
     move-result v0
 
@@ -1194,13 +1194,13 @@
 
     if-nez p0, :cond_13
 
-    invoke-static {}, Lcom/mi/config/b;->he()Z
+    invoke-static {}, Lcom/mi/config/b;->hh()Z
 
     move-result p0
 
     if-eqz p0, :cond_13
 
-    invoke-static {}, Lcom/mi/config/b;->it()Z
+    invoke-static {}, Lcom/mi/config/b;->iw()Z
 
     move-result p0
 

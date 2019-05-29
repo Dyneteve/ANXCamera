@@ -24,7 +24,7 @@
     .end annotation
 .end field
 
-.field private pN:I
+.field private pO:I
 
 
 # direct methods
@@ -39,7 +39,7 @@
 
     const/4 v0, -0x1
 
-    iput v0, p0, Lcom/bumptech/glide/util/a$a;->pN:I
+    iput v0, p0, Lcom/bumptech/glide/util/a$a;->pO:I
 
     iput-object p1, p0, Lcom/bumptech/glide/util/a$a;->byteBuffer:Ljava/nio/ByteBuffer;
 
@@ -72,7 +72,7 @@
 
     move-result p1
 
-    iput p1, p0, Lcom/bumptech/glide/util/a$a;->pN:I
+    iput p1, p0, Lcom/bumptech/glide/util/a$a;->pO:I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -172,7 +172,7 @@
     monitor-enter p0
 
     :try_start_0
-    iget v0, p0, Lcom/bumptech/glide/util/a$a;->pN:I
+    iget v0, p0, Lcom/bumptech/glide/util/a$a;->pO:I
 
     const/4 v1, -0x1
 
@@ -180,7 +180,7 @@
 
     iget-object v0, p0, Lcom/bumptech/glide/util/a$a;->byteBuffer:Ljava/nio/ByteBuffer;
 
-    iget v1, p0, Lcom/bumptech/glide/util/a$a;->pN:I
+    iget v1, p0, Lcom/bumptech/glide/util/a$a;->pO:I
 
     invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
     :try_end_0

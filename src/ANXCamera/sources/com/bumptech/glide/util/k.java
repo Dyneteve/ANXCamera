@@ -16,35 +16,35 @@ import java.util.Queue;
 
 /* compiled from: Util */
 public final class k {
-    private static final int qa = 31;
-    private static final int qb = 17;
-    private static final char[] qc = "0123456789abcdef".toCharArray();
-    private static final char[] qe = new char[64];
+    private static final int qb = 31;
+    private static final int qc = 17;
+    private static final char[] qe = "0123456789abcdef".toCharArray();
+    private static final char[] qf = new char[64];
 
     /* compiled from: Util */
     /* renamed from: com.bumptech.glide.util.k$1 reason: invalid class name */
     static /* synthetic */ class AnonymousClass1 {
-        static final /* synthetic */ int[] hJ = new int[Config.values().length];
+        static final /* synthetic */ int[] hK = new int[Config.values().length];
 
         static {
             try {
-                hJ[Config.ALPHA_8.ordinal()] = 1;
+                hK[Config.ALPHA_8.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                hJ[Config.RGB_565.ordinal()] = 2;
+                hK[Config.RGB_565.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                hJ[Config.ARGB_4444.ordinal()] = 3;
+                hK[Config.ARGB_4444.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
             try {
-                hJ[Config.RGBA_F16.ordinal()] = 4;
+                hK[Config.RGBA_F16.ordinal()] = 4;
             } catch (NoSuchFieldError e4) {
             }
             try {
-                hJ[Config.ARGB_8888.ordinal()] = 5;
+                hK[Config.ARGB_8888.ordinal()] = 5;
             } catch (NoSuchFieldError e5) {
             }
         }
@@ -79,8 +79,8 @@ public final class k {
         for (int i = 0; i < bArr.length; i++) {
             byte b = bArr[i] & -1;
             int i2 = i * 2;
-            cArr[i2] = qc[b >>> 4];
-            cArr[i2 + 1] = qc[b & 15];
+            cArr[i2] = qe[b >>> 4];
+            cArr[i2 + 1] = qe[b & 15];
         }
         return new String(cArr);
     }
@@ -131,7 +131,7 @@ public final class k {
         if (config == null) {
             config = Config.ARGB_8888;
         }
-        switch (AnonymousClass1.hJ[config.ordinal()]) {
+        switch (AnonymousClass1.hK[config.ordinal()]) {
             case 1:
                 return 1;
             case 2:
@@ -168,8 +168,8 @@ public final class k {
     @NonNull
     public static String j(@NonNull byte[] bArr) {
         String a;
-        synchronized (qe) {
-            a = a(bArr, qe);
+        synchronized (qf) {
+            a = a(bArr, qf);
         }
         return a;
     }

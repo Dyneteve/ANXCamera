@@ -17,7 +17,7 @@ import java.util.concurrent.atomic.AtomicReference;
 /* compiled from: ByteBufferUtil */
 public final class a {
     private static final int BUFFER_SIZE = 16384;
-    private static final AtomicReference<byte[]> pM = new AtomicReference<>();
+    private static final AtomicReference<byte[]> pN = new AtomicReference<>();
 
     /* compiled from: ByteBufferUtil */
     /* renamed from: com.bumptech.glide.util.a$a reason: collision with other inner class name */
@@ -25,7 +25,7 @@ public final class a {
         private static final int UNSET = -1;
         @NonNull
         private final ByteBuffer byteBuffer;
-        private int pN = -1;
+        private int pO = -1;
 
         C0010a(@NonNull ByteBuffer byteBuffer2) {
             this.byteBuffer = byteBuffer2;
@@ -36,7 +36,7 @@ public final class a {
         }
 
         public synchronized void mark(int i) {
-            this.pN = this.byteBuffer.position();
+            this.pO = this.byteBuffer.position();
         }
 
         public boolean markSupported() {
@@ -60,8 +60,8 @@ public final class a {
         }
 
         public synchronized void reset() throws IOException {
-            if (this.pN != -1) {
-                this.byteBuffer.position(this.pN);
+            if (this.pO != -1) {
+                this.byteBuffer.position(this.pO);
             } else {
                 throw new IOException("Cannot reset to unset mark position");
             }
@@ -162,7 +162,7 @@ public final class a {
             outputStream.write(h.data, h.offset, h.offset + h.limit);
             return;
         }
-        byte[] bArr = (byte[]) pM.getAndSet(null);
+        byte[] bArr = (byte[]) pN.getAndSet(null);
         if (bArr == null) {
             bArr = new byte[16384];
         }
@@ -171,7 +171,7 @@ public final class a {
             byteBuffer.get(bArr, 0, min);
             outputStream.write(bArr, 0, min);
         }
-        pM.set(bArr);
+        pN.set(bArr);
     }
 
     @NonNull
@@ -195,7 +195,7 @@ public final class a {
     @NonNull
     public static ByteBuffer g(@NonNull InputStream inputStream) throws IOException {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(16384);
-        byte[] bArr = (byte[]) pM.getAndSet(null);
+        byte[] bArr = (byte[]) pN.getAndSet(null);
         if (bArr == null) {
             bArr = new byte[16384];
         }
@@ -204,7 +204,7 @@ public final class a {
             if (read >= 0) {
                 byteArrayOutputStream.write(bArr, 0, read);
             } else {
-                pM.set(bArr);
+                pN.set(bArr);
                 byte[] byteArray = byteArrayOutputStream.toByteArray();
                 return (ByteBuffer) ByteBuffer.allocateDirect(byteArray.length).put(byteArray).position(0);
             }

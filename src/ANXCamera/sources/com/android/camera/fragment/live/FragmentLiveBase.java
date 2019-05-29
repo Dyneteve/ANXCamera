@@ -2,6 +2,7 @@ package com.android.camera.fragment.live;
 
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
+import com.android.camera.CameraSettings;
 import com.android.camera.HybridZoomingSystem;
 import com.android.camera.R;
 import com.android.camera.animation.FragmentAnimationFactory;
@@ -41,7 +42,7 @@ public abstract class FragmentLiveBase extends BaseFragment implements HandleBac
                 }
                 FragmentLiveBase.this.mRemoveFragment = false;
             }
-            if (HybridZoomingSystem.IS_3_OR_MORE_SAT && DataRepository.dataItemGlobal().getCurrentCameraId() == 0) {
+            if (HybridZoomingSystem.IS_3_OR_MORE_SAT && CameraSettings.isSupportedOpticalZoom() && DataRepository.dataItemGlobal().getCurrentCameraId() == 0) {
                 DualController dualController = (DualController) ModeCoordinatorImpl.getInstance().getAttachProtocol(182);
                 if (dualController != null) {
                     dualController.showZoomButton();
@@ -73,12 +74,16 @@ public abstract class FragmentLiveBase extends BaseFragment implements HandleBac
 
     public void onPause() {
         super.onPause();
-        onBackEvent(4);
+        onBackEvent(5);
     }
 
     public void provideAnimateElement(int i, List<Completable> list, int i2) {
         super.provideAnimateElement(i, list, i2);
-        onBackEvent(4);
+        if (i2 != 3) {
+            onBackEvent(5);
+        } else {
+            onBackEvent(4);
+        }
     }
 
     /* access modifiers changed from: protected */

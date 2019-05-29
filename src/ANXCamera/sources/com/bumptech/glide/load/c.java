@@ -6,8 +6,8 @@ import java.security.MessageDigest;
 
 /* compiled from: Key */
 public interface c {
-    public static final String dF = "UTF-8";
-    public static final Charset dG = Charset.forName("UTF-8");
+    public static final String dG = "UTF-8";
+    public static final Charset dH = Charset.forName("UTF-8");
 
     boolean equals(Object obj);
 

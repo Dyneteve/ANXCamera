@@ -20,7 +20,7 @@
 # instance fields
 .field private final duration:I
 
-.field private final pz:Z
+.field private final pA:Z
 
 
 # direct methods
@@ -31,7 +31,7 @@
 
     iput p1, p0, Lcom/bumptech/glide/request/a/d;->duration:I
 
-    iput-boolean p2, p0, Lcom/bumptech/glide/request/a/d;->pz:Z
+    iput-boolean p2, p0, Lcom/bumptech/glide/request/a/d;->pA:Z
 
     return-void
 .end method
@@ -68,7 +68,7 @@
 
     invoke-direct {v2, v3}, Landroid/graphics/drawable/TransitionDrawable;-><init>([Landroid/graphics/drawable/Drawable;)V
 
-    iget-boolean p1, p0, Lcom/bumptech/glide/request/a/d;->pz:Z
+    iget-boolean p1, p0, Lcom/bumptech/glide/request/a/d;->pA:Z
 
     invoke-virtual {v2, p1}, Landroid/graphics/drawable/TransitionDrawable;->setCrossFadeEnabled(Z)V
 

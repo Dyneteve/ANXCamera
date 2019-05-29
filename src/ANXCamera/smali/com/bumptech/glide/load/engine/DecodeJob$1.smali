@@ -15,11 +15,11 @@
 
 
 # static fields
-.field static final synthetic fu:[I
-
 .field static final synthetic fv:[I
 
 .field static final synthetic fw:[I
+
+.field static final synthetic fx:[I
 
 
 # direct methods
@@ -34,14 +34,14 @@
 
     new-array v0, v0, [I
 
-    sput-object v0, Lcom/bumptech/glide/load/engine/DecodeJob$1;->fw:[I
+    sput-object v0, Lcom/bumptech/glide/load/engine/DecodeJob$1;->fx:[I
 
     const/4 v0, 0x1
 
     :try_start_0
-    sget-object v1, Lcom/bumptech/glide/load/engine/DecodeJob$1;->fw:[I
+    sget-object v1, Lcom/bumptech/glide/load/engine/DecodeJob$1;->fx:[I
 
-    sget-object v2, Lcom/bumptech/glide/load/EncodeStrategy;->do:Lcom/bumptech/glide/load/EncodeStrategy;
+    sget-object v2, Lcom/bumptech/glide/load/EncodeStrategy;->dp:Lcom/bumptech/glide/load/EncodeStrategy;
 
     invoke-virtual {v2}, Lcom/bumptech/glide/load/EncodeStrategy;->ordinal()I
 
@@ -60,9 +60,9 @@
     const/4 v1, 0x2
 
     :try_start_1
-    sget-object v2, Lcom/bumptech/glide/load/engine/DecodeJob$1;->fw:[I
+    sget-object v2, Lcom/bumptech/glide/load/engine/DecodeJob$1;->fx:[I
 
-    sget-object v3, Lcom/bumptech/glide/load/EncodeStrategy;->dp:Lcom/bumptech/glide/load/EncodeStrategy;
+    sget-object v3, Lcom/bumptech/glide/load/EncodeStrategy;->dq:Lcom/bumptech/glide/load/EncodeStrategy;
 
     invoke-virtual {v3}, Lcom/bumptech/glide/load/EncodeStrategy;->ordinal()I
 
@@ -86,12 +86,12 @@
 
     new-array v2, v2, [I
 
-    sput-object v2, Lcom/bumptech/glide/load/engine/DecodeJob$1;->fv:[I
+    sput-object v2, Lcom/bumptech/glide/load/engine/DecodeJob$1;->fw:[I
 
     :try_start_2
-    sget-object v2, Lcom/bumptech/glide/load/engine/DecodeJob$1;->fv:[I
+    sget-object v2, Lcom/bumptech/glide/load/engine/DecodeJob$1;->fw:[I
 
-    sget-object v3, Lcom/bumptech/glide/load/engine/DecodeJob$Stage;->fI:Lcom/bumptech/glide/load/engine/DecodeJob$Stage;
+    sget-object v3, Lcom/bumptech/glide/load/engine/DecodeJob$Stage;->fJ:Lcom/bumptech/glide/load/engine/DecodeJob$Stage;
 
     invoke-virtual {v3}, Lcom/bumptech/glide/load/engine/DecodeJob$Stage;->ordinal()I
 
@@ -108,9 +108,9 @@
 
     :goto_2
     :try_start_3
-    sget-object v2, Lcom/bumptech/glide/load/engine/DecodeJob$1;->fv:[I
+    sget-object v2, Lcom/bumptech/glide/load/engine/DecodeJob$1;->fw:[I
 
-    sget-object v3, Lcom/bumptech/glide/load/engine/DecodeJob$Stage;->fJ:Lcom/bumptech/glide/load/engine/DecodeJob$Stage;
+    sget-object v3, Lcom/bumptech/glide/load/engine/DecodeJob$Stage;->fK:Lcom/bumptech/glide/load/engine/DecodeJob$Stage;
 
     invoke-virtual {v3}, Lcom/bumptech/glide/load/engine/DecodeJob$Stage;->ordinal()I
 
@@ -129,9 +129,9 @@
     const/4 v2, 0x3
 
     :try_start_4
-    sget-object v3, Lcom/bumptech/glide/load/engine/DecodeJob$1;->fv:[I
+    sget-object v3, Lcom/bumptech/glide/load/engine/DecodeJob$1;->fw:[I
 
-    sget-object v4, Lcom/bumptech/glide/load/engine/DecodeJob$Stage;->fK:Lcom/bumptech/glide/load/engine/DecodeJob$Stage;
+    sget-object v4, Lcom/bumptech/glide/load/engine/DecodeJob$Stage;->fL:Lcom/bumptech/glide/load/engine/DecodeJob$Stage;
 
     invoke-virtual {v4}, Lcom/bumptech/glide/load/engine/DecodeJob$Stage;->ordinal()I
 
@@ -148,9 +148,9 @@
 
     :goto_4
     :try_start_5
-    sget-object v3, Lcom/bumptech/glide/load/engine/DecodeJob$1;->fv:[I
+    sget-object v3, Lcom/bumptech/glide/load/engine/DecodeJob$1;->fw:[I
 
-    sget-object v4, Lcom/bumptech/glide/load/engine/DecodeJob$Stage;->fM:Lcom/bumptech/glide/load/engine/DecodeJob$Stage;
+    sget-object v4, Lcom/bumptech/glide/load/engine/DecodeJob$Stage;->fN:Lcom/bumptech/glide/load/engine/DecodeJob$Stage;
 
     invoke-virtual {v4}, Lcom/bumptech/glide/load/engine/DecodeJob$Stage;->ordinal()I
 
@@ -169,9 +169,9 @@
 
     :goto_5
     :try_start_6
-    sget-object v3, Lcom/bumptech/glide/load/engine/DecodeJob$1;->fv:[I
+    sget-object v3, Lcom/bumptech/glide/load/engine/DecodeJob$1;->fw:[I
 
-    sget-object v4, Lcom/bumptech/glide/load/engine/DecodeJob$Stage;->fH:Lcom/bumptech/glide/load/engine/DecodeJob$Stage;
+    sget-object v4, Lcom/bumptech/glide/load/engine/DecodeJob$Stage;->fI:Lcom/bumptech/glide/load/engine/DecodeJob$Stage;
 
     invoke-virtual {v4}, Lcom/bumptech/glide/load/engine/DecodeJob$Stage;->ordinal()I
 
@@ -197,12 +197,12 @@
 
     new-array v3, v3, [I
 
-    sput-object v3, Lcom/bumptech/glide/load/engine/DecodeJob$1;->fu:[I
+    sput-object v3, Lcom/bumptech/glide/load/engine/DecodeJob$1;->fv:[I
 
     :try_start_7
-    sget-object v3, Lcom/bumptech/glide/load/engine/DecodeJob$1;->fu:[I
+    sget-object v3, Lcom/bumptech/glide/load/engine/DecodeJob$1;->fv:[I
 
-    sget-object v4, Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;->fD:Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;
+    sget-object v4, Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;->fE:Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;
 
     invoke-virtual {v4}, Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;->ordinal()I
 
@@ -219,9 +219,9 @@
 
     :goto_7
     :try_start_8
-    sget-object v0, Lcom/bumptech/glide/load/engine/DecodeJob$1;->fu:[I
+    sget-object v0, Lcom/bumptech/glide/load/engine/DecodeJob$1;->fv:[I
 
-    sget-object v3, Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;->fE:Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;
+    sget-object v3, Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;->fF:Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;
 
     invoke-virtual {v3}, Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;->ordinal()I
 
@@ -238,9 +238,9 @@
 
     :goto_8
     :try_start_9
-    sget-object v0, Lcom/bumptech/glide/load/engine/DecodeJob$1;->fu:[I
+    sget-object v0, Lcom/bumptech/glide/load/engine/DecodeJob$1;->fv:[I
 
-    sget-object v1, Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;->fF:Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;
+    sget-object v1, Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;->fG:Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;
 
     invoke-virtual {v1}, Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;->ordinal()I
 

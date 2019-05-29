@@ -18,13 +18,13 @@
 
 
 # instance fields
-.field final aB:Lcom/bumptech/glide/load/engine/b/a;
-
-.field final av:Lcom/bumptech/glide/load/engine/b/a;
+.field final aC:Lcom/bumptech/glide/load/engine/b/a;
 
 .field final aw:Lcom/bumptech/glide/load/engine/b/a;
 
-.field final fd:Landroid/support/v4/util/Pools$Pool;
+.field final ax:Lcom/bumptech/glide/load/engine/b/a;
+
+.field final fe:Landroid/support/v4/util/Pools$Pool;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/support/v4/util/Pools$Pool<",
@@ -34,9 +34,9 @@
     .end annotation
 .end field
 
-.field final gj:Lcom/bumptech/glide/load/engine/b/a;
+.field final gk:Lcom/bumptech/glide/load/engine/b/a;
 
-.field final gk:Lcom/bumptech/glide/load/engine/h;
+.field final gl:Lcom/bumptech/glide/load/engine/h;
 
 
 # direct methods
@@ -55,17 +55,17 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;->fd:Landroid/support/v4/util/Pools$Pool;
+    iput-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;->fe:Landroid/support/v4/util/Pools$Pool;
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;->aw:Lcom/bumptech/glide/load/engine/b/a;
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;->ax:Lcom/bumptech/glide/load/engine/b/a;
 
-    iput-object p2, p0, Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;->av:Lcom/bumptech/glide/load/engine/b/a;
+    iput-object p2, p0, Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;->aw:Lcom/bumptech/glide/load/engine/b/a;
 
-    iput-object p3, p0, Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;->gj:Lcom/bumptech/glide/load/engine/b/a;
+    iput-object p3, p0, Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;->gk:Lcom/bumptech/glide/load/engine/b/a;
 
-    iput-object p4, p0, Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;->aB:Lcom/bumptech/glide/load/engine/b/a;
+    iput-object p4, p0, Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;->aC:Lcom/bumptech/glide/load/engine/b/a;
 
-    iput-object p5, p0, Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;->gk:Lcom/bumptech/glide/load/engine/h;
+    iput-object p5, p0, Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;->gl:Lcom/bumptech/glide/load/engine/h;
 
     return-void
 .end method
@@ -143,7 +143,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;->fd:Landroid/support/v4/util/Pools$Pool;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;->fe:Landroid/support/v4/util/Pools$Pool;
 
     invoke-interface {v0}, Landroid/support/v4/util/Pools$Pool;->acquire()Ljava/lang/Object;
 
@@ -181,19 +181,19 @@
     .annotation build Landroid/support/annotation/VisibleForTesting;
     .end annotation
 
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;->ax:Lcom/bumptech/glide/load/engine/b/a;
+
+    invoke-static {v0}, Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;->a(Ljava/util/concurrent/ExecutorService;)V
+
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;->aw:Lcom/bumptech/glide/load/engine/b/a;
 
     invoke-static {v0}, Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;->a(Ljava/util/concurrent/ExecutorService;)V
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;->av:Lcom/bumptech/glide/load/engine/b/a;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;->gk:Lcom/bumptech/glide/load/engine/b/a;
 
     invoke-static {v0}, Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;->a(Ljava/util/concurrent/ExecutorService;)V
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;->gj:Lcom/bumptech/glide/load/engine/b/a;
-
-    invoke-static {v0}, Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;->a(Ljava/util/concurrent/ExecutorService;)V
-
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;->aB:Lcom/bumptech/glide/load/engine/b/a;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;->aC:Lcom/bumptech/glide/load/engine/b/a;
 
     invoke-static {v0}, Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;->a(Ljava/util/concurrent/ExecutorService;)V
 

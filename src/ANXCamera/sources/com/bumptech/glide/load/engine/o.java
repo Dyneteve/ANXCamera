@@ -9,15 +9,15 @@ import com.bumptech.glide.util.i;
 
 /* compiled from: LockedResource */
 final class o<Z> implements p<Z>, c {
-    private static final Pool<o<?>> gP = a.b(20, new C0011a<o<?>>() {
+    private static final Pool<o<?>> gQ = a.b(20, new C0011a<o<?>>() {
         /* renamed from: bi */
         public o<?> create() {
             return new o<>();
         }
     });
-    private final com.bumptech.glide.util.a.c fc = com.bumptech.glide.util.a.c.eS();
-    private boolean gH;
-    private p<Z> gQ;
+    private final com.bumptech.glide.util.a.c fd = com.bumptech.glide.util.a.c.eS();
+    private boolean gI;
+    private p<Z> gR;
     private boolean isLocked;
 
     o() {
@@ -25,56 +25,56 @@ final class o<Z> implements p<Z>, c {
 
     @NonNull
     static <Z> o<Z> f(p<Z> pVar) {
-        o<Z> oVar = (o) i.checkNotNull((o) gP.acquire());
+        o<Z> oVar = (o) i.checkNotNull((o) gQ.acquire());
         oVar.g(pVar);
         return oVar;
     }
 
     private void g(p<Z> pVar) {
-        this.gH = false;
+        this.gI = false;
         this.isLocked = true;
-        this.gQ = pVar;
+        this.gR = pVar;
     }
 
     private void release() {
-        this.gQ = null;
-        gP.release(this);
+        this.gR = null;
+        gQ.release(this);
     }
 
     @NonNull
     public com.bumptech.glide.util.a.c aQ() {
-        return this.fc;
+        return this.fd;
     }
 
     @NonNull
     public Class<Z> bf() {
-        return this.gQ.bf();
+        return this.gR.bf();
     }
 
     @NonNull
     public Z get() {
-        return this.gQ.get();
+        return this.gR.get();
     }
 
     public int getSize() {
-        return this.gQ.getSize();
+        return this.gR.getSize();
     }
 
     public synchronized void recycle() {
-        this.fc.eT();
-        this.gH = true;
+        this.fd.eT();
+        this.gI = true;
         if (!this.isLocked) {
-            this.gQ.recycle();
+            this.gR.recycle();
             release();
         }
     }
 
     /* access modifiers changed from: 0000 */
     public synchronized void unlock() {
-        this.fc.eT();
+        this.fd.eT();
         if (this.isLocked) {
             this.isLocked = false;
-            if (this.gH) {
+            if (this.gI) {
                 recycle();
             }
         } else {

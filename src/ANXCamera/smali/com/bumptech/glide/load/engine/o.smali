@@ -22,7 +22,7 @@
 
 
 # static fields
-.field private static final gP:Landroid/support/v4/util/Pools$Pool;
+.field private static final gQ:Landroid/support/v4/util/Pools$Pool;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/support/v4/util/Pools$Pool<",
@@ -34,11 +34,11 @@
 
 
 # instance fields
-.field private final fc:Lcom/bumptech/glide/util/a/c;
+.field private final fd:Lcom/bumptech/glide/util/a/c;
 
-.field private gH:Z
+.field private gI:Z
 
-.field private gQ:Lcom/bumptech/glide/load/engine/p;
+.field private gR:Lcom/bumptech/glide/load/engine/p;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/engine/p<",
@@ -64,7 +64,7 @@
 
     move-result-object v0
 
-    sput-object v0, Lcom/bumptech/glide/load/engine/o;->gP:Landroid/support/v4/util/Pools$Pool;
+    sput-object v0, Lcom/bumptech/glide/load/engine/o;->gQ:Landroid/support/v4/util/Pools$Pool;
 
     return-void
 .end method
@@ -78,7 +78,7 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/o;->fc:Lcom/bumptech/glide/util/a/c;
+    iput-object v0, p0, Lcom/bumptech/glide/load/engine/o;->fd:Lcom/bumptech/glide/util/a/c;
 
     return-void
 .end method
@@ -100,7 +100,7 @@
         }
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/load/engine/o;->gP:Landroid/support/v4/util/Pools$Pool;
+    sget-object v0, Lcom/bumptech/glide/load/engine/o;->gQ:Landroid/support/v4/util/Pools$Pool;
 
     invoke-interface {v0}, Landroid/support/v4/util/Pools$Pool;->acquire()Ljava/lang/Object;
 
@@ -131,13 +131,13 @@
 
     const/4 v0, 0x0
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/load/engine/o;->gH:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/load/engine/o;->gI:Z
 
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/bumptech/glide/load/engine/o;->isLocked:Z
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/engine/o;->gQ:Lcom/bumptech/glide/load/engine/p;
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/o;->gR:Lcom/bumptech/glide/load/engine/p;
 
     return-void
 .end method
@@ -147,9 +147,9 @@
 
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/o;->gQ:Lcom/bumptech/glide/load/engine/p;
+    iput-object v0, p0, Lcom/bumptech/glide/load/engine/o;->gR:Lcom/bumptech/glide/load/engine/p;
 
-    sget-object v0, Lcom/bumptech/glide/load/engine/o;->gP:Landroid/support/v4/util/Pools$Pool;
+    sget-object v0, Lcom/bumptech/glide/load/engine/o;->gQ:Landroid/support/v4/util/Pools$Pool;
 
     invoke-interface {v0, p0}, Landroid/support/v4/util/Pools$Pool;->release(Ljava/lang/Object;)Z
 
@@ -163,7 +163,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/o;->fc:Lcom/bumptech/glide/util/a/c;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/o;->fd:Lcom/bumptech/glide/util/a/c;
 
     return-object v0
 .end method
@@ -181,7 +181,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/o;->gQ:Lcom/bumptech/glide/load/engine/p;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/o;->gR:Lcom/bumptech/glide/load/engine/p;
 
     invoke-interface {v0}, Lcom/bumptech/glide/load/engine/p;->bf()Ljava/lang/Class;
 
@@ -201,7 +201,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/o;->gQ:Lcom/bumptech/glide/load/engine/p;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/o;->gR:Lcom/bumptech/glide/load/engine/p;
 
     invoke-interface {v0}, Lcom/bumptech/glide/load/engine/p;->get()Ljava/lang/Object;
 
@@ -213,7 +213,7 @@
 .method public getSize()I
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/o;->gQ:Lcom/bumptech/glide/load/engine/p;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/o;->gR:Lcom/bumptech/glide/load/engine/p;
 
     invoke-interface {v0}, Lcom/bumptech/glide/load/engine/p;->getSize()I
 
@@ -228,19 +228,19 @@
     monitor-enter p0
 
     :try_start_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/o;->fc:Lcom/bumptech/glide/util/a/c;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/o;->fd:Lcom/bumptech/glide/util/a/c;
 
     invoke-virtual {v0}, Lcom/bumptech/glide/util/a/c;->eT()V
 
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/load/engine/o;->gH:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/load/engine/o;->gI:Z
 
     iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/o;->isLocked:Z
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/o;->gQ:Lcom/bumptech/glide/load/engine/p;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/o;->gR:Lcom/bumptech/glide/load/engine/p;
 
     invoke-interface {v0}, Lcom/bumptech/glide/load/engine/p;->recycle()V
 
@@ -267,7 +267,7 @@
     monitor-enter p0
 
     :try_start_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/o;->fc:Lcom/bumptech/glide/util/a/c;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/o;->fd:Lcom/bumptech/glide/util/a/c;
 
     invoke-virtual {v0}, Lcom/bumptech/glide/util/a/c;->eT()V
 
@@ -279,7 +279,7 @@
 
     iput-boolean v0, p0, Lcom/bumptech/glide/load/engine/o;->isLocked:Z
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/o;->gH:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/o;->gI:Z
 
     if-eqz v0, :cond_0
 

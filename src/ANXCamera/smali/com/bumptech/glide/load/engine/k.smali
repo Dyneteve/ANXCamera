@@ -26,9 +26,9 @@
 
 
 # instance fields
-.field private final eC:Z
+.field private final eD:Z
 
-.field private final eD:Lcom/bumptech/glide/load/engine/p;
+.field private final eE:Lcom/bumptech/glide/load/engine/p;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/engine/p<",
@@ -37,13 +37,13 @@
     .end annotation
 .end field
 
-.field private ew:Lcom/bumptech/glide/load/engine/k$a;
+.field private ex:Lcom/bumptech/glide/load/engine/k$a;
 
-.field private final gF:Z
+.field private final gG:Z
 
-.field private gG:I
+.field private gH:I
 
-.field private gH:Z
+.field private gI:Z
 
 .field private key:Lcom/bumptech/glide/load/c;
 
@@ -67,11 +67,11 @@
 
     check-cast p1, Lcom/bumptech/glide/load/engine/p;
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/engine/k;->eD:Lcom/bumptech/glide/load/engine/p;
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/k;->eE:Lcom/bumptech/glide/load/engine/p;
 
-    iput-boolean p2, p0, Lcom/bumptech/glide/load/engine/k;->eC:Z
+    iput-boolean p2, p0, Lcom/bumptech/glide/load/engine/k;->eD:Z
 
-    iput-boolean p3, p0, Lcom/bumptech/glide/load/engine/k;->gF:Z
+    iput-boolean p3, p0, Lcom/bumptech/glide/load/engine/k;->gG:Z
 
     return-void
 .end method
@@ -83,7 +83,7 @@
 
     iput-object p1, p0, Lcom/bumptech/glide/load/engine/k;->key:Lcom/bumptech/glide/load/c;
 
-    iput-object p2, p0, Lcom/bumptech/glide/load/engine/k;->ew:Lcom/bumptech/glide/load/engine/k$a;
+    iput-object p2, p0, Lcom/bumptech/glide/load/engine/k;->ex:Lcom/bumptech/glide/load/engine/k$a;
 
     return-void
 .end method
@@ -91,7 +91,7 @@
 .method acquire()V
     .locals 2
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/k;->gH:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/k;->gI:Z
 
     if-nez v0, :cond_1
 
@@ -109,11 +109,11 @@
 
     if-eqz v0, :cond_0
 
-    iget v0, p0, Lcom/bumptech/glide/load/engine/k;->gG:I
+    iget v0, p0, Lcom/bumptech/glide/load/engine/k;->gH:I
 
     add-int/lit8 v0, v0, 0x1
 
-    iput v0, p0, Lcom/bumptech/glide/load/engine/k;->gG:I
+    iput v0, p0, Lcom/bumptech/glide/load/engine/k;->gH:I
 
     return-void
 
@@ -146,7 +146,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/k;->eD:Lcom/bumptech/glide/load/engine/p;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/k;->eE:Lcom/bumptech/glide/load/engine/p;
 
     return-object v0
 .end method
@@ -154,7 +154,7 @@
 .method be()Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/k;->eC:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/k;->eD:Z
 
     return v0
 .end method
@@ -172,7 +172,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/k;->eD:Lcom/bumptech/glide/load/engine/p;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/k;->eE:Lcom/bumptech/glide/load/engine/p;
 
     invoke-interface {v0}, Lcom/bumptech/glide/load/engine/p;->bf()Ljava/lang/Class;
 
@@ -192,7 +192,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/k;->eD:Lcom/bumptech/glide/load/engine/p;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/k;->eE:Lcom/bumptech/glide/load/engine/p;
 
     invoke-interface {v0}, Lcom/bumptech/glide/load/engine/p;->get()Ljava/lang/Object;
 
@@ -204,7 +204,7 @@
 .method public getSize()I
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/k;->eD:Lcom/bumptech/glide/load/engine/p;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/k;->eE:Lcom/bumptech/glide/load/engine/p;
 
     invoke-interface {v0}, Lcom/bumptech/glide/load/engine/p;->getSize()I
 
@@ -216,23 +216,23 @@
 .method public recycle()V
     .locals 2
 
-    iget v0, p0, Lcom/bumptech/glide/load/engine/k;->gG:I
+    iget v0, p0, Lcom/bumptech/glide/load/engine/k;->gH:I
 
     if-gtz v0, :cond_2
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/k;->gH:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/k;->gI:Z
 
     if-nez v0, :cond_1
 
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/load/engine/k;->gH:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/load/engine/k;->gI:Z
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/k;->gF:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/k;->gG:Z
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/k;->eD:Lcom/bumptech/glide/load/engine/p;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/k;->eE:Lcom/bumptech/glide/load/engine/p;
 
     invoke-interface {v0}, Lcom/bumptech/glide/load/engine/p;->recycle()V
 
@@ -261,7 +261,7 @@
 .method release()V
     .locals 2
 
-    iget v0, p0, Lcom/bumptech/glide/load/engine/k;->gG:I
+    iget v0, p0, Lcom/bumptech/glide/load/engine/k;->gH:I
 
     if-lez v0, :cond_2
 
@@ -279,15 +279,15 @@
 
     if-eqz v0, :cond_1
 
-    iget v0, p0, Lcom/bumptech/glide/load/engine/k;->gG:I
+    iget v0, p0, Lcom/bumptech/glide/load/engine/k;->gH:I
 
     add-int/lit8 v0, v0, -0x1
 
-    iput v0, p0, Lcom/bumptech/glide/load/engine/k;->gG:I
+    iput v0, p0, Lcom/bumptech/glide/load/engine/k;->gH:I
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/k;->ew:Lcom/bumptech/glide/load/engine/k$a;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/k;->ex:Lcom/bumptech/glide/load/engine/k$a;
 
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/k;->key:Lcom/bumptech/glide/load/c;
 
@@ -326,7 +326,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-boolean v1, p0, Lcom/bumptech/glide/load/engine/k;->eC:Z
+    iget-boolean v1, p0, Lcom/bumptech/glide/load/engine/k;->eD:Z
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
@@ -334,7 +334,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/k;->ew:Lcom/bumptech/glide/load/engine/k$a;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/k;->ex:Lcom/bumptech/glide/load/engine/k$a;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -350,7 +350,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v1, p0, Lcom/bumptech/glide/load/engine/k;->gG:I
+    iget v1, p0, Lcom/bumptech/glide/load/engine/k;->gH:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -358,7 +358,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-boolean v1, p0, Lcom/bumptech/glide/load/engine/k;->gH:Z
+    iget-boolean v1, p0, Lcom/bumptech/glide/load/engine/k;->gI:Z
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
@@ -366,7 +366,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/k;->eD:Lcom/bumptech/glide/load/engine/p;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/k;->eE:Lcom/bumptech/glide/load/engine/p;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 

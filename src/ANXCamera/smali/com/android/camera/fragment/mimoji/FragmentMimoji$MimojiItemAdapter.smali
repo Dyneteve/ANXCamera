@@ -172,27 +172,50 @@
 
     invoke-virtual {p1, p2}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
+    if-eqz p2, :cond_4
+
+    iget-object p1, p2, Lcom/android/camera/fragment/mimoji/MimojiInfo;->mConfigPath:Ljava/lang/String;
+
+    if-nez p1, :cond_0
+
+    goto/16 :goto_3
+
+    :cond_0
+    const-string p1, "add"
+
+    iget-object v2, p2, Lcom/android/camera/fragment/mimoji/MimojiInfo;->mConfigPath:Ljava/lang/String;
+
+    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    const/4 v2, 0x1
+
+    const/16 v3, 0xa
+
+    if-eqz p1, :cond_1
+
     iget-object p1, p0, Lcom/android/camera/fragment/mimoji/FragmentMimoji$MimojiItemAdapter;->mContext:Landroid/content/Context;
 
     invoke-static {p1}, Lcom/bumptech/glide/c;->g(Landroid/content/Context;)Lcom/bumptech/glide/i;
 
     move-result-object p1
 
-    iget-object v2, p2, Lcom/android/camera/fragment/mimoji/MimojiInfo;->mThumbnailUrl:Ljava/lang/String;
+    const v4, 0x7f0201c3
 
-    invoke-virtual {p1, v2}, Lcom/bumptech/glide/i;->m(Ljava/lang/String;)Lcom/bumptech/glide/h;
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    invoke-virtual {p1, v4}, Lcom/bumptech/glide/i;->b(Ljava/lang/Integer;)Lcom/bumptech/glide/h;
 
     move-result-object p1
 
-    new-instance v2, Lcom/android/camera/fragment/music/RoundedCornersTransformation;
+    new-instance v4, Lcom/android/camera/fragment/music/RoundedCornersTransformation;
 
-    const/16 v3, 0xa
+    invoke-direct {v4, v3, v2}, Lcom/android/camera/fragment/music/RoundedCornersTransformation;-><init>(II)V
 
-    const/4 v4, 0x1
-
-    invoke-direct {v2, v3, v4}, Lcom/android/camera/fragment/music/RoundedCornersTransformation;-><init>(II)V
-
-    invoke-static {v2}, Lcom/bumptech/glide/request/f;->a(Lcom/bumptech/glide/load/i;)Lcom/bumptech/glide/request/f;
+    invoke-static {v4}, Lcom/bumptech/glide/request/f;->a(Lcom/bumptech/glide/load/i;)Lcom/bumptech/glide/request/f;
 
     move-result-object v2
 
@@ -202,44 +225,118 @@
 
     invoke-virtual {p1, v0}, Lcom/bumptech/glide/h;->a(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/ViewTarget;
 
-    if-eqz p2, :cond_0
+    goto :goto_0
 
-    iget-object p1, p2, Lcom/android/camera/fragment/mimoji/MimojiInfo;->mConfigPath:Ljava/lang/String;
+    :cond_1
+    iget-object p1, p0, Lcom/android/camera/fragment/mimoji/FragmentMimoji$MimojiItemAdapter;->mContext:Landroid/content/Context;
+
+    invoke-static {p1}, Lcom/bumptech/glide/c;->g(Landroid/content/Context;)Lcom/bumptech/glide/i;
+
+    move-result-object p1
+
+    iget-object v4, p2, Lcom/android/camera/fragment/mimoji/MimojiInfo;->mThumbnailUrl:Ljava/lang/String;
+
+    invoke-virtual {p1, v4}, Lcom/bumptech/glide/i;->m(Ljava/lang/String;)Lcom/bumptech/glide/h;
+
+    move-result-object p1
+
+    new-instance v4, Lcom/android/camera/fragment/music/RoundedCornersTransformation;
+
+    invoke-direct {v4, v3, v2}, Lcom/android/camera/fragment/music/RoundedCornersTransformation;-><init>(II)V
+
+    invoke-static {v4}, Lcom/bumptech/glide/request/f;->a(Lcom/bumptech/glide/load/i;)Lcom/bumptech/glide/request/f;
+
+    move-result-object v2
+
+    invoke-virtual {p1, v2}, Lcom/bumptech/glide/h;->b(Lcom/bumptech/glide/request/f;)Lcom/bumptech/glide/h;
+
+    move-result-object p1
+
+    invoke-virtual {p1, v0}, Lcom/bumptech/glide/h;->a(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/ViewTarget;
+
+    :goto_0
+    const/16 p1, 0x8
+
+    if-eqz p2, :cond_3
 
     iget-object v0, p0, Lcom/android/camera/fragment/mimoji/FragmentMimoji$MimojiItemAdapter;->adapterSelectState:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_0
+    if-nez v0, :cond_3
 
-    iget-object p1, p0, Lcom/android/camera/fragment/mimoji/FragmentMimoji$MimojiItemAdapter;->mSelectItemView:Landroid/view/View;
+    iget-object v0, p2, Lcom/android/camera/fragment/mimoji/MimojiInfo;->mConfigPath:Ljava/lang/String;
 
-    const/4 v0, 0x0
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    invoke-virtual {p1, v0}, Landroid/view/View;->setVisibility(I)V
+    move-result v0
 
-    invoke-virtual {v1, v0}, Landroid/view/View;->setVisibility(I)V
+    if-nez v0, :cond_3
 
+    iget-object v0, p0, Lcom/android/camera/fragment/mimoji/FragmentMimoji$MimojiItemAdapter;->adapterSelectState:Ljava/lang/String;
+
+    iget-object v2, p2, Lcom/android/camera/fragment/mimoji/MimojiInfo;->mConfigPath:Ljava/lang/String;
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    iget-object v0, p2, Lcom/android/camera/fragment/mimoji/MimojiInfo;->mConfigPath:Ljava/lang/String;
+
+    const-string v2, "add"
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_3
+
+    iget-object v0, p0, Lcom/android/camera/fragment/mimoji/FragmentMimoji$MimojiItemAdapter;->mSelectItemView:Landroid/view/View;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
+
+    iget-object v0, p2, Lcom/android/camera/fragment/mimoji/MimojiInfo;->mConfigPath:Ljava/lang/String;
+
+    invoke-static {v0}, Lcom/android/camera/fragment/mimoji/AvatarEngineManager;->isPrefabModel(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-virtual {v1, p1}, Landroid/view/View;->setVisibility(I)V
+
+    goto :goto_1
+
+    :cond_2
+    invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
+
+    :goto_1
     iput-object p2, p0, Lcom/android/camera/fragment/mimoji/FragmentMimoji$MimojiItemAdapter;->mimojiInfoSelected:Lcom/android/camera/fragment/mimoji/MimojiInfo;
 
-    goto :goto_0
+    goto :goto_2
 
-    :cond_0
-    iget-object p1, p0, Lcom/android/camera/fragment/mimoji/FragmentMimoji$MimojiItemAdapter;->mSelectItemView:Landroid/view/View;
+    :cond_3
+    iget-object p2, p0, Lcom/android/camera/fragment/mimoji/FragmentMimoji$MimojiItemAdapter;->mSelectItemView:Landroid/view/View;
 
-    const/16 p2, 0x8
+    invoke-virtual {p2, p1}, Landroid/view/View;->setVisibility(I)V
 
-    invoke-virtual {p1, p2}, Landroid/view/View;->setVisibility(I)V
-
-    invoke-virtual {v1, p2}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v1, p1}, Landroid/view/View;->setVisibility(I)V
 
     const/4 p1, 0x0
 
     iput-object p1, p0, Lcom/android/camera/fragment/mimoji/FragmentMimoji$MimojiItemAdapter;->mimojiInfoSelected:Lcom/android/camera/fragment/mimoji/MimojiInfo;
 
-    :goto_0
+    :goto_2
+    return-void
+
+    :cond_4
+    :goto_3
     return-void
 .end method
 
@@ -258,7 +355,7 @@
 
     iget-object p2, p0, Lcom/android/camera/fragment/mimoji/FragmentMimoji$MimojiItemAdapter;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v0, 0x7f040030
+    const v0, 0x7f040031
 
     const/4 v1, 0x0
 

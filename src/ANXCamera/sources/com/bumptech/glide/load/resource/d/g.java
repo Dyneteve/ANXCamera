@@ -7,10 +7,10 @@ import com.bumptech.glide.load.f;
 
 /* compiled from: UnitTranscoder */
 public class g<Z> implements e<Z, Z> {
-    private static final g<?> mP = new g<>();
+    private static final g<?> mQ = new g<>();
 
     public static <Z> e<Z, Z> cV() {
-        return mP;
+        return mQ;
     }
 
     @Nullable

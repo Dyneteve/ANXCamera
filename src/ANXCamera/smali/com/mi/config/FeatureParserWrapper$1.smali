@@ -41,5 +41,11 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/mi/config/FeatureParserWrapper$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    const-string v0, "vendor"
+
+    const-string v1, "o_0x02_soc_vendor"
+
+    invoke-virtual {p0, v0, v1}, Lcom/mi/config/FeatureParserWrapper$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
     return-void
 .end method

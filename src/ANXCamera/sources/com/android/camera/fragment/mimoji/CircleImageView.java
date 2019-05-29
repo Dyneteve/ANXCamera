@@ -10,10 +10,13 @@ import android.graphics.Rect;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+import com.android.camera.Util;
 
 public class CircleImageView extends ImageView {
     private int colorRGBA;
     private Context mContext;
+    private int mInnerRadius = Util.dpToPixel(17.67f);
+    private int mOuterRadius = Util.dpToPixel(22.33f);
     Paint mPaintInner;
     Paint mPaintOutter;
     boolean mShowOutter = false;
@@ -48,10 +51,10 @@ public class CircleImageView extends ImageView {
     private void initGlobalValue() {
         this.mPaintInner = new Paint();
         this.mPaintOutter = new Paint();
-        this.mPaintInner.setAntiAlias(false);
+        this.mPaintInner.setAntiAlias(true);
         this.mPaintInner.setStyle(Style.FILL);
-        this.mPaintOutter.setAntiAlias(false);
-        this.mPaintOutter.setStrokeWidth(5.0f);
+        this.mPaintOutter.setAntiAlias(true);
+        this.mPaintOutter.setStrokeWidth(6.0f);
         this.mPaintOutter.setStyle(Style.STROKE);
     }
 
@@ -60,9 +63,9 @@ public class CircleImageView extends ImageView {
         getPaddingLeft();
         float width = (float) (getWidth() / 2);
         float height = (float) (getHeight() / 2);
-        canvas.drawCircle(width, height, 40.0f, this.mPaintInner);
+        canvas.drawCircle(width, height, (float) this.mInnerRadius, this.mPaintInner);
         if (this.mShowOutter) {
-            canvas.drawCircle(width, height, 50.0f, this.mPaintOutter);
+            canvas.drawCircle(width, height, (float) this.mOuterRadius, this.mPaintOutter);
         }
     }
 

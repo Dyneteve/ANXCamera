@@ -109,7 +109,7 @@ public class FunctionModuleSetup extends Func1Base<BaseModule, BaseModule> {
                 break;
         }
         baseModule.getActivity().removeNewBie();
-        if (baseModule.isDeparted() || activity.isActivityPaused()) {
+        if (baseModule.isDeparted()) {
             return NullHolder.ofNullable(baseModule, 225);
         }
         try {

@@ -11,6 +11,7 @@ import android.os.storage.StorageManager;
 import android.os.storage.StorageVolume;
 import android.support.v4.provider.DocumentFile;
 import android.text.TextUtils;
+import com.android.camera.lib.compatibility.util.CompatibilityUtils;
 import com.android.camera.log.Log;
 import java.io.File;
 import java.io.FileInputStream;
@@ -288,28 +289,17 @@ public class FileCompat {
         @TargetApi(19)
         public String[] getExtSDCardPaths() {
             String[] strArr = new String[0];
-            File[] externalFilesDirs = CameraAppImpl.getAndroidContext().getExternalFilesDirs("ExternalTest");
-            if (externalFilesDirs == null) {
-                return strArr;
-            }
-            String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
             ArrayList arrayList = new ArrayList();
-            for (File file : externalFilesDirs) {
-                if (file != null) {
-                    String absolutePath2 = file.getAbsolutePath();
-                    int lastIndexOf = absolutePath2.lastIndexOf("/Android/data");
-                    if (lastIndexOf > 0) {
-                        String substring = absolutePath2.substring(0, lastIndexOf);
-                        if (!absolutePath.startsWith(substring)) {
-                            arrayList.add(substring);
-                        }
-                    }
-                }
+            String sdcardPath = CompatibilityUtils.getSdcardPath(CameraAppImpl.getAndroidContext());
+            String str = FileCompat.TAG;
+            StringBuilder sb = new StringBuilder();
+            sb.append("getExtSDCardPaths: activePath = ");
+            sb.append(sdcardPath);
+            Log.d(str, sb.toString());
+            if (!TextUtils.isEmpty(sdcardPath)) {
+                arrayList.add(sdcardPath);
             }
-            if (!arrayList.isEmpty()) {
-                strArr = (String[]) arrayList.toArray(new String[arrayList.size()]);
-            }
-            return strArr;
+            return !arrayList.isEmpty() ? (String[]) arrayList.toArray(new String[arrayList.size()]) : strArr;
         }
 
         public String getSDPath(String str) {
@@ -418,6 +408,7 @@ public class FileCompat {
             if (i == 161 && i2 == -1) {
                 Uri data = intent.getData();
                 if (data == null) {
+                    Log.d(FileCompat.TAG, "handleActivityResult: uri is null, documents permission is Failed!");
                     return false;
                 }
                 try {

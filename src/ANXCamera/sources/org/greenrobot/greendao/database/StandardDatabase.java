@@ -51,6 +51,10 @@ public class StandardDatabase implements Database {
         return this.delegate.isDbLockedByCurrentThread();
     }
 
+    public boolean isOpen() {
+        return this.delegate.isOpen();
+    }
+
     public Cursor rawQuery(String str, String[] strArr) {
         return this.delegate.rawQuery(str, strArr);
     }

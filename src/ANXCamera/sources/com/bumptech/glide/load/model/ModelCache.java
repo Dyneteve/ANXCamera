@@ -9,12 +9,12 @@ import java.util.Queue;
 
 public class ModelCache<A, B> {
     private static final int DEFAULT_SIZE = 250;
-    private final f<ModelKey<A>, B> jT;
+    private final f<ModelKey<A>, B> jU;
 
     @VisibleForTesting
     static final class ModelKey<A> {
-        private static final Queue<ModelKey<?>> jV = k.Y(0);
-        private A bt;
+        private static final Queue<ModelKey<?>> jW = k.Y(0);
+        private A bu;
         private int height;
         private int width;
 
@@ -23,8 +23,8 @@ public class ModelCache<A, B> {
 
         static <A> ModelKey<A> d(A a, int i, int i2) {
             ModelKey<A> modelKey;
-            synchronized (jV) {
-                modelKey = (ModelKey) jV.poll();
+            synchronized (jW) {
+                modelKey = (ModelKey) jW.poll();
             }
             if (modelKey == null) {
                 modelKey = new ModelKey<>();
@@ -34,7 +34,7 @@ public class ModelCache<A, B> {
         }
 
         private void e(A a, int i, int i2) {
-            this.bt = a;
+            this.bu = a;
             this.width = i;
             this.height = i2;
         }
@@ -45,19 +45,19 @@ public class ModelCache<A, B> {
                 return false;
             }
             ModelKey modelKey = (ModelKey) obj;
-            if (this.width == modelKey.width && this.height == modelKey.height && this.bt.equals(modelKey.bt)) {
+            if (this.width == modelKey.width && this.height == modelKey.height && this.bu.equals(modelKey.bu)) {
                 z = true;
             }
             return z;
         }
 
         public int hashCode() {
-            return (31 * ((this.height * 31) + this.width)) + this.bt.hashCode();
+            return (31 * ((this.height * 31) + this.width)) + this.bu.hashCode();
         }
 
         public void release() {
-            synchronized (jV) {
-                jV.offer(this);
+            synchronized (jW) {
+                jW.offer(this);
             }
         }
     }
@@ -67,7 +67,7 @@ public class ModelCache<A, B> {
     }
 
     public ModelCache(long j) {
-        this.jT = new f<ModelKey<A>, B>(j) {
+        this.jU = new f<ModelKey<A>, B>(j) {
             /* access modifiers changed from: protected */
             /* renamed from: a */
             public void b(@NonNull ModelKey<A> modelKey, @Nullable B b) {
@@ -77,18 +77,18 @@ public class ModelCache<A, B> {
     }
 
     public void a(A a, int i, int i2, B b) {
-        this.jT.put(ModelKey.d(a, i, i2), b);
+        this.jU.put(ModelKey.d(a, i, i2), b);
     }
 
     @Nullable
     public B c(A a, int i, int i2) {
         ModelKey d = ModelKey.d(a, i, i2);
-        B b = this.jT.get(d);
+        B b = this.jU.get(d);
         d.release();
         return b;
     }
 
     public void clear() {
-        this.jT.o();
+        this.jU.o();
     }
 }

@@ -8,6 +8,7 @@
 .implements Lcom/android/camera2/Camera2Proxy$CameraPreviewCallback;
 .implements Lcom/android/camera2/Camera2Proxy$FaceDetectionCallback;
 .implements Lcom/android/camera2/Camera2Proxy$FocusCallback;
+.implements Lcom/android/camera2/Camera2Proxy$PictureCallback;
 
 
 # annotations
@@ -77,6 +78,8 @@
 
 .field private mOnResumeTime:J
 
+.field private mOpenFlash:Z
+
 .field protected final mPhoneStateListener:Landroid/telephony/PhoneStateListener;
 
 .field private mQuality:I
@@ -126,15 +129,17 @@
 
     iput-boolean v0, p0, Lcom/android/camera/module/LiveModule;->mDisableSingleTapUp:Z
 
+    iput-boolean v0, p0, Lcom/android/camera/module/LiveModule;->mOpenFlash:Z
+
     new-instance v0, Lcom/android/camera/module/LiveModule$1;
 
     invoke-direct {v0, p0}, Lcom/android/camera/module/LiveModule$1;-><init>(Lcom/android/camera/module/LiveModule;)V
 
     iput-object v0, p0, Lcom/android/camera/module/LiveModule;->mPhoneStateListener:Landroid/telephony/PhoneStateListener;
 
-    new-instance v0, Lcom/android/camera/module/LiveModule$5;
+    new-instance v0, Lcom/android/camera/module/LiveModule$7;
 
-    invoke-direct {v0, p0}, Lcom/android/camera/module/LiveModule$5;-><init>(Lcom/android/camera/module/LiveModule;)V
+    invoke-direct {v0, p0}, Lcom/android/camera/module/LiveModule$7;-><init>(Lcom/android/camera/module/LiveModule;)V
 
     iput-object v0, p0, Lcom/android/camera/module/LiveModule;->mSensorStateListener:Lcom/android/camera/SensorStateManager$SensorStateListener;
 
@@ -733,6 +738,56 @@
     return-void
 .end method
 
+.method private initMimoji()V
+    .locals 8
+
+    iget v0, p0, Lcom/android/camera/module/LiveModule;->mModuleIndex:I
+
+    const/16 v1, 0xb1
+
+    if-ne v0, v1, :cond_1
+
+    iget-object v2, p0, Lcom/android/camera/module/LiveModule;->mMimojiAvatarEngine:Lcom/android/camera/protocol/ModeProtocol$MimojiAvatarEngine;
+
+    iget v3, p0, Lcom/android/camera/module/LiveModule;->mCameraDisplayOrientation:I
+
+    invoke-virtual {p0}, Lcom/android/camera/module/LiveModule;->isFrontCamera()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/16 v0, 0x10e
+
+    :goto_0
+    move v4, v0
+
+    goto :goto_1
+
+    :cond_0
+    const/16 v0, 0x5a
+
+    goto :goto_0
+
+    :goto_1
+    iget-object v0, p0, Lcom/android/camera/module/LiveModule;->mPreviewSize:Lcom/android/camera/CameraSize;
+
+    iget v5, v0, Lcom/android/camera/CameraSize;->width:I
+
+    iget-object v0, p0, Lcom/android/camera/module/LiveModule;->mPreviewSize:Lcom/android/camera/CameraSize;
+
+    iget v6, v0, Lcom/android/camera/CameraSize;->height:I
+
+    invoke-virtual {p0}, Lcom/android/camera/module/LiveModule;->isFrontCamera()Z
+
+    move-result v7
+
+    invoke-interface/range {v2 .. v7}, Lcom/android/camera/protocol/ModeProtocol$MimojiAvatarEngine;->initAvatarEngine(IIIIZ)V
+
+    :cond_1
+    return-void
+.end method
+
 .method private initMimojiEngine()V
     .locals 5
 
@@ -964,31 +1019,23 @@
 .method private onMimojiCapture()V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/camera/module/LiveModule;->mActivity:Lcom/android/camera/Camera;
+    iget-object v0, p0, Lcom/android/camera/module/LiveModule;->mCamera2Device:Lcom/android/camera2/Camera2Proxy;
 
-    invoke-virtual {v0}, Lcom/android/camera/Camera;->getCameraScreenNail()Lcom/android/camera/CameraScreenNail;
+    const/4 v1, -0x1
 
-    move-result-object v0
+    invoke-virtual {v0, v1}, Lcom/android/camera2/Camera2Proxy;->setShotType(I)V
 
-    iget v1, p0, Lcom/android/camera/module/LiveModule;->mOrientation:I
-
-    invoke-virtual {v0, v1}, Lcom/android/camera/CameraScreenNail;->animateCapture(I)V
-
-    iget-object v0, p0, Lcom/android/camera/module/LiveModule;->mActivity:Lcom/android/camera/Camera;
+    iget-object v0, p0, Lcom/android/camera/module/LiveModule;->mCamera2Device:Lcom/android/camera2/Camera2Proxy;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/android/camera/Camera;->playCameraSound(I)V
-
-    iget-object v0, p0, Lcom/android/camera/module/LiveModule;->mMimojiAvatarEngine:Lcom/android/camera/protocol/ModeProtocol$MimojiAvatarEngine;
-
-    invoke-interface {v0}, Lcom/android/camera/protocol/ModeProtocol$MimojiAvatarEngine;->onCaptureImage()V
+    invoke-virtual {v0, p0, v1}, Lcom/android/camera2/Camera2Proxy;->takePicture(Lcom/android/camera2/Camera2Proxy$PictureCallback;Lcom/xiaomi/camera/core/ParallelCallback;)V
 
     return-void
 .end method
 
 .method private previewWhenSessionSuccess()V
-    .locals 8
+    .locals 1
 
     const/4 v0, 0x1
 
@@ -998,50 +1045,6 @@
 
     invoke-virtual {p0, v0}, Lcom/android/camera/module/LiveModule;->updatePreferenceInWorkThread([I)V
 
-    iget v0, p0, Lcom/android/camera/module/LiveModule;->mModuleIndex:I
-
-    const/16 v1, 0xb1
-
-    if-ne v0, v1, :cond_1
-
-    iget-object v2, p0, Lcom/android/camera/module/LiveModule;->mMimojiAvatarEngine:Lcom/android/camera/protocol/ModeProtocol$MimojiAvatarEngine;
-
-    iget v3, p0, Lcom/android/camera/module/LiveModule;->mCameraDisplayOrientation:I
-
-    invoke-virtual {p0}, Lcom/android/camera/module/LiveModule;->isFrontCamera()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/16 v0, 0x10e
-
-    :goto_0
-    move v4, v0
-
-    goto :goto_1
-
-    :cond_0
-    const/16 v0, 0x5a
-
-    goto :goto_0
-
-    :goto_1
-    iget-object v0, p0, Lcom/android/camera/module/LiveModule;->mPreviewSize:Lcom/android/camera/CameraSize;
-
-    iget v5, v0, Lcom/android/camera/CameraSize;->width:I
-
-    iget-object v0, p0, Lcom/android/camera/module/LiveModule;->mPreviewSize:Lcom/android/camera/CameraSize;
-
-    iget v6, v0, Lcom/android/camera/CameraSize;->height:I
-
-    invoke-virtual {p0}, Lcom/android/camera/module/LiveModule;->isFrontCamera()Z
-
-    move-result v7
-
-    invoke-interface/range {v2 .. v7}, Lcom/android/camera/protocol/ModeProtocol$MimojiAvatarEngine;->initAvatarEngine(IIIIZ)V
-
-    :cond_1
     return-void
 .end method
 
@@ -1213,6 +1216,27 @@
     return-void
 .end method
 
+.method private startScreenLight(II)V
+    .locals 2
+
+    iget-boolean v0, p0, Lcom/android/camera/module/LiveModule;->mPaused:Z
+
+    if-eqz v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/camera/module/LiveModule;->mHandler:Landroid/os/Handler;
+
+    new-instance v1, Lcom/android/camera/module/LiveModule$5;
+
+    invoke-direct {v1, p0, p2, p1}, Lcom/android/camera/module/LiveModule$5;-><init>(Lcom/android/camera/module/LiveModule;II)V
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    return-void
+.end method
+
 .method private startVideoRecording()V
     .locals 4
     .annotation build Landroid/support/annotation/MainThread;
@@ -1368,6 +1392,20 @@
 
     :cond_3
     invoke-virtual {p0, v1, v2}, Lcom/android/camera/module/LiveModule;->trackGeneralInfo(IZ)V
+
+    return-void
+.end method
+
+.method private stopScreenLight()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/camera/module/LiveModule;->mHandler:Landroid/os/Handler;
+
+    new-instance v1, Lcom/android/camera/module/LiveModule$6;
+
+    invoke-direct {v1, p0}, Lcom/android/camera/module/LiveModule$6;-><init>(Lcom/android/camera/module/LiveModule;)V
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
@@ -2384,49 +2422,54 @@
     throw p1
 
     :sswitch_0
-    invoke-direct {p0}, Lcom/android/camera/module/LiveModule;->updateUltraWideLDC()V
+    invoke-direct {p0}, Lcom/android/camera/module/LiveModule;->initMimoji()V
 
     goto :goto_1
 
     :sswitch_1
+    invoke-direct {p0}, Lcom/android/camera/module/LiveModule;->updateUltraWideLDC()V
+
     goto :goto_1
 
     :sswitch_2
+    goto :goto_1
+
+    :sswitch_3
     invoke-direct {p0}, Lcom/android/camera/module/LiveModule;->updateDeviceOrientation()V
 
     goto :goto_1
 
-    :sswitch_3
+    :sswitch_4
     invoke-direct {p0}, Lcom/android/camera/module/LiveModule;->updateVideoStabilization()V
 
     goto :goto_1
 
-    :sswitch_4
+    :sswitch_5
     invoke-virtual {p0}, Lcom/android/camera/module/LiveModule;->updateExposureMeteringMode()V
 
     goto :goto_1
 
-    :sswitch_5
+    :sswitch_6
     invoke-virtual {p0}, Lcom/android/camera/module/LiveModule;->focusCenter()V
 
     goto :goto_1
 
-    :sswitch_6
+    :sswitch_7
     invoke-virtual {p0}, Lcom/android/camera/module/LiveModule;->applyZoomRatio()V
 
     goto :goto_1
 
-    :sswitch_7
+    :sswitch_8
     invoke-direct {p0}, Lcom/android/camera/module/LiveModule;->updateFpsRange()V
 
     goto :goto_1
 
-    :sswitch_8
+    :sswitch_9
     invoke-direct {p0}, Lcom/android/camera/module/LiveModule;->updateFocusMode()V
 
     goto :goto_1
 
-    :sswitch_9
+    :sswitch_a
     iget v2, p0, Lcom/android/camera/module/LiveModule;->mModuleIndex:I
 
     const/16 v3, 0xb1
@@ -2442,20 +2485,20 @@
 
     goto :goto_1
 
-    :sswitch_a
+    :sswitch_b
     invoke-virtual {p0}, Lcom/android/camera/module/LiveModule;->setEvValue()V
 
     goto :goto_1
 
-    :sswitch_b
+    :sswitch_c
     goto :goto_1
 
-    :sswitch_c
+    :sswitch_d
     invoke-virtual {p0}, Lcom/android/camera/module/LiveModule;->updateFlashPreference()V
 
     goto :goto_1
 
-    :sswitch_d
+    :sswitch_e
     invoke-static {}, Lcom/android/camera/CameraSettings;->getAntiBanding()Ljava/lang/String;
 
     move-result-object v2
@@ -2464,22 +2507,22 @@
 
     goto :goto_1
 
-    :sswitch_e
+    :sswitch_f
     invoke-virtual {p0}, Lcom/android/camera/module/LiveModule;->updateFace()V
 
     goto :goto_1
 
-    :sswitch_f
+    :sswitch_10
     invoke-virtual {p0}, Lcom/android/camera/module/LiveModule;->updateFocusArea()V
 
     goto :goto_1
 
-    :sswitch_10
+    :sswitch_11
     invoke-direct {p0}, Lcom/android/camera/module/LiveModule;->updateFilter()V
 
     goto :goto_1
 
-    :sswitch_11
+    :sswitch_12
     invoke-direct {p0}, Lcom/android/camera/module/LiveModule;->updatePictureAndPreviewSize()V
 
     nop
@@ -2494,30 +2537,31 @@
 
     :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_11
-        0x2 -> :sswitch_10
-        0x3 -> :sswitch_f
-        0x5 -> :sswitch_e
-        0x9 -> :sswitch_d
-        0xa -> :sswitch_c
-        0xb -> :sswitch_b
-        0xc -> :sswitch_a
-        0xd -> :sswitch_9
-        0xe -> :sswitch_8
-        0x13 -> :sswitch_7
-        0x14 -> :sswitch_b
-        0x18 -> :sswitch_6
-        0x19 -> :sswitch_5
-        0x1d -> :sswitch_4
-        0x1e -> :sswitch_b
-        0x1f -> :sswitch_3
-        0x22 -> :sswitch_b
-        0x23 -> :sswitch_2
-        0x2a -> :sswitch_b
-        0x2b -> :sswitch_b
-        0x2e -> :sswitch_1
-        0x2f -> :sswitch_0
-        0x32 -> :sswitch_b
+        0x1 -> :sswitch_12
+        0x2 -> :sswitch_11
+        0x3 -> :sswitch_10
+        0x5 -> :sswitch_f
+        0x9 -> :sswitch_e
+        0xa -> :sswitch_d
+        0xb -> :sswitch_c
+        0xc -> :sswitch_b
+        0xd -> :sswitch_a
+        0xe -> :sswitch_9
+        0x13 -> :sswitch_8
+        0x14 -> :sswitch_c
+        0x18 -> :sswitch_7
+        0x19 -> :sswitch_6
+        0x1d -> :sswitch_5
+        0x1e -> :sswitch_c
+        0x1f -> :sswitch_4
+        0x22 -> :sswitch_c
+        0x23 -> :sswitch_3
+        0x2a -> :sswitch_c
+        0x2b -> :sswitch_c
+        0x2e -> :sswitch_2
+        0x2f -> :sswitch_1
+        0x32 -> :sswitch_c
+        0x36 -> :sswitch_0
     .end sparse-switch
 .end method
 
@@ -2818,6 +2862,14 @@
 
     if-nez v0, :cond_1
 
+    iget-object v0, p0, Lcom/android/camera/module/LiveModule;->mLiveConfigChanges:Lcom/android/camera/protocol/ModeProtocol$LiveConfigChanges;
+
+    invoke-interface {v0}, Lcom/android/camera/protocol/ModeProtocol$LiveConfigChanges;->isRecordingPaused()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
     :cond_0
     iget-object v0, p0, Lcom/android/camera/module/LiveModule;->mMimojiAvatarEngine:Lcom/android/camera/protocol/ModeProtocol$MimojiAvatarEngine;
 
@@ -2874,6 +2926,43 @@
     const/4 v0, 0x0
 
     :goto_0
+    return v0
+.end method
+
+.method public isShowCaptureButton()Z
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/camera/module/LiveModule;->isSupportFocusShoot()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public isSupportFocusShoot()Z
+    .locals 2
+
+    iget v0, p0, Lcom/android/camera/module/LiveModule;->mModuleIndex:I
+
+    const/16 v1, 0xb1
+
+    if-ne v0, v1, :cond_0
+
+    invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemGlobal()Lcom/android/camera/data/data/global/DataItemGlobal;
+
+    move-result-object v0
+
+    const-string v1, "pref_camera_focus_shoot_key"
+
+    invoke-virtual {v0, v1}, Lcom/android/camera/data/data/global/DataItemGlobal;->isGlobalSwitchOn(Ljava/lang/String;)Z
+
+    move-result v0
+
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
     return v0
 .end method
 
@@ -3077,13 +3166,31 @@
     return v2
 
     :cond_2
+    iget v0, p0, Lcom/android/camera/module/LiveModule;->mModuleIndex:I
+
+    const/16 v3, 0xb1
+
+    if-ne v0, v3, :cond_4
+
+    invoke-virtual {p0}, Lcom/android/camera/module/LiveModule;->isRecording()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    invoke-virtual {p0, v1, v1}, Lcom/android/camera/module/LiveModule;->stopVideoRecording(ZZ)V
+
+    :cond_3
+    return v1
+
+    :cond_4
     iget-object v0, p0, Lcom/android/camera/module/LiveModule;->mLiveConfigChanges:Lcom/android/camera/protocol/ModeProtocol$LiveConfigChanges;
 
     invoke-interface {v0}, Lcom/android/camera/protocol/ModeProtocol$LiveConfigChanges;->isRecording()Z
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_6
 
     iget-object v0, p0, Lcom/android/camera/module/LiveModule;->mLiveConfigChanges:Lcom/android/camera/protocol/ModeProtocol$LiveConfigChanges;
 
@@ -3091,18 +3198,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5
 
     goto :goto_0
 
-    :cond_3
+    :cond_5
     invoke-super {p0}, Lcom/android/camera/module/BaseModule;->onBackPressed()Z
 
     move-result v0
 
     return v0
 
-    :cond_4
+    :cond_6
     :goto_0
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
@@ -3116,7 +3223,7 @@
 
     cmp-long v0, v5, v7
 
-    if-lez v0, :cond_5
+    if-lez v0, :cond_7
 
     iput-wide v3, p0, Lcom/android/camera/module/LiveModule;->mLastBackPressedTime:J
 
@@ -3136,7 +3243,7 @@
 
     goto :goto_1
 
-    :cond_5
+    :cond_7
     invoke-virtual {p0, v1, v2}, Lcom/android/camera/module/LiveModule;->stopVideoRecording(ZZ)V
 
     :goto_1
@@ -3182,7 +3289,7 @@
 
     move-result-object v0
 
-    sget-object v1, Lcom/android/camera/module/LiveModule$7;->$SwitchMap$com$ss$android$ttve$oauth$TEOAuthResult:[I
+    sget-object v1, Lcom/android/camera/module/LiveModule$9;->$SwitchMap$com$ss$android$ttve$oauth$TEOAuthResult:[I
 
     invoke-virtual {v0}, Lcom/ss/android/ttve/oauth/TEOAuthResult;->ordinal()I
 
@@ -3277,6 +3384,40 @@
         :pswitch_0
         :pswitch_0
     .end packed-switch
+.end method
+
+.method public onCaptureShutter()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/camera/module/LiveModule;->mActivity:Lcom/android/camera/Camera;
+
+    invoke-virtual {v0}, Lcom/android/camera/Camera;->getCameraScreenNail()Lcom/android/camera/CameraScreenNail;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/android/camera/module/LiveModule;->mOrientation:I
+
+    invoke-virtual {v0, v1}, Lcom/android/camera/CameraScreenNail;->animateCapture(I)V
+
+    iget-object v0, p0, Lcom/android/camera/module/LiveModule;->mActivity:Lcom/android/camera/Camera;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/camera/Camera;->playCameraSound(I)V
+
+    iget-object v0, p0, Lcom/android/camera/module/LiveModule;->mMimojiAvatarEngine:Lcom/android/camera/protocol/ModeProtocol$MimojiAvatarEngine;
+
+    invoke-interface {v0}, Lcom/android/camera/protocol/ModeProtocol$MimojiAvatarEngine;->onCaptureImage()V
+
+    return-void
+.end method
+
+.method public onCaptureStart(Lcom/xiaomi/camera/core/ParallelTaskData;Lcom/android/camera/CameraSize;Z)Lcom/xiaomi/camera/core/ParallelTaskData;
+    .locals 0
+
+    const/4 p1, 0x0
+
+    return-object p1
 .end method
 
 .method public onCreate(II)V
@@ -3416,7 +3557,7 @@
     return-void
 
     :cond_1
-    invoke-static {}, Lcom/mi/config/b;->hg()Z
+    invoke-static {}, Lcom/mi/config/b;->hj()Z
 
     move-result p2
 
@@ -3956,9 +4097,9 @@
     :cond_0
     iget-object v0, p0, Lcom/android/camera/module/LiveModule;->mHandler:Landroid/os/Handler;
 
-    new-instance v1, Lcom/android/camera/module/LiveModule$6;
+    new-instance v1, Lcom/android/camera/module/LiveModule$8;
 
-    invoke-direct {v1, p0, p2, p1}, Lcom/android/camera/module/LiveModule$6;-><init>(Lcom/android/camera/module/LiveModule;Ljava/lang/String;Landroid/net/Uri;)V
+    invoke-direct {v1, p0, p2, p1}, Lcom/android/camera/module/LiveModule$8;-><init>(Lcom/android/camera/module/LiveModule;Ljava/lang/String;Landroid/net/Uri;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
@@ -4081,6 +4222,26 @@
 .method public onPauseButtonClick()V
     .locals 2
 
+    iget v0, p0, Lcom/android/camera/module/LiveModule;->mModuleIndex:I
+
+    const/16 v1, 0xb1
+
+    if-ne v0, v1, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/camera/module/LiveModule;->isRecording()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0, v0}, Lcom/android/camera/module/LiveModule;->stopVideoRecording(ZZ)V
+
+    :cond_0
+    return-void
+
+    :cond_1
     invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
 
     move-result-object v0
@@ -4099,32 +4260,52 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2
 
     iget-object v1, p0, Lcom/android/camera/module/LiveModule;->mLiveConfigChanges:Lcom/android/camera/protocol/ModeProtocol$LiveConfigChanges;
 
     invoke-interface {v1}, Lcom/android/camera/protocol/ModeProtocol$LiveConfigChanges;->onRecordPause()V
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3
 
     invoke-interface {v0}, Lcom/android/camera/protocol/ModeProtocol$RecordState;->onPause()V
 
     goto :goto_0
 
-    :cond_0
+    :cond_2
     invoke-direct {p0}, Lcom/android/camera/module/LiveModule;->trackLiveRecordingParams()V
 
     iget-object v1, p0, Lcom/android/camera/module/LiveModule;->mLiveConfigChanges:Lcom/android/camera/protocol/ModeProtocol$LiveConfigChanges;
 
     invoke-interface {v1}, Lcom/android/camera/protocol/ModeProtocol$LiveConfigChanges;->onRecordResume()V
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3
 
     invoke-interface {v0}, Lcom/android/camera/protocol/ModeProtocol$RecordState;->onResume()V
 
-    :cond_1
+    :cond_3
     :goto_0
     return-void
+.end method
+
+.method public onPictureTaken([B)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onPictureTakenFinished(Z)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onPictureTakenImageConsumed(Landroid/media/Image;)Z
+    .locals 0
+
+    const/4 p1, 0x0
+
+    return p1
 .end method
 
 .method public onPreviewLayoutChanged(Landroid/graphics/Rect;)V
@@ -4511,6 +4692,8 @@
 
     if-eqz p1, :cond_2
 
+    invoke-virtual {p0}, Lcom/android/camera/module/LiveModule;->turnOnFlashIfNeed()V
+
     invoke-direct {p0}, Lcom/android/camera/module/LiveModule;->onMimojiCapture()V
 
     return-void
@@ -4593,6 +4776,14 @@
     iget-object p1, p0, Lcom/android/camera/module/LiveModule;->mMimojiAvatarEngine:Lcom/android/camera/protocol/ModeProtocol$MimojiAvatarEngine;
 
     if-eqz p1, :cond_0
+
+    iget-object p1, p0, Lcom/android/camera/module/LiveModule;->mMimojiAvatarEngine:Lcom/android/camera/protocol/ModeProtocol$MimojiAvatarEngine;
+
+    invoke-interface {p1}, Lcom/android/camera/protocol/ModeProtocol$MimojiAvatarEngine;->isRecordStopping()Z
+
+    move-result p1
+
+    if-nez p1, :cond_0
 
     const/4 p1, 0x1
 
@@ -5389,9 +5580,7 @@
 
     invoke-virtual {v1}, Lcom/android/camera2/Camera2Proxy;->startFaceDetection()V
 
-    iget-boolean v1, p0, Lcom/android/camera/module/LiveModule;->mShowFace:Z
-
-    invoke-direct {p0, v1, v0}, Lcom/android/camera/module/LiveModule;->updateFaceView(ZZ)V
+    invoke-direct {p0, v0, v0}, Lcom/android/camera/module/LiveModule;->updateFaceView(ZZ)V
 
     :cond_1
     return-void
@@ -5794,7 +5983,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/camera/module/LiveModule;->keepScreenOnAwhile()V
+    move/from16 v1, p2
 
     invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
 
@@ -5819,6 +6008,8 @@
     goto/16 :goto_4
 
     :cond_0
+    invoke-virtual/range {p0 .. p0}, Lcom/android/camera/module/LiveModule;->keepScreenOnAwhile()V
+
     iget-object v3, v0, Lcom/android/camera/module/LiveModule;->mMimojiAvatarEngine:Lcom/android/camera/protocol/ModeProtocol$MimojiAvatarEngine;
 
     if-eqz v3, :cond_1
@@ -5827,7 +6018,7 @@
 
     iget-object v0, v0, Lcom/android/camera/module/LiveModule;->mMimojiAvatarEngine:Lcom/android/camera/protocol/ModeProtocol$MimojiAvatarEngine;
 
-    invoke-interface {v0}, Lcom/android/camera/protocol/ModeProtocol$MimojiAvatarEngine;->onRecordStop()V
+    invoke-interface {v0, v1}, Lcom/android/camera/protocol/ModeProtocol$MimojiAvatarEngine;->onRecordStop(Z)V
 
     return-void
 
@@ -5943,13 +6134,13 @@
 
     invoke-static/range {v6 .. v17}, Lcom/android/camera/statistic/CameraStatUtil;->trackVideoRecorded(ZIZZLjava/lang/String;IIIILcom/android/camera/fragment/beauty/BeautyValues;J)V
 
-    if-nez p2, :cond_3
+    if-nez v1, :cond_3
 
     invoke-direct/range {p0 .. p0}, Lcom/android/camera/module/LiveModule;->showPreview()V
 
     :cond_3
     :goto_0
-    if-nez p2, :cond_5
+    if-nez v1, :cond_5
 
     if-nez v3, :cond_4
 
@@ -6031,6 +6222,86 @@
     return-void
 .end method
 
+.method public turnOffFlashIfNeed()V
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/camera/module/LiveModule;->mOpenFlash:Z
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/camera/module/LiveModule;->mOpenFlash:Z
+
+    invoke-virtual {p0}, Lcom/android/camera/module/LiveModule;->isFrontCamera()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-direct {p0}, Lcom/android/camera/module/LiveModule;->stopScreenLight()V
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/camera/module/LiveModule;->mCamera2Device:Lcom/android/camera2/Camera2Proxy;
+
+    invoke-virtual {v0}, Lcom/android/camera2/Camera2Proxy;->forceTurnFlashOffAndPausePreview()V
+
+    :goto_0
+    return-void
+.end method
+
+.method public turnOnFlashIfNeed()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/camera/module/LiveModule;->mCamera2Device:Lcom/android/camera2/Camera2Proxy;
+
+    invoke-virtual {v0}, Lcom/android/camera2/Camera2Proxy;->isNeedFlashOn()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/camera/module/LiveModule;->mOpenFlash:Z
+
+    const/16 v0, 0x65
+
+    iget-object v1, p0, Lcom/android/camera/module/LiveModule;->mCamera2Device:Lcom/android/camera2/Camera2Proxy;
+
+    invoke-virtual {v1}, Lcom/android/camera2/Camera2Proxy;->getFlashMode()I
+
+    move-result v1
+
+    if-ne v0, v1, :cond_0
+
+    const-string v0, "camera_screen_light_wb"
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+
+    move-result v0
+
+    invoke-static {v0}, Lcom/android/camera/Util;->getScreenLightColor(I)I
+
+    move-result v0
+
+    invoke-static {}, Lcom/android/camera/CameraSettings;->getScreenLightBrightness()I
+
+    move-result v1
+
+    invoke-direct {p0, v0, v1}, Lcom/android/camera/module/LiveModule;->startScreenLight(II)V
+
+    :cond_0
+    return-void
+.end method
+
 .method public unRegisterModulePersistProtocol()V
     .locals 2
 
@@ -6100,37 +6371,6 @@
 
     invoke-virtual {v0}, Lcom/android/camera/module/impl/ImplFactory;->detachAdditional()V
 
-    iget v0, p0, Lcom/android/camera/module/LiveModule;->mModuleIndex:I
-
-    const/16 v1, 0xb1
-
-    if-ne v0, v1, :cond_0
-
-    invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemLive()Lcom/android/camera/data/data/extra/DataItemLive;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/camera/data/data/extra/DataItemLive;->getMimojiStatusManager()Lcom/android/camera/module/impl/component/MimojiStatusManager;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/camera/module/impl/component/MimojiStatusManager;->IsInMimojiPreview()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/camera/module/LiveModule;->getActivity()Lcom/android/camera/Camera;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/camera/Camera;->getImplFactory()Lcom/android/camera/module/impl/ImplFactory;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/camera/module/impl/ImplFactory;->detachModulePersistent()V
-
-    :cond_0
     return-void
 .end method
 
@@ -6164,7 +6404,7 @@
 .end method
 
 .method protected updateFace()V
-    .locals 3
+    .locals 5
 
     invoke-virtual {p0}, Lcom/android/camera/module/LiveModule;->enableFaceDetection()Z
 
@@ -6172,42 +6412,58 @@
 
     iget-object v1, p0, Lcom/android/camera/module/LiveModule;->mMainProtocol:Lcom/android/camera/protocol/ModeProtocol$MainContentProtocol;
 
-    if-eqz v1, :cond_0
+    const/4 v2, 0x0
+
+    const/4 v3, 0x1
+
+    if-eqz v1, :cond_2
 
     iget-object v1, p0, Lcom/android/camera/module/LiveModule;->mMainProtocol:Lcom/android/camera/protocol/ModeProtocol$MainContentProtocol;
 
-    xor-int/lit8 v2, v0, 0x1
-
-    invoke-interface {v1, v2}, Lcom/android/camera/protocol/ModeProtocol$MainContentProtocol;->setSkipDrawFace(Z)V
-
-    :cond_0
-    const/4 v1, 0x1
-
     if-eqz v0, :cond_1
 
-    iget-boolean v0, p0, Lcom/android/camera/module/LiveModule;->mFaceDetectionEnabled:Z
+    iget-boolean v4, p0, Lcom/android/camera/module/LiveModule;->mShowFace:Z
 
-    if-nez v0, :cond_2
-
-    iput-boolean v1, p0, Lcom/android/camera/module/LiveModule;->mFaceDetectionEnabled:Z
-
-    invoke-virtual {p0}, Lcom/android/camera/module/LiveModule;->startFaceDetection()V
+    if-nez v4, :cond_0
 
     goto :goto_0
 
+    :cond_0
+    move v4, v2
+
+    goto :goto_1
+
     :cond_1
-    iget-boolean v0, p0, Lcom/android/camera/module/LiveModule;->mFaceDetectionEnabled:Z
+    :goto_0
+    move v4, v3
 
-    if-eqz v0, :cond_2
-
-    invoke-virtual {p0, v1}, Lcom/android/camera/module/LiveModule;->stopFaceDetection(Z)V
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/camera/module/LiveModule;->mFaceDetectionEnabled:Z
+    :goto_1
+    invoke-interface {v1, v4}, Lcom/android/camera/protocol/ModeProtocol$MainContentProtocol;->setSkipDrawFace(Z)V
 
     :cond_2
-    :goto_0
+    if-eqz v0, :cond_3
+
+    iget-boolean v0, p0, Lcom/android/camera/module/LiveModule;->mFaceDetectionEnabled:Z
+
+    if-nez v0, :cond_4
+
+    iput-boolean v3, p0, Lcom/android/camera/module/LiveModule;->mFaceDetectionEnabled:Z
+
+    invoke-virtual {p0}, Lcom/android/camera/module/LiveModule;->startFaceDetection()V
+
+    goto :goto_2
+
+    :cond_3
+    iget-boolean v0, p0, Lcom/android/camera/module/LiveModule;->mFaceDetectionEnabled:Z
+
+    if-eqz v0, :cond_4
+
+    invoke-virtual {p0, v3}, Lcom/android/camera/module/LiveModule;->stopFaceDetection(Z)V
+
+    iput-boolean v2, p0, Lcom/android/camera/module/LiveModule;->mFaceDetectionEnabled:Z
+
+    :cond_4
+    :goto_2
     return-void
 .end method
 

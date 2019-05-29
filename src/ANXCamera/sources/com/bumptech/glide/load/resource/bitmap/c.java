@@ -9,11 +9,11 @@ import com.bumptech.glide.util.k;
 
 /* compiled from: BitmapDrawableResource */
 public class c extends b<BitmapDrawable> implements l {
-    private final d ak;
+    private final d al;
 
     public c(BitmapDrawable bitmapDrawable, d dVar) {
         super(bitmapDrawable);
-        this.ak = dVar;
+        this.al = dVar;
     }
 
     @NonNull
@@ -30,6 +30,6 @@ public class c extends b<BitmapDrawable> implements l {
     }
 
     public void recycle() {
-        this.ak.d(((BitmapDrawable) this.drawable).getBitmap());
+        this.al.d(((BitmapDrawable) this.drawable).getBitmap());
     }
 }

@@ -3,6 +3,7 @@ package com.android.camera.fragment.mimoji;
 import android.content.Context;
 import android.content.res.Resources;
 import com.android.camera.R;
+import com.android.camera.fragment.beauty.LinearLayoutManagerWrapper;
 import com.android.camera.log.Log;
 import com.arcsoft.avatar.AvatarConfig.ASAvatarConfigInfo;
 import com.arcsoft.avatar.AvatarConfig.ASAvatarConfigType;
@@ -13,8 +14,37 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class AvatarEngineManager {
+    public static final String BearTemplatePath;
+    public static final int CONFIGTYPE_EARRING = 16;
+    public static final int CONFIGTYPE_EAR_SHAPE = 27;
+    public static final int CONFIGTYPE_EYEBROW_COLOR = 18;
+    public static final int CONFIGTYPE_EYEBROW_SHAPE = 28;
+    public static final int CONFIGTYPE_EYEGLASS = 9;
+    public static final int CONFIGTYPE_EYEGLASS_COLOR = 10;
+    public static final int CONFIGTYPE_EYELASH = 17;
+    public static final int CONFIGTYPE_EYE_COLOR = 4;
+    public static final int CONFIGTYPE_EYE_SHAPE = 20;
+    public static final int CONFIGTYPE_FACE_COLOR = 3;
+    public static final int CONFIGTYPE_FEATURED_FACE = 19;
+    public static final int CONFIGTYPE_FRECKLE = 7;
+    public static final int CONFIGTYPE_HAIR_COLOR = 2;
+    public static final int CONFIGTYPE_HAIR_STYLE = 1;
+    public static final int CONFIGTYPE_HEADWEAR = 12;
+    public static final int CONFIGTYPE_HEADWEAR_COLOR = 13;
+    public static final int CONFIGTYPE_LENS_COLOR = 11;
+    public static final int CONFIGTYPE_LIPS_COLOR = 5;
+    public static final int CONFIGTYPE_MOUSE_SHAPE = 21;
+    public static final int CONFIGTYPE_MUSTACHE = 14;
+    public static final int CONFIGTYPE_MUSTACHE_COLOR = 15;
+    public static final int CONFIGTYPE_NEVUS = 8;
+    public static final int CONFIGTYPE_NOSE_SHAPE = 24;
     public static final String FACE_MODEL;
+    public static final String FAKE_BEAR_CONFIGPATH = "bear";
+    public static final String FAKE_PIG_CONFIGPATH = "pig";
+    public static final String FAKE_ROYAN_CONFIGPATH = "royan";
     public static final String PersonTemplatePath;
+    public static final String PigTemplatePath;
+    public static final String RoyanTemplatePath;
     public static final int THUMB_HEIGHT = 200;
     public static final int THUMB_WIDTH = 200;
     public static final String TRACK_DATA;
@@ -26,6 +56,7 @@ public class AvatarEngineManager {
     private boolean mAllNeedUpdate = false;
     private AvatarEngine mAvatar;
     private int mAvatarRef = 0;
+    private Map<Integer, LinearLayoutManagerWrapper> mColorLayoutManagerMap = new ConcurrentHashMap();
     private Map<Integer, ArrayList<ASAvatarConfigInfo>> mConfigMap = new ConcurrentHashMap();
     private Map<Integer, Float> mInnerConfigSelectMap = new ConcurrentHashMap();
     private Map<Integer, Integer> mInterruptMap = new ConcurrentHashMap();
@@ -47,16 +78,28 @@ public class AvatarEngineManager {
         FACE_MODEL = sb2.toString();
         StringBuilder sb3 = new StringBuilder();
         sb3.append(MimojiHelper.MIMOJI_DIR);
-        sb3.append("model/cartoon_xiaomi_v_0_0_0_15");
+        sb3.append("model/cartoon_xiaomi_v_0_0_0_21");
         PersonTemplatePath = sb3.toString();
         StringBuilder sb4 = new StringBuilder();
         sb4.append(MimojiHelper.MIMOJI_DIR);
-        sb4.append("origin_config.dat");
-        TempOriginalConfigPath = sb4.toString();
+        sb4.append("model/bear_v_0_0_0_3");
+        BearTemplatePath = sb4.toString();
         StringBuilder sb5 = new StringBuilder();
         sb5.append(MimojiHelper.MIMOJI_DIR);
-        sb5.append("edit_config.dat");
-        TempEditConfigPath = sb5.toString();
+        sb5.append("model/pig_v_0_0_0_3");
+        PigTemplatePath = sb5.toString();
+        StringBuilder sb6 = new StringBuilder();
+        sb6.append(MimojiHelper.MIMOJI_DIR);
+        sb6.append("model/royan_v_0_0_0_2");
+        RoyanTemplatePath = sb6.toString();
+        StringBuilder sb7 = new StringBuilder();
+        sb7.append(MimojiHelper.MIMOJI_DIR);
+        sb7.append("origin_config.dat");
+        TempOriginalConfigPath = sb7.toString();
+        StringBuilder sb8 = new StringBuilder();
+        sb8.append(MimojiHelper.MIMOJI_DIR);
+        sb8.append("edit_config.dat");
+        TempEditConfigPath = sb8.toString();
     }
 
     public static boolean filterTypeTitle(int i) {
@@ -90,6 +133,10 @@ public class AvatarEngineManager {
         return avatarEngineManager;
     }
 
+    public static boolean isPrefabModel(String str) {
+        return str.equals(FAKE_PIG_CONFIGPATH) || str.equals(FAKE_BEAR_CONFIGPATH) || str.equals(FAKE_ROYAN_CONFIGPATH);
+    }
+
     public static String replaceTabTitle(Context context, int i) {
         Resources resources = context.getResources();
         if (i == 1) {
@@ -106,7 +153,7 @@ public class AvatarEngineManager {
         }
         switch (i) {
             case 8:
-                return resources.getString(R.string.mimoji_mole_freckle);
+                return resources.getString(R.string.mimoji_freckle);
             case 9:
                 return resources.getString(R.string.mimoji_eyeglass);
             default:
@@ -128,7 +175,7 @@ public class AvatarEngineManager {
     }
 
     public static boolean showConfigTypeName(int i) {
-        if (!(i == 1 || i == 9 || i == 14 || i == 28)) {
+        if (!(i == 1 || i == 7 || i == 9 || i == 14 || i == 24 || i == 28)) {
             switch (i) {
                 case 19:
                 case 20:
@@ -256,6 +303,10 @@ public class AvatarEngineManager {
         return this.mASAvatarConfigValueDefault;
     }
 
+    public LinearLayoutManagerWrapper getColorLayoutManagerMap(int i) {
+        return (LinearLayoutManagerWrapper) this.mColorLayoutManagerMap.get(Integer.valueOf(i));
+    }
+
     public int getColorType(int i) {
         if (i == 1) {
             return 2;
@@ -266,19 +317,13 @@ public class AvatarEngineManager {
         if (i == 14) {
             return 15;
         }
-        if (i == 28) {
-            return 18;
+        if (i == 19) {
+            return 3;
         }
-        switch (i) {
-            case 19:
-                return 3;
-            case 20:
-                return 4;
-            case 21:
-                return 24;
-            default:
-                return -1;
+        if (i != 21) {
+            return i != 28 ? -1 : 18;
         }
+        return 5;
     }
 
     public ArrayList<ASAvatarConfigInfo> getConfigList(int i) {
@@ -455,17 +500,17 @@ public class AvatarEngineManager {
                             }
                         case 21:
                             MimojiLevelBean mimojiLevelBean12 = new MimojiLevelBean();
-                            mimojiLevelBean12.thumnails = getConfigList(21);
+                            mimojiLevelBean12.thumnails = getConfigList(24);
                             if (mimojiLevelBean12.thumnails != null && mimojiLevelBean12.thumnails.size() > 0) {
-                                mimojiLevelBean12.configType = 21;
-                                mimojiLevelBean12.configTypeName = resources.getString(R.string.mimoji_mouth_type);
+                                mimojiLevelBean12.configType = 24;
+                                mimojiLevelBean12.configTypeName = resources.getString(R.string.mimoji_nose);
                                 this.mSubConfigs.add(mimojiLevelBean12);
                             }
                             MimojiLevelBean mimojiLevelBean13 = new MimojiLevelBean();
-                            mimojiLevelBean13.thumnails = getConfigList(24);
+                            mimojiLevelBean13.thumnails = getConfigList(21);
                             if (mimojiLevelBean13.thumnails != null && mimojiLevelBean13.thumnails.size() > 0) {
-                                mimojiLevelBean13.configType = 24;
-                                mimojiLevelBean13.configTypeName = resources.getString(R.string.mimoji_nose);
+                                mimojiLevelBean13.configType = 21;
+                                mimojiLevelBean13.configTypeName = resources.getString(R.string.mimoji_mouth_type);
                                 this.mSubConfigs.add(mimojiLevelBean13);
                                 break;
                             }
@@ -507,8 +552,8 @@ public class AvatarEngineManager {
         return z;
     }
 
-    public boolean isShowSubType(int i) {
-        return i != 19;
+    public void putColorLayoutManagerMap(int i, LinearLayoutManagerWrapper linearLayoutManagerWrapper) {
+        this.mColorLayoutManagerMap.put(Integer.valueOf(i), linearLayoutManagerWrapper);
     }
 
     public void putConfigList(int i, ArrayList<ASAvatarConfigInfo> arrayList) {
@@ -538,6 +583,7 @@ public class AvatarEngineManager {
         resetInnerConfigSelectMap();
         this.mInnerConfigSelectMap.clear();
         this.mSubConfigs.clear();
+        this.mColorLayoutManagerMap.clear();
     }
 
     public void setASAvatarConfigValue(ASAvatarConfigValue aSAvatarConfigValue) {

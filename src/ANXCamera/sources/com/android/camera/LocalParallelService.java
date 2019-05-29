@@ -53,7 +53,7 @@ public class LocalParallelService extends Service {
 
         LocalBinder() {
             JpegEncoder.instance().init(LocalParallelService.this);
-            if (b.rD) {
+            if (b.rE) {
                 JpegEncoder.instance().setVTCameraIds("5", "6");
             }
             MiCameraAlgo.init(LocalParallelService.this);
@@ -135,7 +135,7 @@ public class LocalParallelService extends Service {
         }
 
         public boolean needWaitProcess() {
-            return this.mCurrentPostProcessor.needWaitImageClose();
+            return this.mCurrentPostProcessor.needWaitImageClose() || this.mCurrentPostProcessor.needWaitAlgorithmEngine();
         }
 
         public void onCaptureCompleted(ICustomCaptureResult iCustomCaptureResult, boolean z) {
@@ -196,6 +196,7 @@ public class LocalParallelService extends Service {
     }
 
     public boolean onUnbind(Intent intent) {
+        Log.d(TAG, "onUnbind: start");
         return super.onUnbind(intent);
     }
 }

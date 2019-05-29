@@ -62,8 +62,6 @@
 
 .field protected mDebugInfoView:Landroid/widget/TextView;
 
-.field protected mDelayReleaseCamera:Z
-
 .field protected mDisplayRotation:I
 
 .field protected mEdgeShutterView:Lcom/android/camera/ui/V9EdgeShutterView;
@@ -99,6 +97,8 @@
 .field protected mOrientation:I
 
 .field protected mOrientationCompensation:I
+
+.field protected mReleaseByModule:Z
 
 .field protected mScreenHint:Lcom/android/camera/ui/ScreenHint;
 
@@ -757,13 +757,13 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    invoke-static {}, Lcom/mi/config/b;->gW()Z
+    invoke-static {}, Lcom/mi/config/b;->gZ()Z
 
     move-result v2
 
     if-eqz v2, :cond_5
 
-    invoke-static {}, Lcom/mi/config/b;->iB()Z
+    invoke-static {}, Lcom/mi/config/b;->iE()Z
 
     move-result v2
 
@@ -1771,8 +1771,6 @@
 
     invoke-virtual {v0}, Lcom/android/camera/ui/V6CameraGLSurfaceView;->onPause()V
 
-    invoke-virtual {p0}, Lcom/android/camera/ActivityBase;->releaseCameraScreenNail()V
-
     return-void
 .end method
 
@@ -1965,17 +1963,17 @@
     return-void
 
     :cond_0
-    iget-boolean v0, p0, Lcom/android/camera/ActivityBase;->mDelayReleaseCamera:Z
+    iget-boolean v0, p0, Lcom/android/camera/ActivityBase;->mReleaseByModule:Z
 
-    if-eqz v0, :cond_1
+    if-nez v0, :cond_4
 
     invoke-virtual {p0}, Lcom/android/camera/ActivityBase;->isPostProcessing()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-eqz v0, :cond_1
 
-    return-void
+    goto :goto_1
 
     :cond_1
     invoke-virtual {p0}, Lcom/android/camera/ActivityBase;->getCameraIntentManager()Lcom/android/camera/CameraIntentManager;
@@ -2091,6 +2089,10 @@
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
 
     :goto_0
+    return-void
+
+    :cond_4
+    :goto_1
     return-void
 .end method
 

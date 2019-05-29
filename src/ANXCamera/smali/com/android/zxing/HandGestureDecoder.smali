@@ -541,26 +541,26 @@
     return v0
 .end method
 
-.method public onPreviewFrame(Landroid/media/Image;III)V
-    .locals 0
+.method public onPreviewFrame(Landroid/media/Image;I)V
+    .locals 1
 
     invoke-virtual {p0}, Lcom/android/zxing/HandGestureDecoder;->needPreviewFrame()Z
 
-    move-result p2
+    move-result v0
 
-    if-eqz p2, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object p2, p0, Lcom/android/zxing/HandGestureDecoder;->mDecodeFlowableEmitter:Lio/reactivex/FlowableEmitter;
+    iget-object v0, p0, Lcom/android/zxing/HandGestureDecoder;->mDecodeFlowableEmitter:Lio/reactivex/FlowableEmitter;
 
-    if-eqz p2, :cond_0
+    if-eqz v0, :cond_0
 
-    new-instance p2, Lcom/android/zxing/PreviewImage;
+    new-instance v0, Lcom/android/zxing/PreviewImage;
 
-    invoke-direct {p2, p1, p4}, Lcom/android/zxing/PreviewImage;-><init>(Landroid/media/Image;I)V
+    invoke-direct {v0, p1, p2}, Lcom/android/zxing/PreviewImage;-><init>(Landroid/media/Image;I)V
 
     iget-object p1, p0, Lcom/android/zxing/HandGestureDecoder;->mDecodeFlowableEmitter:Lio/reactivex/FlowableEmitter;
 
-    invoke-interface {p1, p2}, Lio/reactivex/FlowableEmitter;->onNext(Ljava/lang/Object;)V
+    invoke-interface {p1, v0}, Lio/reactivex/FlowableEmitter;->onNext(Ljava/lang/Object;)V
 
     :cond_0
     return-void

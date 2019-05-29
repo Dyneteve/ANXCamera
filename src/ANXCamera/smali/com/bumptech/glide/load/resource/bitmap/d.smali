@@ -21,7 +21,7 @@
 
 
 # instance fields
-.field private final kA:Lcom/bumptech/glide/load/i;
+.field private final kB:Lcom/bumptech/glide/load/i;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/i<",
@@ -58,7 +58,7 @@
 
     check-cast p1, Lcom/bumptech/glide/load/i;
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/d;->kA:Lcom/bumptech/glide/load/i;
+    iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/d;->kB:Lcom/bumptech/glide/load/i;
 
     return-void
 .end method
@@ -141,9 +141,9 @@
 
     check-cast p1, Lcom/bumptech/glide/load/resource/bitmap/d;
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/d;->kA:Lcom/bumptech/glide/load/i;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/d;->kB:Lcom/bumptech/glide/load/i;
 
-    iget-object p1, p1, Lcom/bumptech/glide/load/resource/bitmap/d;->kA:Lcom/bumptech/glide/load/i;
+    iget-object p1, p1, Lcom/bumptech/glide/load/resource/bitmap/d;->kB:Lcom/bumptech/glide/load/i;
 
     invoke-virtual {v0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
@@ -160,7 +160,7 @@
 .method public hashCode()I
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/d;->kA:Lcom/bumptech/glide/load/i;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/d;->kB:Lcom/bumptech/glide/load/i;
 
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
@@ -199,7 +199,7 @@
 
     move-result-object p2
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/d;->kA:Lcom/bumptech/glide/load/i;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/d;->kB:Lcom/bumptech/glide/load/i;
 
     invoke-interface {v0, p1, p2, p3, p4}, Lcom/bumptech/glide/load/i;->transform(Landroid/content/Context;Lcom/bumptech/glide/load/engine/p;II)Lcom/bumptech/glide/load/engine/p;
 
@@ -219,7 +219,7 @@
         .end annotation
     .end param
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/d;->kA:Lcom/bumptech/glide/load/i;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/d;->kB:Lcom/bumptech/glide/load/i;
 
     invoke-interface {v0, p1}, Lcom/bumptech/glide/load/i;->updateDiskCacheKey(Ljava/security/MessageDigest;)V
 

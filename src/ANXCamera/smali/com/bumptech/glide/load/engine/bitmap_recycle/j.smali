@@ -25,9 +25,11 @@
 # instance fields
 .field private hA:I
 
-.field private final hs:Lcom/bumptech/glide/load/engine/bitmap_recycle/k;
+.field private hB:I
 
-.field private final ht:Ljava/util/Set;
+.field private final ht:Lcom/bumptech/glide/load/engine/bitmap_recycle/k;
+
+.field private final hu:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set<",
@@ -37,13 +39,11 @@
     .end annotation
 .end field
 
-.field private final hu:J
+.field private final hv:J
 
-.field private final hv:Lcom/bumptech/glide/load/engine/bitmap_recycle/j$a;
+.field private final hw:Lcom/bumptech/glide/load/engine/bitmap_recycle/j$a;
 
-.field private hw:J
-
-.field private hx:I
+.field private hx:J
 
 .field private hy:I
 
@@ -93,19 +93,19 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-wide p1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hu:J
+    iput-wide p1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hv:J
 
     iput-wide p1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->maxSize:J
 
-    iput-object p3, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hs:Lcom/bumptech/glide/load/engine/bitmap_recycle/k;
+    iput-object p3, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->ht:Lcom/bumptech/glide/load/engine/bitmap_recycle/k;
 
-    iput-object p4, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->ht:Ljava/util/Set;
+    iput-object p4, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hu:Ljava/util/Set;
 
     new-instance p1, Lcom/bumptech/glide/load/engine/bitmap_recycle/j$b;
 
     invoke-direct {p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/j$b;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hv:Lcom/bumptech/glide/load/engine/bitmap_recycle/j$a;
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hw:Lcom/bumptech/glide/load/engine/bitmap_recycle/j$a;
 
     return-void
 .end method
@@ -137,13 +137,13 @@
 
     :goto_0
     :try_start_0
-    iget-wide v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hw:J
+    iget-wide v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hx:J
 
     cmp-long v0, v0, p1
 
     if-lez v0, :cond_3
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hs:Lcom/bumptech/glide/load/engine/bitmap_recycle/k;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->ht:Lcom/bumptech/glide/load/engine/bitmap_recycle/k;
 
     invoke-interface {v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/k;->bl()Landroid/graphics/Bitmap;
 
@@ -172,7 +172,7 @@
     :cond_0
     const-wide/16 p1, 0x0
 
-    iput-wide p1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hw:J
+    iput-wide p1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hx:J
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -182,13 +182,13 @@
 
     :cond_1
     :try_start_1
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hv:Lcom/bumptech/glide/load/engine/bitmap_recycle/j$a;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hw:Lcom/bumptech/glide/load/engine/bitmap_recycle/j$a;
 
     invoke-interface {v1, v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/j$a;->k(Landroid/graphics/Bitmap;)V
 
-    iget-wide v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hw:J
+    iget-wide v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hx:J
 
-    iget-object v3, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hs:Lcom/bumptech/glide/load/engine/bitmap_recycle/k;
+    iget-object v3, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->ht:Lcom/bumptech/glide/load/engine/bitmap_recycle/k;
 
     invoke-interface {v3, v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/k;->f(Landroid/graphics/Bitmap;)I
 
@@ -198,13 +198,13 @@
 
     sub-long/2addr v1, v3
 
-    iput-wide v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hw:J
+    iput-wide v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hx:J
 
-    iget v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hA:I
+    iget v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hB:I
 
     add-int/lit8 v1, v1, 0x1
 
-    iput v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hA:I
+    iput v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hB:I
 
     const-string v1, "LruBitmapPool"
 
@@ -226,7 +226,7 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v3, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hs:Lcom/bumptech/glide/load/engine/bitmap_recycle/k;
+    iget-object v3, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->ht:Lcom/bumptech/glide/load/engine/bitmap_recycle/k;
 
     invoke-interface {v3, v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/k;->e(Landroid/graphics/Bitmap;)Ljava/lang/String;
 
@@ -332,7 +332,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hx:I
+    iget v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hy:I
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -340,7 +340,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hy:I
+    iget v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hz:I
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -348,7 +348,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hz:I
+    iget v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hA:I
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -356,7 +356,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hA:I
+    iget v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hB:I
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -364,7 +364,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-wide v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hw:J
+    iget-wide v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hx:J
 
     invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
@@ -380,7 +380,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hs:Lcom/bumptech/glide/load/engine/bitmap_recycle/k;
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->ht:Lcom/bumptech/glide/load/engine/bitmap_recycle/k;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -530,7 +530,7 @@
     :try_start_0
     invoke-static {p3}, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->b(Landroid/graphics/Bitmap$Config;)V
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hs:Lcom/bumptech/glide/load/engine/bitmap_recycle/k;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->ht:Lcom/bumptech/glide/load/engine/bitmap_recycle/k;
 
     if-eqz p3, :cond_0
 
@@ -568,7 +568,7 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v3, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hs:Lcom/bumptech/glide/load/engine/bitmap_recycle/k;
+    iget-object v3, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->ht:Lcom/bumptech/glide/load/engine/bitmap_recycle/k;
 
     invoke-interface {v3, p1, p2, p3}, Lcom/bumptech/glide/load/engine/bitmap_recycle/k;->c(IILandroid/graphics/Bitmap$Config;)Ljava/lang/String;
 
@@ -583,24 +583,24 @@
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
+    iget v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hz:I
+
+    add-int/lit8 v1, v1, 0x1
+
+    iput v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hz:I
+
+    goto :goto_1
+
+    :cond_2
     iget v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hy:I
 
     add-int/lit8 v1, v1, 0x1
 
     iput v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hy:I
 
-    goto :goto_1
+    iget-wide v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hx:J
 
-    :cond_2
-    iget v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hx:I
-
-    add-int/lit8 v1, v1, 0x1
-
-    iput v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hx:I
-
-    iget-wide v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hw:J
-
-    iget-object v3, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hs:Lcom/bumptech/glide/load/engine/bitmap_recycle/k;
+    iget-object v3, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->ht:Lcom/bumptech/glide/load/engine/bitmap_recycle/k;
 
     invoke-interface {v3, v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/k;->f(Landroid/graphics/Bitmap;)I
 
@@ -610,9 +610,9 @@
 
     sub-long/2addr v1, v3
 
-    iput-wide v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hw:J
+    iput-wide v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hx:J
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hv:Lcom/bumptech/glide/load/engine/bitmap_recycle/j$a;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hw:Lcom/bumptech/glide/load/engine/bitmap_recycle/j$a;
 
     invoke-interface {v1, v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/j$a;->k(Landroid/graphics/Bitmap;)V
 
@@ -639,7 +639,7 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v3, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hs:Lcom/bumptech/glide/load/engine/bitmap_recycle/k;
+    iget-object v3, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->ht:Lcom/bumptech/glide/load/engine/bitmap_recycle/k;
 
     invoke-interface {v3, p1, p2, p3}, Lcom/bumptech/glide/load/engine/bitmap_recycle/k;->c(IILandroid/graphics/Bitmap$Config;)Ljava/lang/String;
 
@@ -736,7 +736,7 @@
     monitor-enter p0
 
     :try_start_0
-    iget-wide v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hu:J
+    iget-wide v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hv:J
 
     long-to-float v0, v0
 
@@ -788,7 +788,7 @@
 
     if-eqz v0, :cond_2
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hs:Lcom/bumptech/glide/load/engine/bitmap_recycle/k;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->ht:Lcom/bumptech/glide/load/engine/bitmap_recycle/k;
 
     invoke-interface {v0, p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/k;->f(Landroid/graphics/Bitmap;)I
 
@@ -802,7 +802,7 @@
 
     if-gtz v0, :cond_2
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->ht:Ljava/util/Set;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hu:Ljava/util/Set;
 
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getConfig()Landroid/graphics/Bitmap$Config;
 
@@ -817,33 +817,33 @@
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hs:Lcom/bumptech/glide/load/engine/bitmap_recycle/k;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->ht:Lcom/bumptech/glide/load/engine/bitmap_recycle/k;
 
     invoke-interface {v0, p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/k;->f(Landroid/graphics/Bitmap;)I
 
     move-result v0
 
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hs:Lcom/bumptech/glide/load/engine/bitmap_recycle/k;
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->ht:Lcom/bumptech/glide/load/engine/bitmap_recycle/k;
 
     invoke-interface {v2, p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/k;->d(Landroid/graphics/Bitmap;)V
 
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hv:Lcom/bumptech/glide/load/engine/bitmap_recycle/j$a;
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hw:Lcom/bumptech/glide/load/engine/bitmap_recycle/j$a;
 
     invoke-interface {v2, p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/j$a;->j(Landroid/graphics/Bitmap;)V
 
-    iget v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hz:I
+    iget v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hA:I
 
     add-int/lit8 v2, v2, 0x1
 
-    iput v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hz:I
+    iput v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hA:I
 
-    iget-wide v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hw:J
+    iget-wide v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hx:J
 
     int-to-long v4, v0
 
     add-long/2addr v2, v4
 
-    iput-wide v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hw:J
+    iput-wide v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hx:J
 
     const-string v0, "LruBitmapPool"
 
@@ -863,7 +863,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hs:Lcom/bumptech/glide/load/engine/bitmap_recycle/k;
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->ht:Lcom/bumptech/glide/load/engine/bitmap_recycle/k;
 
     invoke-interface {v2, p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/k;->e(Landroid/graphics/Bitmap;)Ljava/lang/String;
 
@@ -909,7 +909,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hs:Lcom/bumptech/glide/load/engine/bitmap_recycle/k;
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->ht:Lcom/bumptech/glide/load/engine/bitmap_recycle/k;
 
     invoke-interface {v2, p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/k;->e(Landroid/graphics/Bitmap;)Ljava/lang/String;
 
@@ -931,7 +931,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->ht:Ljava/util/Set;
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;->hu:Ljava/util/Set;
 
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getConfig()Landroid/graphics/Bitmap$Config;
 

@@ -5,4 +5,9 @@
         <item quantity="one">Фокусирано. %d лице је откривено</item>
         <item quantity="few">Фокусирано. %d лица су откривена</item>
     </plurals>
+    <plurals name="toast_burst_snap_finished_summary">
+        <item quantity="other">Брзо окидање је завршено, укупно %1$s фотографија</item>
+        <item quantity="one">Брзо окидање је завршено, укупно %1$s фотографија</item>
+        <item quantity="few">Брзо окидање је завршено, укупно %1$s фотографије</item>
+    </plurals>
 </resources>

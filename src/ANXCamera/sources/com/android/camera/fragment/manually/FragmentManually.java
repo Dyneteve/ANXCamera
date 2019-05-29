@@ -117,7 +117,7 @@ public class FragmentManually extends BaseFragment implements OnClickListener, M
         }
         DataItemConfig dataItemConfig = DataRepository.dataItemConfig();
         this.mManuallyComponents.add(new ComponentManuallyWB(dataItemConfig));
-        if (b.hp()) {
+        if (b.hs()) {
             ComponentManuallyFocus manuallyFocus = DataRepository.dataItemConfig().getManuallyFocus();
             CameraCapabilities currentCameraCapabilities = Camera2DataContainer.getInstance().getCurrentCameraCapabilities();
             if (currentCameraCapabilities != null) {

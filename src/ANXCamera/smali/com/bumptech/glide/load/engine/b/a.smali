@@ -18,25 +18,25 @@
 # static fields
 .field private static final TAG:Ljava/lang/String; = "GlideExecutor"
 
-.field private static final iG:Ljava/lang/String; = "source"
+.field private static final iH:Ljava/lang/String; = "source"
 
-.field private static final iH:Ljava/lang/String; = "disk-cache"
+.field private static final iI:Ljava/lang/String; = "disk-cache"
 
-.field private static final iI:I = 0x1
+.field private static final iJ:I = 0x1
 
-.field private static final iJ:Ljava/lang/String; = "source-unlimited"
+.field private static final iK:Ljava/lang/String; = "source-unlimited"
 
-.field private static final iK:Ljava/lang/String; = "animation"
+.field private static final iL:Ljava/lang/String; = "animation"
 
-.field private static final iL:J
+.field private static final iM:J
 
-.field private static final iM:I = 0x4
+.field private static final iN:I = 0x4
 
-.field private static volatile iN:I
+.field private static volatile iO:I
 
 
 # instance fields
-.field private final iO:Ljava/util/concurrent/ExecutorService;
+.field private final iP:Ljava/util/concurrent/ExecutorService;
 
 
 # direct methods
@@ -51,7 +51,7 @@
 
     move-result-wide v0
 
-    sput-wide v0, Lcom/bumptech/glide/load/engine/b/a;->iL:J
+    sput-wide v0, Lcom/bumptech/glide/load/engine/b/a;->iM:J
 
     return-void
 .end method
@@ -63,7 +63,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/engine/b/a;->iO:Ljava/util/concurrent/ExecutorService;
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/b/a;->iP:Ljava/util/concurrent/ExecutorService;
 
     return-void
 .end method
@@ -75,7 +75,7 @@
 
     new-instance v9, Ljava/util/concurrent/ThreadPoolExecutor;
 
-    sget-wide v4, Lcom/bumptech/glide/load/engine/b/a;->iL:J
+    sget-wide v4, Lcom/bumptech/glide/load/engine/b/a;->iM:J
 
     sget-object v6, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
@@ -207,7 +207,7 @@
 
     const-string v0, "disk-cache"
 
-    sget-object v1, Lcom/bumptech/glide/load/engine/b/a$b;->iX:Lcom/bumptech/glide/load/engine/b/a$b;
+    sget-object v1, Lcom/bumptech/glide/load/engine/b/a$b;->iY:Lcom/bumptech/glide/load/engine/b/a$b;
 
     const/4 v2, 0x1
 
@@ -227,7 +227,7 @@
 
     const-string v1, "source"
 
-    sget-object v2, Lcom/bumptech/glide/load/engine/b/a$b;->iX:Lcom/bumptech/glide/load/engine/b/a$b;
+    sget-object v2, Lcom/bumptech/glide/load/engine/b/a$b;->iY:Lcom/bumptech/glide/load/engine/b/a$b;
 
     invoke-static {v0, v1, v2}, Lcom/bumptech/glide/load/engine/b/a;->b(ILjava/lang/String;Lcom/bumptech/glide/load/engine/b/a$b;)Lcom/bumptech/glide/load/engine/b/a;
 
@@ -243,7 +243,7 @@
 
     new-instance v9, Ljava/util/concurrent/ThreadPoolExecutor;
 
-    sget-wide v4, Lcom/bumptech/glide/load/engine/b/a;->iL:J
+    sget-wide v4, Lcom/bumptech/glide/load/engine/b/a;->iM:J
 
     sget-object v6, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
@@ -255,7 +255,7 @@
 
     const-string v1, "source-unlimited"
 
-    sget-object v2, Lcom/bumptech/glide/load/engine/b/a$b;->iX:Lcom/bumptech/glide/load/engine/b/a$b;
+    sget-object v2, Lcom/bumptech/glide/load/engine/b/a$b;->iY:Lcom/bumptech/glide/load/engine/b/a$b;
 
     const/4 v3, 0x0
 
@@ -293,7 +293,7 @@
     const/4 v0, 0x1
 
     :goto_0
-    sget-object v1, Lcom/bumptech/glide/load/engine/b/a$b;->iX:Lcom/bumptech/glide/load/engine/b/a$b;
+    sget-object v1, Lcom/bumptech/glide/load/engine/b/a$b;->iY:Lcom/bumptech/glide/load/engine/b/a$b;
 
     invoke-static {v0, v1}, Lcom/bumptech/glide/load/engine/b/a;->a(ILcom/bumptech/glide/load/engine/b/a$b;)Lcom/bumptech/glide/load/engine/b/a;
 
@@ -305,7 +305,7 @@
 .method public static bR()I
     .locals 2
 
-    sget v0, Lcom/bumptech/glide/load/engine/b/a;->iN:I
+    sget v0, Lcom/bumptech/glide/load/engine/b/a;->iO:I
 
     if-nez v0, :cond_0
 
@@ -319,10 +319,10 @@
 
     move-result v0
 
-    sput v0, Lcom/bumptech/glide/load/engine/b/a;->iN:I
+    sput v0, Lcom/bumptech/glide/load/engine/b/a;->iO:I
 
     :cond_0
-    sget v0, Lcom/bumptech/glide/load/engine/b/a;->iN:I
+    sget v0, Lcom/bumptech/glide/load/engine/b/a;->iO:I
 
     return v0
 .end method
@@ -341,7 +341,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/b/a;->iO:Ljava/util/concurrent/ExecutorService;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/b/a;->iP:Ljava/util/concurrent/ExecutorService;
 
     invoke-interface {v0, p1, p2, p3}, Ljava/util/concurrent/ExecutorService;->awaitTermination(JLjava/util/concurrent/TimeUnit;)Z
 
@@ -357,7 +357,7 @@
         .end annotation
     .end param
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/b/a;->iO:Ljava/util/concurrent/ExecutorService;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/b/a;->iP:Ljava/util/concurrent/ExecutorService;
 
     invoke-interface {v0, p1}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
 
@@ -394,7 +394,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/b/a;->iO:Ljava/util/concurrent/ExecutorService;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/b/a;->iP:Ljava/util/concurrent/ExecutorService;
 
     invoke-interface {v0, p1}, Ljava/util/concurrent/ExecutorService;->invokeAll(Ljava/util/Collection;)Ljava/util/List;
 
@@ -439,7 +439,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/b/a;->iO:Ljava/util/concurrent/ExecutorService;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/b/a;->iP:Ljava/util/concurrent/ExecutorService;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljava/util/concurrent/ExecutorService;->invokeAll(Ljava/util/Collection;JLjava/util/concurrent/TimeUnit;)Ljava/util/List;
 
@@ -476,7 +476,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/b/a;->iO:Ljava/util/concurrent/ExecutorService;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/b/a;->iP:Ljava/util/concurrent/ExecutorService;
 
     invoke-interface {v0, p1}, Ljava/util/concurrent/ExecutorService;->invokeAny(Ljava/util/Collection;)Ljava/lang/Object;
 
@@ -517,7 +517,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/b/a;->iO:Ljava/util/concurrent/ExecutorService;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/b/a;->iP:Ljava/util/concurrent/ExecutorService;
 
     invoke-interface {v0, p1, p2, p3, p4}, Ljava/util/concurrent/ExecutorService;->invokeAny(Ljava/util/Collection;JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;
 
@@ -529,7 +529,7 @@
 .method public isShutdown()Z
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/b/a;->iO:Ljava/util/concurrent/ExecutorService;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/b/a;->iP:Ljava/util/concurrent/ExecutorService;
 
     invoke-interface {v0}, Ljava/util/concurrent/ExecutorService;->isShutdown()Z
 
@@ -541,7 +541,7 @@
 .method public isTerminated()Z
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/b/a;->iO:Ljava/util/concurrent/ExecutorService;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/b/a;->iP:Ljava/util/concurrent/ExecutorService;
 
     invoke-interface {v0}, Ljava/util/concurrent/ExecutorService;->isTerminated()Z
 
@@ -553,7 +553,7 @@
 .method public shutdown()V
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/b/a;->iO:Ljava/util/concurrent/ExecutorService;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/b/a;->iP:Ljava/util/concurrent/ExecutorService;
 
     invoke-interface {v0}, Ljava/util/concurrent/ExecutorService;->shutdown()V
 
@@ -574,7 +574,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/b/a;->iO:Ljava/util/concurrent/ExecutorService;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/b/a;->iP:Ljava/util/concurrent/ExecutorService;
 
     invoke-interface {v0}, Ljava/util/concurrent/ExecutorService;->shutdownNow()Ljava/util/List;
 
@@ -602,7 +602,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/b/a;->iO:Ljava/util/concurrent/ExecutorService;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/b/a;->iP:Ljava/util/concurrent/ExecutorService;
 
     invoke-interface {v0, p1}, Ljava/util/concurrent/ExecutorService;->submit(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
 
@@ -632,7 +632,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/b/a;->iO:Ljava/util/concurrent/ExecutorService;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/b/a;->iP:Ljava/util/concurrent/ExecutorService;
 
     invoke-interface {v0, p1, p2}, Ljava/util/concurrent/ExecutorService;->submit(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/Future;
 
@@ -659,7 +659,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/b/a;->iO:Ljava/util/concurrent/ExecutorService;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/b/a;->iP:Ljava/util/concurrent/ExecutorService;
 
     invoke-interface {v0, p1}, Ljava/util/concurrent/ExecutorService;->submit(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;
 
@@ -671,7 +671,7 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/b/a;->iO:Ljava/util/concurrent/ExecutorService;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/b/a;->iP:Ljava/util/concurrent/ExecutorService;
 
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 

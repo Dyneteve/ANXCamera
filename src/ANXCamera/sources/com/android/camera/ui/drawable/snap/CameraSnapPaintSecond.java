@@ -3,6 +3,7 @@ package com.android.camera.ui.drawable.snap;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint.Style;
+import com.android.camera.Util;
 import com.android.camera.ui.drawable.CameraPaintBase;
 
 public class CameraSnapPaintSecond extends CameraPaintBase {
@@ -25,7 +26,7 @@ public class CameraSnapPaintSecond extends CameraPaintBase {
                 i2 = 0;
             }
             this.mPaint.setAlpha(i2);
-            canvas.drawLine(this.mMiddleX, this.mMiddleY - f, this.mMiddleX, (this.mMiddleY - f) + 15.0f, this.mPaint);
+            canvas.drawLine(this.mMiddleX, this.mMiddleY - f, this.mMiddleX, (this.mMiddleY - f) + ((float) Util.dpToPixel(5.0f)), this.mPaint);
             canvas.restore();
             i++;
         }

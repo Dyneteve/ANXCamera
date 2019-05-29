@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field private fA:Z
-
 .field private fB:Z
 
 .field private fC:Z
+
+.field private fD:Z
 
 
 # direct methods
@@ -34,18 +34,18 @@
 .method private f(Z)Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/DecodeJob$e;->fC:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/DecodeJob$e;->fD:Z
 
     if-nez v0, :cond_0
 
     if-nez p1, :cond_0
 
-    iget-boolean p1, p0, Lcom/bumptech/glide/load/engine/DecodeJob$e;->fB:Z
+    iget-boolean p1, p0, Lcom/bumptech/glide/load/engine/DecodeJob$e;->fC:Z
 
     if-eqz p1, :cond_1
 
     :cond_0
-    iget-boolean p1, p0, Lcom/bumptech/glide/load/engine/DecodeJob$e;->fA:Z
+    iget-boolean p1, p0, Lcom/bumptech/glide/load/engine/DecodeJob$e;->fB:Z
 
     if-eqz p1, :cond_1
 
@@ -70,7 +70,7 @@
     const/4 v0, 0x1
 
     :try_start_0
-    iput-boolean v0, p0, Lcom/bumptech/glide/load/engine/DecodeJob$e;->fB:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/load/engine/DecodeJob$e;->fC:Z
 
     const/4 v0, 0x0
 
@@ -100,7 +100,7 @@
     const/4 v0, 0x1
 
     :try_start_0
-    iput-boolean v0, p0, Lcom/bumptech/glide/load/engine/DecodeJob$e;->fC:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/load/engine/DecodeJob$e;->fD:Z
 
     const/4 v0, 0x0
 
@@ -130,7 +130,7 @@
     const/4 v0, 0x1
 
     :try_start_0
-    iput-boolean v0, p0, Lcom/bumptech/glide/load/engine/DecodeJob$e;->fA:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/load/engine/DecodeJob$e;->fB:Z
 
     invoke-direct {p0, p1}, Lcom/bumptech/glide/load/engine/DecodeJob$e;->f(Z)Z
 
@@ -158,11 +158,11 @@
     const/4 v0, 0x0
 
     :try_start_0
+    iput-boolean v0, p0, Lcom/bumptech/glide/load/engine/DecodeJob$e;->fC:Z
+
     iput-boolean v0, p0, Lcom/bumptech/glide/load/engine/DecodeJob$e;->fB:Z
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/load/engine/DecodeJob$e;->fA:Z
-
-    iput-boolean v0, p0, Lcom/bumptech/glide/load/engine/DecodeJob$e;->fC:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/load/engine/DecodeJob$e;->fD:Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

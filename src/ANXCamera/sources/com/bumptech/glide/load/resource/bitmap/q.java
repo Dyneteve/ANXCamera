@@ -8,7 +8,7 @@ import java.security.MessageDigest;
 /* compiled from: FitCenter */
 public class q extends g {
     private static final String ID = "com.bumptech.glide.load.resource.bitmap.FitCenter";
-    private static final byte[] kE = ID.getBytes(dG);
+    private static final byte[] kF = ID.getBytes(dH);
 
     public boolean equals(Object obj) {
         return obj instanceof q;
@@ -24,6 +24,6 @@ public class q extends g {
     }
 
     public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
-        messageDigest.update(kE);
+        messageDigest.update(kF);
     }
 }

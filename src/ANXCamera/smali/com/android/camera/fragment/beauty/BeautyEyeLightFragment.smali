@@ -953,7 +953,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a00e3
+    const v1, 0x7f0a00c9
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -977,7 +977,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a00e5
+    const v1, 0x7f0a00cb
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1198,7 +1198,7 @@
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
-    const p3, 0x7f04001b
+    const p3, 0x7f04001c
 
     const/4 v0, 0x0
 

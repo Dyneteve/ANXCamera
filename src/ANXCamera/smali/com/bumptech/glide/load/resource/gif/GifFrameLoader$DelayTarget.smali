@@ -30,9 +30,9 @@
 
 .field final index:I
 
-.field private final mA:J
+.field private final mB:J
 
-.field private mB:Landroid/graphics/Bitmap;
+.field private mC:Landroid/graphics/Bitmap;
 
 
 # direct methods
@@ -45,7 +45,7 @@
 
     iput p2, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;->index:I
 
-    iput-wide p3, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;->mA:J
+    iput-wide p3, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;->mB:J
 
     return-void
 .end method
@@ -73,7 +73,7 @@
         }
     .end annotation
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;->mB:Landroid/graphics/Bitmap;
+    iput-object p1, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;->mC:Landroid/graphics/Bitmap;
 
     iget-object p1, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;->handler:Landroid/os/Handler;
 
@@ -85,7 +85,7 @@
 
     iget-object p2, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;->handler:Landroid/os/Handler;
 
-    iget-wide v0, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;->mA:J
+    iget-wide v0, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;->mB:J
 
     invoke-virtual {p2, p1, v0, v1}, Landroid/os/Handler;->sendMessageAtTime(Landroid/os/Message;J)Z
 
@@ -113,7 +113,7 @@
 .method cU()Landroid/graphics/Bitmap;
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;->mB:Landroid/graphics/Bitmap;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;->mC:Landroid/graphics/Bitmap;
 
     return-object v0
 .end method

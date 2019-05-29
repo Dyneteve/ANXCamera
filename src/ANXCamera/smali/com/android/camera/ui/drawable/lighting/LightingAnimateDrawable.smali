@@ -16,6 +16,8 @@
 
 .field private mAnimateFocusDoing:Z
 
+.field private mCircleHeightRatio:F
+
 .field private mCircleRatio:F
 
 .field private mExitAnimator:Landroid/animation/ValueAnimator;
@@ -54,6 +56,8 @@
     const/high16 v0, 0x3f800000    # 1.0f
 
     iput v0, p0, Lcom/android/camera/ui/drawable/lighting/LightingAnimateDrawable;->mCircleRatio:F
+
+    iput v0, p0, Lcom/android/camera/ui/drawable/lighting/LightingAnimateDrawable;->mCircleHeightRatio:F
 
     const/4 v0, 0x0
 
@@ -971,6 +975,14 @@
     return-void
 .end method
 
+.method public setCircleHeightRatio(F)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/camera/ui/drawable/lighting/LightingAnimateDrawable;->mCircleHeightRatio:F
+
+    return-void
+.end method
+
 .method public setCircleRatio(F)V
     .locals 0
 
@@ -1039,6 +1051,22 @@
     mul-float/2addr p1, v0
 
     div-float/2addr p1, p2
+
+    iput p1, p0, Lcom/android/camera/ui/drawable/lighting/LightingAnimateDrawable;->mMiddleHorizontalY:F
+
+    iget p1, p0, Lcom/android/camera/ui/drawable/lighting/LightingAnimateDrawable;->mMiddleVerticalY:F
+
+    iget p2, p0, Lcom/android/camera/ui/drawable/lighting/LightingAnimateDrawable;->mCircleHeightRatio:F
+
+    mul-float/2addr p1, p2
+
+    iput p1, p0, Lcom/android/camera/ui/drawable/lighting/LightingAnimateDrawable;->mMiddleVerticalY:F
+
+    iget p1, p0, Lcom/android/camera/ui/drawable/lighting/LightingAnimateDrawable;->mMiddleHorizontalY:F
+
+    iget p2, p0, Lcom/android/camera/ui/drawable/lighting/LightingAnimateDrawable;->mCircleHeightRatio:F
+
+    mul-float/2addr p1, p2
 
     iput p1, p0, Lcom/android/camera/ui/drawable/lighting/LightingAnimateDrawable;->mMiddleHorizontalY:F
 

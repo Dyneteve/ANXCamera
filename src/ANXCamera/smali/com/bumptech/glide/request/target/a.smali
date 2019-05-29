@@ -18,7 +18,7 @@
 
 .field private final context:Landroid/content/Context;
 
-.field private final oY:[I
+.field private final oZ:[I
 
 .field private final remoteViews:Landroid/widget/RemoteViews;
 
@@ -65,7 +65,7 @@
 
     const/4 p1, 0x0
 
-    iput-object p1, p0, Lcom/bumptech/glide/request/target/a;->oY:[I
+    iput-object p1, p0, Lcom/bumptech/glide/request/target/a;->oZ:[I
 
     return-void
 .end method
@@ -107,7 +107,7 @@
 
     check-cast p1, [I
 
-    iput-object p1, p0, Lcom/bumptech/glide/request/target/a;->oY:[I
+    iput-object p1, p0, Lcom/bumptech/glide/request/target/a;->oZ:[I
 
     iput p4, p0, Lcom/bumptech/glide/request/target/a;->viewId:I
 
@@ -193,7 +193,7 @@
     goto :goto_0
 
     :cond_0
-    iget-object v1, p0, Lcom/bumptech/glide/request/target/a;->oY:[I
+    iget-object v1, p0, Lcom/bumptech/glide/request/target/a;->oZ:[I
 
     iget-object v2, p0, Lcom/bumptech/glide/request/target/a;->remoteViews:Landroid/widget/RemoteViews;
 

@@ -17,17 +17,17 @@ import java.util.List;
 
 /* compiled from: BaseGlideUrlLoader */
 public abstract class a<Model> implements m<Model, InputStream> {
-    private final m<g, InputStream> ku;
+    private final m<g, InputStream> kv;
     @Nullable
-    private final ModelCache<Model, g> kv;
+    private final ModelCache<Model, g> kw;
 
     protected a(m<g, InputStream> mVar) {
         this(mVar, null);
     }
 
     protected a(m<g, InputStream> mVar, @Nullable ModelCache<Model, g> modelCache) {
-        this.ku = mVar;
-        this.kv = modelCache;
+        this.kv = mVar;
+        this.kw = modelCache;
     }
 
     private static List<c> a(Collection<String> collection) {
@@ -40,21 +40,21 @@ public abstract class a<Model> implements m<Model, InputStream> {
 
     @Nullable
     public com.bumptech.glide.load.model.m.a<InputStream> b(@NonNull Model model, int i, int i2, @NonNull f fVar) {
-        Object obj = this.kv != null ? (g) this.kv.c(model, i, i2) : null;
+        Object obj = this.kw != null ? (g) this.kw.c(model, i, i2) : null;
         if (obj == null) {
             String c = c(model, i, i2, fVar);
             if (TextUtils.isEmpty(c)) {
                 return null;
             }
             g gVar = new g(c, e(model, i, i2, fVar));
-            if (this.kv != null) {
-                this.kv.a(model, i, i2, gVar);
+            if (this.kw != null) {
+                this.kw.a(model, i, i2, gVar);
             }
             obj = gVar;
         }
         List d = d(model, i, i2, fVar);
-        com.bumptech.glide.load.model.m.a<InputStream> b = this.ku.b(obj, i, i2, fVar);
-        return (b == null || d.isEmpty()) ? b : new com.bumptech.glide.load.model.m.a<>(b.eI, a(d), b.jX);
+        com.bumptech.glide.load.model.m.a<InputStream> b = this.kv.b(obj, i, i2, fVar);
+        return (b == null || d.isEmpty()) ? b : new com.bumptech.glide.load.model.m.a<>(b.eJ, a(d), b.jY);
     }
 
     public abstract String c(Model model, int i, int i2, f fVar);
@@ -67,6 +67,6 @@ public abstract class a<Model> implements m<Model, InputStream> {
     /* access modifiers changed from: protected */
     @Nullable
     public h e(Model model, int i, int i2, f fVar) {
-        return h.jM;
+        return h.jN;
     }
 }

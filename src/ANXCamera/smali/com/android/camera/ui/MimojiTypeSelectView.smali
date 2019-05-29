@@ -303,7 +303,7 @@
 
 # virtual methods
 .method public init()V
-    .locals 8
+    .locals 9
 
     invoke-static {}, Lcom/android/camera/fragment/mimoji/AvatarEngineManager;->getInstance()Lcom/android/camera/fragment/mimoji/AvatarEngineManager;
 
@@ -328,6 +328,8 @@
 
     move-result v3
 
+    const/4 v4, 0x1
+
     if-eqz v3, :cond_1
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -338,134 +340,144 @@
 
     invoke-static {}, Lcom/android/camera/fragment/mimoji/AvatarEngineManager;->getInstance()Lcom/android/camera/fragment/mimoji/AvatarEngineManager;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v4}, Lcom/android/camera/fragment/mimoji/AvatarEngineManager;->queryAvatar()Lcom/arcsoft/avatar/AvatarEngine;
-
-    move-result-object v4
-
-    iget v5, v3, Lcom/arcsoft/avatar/AvatarConfig$ASAvatarConfigType;->configType:I
-
-    invoke-static {}, Lcom/android/camera/fragment/mimoji/AvatarEngineManager;->getInstance()Lcom/android/camera/fragment/mimoji/AvatarEngineManager;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Lcom/android/camera/fragment/mimoji/AvatarEngineManager;->getASAvatarConfigValue()Lcom/arcsoft/avatar/AvatarConfig$ASAvatarConfigValue;
-
-    move-result-object v6
-
-    iget v6, v6, Lcom/arcsoft/avatar/AvatarConfig$ASAvatarConfigValue;->gender:I
-
-    invoke-virtual {v4, v5, v6}, Lcom/arcsoft/avatar/AvatarEngine;->getConfig(II)Ljava/util/ArrayList;
-
-    move-result-object v4
-
-    sget-object v5, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;->TAG:Ljava/lang/String;
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "putConfigList:"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v7, v3, Lcom/arcsoft/avatar/AvatarConfig$ASAvatarConfigType;->configTypeDesc:Ljava/lang/String;
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v7, ":"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget v7, v3, Lcom/arcsoft/avatar/AvatarConfig$ASAvatarConfigType;->configType:I
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Lcom/android/camera/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-static {}, Lcom/android/camera/fragment/mimoji/AvatarEngineManager;->getInstance()Lcom/android/camera/fragment/mimoji/AvatarEngineManager;
+    invoke-virtual {v5}, Lcom/android/camera/fragment/mimoji/AvatarEngineManager;->queryAvatar()Lcom/arcsoft/avatar/AvatarEngine;
 
     move-result-object v5
 
     iget v6, v3, Lcom/arcsoft/avatar/AvatarConfig$ASAvatarConfigType;->configType:I
 
-    invoke-virtual {v5, v6, v4}, Lcom/android/camera/fragment/mimoji/AvatarEngineManager;->putConfigList(ILjava/util/ArrayList;)V
+    invoke-static {}, Lcom/android/camera/fragment/mimoji/AvatarEngineManager;->getInstance()Lcom/android/camera/fragment/mimoji/AvatarEngineManager;
 
-    iget v4, v3, Lcom/arcsoft/avatar/AvatarConfig$ASAvatarConfigType;->configType:I
+    move-result-object v7
 
-    invoke-static {v4}, Lcom/android/camera/fragment/mimoji/AvatarEngineManager;->filterTypeTitle(I)Z
+    invoke-virtual {v7}, Lcom/android/camera/fragment/mimoji/AvatarEngineManager;->getASAvatarConfigValue()Lcom/arcsoft/avatar/AvatarConfig$ASAvatarConfigValue;
 
-    move-result v4
+    move-result-object v7
 
-    if-eqz v4, :cond_0
+    iget v7, v7, Lcom/arcsoft/avatar/AvatarConfig$ASAvatarConfigValue;->gender:I
+
+    invoke-virtual {v5, v6, v7}, Lcom/arcsoft/avatar/AvatarEngine;->getConfig(II)Ljava/util/ArrayList;
+
+    move-result-object v5
+
+    sget-object v6, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;->TAG:Ljava/lang/String;
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "putConfigList:"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v8, v3, Lcom/arcsoft/avatar/AvatarConfig$ASAvatarConfigType;->configTypeDesc:Ljava/lang/String;
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v8, ":"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v8, v3, Lcom/arcsoft/avatar/AvatarConfig$ASAvatarConfigType;->configType:I
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Lcom/android/camera/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {}, Lcom/android/camera/fragment/mimoji/AvatarEngineManager;->getInstance()Lcom/android/camera/fragment/mimoji/AvatarEngineManager;
+
+    move-result-object v6
+
+    iget v7, v3, Lcom/arcsoft/avatar/AvatarConfig$ASAvatarConfigType;->configType:I
+
+    invoke-virtual {v6, v7, v5}, Lcom/android/camera/fragment/mimoji/AvatarEngineManager;->putConfigList(ILjava/util/ArrayList;)V
+
+    iget v5, v3, Lcom/arcsoft/avatar/AvatarConfig$ASAvatarConfigType;->configType:I
+
+    invoke-static {v5}, Lcom/android/camera/fragment/mimoji/AvatarEngineManager;->filterTypeTitle(I)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
 
     goto :goto_0
 
     :cond_0
     invoke-virtual {p0}, Lcom/android/camera/ui/MimojiTypeSelectView;->getContext()Landroid/content/Context;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-static {v4}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
-
-    move-result-object v4
-
-    const v5, 0x7f04004a
-
-    invoke-virtual {v4, v5, p0, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/view/ViewGroup;
-
-    const v5, 0x7f0d0013
-
-    invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+    invoke-static {v5}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v5
 
-    check-cast v5, Lcom/android/camera/ui/ColorActivateTextView;
+    const v6, 0x7f04004c
 
-    const v6, -0xff5701
+    invoke-virtual {v5, v6, p0, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    invoke-virtual {v5, v6}, Lcom/android/camera/ui/ColorActivateTextView;->setActivateColor(I)V
+    move-result-object v5
 
-    invoke-virtual {v4, p0}, Landroid/view/ViewGroup;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    check-cast v5, Landroid/view/ViewGroup;
 
-    const v6, -0x66000001
+    const v6, 0x7f0d0013
 
-    invoke-virtual {v5, v6}, Lcom/android/camera/ui/ColorActivateTextView;->setNormalCor(I)V
-
-    iget-object v6, p0, Lcom/android/camera/ui/MimojiTypeSelectView;->mContext:Landroid/content/Context;
-
-    iget v7, v3, Lcom/arcsoft/avatar/AvatarConfig$ASAvatarConfigType;->configType:I
-
-    invoke-static {v6, v7}, Lcom/android/camera/fragment/mimoji/AvatarEngineManager;->replaceTabTitle(Landroid/content/Context;I)Ljava/lang/String;
+    invoke-virtual {v5, v6}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
     move-result-object v6
 
-    invoke-virtual {v5, v6}, Lcom/android/camera/ui/ColorActivateTextView;->setText(Ljava/lang/CharSequence;)V
+    check-cast v6, Lcom/android/camera/ui/ColorActivateTextView;
+
+    const v7, -0xff5701
+
+    invoke-virtual {v6, v7}, Lcom/android/camera/ui/ColorActivateTextView;->setActivateColor(I)V
+
+    invoke-virtual {v5, p0}, Landroid/view/ViewGroup;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    const/4 v7, -0x1
+
+    invoke-virtual {v6, v7}, Lcom/android/camera/ui/ColorActivateTextView;->setNormalCor(I)V
+
+    invoke-static {v4}, Landroid/graphics/Typeface;->defaultFromStyle(I)Landroid/graphics/Typeface;
+
+    move-result-object v4
+
+    invoke-virtual {v6, v4}, Lcom/android/camera/ui/ColorActivateTextView;->setTypeface(Landroid/graphics/Typeface;)V
+
+    const/high16 v4, 0x418c0000    # 17.5f
+
+    invoke-virtual {v6, v4}, Lcom/android/camera/ui/ColorActivateTextView;->setTextSize(F)V
+
+    iget-object v4, p0, Lcom/android/camera/ui/MimojiTypeSelectView;->mContext:Landroid/content/Context;
+
+    iget v7, v3, Lcom/arcsoft/avatar/AvatarConfig$ASAvatarConfigType;->configType:I
+
+    invoke-static {v4, v7}, Lcom/android/camera/fragment/mimoji/AvatarEngineManager;->replaceTabTitle(Landroid/content/Context;I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v6, v4}, Lcom/android/camera/ui/ColorActivateTextView;->setText(Ljava/lang/CharSequence;)V
 
     invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
 
-    move-result-object v5
+    move-result-object v4
 
     add-int/lit8 v6, v2, 0x1
 
-    iput v2, v5, Landroid/os/Message;->arg1:I
+    iput v2, v4, Landroid/os/Message;->arg1:I
 
     iget v2, v3, Lcom/arcsoft/avatar/AvatarConfig$ASAvatarConfigType;->configType:I
 
-    iput v2, v5, Landroid/os/Message;->arg2:I
+    iput v2, v4, Landroid/os/Message;->arg2:I
 
-    invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->setTag(Ljava/lang/Object;)V
+    invoke-virtual {v5, v4}, Landroid/view/ViewGroup;->setTag(Ljava/lang/Object;)V
 
-    invoke-virtual {p0, v4}, Lcom/android/camera/ui/MimojiTypeSelectView;->addView(Landroid/view/View;)V
+    invoke-virtual {p0, v5}, Lcom/android/camera/ui/MimojiTypeSelectView;->addView(Landroid/view/View;)V
 
     nop
 
@@ -489,7 +501,7 @@
 
     move-result v2
 
-    add-int/lit8 v2, v2, -0x1
+    sub-int/2addr v2, v4
 
     if-ne v0, v2, :cond_4
 
@@ -504,17 +516,17 @@
 
     invoke-virtual {p0}, Lcom/android/camera/ui/MimojiTypeSelectView;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v4}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    invoke-virtual {v5}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    move-result-object v4
+    move-result-object v5
 
-    iget v4, v4, Landroid/util/DisplayMetrics;->widthPixels:I
+    iget v5, v5, Landroid/util/DisplayMetrics;->widthPixels:I
 
-    sub-int/2addr v4, v3
+    sub-int/2addr v5, v3
 
-    div-int/lit8 v4, v4, 0x2
+    div-int/lit8 v5, v5, 0x2
 
     invoke-virtual {v2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
@@ -524,12 +536,12 @@
 
     if-nez v0, :cond_3
 
-    invoke-virtual {v3, v4}, Landroid/view/ViewGroup$MarginLayoutParams;->setMarginStart(I)V
+    invoke-virtual {v3, v5}, Landroid/view/ViewGroup$MarginLayoutParams;->setMarginStart(I)V
 
     goto :goto_2
 
     :cond_3
-    invoke-virtual {v3, v4}, Landroid/view/ViewGroup$MarginLayoutParams;->setMarginEnd(I)V
+    invoke-virtual {v3, v5}, Landroid/view/ViewGroup$MarginLayoutParams;->setMarginEnd(I)V
 
     :goto_2
     invoke-virtual {v2, v3}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
@@ -554,9 +566,7 @@
 
     if-eqz v0, :cond_6
 
-    const/16 v2, 0x13
-
-    invoke-interface {v0, v2}, Lcom/android/camera/protocol/ModeProtocol$MimojiEditor;->onTypeConfigSelect(I)V
+    invoke-interface {v0, v4}, Lcom/android/camera/protocol/ModeProtocol$MimojiEditor;->onTypeConfigSelect(I)V
 
     :cond_6
     const/4 v0, 0x0

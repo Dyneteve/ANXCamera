@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public onScrollStateChanged(Landroid/support/v7/widget/RecyclerView;I)V
-    .locals 0
+    .locals 1
 
     invoke-super {p0, p1, p2}, Landroid/support/v7/widget/RecyclerView$OnScrollListener;->onScrollStateChanged(Landroid/support/v7/widget/RecyclerView;I)V
 
@@ -44,7 +44,9 @@
 
     const/4 p2, -0x2
 
-    invoke-virtual {p1, p2, p2}, Lcom/android/camera/fragment/mimoji/BubbleEditMimojiPresenter;->processBubbleAni(II)V
+    const/4 v0, 0x0
+
+    invoke-virtual {p1, p2, p2, v0}, Lcom/android/camera/fragment/mimoji/BubbleEditMimojiPresenter;->processBubbleAni(IILandroid/view/View;)V
 
     return-void
 .end method

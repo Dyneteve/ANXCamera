@@ -26,6 +26,10 @@
 
 .field private mAiSceneDetectPeriod:I
 
+.field private mAlgorithmPreviewFormat:I
+
+.field private mAlgorithmPreviewSize:Lcom/android/camera/CameraSize;
+
 .field private mAntiBanding:I
 
 .field private mAutoZoomMode:I
@@ -121,8 +125,6 @@
 .field private mPhotoSize:Lcom/android/camera/CameraSize;
 
 .field private mPortraitLightingPattern:I
-
-.field private mPreviewFormat:I
 
 .field private mPreviewFpsRange:Landroid/util/Range;
     .annotation system Ldalvik/annotation/Signature;
@@ -245,7 +247,7 @@
 
     const/16 v1, 0x23
 
-    iput v1, p0, Lcom/android/camera2/CameraConfigs;->mPreviewFormat:I
+    iput v1, p0, Lcom/android/camera2/CameraConfigs;->mAlgorithmPreviewFormat:I
 
     const/16 v1, 0x100
 
@@ -270,6 +272,8 @@
     const/high16 v2, -0x40800000    # -1.0f
 
     iput v2, p0, Lcom/android/camera2/CameraConfigs;->mFocusDistance:F
+
+    iput v0, p0, Lcom/android/camera2/CameraConfigs;->mSceneMode:I
 
     iput v1, p0, Lcom/android/camera2/CameraConfigs;->mAwbMode:I
 
@@ -370,6 +374,22 @@
     iget v0, p0, Lcom/android/camera2/CameraConfigs;->mAiSceneDetectPeriod:I
 
     return v0
+.end method
+
+.method public getAlgorithmPreviewFormat()I
+    .locals 1
+
+    iget v0, p0, Lcom/android/camera2/CameraConfigs;->mAlgorithmPreviewFormat:I
+
+    return v0
+.end method
+
+.method public getAlgorithmPreviewSize()Lcom/android/camera/CameraSize;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/camera2/CameraConfigs;->mAlgorithmPreviewSize:Lcom/android/camera/CameraSize;
+
+    return-object v0
 .end method
 
 .method public getAntiBanding()I
@@ -580,14 +600,6 @@
     return v0
 .end method
 
-.method public getPreviewFormat()I
-    .locals 1
-
-    iget v0, p0, Lcom/android/camera2/CameraConfigs;->mPreviewFormat:I
-
-    return v0
-.end method
-
 .method public getPreviewFpsRange()Landroid/util/Range;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
@@ -647,6 +659,15 @@
 .method public getShotPath()Ljava/lang/String;
     .locals 4
 
+    iget-object v0, p0, Lcom/android/camera2/CameraConfigs;->mShotPath:Ljava/util/ArrayDeque;
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x0
+
+    return-object v0
+
+    :cond_0
     iget-object v0, p0, Lcom/android/camera2/CameraConfigs;->mShotPath:Ljava/util/ArrayDeque;
 
     invoke-virtual {v0}, Ljava/util/ArrayDeque;->poll()Ljava/lang/Object;
@@ -1201,6 +1222,48 @@
     if-eq v0, p1, :cond_0
 
     iput p1, p0, Lcom/android/camera2/CameraConfigs;->mAiSceneDetectPeriod:I
+
+    const/4 p1, 0x1
+
+    return p1
+
+    :cond_0
+    const/4 p1, 0x0
+
+    return p1
+.end method
+
+.method public setAlgorithmPreviewFormat(I)Z
+    .locals 1
+
+    iget v0, p0, Lcom/android/camera2/CameraConfigs;->mAlgorithmPreviewFormat:I
+
+    if-eq v0, p1, :cond_0
+
+    iput p1, p0, Lcom/android/camera2/CameraConfigs;->mAlgorithmPreviewFormat:I
+
+    const/4 p1, 0x1
+
+    return p1
+
+    :cond_0
+    const/4 p1, 0x0
+
+    return p1
+.end method
+
+.method public setAlgorithmPreviewSize(Lcom/android/camera/CameraSize;)Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/camera2/CameraConfigs;->mAlgorithmPreviewSize:Lcom/android/camera/CameraSize;
+
+    invoke-static {v0, p1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iput-object p1, p0, Lcom/android/camera2/CameraConfigs;->mAlgorithmPreviewSize:Lcom/android/camera/CameraSize;
 
     const/4 p1, 0x1
 
@@ -2085,25 +2148,6 @@
     if-eq v0, p1, :cond_0
 
     iput p1, p0, Lcom/android/camera2/CameraConfigs;->mPortraitLightingPattern:I
-
-    const/4 p1, 0x1
-
-    return p1
-
-    :cond_0
-    const/4 p1, 0x0
-
-    return p1
-.end method
-
-.method public setPreviewFormat(I)Z
-    .locals 1
-
-    iget v0, p0, Lcom/android/camera2/CameraConfigs;->mPreviewFormat:I
-
-    if-eq v0, p1, :cond_0
-
-    iput p1, p0, Lcom/android/camera2/CameraConfigs;->mPreviewFormat:I
 
     const/4 p1, 0x1
 

@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 
 public interface ImageHeaderParser {
-    public static final int du = -1;
+    public static final int dv = -1;
 
     public enum ImageType {
         GIF(true),

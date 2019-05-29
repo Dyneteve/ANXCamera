@@ -7,9 +7,9 @@ import android.support.annotation.VisibleForTesting;
 public class h implements c, d {
     private boolean isRunning;
     @Nullable
-    private final d nE;
-    private c oW;
+    private final d nF;
     private c oX;
+    private c oY;
 
     @VisibleForTesting
     h() {
@@ -17,38 +17,38 @@ public class h implements c, d {
     }
 
     public h(@Nullable d dVar) {
-        this.nE = dVar;
+        this.nF = dVar;
     }
 
     private boolean dk() {
-        return this.nE == null || this.nE.d(this);
+        return this.nF == null || this.nF.d(this);
     }
 
     private boolean dl() {
-        return this.nE == null || this.nE.f(this);
+        return this.nF == null || this.nF.f(this);
     }
 
     private boolean dm() {
-        return this.nE == null || this.nE.e(this);
+        return this.nF == null || this.nF.e(this);
     }
 
     /* renamed from: do reason: not valid java name */
-    private boolean m2827do() {
-        return this.nE != null && this.nE.dn();
+    private boolean m2842do() {
+        return this.nF != null && this.nF.dn();
     }
 
     public void a(c cVar, c cVar2) {
-        this.oW = cVar;
-        this.oX = cVar2;
+        this.oX = cVar;
+        this.oY = cVar2;
     }
 
     public void begin() {
         this.isRunning = true;
-        if (!this.oW.isComplete() && !this.oX.isRunning()) {
-            this.oX.begin();
+        if (!this.oX.isComplete() && !this.oY.isRunning()) {
+            this.oY.begin();
         }
-        if (this.isRunning && !this.oW.isRunning()) {
-            this.oW.begin();
+        if (this.isRunning && !this.oX.isRunning()) {
+            this.oX.begin();
         }
     }
 
@@ -58,8 +58,8 @@ public class h implements c, d {
             return false;
         }
         h hVar = (h) cVar;
-        if (this.oW != null ? this.oW.c(hVar.oW) : hVar.oW == null) {
-            if (this.oX != null ? this.oX.c(hVar.oX) : hVar.oX == null) {
+        if (this.oX != null ? this.oX.c(hVar.oX) : hVar.oX == null) {
+            if (this.oY != null ? this.oY.c(hVar.oY) : hVar.oY == null) {
                 z = true;
             }
         }
@@ -68,75 +68,75 @@ public class h implements c, d {
 
     public void clear() {
         this.isRunning = false;
+        this.oY.clear();
         this.oX.clear();
-        this.oW.clear();
     }
 
     public boolean d(c cVar) {
-        return dk() && (cVar.equals(this.oW) || !this.oW.dj());
+        return dk() && (cVar.equals(this.oX) || !this.oX.dj());
     }
 
     public boolean dj() {
-        return this.oW.dj() || this.oX.dj();
+        return this.oX.dj() || this.oY.dj();
     }
 
     public boolean dn() {
-        return m2827do() || dj();
+        return m2842do() || dj();
     }
 
     public boolean e(c cVar) {
-        return dm() && cVar.equals(this.oW) && !dn();
+        return dm() && cVar.equals(this.oX) && !dn();
     }
 
     public boolean f(c cVar) {
-        return dl() && cVar.equals(this.oW);
+        return dl() && cVar.equals(this.oX);
     }
 
     public void h(c cVar) {
-        if (!cVar.equals(this.oX)) {
-            if (this.nE != null) {
-                this.nE.h(this);
+        if (!cVar.equals(this.oY)) {
+            if (this.nF != null) {
+                this.nF.h(this);
             }
-            if (!this.oX.isComplete()) {
-                this.oX.clear();
+            if (!this.oY.isComplete()) {
+                this.oY.clear();
             }
         }
     }
 
     public void i(c cVar) {
-        if (cVar.equals(this.oW) && this.nE != null) {
-            this.nE.i(this);
+        if (cVar.equals(this.oX) && this.nF != null) {
+            this.nF.i(this);
         }
     }
 
     public boolean isCancelled() {
-        return this.oW.isCancelled();
+        return this.oX.isCancelled();
     }
 
     public boolean isComplete() {
-        return this.oW.isComplete() || this.oX.isComplete();
+        return this.oX.isComplete() || this.oY.isComplete();
     }
 
     public boolean isFailed() {
-        return this.oW.isFailed();
+        return this.oX.isFailed();
     }
 
     public boolean isPaused() {
-        return this.oW.isPaused();
+        return this.oX.isPaused();
     }
 
     public boolean isRunning() {
-        return this.oW.isRunning();
+        return this.oX.isRunning();
     }
 
     public void pause() {
         this.isRunning = false;
-        this.oW.pause();
         this.oX.pause();
+        this.oY.pause();
     }
 
     public void recycle() {
-        this.oW.recycle();
         this.oX.recycle();
+        this.oY.recycle();
     }
 }

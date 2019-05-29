@@ -21,7 +21,7 @@
 
 
 # instance fields
-.field private final ka:Ljava/util/Map;
+.field private final kb:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -44,7 +44,7 @@
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/model/o$a;->ka:Ljava/util/Map;
+    iput-object v0, p0, Lcom/bumptech/glide/load/model/o$a;->kb:Ljava/util/Map;
 
     return-void
 .end method
@@ -66,7 +66,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/o$a;->ka:Ljava/util/Map;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/o$a;->kb:Ljava/util/Map;
 
     new-instance v1, Lcom/bumptech/glide/load/model/o$a$a;
 
@@ -107,7 +107,7 @@
 .method public clear()V
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/o$a;->ka:Ljava/util/Map;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/o$a;->kb:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->clear()V
 
@@ -132,7 +132,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/o$a;->ka:Ljava/util/Map;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/o$a;->kb:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -147,7 +147,7 @@
     goto :goto_0
 
     :cond_0
-    iget-object p1, p1, Lcom/bumptech/glide/load/model/o$a$a;->kb:Ljava/util/List;
+    iget-object p1, p1, Lcom/bumptech/glide/load/model/o$a$a;->kc:Ljava/util/List;
 
     :goto_0
     return-object p1

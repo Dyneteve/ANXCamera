@@ -178,7 +178,7 @@ public abstract class BaseModule implements MutexCallBack, Module, EvChangedProt
     }
 
     protected static String getColorEffectKey() {
-        return b.gK() ? "pref_camera_shader_coloreffect_key" : CameraSettings.KEY_COLOR_EFFECT;
+        return b.gN() ? "pref_camera_shader_coloreffect_key" : CameraSettings.KEY_COLOR_EFFECT;
     }
 
     public static int getJpegQuality(boolean z) {
@@ -250,7 +250,9 @@ public abstract class BaseModule implements MutexCallBack, Module, EvChangedProt
     public void accept(@UpdateType int[] iArr) throws Exception {
         if (!this.mUpdateWorkThreadDisposable.isDisposed() && isDeviceAlive()) {
             consumePreference(iArr);
-            if (this.mActivity.getCameraScreenNail().getSurfaceCreatedTimestamp() == this.mSurfaceCreatedTimestamp) {
+            if (!isAlive() || this.mActivity.getCameraScreenNail().getSurfaceCreatedTimestamp() != this.mSurfaceCreatedTimestamp) {
+                Log.d(TAG, "skip resumePreview on accept");
+            } else {
                 this.mCamera2Device.resumePreview();
             }
         }
@@ -723,10 +725,18 @@ public abstract class BaseModule implements MutexCallBack, Module, EvChangedProt
                 sb4.append(HybridZoomingSystem.FLOAT_ZOOM_RATIO_ULTR);
                 Log.d(str4, sb4.toString());
                 setZoomRatio(HybridZoomingSystem.FLOAT_ZOOM_RATIO_ULTR);
-                return;
+            } else if (CameraSettings.isSupportedOpticalZoom() || CameraSettings.isUltraPixelRear48MPOn()) {
+                Log.d(TAG, "resetZoomRatio(): set zoom ratio to 1.0");
+                setZoomRatio(1.0f);
+            } else {
+                String zoomRatioHistory2 = HybridZoomingSystem.getZoomRatioHistory(this.mModuleIndex, Float.toString(1.0f));
+                String str5 = TAG;
+                StringBuilder sb5 = new StringBuilder();
+                sb5.append("resetZoomRatio(): set zoom ratio to ");
+                sb5.append(zoomRatioHistory2);
+                Log.d(str5, sb5.toString());
+                setZoomRatio(HybridZoomingSystem.toFloat(zoomRatioHistory2, 1.0f));
             }
-            Log.d(TAG, "resetZoomRatio(): set zoom ratio to 1.0");
-            setZoomRatio(1.0f);
         }
     }
 
@@ -1323,6 +1333,9 @@ public abstract class BaseModule implements MutexCallBack, Module, EvChangedProt
         boolean z = i2 <= 0 || clamp <= 1.0f;
         if (z) {
             updatePreferenceTrampoline(11, 30, 34, 42, 20);
+            if (this.mUltraCameraCapabilities == null) {
+                this.mUltraCameraCapabilities = Camera2DataContainer.getInstance().getCapabilities(Camera2DataContainer.getInstance().getUltraWideCameraId());
+            }
             onCapabilityChanged(clamp < 1.0f ? this.mUltraCameraCapabilities : this.mCameraCapabilities);
         }
         if (HybridZoomingSystem.IS_3_OR_MORE_SAT) {
@@ -1343,7 +1356,7 @@ public abstract class BaseModule implements MutexCallBack, Module, EvChangedProt
                     if (i2 < 0 && clamp >= 1.0f && bottomPopupTips.containTips(R.string.ultra_wide_open_tip_sat)) {
                         bottomPopupTips.directlyHideTips();
                     }
-                } else if ((isCameraSwitchingDuringZoomingAllowed() || this.mActualCameraId == Camera2DataContainer.getInstance().getSATCameraId()) && CameraSettings.shouldShowUltraWideSatTip()) {
+                } else if ((isCameraSwitchingDuringZoomingAllowed() || this.mActualCameraId == Camera2DataContainer.getInstance().getSATCameraId()) && CameraSettings.shouldShowUltraWideSatTip(this.mModuleIndex)) {
                     bottomPopupTips.showTips(13, R.string.ultra_wide_open_tip_sat, 2);
                 }
             }
@@ -1453,11 +1466,11 @@ public abstract class BaseModule implements MutexCallBack, Module, EvChangedProt
     }
 
     public void setCameraDevice(Camera2Proxy camera2Proxy) {
-        this.mCamera2Device = camera2Proxy;
-        this.mCameraCapabilities = camera2Proxy.getCapabilities();
         if (HybridZoomingSystem.IS_3_OR_MORE_SAT) {
             this.mUltraCameraCapabilities = Camera2DataContainer.getInstance().getCapabilities(Camera2DataContainer.getInstance().getUltraWideCameraId());
         }
+        this.mCamera2Device = camera2Proxy;
+        this.mCameraCapabilities = camera2Proxy.getCapabilities();
         this.mZoomSupported = this.mCameraCapabilities.isZoomSupported();
         this.mActualCameraId = camera2Proxy.getId();
     }
@@ -1532,7 +1545,7 @@ public abstract class BaseModule implements MutexCallBack, Module, EvChangedProt
             sb.append(str);
             Log.d(str2, sb.toString());
             int parseInt = Util.parseInt(str, 0);
-            if (ThermalDetector.getInstance().thermalConstrained() || (isFrontCamera() && this.mActivity.isScreenSlideOff())) {
+            if ((ThermalDetector.getInstance().thermalConstrained() && DataRepository.dataItemConfig().getComponentFlash().isHardwareSupported()) || (isFrontCamera() && this.mActivity.isScreenSlideOff())) {
                 parseInt = 0;
             }
             this.mCamera2Device.setOptimizedFlash(CameraSettings.isOptimizedFlashEnable());

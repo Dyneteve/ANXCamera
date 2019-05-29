@@ -26,7 +26,7 @@ public class FunctionParseAsdScene implements Function<CaptureResult, Integer> {
             if (camera2Module.isPortraitMode() || isFrontCamera) {
                 return Integer.valueOf(AsdSceneConstant.parseRtbSceneResult(captureResult, isFrontCamera, isScreenSlideOff));
             }
-            if (num != null && num.intValue() == 4 && b.hj() && cameraDevice != null && 3 == cameraDevice.getFlashMode()) {
+            if (num != null && num.intValue() == 4 && b.hm() && cameraDevice != null && 3 == cameraDevice.getFlashMode()) {
                 return Integer.valueOf(0);
             }
         }

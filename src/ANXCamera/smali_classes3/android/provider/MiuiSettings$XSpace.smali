@@ -132,217 +132,217 @@
 .method static constructor <clinit>()V
     .registers 2
 
-    .line 4555
+    .line 4591
     new-instance v0, Landroid/util/ArraySet;
 
     invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
 
     sput-object v0, Landroid/provider/MiuiSettings$XSpace;->CROSS_PROFILE_SECURE_SETTINGS:Ljava/util/Set;
 
-    .line 4558
+    .line 4594
     sget-object v0, Landroid/provider/MiuiSettings$XSpace;->CROSS_PROFILE_SECURE_SETTINGS:Ljava/util/Set;
 
     const-string/jumbo v1, "lock_screen_allow_private_notifications"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 4559
+    .line 4595
     sget-object v0, Landroid/provider/MiuiSettings$XSpace;->CROSS_PROFILE_SECURE_SETTINGS:Ljava/util/Set;
 
     const-string/jumbo v1, "lock_screen_show_notifications"
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 4614
+    .line 4650
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     sput-object v0, Landroid/provider/MiuiSettings$XSpace;->sSupportDefaultSettingApps:Ljava/util/ArrayList;
 
-    .line 4617
+    .line 4653
     sget-object v0, Landroid/provider/MiuiSettings$XSpace;->sSupportDefaultSettingApps:Ljava/util/ArrayList;
 
     const-string v1, "com.tencent.mm.plugin.base.stub.WXPayEntryActivity"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 4618
+    .line 4654
     sget-object v0, Landroid/provider/MiuiSettings$XSpace;->sSupportDefaultSettingApps:Ljava/util/ArrayList;
 
     const-string v1, "com.tencent.mm.ui.tools.ShareImgUI"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 4619
+    .line 4655
     sget-object v0, Landroid/provider/MiuiSettings$XSpace;->sSupportDefaultSettingApps:Ljava/util/ArrayList;
 
     const-string v1, "com.tencent.mm.ui.tools.ShareToTimeLineUI"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 4620
+    .line 4656
     sget-object v0, Landroid/provider/MiuiSettings$XSpace;->sSupportDefaultSettingApps:Ljava/util/ArrayList;
 
     const-string v1, "com.tencent.mm.plugin.base.stub.WXEntryActivity"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 4621
+    .line 4657
     sget-object v0, Landroid/provider/MiuiSettings$XSpace;->sSupportDefaultSettingApps:Ljava/util/ArrayList;
 
     const-string v1, "com.tencent.mm.ui.LauncherUI"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 4622
+    .line 4658
     sget-object v0, Landroid/provider/MiuiSettings$XSpace;->sSupportDefaultSettingApps:Ljava/util/ArrayList;
 
     const-string v1, "com.sina.weibo.composerinde.ComposerDispatchActivity"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 4623
+    .line 4659
     sget-object v0, Landroid/provider/MiuiSettings$XSpace;->sSupportDefaultSettingApps:Ljava/util/ArrayList;
 
     const-string v1, "com.sina.weibo.SSOActivity"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 4624
+    .line 4660
     sget-object v0, Landroid/provider/MiuiSettings$XSpace;->sSupportDefaultSettingApps:Ljava/util/ArrayList;
 
     const-string v1, "com.sina.weibo.SplashActivity"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 4625
+    .line 4661
     sget-object v0, Landroid/provider/MiuiSettings$XSpace;->sSupportDefaultSettingApps:Ljava/util/ArrayList;
 
     const-string v1, "com.tencent.mobileqq.activity.JumpActivity"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 4626
+    .line 4662
     sget-object v0, Landroid/provider/MiuiSettings$XSpace;->sSupportDefaultSettingApps:Ljava/util/ArrayList;
 
     const-string v1, "com.tencent.mobileqq.activity.qfileJumpActivity"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 4627
+    .line 4663
     sget-object v0, Landroid/provider/MiuiSettings$XSpace;->sSupportDefaultSettingApps:Ljava/util/ArrayList;
 
     const-string v1, "com.tencent.open.agent.AgentActivity"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 4628
+    .line 4664
     sget-object v0, Landroid/provider/MiuiSettings$XSpace;->sSupportDefaultSettingApps:Ljava/util/ArrayList;
 
     const-string v1, "com.tencent.mobileqq.activity.SplashActivity"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 4721
+    .line 4757
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     sput-object v0, Landroid/provider/MiuiSettings$XSpace;->sCompeteXSpaceApps:Ljava/util/ArrayList;
 
-    .line 4724
+    .line 4760
     sget-object v0, Landroid/provider/MiuiSettings$XSpace;->sCompeteXSpaceApps:Ljava/util/ArrayList;
 
     const-string v1, "com.excelliance.multiaccount"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 4725
+    .line 4761
     sget-object v0, Landroid/provider/MiuiSettings$XSpace;->sCompeteXSpaceApps:Ljava/util/ArrayList;
 
     const-string v1, "com.lbe.parallel.intl"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 4726
+    .line 4762
     sget-object v0, Landroid/provider/MiuiSettings$XSpace;->sCompeteXSpaceApps:Ljava/util/ArrayList;
 
     const-string v1, "com.parallel.space.lite"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 4727
+    .line 4763
     sget-object v0, Landroid/provider/MiuiSettings$XSpace;->sCompeteXSpaceApps:Ljava/util/ArrayList;
 
     const-string v1, "info.cloneapp.mochat.in.goast"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 4728
+    .line 4764
     sget-object v0, Landroid/provider/MiuiSettings$XSpace;->sCompeteXSpaceApps:Ljava/util/ArrayList;
 
     const-string v1, "com.jiubang.commerce.gomultiple"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 4729
+    .line 4765
     sget-object v0, Landroid/provider/MiuiSettings$XSpace;->sCompeteXSpaceApps:Ljava/util/ArrayList;
 
     const-string v1, "com.applisto.appcloner"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 4730
+    .line 4766
     sget-object v0, Landroid/provider/MiuiSettings$XSpace;->sCompeteXSpaceApps:Ljava/util/ArrayList;
 
     const-string v1, "com.trigtech.privateme"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 4731
+    .line 4767
     sget-object v0, Landroid/provider/MiuiSettings$XSpace;->sCompeteXSpaceApps:Ljava/util/ArrayList;
 
     const-string v1, "com.polestar.multiaccount"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 4732
+    .line 4768
     sget-object v0, Landroid/provider/MiuiSettings$XSpace;->sCompeteXSpaceApps:Ljava/util/ArrayList;
 
     const-string v1, "com.vaibhav.accountsmanager"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 4733
+    .line 4769
     sget-object v0, Landroid/provider/MiuiSettings$XSpace;->sCompeteXSpaceApps:Ljava/util/ArrayList;
 
     const-string v1, "com.in.parallel.accounts"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 4734
+    .line 4770
     sget-object v0, Landroid/provider/MiuiSettings$XSpace;->sCompeteXSpaceApps:Ljava/util/ArrayList;
 
     const-string v1, "com.lbe.parallel"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 4735
+    .line 4771
     sget-object v0, Landroid/provider/MiuiSettings$XSpace;->sCompeteXSpaceApps:Ljava/util/ArrayList;
 
     const-string v1, "com.excelliance.dualaid"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 4736
+    .line 4772
     return-void
 .end method
 
 .method public constructor <init>()V
     .registers 1
 
-    .line 4547
+    .line 4583
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -353,7 +353,7 @@
     .param p0, "setting"    # Ljava/lang/String;
     .param p1, "userId"    # I
 
-    .line 4563
+    .line 4599
     invoke-static {p1}, Lmiui/securityspace/XSpaceUserHandle;->isXSpaceUserId(I)Z
 
     move-result v0
@@ -384,7 +384,7 @@
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "appType"    # Ljava/lang/String;
 
-    .line 4654
+    .line 4690
     const/4 v0, 0x0
 
     :try_start_1
@@ -404,13 +404,13 @@
 
     if-eqz v1, :cond_14
 
-    .line 4655
+    .line 4691
     :cond_11
     const-string v1, "com.tencent.mm.plugin.base.stub.WXEntryActivity"
 
     move-object p1, v1
 
-    .line 4657
+    .line 4693
     :cond_14
     const-string v1, "com.sina.weibo.composerinde.ComposerDispatchActivity"
 
@@ -420,12 +420,12 @@
 
     if-eqz v1, :cond_1f
 
-    .line 4658
+    .line 4694
     const-string v1, "com.sina.weibo.SSOActivity"
 
     move-object p1, v1
 
-    .line 4660
+    .line 4696
     :cond_1f
     const-string v1, "com.tencent.mobileqq.activity.JumpActivity"
 
@@ -443,13 +443,13 @@
 
     if-eqz v1, :cond_32
 
-    .line 4661
+    .line 4697
     :cond_2f
     const-string v1, "com.tencent.mobileqq.activity.qqSendActivity"
 
     move-object p1, v1
 
-    .line 4663
+    .line 4699
     :cond_32
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -463,11 +463,11 @@
 
     return v1
 
-    .line 4664
+    .line 4700
     :catch_3b
     move-exception v1
 
-    .line 4666
+    .line 4702
     return v0
 .end method
 
@@ -476,7 +476,7 @@
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "key"    # Ljava/lang/String;
 
-    .line 4741
+    .line 4777
     const/4 v0, 0x0
 
     :try_start_1
@@ -492,11 +492,11 @@
 
     return v1
 
-    .line 4742
+    .line 4778
     :catch_a
     move-exception v1
 
-    .line 4744
+    .line 4780
     return v0
 .end method
 
@@ -504,10 +504,10 @@
     .registers 3
     .param p0, "preKey"    # Ljava/lang/String;
 
-    .line 4671
+    .line 4707
     const-string v0, ""
 
-    .line 4672
+    .line 4708
     .local v0, "askType":Ljava/lang/String;
     const-string/jumbo v1, "weixin_pay"
 
@@ -517,12 +517,12 @@
 
     if-eqz v1, :cond_e
 
-    .line 4673
+    .line 4709
     const-string v0, "com.tencent.mm.plugin.base.stub.WXPayEntryActivity"
 
     goto :goto_61
 
-    .line 4674
+    .line 4710
     :cond_e
     const-string/jumbo v1, "weixin_share"
 
@@ -532,12 +532,12 @@
 
     if-eqz v1, :cond_1a
 
-    .line 4675
+    .line 4711
     const-string v0, "com.tencent.mm.plugin.base.stub.WXEntryActivity"
 
     goto :goto_61
 
-    .line 4676
+    .line 4712
     :cond_1a
     const-string/jumbo v1, "weixin_open"
 
@@ -547,12 +547,12 @@
 
     if-eqz v1, :cond_26
 
-    .line 4677
+    .line 4713
     const-string v0, "com.tencent.mm.ui.LauncherUI"
 
     goto :goto_61
 
-    .line 4678
+    .line 4714
     :cond_26
     const-string/jumbo v1, "weibo_send"
 
@@ -562,12 +562,12 @@
 
     if-eqz v1, :cond_32
 
-    .line 4679
+    .line 4715
     const-string v0, "com.sina.weibo.SSOActivity"
 
     goto :goto_61
 
-    .line 4680
+    .line 4716
     :cond_32
     const-string/jumbo v1, "weibo_open"
 
@@ -577,12 +577,12 @@
 
     if-eqz v1, :cond_3e
 
-    .line 4681
+    .line 4717
     const-string v0, "com.sina.weibo.SplashActivity"
 
     goto :goto_61
 
-    .line 4682
+    .line 4718
     :cond_3e
     const-string/jumbo v1, "qq_send"
 
@@ -592,12 +592,12 @@
 
     if-eqz v1, :cond_4a
 
-    .line 4683
+    .line 4719
     const-string v0, "com.tencent.mobileqq.activity.qqSendActivity"
 
     goto :goto_61
 
-    .line 4684
+    .line 4720
     :cond_4a
     const-string/jumbo v1, "qq_login"
 
@@ -607,12 +607,12 @@
 
     if-eqz v1, :cond_56
 
-    .line 4685
+    .line 4721
     const-string v0, "com.tencent.open.agent.AgentActivity"
 
     goto :goto_61
 
-    .line 4686
+    .line 4722
     :cond_56
     const-string/jumbo v1, "qq_open"
 
@@ -622,10 +622,10 @@
 
     if-eqz v1, :cond_61
 
-    .line 4687
+    .line 4723
     const-string v0, "com.tencent.mobileqq.activity.SplashActivity"
 
-    .line 4689
+    .line 4725
     :cond_61
     :goto_61
     return-object v0
@@ -636,7 +636,7 @@
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "pkgName"    # Ljava/lang/String;
 
-    .line 4694
+    .line 4730
     const-string v0, "com.tencent.mm"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -647,24 +647,24 @@
 
     if-eqz v0, :cond_19
 
-    .line 4695
+    .line 4731
     const-string v0, "com.tencent.mm.plugin.base.stub.WXPayEntryActivity"
 
     invoke-static {p0, v0, v1}, Landroid/provider/MiuiSettings$XSpace;->setAskType(Landroid/content/Context;Ljava/lang/String;I)V
 
-    .line 4696
+    .line 4732
     const-string v0, "com.tencent.mm.plugin.base.stub.WXEntryActivity"
 
     invoke-static {p0, v0, v1}, Landroid/provider/MiuiSettings$XSpace;->setAskType(Landroid/content/Context;Ljava/lang/String;I)V
 
-    .line 4697
+    .line 4733
     const-string v0, "com.tencent.mm.ui.LauncherUI"
 
     invoke-static {p0, v0, v1}, Landroid/provider/MiuiSettings$XSpace;->setAskType(Landroid/content/Context;Ljava/lang/String;I)V
 
     goto :goto_43
 
-    .line 4698
+    .line 4734
     :cond_19
     const-string v0, "com.sina.weibo"
 
@@ -674,19 +674,19 @@
 
     if-eqz v0, :cond_2c
 
-    .line 4699
+    .line 4735
     const-string v0, "com.sina.weibo.SSOActivity"
 
     invoke-static {p0, v0, v1}, Landroid/provider/MiuiSettings$XSpace;->setAskType(Landroid/content/Context;Ljava/lang/String;I)V
 
-    .line 4700
+    .line 4736
     const-string v0, "com.sina.weibo.SplashActivity"
 
     invoke-static {p0, v0, v1}, Landroid/provider/MiuiSettings$XSpace;->setAskType(Landroid/content/Context;Ljava/lang/String;I)V
 
     goto :goto_43
 
-    .line 4701
+    .line 4737
     :cond_2c
     const-string v0, "com.tencent.mobileqq"
 
@@ -696,22 +696,22 @@
 
     if-eqz v0, :cond_43
 
-    .line 4702
+    .line 4738
     const-string v0, "com.tencent.mobileqq.activity.qqSendActivity"
 
     invoke-static {p0, v0, v1}, Landroid/provider/MiuiSettings$XSpace;->setAskType(Landroid/content/Context;Ljava/lang/String;I)V
 
-    .line 4703
+    .line 4739
     const-string v0, "com.tencent.open.agent.AgentActivity"
 
     invoke-static {p0, v0, v1}, Landroid/provider/MiuiSettings$XSpace;->setAskType(Landroid/content/Context;Ljava/lang/String;I)V
 
-    .line 4704
+    .line 4740
     const-string v0, "com.tencent.mobileqq.activity.SplashActivity"
 
     invoke-static {p0, v0, v1}, Landroid/provider/MiuiSettings$XSpace;->setAskType(Landroid/content/Context;Ljava/lang/String;I)V
 
-    .line 4706
+    .line 4742
     :cond_43
     :goto_43
     return-void
@@ -723,7 +723,7 @@
     .param p1, "appType"    # Ljava/lang/String;
     .param p2, "askType"    # I
 
-    .line 4639
+    .line 4675
     const-string v0, "com.tencent.mm.ui.tools.ShareImgUI"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -740,11 +740,11 @@
 
     if-eqz v0, :cond_12
 
-    .line 4640
+    .line 4676
     :cond_10
     const-string p1, "com.tencent.mm.plugin.base.stub.WXEntryActivity"
 
-    .line 4642
+    .line 4678
     :cond_12
     const-string v0, "com.sina.weibo.composerinde.ComposerDispatchActivity"
 
@@ -754,10 +754,10 @@
 
     if-eqz v0, :cond_1c
 
-    .line 4643
+    .line 4679
     const-string p1, "com.sina.weibo.SSOActivity"
 
-    .line 4645
+    .line 4681
     :cond_1c
     const-string v0, "com.tencent.mobileqq.activity.JumpActivity"
 
@@ -775,11 +775,11 @@
 
     if-eqz v0, :cond_2e
 
-    .line 4646
+    .line 4682
     :cond_2c
     const-string p1, "com.tencent.mobileqq.activity.qqSendActivity"
 
-    .line 4648
+    .line 4684
     :cond_2e
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -789,7 +789,7 @@
 
     invoke-static {v0, p1, p2, v1}, Landroid/provider/Settings$Secure;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
 
-    .line 4649
+    .line 4685
     return-void
 .end method
 
@@ -799,7 +799,7 @@
     .param p1, "key"    # Ljava/lang/String;
     .param p2, "times"    # I
 
-    .line 4749
+    .line 4785
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -808,6 +808,6 @@
 
     invoke-static {v0, p1, p2, v1}, Landroid/provider/Settings$Secure;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
 
-    .line 4750
+    .line 4786
     return-void
 .end method

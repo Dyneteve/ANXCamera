@@ -419,17 +419,17 @@
 .method static synthetic access$1700(Lcom/android/camera/module/Panorama3Module;)Z
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/camera/module/Panorama3Module;->createEngine()Z
-
-    move-result p0
+    iget-boolean p0, p0, Lcom/android/camera/module/Panorama3Module;->mRequestStop:Z
 
     return p0
 .end method
 
-.method static synthetic access$1900(Lcom/android/camera/module/Panorama3Module;)Z
+.method static synthetic access$1800(Lcom/android/camera/module/Panorama3Module;)Z
     .locals 0
 
-    iget-boolean p0, p0, Lcom/android/camera/module/Panorama3Module;->mRequestStop:Z
+    invoke-direct {p0}, Lcom/android/camera/module/Panorama3Module;->createEngine()Z
+
+    move-result p0
 
     return p0
 .end method
@@ -1682,11 +1682,15 @@
 
     iget-object v0, p0, Lcom/android/camera/module/Panorama3Module;->mMorphoPanoramaGP3:Lcom/android/camera/panorama/MorphoPanoramaGP3;
 
-    const/4 v1, 0x0
-
     if-eqz v0, :cond_0
 
-    return v1
+    sget-object v0, Lcom/android/camera/module/Panorama3Module;->TAG:Ljava/lang/String;
+
+    const-string v1, "finish prior Engine"
+
+    invoke-static {v0, v1}, Lcom/android/camera/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct {p0}, Lcom/android/camera/module/Panorama3Module;->finishEngine()V
 
     :cond_0
     new-instance v0, Lcom/android/camera/panorama/MorphoPanoramaGP3;
@@ -1697,9 +1701,9 @@
 
     const-string v0, "YUV420_PLANAR"
 
-    iget-object v2, p0, Lcom/android/camera/module/Panorama3Module;->mImageFormat:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/camera/module/Panorama3Module;->mImageFormat:Ljava/lang/String;
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -1707,69 +1711,69 @@
 
     iget-object v0, p0, Lcom/android/camera/module/Panorama3Module;->mInitParam:Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;
 
-    iget-object v2, p0, Lcom/android/camera/module/Panorama3Module;->mImageFormat:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/camera/module/Panorama3Module;->mImageFormat:Ljava/lang/String;
 
-    iput-object v2, v0, Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;->input_format:Ljava/lang/String;
+    iput-object v1, v0, Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;->input_format:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/android/camera/module/Panorama3Module;->mInitParam:Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;
 
-    const-string v2, "YUV420_SEMIPLANAR"
+    const-string v1, "YUV420_SEMIPLANAR"
 
-    iput-object v2, v0, Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;->output_format:Ljava/lang/String;
+    iput-object v1, v0, Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;->output_format:Ljava/lang/String;
 
     goto :goto_0
 
     :cond_1
     iget-object v0, p0, Lcom/android/camera/module/Panorama3Module;->mInitParam:Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;
 
-    iget-object v2, p0, Lcom/android/camera/module/Panorama3Module;->mImageFormat:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/camera/module/Panorama3Module;->mImageFormat:Ljava/lang/String;
 
-    iput-object v2, v0, Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;->input_format:Ljava/lang/String;
+    iput-object v1, v0, Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;->input_format:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/android/camera/module/Panorama3Module;->mInitParam:Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;
 
-    iget-object v2, p0, Lcom/android/camera/module/Panorama3Module;->mImageFormat:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/camera/module/Panorama3Module;->mImageFormat:Ljava/lang/String;
 
-    iput-object v2, v0, Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;->output_format:Ljava/lang/String;
+    iput-object v1, v0, Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;->output_format:Ljava/lang/String;
 
     :goto_0
     iget-object v0, p0, Lcom/android/camera/module/Panorama3Module;->mInitParam:Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;
 
-    iget v2, p0, Lcom/android/camera/module/Panorama3Module;->mPictureWidth:I
+    iget v1, p0, Lcom/android/camera/module/Panorama3Module;->mPictureWidth:I
 
-    iput v2, v0, Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;->input_width:I
-
-    iget-object v0, p0, Lcom/android/camera/module/Panorama3Module;->mInitParam:Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;
-
-    iget v2, p0, Lcom/android/camera/module/Panorama3Module;->mPictureHeight:I
-
-    iput v2, v0, Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;->input_height:I
+    iput v1, v0, Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;->input_width:I
 
     iget-object v0, p0, Lcom/android/camera/module/Panorama3Module;->mInitParam:Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;
 
-    iget v2, p0, Lcom/android/camera/module/Panorama3Module;->mViewAngleH:F
+    iget v1, p0, Lcom/android/camera/module/Panorama3Module;->mPictureHeight:I
 
-    float-to-double v2, v2
-
-    iput-wide v2, v0, Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;->aovx:D
+    iput v1, v0, Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;->input_height:I
 
     iget-object v0, p0, Lcom/android/camera/module/Panorama3Module;->mInitParam:Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;
 
-    iget v2, p0, Lcom/android/camera/module/Panorama3Module;->mViewAngleV:F
+    iget v1, p0, Lcom/android/camera/module/Panorama3Module;->mViewAngleH:F
 
-    float-to-double v2, v2
+    float-to-double v1, v1
 
-    iput-wide v2, v0, Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;->aovy:D
+    iput-wide v1, v0, Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;->aovx:D
 
     iget-object v0, p0, Lcom/android/camera/module/Panorama3Module;->mInitParam:Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;
 
-    iget-object v2, p0, Lcom/android/camera/module/Panorama3Module;->mActivity:Lcom/android/camera/Camera;
+    iget v1, p0, Lcom/android/camera/module/Panorama3Module;->mViewAngleV:F
 
-    invoke-static {v2}, Lcom/android/camera/CameraSettings;->getPanoramaMoveDirection(Landroid/content/Context;)I
+    float-to-double v1, v1
 
-    move-result v2
+    iput-wide v1, v0, Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;->aovy:D
 
-    iput v2, v0, Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;->direction:I
+    iget-object v0, p0, Lcom/android/camera/module/Panorama3Module;->mInitParam:Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;
+
+    iget-object v1, p0, Lcom/android/camera/module/Panorama3Module;->mActivity:Lcom/android/camera/Camera;
+
+    invoke-static {v1}, Lcom/android/camera/CameraSettings;->getPanoramaMoveDirection(Landroid/content/Context;)I
+
+    move-result v1
+
+    iput v1, v0, Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;->direction:I
 
     iget-object v0, p0, Lcom/android/camera/module/Panorama3Module;->mActivity:Lcom/android/camera/Camera;
 
@@ -1777,42 +1781,42 @@
 
     move-result v0
 
-    iget v2, p0, Lcom/android/camera/module/Panorama3Module;->mOrientation:I
+    iget v1, p0, Lcom/android/camera/module/Panorama3Module;->mOrientation:I
 
-    const/4 v3, -0x1
+    const/4 v2, -0x1
 
-    if-ne v2, v3, :cond_2
+    if-ne v1, v2, :cond_2
 
-    iget-object v2, p0, Lcom/android/camera/module/Panorama3Module;->mInitParam:Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;
+    iget-object v1, p0, Lcom/android/camera/module/Panorama3Module;->mInitParam:Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;
 
-    iget v3, p0, Lcom/android/camera/module/Panorama3Module;->mCameraOrientation:I
+    iget v2, p0, Lcom/android/camera/module/Panorama3Module;->mCameraOrientation:I
 
-    add-int/2addr v3, v0
+    add-int/2addr v2, v0
 
-    add-int/lit16 v3, v3, 0x168
+    add-int/lit16 v2, v2, 0x168
 
-    rem-int/lit16 v3, v3, 0x168
+    rem-int/lit16 v2, v2, 0x168
 
-    iput v3, v2, Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;->output_rotation:I
+    iput v2, v1, Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;->output_rotation:I
 
     goto :goto_1
 
     :cond_2
-    iget-object v2, p0, Lcom/android/camera/module/Panorama3Module;->mInitParam:Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;
+    iget-object v1, p0, Lcom/android/camera/module/Panorama3Module;->mInitParam:Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;
 
-    iget v3, p0, Lcom/android/camera/module/Panorama3Module;->mCameraOrientation:I
+    iget v2, p0, Lcom/android/camera/module/Panorama3Module;->mCameraOrientation:I
 
-    add-int/2addr v3, v0
+    add-int/2addr v2, v0
 
     iget v0, p0, Lcom/android/camera/module/Panorama3Module;->mOrientation:I
 
-    add-int/2addr v3, v0
+    add-int/2addr v2, v0
 
-    add-int/lit16 v3, v3, 0x168
+    add-int/lit16 v2, v2, 0x168
 
-    rem-int/lit16 v3, v3, 0x168
+    rem-int/lit16 v2, v2, 0x168
 
-    iput v3, v2, Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;->output_rotation:I
+    iput v2, v1, Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;->output_rotation:I
 
     :goto_1
     const/16 v0, 0xa6
@@ -1821,27 +1825,27 @@
 
     move-result-object v0
 
-    sget-object v2, Lcom/android/camera/module/Panorama3Module;->TAG:Ljava/lang/String;
+    sget-object v1, Lcom/android/camera/module/Panorama3Module;->TAG:Ljava/lang/String;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "lensType "
+    const-string v3, "lensType "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-static {v2, v3}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string v2, "wide"
+    const-string v1, "wide"
 
-    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -1849,20 +1853,20 @@
 
     iget-object v0, p0, Lcom/android/camera/module/Panorama3Module;->mInitParam:Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;
 
-    iget v2, p0, Lcom/android/camera/module/Panorama3Module;->mGoalAngle:I
+    iget v1, p0, Lcom/android/camera/module/Panorama3Module;->mGoalAngle:I
 
-    int-to-double v2, v2
+    int-to-double v1, v1
 
-    iput-wide v2, v0, Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;->goal_angle:D
+    iput-wide v1, v0, Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;->goal_angle:D
 
     goto :goto_2
 
     :cond_3
     sget-object v0, Landroid/os/Build;->DEVICE:Ljava/lang/String;
 
-    const-string v2, "cepheus"
+    const-string v1, "cepheus"
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -1870,47 +1874,49 @@
 
     iget-object v0, p0, Lcom/android/camera/module/Panorama3Module;->mInitParam:Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;
 
-    const-wide v2, 0x406305c28f5c28f6L    # 152.18
+    const-wide v1, 0x406305c28f5c28f6L    # 152.18
 
-    iput-wide v2, v0, Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;->goal_angle:D
+    iput-wide v1, v0, Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;->goal_angle:D
 
     goto :goto_2
 
     :cond_4
     iget-object v0, p0, Lcom/android/camera/module/Panorama3Module;->mInitParam:Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;
 
-    iget v2, p0, Lcom/android/camera/module/Panorama3Module;->mGoalAngle:I
+    iget v1, p0, Lcom/android/camera/module/Panorama3Module;->mGoalAngle:I
 
-    int-to-double v2, v2
+    int-to-double v1, v1
 
-    const-wide v4, 0x3fe40c49ba5e353fL    # 0.6265
+    const-wide v3, 0x3fe40c49ba5e353fL    # 0.6265
 
-    mul-double/2addr v2, v4
+    mul-double/2addr v1, v3
 
-    iput-wide v2, v0, Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;->goal_angle:D
+    iput-wide v1, v0, Lcom/android/camera/panorama/MorphoPanoramaGP3$InitParam;->goal_angle:D
 
     :goto_2
     iget v0, p0, Lcom/android/camera/module/Panorama3Module;->mCameraOrientation:I
 
-    const/16 v2, 0x5a
+    const/16 v1, 0x5a
+
+    const/4 v2, 0x0
 
     const/4 v3, 0x1
 
-    if-eq v0, v2, :cond_7
+    if-eq v0, v1, :cond_7
 
-    const/16 v2, 0xb4
+    const/16 v1, 0xb4
 
-    if-eq v0, v2, :cond_6
+    if-eq v0, v1, :cond_6
 
-    const/16 v2, 0x10e
+    const/16 v1, 0x10e
 
-    if-eq v0, v2, :cond_5
-
-    nop
+    if-eq v0, v1, :cond_5
 
     nop
 
-    move v0, v1
+    nop
+
+    move v0, v2
 
     goto :goto_3
 
@@ -1932,15 +1938,15 @@
     move v0, v3
 
     :goto_3
-    iget-object v2, p0, Lcom/android/camera/module/Panorama3Module;->mSensorFusion:Lcom/android/camera/panorama/SensorFusion;
+    iget-object v1, p0, Lcom/android/camera/module/Panorama3Module;->mSensorFusion:Lcom/android/camera/panorama/SensorFusion;
 
-    invoke-virtual {v2, v0}, Lcom/android/camera/panorama/SensorFusion;->setRotation(I)I
+    invoke-virtual {v1, v0}, Lcom/android/camera/panorama/SensorFusion;->setRotation(I)I
 
     move-result v0
 
     if-eqz v0, :cond_8
 
-    sget-object v2, Lcom/android/camera/module/Panorama3Module;->TAG:Ljava/lang/String;
+    sget-object v1, Lcom/android/camera/module/Panorama3Module;->TAG:Ljava/lang/String;
 
     sget-object v4, Ljava/util/Locale;->US:Ljava/util/Locale;
 
@@ -1952,13 +1958,13 @@
 
     move-result-object v0
 
-    aput-object v0, v6, v1
+    aput-object v0, v6, v2
 
     invoke-static {v4, v5, v6}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {v2, v0}, Lcom/android/camera/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v0}, Lcom/android/camera/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_8
     iget-object v0, p0, Lcom/android/camera/module/Panorama3Module;->mMorphoPanoramaGP3:Lcom/android/camera/panorama/MorphoPanoramaGP3;
@@ -2183,7 +2189,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a000b
+    const v3, 0x7f0a001f
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2364,12 +2370,17 @@
 
     iget-object v0, p0, Lcom/android/camera/module/Panorama3Module;->mHandler:Landroid/os/Handler;
 
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/camera/module/Panorama3Module;->mHandler:Landroid/os/Handler;
+
     const/16 v1, 0x11
 
     const-wide/16 v2, 0x3e8
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
+    :cond_0
     return-void
 .end method
 
@@ -4138,7 +4149,7 @@
 
     iput v0, p0, Lcom/android/camera/module/Panorama3Module;->mViewAngleV:F
 
-    sget-object v0, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v0, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     const-string v1, "lavender"
 
@@ -4215,7 +4226,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f0a000b
+    const p2, 0x7f0a001f
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -5939,6 +5950,12 @@
     iget-object v1, p0, Lcom/android/camera/module/Panorama3Module;->mPreviewSize:Lcom/android/camera/CameraSize;
 
     invoke-virtual {v0, v1}, Lcom/android/camera2/Camera2Proxy;->setPreviewSize(Lcom/android/camera/CameraSize;)V
+
+    iget-object v0, p0, Lcom/android/camera/module/Panorama3Module;->mCamera2Device:Lcom/android/camera2/Camera2Proxy;
+
+    iget-object v1, p0, Lcom/android/camera/module/Panorama3Module;->mPreviewSize:Lcom/android/camera/CameraSize;
+
+    invoke-virtual {v0, v1}, Lcom/android/camera2/Camera2Proxy;->setAlgorithmPreviewSize(Lcom/android/camera/CameraSize;)V
 
     iget-object v0, p0, Lcom/android/camera/module/Panorama3Module;->mCamera2Device:Lcom/android/camera2/Camera2Proxy;
 

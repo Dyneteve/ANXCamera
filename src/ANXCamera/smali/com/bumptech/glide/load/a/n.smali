@@ -14,17 +14,17 @@
 
 
 # static fields
-.field private static final ef:I = 0x1
+.field private static final eg:I = 0x1
 
-.field private static final eg:I = 0x2
+.field private static final eh:I = 0x2
 
-.field private static final eh:I = 0x3
+.field private static final ei:I = 0x3
 
-.field private static final ei:I = 0x4
+.field private static final ej:I = 0x4
 
-.field private static final ej:I = 0x5
+.field private static final ek:I = 0x5
 
-.field private static final ek:Landroid/content/UriMatcher;
+.field private static final el:Landroid/content/UriMatcher;
 
 
 # direct methods
@@ -37,9 +37,9 @@
 
     invoke-direct {v0, v1}, Landroid/content/UriMatcher;-><init>(I)V
 
-    sput-object v0, Lcom/bumptech/glide/load/a/n;->ek:Landroid/content/UriMatcher;
+    sput-object v0, Lcom/bumptech/glide/load/a/n;->el:Landroid/content/UriMatcher;
 
-    sget-object v0, Lcom/bumptech/glide/load/a/n;->ek:Landroid/content/UriMatcher;
+    sget-object v0, Lcom/bumptech/glide/load/a/n;->el:Landroid/content/UriMatcher;
 
     const-string v1, "com.android.contacts"
 
@@ -49,7 +49,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
 
-    sget-object v0, Lcom/bumptech/glide/load/a/n;->ek:Landroid/content/UriMatcher;
+    sget-object v0, Lcom/bumptech/glide/load/a/n;->el:Landroid/content/UriMatcher;
 
     const-string v1, "com.android.contacts"
 
@@ -57,7 +57,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
 
-    sget-object v0, Lcom/bumptech/glide/load/a/n;->ek:Landroid/content/UriMatcher;
+    sget-object v0, Lcom/bumptech/glide/load/a/n;->el:Landroid/content/UriMatcher;
 
     const-string v1, "com.android.contacts"
 
@@ -67,7 +67,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
 
-    sget-object v0, Lcom/bumptech/glide/load/a/n;->ek:Landroid/content/UriMatcher;
+    sget-object v0, Lcom/bumptech/glide/load/a/n;->el:Landroid/content/UriMatcher;
 
     const-string v1, "com.android.contacts"
 
@@ -77,7 +77,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
 
-    sget-object v0, Lcom/bumptech/glide/load/a/n;->ek:Landroid/content/UriMatcher;
+    sget-object v0, Lcom/bumptech/glide/load/a/n;->el:Landroid/content/UriMatcher;
 
     const-string v1, "com.android.contacts"
 
@@ -87,7 +87,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
 
-    sget-object v0, Lcom/bumptech/glide/load/a/n;->ek:Landroid/content/UriMatcher;
+    sget-object v0, Lcom/bumptech/glide/load/a/n;->el:Landroid/content/UriMatcher;
 
     const-string v1, "com.android.contacts"
 
@@ -116,7 +116,7 @@
         }
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/load/a/n;->ek:Landroid/content/UriMatcher;
+    sget-object v0, Lcom/bumptech/glide/load/a/n;->el:Landroid/content/UriMatcher;
 
     invoke-virtual {v0, p1}, Landroid/content/UriMatcher;->match(Landroid/net/Uri;)I
 

@@ -42,7 +42,7 @@ public class ThermalDetector {
     }
 
     private ThermalDetector() {
-        this.mTempStage = -1;
+        this.mTempStage = 0;
         this.mIsRegister = false;
         this.mFilter = new IntentFilter(ACTION_TEMP_CHANGED);
         this.mReceiver = new BroadcastReceiver() {

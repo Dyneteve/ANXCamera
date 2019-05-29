@@ -9,14 +9,14 @@ import com.bumptech.glide.load.g;
 
 /* compiled from: GifFrameResourceDecoder */
 public final class f implements g<a, Bitmap> {
-    private final d ak;
+    private final d al;
 
     public f(d dVar) {
-        this.ak = dVar;
+        this.al = dVar;
     }
 
     public p<Bitmap> a(@NonNull a aVar, int i, int i2, @NonNull com.bumptech.glide.load.f fVar) {
-        return com.bumptech.glide.load.resource.bitmap.f.a(aVar.aa(), this.ak);
+        return com.bumptech.glide.load.resource.bitmap.f.a(aVar.aa(), this.al);
     }
 
     public boolean a(@NonNull a aVar, @NonNull com.bumptech.glide.load.f fVar) {

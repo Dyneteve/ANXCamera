@@ -37,7 +37,7 @@
 
     const-string v2, "circle"
 
-    const v3, 0x7f0200f2
+    const v3, 0x7f0200f8
 
     const v4, 0x7f090154
 
@@ -49,7 +49,7 @@
 
     const-string v2, "parallel"
 
-    const v3, 0x7f0200f3
+    const v3, 0x7f0200f9
 
     const v4, 0x7f090155
 

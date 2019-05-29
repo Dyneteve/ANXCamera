@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/camera/Camera;->releaseAll(ZZZ)V
+    value = Lcom/android/camera/Camera;->showNewBie(I)Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,12 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/camera/Camera;
 
-.field final synthetic val$releaseDevice:Z
-
-.field final synthetic val$releaseImmediate:Z
-
 
 # direct methods
-.method constructor <init>(Lcom/android/camera/Camera;ZZ)V
+.method constructor <init>(Lcom/android/camera/Camera;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/camera/Camera$5;->this$0:Lcom/android/camera/Camera;
-
-    iput-boolean p2, p0, Lcom/android/camera/Camera$5;->val$releaseDevice:Z
-
-    iput-boolean p3, p0, Lcom/android/camera/Camera$5;->val$releaseImmediate:Z
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,144 +35,70 @@
 
 # virtual methods
 .method public run()V
-    .locals 6
+    .locals 3
 
     iget-object v0, p0, Lcom/android/camera/Camera$5;->this$0:Lcom/android/camera/Camera;
 
-    invoke-virtual {v0}, Lcom/android/camera/Camera;->isCurrentModuleAlive()Z
+    invoke-virtual {v0}, Lcom/android/camera/Camera;->isActivityPaused()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/camera/Camera$5;->this$0:Lcom/android/camera/Camera;
+    return-void
 
-    iget-object v0, v0, Lcom/android/camera/Camera;->mCurrentModule:Lcom/android/camera/module/Module;
+    :cond_0
+    new-instance v0, Lcom/android/camera/fragment/dialog/AiSceneNewbieDialogFragment;
 
-    invoke-static {}, Lcom/android/camera/data/DataRepository;->getInstance()Lcom/android/camera/data/DataRepository;
+    invoke-direct {v0}, Lcom/android/camera/fragment/dialog/AiSceneNewbieDialogFragment;-><init>()V
 
-    move-result-object v1
+    const/4 v1, 0x2
 
-    invoke-virtual {v1}, Lcom/android/camera/data/DataRepository;->backUp()Lcom/android/camera/data/backup/DataBackUp;
+    const v2, 0x7f0c0020
 
-    move-result-object v1
-
-    invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemRunning()Lcom/android/camera/data/data/runing/DataItemRunning;
-
-    move-result-object v2
-
-    invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemGlobal()Lcom/android/camera/data/data/global/DataItemGlobal;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/android/camera/Camera$5;->this$0:Lcom/android/camera/Camera;
-
-    invoke-virtual {v4}, Lcom/android/camera/Camera;->getCurrentModuleIndex()I
-
-    move-result v4
-
-    invoke-virtual {v3, v4}, Lcom/android/camera/data/data/global/DataItemGlobal;->getDataBackUpKey(I)I
-
-    move-result v3
-
-    invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemGlobal()Lcom/android/camera/data/data/global/DataItemGlobal;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Lcom/android/camera/data/data/global/DataItemGlobal;->getCurrentCameraId()I
-
-    move-result v4
-
-    const/4 v5, 0x0
-
-    invoke-interface {v1, v2, v3, v4, v5}, Lcom/android/camera/data/backup/DataBackUp;->backupRunning(Lcom/android/camera/data/data/runing/DataItemRunning;IIZ)V
+    invoke-virtual {v0, v1, v2}, Landroid/support/v4/app/DialogFragment;->setStyle(II)V
 
     iget-object v1, p0, Lcom/android/camera/Camera$5;->this$0:Lcom/android/camera/Camera;
 
-    invoke-virtual {v1}, Ljava/lang/Object;->hashCode()I
-
-    move-result v1
-
-    invoke-static {v1}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->isAlive(I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-interface {v0}, Lcom/android/camera/module/Module;->unRegisterProtocol()V
-
-    invoke-interface {v0}, Lcom/android/camera/module/Module;->unRegisterModulePersistProtocol()V
-
-    :cond_0
-    invoke-interface {v0}, Lcom/android/camera/module/Module;->onPause()V
-
-    invoke-interface {v0}, Lcom/android/camera/module/Module;->onStop()V
-
-    invoke-interface {v0}, Lcom/android/camera/module/Module;->onDestroy()V
-
-    :cond_1
-    iget-boolean v0, p0, Lcom/android/camera/Camera$5;->val$releaseDevice:Z
-
-    if-eqz v0, :cond_3
-
-    iget-object v0, p0, Lcom/android/camera/Camera$5;->this$0:Lcom/android/camera/Camera;
-
-    iget-object v0, v0, Lcom/android/camera/Camera;->mApplication:Lcom/android/camera/CameraAppImpl;
-
-    invoke-virtual {v0}, Lcom/android/camera/CameraAppImpl;->containsResumedCameraInStack()Z
-
-    move-result v0
-
-    invoke-static {}, Lcom/android/camera/Camera;->access$500()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/android/camera/Camera;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
 
     move-result-object v1
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Landroid/support/v4/app/FragmentManager;->beginTransaction()Landroid/support/v4/app/FragmentTransaction;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v1
 
-    const-string v3, "start releaseCameraDevice: "
+    const-string v2, "AiSceneHint"
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    xor-int/lit8 v3, v0, 0x1
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-nez v0, :cond_2
-
-    invoke-static {}, Lcom/android/camera/module/loader/camera2/Camera2OpenManager;->getInstance()Lcom/android/camera/module/loader/camera2/Camera2OpenManager;
+    invoke-virtual {v1, v0, v2}, Landroid/support/v4/app/FragmentTransaction;->add(Landroid/support/v4/app/Fragment;Ljava/lang/String;)Landroid/support/v4/app/FragmentTransaction;
 
     move-result-object v0
 
-    iget-boolean v1, p0, Lcom/android/camera/Camera$5;->val$releaseImmediate:Z
+    invoke-virtual {v0}, Landroid/support/v4/app/FragmentTransaction;->commitAllowingStateLoss()I
 
-    invoke-virtual {v0, v1}, Lcom/android/camera/module/loader/camera2/Camera2OpenManager;->release(Z)V
+    iget-object v0, p0, Lcom/android/camera/Camera$5;->this$0:Lcom/android/camera/Camera;
 
-    goto :goto_0
+    const-string v1, "AiSceneHint"
 
-    :cond_2
-    invoke-static {}, Lcom/android/camera/Camera;->access$500()Ljava/lang/String;
+    invoke-static {v0, v1}, Lcom/android/camera/Camera;->access$1402(Lcom/android/camera/Camera;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
-
-    const-string v1, "Camera2OpenManager release ignored."
-
-    invoke-static {v0, v1}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_3
-    :goto_0
     invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemGlobal()Lcom/android/camera/data/data/global/DataItemGlobal;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/camera/data/data/global/DataItemGlobal;->resetTimeOut()V
+    invoke-virtual {v0}, Lcom/android/camera/data/data/global/DataItemGlobal;->editor()Lcom/android/camera/data/provider/DataProvider$ProviderEditor;
+
+    move-result-object v0
+
+    const-string v1, "pref_camera_first_ai_scene_use_hint_shown_key"
+
+    const/4 v2, 0x0
+
+    invoke-interface {v0, v1, v2}, Lcom/android/camera/data/provider/DataProvider$ProviderEditor;->putBoolean(Ljava/lang/String;Z)Lcom/android/camera/data/provider/DataProvider$ProviderEditor;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Lcom/android/camera/data/provider/DataProvider$ProviderEditor;->apply()V
 
     return-void
 .end method

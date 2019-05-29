@@ -13,7 +13,7 @@ import java.util.Collections;
 import java.util.List;
 
 public final class GlideException extends Exception {
-    private static final StackTraceElement[] gI = new StackTraceElement[0];
+    private static final StackTraceElement[] gJ = new StackTraceElement[0];
     private static final long serialVersionUID = 1;
     private final List<Throwable> causes;
     private Class<?> dataClass;
@@ -23,12 +23,12 @@ public final class GlideException extends Exception {
 
     private static final class a implements Appendable {
         private static final String INDENT = "  ";
-        private static final String gJ = "";
-        private final Appendable gK;
-        private boolean gL = true;
+        private static final String gK = "";
+        private final Appendable gL;
+        private boolean gM = true;
 
         a(Appendable appendable) {
-            this.gK = appendable;
+            this.gL = appendable;
         }
 
         @NonNull
@@ -38,15 +38,15 @@ public final class GlideException extends Exception {
 
         public Appendable append(char c) throws IOException {
             boolean z = false;
-            if (this.gL) {
-                this.gL = false;
-                this.gK.append(INDENT);
+            if (this.gM) {
+                this.gM = false;
+                this.gL.append(INDENT);
             }
             if (c == 10) {
                 z = true;
             }
-            this.gL = z;
-            this.gK.append(c);
+            this.gM = z;
+            this.gL.append(c);
             return this;
         }
 
@@ -58,15 +58,15 @@ public final class GlideException extends Exception {
         public Appendable append(@Nullable CharSequence charSequence, int i, int i2) throws IOException {
             CharSequence a = a(charSequence);
             boolean z = false;
-            if (this.gL) {
-                this.gL = false;
-                this.gK.append(INDENT);
+            if (this.gM) {
+                this.gM = false;
+                this.gL.append(INDENT);
             }
             if (a.length() > 0 && a.charAt(i2 - 1) == 10) {
                 z = true;
             }
-            this.gL = z;
-            this.gK.append(a, i, i2);
+            this.gM = z;
+            this.gL.append(a, i, i2);
             return this;
         }
     }
@@ -81,7 +81,7 @@ public final class GlideException extends Exception {
 
     public GlideException(String str, List<Throwable> list) {
         this.detailMessage = str;
-        setStackTrace(gI);
+        setStackTrace(gJ);
         this.causes = list;
     }
 

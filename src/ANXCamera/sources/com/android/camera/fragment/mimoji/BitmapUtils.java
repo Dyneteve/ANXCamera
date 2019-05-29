@@ -101,6 +101,27 @@ public class BitmapUtils {
         return bitmap;
     }
 
+    public static Bitmap rawByteArray2RGBABitmap(byte[] bArr, int i, int i2, int i3) {
+        Bitmap bitmap;
+        try {
+            YuvImage yuvImage = new YuvImage(bArr, 17, i3, i2, null);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            yuvImage.compressToJpeg(new Rect(0, 0, i, i2), 100, byteArrayOutputStream);
+            bitmap = createBitmapFromStream(byteArrayOutputStream.toByteArray(), 0);
+            try {
+                byteArrayOutputStream.close();
+            } catch (Exception e) {
+                e = e;
+            }
+        } catch (Exception e2) {
+            e = e2;
+            bitmap = null;
+            e.printStackTrace();
+            return bitmap;
+        }
+        return bitmap;
+    }
+
     public static Bitmap rotateBitmap(Bitmap bitmap, int i) {
         LOG.d(TAG, "Bitmap rotateBitmap <-----");
         if (i == 0 || bitmap == null) {

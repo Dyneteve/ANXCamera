@@ -14,14 +14,14 @@ import com.bumptech.glide.util.i;
 
 /* compiled from: BitmapDrawableTranscoder */
 public class b implements e<Bitmap, BitmapDrawable> {
-    private final Resources ko;
+    private final Resources kp;
 
     public b(@NonNull Context context) {
         this(context.getResources());
     }
 
     public b(@NonNull Resources resources) {
-        this.ko = (Resources) i.checkNotNull(resources);
+        this.kp = (Resources) i.checkNotNull(resources);
     }
 
     @Deprecated
@@ -31,6 +31,6 @@ public class b implements e<Bitmap, BitmapDrawable> {
 
     @Nullable
     public p<BitmapDrawable> a(@NonNull p<Bitmap> pVar, @NonNull f fVar) {
-        return s.a(this.ko, pVar);
+        return s.a(this.kp, pVar);
     }
 }

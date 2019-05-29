@@ -891,7 +891,21 @@
 
     const v1, 0x9001
 
-    if-ne v0, v1, :cond_0
+    if-eq v0, v1, :cond_1
+
+    invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemFeature()Lcom/mi/config/a;
+
+    move-result-object v0
+
+    invoke-static {}, Lcom/android/camera/CameraSettings;->isFrontCamera()Z
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/mi/config/a;->q(Z)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
 
     goto :goto_0
 
@@ -911,13 +925,13 @@
 .method private isSupportedAndroidScalerStream()Z
     .locals 2
 
-    sget-boolean v0, Lcom/mi/config/b;->rJ:Z
+    sget-boolean v0, Lcom/mi/config/b;->rK:Z
 
     const/4 v1, 0x1
 
     if-nez v0, :cond_0
 
-    sget-boolean v0, Lcom/mi/config/b;->rL:Z
+    sget-boolean v0, Lcom/mi/config/b;->rM:Z
 
     if-eqz v0, :cond_1
 

@@ -116,7 +116,7 @@
 
     iget-object v0, p0, Lcom/android/camera/module/Camera2Module$17;->this$0:Lcom/android/camera/module/Camera2Module;
 
-    invoke-static {v0}, Lcom/android/camera/module/Camera2Module;->access$1600(Lcom/android/camera/module/Camera2Module;)Lcom/android/camera/module/loader/camera2/FocusManager2;
+    invoke-static {v0}, Lcom/android/camera/module/Camera2Module;->access$1500(Lcom/android/camera/module/Camera2Module;)Lcom/android/camera/module/loader/camera2/FocusManager2;
 
     move-result-object v0
 
@@ -124,7 +124,7 @@
 
     iget-object v0, p0, Lcom/android/camera/module/Camera2Module$17;->this$0:Lcom/android/camera/module/Camera2Module;
 
-    invoke-static {v0}, Lcom/android/camera/module/Camera2Module;->access$1300(Lcom/android/camera/module/Camera2Module;)Z
+    invoke-static {v0}, Lcom/android/camera/module/Camera2Module;->access$1200(Lcom/android/camera/module/Camera2Module;)Z
 
     move-result v0
 
@@ -132,7 +132,7 @@
 
     iget-object v0, p0, Lcom/android/camera/module/Camera2Module$17;->this$0:Lcom/android/camera/module/Camera2Module;
 
-    invoke-static {v0}, Lcom/android/camera/module/Camera2Module;->access$1500(Lcom/android/camera/module/Camera2Module;)Z
+    invoke-static {v0}, Lcom/android/camera/module/Camera2Module;->access$1400(Lcom/android/camera/module/Camera2Module;)Z
 
     move-result v0
 
@@ -152,7 +152,7 @@
 
     iget-object v0, p0, Lcom/android/camera/module/Camera2Module$17;->this$0:Lcom/android/camera/module/Camera2Module;
 
-    invoke-static {v0}, Lcom/android/camera/module/Camera2Module;->access$1600(Lcom/android/camera/module/Camera2Module;)Lcom/android/camera/module/loader/camera2/FocusManager2;
+    invoke-static {v0}, Lcom/android/camera/module/Camera2Module;->access$1500(Lcom/android/camera/module/Camera2Module;)Lcom/android/camera/module/loader/camera2/FocusManager2;
 
     move-result-object v0
 
@@ -291,17 +291,17 @@
 
     iget-object v1, p0, Lcom/android/camera/module/Camera2Module$17;->this$0:Lcom/android/camera/module/Camera2Module;
 
-    invoke-static {v1}, Lcom/android/camera/module/Camera2Module;->access$4300(Lcom/android/camera/module/Camera2Module;)[F
+    invoke-static {v1}, Lcom/android/camera/module/Camera2Module;->access$4100(Lcom/android/camera/module/Camera2Module;)[F
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/android/camera/module/Camera2Module;->access$4202(Lcom/android/camera/module/Camera2Module;[F)[F
+    invoke-static {v0, v1}, Lcom/android/camera/module/Camera2Module;->access$4002(Lcom/android/camera/module/Camera2Module;[F)[F
 
     iget-object v0, p0, Lcom/android/camera/module/Camera2Module$17;->this$0:Lcom/android/camera/module/Camera2Module;
 
     iget-object p1, p1, Landroid/hardware/SensorEvent;->values:[F
 
-    invoke-static {v0, p1}, Lcom/android/camera/module/Camera2Module;->access$4302(Lcom/android/camera/module/Camera2Module;[F)[F
+    invoke-static {v0, p1}, Lcom/android/camera/module/Camera2Module;->access$4102(Lcom/android/camera/module/Camera2Module;[F)[F
 
     :cond_0
     return-void

@@ -86,7 +86,7 @@ public class MutexModeManager {
         if (this.mCurrentMutexMode == 4) {
             return "_RAW";
         }
-        if (!b.iy() && !Util.isForceNameSuffix()) {
+        if (!b.iB() && !Util.isForceNameSuffix()) {
             return "";
         }
         int i = this.mCurrentMutexMode;
@@ -158,7 +158,7 @@ public class MutexModeManager {
     }
 
     public boolean isSupportedTorch() {
-        return b.ht() && (this.mCurrentMutexMode == 0 || this.mCurrentMutexMode == 2 || this.mCurrentMutexMode == 7 || this.mCurrentMutexMode == 9 || this.mCurrentMutexMode == 10);
+        return b.hw() && (this.mCurrentMutexMode == 0 || this.mCurrentMutexMode == 2 || this.mCurrentMutexMode == 7 || this.mCurrentMutexMode == 9 || this.mCurrentMutexMode == 10);
     }
 
     public boolean isUbiFocus() {

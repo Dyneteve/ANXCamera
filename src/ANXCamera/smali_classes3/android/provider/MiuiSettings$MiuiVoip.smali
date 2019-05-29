@@ -32,7 +32,7 @@
 .method public constructor <init>()V
     .registers 1
 
-    .line 5816
+    .line 5852
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -42,7 +42,7 @@
     .registers 4
     .param p0, "context"    # Landroid/content/Context;
 
-    .line 5862
+    .line 5898
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -62,7 +62,7 @@
     .registers 4
     .param p0, "context"    # Landroid/content/Context;
 
-    .line 5870
+    .line 5906
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -82,7 +82,7 @@
     .registers 4
     .param p0, "context"    # Landroid/content/Context;
 
-    .line 5826
+    .line 5862
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -102,7 +102,7 @@
     .registers 4
     .param p0, "context"    # Landroid/content/Context;
 
-    .line 5850
+    .line 5886
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -122,7 +122,7 @@
     .registers 4
     .param p0, "context"    # Landroid/content/Context;
 
-    .line 5834
+    .line 5870
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -142,7 +142,7 @@
     .registers 4
     .param p0, "context"    # Landroid/content/Context;
 
-    .line 5842
+    .line 5878
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -163,7 +163,7 @@
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "isActivated"    # Z
 
-    .line 5830
+    .line 5866
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -172,7 +172,7 @@
 
     invoke-static {v0, v1, p1}, Lmiui/provider/ExtraSettings$System;->putBoolean(Landroid/content/ContentResolver;Ljava/lang/String;Z)Z
 
-    .line 5831
+    .line 5867
     return-void
 .end method
 
@@ -181,7 +181,7 @@
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "enabled"    # Z
 
-    .line 5854
+    .line 5890
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -190,7 +190,7 @@
 
     invoke-static {v0, v1, p1}, Lmiui/provider/ExtraSettings$System;->putBoolean(Landroid/content/ContentResolver;Ljava/lang/String;Z)Z
 
-    .line 5855
+    .line 5891
     return-void
 .end method
 
@@ -199,7 +199,7 @@
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "count"    # I
 
-    .line 5858
+    .line 5894
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -208,7 +208,7 @@
 
     invoke-static {v0, v1, p1}, Lmiui/provider/ExtraSettings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 5859
+    .line 5895
     return-void
 .end method
 
@@ -217,7 +217,7 @@
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "enabled"    # Z
 
-    .line 5838
+    .line 5874
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -226,7 +226,7 @@
 
     invoke-static {v0, v1, p1}, Lmiui/provider/ExtraSettings$System;->putBoolean(Landroid/content/ContentResolver;Ljava/lang/String;Z)Z
 
-    .line 5839
+    .line 5875
     return-void
 .end method
 
@@ -235,7 +235,7 @@
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "count"    # I
 
-    .line 5866
+    .line 5902
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -244,7 +244,7 @@
 
     invoke-static {v0, v1, p1}, Lmiui/provider/ExtraSettings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 5867
+    .line 5903
     return-void
 .end method
 
@@ -253,7 +253,7 @@
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "enabled"    # Z
 
-    .line 5846
+    .line 5882
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -262,6 +262,6 @@
 
     invoke-static {v0, v1, p1}, Lmiui/provider/ExtraSettings$System;->putBoolean(Landroid/content/ContentResolver;Ljava/lang/String;Z)Z
 
-    .line 5847
+    .line 5883
     return-void
 .end method

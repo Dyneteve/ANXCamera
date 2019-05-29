@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final iC:Landroid/util/DisplayMetrics;
+.field private final iD:Landroid/util/DisplayMetrics;
 
 
 # direct methods
@@ -27,7 +27,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/engine/a/l$b;->iC:Landroid/util/DisplayMetrics;
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/a/l$b;->iD:Landroid/util/DisplayMetrics;
 
     return-void
 .end method
@@ -37,7 +37,7 @@
 .method public bK()I
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a/l$b;->iC:Landroid/util/DisplayMetrics;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a/l$b;->iD:Landroid/util/DisplayMetrics;
 
     iget v0, v0, Landroid/util/DisplayMetrics;->widthPixels:I
 
@@ -47,7 +47,7 @@
 .method public bL()I
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a/l$b;->iC:Landroid/util/DisplayMetrics;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a/l$b;->iD:Landroid/util/DisplayMetrics;
 
     iget v0, v0, Landroid/util/DisplayMetrics;->heightPixels:I
 

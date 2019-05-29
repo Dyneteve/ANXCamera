@@ -124,7 +124,7 @@
 .method public constructor <init>()V
     .registers 1
 
-    .line 6423
+    .line 6459
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -135,7 +135,7 @@
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "action"    # Ljava/lang/String;
 
-    .line 6593
+    .line 6629
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -146,7 +146,7 @@
 
     move-result-object v0
 
-    .line 6595
+    .line 6631
     .local v0, "function":Ljava/lang/String;
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -154,7 +154,7 @@
 
     if-eqz v1, :cond_80
 
-    .line 6596
+    .line 6632
     const-string v1, "double_click_power_key"
 
     invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -163,12 +163,12 @@
 
     if-eqz v1, :cond_19
 
-    .line 6597
+    .line 6633
     const/4 v0, 0x0
 
     goto :goto_80
 
-    .line 6599
+    .line 6635
     :cond_19
     const-string/jumbo v1, "three_gesture_down"
 
@@ -178,12 +178,12 @@
 
     if-eqz v1, :cond_26
 
-    .line 6600
+    .line 6636
     const-string/jumbo v0, "screen_shot"
 
     goto :goto_80
 
-    .line 6602
+    .line 6638
     :cond_26
     const-string/jumbo v1, "long_press_home_key"
 
@@ -193,23 +193,23 @@
 
     if-eqz v1, :cond_3b
 
-    .line 6603
+    .line 6639
     sget-boolean v1, Lmiui/os/Build;->IS_GLOBAL_BUILD:Z
 
     if-nez v1, :cond_37
 
-    .line 6604
+    .line 6640
     const-string/jumbo v0, "launch_voice_assistant"
 
     goto :goto_80
 
-    .line 6606
+    .line 6642
     :cond_37
     const-string/jumbo v0, "launch_google_search"
 
     goto :goto_80
 
-    .line 6609
+    .line 6645
     :cond_3b
     const-string/jumbo v1, "long_press_menu_key"
 
@@ -219,12 +219,12 @@
 
     if-eqz v1, :cond_48
 
-    .line 6610
+    .line 6646
     const-string/jumbo v0, "show_menu"
 
     goto :goto_80
 
-    .line 6612
+    .line 6648
     :cond_48
     const-string/jumbo v1, "long_press_menu_key_when_lock"
 
@@ -234,12 +234,12 @@
 
     if-eqz v1, :cond_55
 
-    .line 6613
+    .line 6649
     const-string/jumbo v0, "turn_on_torch"
 
     goto :goto_80
 
-    .line 6615
+    .line 6651
     :cond_55
     const-string/jumbo v1, "long_press_back_key"
 
@@ -249,12 +249,12 @@
 
     if-eqz v1, :cond_60
 
-    .line 6616
+    .line 6652
     const/4 v0, 0x0
 
     goto :goto_80
 
-    .line 6618
+    .line 6654
     :cond_60
     const-string/jumbo v1, "key_combination_power_home"
 
@@ -264,12 +264,12 @@
 
     if-eqz v1, :cond_6b
 
-    .line 6619
+    .line 6655
     const/4 v0, 0x0
 
     goto :goto_80
 
-    .line 6621
+    .line 6657
     :cond_6b
     const-string/jumbo v1, "key_combination_power_back"
 
@@ -279,12 +279,12 @@
 
     if-eqz v1, :cond_76
 
-    .line 6622
+    .line 6658
     const/4 v0, 0x0
 
     goto :goto_80
 
-    .line 6624
+    .line 6660
     :cond_76
     const-string/jumbo v1, "key_combination_power_menu"
 
@@ -294,10 +294,10 @@
 
     if-eqz v1, :cond_80
 
-    .line 6625
+    .line 6661
     const/4 v0, 0x0
 
-    .line 6628
+    .line 6664
     :cond_80
     :goto_80
     return-object v0
@@ -307,18 +307,18 @@
     .registers 4
     .param p0, "context"    # Landroid/content/Context;
 
-    .line 6459
+    .line 6495
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v0
 
-    .line 6460
+    .line 6496
     .local v0, "pm":Landroid/content/pm/PackageManager;
     const/4 v1, 0x0
 
     if-eqz v0, :cond_13
 
-    .line 6462
+    .line 6498
     :try_start_7
     const-string v2, "com.miui.tsmclient"
 
@@ -328,25 +328,25 @@
     :try_end_d
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_7 .. :try_end_d} :catch_12
 
-    .line 6463
+    .line 6499
     .local v2, "packageInfo":Landroid/content/pm/PackageInfo;
     if-eqz v2, :cond_11
 
-    .line 6464
+    .line 6500
     const/4 v1, 0x1
 
     return v1
 
-    .line 6468
+    .line 6504
     .end local v2    # "packageInfo":Landroid/content/pm/PackageInfo;
     :cond_11
     goto :goto_13
 
-    .line 6466
+    .line 6502
     :catch_12
     move-exception v2
 
-    .line 6470
+    .line 6506
     :cond_13
     :goto_13
     return v1
@@ -356,7 +356,7 @@
     .registers 8
     .param p0, "context"    # Landroid/content/Context;
 
-    .line 6635
+    .line 6671
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -373,14 +373,14 @@
 
     if-nez v0, :cond_b1
 
-    .line 6637
+    .line 6673
     const-string/jumbo v0, "screen_key_long_press_app_switch"
 
     invoke-static {p0, v0}, Landroid/provider/MiuiSettings$System;->getScreenKeyLongPressAction(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 6639
+    .line 6675
     .local v0, "menuAction":Ljava/lang/String;
     const-string/jumbo v1, "screen_key_long_press_home"
 
@@ -388,7 +388,7 @@
 
     move-result-object v1
 
-    .line 6641
+    .line 6677
     .local v1, "homeAction":Ljava/lang/String;
     const-string/jumbo v3, "screen_key_long_press_back"
 
@@ -396,7 +396,7 @@
 
     move-result-object v3
 
-    .line 6643
+    .line 6679
     .local v3, "backAction":Ljava/lang/String;
     const-string/jumbo v4, "voice_assistant"
 
@@ -406,7 +406,7 @@
 
     if-eqz v4, :cond_3b
 
-    .line 6644
+    .line 6680
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
@@ -419,7 +419,7 @@
 
     goto :goto_68
 
-    .line 6646
+    .line 6682
     :cond_3b
     const-string/jumbo v4, "voice_assistant"
 
@@ -429,7 +429,7 @@
 
     if-eqz v4, :cond_52
 
-    .line 6647
+    .line 6683
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
@@ -442,7 +442,7 @@
 
     goto :goto_68
 
-    .line 6649
+    .line 6685
     :cond_52
     const-string/jumbo v4, "voice_assistant"
 
@@ -452,7 +452,7 @@
 
     if-eqz v4, :cond_68
 
-    .line 6650
+    .line 6686
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
@@ -463,7 +463,7 @@
 
     invoke-static {v4, v5, v6, v2}, Landroid/provider/Settings$System;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
 
-    .line 6654
+    .line 6690
     :cond_68
     :goto_68
     const-string v4, "close_app"
@@ -474,7 +474,7 @@
 
     if-eqz v4, :cond_7d
 
-    .line 6655
+    .line 6691
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
@@ -487,7 +487,7 @@
 
     goto :goto_a6
 
-    .line 6657
+    .line 6693
     :cond_7d
     const-string v4, "close_app"
 
@@ -497,7 +497,7 @@
 
     if-eqz v4, :cond_92
 
-    .line 6658
+    .line 6694
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
@@ -510,7 +510,7 @@
 
     goto :goto_a6
 
-    .line 6660
+    .line 6696
     :cond_92
     const-string v4, "close_app"
 
@@ -520,7 +520,7 @@
 
     if-eqz v4, :cond_a6
 
-    .line 6661
+    .line 6697
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v4
@@ -531,7 +531,7 @@
 
     invoke-static {v4, v5, v6, v2}, Landroid/provider/Settings$System;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
 
-    .line 6665
+    .line 6701
     :cond_a6
     :goto_a6
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -544,7 +544,7 @@
 
     invoke-static {v4, v5, v6, v2}, Landroid/provider/Settings$System;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
 
-    .line 6668
+    .line 6704
     .end local v0    # "menuAction":Ljava/lang/String;
     .end local v1    # "homeAction":Ljava/lang/String;
     .end local v3    # "backAction":Ljava/lang/String;

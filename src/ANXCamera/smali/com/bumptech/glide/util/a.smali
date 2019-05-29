@@ -15,7 +15,7 @@
 # static fields
 .field private static final BUFFER_SIZE:I = 0x4000
 
-.field private static final pM:Ljava/util/concurrent/atomic/AtomicReference;
+.field private static final pN:Ljava/util/concurrent/atomic/AtomicReference;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/concurrent/atomic/AtomicReference<",
@@ -33,7 +33,7 @@
 
     invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
-    sput-object v0, Lcom/bumptech/glide/util/a;->pM:Ljava/util/concurrent/atomic/AtomicReference;
+    sput-object v0, Lcom/bumptech/glide/util/a;->pN:Ljava/util/concurrent/atomic/AtomicReference;
 
     return-void
 .end method
@@ -219,7 +219,7 @@
     goto :goto_1
 
     :cond_0
-    sget-object v0, Lcom/bumptech/glide/util/a;->pM:Ljava/util/concurrent/atomic/AtomicReference;
+    sget-object v0, Lcom/bumptech/glide/util/a;->pN:Ljava/util/concurrent/atomic/AtomicReference;
 
     const/4 v1, 0x0
 
@@ -262,7 +262,7 @@
     goto :goto_0
 
     :cond_2
-    sget-object p0, Lcom/bumptech/glide/util/a;->pM:Ljava/util/concurrent/atomic/AtomicReference;
+    sget-object p0, Lcom/bumptech/glide/util/a;->pN:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {p0, v0}, Ljava/util/concurrent/atomic/AtomicReference;->set(Ljava/lang/Object;)V
 
@@ -363,7 +363,7 @@
 
     invoke-direct {v0, v1}, Ljava/io/ByteArrayOutputStream;-><init>(I)V
 
-    sget-object v2, Lcom/bumptech/glide/util/a;->pM:Ljava/util/concurrent/atomic/AtomicReference;
+    sget-object v2, Lcom/bumptech/glide/util/a;->pN:Ljava/util/concurrent/atomic/AtomicReference;
 
     const/4 v3, 0x0
 
@@ -392,7 +392,7 @@
     goto :goto_0
 
     :cond_1
-    sget-object p0, Lcom/bumptech/glide/util/a;->pM:Ljava/util/concurrent/atomic/AtomicReference;
+    sget-object p0, Lcom/bumptech/glide/util/a;->pN:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {p0, v2}, Ljava/util/concurrent/atomic/AtomicReference;->set(Ljava/lang/Object;)V
 

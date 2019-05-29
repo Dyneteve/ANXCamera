@@ -58,7 +58,7 @@
     return-object v0
 .end method
 
-.method public onNewImage(Landroid/media/Image;I)V
+.method public onNewImage(Lcom/google/android/libraries/lens/lenslite/api/LinkImage;)V
     .locals 0
 
     return-void

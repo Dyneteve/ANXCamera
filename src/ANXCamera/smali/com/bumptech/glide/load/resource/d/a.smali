@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final mH:Landroid/graphics/Bitmap$CompressFormat;
+.field private final mJ:Landroid/graphics/Bitmap$CompressFormat;
 
 .field private final quality:I
 
@@ -45,7 +45,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/resource/d/a;->mH:Landroid/graphics/Bitmap$CompressFormat;
+    iput-object p1, p0, Lcom/bumptech/glide/load/resource/d/a;->mJ:Landroid/graphics/Bitmap$CompressFormat;
 
     iput p2, p0, Lcom/bumptech/glide/load/resource/d/a;->quality:I
 
@@ -90,7 +90,7 @@
 
     check-cast v0, Landroid/graphics/Bitmap;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/resource/d/a;->mH:Landroid/graphics/Bitmap$CompressFormat;
+    iget-object v1, p0, Lcom/bumptech/glide/load/resource/d/a;->mJ:Landroid/graphics/Bitmap$CompressFormat;
 
     iget v2, p0, Lcom/bumptech/glide/load/resource/d/a;->quality:I
 

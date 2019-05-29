@@ -43,9 +43,9 @@
 
 .field public static final accessibility_camera_lighting_open_panel:I = 0x7f09010b
 
-.field public static final accessibility_camera_liveshot_off:I = 0x7f09024a
+.field public static final accessibility_camera_liveshot_off:I = 0x7f090249
 
-.field public static final accessibility_camera_liveshot_on:I = 0x7f090249
+.field public static final accessibility_camera_liveshot_on:I = 0x7f090248
 
 .field public static final accessibility_camera_picker:I = 0x7f0900db
 
@@ -57,9 +57,9 @@
 
 .field public static final accessibility_camera_shutter_finish:I = 0x7f090103
 
-.field public static final accessibility_camera_ultra_wide_bokeh_off:I = 0x7f090257
+.field public static final accessibility_camera_ultra_wide_bokeh_off:I = 0x7f090256
 
-.field public static final accessibility_camera_ultra_wide_bokeh_on:I = 0x7f090256
+.field public static final accessibility_camera_ultra_wide_bokeh_on:I = 0x7f090255
 
 .field public static final accessibility_camera_video_960fps_120:I = 0x7f090108
 
@@ -109,6 +109,8 @@
 
 .field public static final accessibility_intent_done_apply:I = 0x7f0900d6
 
+.field public static final accessibility_intent_done_retry:I = 0x7f0902d7
+
 .field public static final accessibility_lighting_panel_off:I = 0x7f09026c
 
 .field public static final accessibility_lighting_panel_on:I = 0x7f09026b
@@ -141,13 +143,15 @@
 
 .field public static final accessibility_ultra_pixel_photography_32mp_on:I = 0x7f090282
 
-.field public static final accessibility_ultra_pixel_photography_48mp_off:I = 0x7f09025c
+.field public static final accessibility_ultra_pixel_photography_48mp_off:I = 0x7f09025b
 
-.field public static final accessibility_ultra_pixel_photography_48mp_on:I = 0x7f09025b
+.field public static final accessibility_ultra_pixel_photography_48mp_on:I = 0x7f09025a
 
-.field public static final accessibility_ultra_wide_off:I = 0x7f09024e
+.field public static final accessibility_ultra_wide_off:I = 0x7f09024d
 
-.field public static final accessibility_ultra_wide_on:I = 0x7f09024d
+.field public static final accessibility_ultra_wide_on:I = 0x7f09024c
+
+.field public static final accessibility_video_btn_play:I = 0x7f0902d8
 
 .field public static final accessibility_video_capture_button:I = 0x7f0900d8
 
@@ -157,13 +161,15 @@
 
 .field public static final accessibility_zoom_button:I = 0x7f0900df
 
-.field public static final ai_scene_mode_use_hint_text:I = 0x7f090202
+.field public static final ai_scene_mode_use_hint_text:I = 0x7f090200
 
-.field public static final ai_scene_top_moon_off:I = 0x7f090258
+.field public static final ai_scene_top_moon_off:I = 0x7f090257
 
-.field public static final ai_scene_top_tip:I = 0x7f09024f
+.field public static final ai_scene_top_tip:I = 0x7f09024e
 
 .field public static final app_name:I = 0x7f090000
+
+.field public static final audio_focus_exit_button_text:I = 0x7f090314
 
 .field public static final autozoom_click_hint:I = 0x7f090287
 
@@ -173,25 +179,31 @@
 
 .field public static final autozoom_landscape_hint:I = 0x7f090288
 
-.field public static final beauty_body:I = 0x7f09023c
+.field public static final back_bokeh_use_hint:I = 0x7f090323
 
-.field public static final beauty_body_body:I = 0x7f09023e
+.field public static final beauty_body:I = 0x7f09023b
 
-.field public static final beauty_body_head:I = 0x7f09023d
+.field public static final beauty_body_body:I = 0x7f09023d
 
-.field public static final beauty_body_legged:I = 0x7f090240
+.field public static final beauty_body_head:I = 0x7f09023c
 
-.field public static final beauty_body_reset_tip:I = 0x7f090242
+.field public static final beauty_body_legged:I = 0x7f09023f
 
-.field public static final beauty_body_shoulder:I = 0x7f09023f
+.field public static final beauty_body_reset_tip:I = 0x7f090241
+
+.field public static final beauty_body_shoulder:I = 0x7f09023e
 
 .field public static final beauty_body_slim_count_tip:I = 0x7f09026d
 
-.field public static final beauty_body_whole:I = 0x7f090241
+.field public static final beauty_body_whole:I = 0x7f090240
+
+.field public static final beauty_clear:I = 0x7f090217
+
+.field public static final beauty_clear_toast:I = 0x7f09025e
 
 .field public static final beauty_fragment_tab_name_3d_beauty:I = 0x7f0901d7
 
-.field public static final beauty_fragment_tab_name_3d_makeup:I = 0x7f090236
+.field public static final beauty_fragment_tab_name_3d_makeup:I = 0x7f090235
 
 .field public static final beauty_fragment_tab_name_3d_remodeling:I = 0x7f0901d8
 
@@ -199,27 +211,29 @@
 
 .field public static final beauty_fragment_tab_name_makeup:I = 0x7f0901d6
 
-.field public static final beauty_level_1:I = 0x7f09021a
+.field public static final beauty_level_1:I = 0x7f090219
 
-.field public static final beauty_level_2:I = 0x7f09021b
+.field public static final beauty_level_2:I = 0x7f09021a
 
-.field public static final beauty_level_3:I = 0x7f09021c
+.field public static final beauty_level_3:I = 0x7f09021b
 
-.field public static final beauty_level_4:I = 0x7f09021d
+.field public static final beauty_level_4:I = 0x7f09021c
 
-.field public static final beauty_level_5:I = 0x7f09021e
+.field public static final beauty_level_5:I = 0x7f09021d
 
-.field public static final beauty_mode_reset_toast:I = 0x7f090227
+.field public static final beauty_mode_reset_toast:I = 0x7f090226
 
-.field public static final beauty_reset:I = 0x7f090218
+.field public static final beauty_reset:I = 0x7f090216
 
-.field public static final beauty_reset_toast:I = 0x7f09025e
+.field public static final beauty_reset_toast:I = 0x7f09025d
 
-.field public static final beauty_tab_name_live_beauty:I = 0x7f09024c
+.field public static final beauty_tab_name_live_beauty:I = 0x7f09024b
 
-.field public static final beauty_tab_name_live_filter:I = 0x7f09024b
+.field public static final beauty_tab_name_live_filter:I = 0x7f09024a
 
 .field public static final bokeh_use_hint:I = 0x7f090197
+
+.field public static final burst_shoot_exit_button_text:I = 0x7f09030d
 
 .field public static final button_fisheye_camera_title:I = 0x7f0901b3
 
@@ -235,9 +249,11 @@
 
 .field public static final camera_label:I = 0x7f090009
 
-.field public static final camera_liveshot_off_tip:I = 0x7f090248
+.field public static final camera_liveshot_off_tip:I = 0x7f090247
 
-.field public static final camera_liveshot_on_tip:I = 0x7f090247
+.field public static final camera_liveshot_on_tip:I = 0x7f090246
+
+.field public static final camera_mode_options:I = 0x7f090332
 
 .field public static final camera_new_slow_motion_quality_default:I = 0x7f090037
 
@@ -259,9 +275,9 @@
 
 .field public static final capture_back_pressed_hint:I = 0x7f09012b
 
-.field public static final close_back_flash_toast:I = 0x7f09022c
+.field public static final close_back_flash_toast:I = 0x7f09022b
 
-.field public static final close_front_flash_toast:I = 0x7f09022b
+.field public static final close_front_flash_toast:I = 0x7f09022a
 
 .field public static final color_effect_entry_berry:I = 0x7f09007a
 
@@ -317,15 +333,19 @@
 
 .field public static final config_name_setting:I = 0x7f0901cd
 
+.field public static final config_name_sound:I = 0x7f090337
+
 .field public static final config_name_straighten:I = 0x7f0901ce
 
 .field public static final config_name_super_resolution:I = 0x7f0901d4
 
 .field public static final config_name_tilt:I = 0x7f0901d1
 
-.field public static final confirm_install_scanner_message:I = 0x7f0901f1
+.field public static final config_name_timer:I = 0x7f090336
 
-.field public static final confirm_install_scanner_title:I = 0x7f0901f0
+.field public static final confirm_install_scanner_message:I = 0x7f0901ef
+
+.field public static final confirm_install_scanner_title:I = 0x7f0901ee
 
 .field public static final confirm_location_alert:I = 0x7f090013
 
@@ -355,9 +375,9 @@
 
 .field public static final custom_watermark_words_save_success:I = 0x7f090136
 
-.field public static final device_48m_watermark_default_text:I = 0x7f0902e8
+.field public static final device_48m_watermark_default_text:I = 0x7f090383
 
-.field public static final device_watermark_default_text:I = 0x7f0902e7
+.field public static final device_watermark_default_text:I = 0x7f090382
 
 .field public static final dialog_google_lens_option_0:I = 0x7f090293
 
@@ -365,7 +385,7 @@
 
 .field public static final dialog_ok_time:I = 0x7f0900cb
 
-.field public static final do_not_remind_me:I = 0x7f0901eb
+.field public static final do_not_remind_me:I = 0x7f0901e9
 
 .field public static final dual_camera_lens_covered_toast:I = 0x7f090195
 
@@ -375,17 +395,21 @@
 
 .field public static final dual_camera_use_hint:I = 0x7f090196
 
-.field public static final edit_blusher:I = 0x7f09023a
+.field public static final edit_blusher:I = 0x7f090239
 
 .field public static final edit_chin:I = 0x7f0901e0
 
 .field public static final edit_eye_large:I = 0x7f0901db
 
-.field public static final edit_eyebrow_dye:I = 0x7f090237
+.field public static final edit_eyebrow_dye:I = 0x7f090236
+
+.field public static final edit_face_ruddy:I = 0x7f090338
 
 .field public static final edit_face_slender:I = 0x7f0901dc
 
-.field public static final edit_jelly_lips:I = 0x7f090239
+.field public static final edit_hairline:I = 0x7f090381
+
+.field public static final edit_jelly_lips:I = 0x7f090238
 
 .field public static final edit_lips:I = 0x7f0901df
 
@@ -393,7 +417,7 @@
 
 .field public static final edit_nose:I = 0x7f0901dd
 
-.field public static final edit_pupil_line:I = 0x7f090238
+.field public static final edit_pupil_line:I = 0x7f090237
 
 .field public static final edit_risorius:I = 0x7f0901de
 
@@ -407,35 +431,79 @@
 
 .field public static final empty:I = 0x7f0900e2
 
-.field public static final eye_light:I = 0x7f090219
+.field public static final error_fail_to_start_audio_capture:I = 0x7f0902e3
 
-.field public static final eye_light_angel:I = 0x7f090226
+.field public static final eye_light:I = 0x7f090218
 
-.field public static final eye_light_comic:I = 0x7f090225
+.field public static final eye_light_angel:I = 0x7f090225
 
-.field public static final eye_light_crescent:I = 0x7f090222
+.field public static final eye_light_comic:I = 0x7f090224
 
-.field public static final eye_light_nature:I = 0x7f090220
+.field public static final eye_light_crescent:I = 0x7f090221
 
-.field public static final eye_light_off:I = 0x7f09021f
+.field public static final eye_light_nature:I = 0x7f09021f
 
-.field public static final eye_light_rainbow:I = 0x7f090223
+.field public static final eye_light_off:I = 0x7f09021e
 
-.field public static final eye_light_star:I = 0x7f090221
+.field public static final eye_light_rainbow:I = 0x7f090222
 
-.field public static final eye_light_window:I = 0x7f090224
+.field public static final eye_light_star:I = 0x7f090220
+
+.field public static final eye_light_window:I = 0x7f090223
 
 .field public static final face_age_info:I = 0x7f090150
 
+.field public static final face_analyze_info:I = 0x7f09033b
+
+.field public static final face_analyze_info_female:I = 0x7f0902ed
+
+.field public static final face_analyze_info_male:I = 0x7f0902ec
+
+.field public static final face_beauty_advanced:I = 0x7f09032c
+
+.field public static final face_beauty_age_alias_female_0_7:I = 0x7f0902fe
+
+.field public static final face_beauty_age_alias_female_18_30:I = 0x7f090300
+
+.field public static final face_beauty_age_alias_female_31_44:I = 0x7f090301
+
+.field public static final face_beauty_age_alias_female_45_60:I = 0x7f090302
+
+.field public static final face_beauty_age_alias_female_60_m:I = 0x7f090303
+
+.field public static final face_beauty_age_alias_female_8_17:I = 0x7f0902ff
+
+.field public static final face_beauty_age_alias_male_0_7:I = 0x7f0902f8
+
+.field public static final face_beauty_age_alias_male_18_30:I = 0x7f0902fa
+
+.field public static final face_beauty_age_alias_male_31_44:I = 0x7f0902fb
+
+.field public static final face_beauty_age_alias_male_45_60:I = 0x7f0902fc
+
+.field public static final face_beauty_age_alias_male_60_m:I = 0x7f0902fd
+
+.field public static final face_beauty_age_alias_male_8_17:I = 0x7f0902f9
+
 .field public static final face_beauty_close:I = 0x7f0901a8
+
+.field public static final face_beauty_intelligent_level_0:I = 0x7f0902ee
+
+.field public static final face_beauty_intelligent_level_1:I = 0x7f0902ef
+
+.field public static final face_beauty_intelligent_level_2:I = 0x7f0902f0
+
+.field public static final face_beauty_intelligent_level_3:I = 0x7f0902f1
+
+.field public static final face_beauty_smart:I = 0x7f09032b
 
 .field public static final face_score_info:I = 0x7f090151
 
-.field public static final fps960_toast:I = 0x7f090229
+.field public static final fps960_toast:I = 0x7f090228
 
-.field public static final front_camera_hint_text_place:I = 0x7f0901f9
+.field public static final front_camera_hint_text_place:I = 0x7f0901f7
 
-.field public static final front_camera_hint_text_rotate:I = 0x7f0901f8
+.field public static final front_camera_hint_text_rotate:I = 0x7f0901f6
 
 .field public static final hand_gesture_open_tip:I = 0x7f090289
 
@@ -451,6 +519,8 @@
 
 .field public static final hint_ae_lock:I = 0x7f09029f
 
+.field public static final hint_device_water_mark:I = 0x7f090335
+
 .field public static final hint_eye_light:I = 0x7f0901c2
 
 .field public static final hint_fast_motion:I = 0x7f0901be
@@ -465,41 +535,41 @@
 
 .field public static final image_file_name_format:I = 0x7f0900ce
 
-.field public static final install_confirmed:I = 0x7f0901ef
+.field public static final install_confirmed:I = 0x7f0901ed
 
-.field public static final lens_dirty_detected_content:I = 0x7f090205
+.field public static final lens_dirty_detected_content:I = 0x7f090203
 
-.field public static final lens_dirty_detected_title_back:I = 0x7f090203
+.field public static final lens_dirty_detected_title_back:I = 0x7f090201
 
-.field public static final lens_dirty_detected_title_front:I = 0x7f090204
+.field public static final lens_dirty_detected_title_front:I = 0x7f090202
 
-.field public static final lighting_hint_needed:I = 0x7f090208
+.field public static final lighting_hint_needed:I = 0x7f090206
 
-.field public static final lighting_hint_title:I = 0x7f090206
+.field public static final lighting_hint_title:I = 0x7f090204
 
-.field public static final lighting_hint_too_close:I = 0x7f09020a
+.field public static final lighting_hint_too_close:I = 0x7f090208
 
-.field public static final lighting_hint_too_far:I = 0x7f090209
+.field public static final lighting_hint_too_far:I = 0x7f090207
 
-.field public static final lighting_hint_usage:I = 0x7f090207
+.field public static final lighting_hint_usage:I = 0x7f090205
 
-.field public static final lighting_pattern_dot:I = 0x7f090211
+.field public static final lighting_pattern_dot:I = 0x7f09020f
 
-.field public static final lighting_pattern_holi:I = 0x7f090213
+.field public static final lighting_pattern_holi:I = 0x7f090211
 
-.field public static final lighting_pattern_leaf:I = 0x7f090210
+.field public static final lighting_pattern_leaf:I = 0x7f09020e
 
-.field public static final lighting_pattern_movie:I = 0x7f09020e
+.field public static final lighting_pattern_movie:I = 0x7f09020c
 
-.field public static final lighting_pattern_nature:I = 0x7f09020c
+.field public static final lighting_pattern_nature:I = 0x7f09020a
 
-.field public static final lighting_pattern_null:I = 0x7f09020b
+.field public static final lighting_pattern_null:I = 0x7f090209
 
-.field public static final lighting_pattern_rainbow:I = 0x7f09020f
+.field public static final lighting_pattern_rainbow:I = 0x7f09020d
 
-.field public static final lighting_pattern_shutter:I = 0x7f090212
+.field public static final lighting_pattern_shutter:I = 0x7f090210
 
-.field public static final lighting_pattern_stage:I = 0x7f09020d
+.field public static final lighting_pattern_stage:I = 0x7f09020b
 
 .field public static final live_edit_exit_confirm:I = 0x7f090278
 
@@ -535,151 +605,163 @@
 
 .field public static final live_reverse_message:I = 0x7f09027a
 
-.field public static final live_share_moments:I = 0x7f0902eb
+.field public static final live_share_moments:I = 0x7f090386
 
-.field public static final live_share_qq:I = 0x7f0902ec
+.field public static final live_share_qq:I = 0x7f090387
 
-.field public static final live_share_qzone:I = 0x7f0902ed
+.field public static final live_share_qzone:I = 0x7f090388
 
-.field public static final live_share_tik:I = 0x7f0902e9
+.field public static final live_share_tik:I = 0x7f090384
 
-.field public static final live_share_wechat:I = 0x7f0902ea
+.field public static final live_share_wechat:I = 0x7f090385
 
-.field public static final live_share_weibo:I = 0x7f0902ee
+.field public static final live_share_weibo:I = 0x7f090389
 
-.field public static final live_speed_extreme_fast:I = 0x7f090233
+.field public static final live_speed_extreme_fast:I = 0x7f090232
 
-.field public static final live_speed_extreme_slow:I = 0x7f09022f
+.field public static final live_speed_extreme_slow:I = 0x7f09022e
 
-.field public static final live_speed_fast:I = 0x7f090232
+.field public static final live_speed_fast:I = 0x7f090231
 
-.field public static final live_speed_fragment_tab_name:I = 0x7f09022e
+.field public static final live_speed_fragment_tab_name:I = 0x7f09022d
 
-.field public static final live_speed_normal:I = 0x7f090231
+.field public static final live_speed_normal:I = 0x7f090230
 
-.field public static final live_speed_slow:I = 0x7f090230
+.field public static final live_speed_slow:I = 0x7f09022f
 
-.field public static final live_sticker_fragment_tab_name:I = 0x7f09022d
+.field public static final live_sticker_fragment_tab_name:I = 0x7f09022c
 
-.field public static final live_sticker_network_error_hint:I = 0x7f090235
+.field public static final live_sticker_network_error_hint:I = 0x7f090234
 
-.field public static final live_sticker_updating:I = 0x7f090234
+.field public static final live_sticker_updating:I = 0x7f090233
 
 .field public static final macro_mode:I = 0x7f09029d
 
 .field public static final macro_mode_tip:I = 0x7f09029e
 
-.field public static final makeup_reset_toast:I = 0x7f090228
+.field public static final makeup_reset_toast:I = 0x7f090227
 
 .field public static final message_snap_double_confirm:I = 0x7f0901b5
 
-.field public static final mimoji_back:I = 0x7f0902c8
+.field public static final mimoji_back:I = 0x7f090360
 
-.field public static final mimoji_cancle:I = 0x7f0902c7
+.field public static final mimoji_cancle:I = 0x7f09035e
 
-.field public static final mimoji_check_beyond_20_degrees:I = 0x7f0902b7
+.field public static final mimoji_check_beyond_20_degrees:I = 0x7f09034b
 
-.field public static final mimoji_check_face_occlusion:I = 0x7f0902b3
+.field public static final mimoji_check_face_occlusion:I = 0x7f090347
 
-.field public static final mimoji_check_face_too_close:I = 0x7f0902b5
+.field public static final mimoji_check_face_too_close:I = 0x7f090349
 
-.field public static final mimoji_check_face_too_far:I = 0x7f0902b4
+.field public static final mimoji_check_face_too_far:I = 0x7f090348
 
-.field public static final mimoji_check_low_light:I = 0x7f0902b2
+.field public static final mimoji_check_low_light:I = 0x7f090346
 
-.field public static final mimoji_check_multi_face:I = 0x7f0902b6
+.field public static final mimoji_check_multi_face:I = 0x7f09034a
 
-.field public static final mimoji_check_no_face:I = 0x7f0902b1
+.field public static final mimoji_check_no_face:I = 0x7f090345
 
-.field public static final mimoji_check_normal:I = 0x7f0902b0
+.field public static final mimoji_check_normal:I = 0x7f090343
 
-.field public static final mimoji_confirm:I = 0x7f0902ca
+.field public static final mimoji_confirm:I = 0x7f090362
 
-.field public static final mimoji_delete_mimoji:I = 0x7f0902d0
+.field public static final mimoji_create_tips:I = 0x7f090344
 
-.field public static final mimoji_delete_success:I = 0x7f0902d1
+.field public static final mimoji_delete:I = 0x7f09035f
 
-.field public static final mimoji_detect_faceshape_failed:I = 0x7f0902c0
+.field public static final mimoji_delete_dialog_title:I = 0x7f09035b
 
-.field public static final mimoji_detect_facial_failed:I = 0x7f0902ba
+.field public static final mimoji_delete_mimoji:I = 0x7f090368
 
-.field public static final mimoji_detect_gender_failed:I = 0x7f0902bd
+.field public static final mimoji_delete_success:I = 0x7f090369
 
-.field public static final mimoji_detect_glass_failed:I = 0x7f0902bf
+.field public static final mimoji_detect_faceshape_failed:I = 0x7f090354
 
-.field public static final mimoji_detect_haircolor_failed:I = 0x7f0902bc
+.field public static final mimoji_detect_facial_failed:I = 0x7f09034e
 
-.field public static final mimoji_detect_hairstyle_failed:I = 0x7f0902bb
+.field public static final mimoji_detect_gender_failed:I = 0x7f090351
 
-.field public static final mimoji_detect_no_face_failed:I = 0x7f0902b9
+.field public static final mimoji_detect_glass_failed:I = 0x7f090353
 
-.field public static final mimoji_detect_skincolor_failed:I = 0x7f0902be
+.field public static final mimoji_detect_haircolor_failed:I = 0x7f090350
 
-.field public static final mimoji_detect_tips:I = 0x7f0902c5
+.field public static final mimoji_detect_hairstyle_failed:I = 0x7f09034f
 
-.field public static final mimoji_detect_unknow_failed:I = 0x7f0902c1
+.field public static final mimoji_detect_no_face_failed:I = 0x7f09034d
 
-.field public static final mimoji_ear:I = 0x7f0902df
+.field public static final mimoji_detect_skincolor_failed:I = 0x7f090352
 
-.field public static final mimoji_earring:I = 0x7f0902e5
+.field public static final mimoji_detect_tips:I = 0x7f09035d
 
-.field public static final mimoji_edit_mimoji:I = 0x7f0902cf
+.field public static final mimoji_detect_unknow_failed:I = 0x7f090355
 
-.field public static final mimoji_edit_whether_abandon:I = 0x7f0902c6
+.field public static final mimoji_ear:I = 0x7f090376
 
-.field public static final mimoji_editor:I = 0x7f0902cb
+.field public static final mimoji_earring:I = 0x7f09037c
 
-.field public static final mimoji_eye:I = 0x7f0902d5
+.field public static final mimoji_edit_abandon_alert:I = 0x7f090358
 
-.field public static final mimoji_eye_shape:I = 0x7f0902e0
+.field public static final mimoji_edit_abandon_capture_alert:I = 0x7f090359
 
-.field public static final mimoji_eyebrow:I = 0x7f0902d6
+.field public static final mimoji_edit_back_alert:I = 0x7f090357
 
-.field public static final mimoji_eyebrow_shape:I = 0x7f0902e2
+.field public static final mimoji_edit_cancel_alert:I = 0x7f09035a
 
-.field public static final mimoji_eyeglass:I = 0x7f0902dc
+.field public static final mimoji_edit_mimoji:I = 0x7f090367
 
-.field public static final mimoji_eyelash:I = 0x7f0902e1
+.field public static final mimoji_editor:I = 0x7f090363
 
-.field public static final mimoji_featured_face:I = 0x7f0902d4
+.field public static final mimoji_eye:I = 0x7f09036d
 
-.field public static final mimoji_fragment_tab_name:I = 0x7f0902ae
+.field public static final mimoji_eye_shape:I = 0x7f090377
 
-.field public static final mimoji_freckle:I = 0x7f0902db
+.field public static final mimoji_eyebrow:I = 0x7f09036e
 
-.field public static final mimoji_hairstyle:I = 0x7f0902d3
+.field public static final mimoji_eyebrow_shape:I = 0x7f090379
 
-.field public static final mimoji_headwear:I = 0x7f0902de
+.field public static final mimoji_eyeglass:I = 0x7f090373
 
-.field public static final mimoji_mole:I = 0x7f0902da
+.field public static final mimoji_eyelash:I = 0x7f090378
 
-.field public static final mimoji_mole_freckle:I = 0x7f0902d9
+.field public static final mimoji_featured_face:I = 0x7f09036c
 
-.field public static final mimoji_mouth_type:I = 0x7f0902e3
+.field public static final mimoji_fragment_tab_name:I = 0x7f090341
 
-.field public static final mimoji_mustache:I = 0x7f0902d8
+.field public static final mimoji_freckle:I = 0x7f090372
 
-.field public static final mimoji_nose:I = 0x7f0902e4
+.field public static final mimoji_hairstyle:I = 0x7f09036b
 
-.field public static final mimoji_nose_lisps:I = 0x7f0902d7
+.field public static final mimoji_headwear:I = 0x7f090375
 
-.field public static final mimoji_on_create:I = 0x7f0902af
+.field public static final mimoji_mole:I = 0x7f090371
 
-.field public static final mimoji_ornament:I = 0x7f0902dd
+.field public static final mimoji_mouth_type:I = 0x7f09037a
 
-.field public static final mimoji_recapture:I = 0x7f0902cd
+.field public static final mimoji_mustache:I = 0x7f090370
 
-.field public static final mimoji_reset:I = 0x7f0902c9
+.field public static final mimoji_nose:I = 0x7f09037b
 
-.field public static final mimoji_save:I = 0x7f0902cc
+.field public static final mimoji_nose_lisps:I = 0x7f09036f
 
-.field public static final mimoji_save_success:I = 0x7f0902d2
+.field public static final mimoji_on_create:I = 0x7f090342
 
-.field public static final mimoji_selected:I = 0x7f0902ce
+.field public static final mimoji_ornament:I = 0x7f090374
 
-.field public static final mimoji_start_create:I = 0x7f0902b8
+.field public static final mimoji_recapture:I = 0x7f090365
 
-.field public static final mimoji_tips:I = 0x7f0902c4
+.field public static final mimoji_recapture_alert:I = 0x7f090356
+
+.field public static final mimoji_reset:I = 0x7f090361
+
+.field public static final mimoji_save:I = 0x7f090364
+
+.field public static final mimoji_save_success:I = 0x7f09036a
+
+.field public static final mimoji_selected:I = 0x7f090366
+
+.field public static final mimoji_start_create:I = 0x7f09034c
+
+.field public static final mimoji_tips:I = 0x7f09035c
 
 .field public static final module_name_beauty:I = 0x7f0901c7
 
@@ -687,7 +769,7 @@
 
 .field public static final module_name_fun:I = 0x7f0901c3
 
-.field public static final module_name_fun_ar:I = 0x7f0902ad
+.field public static final module_name_fun_ar:I = 0x7f090340
 
 .field public static final module_name_manual:I = 0x7f0901ca
 
@@ -699,15 +781,15 @@
 
 .field public static final module_name_portrait:I = 0x7f0901cb
 
-.field public static final module_name_professional:I = 0x7f09025d
+.field public static final module_name_professional:I = 0x7f09025c
 
 .field public static final module_name_square:I = 0x7f0901c8
 
 .field public static final module_name_video:I = 0x7f0901c5
 
-.field public static final multi_window_mode_not_supported:I = 0x7f0901f7
+.field public static final multi_window_mode_not_supported:I = 0x7f0901f5
 
-.field public static final network_access_user_notice_title:I = 0x7f0901ee
+.field public static final network_access_user_notice_title:I = 0x7f0901ec
 
 .field public static final no_storage:I = 0x7f09000b
 
@@ -724,6 +806,8 @@
 .field public static final pano_how_to_use_prompt_slow_down:I = 0x7f090191
 
 .field public static final pano_how_to_use_prompt_start:I = 0x7f0900d3
+
+.field public static final pano_how_to_use_prompt_to_move:I = 0x7f0902d3
 
 .field public static final path_settings:I = 0x7f090002
 
@@ -773,27 +857,33 @@
 
 .field public static final portait_effect_entry_tea:I = 0x7f09008f
 
-.field public static final portrait_india_effect_entry_memory:I = 0x7f0902f1
+.field public static final portrait_bokeh_first_tips:I = 0x7f09033e
 
-.field public static final portrait_india_effect_entry_mono:I = 0x7f0902f9
+.field public static final portrait_bokeh_text:I = 0x7f09033d
 
-.field public static final portrait_india_effect_entry_pink:I = 0x7f0902f0
+.field public static final portrait_bokeh_tips:I = 0x7f09033f
 
-.field public static final portrait_india_effect_entry_portrait:I = 0x7f0902f5
+.field public static final portrait_india_effect_entry_memory:I = 0x7f09038c
 
-.field public static final portrait_india_effect_entry_retro:I = 0x7f0902f6
+.field public static final portrait_india_effect_entry_mono:I = 0x7f090394
 
-.field public static final portrait_india_effect_entry_romantic:I = 0x7f0902f8
+.field public static final portrait_india_effect_entry_pink:I = 0x7f09038b
 
-.field public static final portrait_india_effect_entry_strong:I = 0x7f0902f2
+.field public static final portrait_india_effect_entry_portrait:I = 0x7f090390
 
-.field public static final portrait_india_effect_entry_sunny:I = 0x7f0902ef
+.field public static final portrait_india_effect_entry_retro:I = 0x7f090391
 
-.field public static final portrait_india_effect_entry_sweet:I = 0x7f0902f4
+.field public static final portrait_india_effect_entry_romantic:I = 0x7f090393
 
-.field public static final portrait_india_effect_entry_warm:I = 0x7f0902f3
+.field public static final portrait_india_effect_entry_strong:I = 0x7f09038d
 
-.field public static final portrait_india_effect_entry_young:I = 0x7f0902f7
+.field public static final portrait_india_effect_entry_sunny:I = 0x7f09038a
+
+.field public static final portrait_india_effect_entry_sweet:I = 0x7f09038f
+
+.field public static final portrait_india_effect_entry_warm:I = 0x7f09038e
+
+.field public static final portrait_india_effect_entry_young:I = 0x7f090392
 
 .field public static final portrait_mode_depth_effect_success_hint:I = 0x7f0901a0
 
@@ -805,13 +895,27 @@
 
 .field public static final portrait_mode_use_hint:I = 0x7f0901a7
 
+.field public static final portrait_mode_use_hint_for_bokeh:I = 0x7f090328
+
 .field public static final pref_advance_settings:I = 0x7f09015d
 
 .field public static final pref_ai_detect:I = 0x7f090179
 
+.field public static final pref_audio_focus_entry_front:I = 0x7f090312
+
+.field public static final pref_audio_focus_entry_general:I = 0x7f090311
+
+.field public static final pref_audio_focus_entry_rear:I = 0x7f090313
+
+.field public static final pref_audio_focus_title:I = 0x7f090310
+
+.field public static final pref_burst_shoot_title:I = 0x7f09030c
+
 .field public static final pref_camcorder_settings:I = 0x7f09015c
 
-.field public static final pref_camera_ai_scene_title:I = 0x7f0901fd
+.field public static final pref_camcorder_settings_category:I = 0x7f0902ad
+
+.field public static final pref_camera_ai_scene_title:I = 0x7f0901fb
 
 .field public static final pref_camera_antibanding_default:I = 0x7f0900c1
 
@@ -834,6 +938,10 @@
 .field public static final pref_camera_antibanding_title:I = 0x7f0900c0
 
 .field public static final pref_camera_asd_night_title:I = 0x7f09017d
+
+.field public static final pref_camera_asd_popup_title:I = 0x7f090339
+
+.field public static final pref_camera_audio_capture_title:I = 0x7f0902d9
 
 .field public static final pref_camera_auto_capture_when_stable_summary:I = 0x7f090164
 
@@ -871,7 +979,41 @@
 
 .field public static final pref_camera_coloreffect_default:I = 0x7f09006d
 
+.field public static final pref_camera_coloreffect_entry_big_face:I = 0x7f0902c2
+
+.field public static final pref_camera_coloreffect_entry_blackwhite:I = 0x7f0902c0
+
+.field public static final pref_camera_coloreffect_entry_fisheye:I = 0x7f0902c5
+
+.field public static final pref_camera_coloreffect_entry_instagram_clarendon:I = 0x7f0902b9
+
+.field public static final pref_camera_coloreffect_entry_instagram_crema:I = 0x7f0902ba
+
+.field public static final pref_camera_coloreffect_entry_instagram_hudson:I = 0x7f0902bb
+
+.field public static final pref_camera_coloreffect_entry_instagram_rise:I = 0x7f0902b8
+
+.field public static final pref_camera_coloreffect_entry_light_tunnel:I = 0x7f0902c8
+
+.field public static final pref_camera_coloreffect_entry_long_face:I = 0x7f0902c4
+
+.field public static final pref_camera_coloreffect_entry_mirror:I = 0x7f0902c7
+
+.field public static final pref_camera_coloreffect_entry_mono:I = 0x7f0902bf
+
+.field public static final pref_camera_coloreffect_entry_mosaic:I = 0x7f0902c6
+
 .field public static final pref_camera_coloreffect_entry_none:I = 0x7f09006f
+
+.field public static final pref_camera_coloreffect_entry_sketch:I = 0x7f0902c1
+
+.field public static final pref_camera_coloreffect_entry_small_face:I = 0x7f0902c3
+
+.field public static final pref_camera_coloreffect_entry_vivid:I = 0x7f0902bc
+
+.field public static final pref_camera_coloreffect_entry_vsco_a4:I = 0x7f0902bd
+
+.field public static final pref_camera_coloreffect_entry_vsco_f2:I = 0x7f0902be
 
 .field public static final pref_camera_coloreffect_title:I = 0x7f09006e
 
@@ -879,9 +1021,13 @@
 
 .field public static final pref_camera_contrast_title:I = 0x7f09009d
 
+.field public static final pref_camera_delay_capture_entry_10s:I = 0x7f090317
+
 .field public static final pref_camera_delay_capture_entry_3s:I = 0x7f090177
 
 .field public static final pref_camera_delay_capture_entry_5s:I = 0x7f090178
+
+.field public static final pref_camera_delay_capture_entry_audio:I = 0x7f090316
 
 .field public static final pref_camera_delay_capture_title:I = 0x7f090176
 
@@ -927,6 +1073,8 @@
 
 .field public static final pref_camera_exposuretime_entry_auto:I = 0x7f09013f
 
+.field public static final pref_camera_face_info_watermark_title:I = 0x7f0902eb
+
 .field public static final pref_camera_facedetection_auto_hidden_title:I = 0x7f09011b
 
 .field public static final pref_camera_facedetection_title:I = 0x7f090119
@@ -941,9 +1089,9 @@
 
 .field public static final pref_camera_flashmode_title:I = 0x7f090063
 
-.field public static final pref_camera_focus_shoot_summary:I = 0x7f0901f3
+.field public static final pref_camera_focus_shoot_summary:I = 0x7f0901f1
 
-.field public static final pref_camera_focus_shoot_title:I = 0x7f0901f2
+.field public static final pref_camera_focus_shoot_title:I = 0x7f0901f0
 
 .field public static final pref_camera_focusmode_entry_auto:I = 0x7f090058
 
@@ -951,17 +1099,27 @@
 
 .field public static final pref_camera_focusmode_entry_macro:I = 0x7f09005b
 
+.field public static final pref_camera_focusmode_entry_manual:I = 0x7f0902b1
+
 .field public static final pref_camera_focusmode_entry_normal:I = 0x7f090059
+
+.field public static final pref_camera_focusmode_title:I = 0x7f0902b0
 
 .field public static final pref_camera_focusmode_value_default:I = 0x7f090062
 
-.field public static final pref_camera_front_ai_scene_entry_off:I = 0x7f0901ff
+.field public static final pref_camera_front_ai_scene_entry_off:I = 0x7f0901fd
 
-.field public static final pref_camera_front_ai_scene_entry_on:I = 0x7f0901fe
+.field public static final pref_camera_front_ai_scene_entry_on:I = 0x7f0901fc
 
 .field public static final pref_camera_front_bokeh_entry_off:I = 0x7f090069
 
 .field public static final pref_camera_front_bokeh_entry_on:I = 0x7f090068
+
+.field public static final pref_camera_gradienter_title:I = 0x7f09031d
+
+.field public static final pref_camera_groupshot_mode_title:I = 0x7f090333
+
+.field public static final pref_camera_hand_night_title:I = 0x7f0902e1
 
 .field public static final pref_camera_hdr_entry_auto:I = 0x7f090170
 
@@ -972,6 +1130,18 @@
 .field public static final pref_camera_hdr_entry_off:I = 0x7f090171
 
 .field public static final pref_camera_hdr_title:I = 0x7f090139
+
+.field public static final pref_camera_hfr_entry_2x:I = 0x7f0902cd
+
+.field public static final pref_camera_hfr_entry_3x:I = 0x7f0902ce
+
+.field public static final pref_camera_hfr_entry_4x:I = 0x7f0902cf
+
+.field public static final pref_camera_hfr_entry_off:I = 0x7f0902cc
+
+.field public static final pref_camera_histogram_entry_disable:I = 0x7f0902af
+
+.field public static final pref_camera_histogram_entry_enable:I = 0x7f0902ae
 
 .field public static final pref_camera_iso_default:I = 0x7f0900b0
 
@@ -1021,7 +1191,7 @@
 
 .field public static final pref_camera_jpegquality_value_normal:I = 0x7f090050
 
-.field public static final pref_camera_live_sticker_internal_title:I = 0x7f0902e6
+.field public static final pref_camera_live_sticker_internal_title:I = 0x7f090380
 
 .field public static final pref_camera_long_press_shutter_feature_default:I = 0x7f09016f
 
@@ -1047,7 +1217,9 @@
 
 .field public static final pref_camera_magic_mirror_title:I = 0x7f09018f
 
-.field public static final pref_camera_mfnr_sat_enable_title:I = 0x7f0901fa
+.field public static final pref_camera_manual_mode_title:I = 0x7f090306
+
+.field public static final pref_camera_mfnr_sat_enable_title:I = 0x7f0901f8
 
 .field public static final pref_camera_movie_solid_default:I = 0x7f09012d
 
@@ -1069,13 +1241,21 @@
 
 .field public static final pref_camera_multilevel_entry_normal:I = 0x7f090097
 
-.field public static final pref_camera_normal_wide_ldc_description:I = 0x7f090253
+.field public static final pref_camera_normal_wide_ldc_description:I = 0x7f090252
 
-.field public static final pref_camera_normal_wide_ldc_title:I = 0x7f090252
+.field public static final pref_camera_normal_wide_ldc_title:I = 0x7f090251
 
-.field public static final pref_camera_optimized_flash_enable_title:I = 0x7f0901fb
+.field public static final pref_camera_optimized_flash_enable_title:I = 0x7f0901f9
+
+.field public static final pref_camera_panoramamode_title:I = 0x7f0902d4
 
 .field public static final pref_camera_parallel_process_enable_title:I = 0x7f0901a4
+
+.field public static final pref_camera_peak_entry_off:I = 0x7f09031b
+
+.field public static final pref_camera_peak_entry_on:I = 0x7f09031c
+
+.field public static final pref_camera_peak_title:I = 0x7f09031a
 
 .field public static final pref_camera_picture_format_entry_raw:I = 0x7f090053
 
@@ -1091,7 +1271,13 @@
 
 .field public static final pref_camera_picturesize_entry_fullscreen:I = 0x7f09004e
 
+.field public static final pref_camera_picturesize_entry_standard:I = 0x7f09033c
+
 .field public static final pref_camera_picturesize_title_simple_mode:I = 0x7f090048
+
+.field public static final pref_camera_portrait_mode_entry_off:I = 0x7f090326
+
+.field public static final pref_camera_portrait_mode_entry_on:I = 0x7f090327
 
 .field public static final pref_camera_portrait_mode_title:I = 0x7f09019c
 
@@ -1106,6 +1292,10 @@
 .field public static final pref_camera_quick_shot_enable_title:I = 0x7f0901a6
 
 .field public static final pref_camera_recordlocation_default:I = 0x7f090016
+
+.field public static final pref_camera_recordlocation_entry_off:I = 0x7f0902ab
+
+.field public static final pref_camera_recordlocation_entry_on:I = 0x7f0902ac
 
 .field public static final pref_camera_recordlocation_title:I = 0x7f090015
 
@@ -1131,6 +1321,8 @@
 
 .field public static final pref_camera_scenemode_entry_night_portrait:I = 0x7f0900a7
 
+.field public static final pref_camera_scenemode_entry_off:I = 0x7f0902cb
+
 .field public static final pref_camera_scenemode_entry_portrait:I = 0x7f0900a4
 
 .field public static final pref_camera_scenemode_entry_snow:I = 0x7f0900a9
@@ -1145,11 +1337,25 @@
 
 .field public static final pref_camera_settings_category:I = 0x7f090047
 
+.field public static final pref_camera_settings_title:I = 0x7f0902e2
+
 .field public static final pref_camera_sharpness_default:I = 0x7f0900a0
 
 .field public static final pref_camera_sharpness_title:I = 0x7f0900a1
 
 .field public static final pref_camera_show_gender_age_config_title:I = 0x7f090152
+
+.field public static final pref_camera_show_gender_age_entry_alias:I = 0x7f0902f5
+
+.field public static final pref_camera_show_gender_age_entry_off:I = 0x7f0902f3
+
+.field public static final pref_camera_show_gender_age_entry_on:I = 0x7f0902f4
+
+.field public static final pref_camera_show_gender_age_label_alias:I = 0x7f0902f7
+
+.field public static final pref_camera_show_gender_age_label_on:I = 0x7f0902f6
+
+.field public static final pref_camera_show_gender_age_title:I = 0x7f0902f2
 
 .field public static final pref_camera_snap_default:I = 0x7f090184
 
@@ -1175,9 +1381,15 @@
 
 .field public static final pref_camera_sound_title:I = 0x7f090017
 
-.field public static final pref_camera_sr_enable_title:I = 0x7f0901fc
+.field public static final pref_camera_square_mode_title:I = 0x7f090329
+
+.field public static final pref_camera_sr_enable_title:I = 0x7f0901fa
 
 .field public static final pref_camera_stereo_default:I = 0x7f090192
+
+.field public static final pref_camera_stereo_mode_title:I = 0x7f090321
+
+.field public static final pref_camera_super_resolution_title:I = 0x7f090318
 
 .field public static final pref_camera_tilt_shift_entry_circle:I = 0x7f090154
 
@@ -1191,15 +1403,29 @@
 
 .field public static final pref_camera_touchafaec_default:I = 0x7f090093
 
-.field public static final pref_camera_ultra_wide_ldc_description:I = 0x7f090251
+.field public static final pref_camera_touchafaec_entry_off:I = 0x7f0902c9
 
-.field public static final pref_camera_ultra_wide_ldc_title:I = 0x7f090250
+.field public static final pref_camera_touchafaec_entry_on:I = 0x7f0902ca
+
+.field public static final pref_camera_ubifocus_title:I = 0x7f090307
+
+.field public static final pref_camera_ultra_wide_ldc_description:I = 0x7f090250
+
+.field public static final pref_camera_ultra_wide_ldc_title:I = 0x7f09024f
 
 .field public static final pref_camera_ultra_wide_mode_title:I = 0x7f090268
 
-.field public static final pref_camera_video_bokeh_off:I = 0x7f090215
+.field public static final pref_camera_video_bokeh_off:I = 0x7f090213
 
-.field public static final pref_camera_video_bokeh_on:I = 0x7f090214
+.field public static final pref_camera_video_bokeh_on:I = 0x7f090212
+
+.field public static final pref_camera_video_duration_entry_10:I = 0x7f0902dc
+
+.field public static final pref_camera_video_duration_entry_120:I = 0x7f0902de
+
+.field public static final pref_camera_video_duration_entry_30:I = 0x7f0902dd
+
+.field public static final pref_camera_video_duration_entry_mms:I = 0x7f0902db
 
 .field public static final pref_camera_volumekey_function_default:I = 0x7f090127
 
@@ -1227,11 +1453,27 @@
 
 .field public static final pref_camera_whitebalance_entry_auto:I = 0x7f09006c
 
+.field public static final pref_camera_whitebalance_entry_cloudy:I = 0x7f0902b5
+
+.field public static final pref_camera_whitebalance_entry_daylight:I = 0x7f0902b3
+
+.field public static final pref_camera_whitebalance_entry_fluorescent:I = 0x7f0902b4
+
+.field public static final pref_camera_whitebalance_entry_incandescent:I = 0x7f0902b2
+
+.field public static final pref_camera_whitebalance_entry_manual:I = 0x7f0902b6
+
+.field public static final pref_camera_whitebalance_entry_measure:I = 0x7f0902b7
+
 .field public static final pref_camera_whitebalance_title:I = 0x7f09006b
+
+.field public static final pref_camera_zoom_mode_entry_high_pixel:I = 0x7f090325
+
+.field public static final pref_camera_zoom_mode_entry_standard:I = 0x7f090324
 
 .field public static final pref_camera_zoom_mode_entry_tele:I = 0x7f09019a
 
-.field public static final pref_camera_zoom_mode_entry_ultra:I = 0x7f090245
+.field public static final pref_camera_zoom_mode_entry_ultra:I = 0x7f090244
 
 .field public static final pref_camera_zoom_mode_entry_wide:I = 0x7f090199
 
@@ -1239,15 +1481,23 @@
 
 .field public static final pref_camera_zoom_value_title:I = 0x7f09019b
 
+.field public static final pref_camera_zsl_entry_off:I = 0x7f0902df
+
+.field public static final pref_camera_zsl_entry_on:I = 0x7f0902e0
+
 .field public static final pref_camera_zsl_value_off:I = 0x7f090118
 
 .field public static final pref_capture_settings:I = 0x7f09015b
 
 .field public static final pref_exposure_default:I = 0x7f0900af
 
-.field public static final pref_fingerprint_capture_title:I = 0x7f0901f6
+.field public static final pref_face_beauty_title:I = 0x7f090305
+
+.field public static final pref_fingerprint_capture_title:I = 0x7f0901f4
 
 .field public static final pref_front_mirror_default:I = 0x7f090166
+
+.field public static final pref_front_mirror_entry_auto:I = 0x7f09030a
 
 .field public static final pref_front_mirror_entry_off:I = 0x7f09016a
 
@@ -1256,6 +1506,8 @@
 .field public static final pref_front_mirror_entryvalue_off:I = 0x7f090168
 
 .field public static final pref_front_mirror_entryvalue_on:I = 0x7f090167
+
+.field public static final pref_front_mirror_label_auto:I = 0x7f09030b
 
 .field public static final pref_front_mirror_title:I = 0x7f09001c
 
@@ -1295,9 +1547,9 @@
 
 .field public static final pref_qc_focus_position_title:I = 0x7f090165
 
-.field public static final pref_retain_camera_mode_summary:I = 0x7f0901f5
+.field public static final pref_retain_camera_mode_summary:I = 0x7f0901f3
 
-.field public static final pref_retain_camera_mode_title:I = 0x7f0901f4
+.field public static final pref_retain_camera_mode_title:I = 0x7f0901f2
 
 .field public static final pref_scan_qrcode_default:I = 0x7f09013c
 
@@ -1311,15 +1563,27 @@
 
 .field public static final pref_skin_beautify_color_default:I = 0x7f0901ad
 
+.field public static final pref_skin_beautify_color_title:I = 0x7f090331
+
 .field public static final pref_skin_beautify_eye_default:I = 0x7f0901af
+
+.field public static final pref_skin_beautify_eye_title:I = 0x7f09032f
+
+.field public static final pref_skin_beautify_intelligent_title:I = 0x7f09032d
 
 .field public static final pref_skin_beautify_slim_default:I = 0x7f0901ae
 
+.field public static final pref_skin_beautify_slim_title:I = 0x7f09032e
+
 .field public static final pref_skin_beautify_smooth_default:I = 0x7f0901b0
+
+.field public static final pref_skin_beautify_smooth_title:I = 0x7f090330
 
 .field public static final pref_userdefine_watermark_title:I = 0x7f090132
 
 .field public static final pref_video_autoexposure_default:I = 0x7f090114
+
+.field public static final pref_video_captrue_ability_title:I = 0x7f09033a
 
 .field public static final pref_video_encoder_default:I = 0x7f090035
 
@@ -1373,6 +1637,12 @@
 
 .field public static final pref_video_quality_value_autozoom:I = 0x7f090026
 
+.field public static final pref_video_speed_entry_fast:I = 0x7f0902d1
+
+.field public static final pref_video_speed_entry_normal:I = 0x7f0902d0
+
+.field public static final pref_video_speed_entry_slow:I = 0x7f0902d2
+
 .field public static final pref_video_speed_fast_title:I = 0x7f090158
 
 .field public static final pref_video_speed_slow_title:I = 0x7f090159
@@ -1411,11 +1681,7 @@
 
 .field public static final preparing_sd:I = 0x7f09000d
 
-.field public static final provider_authority:I = 0x7f090217
-
-.field public static final recapture_dialog_message:I = 0x7f0902c3
-
-.field public static final recapture_dialog_title:I = 0x7f0902c2
+.field public static final provider_authority:I = 0x7f090215
 
 .field public static final record_back_pressed_hint:I = 0x7f09012a
 
@@ -1426,6 +1692,44 @@
 .field public static final search_settings:I = 0x7f090003
 
 .field public static final see_qrcode_detals:I = 0x7f09012f
+
+.field public static final simple_mode_button_asd_flash:I = 0x7f09030e
+
+.field public static final simple_mode_button_asd_hdr:I = 0x7f09030f
+
+.field public static final simple_mode_button_text_audio_capture:I = 0x7f0902da
+
+.field public static final simple_mode_button_text_color_effect:I = 0x7f0902e8
+
+.field public static final simple_mode_button_text_delay_capture:I = 0x7f090315
+
+.field public static final simple_mode_button_text_face_beauty:I = 0x7f090304
+
+.field public static final simple_mode_button_text_fast_video:I = 0x7f0902ea
+
+.field public static final simple_mode_button_text_gradienter:I = 0x7f09031e
+
+.field public static final simple_mode_button_text_groupshot:I = 0x7f090334
+
+.field public static final simple_mode_button_text_hand_night:I = 0x7f0902e6
+
+.field public static final simple_mode_button_text_magic_mirror:I = 0x7f090320
+
+.field public static final simple_mode_button_text_manual:I = 0x7f090309
+
+.field public static final simple_mode_button_text_panorama:I = 0x7f0902e7
+
+.field public static final simple_mode_button_text_scene:I = 0x7f090319
+
+.field public static final simple_mode_button_text_slow_video:I = 0x7f0902e9
+
+.field public static final simple_mode_button_text_square:I = 0x7f09032a
+
+.field public static final simple_mode_button_text_stereo_mode:I = 0x7f090322
+
+.field public static final simple_mode_button_text_tilt_shift:I = 0x7f09031f
+
+.field public static final simple_mode_button_text_ubifocus:I = 0x7f090308
 
 .field public static final snap_cancel:I = 0x7f0901b7
 
@@ -1441,17 +1745,25 @@
 
 .field public static final sticker_tab2:I = 0x7f0901e6
 
-.field public static final super_night_toast:I = 0x7f09022a
+.field public static final super_night_toast:I = 0x7f090229
 
-.field public static final text_ai_scene_selector_text_off:I = 0x7f090201
+.field public static final tap_to_exposure:I = 0x7f0902d6
 
-.field public static final text_ai_scene_selector_text_on:I = 0x7f090200
+.field public static final tap_to_focus:I = 0x7f0902d5
+
+.field public static final text_ai_scene_selector_text_off:I = 0x7f0901ff
+
+.field public static final text_ai_scene_selector_text_on:I = 0x7f0901fe
 
 .field public static final time_lapse_error:I = 0x7f09012c
 
 .field public static final title_snap_double_confirm:I = 0x7f0901b4
 
+.field public static final toast_burst_snap_forbidden_when_audio_capture_open:I = 0x7f0902e5
+
 .field public static final toast_saving:I = 0x7f0901b8
+
+.field public static final toast_start_audio_capture:I = 0x7f0902e4
 
 .field public static final ubi_focus_capture_fail:I = 0x7f090161
 
@@ -1461,37 +1773,33 @@
 
 .field public static final ultra_pixel_photography_32mp_open_tip:I = 0x7f090280
 
-.field public static final ultra_pixel_photography_48mp_close_tip:I = 0x7f09025a
+.field public static final ultra_pixel_photography_48mp_close_tip:I = 0x7f090259
 
-.field public static final ultra_pixel_photography_48mp_open_tip:I = 0x7f090259
+.field public static final ultra_pixel_photography_48mp_open_tip:I = 0x7f090258
 
-.field public static final ultra_wide_bokeh_close_tip:I = 0x7f090255
+.field public static final ultra_wide_bokeh_close_tip:I = 0x7f090254
 
-.field public static final ultra_wide_bokeh_open_tip:I = 0x7f090254
+.field public static final ultra_wide_bokeh_open_tip:I = 0x7f090253
 
-.field public static final ultra_wide_close_tip:I = 0x7f090244
+.field public static final ultra_wide_close_tip:I = 0x7f090243
 
-.field public static final ultra_wide_mode:I = 0x7f09023b
+.field public static final ultra_wide_mode:I = 0x7f09023a
 
 .field public static final ultra_wide_mode_use_hint_text:I = 0x7f090269
 
 .field public static final ultra_wide_mode_use_hint_text_sat:I = 0x7f0902a7
 
-.field public static final ultra_wide_open_tip:I = 0x7f090243
+.field public static final ultra_wide_open_tip:I = 0x7f090242
 
 .field public static final ultra_wide_open_tip_sat:I = 0x7f0902a8
 
-.field public static final ultra_wide_recommend_tip_hint:I = 0x7f090246
+.field public static final ultra_wide_recommend_tip_hint:I = 0x7f090245
 
-.field public static final user_agree:I = 0x7f0901ea
+.field public static final user_agree:I = 0x7f0901e8
 
-.field public static final user_agreement2:I = 0x7f0901e8
+.field public static final user_notice_identify_summary_format:I = 0x7f0901ea
 
-.field public static final user_agreement4:I = 0x7f0901e9
-
-.field public static final user_notice_identify_summary_format:I = 0x7f0901ec
-
-.field public static final user_notice_title:I = 0x7f0901ed
+.field public static final user_notice_title:I = 0x7f0901eb
 
 .field public static final video_beauty_tip:I = 0x7f0902a9
 
@@ -1515,7 +1823,9 @@
 
 .field public static final video_ultra_clear_tip:I = 0x7f090291
 
-.field public static final view_privacy_policy:I = 0x7f090216
+.field public static final view_privacy_policy:I = 0x7f090214
+
+.field public static final wait:I = 0x7f0902aa
 
 .field public static final wideselfie_press_shoot_key_to_start:I = 0x7f0902a0
 

@@ -9,9 +9,7 @@ import org.greenrobot.greendao.AbstractDao;
 import org.greenrobot.greendao.DaoException;
 import org.greenrobot.greendao.DaoLog;
 import org.greenrobot.greendao.Property;
-import org.greenrobot.greendao.annotation.apihint.Experimental;
 import org.greenrobot.greendao.internal.SqlUtils;
-import org.greenrobot.greendao.rx.RxQuery;
 
 public class QueryBuilder<T> {
     public static boolean LOG_SQL;
@@ -53,7 +51,9 @@ public class QueryBuilder<T> {
         this.values.clear();
         for (Join join : this.joins) {
             sb.append(" JOIN ");
+            sb.append('\"');
             sb.append(join.daoDestination.getTablename());
+            sb.append('\"');
             sb.append(' ');
             sb.append(join.tablePrefix);
             sb.append(" ON ");
@@ -295,26 +295,14 @@ public class QueryBuilder<T> {
         return this;
     }
 
-    @Experimental
-    public RxQuery<T> rx() {
-        return build().__InternalRx();
-    }
-
-    @Experimental
-    public RxQuery<T> rxPlain() {
-        return build().__internalRxPlain();
-    }
-
     public QueryBuilder<T> stringOrderCollation(String str) {
-        if (this.dao.getDatabase().getRawDatabase() instanceof SQLiteDatabase) {
-            if (str != null && !str.startsWith(" ")) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(" ");
-                sb.append(str);
-                str = sb.toString();
-            }
-            this.stringOrderCollation = str;
+        if (str != null && !str.startsWith(" ")) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(" ");
+            sb.append(str);
+            str = sb.toString();
         }
+        this.stringOrderCollation = str;
         return this;
     }
 

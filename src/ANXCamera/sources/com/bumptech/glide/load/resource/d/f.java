@@ -6,27 +6,27 @@ import java.util.List;
 
 /* compiled from: TranscoderRegistry */
 public class f {
-    private final List<a<?, ?>> mL = new ArrayList();
+    private final List<a<?, ?>> mN = new ArrayList();
 
     /* compiled from: TranscoderRegistry */
     private static final class a<Z, R> {
-        final e<Z, R> fP;
-        private final Class<Z> mN;
-        private final Class<R> mO;
+        final e<Z, R> fQ;
+        private final Class<Z> mO;
+        private final Class<R> mP;
 
         a(@NonNull Class<Z> cls, @NonNull Class<R> cls2, @NonNull e<Z, R> eVar) {
-            this.mN = cls;
-            this.mO = cls2;
-            this.fP = eVar;
+            this.mO = cls;
+            this.mP = cls2;
+            this.fQ = eVar;
         }
 
         public boolean d(@NonNull Class<?> cls, @NonNull Class<?> cls2) {
-            return this.mN.isAssignableFrom(cls) && cls2.isAssignableFrom(this.mO);
+            return this.mO.isAssignableFrom(cls) && cls2.isAssignableFrom(this.mP);
         }
     }
 
     public synchronized <Z, R> void b(@NonNull Class<Z> cls, @NonNull Class<R> cls2, @NonNull e<Z, R> eVar) {
-        this.mL.add(new a(cls, cls2, eVar));
+        this.mN.add(new a(cls, cls2, eVar));
     }
 
     @NonNull
@@ -34,9 +34,9 @@ public class f {
         if (cls2.isAssignableFrom(cls)) {
             return g.cV();
         }
-        for (a aVar : this.mL) {
+        for (a aVar : this.mN) {
             if (aVar.d(cls, cls2)) {
-                return aVar.fP;
+                return aVar.fQ;
             }
         }
         StringBuilder sb = new StringBuilder();
@@ -54,7 +54,7 @@ public class f {
             arrayList.add(cls2);
             return arrayList;
         }
-        for (a d : this.mL) {
+        for (a d : this.mN) {
             if (d.d(cls, cls2)) {
                 arrayList.add(cls2);
             }

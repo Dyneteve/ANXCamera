@@ -51,17 +51,17 @@ public class CameraSettingsSearchProvider extends ContentProvider {
     public List<RawData> prepareData() {
         Log.d(TAG, "prepare data.");
         ArrayList arrayList = new ArrayList(25);
-        if (b.gQ()) {
+        if (b.gT()) {
             arrayList.add(Integer.valueOf(R.string.pref_camera_recordlocation_title));
         }
-        if (b.gL()) {
+        if (b.gO()) {
             arrayList.add(Integer.valueOf(R.string.pref_camera_sound_title));
         }
         if (ProximitySensorLock.supported()) {
             arrayList.add(Integer.valueOf(R.string.pref_camera_proximity_lock_title));
         }
         arrayList.add(Integer.valueOf(R.string.pref_retain_camera_mode_title));
-        if (b.gS()) {
+        if (b.gV()) {
             arrayList.add(Integer.valueOf(R.string.pref_camera_watermark_title));
         }
         if (CameraSettings.isSupportedDualCameraWaterMark()) {
@@ -72,7 +72,7 @@ public class CameraSettingsSearchProvider extends ContentProvider {
         if (!b.fY()) {
             arrayList.add(Integer.valueOf(R.string.pref_scan_qrcode_title));
         }
-        if (b.gN()) {
+        if (b.gQ()) {
             arrayList.add(Integer.valueOf(R.string.pref_camera_long_press_shutter_feature_title));
         }
         if (!b.isPad()) {
@@ -82,7 +82,7 @@ public class CameraSettingsSearchProvider extends ContentProvider {
         arrayList.add(Integer.valueOf(R.string.pref_video_quality_title));
         arrayList.add(Integer.valueOf(R.string.pref_video_encoder_title));
         arrayList.add(Integer.valueOf(R.string.pref_video_time_lapse_frame_interval_title));
-        if (b.ip()) {
+        if (b.is()) {
             arrayList.add(Integer.valueOf(R.string.pref_fingerprint_capture_title));
         }
         arrayList.add(Integer.valueOf(R.string.pref_camera_volumekey_function_title));

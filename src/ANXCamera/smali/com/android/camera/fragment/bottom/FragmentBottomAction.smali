@@ -326,7 +326,7 @@
     goto :goto_0
 
     :cond_1
-    const p2, 0x7f0b0049
+    const p2, 0x7f0b004b
 
     invoke-virtual {p1, p2}, Landroid/view/View;->setBackgroundResource(I)V
 
@@ -973,7 +973,7 @@
 
     iget-object v0, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mThumbnailImage:Landroid/widget/ImageView;
 
-    const v1, 0x7f0201fb
+    const v1, 0x7f020204
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -1840,6 +1840,8 @@
 
     iput-boolean v4, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mVideoReverseEnable:Z
 
+    iput-boolean v4, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mBackEnable:Z
+
     goto :goto_1
 
     :cond_1
@@ -1860,6 +1862,8 @@
     goto :goto_1
 
     :cond_2
+    iput-boolean v4, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mBackEnable:Z
+
     iput-boolean v1, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mCameraPickEnable:Z
 
     goto :goto_1
@@ -1881,6 +1885,8 @@
 
     iput-boolean v4, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mVideoPauseSupported:Z
 
+    iput-boolean v4, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mBackEnable:Z
+
     goto :goto_1
 
     :cond_5
@@ -1894,16 +1900,14 @@
 
     if-nez v2, :cond_6
 
-    iget v2, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mCurrentMode:I
-
-    invoke-static {v2}, Lcom/android/camera/CameraSettings;->isVideoCaptureVisible(I)Z
+    invoke-static {}, Lcom/android/camera/CameraSettings;->isVideoCaptureVisible()Z
 
     move-result v2
 
     iput-boolean v2, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mVideoCaptureEnable:Z
 
     :cond_6
-    invoke-static {}, Lcom/mi/config/b;->gV()Z
+    invoke-static {}, Lcom/mi/config/b;->gY()Z
 
     move-result v2
 
@@ -1925,6 +1929,8 @@
 
     iput-boolean v4, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mVideoReverseEnable:Z
 
+    iput-boolean v4, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mBackEnable:Z
+
     nop
 
     :goto_1
@@ -1938,7 +1944,7 @@
 
     iget-object v1, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mRecordingSnap:Landroid/widget/ImageView;
 
-    const v3, 0x7f020165
+    const v3, 0x7f02016c
 
     invoke-virtual {v1, v3}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -1961,7 +1967,7 @@
 
     iget-object v1, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mRecordingPause:Landroid/widget/ImageView;
 
-    const v3, 0x7f020163
+    const v3, 0x7f02016a
 
     invoke-virtual {v1, v3}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -1984,7 +1990,7 @@
 
     iget-object v1, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mRecordingReverse:Landroid/widget/ImageView;
 
-    const v2, 0x7f020124
+    const v2, 0x7f02012a
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -2129,8 +2135,30 @@
 
     iget-boolean v0, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mVideoRecordingStarted:Z
 
-    xor-int/lit8 v0, v0, 0x1
+    if-nez v0, :cond_0
 
+    invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemLive()Lcom/android/camera/data/data/extra/DataItemLive;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/camera/data/data/extra/DataItemLive;->getMimojiStatusManager()Lcom/android/camera/module/impl/component/MimojiStatusManager;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/camera/module/impl/component/MimojiStatusManager;->IsInPreviewSurface()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
     return v0
 .end method
 
@@ -2494,6 +2522,39 @@
     return-void
 .end method
 
+.method public forceSwitchFront()Z
+    .locals 2
+
+    invoke-static {}, Lcom/android/camera/data/DataRepository;->provider()Lcom/android/camera/data/provider/DataProvider;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Lcom/android/camera/data/provider/DataProvider;->dataGlobal()Lcom/android/camera/data/provider/DataProvider$ProviderEvent;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/camera/data/data/global/DataItemGlobal;
+
+    invoke-virtual {v0}, Lcom/android/camera/data/data/global/DataItemGlobal;->getCurrentCameraId()I
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v0, 0x0
+
+    return v0
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mCameraPicker:Landroid/widget/ImageView;
+
+    invoke-virtual {p0, v0}, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->onClick(Landroid/view/View;)V
+
+    return v1
+.end method
+
 .method public getBeautyActionMenuType()I
     .locals 1
 
@@ -2513,29 +2574,9 @@
 .method protected getLayoutResourceId()I
     .locals 1
 
-    const v0, 0x7f04000e
+    const v0, 0x7f04000f
 
     return v0
-.end method
-
-.method public getMenuData()Landroid/util/SparseArray;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Landroid/util/SparseArray<",
-            "Lcom/android/camera/fragment/beauty/MenuItem;",
-            ">;"
-        }
-    .end annotation
-
-    iget-object v0, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mModeSelectLayout:Lcom/android/camera/fragment/bottom/BottomActionMenu;
-
-    invoke-virtual {v0}, Lcom/android/camera/fragment/bottom/BottomActionMenu;->getMenuData()Landroid/util/SparseArray;
-
-    move-result-object v0
-
-    return-object v0
 .end method
 
 .method public hideExtra()V
@@ -2602,7 +2643,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0083
+    const v1, 0x7f0a0077
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2634,7 +2675,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a007c
+    const v2, 0x7f0a0071
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2656,10 +2697,6 @@
 
     iput-object v0, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mComponentModuleList:Lcom/android/camera/data/data/global/ComponentModuleList;
 
-    iget-object v0, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mModeSelectLayout:Lcom/android/camera/fragment/bottom/BottomActionMenu;
-
-    if-nez v0, :cond_0
-
     new-instance v0, Lcom/android/camera/fragment/bottom/BottomActionMenu;
 
     invoke-virtual {p0}, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->getContext()Landroid/content/Context;
@@ -2678,7 +2715,6 @@
 
     iput-object v0, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mModeSelectLayout:Lcom/android/camera/fragment/bottom/BottomActionMenu;
 
-    :cond_0
     iget-object v0, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mModeSelectLayout:Lcom/android/camera/fragment/bottom/BottomActionMenu;
 
     invoke-virtual {v0}, Lcom/android/camera/fragment/bottom/BottomActionMenu;->getCameraOperateMenuView()Lcom/android/camera/ui/EdgeHorizonScrollView;
@@ -2963,7 +2999,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0a002e
+    const v0, 0x7f0a000d
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2975,13 +3011,13 @@
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_0
 
     iget-object p1, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mV9bottomParentLayout:Landroid/widget/RelativeLayout;
 
     invoke-static {p1, v1}, Lcom/android/camera/Util;->setAccessibilityFocusable(Landroid/view/View;Z)V
 
-    :cond_1
+    :cond_0
     return-void
 .end method
 
@@ -3960,6 +3996,12 @@
 
     iput-boolean v3, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mInMimojiEdit:Z
 
+    iget-object v0, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mMimojiBack:Landroid/widget/ImageView;
+
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
+
     goto :goto_0
 
     :cond_7
@@ -4043,6 +4085,8 @@
 
     :cond_c
     return-void
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0xa1
@@ -4625,24 +4669,28 @@
 
     invoke-direct {p0, v0}, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->setProgressBarVisible(I)V
 
-    iget-object v0, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mShutterButton:Lcom/android/camera/ui/CameraSnapView;
+    iget-object v2, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mShutterButton:Lcom/android/camera/ui/CameraSnapView;
 
-    invoke-virtual {v0}, Lcom/android/camera/ui/CameraSnapView;->showRoundPaintItem()V
+    invoke-virtual {v2}, Lcom/android/camera/ui/CameraSnapView;->showRoundPaintItem()V
 
-    iget v0, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mCurrentMode:I
+    iget v2, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mCurrentMode:I
 
-    const/16 v2, 0xae
+    const/16 v3, 0xae
 
-    if-eq v0, v2, :cond_3
+    if-eq v2, v3, :cond_3
 
-    const/16 v2, 0xb1
+    const/16 v3, 0xb1
 
-    if-eq v0, v2, :cond_2
+    if-eq v2, v3, :cond_2
 
     goto :goto_0
 
     :cond_2
     iput-boolean v1, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mInMimojiCreate:Z
+
+    iget-object v2, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mMimojiBack:Landroid/widget/ImageView;
+
+    invoke-virtual {v2, v0}, Landroid/widget/ImageView;->setVisibility(I)V
 
     iget-object v0, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mModeSelectView:Lcom/android/camera/ui/ModeSelectView;
 
@@ -4658,23 +4706,7 @@
 
     iget-object v0, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mShutterButton:Lcom/android/camera/ui/CameraSnapView;
 
-    invoke-virtual {v0, v2, v1}, Lcom/android/camera/ui/CameraSnapView;->intoPattern(IZ)V
-
-    invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
-
-    move-result-object v0
-
-    const/16 v2, 0xac
-
-    invoke-virtual {v0, v2}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getAttachProtocol(I)Lcom/android/camera/protocol/ModeProtocol$BaseProtocol;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/camera/protocol/ModeProtocol$TopAlert;
-
-    invoke-interface {v0, v1}, Lcom/android/camera/protocol/ModeProtocol$TopAlert;->showOrHideMimojiCreateTitle(Z)V
-
-    iget-boolean v0, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mInMimojiEdit:Z
+    invoke-virtual {v0, v3, v1}, Lcom/android/camera/ui/CameraSnapView;->intoPattern(IZ)V
 
     goto :goto_0
 
@@ -4830,7 +4862,7 @@
 
     iget-object v0, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mRecordingPause:Landroid/widget/ImageView;
 
-    const v1, 0x7f020164
+    const v1, 0x7f02016b
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -5011,7 +5043,7 @@
 
     iget-object v1, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mRecordingPause:Landroid/widget/ImageView;
 
-    const v2, 0x7f020163
+    const v2, 0x7f02016a
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -5161,7 +5193,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mRecordingPause:Landroid/widget/ImageView;
 
-    const v1, 0x7f020164
+    const v1, 0x7f02016b
 
     invoke-virtual {p1, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -5437,6 +5469,10 @@
     invoke-virtual {p3, v0}, Landroid/view/View;->setBackgroundResource(I)V
 
     :goto_1
+    iget-object p3, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mModeSelectLayout:Lcom/android/camera/fragment/bottom/BottomActionMenu;
+
+    invoke-virtual {p3}, Lcom/android/camera/fragment/bottom/BottomActionMenu;->clearBottomMenu()V
+
     iget-object p3, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mShutterButton:Lcom/android/camera/ui/CameraSnapView;
 
     if-eqz p2, :cond_9
@@ -5454,6 +5490,38 @@
     move-result v3
 
     invoke-virtual {p3, p1, v0, v3}, Lcom/android/camera/ui/CameraSnapView;->setParameters(IZZ)V
+
+    const-string p3, "FragmentBottomAction"
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "provideAnimateElement: newMode = "
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v3, ", mCurrentMode = "
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v3, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mCurrentMode:I
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v3, ", animateInElements = "
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {p3, v0}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-boolean p3, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mIsShowLighting:Z
 
@@ -5525,7 +5593,7 @@
 
     move-result-object p1
 
-    invoke-virtual {p1}, Lcom/mi/config/a;->gB()Z
+    invoke-virtual {p1}, Lcom/mi/config/a;->gC()Z
 
     move-result p1
 
@@ -5619,8 +5687,6 @@
     invoke-direct {p0, v2, p2, p1}, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->animateViews(ILjava/util/List;Landroid/view/View;)V
 
     return-void
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0xa6
@@ -6256,7 +6322,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/bottom/FragmentBottomAction;->mThumbnailImage:Landroid/widget/ImageView;
 
-    const p2, 0x7f020177
+    const p2, 0x7f02017e
 
     invoke-virtual {p1, p2}, Landroid/widget/ImageView;->setImageResource(I)V
 

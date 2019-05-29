@@ -13,21 +13,21 @@ import java.io.InputStream;
 
 /* compiled from: StreamBitmapDecoder */
 public class v implements g<InputStream, Bitmap> {
-    private final b ed;
-    private final n kD;
+    private final b ee;
+    private final n kE;
 
     /* compiled from: StreamBitmapDecoder */
     static class a implements com.bumptech.glide.load.resource.bitmap.n.a {
-        private final RecyclableBufferedInputStream ec;
-        private final c lJ;
+        private final RecyclableBufferedInputStream ed;
+        private final c lK;
 
         a(RecyclableBufferedInputStream recyclableBufferedInputStream, c cVar) {
-            this.ec = recyclableBufferedInputStream;
-            this.lJ = cVar;
+            this.ed = recyclableBufferedInputStream;
+            this.lK = cVar;
         }
 
         public void a(d dVar, Bitmap bitmap) throws IOException {
-            IOException eJ = this.lJ.eJ();
+            IOException eJ = this.lK.eJ();
             if (eJ != null) {
                 if (bitmap != null) {
                     dVar.d(bitmap);
@@ -37,13 +37,13 @@ public class v implements g<InputStream, Bitmap> {
         }
 
         public void ct() {
-            this.ec.cz();
+            this.ed.cz();
         }
     }
 
     public v(n nVar, b bVar) {
-        this.kD = nVar;
-        this.ed = bVar;
+        this.kE = nVar;
+        this.ee = bVar;
     }
 
     public p<Bitmap> a(@NonNull InputStream inputStream, int i, int i2, @NonNull f fVar) throws IOException {
@@ -53,13 +53,13 @@ public class v implements g<InputStream, Bitmap> {
             recyclableBufferedInputStream = (RecyclableBufferedInputStream) inputStream;
             z = false;
         } else {
-            RecyclableBufferedInputStream recyclableBufferedInputStream2 = new RecyclableBufferedInputStream(inputStream, this.ed);
+            RecyclableBufferedInputStream recyclableBufferedInputStream2 = new RecyclableBufferedInputStream(inputStream, this.ee);
             z = true;
             recyclableBufferedInputStream = recyclableBufferedInputStream2;
         }
         c h = c.h(recyclableBufferedInputStream);
         try {
-            return this.kD.a((InputStream) new com.bumptech.glide.util.g(h), i, i2, fVar, (com.bumptech.glide.load.resource.bitmap.n.a) new a(recyclableBufferedInputStream, h));
+            return this.kE.a((InputStream) new com.bumptech.glide.util.g(h), i, i2, fVar, (com.bumptech.glide.load.resource.bitmap.n.a) new a(recyclableBufferedInputStream, h));
         } finally {
             h.release();
             if (z) {
@@ -69,6 +69,6 @@ public class v implements g<InputStream, Bitmap> {
     }
 
     public boolean a(@NonNull InputStream inputStream, @NonNull f fVar) {
-        return this.kD.e(inputStream);
+        return this.kE.e(inputStream);
     }
 }

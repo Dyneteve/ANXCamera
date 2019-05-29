@@ -202,7 +202,7 @@
 .method protected getLayoutResourceId()I
     .locals 1
 
-    const v0, 0x7f040035
+    const v0, 0x7f040036
 
     return v0
 .end method
@@ -242,7 +242,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a00d8
+    const v3, 0x7f0a00b4
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -312,7 +312,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0201e9
+    const v1, 0x7f0201f2
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -735,7 +735,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f020026
+    const v2, 0x7f02002c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -758,7 +758,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0201e9
+    const v2, 0x7f0201f2
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

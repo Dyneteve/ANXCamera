@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="wide_selfie_thumbnail_border_size">3.0px</dimen>
+    <dimen name="wide_selfie_use_hint_area_top_margin">196.85dip</dimen>
+    <dimen name="wide_selfie_progress_thumbnail_background_width">110.0dip</dimen>
+    <dimen name="wide_selfie_progress_thumbnail_background_height">80.0dip</dimen>
+    <dimen name="wide_selfie_progress_thumbnail_background_top_margin">103.5dip</dimen>
+    <dimen name="wide_selfie_progress_thumbnail_background_width_vertical">60.0dip</dimen>
+    <dimen name="wide_selfie_progress_thumbnail_background_height_vertical">150.0dip</dimen>
+    <dimen name="wide_selfie_progress_thumbnail_background_top_margin_vertical">103.32999dip</dimen>
+    <dimen name="wide_selfie_still_preview_height">80.0dip</dimen>
+    <dimen name="wide_selfie_still_preview_width">60.0dip</dimen>
+    <dimen name="wideselfie_use_hint_text_width">200.0dip</dimen>
+    <dimen name="wideselfie_use_hint_text_height">30.0dip</dimen>
+    <dimen name="wideselfie_use_hint_text_marginStart">21.649994dip</dimen>
+    <dimen name="wideselfie_use_hint_text_marginTop">163.15dip</dimen>
+    <dimen name="wideselfie_toast_offset_y">115.0dip</dimen>
     <dimen name="screen_on_proximity_sensor_hint_height">291.0dip</dimen>
 </resources>

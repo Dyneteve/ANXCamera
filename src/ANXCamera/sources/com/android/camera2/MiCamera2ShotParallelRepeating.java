@@ -21,23 +21,25 @@ import com.xiaomi.camera.base.PerformanceTracker;
 import com.xiaomi.camera.core.ParallelTaskData;
 
 public class MiCamera2ShotParallelRepeating extends MiCamera2Shot<byte[]> {
+    private static final int INVALID_SEQUENCE_ID = -1;
     private static final String TAG = "ParallelRepeating";
-    private int mBurstNum;
     /* access modifiers changed from: private */
     public CaptureResult mRepeatingCaptureResult;
 
     public MiCamera2ShotParallelRepeating(MiCamera2 miCamera2, int i) {
         super(miCamera2);
-        this.mBurstNum = i;
     }
 
     /* access modifiers changed from: private */
-    public void onRepeatingEnd(boolean z) {
+    public void onRepeatingEnd(boolean z, int i) {
         this.mMiCamera.setAWBLock(false);
         this.mMiCamera.resumePreview();
-        PictureCallback pictureCallback = this.mMiCamera.getPictureCallback();
-        if (pictureCallback != null) {
-            pictureCallback.onPictureTakenFinished(z);
+        if (-1 != i) {
+            PictureCallback pictureCallback = this.mMiCamera.getPictureCallback();
+            if (pictureCallback != null) {
+                pictureCallback.onPictureTakenFinished(z);
+            }
+            this.mMiCamera.onMultiSnapEnd(z, this);
         }
     }
 
@@ -64,7 +66,7 @@ public class MiCamera2ShotParallelRepeating extends MiCamera2Shot<byte[]> {
                 sb.append("onCaptureFailed: reason=");
                 sb.append(captureFailure.getReason());
                 Log.e(str, sb.toString());
-                MiCamera2ShotParallelRepeating.this.onRepeatingEnd(false);
+                MiCamera2ShotParallelRepeating.this.onRepeatingEnd(false, -1);
                 if (this.mCaptureTimestamp != -1) {
                     AlgoConnector.getInstance().getLocalBinder().onCaptureFailed(this.mCaptureTimestamp, captureFailure.getReason());
                 }
@@ -77,7 +79,7 @@ public class MiCamera2ShotParallelRepeating extends MiCamera2Shot<byte[]> {
                 sb.append("onCaptureSequenceAborted: sequenceId=");
                 sb.append(i);
                 Log.w(str, sb.toString());
-                MiCamera2ShotParallelRepeating.this.onRepeatingEnd(false);
+                MiCamera2ShotParallelRepeating.this.onRepeatingEnd(false, i);
             }
 
             public void onCaptureSequenceCompleted(@NonNull CameraCaptureSession cameraCaptureSession, int i, long j) {
@@ -88,7 +90,7 @@ public class MiCamera2ShotParallelRepeating extends MiCamera2Shot<byte[]> {
                 sb.append(" frameNumber=");
                 sb.append(j);
                 Log.d(str, sb.toString());
-                MiCamera2ShotParallelRepeating.this.onRepeatingEnd(true);
+                MiCamera2ShotParallelRepeating.this.onRepeatingEnd(true, i);
             }
 
             public void onCaptureStarted(@NonNull CameraCaptureSession cameraCaptureSession, @NonNull CaptureRequest captureRequest, long j, long j2) {

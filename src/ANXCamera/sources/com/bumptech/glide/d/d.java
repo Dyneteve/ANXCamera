@@ -9,34 +9,34 @@ import java.util.concurrent.atomic.AtomicReference;
 
 /* compiled from: ModelToResourceClassCache */
 public class d {
-    private final AtomicReference<h> nA = new AtomicReference<>();
-    private final ArrayMap<h, List<Class<?>>> nB = new ArrayMap<>();
+    private final AtomicReference<h> nB = new AtomicReference<>();
+    private final ArrayMap<h, List<Class<?>>> nC = new ArrayMap<>();
 
     public void a(@NonNull Class<?> cls, @NonNull Class<?> cls2, @NonNull List<Class<?>> list) {
-        synchronized (this.nB) {
-            this.nB.put(new h(cls, cls2), list);
+        synchronized (this.nC) {
+            this.nC.put(new h(cls, cls2), list);
         }
     }
 
     public void clear() {
-        synchronized (this.nB) {
-            this.nB.clear();
+        synchronized (this.nC) {
+            this.nC.clear();
         }
     }
 
     @Nullable
     public List<Class<?>> g(@NonNull Class<?> cls, @NonNull Class<?> cls2) {
         List<Class<?>> list;
-        h hVar = (h) this.nA.getAndSet(null);
+        h hVar = (h) this.nB.getAndSet(null);
         if (hVar == null) {
             hVar = new h(cls, cls2);
         } else {
             hVar.j(cls, cls2);
         }
-        synchronized (this.nB) {
-            list = (List) this.nB.get(hVar);
+        synchronized (this.nC) {
+            list = (List) this.nC.get(hVar);
         }
-        this.nA.set(hVar);
+        this.nB.set(hVar);
         return list;
     }
 }

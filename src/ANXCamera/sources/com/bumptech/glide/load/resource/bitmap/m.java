@@ -16,28 +16,28 @@ import java.nio.charset.Charset;
 /* compiled from: DefaultImageHeaderParser */
 public final class m implements ImageHeaderParser {
     private static final String TAG = "DfltImageHeaderParser";
-    private static final int kF = 4671814;
-    private static final int kG = -1991225785;
-    static final int kH = 65496;
-    private static final int kI = 19789;
-    private static final int kJ = 18761;
-    private static final String kK = "Exif\u0000\u0000";
-    static final byte[] kL = kK.getBytes(Charset.forName("UTF-8"));
-    private static final int kM = 218;
-    private static final int kN = 217;
-    static final int kO = 255;
-    static final int kP = 225;
-    private static final int kQ = 274;
-    private static final int[] kR = {0, 1, 1, 2, 4, 8, 1, 1, 2, 4, 8, 4, 8};
-    private static final int kS = 1380533830;
-    private static final int kT = 1464156752;
-    private static final int kU = 1448097792;
-    private static final int kV = -256;
-    private static final int kW = 255;
-    private static final int kX = 88;
-    private static final int kY = 76;
-    private static final int kZ = 16;
-    private static final int la = 8;
+    private static final int kG = 4671814;
+    private static final int kH = -1991225785;
+    static final int kI = 65496;
+    private static final int kJ = 19789;
+    private static final int kK = 18761;
+    private static final String kL = "Exif\u0000\u0000";
+    static final byte[] kM = kL.getBytes(Charset.forName("UTF-8"));
+    private static final int kN = 218;
+    private static final int kO = 217;
+    static final int kP = 255;
+    static final int kQ = 225;
+    private static final int kR = 274;
+    private static final int[] kS = {0, 1, 1, 2, 4, 8, 1, 1, 2, 4, 8, 4, 8};
+    private static final int kT = 1380533830;
+    private static final int kU = 1464156752;
+    private static final int kV = 1448097792;
+    private static final int kW = -256;
+    private static final int kX = 255;
+    private static final int kY = 88;
+    private static final int kZ = 76;
+    private static final int la = 16;
+    private static final int lb = 8;
 
     /* compiled from: DefaultImageHeaderParser */
     private static final class a implements c {
@@ -183,16 +183,16 @@ public final class m implements ImageHeaderParser {
     }
 
     private static boolean B(int i) {
-        return (i & kH) == kH || i == kI || i == kJ;
+        return (i & kI) == kI || i == kJ || i == kK;
     }
 
     private static int a(b bVar) {
         ByteOrder byteOrder;
-        int length = kK.length();
+        int length = kL.length();
         short D = bVar.D(length);
-        if (D == kJ) {
+        if (D == kK) {
             byteOrder = ByteOrder.LITTLE_ENDIAN;
-        } else if (D != kI) {
+        } else if (D != kJ) {
             if (Log.isLoggable(TAG, 3)) {
                 String str = TAG;
                 StringBuilder sb = new StringBuilder();
@@ -228,7 +228,7 @@ public final class m implements ImageHeaderParser {
                             sb2.append(C2);
                             Log.d(str2, sb2.toString());
                         }
-                        int i2 = C2 + kR[D4];
+                        int i2 = C2 + kS[D4];
                         if (i2 <= 4) {
                             int i3 = k + 8;
                             if (i3 < 0 || i3 > bVar.length()) {
@@ -327,25 +327,25 @@ public final class m implements ImageHeaderParser {
     @NonNull
     private ImageType a(c cVar) throws IOException {
         int cq = cVar.cq();
-        if (cq == kH) {
+        if (cq == kI) {
             return ImageType.JPEG;
         }
         int cq2 = ((cq << 16) & SupportMenu.CATEGORY_MASK) | (cVar.cq() & SupportMenu.USER_MASK);
-        if (cq2 == kG) {
+        if (cq2 == kH) {
             cVar.skip(21);
             return cVar.getByte() >= 3 ? ImageType.PNG_A : ImageType.PNG;
-        } else if ((cq2 >> 8) == kF) {
+        } else if ((cq2 >> 8) == kG) {
             return ImageType.GIF;
         } else {
-            if (cq2 != kS) {
+            if (cq2 != kT) {
                 return ImageType.UNKNOWN;
             }
             cVar.skip(4);
-            if ((((cVar.cq() << 16) & SupportMenu.CATEGORY_MASK) | (cVar.cq() & SupportMenu.USER_MASK)) != kT) {
+            if ((((cVar.cq() << 16) & SupportMenu.CATEGORY_MASK) | (cVar.cq() & SupportMenu.USER_MASK)) != kU) {
                 return ImageType.UNKNOWN;
             }
             int cq3 = ((cVar.cq() << 16) & SupportMenu.CATEGORY_MASK) | (cVar.cq() & SupportMenu.USER_MASK);
-            if ((cq3 & -256) != kU) {
+            if ((cq3 & -256) != kV) {
                 return ImageType.UNKNOWN;
             }
             int i = cq3 & 255;
@@ -362,12 +362,12 @@ public final class m implements ImageHeaderParser {
     }
 
     private boolean a(byte[] bArr, int i) {
-        boolean z = bArr != null && i > kL.length;
+        boolean z = bArr != null && i > kM.length;
         if (!z) {
             return z;
         }
-        for (int i2 = 0; i2 < kL.length; i2++) {
-            if (bArr[i2] != kL[i2]) {
+        for (int i2 = 0; i2 < kM.length; i2++) {
+            if (bArr[i2] != kM[i2]) {
                 return false;
             }
         }

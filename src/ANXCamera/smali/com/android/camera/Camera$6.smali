@@ -48,13 +48,13 @@
     return-void
 
     :cond_0
-    new-instance v0, Lcom/android/camera/fragment/dialog/AiSceneNewbieDialogFragment;
+    new-instance v0, Lcom/android/camera/fragment/dialog/UltraWideNewbieDialogFragment;
 
-    invoke-direct {v0}, Lcom/android/camera/fragment/dialog/AiSceneNewbieDialogFragment;-><init>()V
+    invoke-direct {v0}, Lcom/android/camera/fragment/dialog/UltraWideNewbieDialogFragment;-><init>()V
 
     const/4 v1, 0x2
 
-    const v2, 0x7f0c001e
+    const v2, 0x7f0c0020
 
     invoke-virtual {v0, v1, v2}, Landroid/support/v4/app/DialogFragment;->setStyle(II)V
 
@@ -68,7 +68,7 @@
 
     move-result-object v1
 
-    const-string v2, "AiSceneHint"
+    const-string v2, "UltraWideHint"
 
     invoke-virtual {v1, v0, v2}, Landroid/support/v4/app/FragmentTransaction;->add(Landroid/support/v4/app/Fragment;Ljava/lang/String;)Landroid/support/v4/app/FragmentTransaction;
 
@@ -78,7 +78,7 @@
 
     iget-object v0, p0, Lcom/android/camera/Camera$6;->this$0:Lcom/android/camera/Camera;
 
-    const-string v1, "AiSceneHint"
+    const-string v1, "UltraWideHint"
 
     invoke-static {v0, v1}, Lcom/android/camera/Camera;->access$1402(Lcom/android/camera/Camera;Ljava/lang/String;)Ljava/lang/String;
 
@@ -90,7 +90,7 @@
 
     move-result-object v0
 
-    const-string v1, "pref_camera_first_ai_scene_use_hint_shown_key"
+    const-string v1, "pref_camera_first_ultra_wide_use_hint_shown_key"
 
     const/4 v2, 0x0
 

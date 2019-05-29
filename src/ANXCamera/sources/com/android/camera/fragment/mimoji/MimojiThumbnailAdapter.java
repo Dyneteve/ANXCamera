@@ -11,7 +11,9 @@ import com.android.camera.R;
 import com.android.camera.fragment.music.RoundedCornersTransformation;
 import com.arcsoft.avatar.AvatarConfig.ASAvatarConfigInfo;
 import com.bumptech.glide.c;
+import com.bumptech.glide.j;
 import com.bumptech.glide.load.i;
+import com.bumptech.glide.request.a.c.a;
 import com.bumptech.glide.request.f;
 import java.util.ArrayList;
 import java.util.List;
@@ -70,7 +72,7 @@ public class MimojiThumbnailAdapter extends BaseAdapter {
         } else {
             viewHolder = (ViewHolder) view.getTag();
         }
-        c.g(this.mContext).a(aSAvatarConfigInfo.thum).b(f.a((i<Bitmap>) new RoundedCornersTransformation<Bitmap>(20, 1))).a(viewHolder.imageView);
+        c.g(this.mContext).a(aSAvatarConfigInfo.thum).b(new f().i(viewHolder.imageView.getDrawable())).b(f.a((i<Bitmap>) new RoundedCornersTransformation<Bitmap>(20, 1))).a((j<?, ? super TranscodeType>) com.bumptech.glide.load.resource.b.c.f(new a(300).n(true).eE())).a(viewHolder.imageView);
         viewHolder.selectView.setVisibility(getSelectItem(aSAvatarConfigInfo.configType) == ((float) aSAvatarConfigInfo.configID) ? 0 : 4);
         return view;
     }

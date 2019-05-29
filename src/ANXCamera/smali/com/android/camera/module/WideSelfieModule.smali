@@ -383,7 +383,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0164
+    const v3, 0x7f0a0145
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -483,12 +483,17 @@
 
     iget-object v0, p0, Lcom/android/camera/module/WideSelfieModule;->mHandler:Landroid/os/Handler;
 
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/camera/module/WideSelfieModule;->mHandler:Landroid/os/Handler;
+
     const/16 v1, 0x11
 
     const-wide/16 v2, 0x3e8
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
+    :cond_0
     return-void
 .end method
 
@@ -1485,7 +1490,7 @@
 .method public onBeautyParameterChanged()V
     .locals 3
 
-    invoke-static {}, Lcom/mi/config/b;->is()Z
+    invoke-static {}, Lcom/mi/config/b;->iv()Z
 
     move-result v0
 
@@ -1620,7 +1625,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f0a016b
+    const p2, 0x7f0a014b
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -1778,7 +1783,7 @@
     return-void
 
     :cond_1
-    invoke-static {}, Lcom/mi/config/b;->hg()Z
+    invoke-static {}, Lcom/mi/config/b;->hj()Z
 
     move-result p2
 
@@ -3551,6 +3556,12 @@
     iget-object v1, p0, Lcom/android/camera/module/WideSelfieModule;->mPreviewSize:Lcom/android/camera/CameraSize;
 
     invoke-virtual {v0, v1}, Lcom/android/camera2/Camera2Proxy;->setPreviewSize(Lcom/android/camera/CameraSize;)V
+
+    iget-object v0, p0, Lcom/android/camera/module/WideSelfieModule;->mCamera2Device:Lcom/android/camera2/Camera2Proxy;
+
+    iget-object v1, p0, Lcom/android/camera/module/WideSelfieModule;->mPreviewSize:Lcom/android/camera/CameraSize;
+
+    invoke-virtual {v0, v1}, Lcom/android/camera2/Camera2Proxy;->setAlgorithmPreviewSize(Lcom/android/camera/CameraSize;)V
 
     iget-object v0, p0, Lcom/android/camera/module/WideSelfieModule;->mCamera2Device:Lcom/android/camera2/Camera2Proxy;
 

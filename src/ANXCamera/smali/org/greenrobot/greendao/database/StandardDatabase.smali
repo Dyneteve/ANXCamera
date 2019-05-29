@@ -139,6 +139,18 @@
     return v0
 .end method
 
+.method public isOpen()Z
+    .locals 1
+
+    iget-object v0, p0, Lorg/greenrobot/greendao/database/StandardDatabase;->delegate:Landroid/database/sqlite/SQLiteDatabase;
+
+    invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->isOpen()Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public rawQuery(Ljava/lang/String;[Ljava/lang/String;)Landroid/database/Cursor;
     .locals 1
 

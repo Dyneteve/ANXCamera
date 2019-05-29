@@ -653,7 +653,7 @@
 
     iget-object p1, p0, Lcom/xiaomi/camera/imagecodec/ImagePool;->mQueueSizeLock:Ljava/lang/Object;
 
-    invoke-virtual {p1}, Ljava/lang/Object;->notifyAll()V
+    invoke-virtual {p1}, Ljava/lang/Object;->notify()V
 
     goto :goto_0
 
@@ -891,7 +891,7 @@
 
     iget-object p1, p0, Lcom/xiaomi/camera/imagecodec/ImagePool;->mQueueSizeLock:Ljava/lang/Object;
 
-    invoke-virtual {p1}, Ljava/lang/Object;->notifyAll()V
+    invoke-virtual {p1}, Ljava/lang/Object;->notify()V
 
     goto :goto_0
 

@@ -11,12 +11,12 @@ import java.security.MessageDigest;
 /* compiled from: RoundedCorners */
 public final class u extends g {
     private static final String ID = "com.bumptech.glide.load.resource.bitmap.RoundedCorners";
-    private static final byte[] kE = ID.getBytes(dG);
-    private final int lI;
+    private static final byte[] kF = ID.getBytes(dH);
+    private final int lJ;
 
     public u(int i) {
         i.a(i > 0, "roundingRadius must be greater than 0.");
-        this.lI = i;
+        this.lJ = i;
     }
 
     public boolean equals(Object obj) {
@@ -24,23 +24,23 @@ public final class u extends g {
         if (!(obj instanceof u)) {
             return false;
         }
-        if (this.lI == ((u) obj).lI) {
+        if (this.lJ == ((u) obj).lJ) {
             z = true;
         }
         return z;
     }
 
     public int hashCode() {
-        return k.t(ID.hashCode(), k.hashCode(this.lI));
+        return k.t(ID.hashCode(), k.hashCode(this.lJ));
     }
 
     /* access modifiers changed from: protected */
     public Bitmap transform(@NonNull d dVar, @NonNull Bitmap bitmap, int i, int i2) {
-        return w.b(dVar, bitmap, this.lI);
+        return w.b(dVar, bitmap, this.lJ);
     }
 
     public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
-        messageDigest.update(kE);
-        messageDigest.update(ByteBuffer.allocate(4).putInt(this.lI).array());
+        messageDigest.update(kF);
+        messageDigest.update(ByteBuffer.allocate(4).putInt(this.lJ).array());
     }
 }

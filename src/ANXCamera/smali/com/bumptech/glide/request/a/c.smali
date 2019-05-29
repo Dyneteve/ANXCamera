@@ -26,9 +26,9 @@
 # instance fields
 .field private final duration:I
 
-.field private pA:Lcom/bumptech/glide/request/a/d;
+.field private final pA:Z
 
-.field private final pz:Z
+.field private pB:Lcom/bumptech/glide/request/a/d;
 
 
 # direct methods
@@ -39,7 +39,7 @@
 
     iput p1, p0, Lcom/bumptech/glide/request/a/c;->duration:I
 
-    iput-boolean p2, p0, Lcom/bumptech/glide/request/a/c;->pz:Z
+    iput-boolean p2, p0, Lcom/bumptech/glide/request/a/c;->pA:Z
 
     return-void
 .end method
@@ -55,7 +55,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/a/c;->pA:Lcom/bumptech/glide/request/a/d;
+    iget-object v0, p0, Lcom/bumptech/glide/request/a/c;->pB:Lcom/bumptech/glide/request/a/d;
 
     if-nez v0, :cond_0
 
@@ -63,14 +63,14 @@
 
     iget v1, p0, Lcom/bumptech/glide/request/a/c;->duration:I
 
-    iget-boolean v2, p0, Lcom/bumptech/glide/request/a/c;->pz:Z
+    iget-boolean v2, p0, Lcom/bumptech/glide/request/a/c;->pA:Z
 
     invoke-direct {v0, v1, v2}, Lcom/bumptech/glide/request/a/d;-><init>(IZ)V
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/a/c;->pA:Lcom/bumptech/glide/request/a/d;
+    iput-object v0, p0, Lcom/bumptech/glide/request/a/c;->pB:Lcom/bumptech/glide/request/a/d;
 
     :cond_0
-    iget-object v0, p0, Lcom/bumptech/glide/request/a/c;->pA:Lcom/bumptech/glide/request/a/d;
+    iget-object v0, p0, Lcom/bumptech/glide/request/a/c;->pB:Lcom/bumptech/glide/request/a/d;
 
     return-object v0
 .end method
@@ -90,7 +90,7 @@
         }
     .end annotation
 
-    sget-object p2, Lcom/bumptech/glide/load/DataSource;->dg:Lcom/bumptech/glide/load/DataSource;
+    sget-object p2, Lcom/bumptech/glide/load/DataSource;->dh:Lcom/bumptech/glide/load/DataSource;
 
     if-ne p1, p2, :cond_0
 

@@ -6,14 +6,14 @@ import com.bumptech.glide.f.b;
 
 /* compiled from: FixedPreloadSizeProvider */
 public class d<T> implements b<T> {
-    private final int[] pS;
+    private final int[] pT;
 
     public d(int i, int i2) {
-        this.pS = new int[]{i, i2};
+        this.pT = new int[]{i, i2};
     }
 
     @Nullable
     public int[] b(@NonNull T t, int i, int i2) {
-        return this.pS;
+        return this.pT;
     }
 }

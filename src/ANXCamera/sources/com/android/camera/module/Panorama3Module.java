@@ -222,9 +222,15 @@ public class Panorama3Module extends BaseModule implements SensorEventListener, 
                         return;
                     }
                     Log.d(Panorama3Module.TAG, "go to PanoramaPreview in DecideRunnable");
-                    Panorama3Module.this.mPanoramaState = new PanoramaPreview(Panorama3Module.this);
-                    Panorama3Module.this.mPanoramaState.setPanoramaStateEventListener(DecideDirection.this.listener);
-                    DecideDirection.this.clearListener();
+                    synchronized (Panorama3Module.mEngineLock) {
+                        if (Panorama3Module.this.mMorphoPanoramaGP3 == null) {
+                            Log.w(Panorama3Module.TAG, "DecideRunnable exit due to mMorphoPanoramaGP3 is null");
+                            return;
+                        }
+                        Panorama3Module.this.mPanoramaState = new PanoramaPreview(Panorama3Module.this);
+                        Panorama3Module.this.mPanoramaState.setPanoramaStateEventListener(DecideDirection.this.listener);
+                        DecideDirection.this.clearListener();
+                    }
                 }
             }
 
@@ -520,9 +526,14 @@ public class Panorama3Module extends BaseModule implements SensorEventListener, 
             Panorama3Module.this.mImageFormat = captureImage.getImageFormat();
             String access$000 = Panorama3Module.TAG;
             StringBuilder sb = new StringBuilder();
-            sb.append("ImageFormat :");
+            sb.append("PanoramaInit onSaveImage start, ImageFormat :");
             sb.append(Panorama3Module.this.mImageFormat);
-            Log.i(access$000, sb.toString());
+            Log.d(access$000, sb.toString());
+            if (Panorama3Module.this.mRequestStop) {
+                Log.w(Panorama3Module.TAG, "mRequestStop when PanoramaInit");
+                captureImage.close();
+                return false;
+            }
             synchronized (Panorama3Module.mEngineLock) {
                 if (Panorama3Module.this.createEngine()) {
                     int inputImageFormat = Panorama3Module.this.mMorphoPanoramaGP3.setInputImageFormat(Panorama3Module.this.mImageFormat);
@@ -537,12 +548,9 @@ public class Panorama3Module extends BaseModule implements SensorEventListener, 
                     Panorama3Module.this.mPanoramaState.setPanoramaStateEventListener(this.listener);
                     clearListener();
                     Panorama3Module.this.mPanoramaState.onSaveImage(captureImage);
+                    Log.d(Panorama3Module.TAG, "PanoramaInit onSaveImage end");
                     return true;
                 }
-                Log.d(Panorama3Module.TAG, "go to PanoramaPreview in PanoramaInit");
-                Panorama3Module.this.mPanoramaState = new PanoramaPreview(Panorama3Module.this);
-                Panorama3Module.this.mPanoramaState.setPanoramaStateEventListener(this.listener);
-                clearListener();
                 captureImage.close();
                 return true;
             }
@@ -1259,7 +1267,8 @@ public class Panorama3Module extends BaseModule implements SensorEventListener, 
     /* access modifiers changed from: private */
     public boolean createEngine() {
         if (this.mMorphoPanoramaGP3 != null) {
-            return false;
+            Log.w(TAG, "finish prior Engine");
+            finishEngine();
         }
         this.mMorphoPanoramaGP3 = new MorphoPanoramaGP3();
         if (PanoramaGP3ImageFormat.YUV420_PLANAR.equals(this.mImageFormat)) {
@@ -1380,7 +1389,9 @@ public class Panorama3Module extends BaseModule implements SensorEventListener, 
     }
 
     private void keepScreenOnAwhile() {
-        this.mHandler.sendEmptyMessageDelayed(17, 1000);
+        if (this.mHandler != null) {
+            this.mHandler.sendEmptyMessageDelayed(17, 1000);
+        }
     }
 
     /* access modifiers changed from: private */
@@ -1782,7 +1793,7 @@ public class Panorama3Module extends BaseModule implements SensorEventListener, 
         Log.v(TAG, "SetupCameraThread done");
         this.mViewAngleH = this.mCameraCapabilities.getViewAngle(false);
         this.mViewAngleV = this.mCameraCapabilities.getViewAngle(true);
-        if (b.qn.equals("lavender") && this.mViewAngleH > 50.0f) {
+        if (b.qo.equals("lavender") && this.mViewAngleH > 50.0f) {
             this.mGoalAngle = 291;
         }
         this.mCameraOrientation = this.mCameraCapabilities.getSensorOrientation();
@@ -2194,6 +2205,7 @@ public class Panorama3Module extends BaseModule implements SensorEventListener, 
                         return true;
                     }
                     if (!Panorama3Module.this.mPanoramaState.onSaveImage(new Camera2Image(image))) {
+                        Log.w(Panorama3Module.TAG, "set mPanoramaState PanoramaState");
                         Panorama3Module.this.mPanoramaState = new PanoramaState();
                     }
                     return true;
@@ -2235,6 +2247,7 @@ public class Panorama3Module extends BaseModule implements SensorEventListener, 
         this.mCamera2Device.setDualCamWaterMarkEnable(false);
         this.mCamera2Device.setErrorCallback(this.mErrorCallback);
         this.mCamera2Device.setPreviewSize(this.mPreviewSize);
+        this.mCamera2Device.setAlgorithmPreviewSize(this.mPreviewSize);
         this.mCamera2Device.setPictureSize(this.mPictureSize);
         this.mCamera2Device.setPictureMaxImages(3);
         this.mCamera2Device.setPictureFormat(35);

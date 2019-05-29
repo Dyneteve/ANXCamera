@@ -53,10 +53,10 @@ public class ComponentModuleList extends ComponentData {
                 arrayList.add(new ComponentDataItem(-1, -1, R.string.module_name_capture, String.valueOf(163)));
             } else if (this.mIntentType == 1 || this.mIntentType == 0) {
                 arrayList.add(new ComponentDataItem(-1, -1, R.string.module_name_capture, String.valueOf(163)));
-                if (this.mIntentType == 0 && dataItemFeature.gz()) {
+                if (this.mIntentType == 0 && dataItemFeature.gA()) {
                     arrayList.add(new ComponentDataItem(-1, -1, R.string.module_name_pixel_48M, String.valueOf(175)));
                 }
-                if (dataItemFeature.gA()) {
+                if (dataItemFeature.gB()) {
                     arrayList.add(new ComponentDataItem(-1, -1, R.string.module_name_portrait, String.valueOf(171)));
                 }
                 if (dataItemFeature.fr() && this.mIntentType == 0) {

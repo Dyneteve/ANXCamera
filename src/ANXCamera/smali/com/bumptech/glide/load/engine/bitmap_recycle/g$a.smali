@@ -26,7 +26,7 @@
 
 
 # instance fields
-.field hj:Lcom/bumptech/glide/load/engine/bitmap_recycle/g$a;
+.field hk:Lcom/bumptech/glide/load/engine/bitmap_recycle/g$a;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/engine/bitmap_recycle/g$a<",
@@ -35,7 +35,7 @@
     .end annotation
 .end field
 
-.field hk:Lcom/bumptech/glide/load/engine/bitmap_recycle/g$a;
+.field hl:Lcom/bumptech/glide/load/engine/bitmap_recycle/g$a;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/engine/bitmap_recycle/g$a<",
@@ -83,9 +83,9 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/g$a;->hk:Lcom/bumptech/glide/load/engine/bitmap_recycle/g$a;
+    iput-object p0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/g$a;->hl:Lcom/bumptech/glide/load/engine/bitmap_recycle/g$a;
 
-    iput-object p0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/g$a;->hj:Lcom/bumptech/glide/load/engine/bitmap_recycle/g$a;
+    iput-object p0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/g$a;->hk:Lcom/bumptech/glide/load/engine/bitmap_recycle/g$a;
 
     iput-object p1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/g$a;->key:Ljava/lang/Object;
 

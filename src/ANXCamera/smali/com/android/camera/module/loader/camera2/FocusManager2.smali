@@ -520,7 +520,7 @@
 
     if-eqz v0, :cond_1
 
-    invoke-static {}, Lcom/mi/config/b;->hc()Z
+    invoke-static {}, Lcom/mi/config/b;->hf()Z
 
     move-result v0
 
@@ -1111,7 +1111,7 @@
 .end method
 
 .method private onAutoFocusMoving(ZZ)V
-    .locals 10
+    .locals 12
 
     iget-boolean v0, p0, Lcom/android/camera/module/loader/camera2/FocusManager2;->mInitialized:Z
 
@@ -1142,9 +1142,9 @@
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x1
+    const/4 v2, 0x3
 
-    const/4 v3, 0x3
+    const/4 v3, 0x1
 
     if-eqz v0, :cond_1
 
@@ -1158,7 +1158,7 @@
 
     if-eqz v4, :cond_1
 
-    invoke-interface {v0, v3}, Lcom/android/camera/protocol/ModeProtocol$MainContentProtocol;->clearFocusView(I)V
+    invoke-interface {v0, v2}, Lcom/android/camera/protocol/ModeProtocol$MainContentProtocol;->clearFocusView(I)V
 
     nop
 
@@ -1167,7 +1167,7 @@
     goto :goto_0
 
     :cond_1
-    move v4, v2
+    move v4, v3
 
     :goto_0
     const-string v5, "FocusManager"
@@ -1222,15 +1222,29 @@
     invoke-interface {v0, v1}, Lcom/android/camera/protocol/ModeProtocol$MainContentProtocol;->setFocusViewType(Z)V
 
     :cond_3
-    const/4 v1, 0x2
+    const/4 v5, 0x2
 
     if-eqz p1, :cond_5
 
     iget p1, p0, Lcom/android/camera/module/loader/camera2/FocusManager2;->mState:I
 
-    if-eq p1, v1, :cond_4
+    if-eq p1, v5, :cond_4
 
-    invoke-direct {p0, v2}, Lcom/android/camera/module/loader/camera2/FocusManager2;->setFocusState(I)V
+    invoke-direct {p0, v3}, Lcom/android/camera/module/loader/camera2/FocusManager2;->setFocusState(I)V
+
+    iget-object p1, p0, Lcom/android/camera/module/loader/camera2/FocusManager2;->mHandler:Landroid/os/Handler;
+
+    invoke-virtual {p1, v1}, Landroid/os/Handler;->removeMessages(I)V
+
+    iget-object p1, p0, Lcom/android/camera/module/loader/camera2/FocusManager2;->mHandler:Landroid/os/Handler;
+
+    invoke-virtual {p1, v3}, Landroid/os/Handler;->removeMessages(I)V
+
+    iget-object p1, p0, Lcom/android/camera/module/loader/camera2/FocusManager2;->mHandler:Landroid/os/Handler;
+
+    const-wide/16 v1, 0x1388
+
+    invoke-virtual {p1, v3, v1, v2}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
     :cond_4
     const-string p1, "FocusManager"
@@ -1249,55 +1263,63 @@
 
     if-eqz v0, :cond_a
 
-    invoke-interface {v0, v1, v2}, Lcom/android/camera/protocol/ModeProtocol$MainContentProtocol;->showIndicator(II)V
+    invoke-interface {v0, v5, v3}, Lcom/android/camera/protocol/ModeProtocol$MainContentProtocol;->showIndicator(II)V
 
     goto :goto_3
 
     :cond_5
     iget p1, p0, Lcom/android/camera/module/loader/camera2/FocusManager2;->mState:I
 
-    const-string v2, "FocusManager"
+    const-string v6, "FocusManager"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "Camera KPI: CAF stop: Focus time: "
+    const-string v8, "Camera KPI: CAF stop: Focus time: "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v6
+    move-result-wide v8
 
-    iget-wide v8, p0, Lcom/android/camera/module/loader/camera2/FocusManager2;->mCafStartTime:J
+    iget-wide v10, p0, Lcom/android/camera/module/loader/camera2/FocusManager2;->mCafStartTime:J
 
-    sub-long/2addr v6, v8
+    sub-long/2addr v8, v10
 
-    invoke-virtual {v5, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8, v9}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-static {v2, v5}, Lcom/android/camera/log/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Lcom/android/camera/log/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     if-eqz p2, :cond_6
-
-    invoke-direct {p0, v3}, Lcom/android/camera/module/loader/camera2/FocusManager2;->setFocusState(I)V
-
-    invoke-direct {p0, v3}, Lcom/android/camera/module/loader/camera2/FocusManager2;->setLastFocusState(I)V
-
-    goto :goto_1
-
-    :cond_6
-    const/4 v2, 0x4
 
     invoke-direct {p0, v2}, Lcom/android/camera/module/loader/camera2/FocusManager2;->setFocusState(I)V
 
     invoke-direct {p0, v2}, Lcom/android/camera/module/loader/camera2/FocusManager2;->setLastFocusState(I)V
 
+    goto :goto_1
+
+    :cond_6
+    const/4 v6, 0x4
+
+    invoke-direct {p0, v6}, Lcom/android/camera/module/loader/camera2/FocusManager2;->setFocusState(I)V
+
+    invoke-direct {p0, v6}, Lcom/android/camera/module/loader/camera2/FocusManager2;->setLastFocusState(I)V
+
     :goto_1
+    iget-object v6, p0, Lcom/android/camera/module/loader/camera2/FocusManager2;->mHandler:Landroid/os/Handler;
+
+    invoke-virtual {v6, v1}, Landroid/os/Handler;->removeMessages(I)V
+
+    iget-object v1, p0, Lcom/android/camera/module/loader/camera2/FocusManager2;->mHandler:Landroid/os/Handler;
+
+    invoke-virtual {v1, v3}, Landroid/os/Handler;->removeMessages(I)V
+
     if-eqz v4, :cond_8
 
     if-eqz v0, :cond_8
@@ -1306,22 +1328,22 @@
 
     if-eqz p2, :cond_7
 
-    move p2, v1
+    move p2, v5
 
     goto :goto_2
 
     :cond_7
     nop
 
-    move p2, v3
+    move p2, v2
 
     :goto_2
-    invoke-interface {v0, v1, p2}, Lcom/android/camera/protocol/ModeProtocol$MainContentProtocol;->showIndicator(II)V
+    invoke-interface {v0, v5, p2}, Lcom/android/camera/protocol/ModeProtocol$MainContentProtocol;->showIndicator(II)V
 
     :cond_8
-    if-ne p1, v1, :cond_a
+    if-ne p1, v5, :cond_a
 
-    invoke-direct {p0, v3}, Lcom/android/camera/module/loader/camera2/FocusManager2;->setFocusState(I)V
+    invoke-direct {p0, v2}, Lcom/android/camera/module/loader/camera2/FocusManager2;->setFocusState(I)V
 
     iget-boolean p1, p0, Lcom/android/camera/module/loader/camera2/FocusManager2;->mPendingMultiCapture:Z
 
@@ -2635,7 +2657,7 @@
 
     if-eqz v0, :cond_6
 
-    invoke-static {}, Lcom/mi/config/b;->hc()Z
+    invoke-static {}, Lcom/mi/config/b;->hf()Z
 
     move-result v0
 
@@ -2659,7 +2681,7 @@
 
     if-eqz p2, :cond_8
 
-    invoke-static {}, Lcom/mi/config/b;->hP()Z
+    invoke-static {}, Lcom/mi/config/b;->hS()Z
 
     move-result p1
 
@@ -2808,7 +2830,7 @@
 .method public resetAfterCapture(Z)V
     .locals 3
 
-    invoke-static {}, Lcom/mi/config/b;->hc()Z
+    invoke-static {}, Lcom/mi/config/b;->hf()Z
 
     move-result v0
 

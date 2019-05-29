@@ -28,7 +28,7 @@
 
 
 # instance fields
-.field private final kv:Lcom/bumptech/glide/load/model/ModelCache;
+.field private final kw:Lcom/bumptech/glide/load/model/ModelCache;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/model/ModelCache<",
@@ -52,7 +52,7 @@
 
     invoke-direct {v0, v1, v2}, Lcom/bumptech/glide/load/model/ModelCache;-><init>(J)V
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/model/a/b$a;->kv:Lcom/bumptech/glide/load/model/ModelCache;
+    iput-object v0, p0, Lcom/bumptech/glide/load/model/a/b$a;->kw:Lcom/bumptech/glide/load/model/ModelCache;
 
     return-void
 .end method
@@ -78,7 +78,7 @@
 
     new-instance p1, Lcom/bumptech/glide/load/model/a/b;
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/a/b$a;->kv:Lcom/bumptech/glide/load/model/ModelCache;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/a/b$a;->kw:Lcom/bumptech/glide/load/model/ModelCache;
 
     invoke-direct {p1, v0}, Lcom/bumptech/glide/load/model/a/b;-><init>(Lcom/bumptech/glide/load/model/ModelCache;)V
 

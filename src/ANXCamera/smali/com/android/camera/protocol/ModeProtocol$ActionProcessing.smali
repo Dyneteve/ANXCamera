@@ -25,6 +25,9 @@
 .method public abstract filterUiChange()V
 .end method
 
+.method public abstract forceSwitchFront()Z
+.end method
+
 .method public abstract hideExtra()V
 .end method
 

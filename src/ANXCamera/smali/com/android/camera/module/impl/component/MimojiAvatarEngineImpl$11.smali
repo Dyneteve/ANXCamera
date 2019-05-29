@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->onProfileFinish()V
+    value = Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->createAvatar([BII)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -37,36 +37,15 @@
 .method public run()V
     .locals 2
 
-    invoke-static {}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$100()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v1, "releaseRender 1"
-
-    invoke-static {v0, v1}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v0, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$11;->this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
-
-    invoke-static {v0}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$400(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;)Lcom/arcsoft/avatar/AvatarEngine;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$11;->this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
-
-    invoke-static {v0}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$400(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;)Lcom/arcsoft/avatar/AvatarEngine;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/arcsoft/avatar/AvatarEngine;->releaseRender()V
-
-    :cond_0
     iget-object v0, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$11;->this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$602(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;Z)Z
+    invoke-virtual {v0, v1}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->setDisableSingleTapUp(Z)V
+
+    iget-object v0, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$11;->this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
+
+    invoke-static {v0}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$2300(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;)V
 
     return-void
 .end method

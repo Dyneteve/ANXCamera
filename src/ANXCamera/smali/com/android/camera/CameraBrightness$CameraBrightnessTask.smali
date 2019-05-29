@@ -41,6 +41,8 @@
     .end annotation
 .end field
 
+.field private mBrightnessMode:I
+
 .field private mCallbackWeakReference:Ljava/lang/ref/WeakReference;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -55,13 +57,15 @@
 
 .field private mPositiveScreenManualBrightnessSpline:Landroid/util/Spline;
 
+.field private mScreenAutoBrightnessRatioInner:F
+
 .field private mScreenManualBrightnessSpline:Landroid/util/Spline;
 
 .field private mUseDefaultValue:Z
 
 
 # direct methods
-.method public constructor <init>(Landroid/app/Activity;Lcom/android/camera/CameraBrightnessCallback;ZZ)V
+.method public constructor <init>(Landroid/app/Activity;Lcom/android/camera/CameraBrightnessCallback;ZZF)V
     .locals 1
 
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
@@ -69,6 +73,10 @@
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/camera/CameraBrightness$CameraBrightnessTask;->DEBUG:Z
+
+    const/4 v0, -0x1
+
+    iput v0, p0, Lcom/android/camera/CameraBrightness$CameraBrightnessTask;->mBrightnessMode:I
 
     const v0, 0x3e99999a    # 0.3f
 
@@ -93,6 +101,8 @@
     iput-boolean p4, p0, Lcom/android/camera/CameraBrightness$CameraBrightnessTask;->mPaused:Z
 
     iput-boolean p3, p0, Lcom/android/camera/CameraBrightness$CameraBrightnessTask;->mUseDefaultValue:Z
+
+    iput p5, p0, Lcom/android/camera/CameraBrightness$CameraBrightnessTask;->mScreenAutoBrightnessRatioInner:F
 
     return-void
 .end method
@@ -459,11 +469,9 @@
 
     :goto_0
     :try_start_1
-    const-class v1, Landroid/miui/R$array;
+    const-string v1, "I"
 
-    const-string v2, "I"
-
-    invoke-static {v1, p1, v2}, Lmiui/reflect/Field;->of(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;)Lmiui/reflect/Field;
+    invoke-static {p1, v1}, Lcom/android/camera/GeneralUtils;->miuiResArrayField(Ljava/lang/String;Ljava/lang/String;)Lmiui/reflect/Field;
 
     move-result-object p1
 
@@ -593,11 +601,9 @@
 
     :goto_0
     :try_start_1
-    const-class v1, Landroid/miui/R$bool;
+    const-string v1, "I"
 
-    const-string v2, "I"
-
-    invoke-static {v1, p1, v2}, Lmiui/reflect/Field;->of(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;)Lmiui/reflect/Field;
+    invoke-static {p1, v1}, Lcom/android/camera/GeneralUtils;->miuiResBoolField(Ljava/lang/String;Ljava/lang/String;)Lmiui/reflect/Field;
 
     move-result-object p1
 
@@ -720,56 +726,167 @@
 .end method
 
 .method private getBrightIsAndroidP(Landroid/view/WindowManager$LayoutParams;Landroid/app/Activity;)Ljava/lang/Integer;
-    .locals 5
+    .locals 7
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
-    const/4 v0, 0x0
-
     :try_start_0
-    const-class v1, Landroid/os/PowerManager;
+    invoke-virtual {p2}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
 
-    const-string v2, "BRIGHTNESS_ON"
+    move-result-object v0
 
-    invoke-static {v1, v2}, Lmiui/util/ReflectionUtils;->findField(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Field;
+    const-string v1, "screen_brightness_mode"
 
-    move-result-object v1
+    invoke-static {v0, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
 
-    const-class v2, Landroid/os/PowerManager;
+    move-result v0
 
-    invoke-virtual {v1, v2}, Ljava/lang/reflect/Field;->getInt(Ljava/lang/Object;)I
+    iput v0, p0, Lcom/android/camera/CameraBrightness$CameraBrightnessTask;->mBrightnessMode:I
+    :try_end_0
+    .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v1
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    :goto_0
+    iget-object v0, p0, Lcom/android/camera/CameraBrightness$CameraBrightnessTask;->mCallbackWeakReference:Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/camera/CameraBrightnessCallback;
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
+
+    if-eqz v0, :cond_4
+
+    iget v4, p0, Lcom/android/camera/CameraBrightness$CameraBrightnessTask;->mBrightnessMode:I
+
+    if-ne v4, v1, :cond_4
+
+    iget-boolean p1, p0, Lcom/android/camera/CameraBrightness$CameraBrightnessTask;->mUseDefaultValue:Z
+
+    const/high16 p2, 0x3f000000    # 0.5f
+
+    if-nez p1, :cond_0
+
+    iget-boolean p1, p0, Lcom/android/camera/CameraBrightness$CameraBrightnessTask;->mPaused:Z
+
+    if-nez p1, :cond_0
+
+    iget p1, p0, Lcom/android/camera/CameraBrightness$CameraBrightnessTask;->mScreenAutoBrightnessRatioInner:F
+
+    cmpl-float p1, p1, v2
+
+    if-nez p1, :cond_0
+
+    const-string p1, "CameraBrightness"
+
+    const-string v1, "adjustBrightnessInAutoMode(0.5)"
+
+    invoke-static {p1, v1}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-interface {v0, p2}, Lcom/android/camera/CameraBrightnessCallback;->adjustBrightnessInAutoMode(F)V
+
+    goto :goto_1
+
+    :cond_0
+    iget-boolean p1, p0, Lcom/android/camera/CameraBrightness$CameraBrightnessTask;->mUseDefaultValue:Z
+
+    if-eqz p1, :cond_1
+
+    iget-boolean p1, p0, Lcom/android/camera/CameraBrightness$CameraBrightnessTask;->mPaused:Z
+
+    if-eqz p1, :cond_2
+
+    :cond_1
+    iget-boolean p1, p0, Lcom/android/camera/CameraBrightness$CameraBrightnessTask;->mPaused:Z
+
+    if-eqz p1, :cond_3
+
+    :cond_2
+    iget p1, p0, Lcom/android/camera/CameraBrightness$CameraBrightnessTask;->mScreenAutoBrightnessRatioInner:F
+
+    cmpl-float p1, p1, p2
+
+    if-nez p1, :cond_3
+
+    const-string p1, "CameraBrightness"
+
+    const-string p2, "adjustBrightnessInAutoMode(0)"
+
+    invoke-static {p1, p2}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-interface {v0, v2}, Lcom/android/camera/CameraBrightnessCallback;->adjustBrightnessInAutoMode(F)V
+
+    :cond_3
+    :goto_1
+    return-object v3
+
+    :cond_4
+    iget v0, p0, Lcom/android/camera/CameraBrightness$CameraBrightnessTask;->mBrightnessMode:I
+
+    if-nez v0, :cond_6
+
+    iget-boolean v0, p0, Lcom/android/camera/CameraBrightness$CameraBrightnessTask;->mUseDefaultValue:Z
+
+    if-nez v0, :cond_6
+
+    iget-boolean v0, p0, Lcom/android/camera/CameraBrightness$CameraBrightnessTask;->mPaused:Z
+
+    if-nez v0, :cond_6
+
+    :try_start_1
+    const-class v0, Landroid/os/PowerManager;
+
+    const-string v4, "BRIGHTNESS_ON"
+
+    invoke-static {v0, v4}, Lmiui/util/ReflectionUtils;->findField(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Field;
+
+    move-result-object v0
+
+    const-class v4, Landroid/os/PowerManager;
+
+    invoke-virtual {v0, v4}, Ljava/lang/reflect/Field;->getInt(Ljava/lang/Object;)I
+
+    move-result v0
 
     invoke-virtual {p2}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object p2
 
-    const-string v2, "screen_brightness"
+    const-string v4, "screen_brightness"
 
-    invoke-static {p2, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
+    invoke-static {p2, v4}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
 
     move-result p2
 
-    const-string v2, "CameraBrightness"
+    const-string v4, "CameraBrightness"
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "android P -> current back light -> "
+    const-string v6, "android P -> current back light -> "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-static {v2, v3}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-static {v4, v5}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
     nop
 
@@ -777,19 +894,19 @@
 
     int-to-float p2, p2
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/2addr v0, v1
 
-    int-to-float v1, v1
+    int-to-float v0, v0
 
-    div-float/2addr p2, v1
+    div-float/2addr p2, v0
 
-    float-to-double v1, p2
+    float-to-double v0, p2
 
-    invoke-static {v1, v2}, Ljava/lang/Math;->ceil(D)D
+    invoke-static {v0, v1}, Ljava/lang/Math;->ceil(D)D
 
-    move-result-wide v1
+    move-result-wide v0
 
-    double-to-int p2, v1
+    double-to-int p2, v0
 
     invoke-direct {p0, p2}, Lcom/android/camera/CameraBrightness$CameraBrightnessTask;->toEnLargeBrightness(I)I
 
@@ -797,19 +914,17 @@
 
     int-to-float p2, p2
 
-    iget v1, p1, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
+    iget v0, p1, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
 
-    const/4 v2, 0x0
+    cmpl-float v0, v0, v2
 
-    cmpl-float v1, v1, v2
-
-    if-lez v1, :cond_0
+    if-lez v0, :cond_5
 
     iget p1, p1, Landroid/view/WindowManager$LayoutParams;->screenBrightness:F
 
-    const/high16 v1, 0x437f0000    # 255.0f
+    const/high16 v0, 0x437f0000    # 255.0f
 
-    mul-float/2addr p1, v1
+    mul-float/2addr p1, v0
 
     float-to-int p1, p1
 
@@ -817,7 +932,7 @@
 
     cmpl-float p1, p2, p1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_5
 
     const-string p1, "CameraBrightness"
 
@@ -825,9 +940,9 @@
 
     invoke-static {p1, p2}, Lcom/android/camera/log/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-object v0
+    return-object v3
 
-    :cond_0
+    :cond_5
     float-to-int p1, p2
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -836,7 +951,7 @@
 
     return-object p1
 
-    :catch_0
+    :catch_1
     move-exception p1
 
     const-string p2, "CameraBrightness"
@@ -847,7 +962,10 @@
 
     invoke-static {p2, p1}, Lcom/android/camera/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-object v0
+    return-object v3
+
+    :cond_6
+    return-object v3
 .end method
 
 .method private getBrightNotAndroidP(Landroid/view/WindowManager$LayoutParams;)Ljava/lang/Integer;
@@ -1278,21 +1396,9 @@
 
     check-cast v0, Landroid/app/Activity;
 
-    if-eqz v0, :cond_3
+    if-nez v0, :cond_0
 
-    const/4 v1, -0x1
-
-    if-ne p1, v1, :cond_0
-
-    iget-boolean v1, p0, Lcom/android/camera/CameraBrightness$CameraBrightnessTask;->mUseDefaultValue:Z
-
-    if-nez v1, :cond_0
-
-    iget-boolean v1, p0, Lcom/android/camera/CameraBrightness$CameraBrightnessTask;->mPaused:Z
-
-    if-nez v1, :cond_0
-
-    goto :goto_1
+    return-void
 
     :cond_0
     invoke-virtual {v0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
@@ -1381,10 +1487,6 @@
 
     :cond_2
     return-void
-
-    :cond_3
-    :goto_1
-    return-void
 .end method
 
 
@@ -1428,16 +1530,6 @@
 
     check-cast p1, Landroid/app/Activity;
 
-    if-eqz p1, :cond_1
-
-    iget-boolean v0, p0, Lcom/android/camera/CameraBrightness$CameraBrightnessTask;->mUseDefaultValue:Z
-
-    if-nez v0, :cond_1
-
-    iget-boolean v0, p0, Lcom/android/camera/CameraBrightness$CameraBrightnessTask;->mPaused:Z
-
-    if-nez v0, :cond_1
-
     invoke-virtual {p1}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
 
     move-result-object v0
@@ -1456,22 +1548,27 @@
 
     move-result-object p1
 
-    goto :goto_0
+    return-object p1
 
     :cond_0
+    if-eqz p1, :cond_1
+
+    iget-boolean p1, p0, Lcom/android/camera/CameraBrightness$CameraBrightnessTask;->mUseDefaultValue:Z
+
+    if-nez p1, :cond_1
+
+    iget-boolean p1, p0, Lcom/android/camera/CameraBrightness$CameraBrightnessTask;->mPaused:Z
+
+    if-nez p1, :cond_1
+
     invoke-direct {p0, v0}, Lcom/android/camera/CameraBrightness$CameraBrightnessTask;->getBrightNotAndroidP(Landroid/view/WindowManager$LayoutParams;)Ljava/lang/Integer;
 
     move-result-object p1
 
-    :goto_0
     return-object p1
 
     :cond_1
-    const/4 p1, -0x1
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p1
+    const/4 p1, 0x0
 
     return-object p1
 .end method

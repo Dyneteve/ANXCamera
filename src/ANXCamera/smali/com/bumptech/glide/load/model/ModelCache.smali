@@ -27,7 +27,7 @@
 
 
 # instance fields
-.field private final jT:Lcom/bumptech/glide/util/f;
+.field private final jU:Lcom/bumptech/glide/util/f;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/util/f<",
@@ -58,7 +58,7 @@
 
     invoke-direct {v0, p0, p1, p2}, Lcom/bumptech/glide/load/model/ModelCache$1;-><init>(Lcom/bumptech/glide/load/model/ModelCache;J)V
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/model/ModelCache;->jT:Lcom/bumptech/glide/util/f;
+    iput-object v0, p0, Lcom/bumptech/glide/load/model/ModelCache;->jU:Lcom/bumptech/glide/util/f;
 
     return-void
 .end method
@@ -77,7 +77,7 @@
 
     move-result-object p1
 
-    iget-object p2, p0, Lcom/bumptech/glide/load/model/ModelCache;->jT:Lcom/bumptech/glide/util/f;
+    iget-object p2, p0, Lcom/bumptech/glide/load/model/ModelCache;->jU:Lcom/bumptech/glide/util/f;
 
     invoke-virtual {p2, p1, p4}, Lcom/bumptech/glide/util/f;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -99,7 +99,7 @@
 
     move-result-object p1
 
-    iget-object p2, p0, Lcom/bumptech/glide/load/model/ModelCache;->jT:Lcom/bumptech/glide/util/f;
+    iget-object p2, p0, Lcom/bumptech/glide/load/model/ModelCache;->jU:Lcom/bumptech/glide/util/f;
 
     invoke-virtual {p2, p1}, Lcom/bumptech/glide/util/f;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -113,7 +113,7 @@
 .method public clear()V
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/ModelCache;->jT:Lcom/bumptech/glide/util/f;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/ModelCache;->jU:Lcom/bumptech/glide/util/f;
 
     invoke-virtual {v0}, Lcom/bumptech/glide/util/f;->o()V
 

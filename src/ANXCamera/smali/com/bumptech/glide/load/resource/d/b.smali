@@ -19,7 +19,7 @@
 
 
 # instance fields
-.field private final ko:Landroid/content/res/Resources;
+.field private final kp:Landroid/content/res/Resources;
 
 
 # direct methods
@@ -54,7 +54,7 @@
 
     check-cast p1, Landroid/content/res/Resources;
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/resource/d/b;->ko:Landroid/content/res/Resources;
+    iput-object p1, p0, Lcom/bumptech/glide/load/resource/d/b;->kp:Landroid/content/res/Resources;
 
     return-void
 .end method
@@ -102,7 +102,7 @@
         }
     .end annotation
 
-    iget-object p2, p0, Lcom/bumptech/glide/load/resource/d/b;->ko:Landroid/content/res/Resources;
+    iget-object p2, p0, Lcom/bumptech/glide/load/resource/d/b;->kp:Landroid/content/res/Resources;
 
     invoke-static {p2, p1}, Lcom/bumptech/glide/load/resource/bitmap/s;->a(Landroid/content/res/Resources;Lcom/bumptech/glide/load/engine/p;)Lcom/bumptech/glide/load/engine/p;
 

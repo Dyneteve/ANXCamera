@@ -19,7 +19,7 @@
 
 
 # static fields
-.field public static final pk:I = -0x80000000
+.field public static final pl:I = -0x80000000
 
 
 # virtual methods

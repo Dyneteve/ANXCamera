@@ -1,12 +1,12 @@
 package com.android.camera.fragment;
 
-import android.support.v4.animation.AnimatorCompatHelper;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPropertyAnimatorCompat;
 import android.support.v4.view.ViewPropertyAnimatorListener;
 import android.support.v7.widget.RecyclerView.ItemAnimator;
 import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.View;
+import com.android.camera.GeneralUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -287,7 +287,7 @@ public class DefaultItemAnimator extends ItemAnimator {
     }
 
     private void resetAnimation(ViewHolder viewHolder) {
-        AnimatorCompatHelper.clearInterpolator(viewHolder.itemView);
+        GeneralUtils.clearInterpolator(viewHolder.itemView);
         endAnimation(viewHolder);
     }
 

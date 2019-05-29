@@ -27,7 +27,7 @@
 
 
 # static fields
-.field private static final jV:Ljava/util/Queue;
+.field private static final jW:Ljava/util/Queue;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Queue<",
@@ -39,7 +39,7 @@
 
 
 # instance fields
-.field private bt:Ljava/lang/Object;
+.field private bu:Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "TA;"
@@ -62,7 +62,7 @@
 
     move-result-object v0
 
-    sput-object v0, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;->jV:Ljava/util/Queue;
+    sput-object v0, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;->jW:Ljava/util/Queue;
 
     return-void
 .end method
@@ -87,12 +87,12 @@
         }
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;->jV:Ljava/util/Queue;
+    sget-object v0, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;->jW:Ljava/util/Queue;
 
     monitor-enter v0
 
     :try_start_0
-    sget-object v1, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;->jV:Ljava/util/Queue;
+    sget-object v1, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;->jW:Ljava/util/Queue;
 
     invoke-interface {v1}, Ljava/util/Queue;->poll()Ljava/lang/Object;
 
@@ -134,7 +134,7 @@
         }
     .end annotation
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;->bt:Ljava/lang/Object;
+    iput-object p1, p0, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;->bu:Ljava/lang/Object;
 
     iput p2, p0, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;->width:I
 
@@ -168,9 +168,9 @@
 
     if-ne v0, v2, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;->bt:Ljava/lang/Object;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;->bu:Ljava/lang/Object;
 
-    iget-object p1, p1, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;->bt:Ljava/lang/Object;
+    iget-object p1, p1, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;->bu:Ljava/lang/Object;
 
     invoke-virtual {v0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
@@ -204,7 +204,7 @@
 
     mul-int/2addr v1, v0
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;->bt:Ljava/lang/Object;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;->bu:Ljava/lang/Object;
 
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
@@ -218,12 +218,12 @@
 .method public release()V
     .locals 2
 
-    sget-object v0, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;->jV:Ljava/util/Queue;
+    sget-object v0, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;->jW:Ljava/util/Queue;
 
     monitor-enter v0
 
     :try_start_0
-    sget-object v1, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;->jV:Ljava/util/Queue;
+    sget-object v1, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;->jW:Ljava/util/Queue;
 
     invoke-interface {v1, p0}, Ljava/util/Queue;->offer(Ljava/lang/Object;)Z
 

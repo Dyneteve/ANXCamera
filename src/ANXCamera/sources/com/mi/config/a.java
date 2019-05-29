@@ -5,6 +5,7 @@ import android.content.res.Resources;
 import android.os.Build.VERSION;
 import android.os.SystemProperties;
 import android.support.v4.util.SimpleArrayMap;
+import android.text.TextUtils;
 import com.android.camera.CameraAppImpl;
 import com.android.camera.Util;
 import com.android.camera.data.data.DataItemBase;
@@ -14,6 +15,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Iterator;
+import java.util.Locale;
 import miui.os.Build;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,7 +23,7 @@ import org.json.JSONObject;
 /* compiled from: DataItemFeature */
 public class a extends DataItemBase implements c {
     private static final String TAG = "DataFeature";
-    private String qm;
+    private String qn;
 
     public a() {
         eU();
@@ -42,7 +44,7 @@ public class a extends DataItemBase implements c {
     }
 
     public String L(String str) {
-        return getString(c.tO, str);
+        return getString(c.tP, str);
     }
 
     /* JADX WARNING: Removed duplicated region for block: B:25:0x006c A[SYNTHETIC, Splitter:B:25:0x006c] */
@@ -55,7 +57,7 @@ public class a extends DataItemBase implements c {
         Resources resources = androidContext.getResources();
         StringBuilder sb = new StringBuilder();
         sb.append("feature_");
-        sb.append(b.qn);
+        sb.append(b.qo);
         int identifier = resources.getIdentifier(sb.toString(), "raw", "com.android.camera");
         if (identifier <= 0) {
             Log.e(TAG, "feature list default");
@@ -126,18 +128,21 @@ public class a extends DataItemBase implements c {
     }
 
     public boolean eV() {
-        return getBoolean(c.rS, false);
+        return getBoolean(c.rT, false);
     }
 
     public int eW() {
-        return getInt(c.rT, 20);
+        return getInt(c.rU, 20);
     }
 
     public boolean eX() {
-        if (this.qm == null) {
-            this.qm = SystemProperties.get("ro.boot.hwc");
+        if (this.qn == null) {
+            this.qn = SystemProperties.get("ro.boot.hwc");
         }
-        return "india".equalsIgnoreCase(this.qm);
+        if ("india".equalsIgnoreCase(this.qn)) {
+            return true;
+        }
+        return !TextUtils.isEmpty(this.qn) && this.qn.toLowerCase(Locale.ENGLISH).startsWith("india_");
     }
 
     public boolean eY() {
@@ -145,228 +150,231 @@ public class a extends DataItemBase implements c {
     }
 
     public boolean eZ() {
-        if (this.qm == null) {
-            this.qm = SystemProperties.get("ro.boot.hwc");
+        if (this.qn == null) {
+            this.qn = SystemProperties.get("ro.boot.hwc");
         }
-        return "cn".equalsIgnoreCase(this.qm);
+        return "cn".equalsIgnoreCase(this.qn);
     }
 
     public boolean fA() {
-        return getBoolean(c.sp, false);
+        return getBoolean(c.sq, false);
     }
 
     public boolean fB() {
-        return getBoolean(c.sn, false);
+        return getBoolean(c.so, false);
     }
 
     public boolean fC() {
-        return getBoolean(c.so, false) || fB();
+        return getBoolean(c.sp, false) || fB();
     }
 
     public boolean fD() {
-        return getBoolean(c.su, false);
+        return getBoolean(c.sv, false);
     }
 
     public String fE() {
-        return getString(c.sv, "");
+        return getString(c.sw, "");
     }
 
     public int fF() {
-        return getInt(c.sw, 350);
+        return getInt(c.sx, 350);
     }
 
     public int fG() {
-        return getInt(c.sx, 300);
+        return getInt(c.sy, 300);
     }
 
     public boolean fH() {
-        return getBoolean(c.sD, true);
+        return getBoolean(c.sE, true);
     }
 
     public boolean fI() {
-        return getBoolean(c.sK, false);
+        return getBoolean(c.sL, false);
     }
 
     public boolean fJ() {
-        return getBoolean(c.te, false);
+        return getBoolean(c.tf, false);
     }
 
     public boolean fK() {
-        return getBoolean(c.tg, true);
+        return getBoolean(c.th, true);
     }
 
     public boolean fL() {
-        return getBoolean(c.sG, false);
+        if (Util.isGlobalVersion()) {
+            return false;
+        }
+        return getBoolean(c.sH, false);
     }
 
     public int fM() {
-        return getInt(c.sH, 280);
+        return getInt(c.sI, 280);
     }
 
     public float fN() {
-        return (float) getDoubleFromValues(c.sI, 0.8766000270843506d);
+        return (float) getDoubleFromValues(c.sJ, 0.8766000270843506d);
     }
 
     public boolean fO() {
         if (Util.isGlobalVersion()) {
             return false;
         }
-        return getBoolean(c.sJ, false);
+        return getBoolean(c.sK, false);
     }
 
     public boolean fP() {
-        return getBoolean(c.tI, false);
+        return getBoolean(c.tJ, false);
     }
 
     public boolean fQ() {
-        return getBoolean(c.sE, false);
+        return getBoolean(c.sF, false);
     }
 
     public boolean fR() {
-        return getBoolean(c.tr, false);
+        return getBoolean(c.ts, false);
     }
 
     public boolean fS() {
-        return getBoolean(c.sO, false);
-    }
-
-    public boolean fT() {
         return getBoolean(c.sP, false);
     }
 
-    public boolean fU() {
+    public boolean fT() {
         return getBoolean(c.sQ, false);
     }
 
+    public boolean fU() {
+        return getBoolean(c.sR, false);
+    }
+
     public boolean fV() {
-        return getBoolean(c.sW, true);
+        return getBoolean(c.sZ, true);
     }
 
     public boolean fW() {
-        return getBoolean(c.sZ, false);
+        return getBoolean(c.ta, false);
     }
 
     public int fX() {
-        return getInt(c.tb, 0);
+        return getInt(c.tc, 0);
     }
 
     public boolean fY() {
         if (!Util.isGlobalVersion()) {
             return false;
         }
-        return getBoolean(c.th, false);
+        return getBoolean(c.ti, false);
     }
 
     public boolean fZ() {
-        return getBoolean(c.sU, false);
+        return getBoolean(c.sV, false);
     }
 
     public boolean fa() {
-        return getBoolean(c.rU, false) && eX();
+        return getBoolean(c.rV, false) && eX();
     }
 
     public boolean fb() {
-        return getBoolean(c.sS, false) && eX();
+        return getBoolean(c.sT, false) && eX();
     }
 
     public boolean fc() {
-        return getBoolean(c.rV, false);
-    }
-
-    public boolean fd() {
         return getBoolean(c.rW, false);
     }
 
-    public boolean fe() {
+    public boolean fd() {
         return getBoolean(c.rX, false);
     }
 
-    public boolean ff() {
-        return getBoolean(c.sB, false);
-    }
-
-    public boolean fg() {
+    public boolean fe() {
         return getBoolean(c.rY, false);
     }
 
-    public boolean fh() {
+    public boolean ff() {
+        return getBoolean(c.sC, false);
+    }
+
+    public boolean fg() {
         return getBoolean(c.rZ, false);
     }
 
+    public boolean fh() {
+        return getBoolean(c.sb, false);
+    }
+
     public boolean fi() {
-        return (eX() || eY()) && getBoolean(c.sb, false);
+        return (eX() || eY()) && getBoolean(c.sc, false);
     }
 
     public boolean fj() {
-        return getBoolean(c.se, true);
+        return getBoolean(c.sf, true);
     }
 
     public boolean fk() {
-        return getBoolean(c.sc, false);
+        return getBoolean(c.se, false);
     }
 
     public boolean fl() {
-        return getBoolean(c.sf, false);
-    }
-
-    public boolean fm() {
         return getBoolean(c.sg, false);
     }
 
-    public boolean fn() {
+    public boolean fm() {
         return getBoolean(c.sh, false);
     }
 
+    public boolean fn() {
+        return getBoolean(c.si, false);
+    }
+
     public boolean fo() {
-        return ((float) Util.sWindowHeight) / ((float) Util.sWindowWidth) >= 2.16f && getBoolean(c.si, false);
+        return ((float) Util.sWindowHeight) / ((float) Util.sWindowWidth) >= 2.16f && getBoolean(c.sj, false);
     }
 
     public boolean fp() {
-        return getBoolean(c.sj, false);
-    }
-
-    public boolean fq() {
         return getBoolean(c.sk, false);
     }
 
-    public boolean fr() {
-        return VERSION.SDK_INT == 28 && getBoolean(c.sr, false);
-    }
-
-    public boolean fs() {
-        return getBoolean(c.ss, false);
-    }
-
-    public boolean ft() {
-        return getBoolean(c.sy, true);
-    }
-
-    public boolean fu() {
-        return getBoolean(c.sz, false);
-    }
-
-    public boolean fv() {
-        return getBoolean(c.st, false);
-    }
-
-    public boolean fw() {
+    public boolean fq() {
         return getBoolean(c.sl, false);
     }
 
-    public int fx() {
-        return getInt(c.sR, 180);
+    public boolean fr() {
+        return VERSION.SDK_INT == 28 && getBoolean(c.ss, false);
     }
 
-    public boolean fy() {
+    public boolean fs() {
+        return getBoolean(c.st, false);
+    }
+
+    public boolean ft() {
+        return getBoolean(c.sz, true);
+    }
+
+    public boolean fu() {
+        return getBoolean(c.sA, false);
+    }
+
+    public boolean fv() {
+        return getBoolean(c.su, false);
+    }
+
+    public boolean fw() {
         return getBoolean(c.sm, false);
     }
 
+    public int fx() {
+        return getInt(c.sS, 180);
+    }
+
+    public boolean fy() {
+        return getBoolean(c.sn, false);
+    }
+
     public boolean fz() {
-        return getBoolean(c.sq, false);
+        return getBoolean(c.sr, false);
     }
 
     public boolean gA() {
-        return getBoolean(c.tF, true);
+        return gb() == 48000000 && gy();
     }
 
     public boolean gB() {
@@ -378,125 +386,137 @@ public class a extends DataItemBase implements c {
     }
 
     public boolean gD() {
-        return getBoolean(c.tJ, false);
+        return getBoolean(c.tI, true);
     }
 
     public boolean gE() {
         return getBoolean(c.tK, false);
     }
 
-    public String gF() {
-        return getString(c.tL, BuildConfig.FLAVOR);
+    public boolean gF() {
+        return getBoolean(c.tL, false);
     }
 
-    public boolean gG() {
-        return getBoolean(c.tN, false);
+    public String gG() {
+        return getString(c.tM, BuildConfig.FLAVOR);
+    }
+
+    public boolean gH() {
+        return getBoolean(c.tO, false);
+    }
+
+    public boolean gI() {
+        return getBoolean(c.tS, false);
+    }
+
+    public boolean gJ() {
+        return getBoolean(c.tT, false);
     }
 
     public boolean ga() {
-        return gb() <= 0 || getBoolean(c.sV, false);
+        return gb() <= 0 || getBoolean(c.sW, false);
     }
 
     public int gb() {
-        return getInt(c.sT, 0);
+        return getInt(c.sU, 0);
     }
 
     public int gd() {
-        return getInt(c.ta, 0);
+        return getInt(c.tb, 0);
     }
 
     public boolean ge() {
-        return getBoolean(c.tc, false);
-    }
-
-    public boolean gf() {
         return getBoolean(c.td, false);
     }
 
+    public boolean gf() {
+        return getBoolean(c.te, false);
+    }
+
     public boolean gg() {
-        if (b.iD()) {
+        if (b.iG()) {
             return false;
         }
-        return getBoolean(c.tM, true);
+        return getBoolean(c.tN, true);
     }
 
     public boolean gh() {
-        return getBoolean(c.ti, true);
+        return getBoolean(c.tj, true);
     }
 
     public boolean gi() {
-        return getBoolean(c.tj, false);
+        return getBoolean(c.tk, false);
     }
 
     public boolean gj() {
         if (VERSION.SDK_INT < 28) {
             return false;
         }
-        return getBoolean(c.tl, false);
-    }
-
-    public boolean gk() {
         return getBoolean(c.tm, false);
     }
 
-    public boolean gl() {
+    public boolean gk() {
         return getBoolean(c.tn, false);
     }
 
-    public boolean gm() {
+    public boolean gl() {
         return getBoolean(c.to, false);
     }
 
-    public boolean gn() {
+    public boolean gm() {
         return getBoolean(c.tp, false);
     }
 
+    public boolean gn() {
+        return getBoolean(c.tq, false);
+    }
+
     public boolean go() {
-        return getBoolean(c.tq, true);
+        return getBoolean(c.tr, true);
     }
 
     public boolean gp() {
-        return getBoolean(c.ts, false);
-    }
-
-    public boolean gq() {
         return getBoolean(c.tt, false);
     }
 
+    public boolean gq() {
+        return getBoolean(c.tu, false);
+    }
+
     public boolean gr() {
-        return getBoolean(c.sF, false);
+        return getBoolean(c.sG, false);
     }
 
     public boolean gs() {
-        return getBoolean(c.tu, true);
+        return getBoolean(c.tv, true);
     }
 
     public boolean gt() {
-        return getBoolean(c.tv, false);
+        return getBoolean(c.tw, false);
     }
 
     public boolean gu() {
-        return getBoolean(c.ty, false);
+        return getBoolean(c.tz, false);
     }
 
     public long gv() {
-        return (long) getInt(c.tw, -1);
+        return (long) getInt(c.tx, -1);
     }
 
     public int gw() {
-        return getInt(c.tx, -1);
+        return getInt(c.ty, -1);
     }
 
     public boolean gx() {
-        return getBoolean(c.tC, false);
+        return getBoolean(c.tD, false);
     }
 
     public boolean gy() {
-        return getBoolean(c.tE, true);
+        return getBoolean(c.tF, true);
     }
 
     public boolean gz() {
-        return gb() == 48000000 && gy();
+        return getBoolean(c.tR, false);
     }
 
     /* access modifiers changed from: protected */
@@ -505,35 +525,35 @@ public class a extends DataItemBase implements c {
     }
 
     public boolean isSupport4KUHDEIS() {
-        return getBoolean(c.sN, false);
+        return getBoolean(c.sO, false);
     }
 
     public boolean isSupportBeautyBody() {
-        return getBoolean(c.sC, false);
+        return getBoolean(c.sD, false);
     }
 
     public boolean isSupportBokehAdjust() {
-        return getBoolean(c.tk, false);
+        return getBoolean(c.tl, false);
     }
 
     public boolean isSupportMacroMode() {
-        return getBoolean(c.tD, false);
+        return getBoolean(c.tE, false);
     }
 
     public boolean isSupportNormalWideLDC() {
-        return getBoolean(c.sL, false);
+        return getBoolean(c.sM, false);
     }
 
     public boolean isSupportShortVideoBeautyBody() {
-        return getBoolean(c.tz, false);
+        return getBoolean(c.tA, false);
     }
 
     public boolean isSupportUltraWide() {
-        return getBoolean(c.sA, false);
+        return getBoolean(c.sB, false);
     }
 
     public boolean isSupportUltraWideLDC() {
-        return getBoolean(c.sM, false);
+        return getBoolean(c.sN, false);
     }
 
     public boolean isTransient() {
@@ -541,10 +561,14 @@ public class a extends DataItemBase implements c {
     }
 
     public String p(boolean z) {
-        return z ? getString(c.tA, "4.5") : getString(c.tB, "4");
+        return z ? getString(c.tB, "4.5") : getString(c.tC, "4");
     }
 
     public String provideKey() {
         return null;
+    }
+
+    public boolean q(boolean z) {
+        return z && getBoolean(c.tQ, false);
     }
 }

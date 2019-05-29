@@ -24,6 +24,7 @@ import java.nio.ByteOrder;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class VideoEncoder extends BaseEncoder {
+    private static String E = "video/hevc";
     public static final String ENCODER_THREAD_NAME = "Arc_Video_Encoder";
     public static final String NAME = "ARC_V";
     private static final String u = "Arc_VideoEncoder";
@@ -31,14 +32,12 @@ public class VideoEncoder extends BaseEncoder {
     private static final int w = 10000000;
     private static final int x = 30;
     private static final int y = 10;
-    private static String z = "video/avc";
-    private MediaFormat A;
+    /* access modifiers changed from: private */
+    public int A;
     /* access modifiers changed from: private */
     public int B;
-    /* access modifiers changed from: private */
-    public int C;
-    private boolean D;
-    private int E;
+    private boolean C;
+    private int D;
     private Surface F;
     private Thread G;
     /* access modifiers changed from: private */
@@ -48,6 +47,7 @@ public class VideoEncoder extends BaseEncoder {
     public GLRender J;
     private int K;
     protected long t;
+    private MediaFormat z;
 
     public class SaveThread extends Thread {
         private ByteBuffer b;
@@ -58,7 +58,7 @@ public class VideoEncoder extends BaseEncoder {
 
         public void run() {
             super.run();
-            Bitmap createBitmap = Bitmap.createBitmap(VideoEncoder.this.B, VideoEncoder.this.C, Config.ARGB_8888);
+            Bitmap createBitmap = Bitmap.createBitmap(VideoEncoder.this.A, VideoEncoder.this.B, Config.ARGB_8888);
             createBitmap.copyPixelsFromBuffer(this.b);
             StringBuilder sb = new StringBuilder();
             sb.append("/sdcard/Pictures/_");
@@ -77,40 +77,41 @@ public class VideoEncoder extends BaseEncoder {
         }
     }
 
-    public VideoEncoder(MuxerWrapper muxerWrapper, int i, int i2, Object obj, RecordingListener recordingListener, EGLContext eGLContext, int i3) {
+    public VideoEncoder(MuxerWrapper muxerWrapper, int i, int i2, Object obj, RecordingListener recordingListener, EGLContext eGLContext, int i3, String str) {
         super(muxerWrapper, obj, recordingListener);
-        this.B = i;
-        this.C = i2;
+        this.A = i;
+        this.B = i2;
         this.G = null;
         this.K = i3;
         this.I = eGLContext;
+        E = str;
         prepare(true);
         b();
         this.q = new ReentrantLock();
         this.r = this.q.newCondition();
-        String str = u;
+        String str2 = u;
         StringBuilder sb = new StringBuilder();
         sb.append("VideoEncoder constructor mCustomerBitRate = ");
         sb.append(this.K);
-        CodecLog.d(str, sb.toString());
-        String str2 = u;
+        CodecLog.d(str2, sb.toString());
+        String str3 = u;
         StringBuilder sb2 = new StringBuilder();
         sb2.append("VideoEncoder constructor mWidth = ");
         sb2.append(i);
         sb2.append(" ,mHeight = ");
         sb2.append(i2);
-        CodecLog.d(str2, sb2.toString());
+        CodecLog.d(str3, sb2.toString());
     }
 
     private void a(boolean z2) {
         CodecLog.d(u, "initVideoEncoder()->in");
-        this.A = MediaFormat.createVideoFormat(z, this.B, this.C);
-        this.A.setInteger("color-format", 2130708361);
-        this.A.setInteger("bitrate", this.K);
-        this.A.setInteger("frame-rate", 30);
-        this.A.setInteger("i-frame-interval", 10);
+        this.z = MediaFormat.createVideoFormat(E, this.A, this.B);
+        this.z.setInteger("color-format", 2130708361);
+        this.z.setInteger("bitrate", this.K);
+        this.z.setInteger("frame-rate", 30);
+        this.z.setInteger("i-frame-interval", 10);
         try {
-            this.i = MediaCodec.createEncoderByType(z);
+            this.i = MediaCodec.createEncoderByType(E);
             String str = u;
             StringBuilder sb = new StringBuilder();
             sb.append("initVideoEncoder(): selected_codec_name = ");
@@ -124,7 +125,7 @@ public class VideoEncoder extends BaseEncoder {
             }
         }
         try {
-            this.i.configure(this.A, null, null, 1);
+            this.i.configure(this.z, null, null, 1);
         } catch (Exception e2) {
             CodecLog.e(u, "initVideoEncoder()->configure failed.");
             e2.printStackTrace();
@@ -154,7 +155,7 @@ public class VideoEncoder extends BaseEncoder {
 
     /* access modifiers changed from: private */
     public void c() {
-        this.J = new GLRender(this.B, this.C, this.E, true);
+        this.J = new GLRender(this.A, this.B, this.D, true);
         this.J.initRender(false);
         String str = u;
         StringBuilder sb = new StringBuilder();
@@ -170,9 +171,9 @@ public class VideoEncoder extends BaseEncoder {
     }
 
     private void e() {
-        ByteBuffer allocateDirect = ByteBuffer.allocateDirect(this.B * this.C * 4);
+        ByteBuffer allocateDirect = ByteBuffer.allocateDirect(this.A * this.B * 4);
         allocateDirect.order(ByteOrder.nativeOrder());
-        GLES20.glReadPixels(0, 0, this.B, this.C, 6408, 5121, allocateDirect);
+        GLES20.glReadPixels(0, 0, this.A, this.B, 6408, 5121, allocateDirect);
         new SaveThread(allocateDirect).start();
     }
 

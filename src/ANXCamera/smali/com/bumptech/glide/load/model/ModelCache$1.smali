@@ -23,14 +23,14 @@
 
 
 # instance fields
-.field final synthetic jU:Lcom/bumptech/glide/load/model/ModelCache;
+.field final synthetic jV:Lcom/bumptech/glide/load/model/ModelCache;
 
 
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/load/model/ModelCache;J)V
     .locals 0
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/model/ModelCache$1;->jU:Lcom/bumptech/glide/load/model/ModelCache;
+    iput-object p1, p0, Lcom/bumptech/glide/load/model/ModelCache$1;->jV:Lcom/bumptech/glide/load/model/ModelCache;
 
     invoke-direct {p0, p2, p3}, Lcom/bumptech/glide/util/f;-><init>(J)V
 

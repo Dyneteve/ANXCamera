@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final hB:Ljava/util/Set;
+.field private final hC:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set<",
@@ -43,7 +43,7 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j$c;->hB:Ljava/util/Set;
+    iput-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j$c;->hC:Ljava/util/Set;
 
     return-void
 .end method
@@ -53,7 +53,7 @@
 .method public j(Landroid/graphics/Bitmap;)V
     .locals 3
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j$c;->hB:Ljava/util/Set;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j$c;->hC:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
@@ -61,7 +61,7 @@
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j$c;->hB:Ljava/util/Set;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j$c;->hC:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
@@ -116,7 +116,7 @@
 .method public k(Landroid/graphics/Bitmap;)V
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j$c;->hB:Ljava/util/Set;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j$c;->hC:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
@@ -124,7 +124,7 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j$c;->hB:Ljava/util/Set;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/j$c;->hC:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 

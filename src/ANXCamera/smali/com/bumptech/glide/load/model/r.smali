@@ -34,7 +34,7 @@
 
 
 # instance fields
-.field private final kn:Lcom/bumptech/glide/load/model/m;
+.field private final ko:Lcom/bumptech/glide/load/model/m;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/model/m<",
@@ -44,7 +44,7 @@
     .end annotation
 .end field
 
-.field private final ko:Landroid/content/res/Resources;
+.field private final kp:Landroid/content/res/Resources;
 
 
 # direct methods
@@ -62,9 +62,9 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/model/r;->ko:Landroid/content/res/Resources;
+    iput-object p1, p0, Lcom/bumptech/glide/load/model/r;->kp:Landroid/content/res/Resources;
 
-    iput-object p2, p0, Lcom/bumptech/glide/load/model/r;->kn:Lcom/bumptech/glide/load/model/m;
+    iput-object p2, p0, Lcom/bumptech/glide/load/model/r;->ko:Lcom/bumptech/glide/load/model/m;
 
     return-void
 .end method
@@ -83,7 +83,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/model/r;->ko:Landroid/content/res/Resources;
+    iget-object v1, p0, Lcom/bumptech/glide/load/model/r;->kp:Landroid/content/res/Resources;
 
     invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
@@ -99,7 +99,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lcom/bumptech/glide/load/model/r;->ko:Landroid/content/res/Resources;
+    iget-object v2, p0, Lcom/bumptech/glide/load/model/r;->kp:Landroid/content/res/Resources;
 
     invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
@@ -113,7 +113,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/model/r;->ko:Landroid/content/res/Resources;
+    iget-object v1, p0, Lcom/bumptech/glide/load/model/r;->kp:Landroid/content/res/Resources;
 
     invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
@@ -209,7 +209,7 @@
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/r;->kn:Lcom/bumptech/glide/load/model/m;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/r;->ko:Lcom/bumptech/glide/load/model/m;
 
     invoke-interface {v0, p1, p2, p3, p4}, Lcom/bumptech/glide/load/model/m;->b(Ljava/lang/Object;IILcom/bumptech/glide/load/f;)Lcom/bumptech/glide/load/model/m$a;
 

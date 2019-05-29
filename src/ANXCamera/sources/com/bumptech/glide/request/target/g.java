@@ -18,26 +18,26 @@ import com.bumptech.glide.util.i;
 /* compiled from: FixedSizeDrawable */
 public class g extends Drawable {
     private final Matrix matrix;
-    private final RectF oZ;
     private final RectF pa;
-    private Drawable pb;
-    private a pc;
-    private boolean pd;
+    private final RectF pb;
+    private Drawable pc;
+    private a pd;
+    private boolean pe;
 
     /* compiled from: FixedSizeDrawable */
     static final class a extends ConstantState {
         final int height;
-        private final ConstantState pe;
+        private final ConstantState pf;
         final int width;
 
         a(ConstantState constantState, int i, int i2) {
-            this.pe = constantState;
+            this.pf = constantState;
             this.width = i;
             this.height = i2;
         }
 
         a(a aVar) {
-            this(aVar.pe, aVar.width, aVar.height);
+            this(aVar.pf, aVar.width, aVar.height);
         }
 
         public int getChangingConfigurations() {
@@ -46,12 +46,12 @@ public class g extends Drawable {
 
         @NonNull
         public Drawable newDrawable() {
-            return new g(this, this.pe.newDrawable());
+            return new g(this, this.pf.newDrawable());
         }
 
         @NonNull
         public Drawable newDrawable(Resources resources) {
-            return new g(this, this.pe.newDrawable(resources));
+            return new g(this, this.pf.newDrawable(resources));
         }
     }
 
@@ -60,138 +60,138 @@ public class g extends Drawable {
     }
 
     g(a aVar, Drawable drawable) {
-        this.pc = (a) i.checkNotNull(aVar);
-        this.pb = (Drawable) i.checkNotNull(drawable);
+        this.pd = (a) i.checkNotNull(aVar);
+        this.pc = (Drawable) i.checkNotNull(drawable);
         drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
         this.matrix = new Matrix();
-        this.oZ = new RectF(0.0f, 0.0f, (float) drawable.getIntrinsicWidth(), (float) drawable.getIntrinsicHeight());
-        this.pa = new RectF();
+        this.pa = new RectF(0.0f, 0.0f, (float) drawable.getIntrinsicWidth(), (float) drawable.getIntrinsicHeight());
+        this.pb = new RectF();
     }
 
     private void es() {
-        this.matrix.setRectToRect(this.oZ, this.pa, ScaleToFit.CENTER);
+        this.matrix.setRectToRect(this.pa, this.pb, ScaleToFit.CENTER);
     }
 
     public void clearColorFilter() {
-        this.pb.clearColorFilter();
+        this.pc.clearColorFilter();
     }
 
     public void draw(@NonNull Canvas canvas) {
         canvas.save();
         canvas.concat(this.matrix);
-        this.pb.draw(canvas);
+        this.pc.draw(canvas);
         canvas.restore();
     }
 
     @RequiresApi(19)
     public int getAlpha() {
-        return this.pb.getAlpha();
+        return this.pc.getAlpha();
     }
 
     public Callback getCallback() {
-        return this.pb.getCallback();
+        return this.pc.getCallback();
     }
 
     public int getChangingConfigurations() {
-        return this.pb.getChangingConfigurations();
+        return this.pc.getChangingConfigurations();
     }
 
     public ConstantState getConstantState() {
-        return this.pc;
+        return this.pd;
     }
 
     @NonNull
     public Drawable getCurrent() {
-        return this.pb.getCurrent();
+        return this.pc.getCurrent();
     }
 
     public int getIntrinsicHeight() {
-        return this.pc.height;
+        return this.pd.height;
     }
 
     public int getIntrinsicWidth() {
-        return this.pc.width;
+        return this.pd.width;
     }
 
     public int getMinimumHeight() {
-        return this.pb.getMinimumHeight();
+        return this.pc.getMinimumHeight();
     }
 
     public int getMinimumWidth() {
-        return this.pb.getMinimumWidth();
+        return this.pc.getMinimumWidth();
     }
 
     public int getOpacity() {
-        return this.pb.getOpacity();
+        return this.pc.getOpacity();
     }
 
     public boolean getPadding(@NonNull Rect rect) {
-        return this.pb.getPadding(rect);
+        return this.pc.getPadding(rect);
     }
 
     public void invalidateSelf() {
         super.invalidateSelf();
-        this.pb.invalidateSelf();
+        this.pc.invalidateSelf();
     }
 
     @NonNull
     public Drawable mutate() {
-        if (!this.pd && super.mutate() == this) {
-            this.pb = this.pb.mutate();
-            this.pc = new a(this.pc);
-            this.pd = true;
+        if (!this.pe && super.mutate() == this) {
+            this.pc = this.pc.mutate();
+            this.pd = new a(this.pd);
+            this.pe = true;
         }
         return this;
     }
 
     public void scheduleSelf(@NonNull Runnable runnable, long j) {
         super.scheduleSelf(runnable, j);
-        this.pb.scheduleSelf(runnable, j);
+        this.pc.scheduleSelf(runnable, j);
     }
 
     public void setAlpha(int i) {
-        this.pb.setAlpha(i);
+        this.pc.setAlpha(i);
     }
 
     public void setBounds(int i, int i2, int i3, int i4) {
         super.setBounds(i, i2, i3, i4);
-        this.pa.set((float) i, (float) i2, (float) i3, (float) i4);
+        this.pb.set((float) i, (float) i2, (float) i3, (float) i4);
         es();
     }
 
     public void setBounds(@NonNull Rect rect) {
         super.setBounds(rect);
-        this.pa.set(rect);
+        this.pb.set(rect);
         es();
     }
 
     public void setChangingConfigurations(int i) {
-        this.pb.setChangingConfigurations(i);
+        this.pc.setChangingConfigurations(i);
     }
 
     public void setColorFilter(int i, @NonNull Mode mode) {
-        this.pb.setColorFilter(i, mode);
+        this.pc.setColorFilter(i, mode);
     }
 
     public void setColorFilter(ColorFilter colorFilter) {
-        this.pb.setColorFilter(colorFilter);
+        this.pc.setColorFilter(colorFilter);
     }
 
     @Deprecated
     public void setDither(boolean z) {
-        this.pb.setDither(z);
+        this.pc.setDither(z);
     }
 
     public void setFilterBitmap(boolean z) {
-        this.pb.setFilterBitmap(z);
+        this.pc.setFilterBitmap(z);
     }
 
     public boolean setVisible(boolean z, boolean z2) {
-        return this.pb.setVisible(z, z2);
+        return this.pc.setVisible(z, z2);
     }
 
     public void unscheduleSelf(@NonNull Runnable runnable) {
         super.unscheduleSelf(runnable);
-        this.pb.unscheduleSelf(runnable);
+        this.pc.unscheduleSelf(runnable);
     }
 }

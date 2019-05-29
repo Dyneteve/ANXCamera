@@ -296,7 +296,7 @@
 
     iget-object v0, p0, Lcom/android/camera/UserDefineWatermarkActivity;->mEtUserDefineWords:Landroid/widget/EditText;
 
-    const v1, 0x7f0902e7
+    const v1, 0x7f090382
 
     if-nez v0, :cond_0
 
@@ -365,7 +365,9 @@
 
     invoke-virtual {v0, v1, v1}, Landroid/app/ActionBar;->setDisplayOptions(II)V
 
-    sget v1, Lmiui/R$layout;->edit_mode_title:I
+    invoke-static {}, Lcom/android/camera/GeneralUtils;->editModeTitleLayout()I
+
+    move-result v1
 
     invoke-virtual {v0, v1}, Landroid/app/ActionBar;->setCustomView(I)V
 
@@ -688,7 +690,7 @@
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f04003e
+    const p1, 0x7f04003f
 
     invoke-virtual {p0, p1}, Lcom/android/camera/UserDefineWatermarkActivity;->setContentView(I)V
 
@@ -715,7 +717,7 @@
     invoke-virtual {p1, v0}, Landroid/view/Window;->addFlags(I)V
 
     :cond_0
-    const p1, 0x7f0d00e3
+    const p1, 0x7f0d00e2
 
     invoke-virtual {p0, p1}, Lcom/android/camera/UserDefineWatermarkActivity;->findViewById(I)Landroid/view/View;
 
@@ -743,7 +745,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0902e7
+    const v0, 0x7f090382
 
     invoke-virtual {p0, v0}, Lcom/android/camera/UserDefineWatermarkActivity;->getString(I)Ljava/lang/String;
 

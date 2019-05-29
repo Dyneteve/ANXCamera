@@ -10,7 +10,6 @@ public class BeautySettingManager {
     private HashMap<String, IBeautySettingBusiness> mBeautySettingBusinessArray = new HashMap<>();
     @ShineType
     private String mBeautyType;
-    private IBeautySettingBusiness mCurrentBeautySetting;
 
     private IBeautySettingBusiness updateBeautySettingBusiness(@ShineType String str, TypeElementsBeauty typeElementsBeauty, Map<String, IBeautySettingBusiness> map) {
         if (map.get(str) != null) {
@@ -23,11 +22,8 @@ public class BeautySettingManager {
 
     public IBeautySettingBusiness constructAndGetSetting(@ShineType String str, TypeElementsBeauty typeElementsBeauty) {
         this.mBeautyType = str;
-        this.mCurrentBeautySetting = updateBeautySettingBusiness(str, typeElementsBeauty, this.mBeautySettingBusinessArray);
-        return this.mCurrentBeautySetting;
-    }
-
-    public IBeautySettingBusiness getCurrentBeautySettingBusiness() {
-        return this.mCurrentBeautySetting;
+        IBeautySettingBusiness updateBeautySettingBusiness = updateBeautySettingBusiness(str, typeElementsBeauty, this.mBeautySettingBusinessArray);
+        updateBeautySettingBusiness.updateExtraTable();
+        return updateBeautySettingBusiness;
     }
 }

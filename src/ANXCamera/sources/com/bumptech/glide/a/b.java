@@ -10,8 +10,8 @@ import java.nio.charset.Charset;
 
 /* compiled from: StrictLineReader */
 class b implements Closeable {
-    private static final byte bY = 13;
-    private static final byte bZ = 10;
+    private static final byte bZ = 13;
+    private static final byte ca = 10;
     private byte[] buf;
     /* access modifiers changed from: private */
     public final Charset charset;

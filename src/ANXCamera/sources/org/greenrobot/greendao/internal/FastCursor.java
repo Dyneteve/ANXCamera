@@ -184,6 +184,9 @@ public final class FastCursor implements Cursor {
         throw new UnsupportedOperationException();
     }
 
+    public void setExtras(Bundle bundle) {
+    }
+
     public void setNotificationUri(ContentResolver contentResolver, Uri uri) {
         throw new UnsupportedOperationException();
     }

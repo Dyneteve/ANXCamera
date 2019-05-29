@@ -218,7 +218,7 @@
 .method protected getLayoutResourceId()I
     .locals 1
 
-    const v0, 0x7f04004c
+    const v0, 0x7f04004e
 
     return v0
 .end method
@@ -302,7 +302,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/FragmentPanorama;->mPanoramaViewRoot:Landroid/view/View;
 
-    const v0, 0x7f0d00fe
+    const v0, 0x7f0d00fc
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -314,7 +314,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/FragmentPanorama;->mPanoramaViewRoot:Landroid/view/View;
 
-    const v0, 0x7f0d0100
+    const v0, 0x7f0d00fe
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -334,7 +334,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0a000f
+    const v0, 0x7f0a0023
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -360,7 +360,7 @@
     :cond_1
     iget-object p1, p0, Lcom/android/camera/fragment/FragmentPanorama;->mPanoramaViewRoot:Landroid/view/View;
 
-    const v0, 0x7f0d00fb
+    const v0, 0x7f0d00f9
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -372,7 +372,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/FragmentPanorama;->mPanoramaViewRoot:Landroid/view/View;
 
-    const v0, 0x7f0d00fd
+    const v0, 0x7f0d00fb
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -384,7 +384,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/FragmentPanorama;->mPanoramaViewRoot:Landroid/view/View;
 
-    const v0, 0x7f0d0101
+    const v0, 0x7f0d00ff
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -396,7 +396,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/FragmentPanorama;->mPanoramaViewRoot:Landroid/view/View;
 
-    const v0, 0x7f0d00fa
+    const v0, 0x7f0d00f8
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -406,7 +406,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/FragmentPanorama;->mPanoramaViewRoot:Landroid/view/View;
 
-    const v0, 0x7f0d00fc
+    const v0, 0x7f0d00fa
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -416,7 +416,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/FragmentPanorama;->mPanoramaViewRoot:Landroid/view/View;
 
-    const v0, 0x7f0d00f9
+    const v0, 0x7f0d00f7
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

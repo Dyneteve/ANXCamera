@@ -107,7 +107,16 @@
 .method public abstract close()V
 .end method
 
+.method public abstract forceTurnFlashONAndPausePreview()V
+.end method
+
 .method public abstract forceTurnFlashOffAndPausePreview()V
+.end method
+
+.method public abstract getAlgorithmPreviewFormat()I
+.end method
+
+.method public abstract getAlgorithmPreviewSize()Lcom/android/camera/CameraSize;
 .end method
 
 .method protected abstract getCameraConfigs()Lcom/android/camera2/CameraConfigs;
@@ -283,9 +292,6 @@
     throw v1
 .end method
 
-.method public abstract getPreviewFormat()I
-.end method
-
 .method public abstract getPreviewMaxImages()I
 .end method
 
@@ -406,6 +412,9 @@
 .method public abstract onCapabilityChanged(Lcom/android/camera2/CameraCapabilities;)V
 .end method
 
+.method public abstract onMultiSnapEnd(ZLcom/android/camera2/MiCamera2Shot;)V
+.end method
+
 .method public abstract onParallelImagePostProcStart()V
 .end method
 
@@ -465,6 +474,12 @@
 .end method
 
 .method public abstract setAWBMode(I)V
+.end method
+
+.method public abstract setAlgorithmPreviewFormat(I)V
+.end method
+
+.method public abstract setAlgorithmPreviewSize(Lcom/android/camera/CameraSize;)V
 .end method
 
 .method public abstract setAntiBanding(I)V
@@ -764,9 +779,6 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw p1
-.end method
-
-.method public abstract setPreviewFormat(I)V
 .end method
 
 .method public abstract setPreviewMaxImages(I)V

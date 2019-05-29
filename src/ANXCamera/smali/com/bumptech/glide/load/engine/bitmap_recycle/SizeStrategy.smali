@@ -20,13 +20,13 @@
 
 
 # static fields
-.field private static final hC:I = 0x8
+.field private static final hD:I = 0x8
 
 
 # instance fields
-.field private final hL:Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$KeyPool;
+.field private final hM:Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$KeyPool;
 
-.field private final hM:Ljava/util/NavigableMap;
+.field private final hN:Ljava/util/NavigableMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/NavigableMap<",
@@ -37,7 +37,7 @@
     .end annotation
 .end field
 
-.field private final he:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
+.field private final hf:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/engine/bitmap_recycle/g<",
@@ -59,19 +59,19 @@
 
     invoke-direct {v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$KeyPool;-><init>()V
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->hL:Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$KeyPool;
+    iput-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->hM:Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$KeyPool;
 
     new-instance v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
 
     invoke-direct {v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/g;-><init>()V
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->he:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
+    iput-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->hf:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
 
     new-instance v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/PrettyPrintTreeMap;
 
     invoke-direct {v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/PrettyPrintTreeMap;-><init>()V
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->hM:Ljava/util/NavigableMap;
+    iput-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->hN:Ljava/util/NavigableMap;
 
     return-void
 .end method
@@ -79,7 +79,7 @@
 .method private c(Ljava/lang/Integer;)V
     .locals 3
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->hM:Ljava/util/NavigableMap;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->hN:Ljava/util/NavigableMap;
 
     invoke-interface {v0, p1}, Ljava/util/NavigableMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -95,14 +95,14 @@
 
     if-ne v1, v2, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->hM:Ljava/util/NavigableMap;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->hN:Ljava/util/NavigableMap;
 
     invoke-interface {v0, p1}, Ljava/util/NavigableMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 
     :cond_0
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->hM:Ljava/util/NavigableMap;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->hN:Ljava/util/NavigableMap;
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
@@ -169,13 +169,13 @@
 
     move-result v0
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->hL:Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$KeyPool;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->hM:Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$KeyPool;
 
     invoke-virtual {v1, v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$KeyPool;->v(I)Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$Key;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->hM:Ljava/util/NavigableMap;
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->hN:Ljava/util/NavigableMap;
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -203,11 +203,11 @@
 
     if-gt v3, v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->hL:Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$KeyPool;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->hM:Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$KeyPool;
 
     invoke-virtual {v0, v1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$KeyPool;->a(Lcom/bumptech/glide/load/engine/bitmap_recycle/l;)V
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->hL:Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$KeyPool;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->hM:Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$KeyPool;
 
     invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
 
@@ -218,7 +218,7 @@
     move-result-object v1
 
     :cond_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->he:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->hf:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
 
     invoke-virtual {v0, v1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/g;->b(Lcom/bumptech/glide/load/engine/bitmap_recycle/l;)Ljava/lang/Object;
 
@@ -241,7 +241,7 @@
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->he:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->hf:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
 
     invoke-virtual {v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/g;->removeLast()Ljava/lang/Object;
 
@@ -286,17 +286,17 @@
 
     move-result v0
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->hL:Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$KeyPool;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->hM:Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$KeyPool;
 
     invoke-virtual {v1, v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$KeyPool;->v(I)Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$Key;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->he:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->hf:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
 
     invoke-virtual {v1, v0, p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/g;->a(Lcom/bumptech/glide/load/engine/bitmap_recycle/l;Ljava/lang/Object;)V
 
-    iget-object p1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->hM:Ljava/util/NavigableMap;
+    iget-object p1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->hN:Ljava/util/NavigableMap;
 
     iget v1, v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$Key;->size:I
 
@@ -310,7 +310,7 @@
 
     check-cast p1, Ljava/lang/Integer;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->hM:Ljava/util/NavigableMap;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->hN:Ljava/util/NavigableMap;
 
     iget v0, v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$Key;->size:I
 
@@ -372,7 +372,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->he:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->hf:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -380,7 +380,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->hM:Ljava/util/NavigableMap;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy;->hN:Ljava/util/NavigableMap;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 

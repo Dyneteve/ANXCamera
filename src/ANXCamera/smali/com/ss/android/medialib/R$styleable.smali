@@ -15,6 +15,16 @@
 
 
 # static fields
+.field public static final AlphaView:[I
+
+.field public static final AlphaView_av_tabText:I = 0x0
+
+.field public static final AlphaView_av_tabTextSize:I = 0x1
+
+.field public static final AlphaView_av_textColorNormal:I = 0x2
+
+.field public static final AlphaView_av_textColorSelected:I = 0x3
+
 .field public static final CameraPreference:[I
 
 .field public static final CameraPreference_cameraTitle:I = 0x0
@@ -102,53 +112,59 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .locals 4
 
-    const/4 v0, 0x1
-
-    new-array v0, v0, [I
-
-    const/4 v1, 0x0
-
-    const v2, 0x7f010004
-
-    aput v2, v0, v1
-
-    sput-object v0, Lcom/ss/android/medialib/R$styleable;->CameraPreference:[I
-
-    const/4 v0, 0x2
+    const/4 v0, 0x4
 
     new-array v1, v0, [I
 
     fill-array-data v1, :array_0
 
-    sput-object v1, Lcom/ss/android/medialib/R$styleable;->IconIndicator:[I
+    sput-object v1, Lcom/ss/android/medialib/R$styleable;->AlphaView:[I
 
-    const/4 v1, 0x4
+    const/4 v1, 0x1
 
     new-array v1, v1, [I
 
-    fill-array-data v1, :array_1
+    const/4 v2, 0x0
 
-    sput-object v1, Lcom/ss/android/medialib/R$styleable;->IconListPreference:[I
+    const v3, 0x7f010004
 
-    const/4 v1, 0x5
+    aput v3, v1, v2
+
+    sput-object v1, Lcom/ss/android/medialib/R$styleable;->CameraPreference:[I
+
+    const/4 v1, 0x2
 
     new-array v2, v1, [I
 
-    fill-array-data v2, :array_2
+    fill-array-data v2, :array_1
 
-    sput-object v2, Lcom/ss/android/medialib/R$styleable;->ListPreference:[I
+    sput-object v2, Lcom/ss/android/medialib/R$styleable;->IconIndicator:[I
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_3
+    fill-array-data v0, :array_2
 
-    sput-object v0, Lcom/ss/android/medialib/R$styleable;->PreviewListPreference:[I
+    sput-object v0, Lcom/ss/android/medialib/R$styleable;->IconListPreference:[I
 
-    new-array v0, v1, [I
+    const/4 v0, 0x5
 
-    fill-array-data v0, :array_4
+    new-array v2, v0, [I
+
+    fill-array-data v2, :array_3
+
+    sput-object v2, Lcom/ss/android/medialib/R$styleable;->ListPreference:[I
+
+    new-array v1, v1, [I
+
+    fill-array-data v1, :array_4
+
+    sput-object v1, Lcom/ss/android/medialib/R$styleable;->PreviewListPreference:[I
+
+    new-array v0, v0, [I
+
+    fill-array-data v0, :array_5
 
     sput-object v0, Lcom/ss/android/medialib/R$styleable;->RecyclerView:[I
 
@@ -156,21 +172,27 @@
 
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_5
+    fill-array-data v0, :array_6
 
     sput-object v0, Lcom/ss/android/medialib/R$styleable;->ToggleSwitch:[I
 
     return-void
 
-    nop
-
     :array_0
+    .array-data 4
+        0x7f010021
+        0x7f010022
+        0x7f010023
+        0x7f010024
+    .end array-data
+
+    :array_1
     .array-data 4
         0x7f01000a
         0x7f01000b
     .end array-data
 
-    :array_1
+    :array_2
     .array-data 4
         0x7f01000a
         0x7f01000c
@@ -178,7 +200,7 @@
         0x7f01000e
     .end array-data
 
-    :array_2
+    :array_3
     .array-data 4
         0x7f010005
         0x7f010006
@@ -187,13 +209,13 @@
         0x7f010009
     .end array-data
 
-    :array_3
+    :array_4
     .array-data 4
         0x7f01000f
         0x7f010010
     .end array-data
 
-    :array_4
+    :array_5
     .array-data 4
         0x10100c4
         0x7f010000
@@ -202,7 +224,7 @@
         0x7f010003
     .end array-data
 
-    :array_5
+    :array_6
     .array-data 4
         0x7f010011
         0x7f010012

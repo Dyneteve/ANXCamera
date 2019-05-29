@@ -18,7 +18,7 @@
 .method protected static getRealZoomRatioTele()I
     .locals 1
 
-    sget-boolean v0, Lcom/mi/config/b;->rB:Z
+    sget-boolean v0, Lcom/mi/config/b;->rC:Z
 
     if-eqz v0, :cond_0
 

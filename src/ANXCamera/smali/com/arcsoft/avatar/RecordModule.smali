@@ -1136,7 +1136,7 @@
 .end method
 
 .method public startProcess(Lcom/arcsoft/avatar/util/ASVLOFFSCREEN;IZ)Z
-    .locals 7
+    .locals 8
     .param p1    # Lcom/arcsoft/avatar/util/ASVLOFFSCREEN;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -1254,11 +1254,13 @@
 
     iget-object v6, p0, Lcom/arcsoft/avatar/RecordModule;->M:Lcom/arcsoft/avatar/AvatarConfig$ASAvatarProcessInfo;
 
+    const/4 v7, 0x0
+
     move-object v2, p1
 
     move v5, p2
 
-    invoke-virtual/range {v1 .. v6}, Lcom/arcsoft/avatar/AvatarEngine;->avatarProcessWithInfoEx(Lcom/arcsoft/avatar/util/ASVLOFFSCREEN;IZILcom/arcsoft/avatar/AvatarConfig$ASAvatarProcessInfo;)I
+    invoke-virtual/range {v1 .. v7}, Lcom/arcsoft/avatar/AvatarEngine;->avatarProcessWithInfoEx(Lcom/arcsoft/avatar/util/ASVLOFFSCREEN;IZILcom/arcsoft/avatar/AvatarConfig$ASAvatarProcessInfo;Z)I
 
     const-string p1, "performance"
 
@@ -1535,7 +1537,7 @@
     throw p1
 .end method
 
-.method public startRecording(Ljava/lang/String;Lcom/arcsoft/avatar/recoder/RecordingListener;IIII)V
+.method public startRecording(Ljava/lang/String;Lcom/arcsoft/avatar/recoder/RecordingListener;IIIILjava/lang/String;)V
     .locals 11
     .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
@@ -1715,7 +1717,9 @@
 
     move/from16 v4, p6
 
-    invoke-virtual {v0, v2, v4, v3}, Lcom/arcsoft/avatar/recoder/MediaManager;->initVideoEncoderWithSharedContext(Landroid/opengl/EGLContext;IZ)V
+    move-object/from16 v5, p7
+
+    invoke-virtual {v0, v2, v4, v3, v5}, Lcom/arcsoft/avatar/recoder/MediaManager;->initVideoEncoderWithSharedContext(Landroid/opengl/EGLContext;IZLjava/lang/String;)V
 
     iget-object v0, v1, Lcom/arcsoft/avatar/RecordModule;->H:Lcom/arcsoft/avatar/recoder/MediaManager;
 

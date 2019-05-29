@@ -67,6 +67,10 @@
 
     const/16 v1, 0xa5
 
+    if-eq v0, v1, :cond_1
+
+    const/16 v1, 0xb1
+
     if-ne v0, v1, :cond_0
 
     goto :goto_0
@@ -120,7 +124,7 @@
 
     invoke-super {p0}, Lcom/android/camera/ui/V6RelativeLayout;->onFinishInflate()V
 
-    const v0, 0x7f0d0119
+    const v0, 0x7f0d0117
 
     invoke-virtual {p0, v0}, Lcom/android/camera/ui/V6PreviewFrame;->findViewById(I)Landroid/view/View;
 

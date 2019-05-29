@@ -1,5 +1,6 @@
 package com.android.camera.fragment.beauty;
 
+import android.text.TextUtils;
 import com.android.camera.CameraSettings;
 import com.android.camera.constant.BeautyConstant;
 import com.android.camera.data.DataRepository;
@@ -35,18 +36,15 @@ public class AbBeautySettingBusiness implements IBeautySettingBusiness {
         int currentCameraId = dataItemGlobal.getCurrentCameraId();
         this.mSupportedTypeItems = typeElementsBeauty.initAndGetSupportItems(currentCameraId, Camera2DataContainer.getInstance().getCapabilitiesByBogusCameraId(currentCameraId, dataItemGlobal.getCurrentMode()), str);
         this.mCurrentBeautyItemType = ((TypeItem) getSupportedTypeArray(getBeautyType()).get(0)).mKeyOrType;
-        updateExtraTable();
     }
 
-    private void updateExtraTable() {
+    public void clearBeauty() {
         for (TypeItem typeItem : getSupportedTypeArray(getBeautyType())) {
-            int i = 0;
             String str = typeItem.mKeyOrType;
-            if (!"".equals(str)) {
-                i = CameraSettings.getFaceBeautyRatio(str);
-            }
-            this.mExtraTable.put(str, Integer.valueOf(i));
+            CameraSettings.setFaceBeautyRatio(str, 0);
+            this.mExtraTable.put(str, Integer.valueOf(0));
         }
+        BeautyHelper.onBeautyChanged();
     }
 
     public int getDefaultProgressByCurrentItem() {
@@ -73,8 +71,9 @@ public class AbBeautySettingBusiness implements IBeautySettingBusiness {
     public void resetBeauty() {
         for (TypeItem typeItem : getSupportedTypeArray(getBeautyType())) {
             String str = typeItem.mKeyOrType;
-            CameraSettings.setFaceBeautyRatio(str, getProgressDefValue(str));
-            this.mExtraTable.put(str, Integer.valueOf(getProgressDefValue(str)));
+            int progressDefValue = getProgressDefValue(str);
+            this.mExtraTable.put(str, Integer.valueOf(progressDefValue));
+            CameraSettings.setFaceBeautyRatio(str, progressDefValue);
         }
         BeautyHelper.onBeautyChanged();
     }
@@ -97,6 +96,17 @@ public class AbBeautySettingBusiness implements IBeautySettingBusiness {
             sb.append(i);
             Log.v(str2, sb.toString());
             BeautyHelper.onBeautyChanged();
+        }
+    }
+
+    public void updateExtraTable() {
+        for (TypeItem typeItem : getSupportedTypeArray(getBeautyType())) {
+            int i = 0;
+            String str = typeItem.mKeyOrType;
+            if (!TextUtils.isEmpty(str)) {
+                i = CameraSettings.getFaceBeautyRatio(str);
+            }
+            this.mExtraTable.put(str, Integer.valueOf(i));
         }
     }
 }

@@ -70,8 +70,6 @@
 
 .field private mLastFrameGaussianBitmap:Landroid/graphics/Bitmap;
 
-.field private final mLock:Ljava/lang/Object;
-
 .field private mModuleAnimManager:Lcom/android/camera/SwitchAnimManager;
 
 .field private mNailListener:Lcom/android/camera/CameraScreenNail$NailListener;
@@ -147,12 +145,6 @@
 
     iput v0, p0, Lcom/android/camera/CameraScreenNail;->mAnimState:I
 
-    new-instance v1, Ljava/lang/Object;
-
-    invoke-direct {v1}, Ljava/lang/Object;-><init>()V
-
-    iput-object v1, p0, Lcom/android/camera/CameraScreenNail;->mLock:Ljava/lang/Object;
-
     new-instance v1, Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-direct {v1, v0}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
@@ -168,6 +160,94 @@
     iput-object p1, p0, Lcom/android/camera/CameraScreenNail;->mRequestRenderListeners:Ljava/util/List;
 
     invoke-virtual {p0, p2}, Lcom/android/camera/CameraScreenNail;->addRequestListener(Lcom/android/camera/CameraScreenNail$RequestRenderListener;)V
+
+    return-void
+.end method
+
+.method private copyMimojiPreviewTexture(Lcom/android/gallery3d/ui/GLCanvas;Lcom/android/gallery3d/ui/RawTexture;Lcom/android/camera/effect/FrameBuffer;)V
+    .locals 6
+
+    invoke-virtual {p2}, Lcom/android/gallery3d/ui/RawTexture;->getWidth()I
+
+    move-result v4
+
+    invoke-virtual {p2}, Lcom/android/gallery3d/ui/RawTexture;->getHeight()I
+
+    move-result v5
+
+    invoke-interface {p1, p3}, Lcom/android/gallery3d/ui/GLCanvas;->beginBindFrameBuffer(Lcom/android/camera/effect/FrameBuffer;)V
+
+    invoke-interface {p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
+
+    move-result-object p3
+
+    invoke-virtual {p3}, Lcom/android/camera/effect/GLCanvasState;->pushState()V
+
+    invoke-interface {p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
+
+    move-result-object p3
+
+    int-to-float v0, v4
+
+    const/high16 v1, 0x40000000    # 2.0f
+
+    div-float/2addr v0, v1
+
+    int-to-float v2, v5
+
+    div-float/2addr v2, v1
+
+    invoke-virtual {p3, v0, v2}, Lcom/android/camera/effect/GLCanvasState;->translate(FF)V
+
+    invoke-interface {p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
+
+    move-result-object p3
+
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    const/high16 v2, -0x40800000    # -1.0f
+
+    invoke-virtual {p3, v0, v2, v0}, Lcom/android/camera/effect/GLCanvasState;->scale(FFF)V
+
+    invoke-interface {p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
+
+    move-result-object p3
+
+    neg-int v0, v4
+
+    int-to-float v0, v0
+
+    div-float/2addr v0, v1
+
+    neg-int v2, v5
+
+    int-to-float v2, v2
+
+    div-float/2addr v2, v1
+
+    invoke-virtual {p3, v0, v2}, Lcom/android/camera/effect/GLCanvasState;->translate(FF)V
+
+    new-instance p3, Lcom/android/camera/effect/draw_mode/DrawBasicTexAttribute;
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
+
+    move-object v0, p3
+
+    move-object v1, p2
+
+    invoke-direct/range {v0 .. v5}, Lcom/android/camera/effect/draw_mode/DrawBasicTexAttribute;-><init>(Lcom/android/gallery3d/ui/BasicTexture;IIII)V
+
+    invoke-interface {p1, p3}, Lcom/android/gallery3d/ui/GLCanvas;->draw(Lcom/android/camera/effect/draw_mode/DrawAttribute;)V
+
+    invoke-interface {p1}, Lcom/android/gallery3d/ui/GLCanvas;->getState()Lcom/android/camera/effect/GLCanvasState;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Lcom/android/camera/effect/GLCanvasState;->popState()V
+
+    invoke-interface {p1}, Lcom/android/gallery3d/ui/GLCanvas;->endBindFrameBuffer()V
 
     return-void
 .end method
@@ -195,15 +275,67 @@
 
     invoke-virtual {p0, v0}, Lcom/android/camera/CameraScreenNail;->updateTransformMatrix([F)V
 
+    const/4 v0, 0x0
+
     if-nez p3, :cond_0
 
     new-instance p3, Lcom/android/camera/effect/FrameBuffer;
 
-    const/4 v0, 0x0
-
     invoke-direct {p3, p1, p2, v0}, Lcom/android/camera/effect/FrameBuffer;-><init>(Lcom/android/gallery3d/ui/GLCanvas;Lcom/android/gallery3d/ui/RawTexture;I)V
 
     :cond_0
+    invoke-static {}, Lcom/android/camera/module/ModuleManager;->getActiveModuleIndex()I
+
+    move-result v1
+
+    const/16 v2, 0xb1
+
+    if-ne v1, v2, :cond_2
+
+    iget-object v1, p0, Lcom/android/camera/CameraScreenNail;->mCaptureAnimTexture:Lcom/android/gallery3d/ui/RawTexture;
+
+    if-ne p2, v1, :cond_2
+
+    invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
+
+    move-result-object p2
+
+    const/16 v1, 0xd9
+
+    invoke-virtual {p2, v1}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getAttachProtocol(I)Lcom/android/camera/protocol/ModeProtocol$BaseProtocol;
+
+    move-result-object p2
+
+    check-cast p2, Lcom/android/camera/protocol/ModeProtocol$MimojiAvatarEngine;
+
+    new-instance v1, Lcom/android/gallery3d/ui/RawTexture;
+
+    const/4 v2, 0x1
+
+    invoke-direct {v1, v5, v6, v2}, Lcom/android/gallery3d/ui/RawTexture;-><init>(IIZ)V
+
+    if-eqz p2, :cond_1
+
+    new-instance v3, Lcom/android/camera/effect/FrameBuffer;
+
+    invoke-direct {v3, p1, v1, v0}, Lcom/android/camera/effect/FrameBuffer;-><init>(Lcom/android/gallery3d/ui/GLCanvas;Lcom/android/gallery3d/ui/RawTexture;I)V
+
+    invoke-interface {p1, v3}, Lcom/android/gallery3d/ui/GLCanvas;->beginBindFrameBuffer(Lcom/android/camera/effect/FrameBuffer;)V
+
+    invoke-interface {p2, v5, v6, v2}, Lcom/android/camera/protocol/ModeProtocol$MimojiAvatarEngine;->onDrawFrame(IIZ)V
+
+    invoke-interface {p1}, Lcom/android/gallery3d/ui/GLCanvas;->endBindFrameBuffer()V
+
+    invoke-direct {p0, p1, v1, p3}, Lcom/android/camera/CameraScreenNail;->copyMimojiPreviewTexture(Lcom/android/gallery3d/ui/GLCanvas;Lcom/android/gallery3d/ui/RawTexture;Lcom/android/camera/effect/FrameBuffer;)V
+
+    invoke-virtual {v3}, Lcom/android/camera/effect/FrameBuffer;->delete()V
+
+    :cond_1
+    invoke-virtual {v1}, Lcom/android/gallery3d/ui/RawTexture;->recycle()V
+
+    goto :goto_0
+
+    :cond_2
     invoke-interface {p1, p3}, Lcom/android/gallery3d/ui/GLCanvas;->beginBindFrameBuffer(Lcom/android/camera/effect/FrameBuffer;)V
 
     new-instance p2, Lcom/android/camera/effect/draw_mode/DrawExtTexAttribute;
@@ -224,6 +356,7 @@
 
     invoke-interface {p1}, Lcom/android/gallery3d/ui/GLCanvas;->endBindFrameBuffer()V
 
+    :goto_0
     return-void
 .end method
 
@@ -2346,7 +2479,7 @@
 
     invoke-static {v1, v2}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {}, Lcom/mi/config/b;->hC()Z
+    invoke-static {}, Lcom/mi/config/b;->hF()Z
 
     move-result v1
 
@@ -2364,7 +2497,7 @@
     :goto_0
     iput v1, p0, Lcom/android/camera/CameraScreenNail;->mSurfaceWidth:I
 
-    invoke-static {}, Lcom/mi/config/b;->hC()Z
+    invoke-static {}, Lcom/mi/config/b;->hF()Z
 
     move-result v1
 

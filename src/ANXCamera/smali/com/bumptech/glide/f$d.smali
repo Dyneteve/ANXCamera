@@ -76,9 +76,9 @@
 
     invoke-interface {v1, v0}, Ljava/util/Queue;->offer(Ljava/lang/Object;)Z
 
-    iput p1, v0, Lcom/bumptech/glide/f$c;->aQ:I
+    iput p1, v0, Lcom/bumptech/glide/f$c;->aR:I
 
-    iput p2, v0, Lcom/bumptech/glide/f$c;->aP:I
+    iput p2, v0, Lcom/bumptech/glide/f$c;->aQ:I
 
     return-object v0
 .end method

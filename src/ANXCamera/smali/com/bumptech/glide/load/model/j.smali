@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private volatile jN:Ljava/util/Map;
+.field private volatile jO:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -247,14 +247,14 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/j;->jN:Ljava/util/Map;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/j;->jO:Ljava/util/Map;
 
     if-nez v0, :cond_1
 
     monitor-enter p0
 
     :try_start_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/j;->jN:Ljava/util/Map;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/j;->jO:Ljava/util/Map;
 
     if-nez v0, :cond_0
 
@@ -266,7 +266,7 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/model/j;->jN:Ljava/util/Map;
+    iput-object v0, p0, Lcom/bumptech/glide/load/model/j;->jO:Ljava/util/Map;
 
     :cond_0
     monitor-exit p0
@@ -284,7 +284,7 @@
 
     :cond_1
     :goto_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/j;->jN:Ljava/util/Map;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/j;->jO:Ljava/util/Map;
 
     return-object v0
 .end method

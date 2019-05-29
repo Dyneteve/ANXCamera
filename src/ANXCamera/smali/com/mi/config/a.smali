@@ -11,7 +11,7 @@
 
 
 # instance fields
-.field private qm:Ljava/lang/String;
+.field private qn:Ljava/lang/String;
 
 
 # direct methods
@@ -117,7 +117,7 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget-object v3, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v3, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -326,9 +326,9 @@
 .end method
 
 .method public eX()Z
-    .locals 2
+    .locals 3
 
-    iget-object v0, p0, Lcom/mi/config/a;->qm:Ljava/lang/String;
+    iget-object v0, p0, Lcom/mi/config/a;->qn:Ljava/lang/String;
 
     if-nez v0, :cond_0
 
@@ -338,16 +338,52 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/mi/config/a;->qm:Ljava/lang/String;
+    iput-object v0, p0, Lcom/mi/config/a;->qn:Ljava/lang/String;
 
     :cond_0
     const-string v0, "india"
 
-    iget-object v1, p0, Lcom/mi/config/a;->qm:Ljava/lang/String;
+    iget-object v1, p0, Lcom/mi/config/a;->qn:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v0
+
+    const/4 v1, 0x1
+
+    if-eqz v0, :cond_1
+
+    return v1
+
+    :cond_1
+    iget-object v0, p0, Lcom/mi/config/a;->qn:Ljava/lang/String;
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    iget-object v0, p0, Lcom/mi/config/a;->qn:Ljava/lang/String;
+
+    sget-object v2, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v2, "india_"
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    return v1
+
+    :cond_2
+    const/4 v0, 0x0
 
     return v0
 .end method
@@ -371,7 +407,7 @@
 .method public eZ()Z
     .locals 2
 
-    iget-object v0, p0, Lcom/mi/config/a;->qm:Ljava/lang/String;
+    iget-object v0, p0, Lcom/mi/config/a;->qn:Ljava/lang/String;
 
     if-nez v0, :cond_0
 
@@ -381,12 +417,12 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/mi/config/a;->qm:Ljava/lang/String;
+    iput-object v0, p0, Lcom/mi/config/a;->qn:Ljava/lang/String;
 
     :cond_0
     const-string v0, "cn"
 
-    iget-object v1, p0, Lcom/mi/config/a;->qm:Ljava/lang/String;
+    iget-object v1, p0, Lcom/mi/config/a;->qn:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -570,9 +606,18 @@
 .method public fL()Z
     .locals 2
 
-    const-string v0, "c_0x00_s_l_s"
+    invoke-static {}, Lcom/android/camera/Util;->isGlobalVersion()Z
+
+    move-result v0
 
     const/4 v1, 0x0
+
+    if-eqz v0, :cond_0
+
+    return v1
+
+    :cond_0
+    const-string v0, "c_0x00_s_l_s"
 
     invoke-virtual {p0, v0, v1}, Lcom/mi/config/a;->getBoolean(Ljava/lang/String;Z)Z
 
@@ -1246,21 +1291,35 @@
 .method public gA()Z
     .locals 2
 
-    const-string v0, "c_0x34"
-
-    const/4 v1, 0x1
-
-    invoke-virtual {p0, v0, v1}, Lcom/mi/config/a;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {p0}, Lcom/mi/config/a;->gb()I
 
     move-result v0
 
+    const v1, 0x2dc6c00
+
+    if-ne v0, v1, :cond_0
+
+    invoke-virtual {p0}, Lcom/mi/config/a;->gy()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
     return v0
 .end method
 
 .method public gB()Z
     .locals 2
 
-    const-string v0, "c_0x35"
+    const-string v0, "c_0x34"
 
     const/4 v1, 0x1
 
@@ -1274,7 +1333,7 @@
 .method public gC()Z
     .locals 2
 
-    const-string v0, "c_0x36"
+    const-string v0, "c_0x35"
 
     const/4 v1, 0x1
 
@@ -1288,6 +1347,20 @@
 .method public gD()Z
     .locals 2
 
+    const-string v0, "c_0x36"
+
+    const/4 v1, 0x1
+
+    invoke-virtual {p0, v0, v1}, Lcom/mi/config/a;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public gE()Z
+    .locals 2
+
     const-string v0, "c_0x38"
 
     const/4 v1, 0x0
@@ -1299,7 +1372,7 @@
     return v0
 .end method
 
-.method public gE()Z
+.method public gF()Z
     .locals 2
 
     const-string v0, "c_0x39"
@@ -1313,7 +1386,7 @@
     return v0
 .end method
 
-.method public gF()Ljava/lang/String;
+.method public gG()Ljava/lang/String;
     .locals 2
 
     const-string v0, "c_0x40"
@@ -1327,10 +1400,38 @@
     return-object v0
 .end method
 
-.method public gG()Z
+.method public gH()Z
     .locals 2
 
     const-string v0, "c_0x42"
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p0, v0, v1}, Lcom/mi/config/a;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public gI()Z
+    .locals 2
+
+    const-string v0, "c_0x45"
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p0, v0, v1}, Lcom/mi/config/a;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public gJ()Z
+    .locals 2
+
+    const-string v0, "c_0x46"
 
     const/4 v1, 0x0
 
@@ -1432,7 +1533,7 @@
 .method public gg()Z
     .locals 2
 
-    invoke-static {}, Lcom/mi/config/b;->iD()Z
+    invoke-static {}, Lcom/mi/config/b;->iG()Z
 
     move-result v0
 
@@ -1720,28 +1821,14 @@
 .method public gz()Z
     .locals 2
 
-    invoke-virtual {p0}, Lcom/mi/config/a;->gb()I
+    const-string v0, "c_0x44"
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p0, v0, v1}, Lcom/mi/config/a;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v0
 
-    const v1, 0x2dc6c00
-
-    if-ne v0, v1, :cond_0
-
-    invoke-virtual {p0}, Lcom/mi/config/a;->gy()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
     return v0
 .end method
 
@@ -1906,4 +1993,27 @@
     const/4 v0, 0x0
 
     return-object v0
+.end method
+
+.method public q(Z)Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    if-eqz p1, :cond_0
+
+    const-string p1, "c_0x43"
+
+    invoke-virtual {p0, p1, v0}, Lcom/mi/config/a;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_0
+
+    const/4 v0, 0x1
+
+    nop
+
+    :cond_0
+    return v0
 .end method

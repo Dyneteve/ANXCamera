@@ -224,13 +224,19 @@
 
     invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, v1, Lorg/greenrobot/greendao/query/Join;->daoDestination:Lorg/greenrobot/greendao/AbstractDao;
+    const/16 v2, 0x22
 
-    invoke-virtual {v2}, Lorg/greenrobot/greendao/AbstractDao;->getTablename()Ljava/lang/String;
+    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    iget-object v3, v1, Lorg/greenrobot/greendao/query/Join;->daoDestination:Lorg/greenrobot/greendao/AbstractDao;
 
-    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3}, Lorg/greenrobot/greendao/AbstractDao;->getTablename()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     const/16 v2, 0x20
 
@@ -1356,54 +1362,6 @@
     return-object p0
 .end method
 
-.method public rx()Lorg/greenrobot/greendao/rx/RxQuery;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Lorg/greenrobot/greendao/rx/RxQuery<",
-            "TT;>;"
-        }
-    .end annotation
-
-    .annotation build Lorg/greenrobot/greendao/annotation/apihint/Experimental;
-    .end annotation
-
-    invoke-virtual {p0}, Lorg/greenrobot/greendao/query/QueryBuilder;->build()Lorg/greenrobot/greendao/query/Query;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lorg/greenrobot/greendao/query/Query;->__InternalRx()Lorg/greenrobot/greendao/rx/RxQuery;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public rxPlain()Lorg/greenrobot/greendao/rx/RxQuery;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Lorg/greenrobot/greendao/rx/RxQuery<",
-            "TT;>;"
-        }
-    .end annotation
-
-    .annotation build Lorg/greenrobot/greendao/annotation/apihint/Experimental;
-    .end annotation
-
-    invoke-virtual {p0}, Lorg/greenrobot/greendao/query/QueryBuilder;->build()Lorg/greenrobot/greendao/query/Query;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lorg/greenrobot/greendao/query/Query;->__internalRxPlain()Lorg/greenrobot/greendao/rx/RxQuery;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
 .method public stringOrderCollation(Ljava/lang/String;)Lorg/greenrobot/greendao/query/QueryBuilder;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
@@ -1415,20 +1373,6 @@
             "TT;>;"
         }
     .end annotation
-
-    iget-object v0, p0, Lorg/greenrobot/greendao/query/QueryBuilder;->dao:Lorg/greenrobot/greendao/AbstractDao;
-
-    invoke-virtual {v0}, Lorg/greenrobot/greendao/AbstractDao;->getDatabase()Lorg/greenrobot/greendao/database/Database;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Lorg/greenrobot/greendao/database/Database;->getRawDatabase()Ljava/lang/Object;
-
-    move-result-object v0
-
-    instance-of v0, v0, Landroid/database/sqlite/SQLiteDatabase;
-
-    if-eqz v0, :cond_2
 
     if-eqz p1, :cond_1
 
@@ -1457,11 +1401,12 @@
 
     move-result-object p1
 
+    nop
+
     :cond_1
     :goto_0
     iput-object p1, p0, Lorg/greenrobot/greendao/query/QueryBuilder;->stringOrderCollation:Ljava/lang/String;
 
-    :cond_2
     return-object p0
 .end method
 

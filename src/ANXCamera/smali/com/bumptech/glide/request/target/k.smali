@@ -16,13 +16,13 @@
 
 
 # static fields
-.field private static final pi:I = 0x1
+.field private static final pj:I = 0x1
 
-.field private static final pj:Landroid/os/Handler;
+.field private static final pk:Landroid/os/Handler;
 
 
 # instance fields
-.field private final aH:Lcom/bumptech/glide/i;
+.field private final aI:Lcom/bumptech/glide/i;
 
 
 # direct methods
@@ -41,7 +41,7 @@
 
     invoke-direct {v0, v1, v2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;Landroid/os/Handler$Callback;)V
 
-    sput-object v0, Lcom/bumptech/glide/request/target/k;->pj:Landroid/os/Handler;
+    sput-object v0, Lcom/bumptech/glide/request/target/k;->pk:Landroid/os/Handler;
 
     return-void
 .end method
@@ -51,7 +51,7 @@
 
     invoke-direct {p0, p2, p3}, Lcom/bumptech/glide/request/target/l;-><init>(II)V
 
-    iput-object p1, p0, Lcom/bumptech/glide/request/target/k;->aH:Lcom/bumptech/glide/i;
+    iput-object p1, p0, Lcom/bumptech/glide/request/target/k;->aI:Lcom/bumptech/glide/i;
 
     return-void
 .end method
@@ -97,7 +97,7 @@
         }
     .end annotation
 
-    sget-object p1, Lcom/bumptech/glide/request/target/k;->pj:Landroid/os/Handler;
+    sget-object p1, Lcom/bumptech/glide/request/target/k;->pk:Landroid/os/Handler;
 
     const/4 p2, 0x1
 
@@ -113,7 +113,7 @@
 .method clear()V
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/target/k;->aH:Lcom/bumptech/glide/i;
+    iget-object v0, p0, Lcom/bumptech/glide/request/target/k;->aI:Lcom/bumptech/glide/i;
 
     invoke-virtual {v0, p0}, Lcom/bumptech/glide/i;->d(Lcom/bumptech/glide/request/target/n;)V
 

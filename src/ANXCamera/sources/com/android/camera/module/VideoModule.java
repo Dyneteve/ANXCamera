@@ -281,12 +281,12 @@ public class VideoModule extends VideoBase implements OnErrorListener, OnInfoLis
         if (isFaceBeautyOn(this.mBeautyValues) || CameraSettings.isVideoBokehOn() || ModuleManager.isFastMotionModule() || ModuleManager.isSlowMotionModule() || CameraSettings.isAutoZoomEnabled(this.mModuleIndex)) {
             return 0;
         }
-        String string = DataRepository.dataItemConfig().getString(CameraSettings.KEY_CAMERA_HSR_VALUE, null);
-        if (string == null || string.isEmpty() || string.equals("off")) {
+        String hSRValue = CameraSettings.getHSRValue(isUltraWideBackCamera());
+        if (hSRValue == null || hSRValue.isEmpty() || hSRValue.equals("off")) {
             return 0;
         }
         if ((this.mQuality != 8 || CameraSettings.isSupportFpsRange(3840, 2160, this.mModuleIndex)) && (this.mQuality != 6 || CameraSettings.isSupportFpsRange(1920, ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_END_DEAULT, this.mModuleIndex))) {
-            return Integer.parseInt(string);
+            return Integer.parseInt(hSRValue);
         }
         return 0;
     }
@@ -536,10 +536,10 @@ public class VideoModule extends VideoBase implements OnErrorListener, OnInfoLis
 
     private boolean isEisOn() {
         boolean z = this.mQuality != 0 && (!CameraSettings.is4KHigherVideoQuality(this.mQuality) || isSupport4KUHDEIS()) && !isFaceBeautyOn(this.mBeautyValues) && CameraSettings.isMovieSolidOn() && getHSRValue() != 60 && isNormalMode();
-        if (z && !b.iF()) {
+        if (z && !b.iI()) {
             z = isBackCamera();
         }
-        if (!b.gH() || z || !CameraSettings.isMacroModeEnabled(this.mModuleIndex)) {
+        if (!b.gK() || z || !CameraSettings.isMacroModeEnabled(this.mModuleIndex)) {
             return z;
         }
         return true;
@@ -1303,7 +1303,7 @@ public class VideoModule extends VideoBase implements OnErrorListener, OnInfoLis
     }
 
     private void updateFrontMirror() {
-        boolean z = isFrontCamera() && !b.iF() && DataRepository.dataItemFeature().fA() && CameraSettings.isFrontMirror();
+        boolean z = isFrontCamera() && !b.iI() && DataRepository.dataItemFeature().fA() && CameraSettings.isFrontMirror();
         this.mCamera2Device.setFrontMirror(z);
     }
 
@@ -1350,7 +1350,7 @@ public class VideoModule extends VideoBase implements OnErrorListener, OnInfoLis
         sb.append(optimalVideoSnapshotPictureSize.toString());
         Log.d(str, sb.toString());
         int i4 = Integer.MAX_VALUE;
-        if (b.hB()) {
+        if (b.hE()) {
             i4 = optimalVideoSnapshotPictureSize.width;
             i = optimalVideoSnapshotPictureSize.height;
         } else {
@@ -1415,7 +1415,7 @@ public class VideoModule extends VideoBase implements OnErrorListener, OnInfoLis
                     updateFace();
                     break;
                 case 9:
-                    String antiBanding = (!b.he() || (!isHFRMode() && !isSlowMode())) ? CameraSettings.getAntiBanding() : "0";
+                    String antiBanding = (!b.hh() || (!isHFRMode() && !isSlowMode())) ? CameraSettings.getAntiBanding() : "0";
                     updateAntiBanding(antiBanding);
                     break;
                 case 10:
@@ -1574,7 +1574,7 @@ public class VideoModule extends VideoBase implements OnErrorListener, OnInfoLis
         ArrayList arrayList = new ArrayList();
         if (isBackCamera()) {
             arrayList.add("pref_video_speed_fast_key");
-            if (b.he()) {
+            if (b.hh()) {
                 arrayList.add("pref_video_speed_slow_key");
             }
         }
@@ -1713,7 +1713,7 @@ public class VideoModule extends VideoBase implements OnErrorListener, OnInfoLis
     }
 
     public boolean onGestureTrack(RectF rectF, boolean z) {
-        if (this.mInStartingFocusRecording || !isBackCamera() || !b.hg() || CameraSettings.is4KHigherVideoQuality(this.mQuality) || isCaptureIntent()) {
+        if (this.mInStartingFocusRecording || !isBackCamera() || !b.hj() || CameraSettings.is4KHigherVideoQuality(this.mQuality) || isCaptureIntent()) {
             return false;
         }
         return initializeObjectTrack(rectF, z);
@@ -2079,7 +2079,7 @@ public class VideoModule extends VideoBase implements OnErrorListener, OnInfoLis
     /* access modifiers changed from: protected */
     public void readVideoPreferences() {
         int i;
-        int videoQuality = CameraSettings.getVideoQuality(this.mModuleIndex);
+        int videoQuality = CameraSettings.getVideoQuality(this.mActualCameraId, this.mModuleIndex);
         try {
             videoQuality = getActivity().getCameraIntentManager().getVideoQuality() > 0 ? 1 : 0;
         } catch (RuntimeException e) {
@@ -2462,7 +2462,7 @@ public class VideoModule extends VideoBase implements OnErrorListener, OnInfoLis
             this.mCamera2Device.setGpsLocation(currentLocation);
             setJpegQuality();
             updateFrontMirror();
-            if (!b.hI()) {
+            if (!b.hL()) {
                 this.mActivity.getCameraScreenNail().animateCapture(getCameraRotation());
             }
             Log.v(TAG, "capture: start");

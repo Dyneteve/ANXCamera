@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/camera/module/Camera2Module$16;->this$0:Lcom/android/camera/module/Camera2Module;
 
-    invoke-static {v0}, Lcom/android/camera/module/Camera2Module;->access$4100(Lcom/android/camera/module/Camera2Module;)V
+    invoke-static {v0}, Lcom/android/camera/module/Camera2Module;->access$3900(Lcom/android/camera/module/Camera2Module;)V
 
     return-void
 .end method

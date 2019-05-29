@@ -38,6 +38,8 @@ public class ManuallyAdapter extends Adapter<CommonRecyclerViewHolder> {
         TextView textView = (TextView) commonRecyclerViewHolder.getView(R.id.manually_item_key);
         TextView textView2 = (TextView) commonRecyclerViewHolder.getView(R.id.manually_item_value);
         ImageView imageView = (ImageView) commonRecyclerViewHolder.getView(R.id.manually_item_value_image);
+        textView.setSelected(true);
+        textView2.setSelected(true);
         if (componentData.getDisplayTitleString() > 0) {
             textView.setText(componentData.getDisplayTitleString());
             if (componentData.disableUpdate()) {

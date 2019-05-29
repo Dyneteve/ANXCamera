@@ -7,14 +7,14 @@ import java.util.Queue;
 /* compiled from: BaseKeyPool */
 abstract class c<T extends l> {
     private static final int MAX_SIZE = 20;
-    private final Queue<T> hg = k.Y(20);
+    private final Queue<T> hh = k.Y(20);
 
     c() {
     }
 
     public void a(T t) {
-        if (this.hg.size() < 20) {
-            this.hg.offer(t);
+        if (this.hh.size() < 20) {
+            this.hh.offer(t);
         }
     }
 
@@ -22,7 +22,7 @@ abstract class c<T extends l> {
 
     /* access modifiers changed from: 0000 */
     public T bp() {
-        T t = (l) this.hg.poll();
+        T t = (l) this.hh.poll();
         return t == null ? bo() : t;
     }
 }

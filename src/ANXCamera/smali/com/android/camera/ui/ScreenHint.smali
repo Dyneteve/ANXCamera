@@ -254,7 +254,7 @@
 
     move-result v0
 
-    invoke-static {}, Lcom/mi/config/b;->gQ()Z
+    invoke-static {}, Lcom/mi/config/b;->gT()Z
 
     move-result v2
 

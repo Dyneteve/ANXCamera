@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" 
     android:compileSdkVersion="28" 
-    android:compileSdkVersionCodename="9"
-    android:versionCode="97" 
-    android:versionName="97.UnfitLumberingHairstreakbutterfly" 
+    android:compileSdkVersionCodename="9" 
+    android:versionCode="99" 
+    android:versionName="99.HeftyFantasticChinesecrocodilelizard" 
     package="com.android.camera" 
     platformBuildVersionCode="28" 
     platformBuildVersionName="9">
@@ -19,6 +19,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!-- <uses-permission android:name="android.permission.WRITE_MEDIA_STORAGE"/> -->
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"/>
     <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>
@@ -40,6 +41,7 @@
     <uses-permission android:name="com.miui.powerkeeper.permission.KILL_CAMERA"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="com.miui.securitycenter.permission.PERM_USE_INFO"/>
+    <uses-permission android:name="android.permission.CONTROL_DISPLAY_BRIGHTNESS"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <application android:allowBackup="false" 
@@ -174,11 +176,6 @@
                 <action android:name="miui.action.CAMERA_EMPTY_SERVICE"/>
             </intent-filter>
         </service>
-        <provider android:authorities="@string/provider_authority" 
-            android:exported="true" 
-            android:grantUriPermissions="true" 
-            android:name="com.xiaomi.camera.parallelservice.provider.ParallelProcessProvider" 
-            android:syncable="false"/>
         <provider android:authorities="com.android.camera.settings.CameraSettingsSearchProvider" 
             android:exported="true" 
             android:grantUriPermissions="true" 

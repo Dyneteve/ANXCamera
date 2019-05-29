@@ -23,8 +23,8 @@ public class VideoDecoder<T> implements g<T, Bitmap> {
     @VisibleForTesting
     static final int DEFAULT_FRAME_OPTION = 2;
     private static final String TAG = "VideoDecoder";
-    public static final long lR = -1;
-    public static final e<Long> lS = e.a("com.bumptech.glide.load.resource.bitmap.VideoBitmapDecode.TargetFrame", Long.valueOf(-1), new com.bumptech.glide.load.e.a<Long>() {
+    public static final long lS = -1;
+    public static final e<Long> lT = e.a("com.bumptech.glide.load.resource.bitmap.VideoBitmapDecode.TargetFrame", Long.valueOf(-1), new com.bumptech.glide.load.e.a<Long>() {
         private final ByteBuffer buffer = ByteBuffer.allocate(8);
 
         public void a(@NonNull byte[] bArr, @NonNull Long l, @NonNull MessageDigest messageDigest) {
@@ -35,7 +35,7 @@ public class VideoDecoder<T> implements g<T, Bitmap> {
             }
         }
     });
-    public static final e<Integer> lT = e.a("com.bumptech.glide.load.resource.bitmap.VideoBitmapDecode.FrameOption", Integer.valueOf(2), new com.bumptech.glide.load.e.a<Integer>() {
+    public static final e<Integer> lU = e.a("com.bumptech.glide.load.resource.bitmap.VideoBitmapDecode.FrameOption", Integer.valueOf(2), new com.bumptech.glide.load.e.a<Integer>() {
         private final ByteBuffer buffer = ByteBuffer.allocate(4);
 
         public void a(@NonNull byte[] bArr, @NonNull Integer num, @NonNull MessageDigest messageDigest) {
@@ -48,10 +48,10 @@ public class VideoDecoder<T> implements g<T, Bitmap> {
             }
         }
     });
-    private static final MediaMetadataRetrieverFactory lU = new MediaMetadataRetrieverFactory();
-    private final d ak;
-    private final MediaMetadataRetrieverInitializer<T> lV;
-    private final MediaMetadataRetrieverFactory lW;
+    private static final MediaMetadataRetrieverFactory lV = new MediaMetadataRetrieverFactory();
+    private final d al;
+    private final MediaMetadataRetrieverInitializer<T> lW;
+    private final MediaMetadataRetrieverFactory lX;
 
     @VisibleForTesting
     static class MediaMetadataRetrieverFactory {
@@ -87,14 +87,14 @@ public class VideoDecoder<T> implements g<T, Bitmap> {
     }
 
     VideoDecoder(d dVar, MediaMetadataRetrieverInitializer<T> mediaMetadataRetrieverInitializer) {
-        this(dVar, mediaMetadataRetrieverInitializer, lU);
+        this(dVar, mediaMetadataRetrieverInitializer, lV);
     }
 
     @VisibleForTesting
     VideoDecoder(d dVar, MediaMetadataRetrieverInitializer<T> mediaMetadataRetrieverInitializer, MediaMetadataRetrieverFactory mediaMetadataRetrieverFactory) {
-        this.ak = dVar;
-        this.lV = mediaMetadataRetrieverInitializer;
-        this.lW = mediaMetadataRetrieverFactory;
+        this.al = dVar;
+        this.lW = mediaMetadataRetrieverInitializer;
+        this.lX = mediaMetadataRetrieverFactory;
     }
 
     private static Bitmap a(MediaMetadataRetriever mediaMetadataRetriever, long j, int i) {
@@ -103,7 +103,7 @@ public class VideoDecoder<T> implements g<T, Bitmap> {
 
     @Nullable
     private static Bitmap a(MediaMetadataRetriever mediaMetadataRetriever, long j, int i, int i2, int i3, DownsampleStrategy downsampleStrategy) {
-        Bitmap b2 = (VERSION.SDK_INT < 27 || i2 == Integer.MIN_VALUE || i3 == Integer.MIN_VALUE || downsampleStrategy == DownsampleStrategy.lg) ? null : b(mediaMetadataRetriever, j, i, i2, i3, downsampleStrategy);
+        Bitmap b2 = (VERSION.SDK_INT < 27 || i2 == Integer.MIN_VALUE || i3 == Integer.MIN_VALUE || downsampleStrategy == DownsampleStrategy.lh) ? null : b(mediaMetadataRetriever, j, i, i2, i3, downsampleStrategy);
         return b2 == null ? a(mediaMetadataRetriever, j, i) : b2;
     }
 
@@ -137,23 +137,23 @@ public class VideoDecoder<T> implements g<T, Bitmap> {
     }
 
     public p<Bitmap> a(@NonNull T t, int i, int i2, @NonNull f fVar) throws IOException {
-        long longValue = ((Long) fVar.a(lS)).longValue();
+        long longValue = ((Long) fVar.a(lT)).longValue();
         if (longValue >= 0 || longValue == -1) {
-            Integer num = (Integer) fVar.a(lT);
+            Integer num = (Integer) fVar.a(lU);
             if (num == null) {
                 num = Integer.valueOf(2);
             }
-            DownsampleStrategy downsampleStrategy = (DownsampleStrategy) fVar.a(DownsampleStrategy.li);
+            DownsampleStrategy downsampleStrategy = (DownsampleStrategy) fVar.a(DownsampleStrategy.lj);
             if (downsampleStrategy == null) {
-                downsampleStrategy = DownsampleStrategy.lh;
+                downsampleStrategy = DownsampleStrategy.li;
             }
             DownsampleStrategy downsampleStrategy2 = downsampleStrategy;
-            MediaMetadataRetriever cB = this.lW.cB();
+            MediaMetadataRetriever cB = this.lX.cB();
             try {
-                this.lV.a(cB, t);
+                this.lW.a(cB, t);
                 Bitmap a2 = a(cB, longValue, num.intValue(), i, i2, downsampleStrategy2);
                 cB.release();
-                return f.a(a2, this.ak);
+                return f.a(a2, this.al);
             } catch (RuntimeException e) {
                 throw new IOException(e);
             } catch (Throwable th) {

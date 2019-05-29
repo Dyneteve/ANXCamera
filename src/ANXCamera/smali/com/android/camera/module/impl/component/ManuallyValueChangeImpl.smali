@@ -344,7 +344,7 @@
 
     move-result p1
 
-    invoke-static {}, Lcom/mi/config/b;->hA()Z
+    invoke-static {}, Lcom/mi/config/b;->hD()Z
 
     move-result p2
 

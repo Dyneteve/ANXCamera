@@ -155,7 +155,7 @@
 
     sput-object v0, Lcom/android/camera/storage/Storage;->SECONDARY_STORAGE_PATH:Ljava/lang/String;
 
-    sget-boolean v0, Lcom/mi/config/b;->qA:Z
+    sget-boolean v0, Lcom/mi/config/b;->qB:Z
 
     if-eqz v0, :cond_0
 
@@ -2674,7 +2674,7 @@
 
     if-nez v0, :cond_0
 
-    invoke-static {}, Lcom/mi/config/b;->hb()Z
+    invoke-static {}, Lcom/mi/config/b;->he()Z
 
     move-result v0
 
@@ -2695,7 +2695,7 @@
     return v1
 
     :cond_1
-    invoke-static {}, Lcom/mi/config/b;->hb()Z
+    invoke-static {}, Lcom/mi/config/b;->he()Z
 
     move-result v0
 
@@ -2831,7 +2831,7 @@
 
     invoke-static {p0}, Lcom/android/camera/storage/Storage;->initQuota(Landroid/content/Context;)V
 
-    invoke-static {}, Lcom/mi/config/b;->hb()Z
+    invoke-static {}, Lcom/mi/config/b;->he()Z
 
     move-result v0
 

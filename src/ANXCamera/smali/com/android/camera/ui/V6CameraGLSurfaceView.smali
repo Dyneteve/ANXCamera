@@ -114,7 +114,7 @@
 
     invoke-interface {p2, v0}, Landroid/view/SurfaceHolder;->setFormat(I)V
 
-    invoke-static {}, Lcom/mi/config/b;->hC()Z
+    invoke-static {}, Lcom/mi/config/b;->hF()Z
 
     move-result p2
 
@@ -281,7 +281,7 @@
 .end method
 
 .method public onDrawFrame(Ljavax/microedition/khronos/opengles/GL10;)V
-    .locals 2
+    .locals 3
 
     iget-object p1, p0, Lcom/android/camera/ui/V6CameraGLSurfaceView;->mCanvas:Lcom/android/gallery3d/ui/GLCanvasImpl;
 
@@ -293,42 +293,18 @@
 
     iput-boolean p1, p0, Lcom/android/camera/ui/V6CameraGLSurfaceView;->mRenderRequested:Z
 
-    iget-object p1, p0, Lcom/android/camera/ui/V6CameraGLSurfaceView;->mCanvas:Lcom/android/gallery3d/ui/GLCanvasImpl;
-
-    monitor-enter p1
-
-    :try_start_0
     iget-object v0, p0, Lcom/android/camera/ui/V6CameraGLSurfaceView;->mCanvas:Lcom/android/gallery3d/ui/GLCanvasImpl;
 
-    invoke-virtual {v0}, Lcom/android/gallery3d/ui/GLCanvasImpl;->getState()Lcom/android/camera/effect/GLCanvasState;
+    monitor-enter v0
 
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/camera/effect/GLCanvasState;->pushState()V
-
-    iget-object v0, p0, Lcom/android/camera/ui/V6CameraGLSurfaceView;->mActivity:Lcom/android/camera/Camera;
-
-    invoke-virtual {v0}, Lcom/android/camera/Camera;->getCameraScreenNail()Lcom/android/camera/CameraScreenNail;
-
-    move-result-object v0
-
+    :try_start_0
     iget-object v1, p0, Lcom/android/camera/ui/V6CameraGLSurfaceView;->mCanvas:Lcom/android/gallery3d/ui/GLCanvasImpl;
 
-    invoke-virtual {v0, v1}, Lcom/android/camera/CameraScreenNail;->draw(Lcom/android/gallery3d/ui/GLCanvas;)V
+    invoke-virtual {v1}, Lcom/android/gallery3d/ui/GLCanvasImpl;->getState()Lcom/android/camera/effect/GLCanvasState;
 
-    invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
+    move-result-object v1
 
-    move-result-object v0
-
-    const/16 v1, 0xd9
-
-    invoke-virtual {v0, v1}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getAttachProtocol(I)Lcom/android/camera/protocol/ModeProtocol$BaseProtocol;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/camera/protocol/ModeProtocol$MimojiAvatarEngine;
-
-    if-eqz v0, :cond_0
+    invoke-virtual {v1}, Lcom/android/camera/effect/GLCanvasState;->pushState()V
 
     iget-object v1, p0, Lcom/android/camera/ui/V6CameraGLSurfaceView;->mActivity:Lcom/android/camera/Camera;
 
@@ -336,24 +312,48 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/android/camera/CameraScreenNail;->isAnimationRunning()Z
+    iget-object v2, p0, Lcom/android/camera/ui/V6CameraGLSurfaceView;->mCanvas:Lcom/android/gallery3d/ui/GLCanvasImpl;
 
-    move-result v1
+    invoke-virtual {v1, v2}, Lcom/android/camera/CameraScreenNail;->draw(Lcom/android/gallery3d/ui/GLCanvas;)V
 
-    if-nez v1, :cond_0
+    invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
 
-    invoke-interface {v0}, Lcom/android/camera/protocol/ModeProtocol$MimojiAvatarEngine;->onDrawFrame()V
+    move-result-object v1
+
+    const/16 v2, 0xd9
+
+    invoke-virtual {v1, v2}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getAttachProtocol(I)Lcom/android/camera/protocol/ModeProtocol$BaseProtocol;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/camera/protocol/ModeProtocol$MimojiAvatarEngine;
+
+    if-eqz v1, :cond_0
+
+    iget-object v2, p0, Lcom/android/camera/ui/V6CameraGLSurfaceView;->mActivity:Lcom/android/camera/Camera;
+
+    invoke-virtual {v2}, Lcom/android/camera/Camera;->getCameraScreenNail()Lcom/android/camera/CameraScreenNail;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/camera/CameraScreenNail;->isAnimationRunning()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    invoke-interface {v1, p1, p1, p1}, Lcom/android/camera/protocol/ModeProtocol$MimojiAvatarEngine;->onDrawFrame(IIZ)V
 
     :cond_0
-    iget-object v0, p0, Lcom/android/camera/ui/V6CameraGLSurfaceView;->mCanvas:Lcom/android/gallery3d/ui/GLCanvasImpl;
+    iget-object p1, p0, Lcom/android/camera/ui/V6CameraGLSurfaceView;->mCanvas:Lcom/android/gallery3d/ui/GLCanvasImpl;
 
-    invoke-virtual {v0}, Lcom/android/gallery3d/ui/GLCanvasImpl;->getState()Lcom/android/camera/effect/GLCanvasState;
+    invoke-virtual {p1}, Lcom/android/gallery3d/ui/GLCanvasImpl;->getState()Lcom/android/camera/effect/GLCanvasState;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/android/camera/effect/GLCanvasState;->popState()V
+    invoke-virtual {p1}, Lcom/android/camera/effect/GLCanvasState;->popState()V
 
-    monitor-exit p1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -373,14 +373,14 @@
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception p1
 
     :try_start_1
-    monitor-exit p1
+    monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
 .method public onPause()V

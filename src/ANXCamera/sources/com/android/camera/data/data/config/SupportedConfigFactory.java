@@ -153,7 +153,7 @@ public class SupportedConfigFactory {
             case 170:
                 if (i2 == 0) {
                     supportedConfigs.add(225).add(233);
-                    if (b.he() && !dataItemFeature.fC()) {
+                    if (b.hh() && !dataItemFeature.fC()) {
                         supportedConfigs.add(232);
                     }
                     if (z && CameraSettings.isSupportMacroMode()) {
@@ -167,11 +167,11 @@ public class SupportedConfigFactory {
                 break;
             case 171:
                 supportedConfigs.add(225).add(226);
-                if (i2 == 1 && dataItemFeature.gB()) {
-                    if (b.gP() && b.gO()) {
+                if (i2 == 1 && dataItemFeature.gC()) {
+                    if (b.gS() && b.gR()) {
                         supportedConfigs.add(238);
                     }
-                    if (b.hQ()) {
+                    if (b.hT()) {
                         supportedConfigs.add(236);
                     }
                     if (b.ge()) {
@@ -188,16 +188,16 @@ public class SupportedConfigFactory {
                 supportedConfigs.add(211);
                 switch (i2) {
                     case 0:
-                        if (b.hL()) {
+                        if (b.hO()) {
                             supportedConfigs.add(228);
                         }
-                        if (b.hE()) {
+                        if (b.hH()) {
                             supportedConfigs.add(229);
                         }
-                        if (b.hl()) {
+                        if (b.ho()) {
                             supportedConfigs.add(234);
                         }
-                        if (i != 165 && z && b.id()) {
+                        if (i != 165 && z && b.ig()) {
                             supportedConfigs.add(235);
                         }
                         if (z && CameraSettings.checkLensAvailability(CameraAppImpl.getAndroidContext())) {
@@ -211,14 +211,14 @@ public class SupportedConfigFactory {
                             break;
                         }
                     case 1:
-                        if (z && b.id() && i != 165) {
+                        if (z && b.ig() && i != 165) {
                             supportedConfigs.add(235);
                         }
                         if (i == 165 || i == 163) {
-                            if (b.gP() && b.gO()) {
+                            if (b.gS() && b.gR()) {
                                 supportedConfigs.add(238);
                             }
-                            if (b.hQ()) {
+                            if (b.hT()) {
                                 supportedConfigs.add(236);
                             }
                             if (z && dataItemRunning.supportUltraPixel()) {
@@ -279,7 +279,7 @@ public class SupportedConfigFactory {
                         if (dataItemRunning.supportTopShineEntry()) {
                             arrayList.add(createConfigItem(dataItemRunning.getComponentRunningShine().getTopConfigItem(), 17));
                         }
-                        if (!dataItemFeature.fC() && b.he() && b.it()) {
+                        if (!dataItemFeature.fC() && b.hh() && b.iw()) {
                             arrayList.add(createConfigItem(202));
                         }
                         arrayList.add(createConfigItem(197));
@@ -317,7 +317,7 @@ public class SupportedConfigFactory {
                 break;
             case 167:
                 ComponentManuallyFocus manuallyFocus = dataItemConfig.getManuallyFocus();
-                if (b.hA() && !manuallyFocus.getComponentValue(i).equals(manuallyFocus.getDefaultValue(i)) && cameraCapabilities.isAFRegionSupported()) {
+                if (b.hD() && !manuallyFocus.getComponentValue(i).equals(manuallyFocus.getDefaultValue(i)) && cameraCapabilities.isAFRegionSupported()) {
                     arrayList.add(createConfigItem(199));
                 }
                 if (z && dataItemRunning.supportUltraPixel()) {

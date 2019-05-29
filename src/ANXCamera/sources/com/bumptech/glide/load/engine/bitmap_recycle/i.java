@@ -13,32 +13,32 @@ public final class i implements b {
     private static final int DEFAULT_SIZE = 4194304;
     @VisibleForTesting
     static final int MAX_OVER_SIZE_MULTIPLE = 8;
-    private static final int hl = 2;
-    private final g<a, Object> he;
-    private final b hm;
-    private final Map<Class<?>, NavigableMap<Integer, Integer>> hn;
-    private final Map<Class<?>, a<?>> ho;
-    private int hp;
+    private static final int hm = 2;
+    private final g<a, Object> hf;
+    private final b hn;
+    private final Map<Class<?>, NavigableMap<Integer, Integer>> ho;
+    private final Map<Class<?>, a<?>> hp;
+    private int hq;
     private final int maxSize;
 
     /* compiled from: LruArrayPool */
     private static final class a implements l {
-        private final b hq;
-        private Class<?> hr;
+        private final b hr;
+        private Class<?> hs;
         int size;
 
         a(b bVar) {
-            this.hq = bVar;
+            this.hr = bVar;
         }
 
         public void bm() {
-            this.hq.a(this);
+            this.hr.a(this);
         }
 
         /* access modifiers changed from: 0000 */
         public void d(int i, Class<?> cls) {
             this.size = i;
-            this.hr = cls;
+            this.hs = cls;
         }
 
         public boolean equals(Object obj) {
@@ -47,14 +47,14 @@ public final class i implements b {
                 return false;
             }
             a aVar = (a) obj;
-            if (this.size == aVar.size && this.hr == aVar.hr) {
+            if (this.size == aVar.size && this.hs == aVar.hs) {
                 z = true;
             }
             return z;
         }
 
         public int hashCode() {
-            return (31 * this.size) + (this.hr != null ? this.hr.hashCode() : 0);
+            return (31 * this.size) + (this.hs != null ? this.hs.hashCode() : 0);
         }
 
         public String toString() {
@@ -62,7 +62,7 @@ public final class i implements b {
             sb.append("Key{size=");
             sb.append(this.size);
             sb.append("array=");
-            sb.append(this.hr);
+            sb.append(this.hs);
             sb.append('}');
             return sb.toString();
         }
@@ -89,31 +89,31 @@ public final class i implements b {
 
     @VisibleForTesting
     public i() {
-        this.he = new g<>();
-        this.hm = new b();
-        this.hn = new HashMap();
+        this.hf = new g<>();
+        this.hn = new b();
         this.ho = new HashMap();
+        this.hp = new HashMap();
         this.maxSize = DEFAULT_SIZE;
     }
 
     public i(int i) {
-        this.he = new g<>();
-        this.hm = new b();
-        this.hn = new HashMap();
+        this.hf = new g<>();
+        this.hn = new b();
         this.ho = new HashMap();
+        this.hp = new HashMap();
         this.maxSize = i;
     }
 
     @Nullable
     private <T> T a(a aVar) {
-        return this.he.b(aVar);
+        return this.hf.b(aVar);
     }
 
     private <T> T a(a aVar, Class<T> cls) {
         a g = g(cls);
         T a2 = a(aVar);
         if (a2 != null) {
-            this.hp -= g.n(a2) * g.bk();
+            this.hq -= g.n(a2) * g.bk();
             c(g.n(a2), cls);
         }
         if (a2 != null) {
@@ -135,7 +135,7 @@ public final class i implements b {
     }
 
     private boolean bq() {
-        return this.hp == 0 || this.maxSize / this.hp >= 2;
+        return this.hq == 0 || this.maxSize / this.hq >= 2;
     }
 
     private void br() {
@@ -160,17 +160,17 @@ public final class i implements b {
     }
 
     private NavigableMap<Integer, Integer> f(Class<?> cls) {
-        NavigableMap<Integer, Integer> navigableMap = (NavigableMap) this.hn.get(cls);
+        NavigableMap<Integer, Integer> navigableMap = (NavigableMap) this.ho.get(cls);
         if (navigableMap != null) {
             return navigableMap;
         }
         TreeMap treeMap = new TreeMap();
-        this.hn.put(cls, treeMap);
+        this.ho.put(cls, treeMap);
         return treeMap;
     }
 
     private <T> a<T> g(Class<T> cls) {
-        a<T> aVar = (a) this.ho.get(cls);
+        a<T> aVar = (a) this.hp.get(cls);
         if (aVar == null) {
             if (cls.equals(int[].class)) {
                 aVar = new h<>();
@@ -182,7 +182,7 @@ public final class i implements b {
                 sb.append(cls.getSimpleName());
                 throw new IllegalArgumentException(sb.toString());
             }
-            this.ho.put(cls, aVar);
+            this.hp.put(cls, aVar);
         }
         return aVar;
     }
@@ -196,11 +196,11 @@ public final class i implements b {
     }
 
     private void t(int i) {
-        while (this.hp > i) {
-            Object removeLast = this.he.removeLast();
+        while (this.hq > i) {
+            Object removeLast = this.hf.removeLast();
             com.bumptech.glide.util.i.checkNotNull(removeLast);
             a o = o(removeLast);
-            this.hp -= o.n(removeLast) * o.bk();
+            this.hq -= o.n(removeLast) * o.bk();
             c(o.n(removeLast), removeLast.getClass());
             if (Log.isLoggable(o.getTag(), 2)) {
                 String tag = o.getTag();
@@ -215,7 +215,7 @@ public final class i implements b {
     public synchronized <T> T a(int i, Class<T> cls) {
         Integer num;
         num = (Integer) f(cls).ceilingKey(Integer.valueOf(i));
-        return a(a(i, num) ? this.hm.e(num.intValue(), cls) : this.hm.e(i, cls), cls);
+        return a(a(i, num) ? this.hn.e(num.intValue(), cls) : this.hn.e(i, cls), cls);
     }
 
     @Deprecated
@@ -224,15 +224,15 @@ public final class i implements b {
     }
 
     public synchronized <T> T b(int i, Class<T> cls) {
-        return a(this.hm.e(i, cls), cls);
+        return a(this.hn.e(i, cls), cls);
     }
 
     /* access modifiers changed from: 0000 */
     public int bs() {
         int i = 0;
-        for (Class cls : this.hn.keySet()) {
-            for (Integer num : ((NavigableMap) this.hn.get(cls)).keySet()) {
-                i += num.intValue() * ((Integer) ((NavigableMap) this.hn.get(cls)).get(num)).intValue() * g(cls).bk();
+        for (Class cls : this.ho.keySet()) {
+            for (Integer num : ((NavigableMap) this.ho.get(cls)).keySet()) {
+                i += num.intValue() * ((Integer) ((NavigableMap) this.ho.get(cls)).get(num)).intValue() * g(cls).bk();
             }
         }
         return i;
@@ -248,8 +248,8 @@ public final class i implements b {
         int n = g.n(t);
         int bk = g.bk() * n;
         if (s(bk)) {
-            a e = this.hm.e(n, cls);
-            this.he.a(e, t);
+            a e = this.hn.e(n, cls);
+            this.hf.a(e, t);
             NavigableMap f = f(cls);
             Integer num = (Integer) f.get(Integer.valueOf(e.size));
             Integer valueOf = Integer.valueOf(e.size);
@@ -258,7 +258,7 @@ public final class i implements b {
                 i = 1 + num.intValue();
             }
             f.put(valueOf, Integer.valueOf(i));
-            this.hp += bk;
+            this.hq += bk;
             br();
         }
     }

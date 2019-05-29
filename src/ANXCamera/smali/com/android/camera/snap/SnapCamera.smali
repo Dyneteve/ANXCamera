@@ -680,9 +680,11 @@
 
     if-eqz v1, :cond_2
 
-    const/16 v0, 0xa2
+    iget v0, p0, Lcom/android/camera/snap/SnapCamera;->mCameraId:I
 
-    invoke-static {v0}, Lcom/android/camera/CameraSettings;->getPreferVideoQuality(I)I
+    const/16 v1, 0xa2
+
+    invoke-static {v0, v1}, Lcom/android/camera/CameraSettings;->getPreferVideoQuality(II)I
 
     move-result v0
 
@@ -893,7 +895,7 @@
 
     iget-object v1, p0, Lcom/android/camera/snap/SnapCamera;->mContext:Landroid/content/Context;
 
-    invoke-static {}, Lcom/mi/config/b;->iC()Z
+    invoke-static {}, Lcom/mi/config/b;->iF()Z
 
     move-result v2
 

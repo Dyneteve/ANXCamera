@@ -5,6 +5,7 @@ import android.hardware.camera2.CaptureRequest;
 import android.hardware.camera2.CaptureRequest.Builder;
 import android.hardware.camera2.CaptureRequest.Key;
 import com.android.camera.fragment.beauty.BeautyValues;
+import com.android.camera.log.Log;
 import com.android.camera2.CaptureResultParser;
 import com.android.camera2.autozoom.AutoZoomTags.TAG;
 import com.mi.config.b;
@@ -14,6 +15,10 @@ import java.util.Map.Entry;
 
 @TargetApi(21)
 public class MiCameraCompatBaseImpl {
+    private static final Key<Boolean> AI_SCENE = genBooleanRequestKey(CaptureResultParser.VENDOR_TAG_ASD_ENABLE);
+    private static final Key<Integer> AI_SCENE_APPLY = genIntegerRequestKey("xiaomi.ai.asd.sceneApplied");
+    private static final Key<int[]> AI_SCENE_AVAILABLE_MODES = genRequestKey("xiaomi.ai.asd.availableSceneMode", int[].class);
+    private static final Key<Integer> AI_SCENE_PERIOD = genIntegerRequestKey("xiaomi.ai.asd.period");
     public static final Key<Integer> BEAUTY_BLUSHER = genIntegerRequestKey("xiaomi.beauty.blushRatio");
     private static final Key<Integer> BEAUTY_BODY_SLIM = genIntegerRequestKey("xiaomi.beauty.bodySlimRatio");
     public static final Key<Integer> BEAUTY_CHIN = genIntegerRequestKey("xiaomi.beauty.chinRatio");
@@ -52,6 +57,9 @@ public class MiCameraCompatBaseImpl {
     public static final Key<Boolean> HDR_CHECKER_ENABLE = genBooleanRequestKey("xiaomi.hdr.hdrChecker.enabled");
     public static final Key<Boolean> HDR_ENABLED = genBooleanRequestKey("xiaomi.hdr.enabled");
     public static final Key<Boolean> HHT_ENABLED = genBooleanRequestKey("xiaomi.hht.enabled");
+    private static final Key<Byte> IS_HFR_PREVIEW = genByteRequestKey("xiaomi.hfrPreview.isHFRPreview");
+    private static final Key<Byte> KEY_MACRO_MODE = genByteRequestKey("xiaomi.MacroMode.enabled");
+    private static final Key<Integer> KEY_MULTIFRAME_INPUTNUM = genIntegerRequestKey(CaptureResultParser.VENDOR_TAG_MULTIFRAME_INPUTNUM);
     public static final Key<Boolean> LENS_DIRTY_DETECT = genBooleanRequestKey("xiaomi.ai.add.enabled");
     public static final Key<Boolean> MFNR_ENABLED = genBooleanRequestKey("xiaomi.mfnr.enabled");
     public static final Key<Byte> NORMAL_WIDE_LENS_DISTORTION_CORRECTION_LEVEL = genByteRequestKey("xiaomi.distortion.distortionLevelApplied");
@@ -93,7 +101,6 @@ public class MiCameraCompatBaseImpl {
         BEAUTY_TYPE_MAP.put("pref_beauty_shoulder_slim_ratio", BEAUTY_SHOULDER_SLIM);
         BEAUTY_TYPE_MAP.put("key_beauty_leg_slim_ratio", BEAUTY_LEG_SLIM);
         BEAUTY_TYPE_MAP.put("pref_beauty_whole_body_slim_ratio", WHOLE_BODY_SLIM);
-        BEAUTY_TYPE_MAP.put("pref_eye_light_type_key", EYE_LIGHT_TYPE);
     }
 
     static Key<Boolean> genBooleanRequestKey(String str) {
@@ -121,15 +128,15 @@ public class MiCameraCompatBaseImpl {
     }
 
     public void applyASDEnable(Builder builder, boolean z) {
-        throw new RuntimeException("unSupported action");
+        builder.set(AI_SCENE, Boolean.valueOf(z));
     }
 
     public void applyASDScene(Builder builder, int i) {
-        throw new RuntimeException("unSupported action");
+        builder.set(AI_SCENE_APPLY, Integer.valueOf(i));
     }
 
     public void applyAiScenePeriod(Builder builder, int i) {
-        throw new RuntimeException("unSupported action");
+        builder.set(AI_SCENE_PERIOD, Integer.valueOf(i));
     }
 
     public void applyAutoZoomMode(Builder builder, int i) {
@@ -146,7 +153,7 @@ public class MiCameraCompatBaseImpl {
 
     public void applyBeautyParameter(Builder builder, HashSet<String> hashSet, BeautyValues beautyValues) {
         builder.set(BEAUTY_LEVEL, beautyValues.mBeautyLevel);
-        if (b.iw()) {
+        if (b.iz()) {
             for (Entry entry : BEAUTY_TYPE_MAP.entrySet()) {
                 Key key = (Key) entry.getValue();
                 if (hashSet.contains(key.getName())) {
@@ -170,7 +177,7 @@ public class MiCameraCompatBaseImpl {
     }
 
     public void applyCameraAi30Enable(Builder builder, boolean z) {
-        throw new RuntimeException("unSupported action");
+        builder.set(CAMERA_AI_30, Byte.valueOf(z ? (byte) 1 : 0));
     }
 
     public void applyContrast(Builder builder, int i) {
@@ -182,7 +189,7 @@ public class MiCameraCompatBaseImpl {
     }
 
     public void applyDepurpleEnable(Builder builder, boolean z) {
-        throw new RuntimeException("unSupported action");
+        builder.set(DEPURPLE_TAG, Byte.valueOf(z ? (byte) 1 : 0));
     }
 
     public void applyDeviceOrientation(Builder builder, int i) {
@@ -236,7 +243,15 @@ public class MiCameraCompatBaseImpl {
     }
 
     public void applyHFRDeflicker(Builder builder, boolean z) {
-        throw new RuntimeException("unSupported action");
+        try {
+            builder.set(DEFLICKER_ENABLED, Boolean.valueOf(z));
+        } catch (Exception e) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("not support (");
+            sb.append(DEFLICKER_ENABLED);
+            sb.append(")");
+            Log.e("applyHFRDeflicker", sb.toString());
+        }
     }
 
     public void applyHHT(Builder builder, boolean z) {
@@ -252,6 +267,7 @@ public class MiCameraCompatBaseImpl {
     }
 
     public void applyIsHfrPreview(Builder builder, boolean z) {
+        builder.set(IS_HFR_PREVIEW, Byte.valueOf(z ? (byte) 1 : 0));
     }
 
     public void applyLensDirtyDetect(Builder builder, boolean z) {
@@ -259,7 +275,15 @@ public class MiCameraCompatBaseImpl {
     }
 
     public void applyMacroMode(Builder builder, boolean z) {
-        throw new RuntimeException("unSupported action");
+        try {
+            builder.set(KEY_MACRO_MODE, Byte.valueOf(z ? (byte) 1 : 0));
+        } catch (Exception e) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("not support (");
+            sb.append(KEY_MACRO_MODE);
+            sb.append(")");
+            Log.e("macro_mode", sb.toString());
+        }
     }
 
     public void applyMfnr(Builder builder, boolean z) {
@@ -271,11 +295,15 @@ public class MiCameraCompatBaseImpl {
     }
 
     public void applyMultiFrameInputNum(Builder builder, int i) {
-        throw new RuntimeException("unSupported action");
+        builder.set(KEY_MULTIFRAME_INPUTNUM, Integer.valueOf(i));
     }
 
     public void applyNormalWideLDC(Builder builder, boolean z) {
-        throw new RuntimeException("unSupported action");
+        StringBuilder sb = new StringBuilder();
+        sb.append("applyNormalWideLDC: ");
+        sb.append(z);
+        Log.d("MiCameraCompat", sb.toString());
+        builder.set(NORMAL_WIDE_LENS_DISTORTION_CORRECTION_LEVEL, Byte.valueOf(z ? (byte) 1 : 0));
     }
 
     public void applyParallelProcessEnable(Builder builder, boolean z) {
@@ -327,7 +355,11 @@ public class MiCameraCompatBaseImpl {
     }
 
     public void applyUltraWideLDC(Builder builder, boolean z) {
-        throw new RuntimeException("unSupported action");
+        StringBuilder sb = new StringBuilder();
+        sb.append("applyUltraWideLDC: ");
+        sb.append(z);
+        Log.d("MiCameraCompat", sb.toString());
+        builder.set(ULTRA_WIDE_LENS_DISTORTION_CORRECTION_LEVEL, Byte.valueOf(z ? (byte) 1 : 0));
     }
 
     public void applyVideoStreamState(Builder builder, boolean z) {

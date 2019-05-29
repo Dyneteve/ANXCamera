@@ -15,31 +15,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 class EngineJob<R> implements a<R>, c {
-    private static final EngineResourceFactory gq = new EngineResourceFactory();
-    private static final Handler gr = new Handler(Looper.getMainLooper(), new a());
-    private static final int gs = 1;
-    private static final int gt = 2;
-    private static final int gu = 3;
-    private final com.bumptech.glide.load.engine.b.a aB;
-    private final com.bumptech.glide.load.engine.b.a av;
+    private static final EngineResourceFactory gr = new EngineResourceFactory();
+    private static final Handler gs = new Handler(Looper.getMainLooper(), new a());
+    private static final int gt = 1;
+    private static final int gu = 2;
+    private static final int gv = 3;
+    private final com.bumptech.glide.load.engine.b.a aC;
     private final com.bumptech.glide.load.engine.b.a aw;
+    private final com.bumptech.glide.load.engine.b.a ax;
     private DataSource dataSource;
-    private boolean eC;
-    private p<?> eD;
-    private volatile boolean ea;
-    private final com.bumptech.glide.util.a.c fc;
-    private final Pool<EngineJob<?>> fd;
-    private boolean fl;
-    private GlideException gA;
-    private boolean gB;
-    private List<g> gC;
-    private k<?> gD;
-    private DecodeJob<R> gE;
-    private final com.bumptech.glide.load.engine.b.a gj;
-    private final h gk;
-    private final List<g> gv;
-    private final EngineResourceFactory gw;
-    private boolean gx;
+    private boolean eD;
+    private p<?> eE;
+    private volatile boolean eb;
+    private final com.bumptech.glide.util.a.c fd;
+    private final Pool<EngineJob<?>> fe;
+    private boolean fm;
+    private boolean gA;
+    private GlideException gB;
+    private boolean gC;
+    private List<g> gD;
+    private k<?> gE;
+    private DecodeJob<R> gF;
+    private final com.bumptech.glide.load.engine.b.a gk;
+    private final h gl;
+    private final List<g> gw;
+    private final EngineResourceFactory gx;
     private boolean gy;
     private boolean gz;
     private com.bumptech.glide.load.c key;
@@ -81,84 +81,84 @@ class EngineJob<R> implements a<R>, c {
     }
 
     EngineJob(com.bumptech.glide.load.engine.b.a aVar, com.bumptech.glide.load.engine.b.a aVar2, com.bumptech.glide.load.engine.b.a aVar3, com.bumptech.glide.load.engine.b.a aVar4, h hVar, Pool<EngineJob<?>> pool) {
-        this(aVar, aVar2, aVar3, aVar4, hVar, pool, gq);
+        this(aVar, aVar2, aVar3, aVar4, hVar, pool, gr);
     }
 
     @VisibleForTesting
     EngineJob(com.bumptech.glide.load.engine.b.a aVar, com.bumptech.glide.load.engine.b.a aVar2, com.bumptech.glide.load.engine.b.a aVar3, com.bumptech.glide.load.engine.b.a aVar4, h hVar, Pool<EngineJob<?>> pool, EngineResourceFactory engineResourceFactory) {
-        this.gv = new ArrayList(2);
-        this.fc = com.bumptech.glide.util.a.c.eS();
-        this.aw = aVar;
-        this.av = aVar2;
-        this.gj = aVar3;
-        this.aB = aVar4;
-        this.gk = hVar;
-        this.fd = pool;
-        this.gw = engineResourceFactory;
+        this.gw = new ArrayList(2);
+        this.fd = com.bumptech.glide.util.a.c.eS();
+        this.ax = aVar;
+        this.aw = aVar2;
+        this.gk = aVar3;
+        this.aC = aVar4;
+        this.gl = hVar;
+        this.fe = pool;
+        this.gx = engineResourceFactory;
     }
 
     private com.bumptech.glide.load.engine.b.a aZ() {
-        return this.gx ? this.gj : this.gy ? this.aB : this.av;
+        return this.gy ? this.gk : this.gz ? this.aC : this.aw;
     }
 
     private void c(g gVar) {
-        if (this.gC == null) {
-            this.gC = new ArrayList(2);
+        if (this.gD == null) {
+            this.gD = new ArrayList(2);
         }
-        if (!this.gC.contains(gVar)) {
-            this.gC.add(gVar);
+        if (!this.gD.contains(gVar)) {
+            this.gD.add(gVar);
         }
     }
 
     private boolean d(g gVar) {
-        return this.gC != null && this.gC.contains(gVar);
+        return this.gD != null && this.gD.contains(gVar);
     }
 
     private void release(boolean z) {
         k.eL();
-        this.gv.clear();
+        this.gw.clear();
         this.key = null;
-        this.gD = null;
-        this.eD = null;
-        if (this.gC != null) {
-            this.gC.clear();
-        }
-        this.gB = false;
-        this.ea = false;
-        this.gz = false;
-        this.gE.release(z);
         this.gE = null;
-        this.gA = null;
+        this.eE = null;
+        if (this.gD != null) {
+            this.gD.clear();
+        }
+        this.gC = false;
+        this.eb = false;
+        this.gA = false;
+        this.gF.release(z);
+        this.gF = null;
+        this.gB = null;
         this.dataSource = null;
-        this.fd.release(this);
+        this.fe.release(this);
     }
 
     public void a(GlideException glideException) {
-        this.gA = glideException;
-        gr.obtainMessage(2, this).sendToTarget();
+        this.gB = glideException;
+        gs.obtainMessage(2, this).sendToTarget();
     }
 
     /* access modifiers changed from: 0000 */
     public void a(g gVar) {
         k.eL();
-        this.fc.eT();
-        if (this.gz) {
-            gVar.c(this.gD, this.dataSource);
-        } else if (this.gB) {
-            gVar.a(this.gA);
+        this.fd.eT();
+        if (this.gA) {
+            gVar.c(this.gE, this.dataSource);
+        } else if (this.gC) {
+            gVar.a(this.gB);
         } else {
-            this.gv.add(gVar);
+            this.gw.add(gVar);
         }
     }
 
     @NonNull
     public com.bumptech.glide.util.a.c aQ() {
-        return this.fc;
+        return this.fd;
     }
 
     /* access modifiers changed from: 0000 */
     public boolean aY() {
-        return this.fl;
+        return this.fm;
     }
 
     public void b(DecodeJob<?> decodeJob) {
@@ -168,39 +168,39 @@ class EngineJob<R> implements a<R>, c {
     /* access modifiers changed from: 0000 */
     public void b(g gVar) {
         k.eL();
-        this.fc.eT();
-        if (this.gz || this.gB) {
+        this.fd.eT();
+        if (this.gA || this.gC) {
             c(gVar);
             return;
         }
-        this.gv.remove(gVar);
-        if (this.gv.isEmpty()) {
+        this.gw.remove(gVar);
+        if (this.gw.isEmpty()) {
             cancel();
         }
     }
 
     /* access modifiers changed from: 0000 */
     public void ba() {
-        this.fc.eT();
-        if (this.ea) {
-            this.eD.recycle();
+        this.fd.eT();
+        if (this.eb) {
+            this.eE.recycle();
             release(false);
-        } else if (this.gv.isEmpty()) {
+        } else if (this.gw.isEmpty()) {
             throw new IllegalStateException("Received a resource without any callbacks to notify");
-        } else if (!this.gz) {
-            this.gD = this.gw.a(this.eD, this.eC);
-            this.gz = true;
-            this.gD.acquire();
-            this.gk.a(this, this.key, this.gD);
-            int size = this.gv.size();
+        } else if (!this.gA) {
+            this.gE = this.gx.a(this.eE, this.eD);
+            this.gA = true;
+            this.gE.acquire();
+            this.gl.a(this, this.key, this.gE);
+            int size = this.gw.size();
             for (int i = 0; i < size; i++) {
-                g gVar = (g) this.gv.get(i);
+                g gVar = (g) this.gw.get(i);
                 if (!d(gVar)) {
-                    this.gD.acquire();
-                    gVar.c(this.gD, this.dataSource);
+                    this.gE.acquire();
+                    gVar.c(this.gE, this.dataSource);
                 }
             }
-            this.gD.release();
+            this.gE.release();
             release(false);
         } else {
             throw new IllegalStateException("Already have resource");
@@ -209,9 +209,9 @@ class EngineJob<R> implements a<R>, c {
 
     /* access modifiers changed from: 0000 */
     public void bb() {
-        this.fc.eT();
-        if (this.ea) {
-            this.gk.a(this, this.key);
+        this.fd.eT();
+        if (this.eb) {
+            this.gl.a(this, this.key);
             release(false);
             return;
         }
@@ -220,17 +220,17 @@ class EngineJob<R> implements a<R>, c {
 
     /* access modifiers changed from: 0000 */
     public void bc() {
-        this.fc.eT();
-        if (this.ea) {
+        this.fd.eT();
+        if (this.eb) {
             release(false);
-        } else if (this.gv.isEmpty()) {
+        } else if (this.gw.isEmpty()) {
             throw new IllegalStateException("Received an exception without any callbacks to notify");
-        } else if (!this.gB) {
-            this.gB = true;
-            this.gk.a(this, this.key, null);
-            for (g gVar : this.gv) {
+        } else if (!this.gC) {
+            this.gC = true;
+            this.gl.a(this, this.key, null);
+            for (g gVar : this.gw) {
                 if (!d(gVar)) {
-                    gVar.a(this.gA);
+                    gVar.a(this.gB);
                 }
             }
             release(false);
@@ -240,22 +240,22 @@ class EngineJob<R> implements a<R>, c {
     }
 
     public void c(DecodeJob<R> decodeJob) {
-        this.gE = decodeJob;
-        (decodeJob.aH() ? this.aw : aZ()).execute(decodeJob);
+        this.gF = decodeJob;
+        (decodeJob.aH() ? this.ax : aZ()).execute(decodeJob);
     }
 
     public void c(p<R> pVar, DataSource dataSource2) {
-        this.eD = pVar;
+        this.eE = pVar;
         this.dataSource = dataSource2;
-        gr.obtainMessage(1, this).sendToTarget();
+        gs.obtainMessage(1, this).sendToTarget();
     }
 
     /* access modifiers changed from: 0000 */
     public void cancel() {
-        if (!this.gB && !this.gz && !this.ea) {
-            this.ea = true;
-            this.gE.cancel();
-            this.gk.a(this, this.key);
+        if (!this.gC && !this.gA && !this.eb) {
+            this.eb = true;
+            this.gF.cancel();
+            this.gl.a(this, this.key);
         }
     }
 
@@ -263,15 +263,15 @@ class EngineJob<R> implements a<R>, c {
     @VisibleForTesting
     public EngineJob<R> init(com.bumptech.glide.load.c cVar, boolean z, boolean z2, boolean z3, boolean z4) {
         this.key = cVar;
-        this.eC = z;
-        this.gx = z2;
-        this.gy = z3;
-        this.fl = z4;
+        this.eD = z;
+        this.gy = z2;
+        this.gz = z3;
+        this.fm = z4;
         return this;
     }
 
     /* access modifiers changed from: 0000 */
     public boolean isCancelled() {
-        return this.ea;
+        return this.eb;
     }
 }

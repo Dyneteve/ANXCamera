@@ -19,16 +19,14 @@ public class IdentityScopeLong<T> implements IdentityScope<Long, T> {
     }
 
     public boolean detach(Long l, T t) {
-        boolean z;
         this.lock.lock();
         try {
             if (get(l) != t || t == null) {
-                z = false;
-            } else {
-                remove(l);
-                z = true;
+                this.lock.unlock();
+                return false;
             }
-            return z;
+            remove(l);
+            return true;
         } finally {
             this.lock.unlock();
         }

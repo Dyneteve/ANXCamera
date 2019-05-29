@@ -11,6 +11,8 @@ import android.hardware.camera2.CameraCaptureSession.StateCallback;
 import android.hardware.camera2.CameraDevice;
 import android.hardware.camera2.CaptureRequest;
 import android.hardware.camera2.impl.CameraMetadataNative;
+import android.hardware.camera2.params.OutputConfiguration;
+import android.hardware.display.DisplayManager;
 import android.media.MediaRecorder;
 import android.os.Handler;
 import android.os.IPowerManager;
@@ -49,6 +51,10 @@ public class CompatibilityUtils {
 
     public static CaptureRequest.Builder constructCaptureRequestBuilder(CameraMetadataNative cameraMetadataNative, boolean z, int i, CaptureRequest captureRequest) {
         return V28Utils.constructCaptureRequestBuilder(cameraMetadataNative, z, i, captureRequest);
+    }
+
+    public static void createCaptureSessionWithCustomOperationMode(CameraDevice cameraDevice, int i, List<OutputConfiguration> list, CaptureRequest captureRequest, StateCallback stateCallback, Handler handler) throws CameraAccessException {
+        V28Utils.createCaptureSessionWithCustomOperationMode(cameraDevice, i, list, captureRequest, stateCallback, handler);
     }
 
     public static void createCaptureSessionWithSessionConfiguration(CameraDevice cameraDevice, List<Surface> list, CaptureRequest captureRequest, StateCallback stateCallback, Handler handler) throws CameraAccessException {
@@ -101,6 +107,10 @@ public class CompatibilityUtils {
 
     public static void setSurfaceTextureOnFrameAvailableListener(SurfaceTexture surfaceTexture, OnFrameAvailableListener onFrameAvailableListener, Handler handler) {
         V21Utils.setSurfaceTextureOnFrameAvailableListener(surfaceTexture, onFrameAvailableListener, handler);
+    }
+
+    public static void setTemporaryAutoBrightnessAdjustment(DisplayManager displayManager, float f) {
+        V28Utils.setTemporaryAutoBrightnessAdjustment(displayManager, f);
     }
 
     public static void setTextPaintLetterSpacing(TextPaint textPaint, float f) {

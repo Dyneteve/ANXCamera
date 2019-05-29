@@ -419,7 +419,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/mi/config/a;->isSupportShortVideoBeautyBody()Z
+    invoke-virtual {v0}, Lcom/mi/config/a;->gI()Z
 
     move-result v0
 
@@ -1171,67 +1171,70 @@
     goto :goto_1
 
     :sswitch_0
+    goto :goto_1
+
+    :sswitch_1
     invoke-direct {p0}, Lcom/android/camera/module/FunModule;->updateUltraWideLDC()V
 
     goto :goto_1
 
-    :sswitch_1
+    :sswitch_2
     goto :goto_1
 
-    :sswitch_2
+    :sswitch_3
     invoke-virtual {p0}, Lcom/android/camera/module/FunModule;->updateDeviceOrientation()V
 
     goto :goto_1
 
-    :sswitch_3
+    :sswitch_4
     invoke-direct {p0}, Lcom/android/camera/module/FunModule;->updateVideoStabilization()V
 
     goto :goto_1
 
-    :sswitch_4
+    :sswitch_5
     invoke-virtual {p0}, Lcom/android/camera/module/FunModule;->updateExposureMeteringMode()V
 
     goto :goto_1
 
-    :sswitch_5
+    :sswitch_6
     invoke-virtual {p0}, Lcom/android/camera/module/FunModule;->focusCenter()V
 
     goto :goto_1
 
-    :sswitch_6
+    :sswitch_7
     invoke-virtual {p0}, Lcom/android/camera/module/FunModule;->applyZoomRatio()V
 
     goto :goto_1
 
-    :sswitch_7
+    :sswitch_8
     invoke-direct {p0}, Lcom/android/camera/module/FunModule;->updateFpsRange()V
 
     goto :goto_1
 
-    :sswitch_8
+    :sswitch_9
     invoke-virtual {p0}, Lcom/android/camera/module/FunModule;->updateVideoFocusMode()V
 
     goto :goto_1
 
-    :sswitch_9
+    :sswitch_a
     invoke-virtual {p0}, Lcom/android/camera/module/FunModule;->updateBeauty()V
 
     goto :goto_1
 
-    :sswitch_a
+    :sswitch_b
     invoke-virtual {p0}, Lcom/android/camera/module/FunModule;->setEvValue()V
 
     goto :goto_1
 
-    :sswitch_b
+    :sswitch_c
     goto :goto_1
 
-    :sswitch_c
+    :sswitch_d
     invoke-virtual {p0}, Lcom/android/camera/module/FunModule;->updateFlashPreference()V
 
     goto :goto_1
 
-    :sswitch_d
+    :sswitch_e
     invoke-static {}, Lcom/android/camera/CameraSettings;->getAntiBanding()Ljava/lang/String;
 
     move-result-object v2
@@ -1240,22 +1243,22 @@
 
     goto :goto_1
 
-    :sswitch_e
+    :sswitch_f
     invoke-virtual {p0}, Lcom/android/camera/module/FunModule;->updateFace()V
 
     goto :goto_1
 
-    :sswitch_f
+    :sswitch_10
     invoke-virtual {p0}, Lcom/android/camera/module/FunModule;->updateFocusArea()V
 
     goto :goto_1
 
-    :sswitch_10
+    :sswitch_11
     invoke-direct {p0}, Lcom/android/camera/module/FunModule;->updateFilter()V
 
     goto :goto_1
 
-    :sswitch_11
+    :sswitch_12
     invoke-direct {p0}, Lcom/android/camera/module/FunModule;->updatePictureAndPreviewSize()V
 
     nop
@@ -1289,34 +1292,33 @@
     :cond_1
     return-void
 
-    nop
-
     :sswitch_data_0
     .sparse-switch
-        0x1 -> :sswitch_11
-        0x2 -> :sswitch_10
-        0x3 -> :sswitch_f
-        0x5 -> :sswitch_e
-        0x9 -> :sswitch_d
-        0xa -> :sswitch_c
-        0xb -> :sswitch_b
-        0xc -> :sswitch_a
-        0xd -> :sswitch_9
-        0xe -> :sswitch_8
-        0x13 -> :sswitch_7
-        0x14 -> :sswitch_b
-        0x18 -> :sswitch_6
-        0x19 -> :sswitch_5
-        0x1d -> :sswitch_4
-        0x1e -> :sswitch_b
-        0x1f -> :sswitch_3
-        0x22 -> :sswitch_b
-        0x23 -> :sswitch_2
-        0x2a -> :sswitch_b
-        0x2b -> :sswitch_b
-        0x2e -> :sswitch_1
-        0x2f -> :sswitch_0
-        0x32 -> :sswitch_b
+        0x1 -> :sswitch_12
+        0x2 -> :sswitch_11
+        0x3 -> :sswitch_10
+        0x5 -> :sswitch_f
+        0x9 -> :sswitch_e
+        0xa -> :sswitch_d
+        0xb -> :sswitch_c
+        0xc -> :sswitch_b
+        0xd -> :sswitch_a
+        0xe -> :sswitch_9
+        0x13 -> :sswitch_8
+        0x14 -> :sswitch_c
+        0x18 -> :sswitch_7
+        0x19 -> :sswitch_6
+        0x1d -> :sswitch_5
+        0x1e -> :sswitch_c
+        0x1f -> :sswitch_4
+        0x22 -> :sswitch_c
+        0x23 -> :sswitch_3
+        0x2a -> :sswitch_c
+        0x2b -> :sswitch_c
+        0x2e -> :sswitch_2
+        0x2f -> :sswitch_1
+        0x32 -> :sswitch_c
+        0x36 -> :sswitch_0
     .end sparse-switch
 .end method
 
@@ -1325,7 +1327,7 @@
 
     nop
 
-    invoke-direct {p0}, Lcom/android/camera/module/FunModule;->isSupportShortVideoBeautyBody()Z
+    invoke-direct {p0}, Lcom/android/camera/module/FunModule;->isEisOn()Z
 
     move-result v0
 

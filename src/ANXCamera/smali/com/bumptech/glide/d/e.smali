@@ -12,7 +12,7 @@
 
 
 # instance fields
-.field private final nC:Ljava/util/List;
+.field private final nD:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -22,7 +22,7 @@
     .end annotation
 .end field
 
-.field private final nD:Ljava/util/Map;
+.field private final nE:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -45,13 +45,13 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/bumptech/glide/d/e;->nC:Ljava/util/List;
+    iput-object v0, p0, Lcom/bumptech/glide/d/e;->nD:Ljava/util/List;
 
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, p0, Lcom/bumptech/glide/d/e;->nD:Ljava/util/Map;
+    iput-object v0, p0, Lcom/bumptech/glide/d/e;->nE:Ljava/util/Map;
 
     return-void
 .end method
@@ -79,7 +79,7 @@
     monitor-enter p0
 
     :try_start_0
-    iget-object v0, p0, Lcom/bumptech/glide/d/e;->nC:Ljava/util/List;
+    iget-object v0, p0, Lcom/bumptech/glide/d/e;->nD:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
@@ -87,12 +87,12 @@
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/d/e;->nC:Ljava/util/List;
+    iget-object v0, p0, Lcom/bumptech/glide/d/e;->nD:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_0
-    iget-object v0, p0, Lcom/bumptech/glide/d/e;->nD:Ljava/util/Map;
+    iget-object v0, p0, Lcom/bumptech/glide/d/e;->nE:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -106,7 +106,7 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iget-object v1, p0, Lcom/bumptech/glide/d/e;->nD:Ljava/util/Map;
+    iget-object v1, p0, Lcom/bumptech/glide/d/e;->nE:Ljava/util/Map;
 
     invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
@@ -273,15 +273,15 @@
     :try_start_0
     new-instance v0, Ljava/util/ArrayList;
 
-    iget-object v1, p0, Lcom/bumptech/glide/d/e;->nC:Ljava/util/List;
+    iget-object v1, p0, Lcom/bumptech/glide/d/e;->nD:Ljava/util/List;
 
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    iget-object v1, p0, Lcom/bumptech/glide/d/e;->nC:Ljava/util/List;
+    iget-object v1, p0, Lcom/bumptech/glide/d/e;->nD:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->clear()V
 
-    iget-object v1, p0, Lcom/bumptech/glide/d/e;->nC:Ljava/util/List;
+    iget-object v1, p0, Lcom/bumptech/glide/d/e;->nD:Ljava/util/List;
 
     invoke-interface {v1, p1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
@@ -308,7 +308,7 @@
 
     if-nez v2, :cond_0
 
-    iget-object v2, p0, Lcom/bumptech/glide/d/e;->nC:Ljava/util/List;
+    iget-object v2, p0, Lcom/bumptech/glide/d/e;->nD:Ljava/util/List;
 
     invoke-interface {v2, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     :try_end_0
@@ -367,7 +367,7 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iget-object v1, p0, Lcom/bumptech/glide/d/e;->nC:Ljava/util/List;
+    iget-object v1, p0, Lcom/bumptech/glide/d/e;->nD:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -386,7 +386,7 @@
 
     check-cast v2, Ljava/lang/String;
 
-    iget-object v3, p0, Lcom/bumptech/glide/d/e;->nD:Ljava/util/Map;
+    iget-object v3, p0, Lcom/bumptech/glide/d/e;->nE:Ljava/util/Map;
 
     invoke-interface {v3, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -422,7 +422,7 @@
 
     if-eqz v4, :cond_1
 
-    iget-object v3, v3, Lcom/bumptech/glide/d/e$a;->kz:Lcom/bumptech/glide/load/g;
+    iget-object v3, v3, Lcom/bumptech/glide/d/e$a;->kA:Lcom/bumptech/glide/load/g;
 
     invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     :try_end_0
@@ -484,7 +484,7 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iget-object v1, p0, Lcom/bumptech/glide/d/e;->nC:Ljava/util/List;
+    iget-object v1, p0, Lcom/bumptech/glide/d/e;->nD:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -503,7 +503,7 @@
 
     check-cast v2, Ljava/lang/String;
 
-    iget-object v3, p0, Lcom/bumptech/glide/d/e;->nD:Ljava/util/Map;
+    iget-object v3, p0, Lcom/bumptech/glide/d/e;->nE:Ljava/util/Map;
 
     invoke-interface {v3, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -539,7 +539,7 @@
 
     if-eqz v4, :cond_1
 
-    iget-object v4, v3, Lcom/bumptech/glide/d/e$a;->eR:Ljava/lang/Class;
+    iget-object v4, v3, Lcom/bumptech/glide/d/e$a;->eS:Ljava/lang/Class;
 
     invoke-interface {v0, v4}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
@@ -547,7 +547,7 @@
 
     if-nez v4, :cond_1
 
-    iget-object v3, v3, Lcom/bumptech/glide/d/e$a;->eR:Ljava/lang/Class;
+    iget-object v3, v3, Lcom/bumptech/glide/d/e$a;->eS:Ljava/lang/Class;
 
     invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     :try_end_0

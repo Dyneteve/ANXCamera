@@ -4,4 +4,8 @@
         <item quantity="other">Фокусирано. %d лица са открити</item>
         <item quantity="one">Фокусирано. %d лице е открито</item>
     </plurals>
+    <plurals name="toast_burst_snap_finished_summary">
+        <item quantity="other">Бързото заснемане приключи, %1$s снимки са направени</item>
+        <item quantity="one">Бързото заснемане приключи, %1$s снимка е направена</item>
+    </plurals>
 </resources>

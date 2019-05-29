@@ -17,14 +17,14 @@ import java.util.List;
 /* compiled from: StreamGifDecoder */
 public class h implements g<InputStream, b> {
     private static final String TAG = "StreamGifDecoder";
-    private final b ed;
-    private final List<ImageHeaderParser> eu;
-    private final g<ByteBuffer, b> mG;
+    private final b ee;
+    private final List<ImageHeaderParser> ev;
+    private final g<ByteBuffer, b> mH;
 
     public h(List<ImageHeaderParser> list, g<ByteBuffer, b> gVar, b bVar) {
-        this.eu = list;
-        this.mG = gVar;
-        this.ed = bVar;
+        this.ev = list;
+        this.mH = gVar;
+        this.ee = bVar;
     }
 
     private static byte[] f(InputStream inputStream) {
@@ -53,10 +53,10 @@ public class h implements g<InputStream, b> {
         if (f == null) {
             return null;
         }
-        return this.mG.a(ByteBuffer.wrap(f), i, i2, fVar);
+        return this.mH.a(ByteBuffer.wrap(f), i, i2, fVar);
     }
 
     public boolean a(@NonNull InputStream inputStream, @NonNull f fVar) throws IOException {
-        return !((Boolean) fVar.a(g.mF)).booleanValue() && com.bumptech.glide.load.b.a(this.eu, inputStream, this.ed) == ImageType.GIF;
+        return !((Boolean) fVar.a(g.mG)).booleanValue() && com.bumptech.glide.load.b.a(this.ev, inputStream, this.ee) == ImageType.GIF;
     }
 }

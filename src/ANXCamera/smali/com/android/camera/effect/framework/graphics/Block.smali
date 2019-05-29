@@ -65,3 +65,49 @@
 
     return-object p2
 .end method
+
+.method public getYUVOffset(IIII)[I
+    .locals 6
+
+    const/4 p4, 0x2
+
+    new-array p4, p4, [I
+
+    iget v0, p0, Lcom/android/camera/effect/framework/graphics/Block;->mOffset:I
+
+    div-int/2addr v0, p3
+
+    iget v1, p0, Lcom/android/camera/effect/framework/graphics/Block;->mOffset:I
+
+    rem-int/2addr v1, p3
+
+    mul-int/2addr p1, v0
+
+    add-int/2addr p1, v1
+
+    const/4 p3, 0x0
+
+    aput p1, p4, p3
+
+    int-to-double v2, v0
+
+    const-wide/high16 v4, 0x4000000000000000L    # 2.0
+
+    div-double/2addr v2, v4
+
+    invoke-static {v2, v3}, Ljava/lang/Math;->floor(D)D
+
+    move-result-wide v2
+
+    double-to-int p1, v2
+
+    mul-int/2addr p1, p2
+
+    add-int/2addr p1, v1
+
+    const/4 p2, 0x1
+
+    aput p1, p4, p2
+
+    return-object p4
+.end method

@@ -94,7 +94,7 @@
 
     iget-object p2, p0, Lcom/android/camera/fragment/FragmentFilter$EffectItemAdapter;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v0, 0x7f040006
+    const v0, 0x7f040007
 
     const/4 v1, 0x0
 

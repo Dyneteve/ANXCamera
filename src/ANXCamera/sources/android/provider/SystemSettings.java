@@ -50,9 +50,9 @@ public class SystemSettings {
             String str = "";
             if (FeatureParser.getBoolean("is_redmi", false)) {
                 deviceNameRes = R.string.device_redmi;
-            } else if (FeatureParser.getBoolean(d.tQ, false)) {
+            } else if (FeatureParser.getBoolean(d.tV, false)) {
                 deviceNameRes = R.string.device_hongmi;
-            } else if (FeatureParser.getBoolean(d.tP, false)) {
+            } else if (FeatureParser.getBoolean(d.tU, false)) {
                 if (!E10_DEVICE.equals(SystemProperties.get("ro.product.device"))) {
                     deviceNameRes = R.string.device_xiaomi;
                 } else if (SystemProperties.get("ro.boot.hwc", "").contains(INDIA)) {
@@ -60,7 +60,7 @@ public class SystemSettings {
                 } else {
                     deviceNameRes = R.string.device_poco_global;
                 }
-            } else if (FeatureParser.getBoolean(d.tR, false)) {
+            } else if (FeatureParser.getBoolean(d.tW, false)) {
                 deviceNameRes = R.string.device_pad;
             } else {
                 deviceNameRes = R.string.miui_device_name;

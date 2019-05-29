@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final kA:Lcom/bumptech/glide/load/i;
+.field private final kB:Lcom/bumptech/glide/load/i;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/i<",
@@ -49,7 +49,7 @@
 
     check-cast p1, Lcom/bumptech/glide/load/i;
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/resource/gif/e;->kA:Lcom/bumptech/glide/load/i;
+    iput-object p1, p0, Lcom/bumptech/glide/load/resource/gif/e;->kB:Lcom/bumptech/glide/load/i;
 
     return-void
 .end method
@@ -65,9 +65,9 @@
 
     check-cast p1, Lcom/bumptech/glide/load/resource/gif/e;
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/gif/e;->kA:Lcom/bumptech/glide/load/i;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/gif/e;->kB:Lcom/bumptech/glide/load/i;
 
-    iget-object p1, p1, Lcom/bumptech/glide/load/resource/gif/e;->kA:Lcom/bumptech/glide/load/i;
+    iget-object p1, p1, Lcom/bumptech/glide/load/resource/gif/e;->kB:Lcom/bumptech/glide/load/i;
 
     invoke-virtual {v0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
@@ -84,7 +84,7 @@
 .method public hashCode()I
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/gif/e;->kA:Lcom/bumptech/glide/load/i;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/gif/e;->kB:Lcom/bumptech/glide/load/i;
 
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
@@ -141,7 +141,7 @@
 
     invoke-direct {v3, v2, v1}, Lcom/bumptech/glide/load/resource/bitmap/f;-><init>(Landroid/graphics/Bitmap;Lcom/bumptech/glide/load/engine/bitmap_recycle/d;)V
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/resource/gif/e;->kA:Lcom/bumptech/glide/load/i;
+    iget-object v1, p0, Lcom/bumptech/glide/load/resource/gif/e;->kB:Lcom/bumptech/glide/load/i;
 
     invoke-interface {v1, p1, v3, p3, p4}, Lcom/bumptech/glide/load/i;->transform(Landroid/content/Context;Lcom/bumptech/glide/load/engine/p;II)Lcom/bumptech/glide/load/engine/p;
 
@@ -162,7 +162,7 @@
 
     check-cast p1, Landroid/graphics/Bitmap;
 
-    iget-object p3, p0, Lcom/bumptech/glide/load/resource/gif/e;->kA:Lcom/bumptech/glide/load/i;
+    iget-object p3, p0, Lcom/bumptech/glide/load/resource/gif/e;->kB:Lcom/bumptech/glide/load/i;
 
     invoke-virtual {v0, p3, p1}, Lcom/bumptech/glide/load/resource/gif/b;->a(Lcom/bumptech/glide/load/i;Landroid/graphics/Bitmap;)V
 
@@ -176,7 +176,7 @@
         .end annotation
     .end param
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/gif/e;->kA:Lcom/bumptech/glide/load/i;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/gif/e;->kB:Lcom/bumptech/glide/load/i;
 
     invoke-interface {v0, p1}, Lcom/bumptech/glide/load/i;->updateDiskCacheKey(Ljava/security/MessageDigest;)V
 

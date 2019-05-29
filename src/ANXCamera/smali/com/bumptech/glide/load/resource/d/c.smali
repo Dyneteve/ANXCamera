@@ -18,9 +18,9 @@
 
 
 # instance fields
-.field private final ak:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
+.field private final al:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
-.field private final mJ:Lcom/bumptech/glide/load/resource/d/e;
+.field private final mK:Lcom/bumptech/glide/load/resource/d/e;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/resource/d/e<",
@@ -30,7 +30,7 @@
     .end annotation
 .end field
 
-.field private final mK:Lcom/bumptech/glide/load/resource/d/e;
+.field private final mL:Lcom/bumptech/glide/load/resource/d/e;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/resource/d/e<",
@@ -71,11 +71,11 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/resource/d/c;->ak:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
+    iput-object p1, p0, Lcom/bumptech/glide/load/resource/d/c;->al:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
-    iput-object p2, p0, Lcom/bumptech/glide/load/resource/d/c;->mJ:Lcom/bumptech/glide/load/resource/d/e;
+    iput-object p2, p0, Lcom/bumptech/glide/load/resource/d/c;->mK:Lcom/bumptech/glide/load/resource/d/e;
 
-    iput-object p3, p0, Lcom/bumptech/glide/load/resource/d/c;->mK:Lcom/bumptech/glide/load/resource/d/e;
+    iput-object p3, p0, Lcom/bumptech/glide/load/resource/d/c;->mL:Lcom/bumptech/glide/load/resource/d/e;
 
     return-void
 .end method
@@ -142,7 +142,7 @@
 
     if-eqz v1, :cond_0
 
-    iget-object p1, p0, Lcom/bumptech/glide/load/resource/d/c;->mJ:Lcom/bumptech/glide/load/resource/d/e;
+    iget-object p1, p0, Lcom/bumptech/glide/load/resource/d/c;->mK:Lcom/bumptech/glide/load/resource/d/e;
 
     check-cast v0, Landroid/graphics/drawable/BitmapDrawable;
 
@@ -150,7 +150,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/resource/d/c;->ak:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
+    iget-object v1, p0, Lcom/bumptech/glide/load/resource/d/c;->al:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
     invoke-static {v0, v1}, Lcom/bumptech/glide/load/resource/bitmap/f;->a(Landroid/graphics/Bitmap;Lcom/bumptech/glide/load/engine/bitmap_recycle/d;)Lcom/bumptech/glide/load/resource/bitmap/f;
 
@@ -167,7 +167,7 @@
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/d/c;->mK:Lcom/bumptech/glide/load/resource/d/e;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/d/c;->mL:Lcom/bumptech/glide/load/resource/d/e;
 
     invoke-static {p1}, Lcom/bumptech/glide/load/resource/d/c;->l(Lcom/bumptech/glide/load/engine/p;)Lcom/bumptech/glide/load/engine/p;
 

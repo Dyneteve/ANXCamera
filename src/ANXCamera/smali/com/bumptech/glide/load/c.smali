@@ -4,9 +4,9 @@
 
 
 # static fields
-.field public static final dF:Ljava/lang/String; = "UTF-8"
+.field public static final dG:Ljava/lang/String; = "UTF-8"
 
-.field public static final dG:Ljava/nio/charset/Charset;
+.field public static final dH:Ljava/nio/charset/Charset;
 
 
 # direct methods
@@ -19,7 +19,7 @@
 
     move-result-object v0
 
-    sput-object v0, Lcom/bumptech/glide/load/c;->dG:Ljava/nio/charset/Charset;
+    sput-object v0, Lcom/bumptech/glide/load/c;->dH:Ljava/nio/charset/Charset;
 
     return-void
 .end method

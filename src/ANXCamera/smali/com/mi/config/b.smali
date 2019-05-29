@@ -62,23 +62,21 @@
 
 .field public static final qZ:Z
 
-.field public static final qn:Ljava/lang/String;
+.field public static final qo:Ljava/lang/String;
 
-.field public static final qo:Ljava/lang/String; = "qcom"
+.field public static final qp:Ljava/lang/String; = "qcom"
 
-.field public static final qp:Ljava/lang/String; = "mediatek"
+.field public static final qq:Ljava/lang/String; = "mediatek"
 
-.field public static final qq:Ljava/lang/String; = "leadcore"
+.field public static final qr:Ljava/lang/String; = "leadcore"
 
-.field public static final qr:Ljava/lang/String; = "nvidia"
+.field public static final qt:Ljava/lang/String; = "nvidia"
 
-.field public static final qt:Ljava/lang/String; = "intel"
+.field public static final qu:Ljava/lang/String; = "intel"
 
-.field private static final qu:I = 0x64
+.field private static final qv:I = 0x64
 
-.field public static final qv:Ljava/lang/String;
-
-.field public static final qw:Z
+.field public static final qw:Ljava/lang/String;
 
 .field public static final qx:Z
 
@@ -114,13 +112,15 @@
 
 .field public static final rN:Z
 
-.field private static final rO:I = 0x1
+.field public static final rO:Z
 
-.field private static final rP:I = 0x4
+.field private static final rP:I = 0x1
 
-.field private static final rQ:I = 0x8
+.field private static final rQ:I = 0x4
 
-.field private static rR:Ljava/util/ArrayList;
+.field private static final rR:I = 0x8
+
+.field private static rS:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -189,15 +189,15 @@
 
     sget-object v0, Lmiui/os/Build;->DEVICE:Ljava/lang/String;
 
-    sput-object v0, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sput-object v0, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     sget-object v0, Lmiui/os/Build;->MODEL:Ljava/lang/String;
 
-    sput-object v0, Lcom/mi/config/b;->qv:Ljava/lang/String;
+    sput-object v0, Lcom/mi/config/b;->qw:Ljava/lang/String;
 
     sget-boolean v0, Lmiui/os/Build;->IS_MITWO:Z
 
-    sput-boolean v0, Lcom/mi/config/b;->qw:Z
+    sput-boolean v0, Lcom/mi/config/b;->qx:Z
 
     sget-boolean v0, Lmiui/os/Build;->IS_MI2A:Z
 
@@ -205,17 +205,17 @@
 
     const-string v0, "pisces"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    sput-boolean v0, Lcom/mi/config/b;->qx:Z
+    sput-boolean v0, Lcom/mi/config/b;->qy:Z
 
     const-string v0, "cancro"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -245,13 +245,13 @@
     move v0, v2
 
     :goto_0
-    sput-boolean v0, Lcom/mi/config/b;->qy:Z
+    sput-boolean v0, Lcom/mi/config/b;->qz:Z
 
-    sget-boolean v0, Lcom/mi/config/b;->qy:Z
+    sget-boolean v0, Lcom/mi/config/b;->qz:Z
 
     if-nez v0, :cond_2
 
-    sget-boolean v0, Lcom/mi/config/b;->qx:Z
+    sget-boolean v0, Lcom/mi/config/b;->qy:Z
 
     if-eqz v0, :cond_1
 
@@ -267,7 +267,7 @@
     move v0, v1
 
     :goto_2
-    sput-boolean v0, Lcom/mi/config/b;->qz:Z
+    sput-boolean v0, Lcom/mi/config/b;->qA:Z
 
     sget-boolean v0, Lmiui/os/Build;->IS_HONGMI_TWO:Z
 
@@ -289,17 +289,17 @@
     move v0, v2
 
     :goto_3
-    sput-boolean v0, Lcom/mi/config/b;->qA:Z
+    sput-boolean v0, Lcom/mi/config/b;->qB:Z
 
     sget-boolean v0, Lmiui/os/Build;->IS_HONGMI_TWO_S:Z
 
-    sput-boolean v0, Lcom/mi/config/b;->qB:Z
+    sput-boolean v0, Lcom/mi/config/b;->qC:Z
 
-    sget-boolean v0, Lcom/mi/config/b;->qA:Z
+    sget-boolean v0, Lcom/mi/config/b;->qB:Z
 
     if-nez v0, :cond_5
 
-    sget-boolean v0, Lcom/mi/config/b;->qB:Z
+    sget-boolean v0, Lcom/mi/config/b;->qC:Z
 
     if-eqz v0, :cond_4
 
@@ -315,33 +315,23 @@
     move v0, v1
 
     :goto_5
-    sput-boolean v0, Lcom/mi/config/b;->qC:Z
+    sput-boolean v0, Lcom/mi/config/b;->qD:Z
 
     sget-boolean v0, Lmiui/os/Build;->IS_HONGMI_TWOS_LTE_MTK:Z
 
-    sput-boolean v0, Lcom/mi/config/b;->qD:Z
+    sput-boolean v0, Lcom/mi/config/b;->qE:Z
 
     sget-boolean v0, Lmiui/os/Build;->IS_HONGMI_TWO_A:Z
 
-    sput-boolean v0, Lcom/mi/config/b;->qE:Z
+    sput-boolean v0, Lcom/mi/config/b;->qF:Z
 
     sget-boolean v0, Lmiui/os/Build;->IS_HONGMI_THREE:Z
 
-    sput-boolean v0, Lcom/mi/config/b;->qF:Z
+    sput-boolean v0, Lcom/mi/config/b;->qG:Z
 
     const-string v0, "gucci"
 
-    sget-object v3, Lcom/mi/config/b;->qn:Ljava/lang/String;
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/mi/config/b;->qG:Z
-
-    const-string v0, "hermes"
-
-    sget-object v3, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v3, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -349,9 +339,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->qH:Z
 
-    const-string v0, "hennessy"
+    const-string v0, "hermes"
 
-    sget-object v3, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v3, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -359,9 +349,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->qI:Z
 
-    const-string v0, "dior"
+    const-string v0, "hennessy"
 
-    sget-object v3, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v3, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -369,9 +359,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->qJ:Z
 
-    const-string v0, "kenzo"
+    const-string v0, "dior"
 
-    sget-object v3, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v3, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -379,9 +369,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->qK:Z
 
-    const-string v0, "kate"
+    const-string v0, "kenzo"
 
-    sget-object v3, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v3, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -389,13 +379,23 @@
 
     sput-boolean v0, Lcom/mi/config/b;->qL:Z
 
+    const-string v0, "kate"
+
+    sget-object v3, Lcom/mi/config/b;->qo:Ljava/lang/String;
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/mi/config/b;->qM:Z
+
     sget-boolean v0, Lmiui/os/Build;->IS_HONGMI_TWOX:Z
 
     if-nez v0, :cond_7
 
     const-string v0, "HM2014816"
 
-    sget-object v3, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v3, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -412,37 +412,27 @@
 
     :cond_7
     :goto_6
-    sput-boolean v1, Lcom/mi/config/b;->qM:Z
+    sput-boolean v1, Lcom/mi/config/b;->qN:Z
 
     sget-boolean v0, Lmiui/os/Build;->IS_HONGMI_TWOX_LC:Z
 
-    sput-boolean v0, Lcom/mi/config/b;->qN:Z
+    sput-boolean v0, Lcom/mi/config/b;->qO:Z
 
     sget-boolean v0, Lmiui/os/Build;->IS_MIFOUR:Z
 
-    sput-boolean v0, Lcom/mi/config/b;->qO:Z
+    sput-boolean v0, Lcom/mi/config/b;->qP:Z
 
     sget-boolean v0, Lmiui/os/Build;->IS_MIPAD:Z
 
-    sput-boolean v0, Lcom/mi/config/b;->qP:Z
+    sput-boolean v0, Lcom/mi/config/b;->qQ:Z
 
     sget-boolean v0, Lmiui/os/Build;->IS_MIFIVE:Z
 
-    sput-boolean v0, Lcom/mi/config/b;->qQ:Z
+    sput-boolean v0, Lcom/mi/config/b;->qR:Z
 
     const-string v0, "leo"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/mi/config/b;->qR:Z
-
-    const-string v0, "ferrari"
-
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -450,9 +440,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->qS:Z
 
-    const-string v0, "ido"
+    const-string v0, "ferrari"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -460,9 +450,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->qT:Z
 
-    const-string v0, "aqua"
+    const-string v0, "ido"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -470,9 +460,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->qU:Z
 
-    const-string v0, "gemini"
+    const-string v0, "aqua"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -480,9 +470,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->qV:Z
 
-    const-string v0, "gold"
+    const-string v0, "gemini"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -490,9 +480,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->qW:Z
 
-    const-string v0, "capricorn"
+    const-string v0, "gold"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -500,9 +490,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->qX:Z
 
-    const-string v0, "natrium"
+    const-string v0, "capricorn"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -510,9 +500,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->qY:Z
 
-    const-string v0, "lithium"
+    const-string v0, "natrium"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -520,9 +510,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->qZ:Z
 
-    const-string v0, "scorpio"
+    const-string v0, "lithium"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -530,9 +520,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->ra:Z
 
-    const-string v0, "libra"
+    const-string v0, "scorpio"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -540,9 +530,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->rb:Z
 
-    const-string v0, "land"
+    const-string v0, "libra"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -550,9 +540,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->rc:Z
 
-    const-string v0, "hydrogen"
+    const-string v0, "land"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -560,9 +550,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->rd:Z
 
-    const-string v0, "helium"
+    const-string v0, "hydrogen"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -570,9 +560,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->re:Z
 
-    const-string v0, "omega"
+    const-string v0, "helium"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -580,7 +570,17 @@
 
     sput-boolean v0, Lcom/mi/config/b;->rf:Z
 
-    sget-object v0, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    const-string v0, "omega"
+
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/mi/config/b;->rg:Z
+
+    sget-object v0, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     const-string v1, "nike"
 
@@ -588,9 +588,9 @@
 
     move-result v0
 
-    sput-boolean v0, Lcom/mi/config/b;->rg:Z
+    sput-boolean v0, Lcom/mi/config/b;->rh:Z
 
-    sget-object v0, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v0, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     const-string v1, "mark"
 
@@ -598,9 +598,9 @@
 
     move-result v0
 
-    sput-boolean v0, Lcom/mi/config/b;->rh:Z
+    sput-boolean v0, Lcom/mi/config/b;->ri:Z
 
-    sget-object v0, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v0, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     const-string v1, "prada"
 
@@ -608,9 +608,9 @@
 
     move-result v0
 
-    sput-boolean v0, Lcom/mi/config/b;->ri:Z
+    sput-boolean v0, Lcom/mi/config/b;->rj:Z
 
-    sget-object v0, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v0, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     const-string v1, "mido"
 
@@ -618,21 +618,11 @@
 
     move-result v0
 
-    sput-boolean v0, Lcom/mi/config/b;->rj:Z
+    sput-boolean v0, Lcom/mi/config/b;->rk:Z
 
     const-string v0, "rolex"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/mi/config/b;->rk:Z
-
-    const-string v0, "sagit"
-
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -640,9 +630,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->rl:Z
 
-    const-string v0, "centaur"
+    const-string v0, "sagit"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -650,9 +640,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->rm:Z
 
-    const-string v0, "achilles"
+    const-string v0, "centaur"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -660,9 +650,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->rn:Z
 
-    const-string v0, "jason"
+    const-string v0, "achilles"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -670,9 +660,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->ro:Z
 
-    const-string v0, "tiffany"
+    const-string v0, "jason"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -680,9 +670,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->rp:Z
 
-    const-string v0, "ulysse"
+    const-string v0, "tiffany"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -690,9 +680,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->rq:Z
 
-    const-string v0, "oxygen"
+    const-string v0, "ulysse"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -700,9 +690,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->rr:Z
 
-    const-string v0, "chiron"
+    const-string v0, "oxygen"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -710,9 +700,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->rs:Z
 
-    const-string v0, "ugg"
+    const-string v0, "chiron"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -720,9 +710,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->rt:Z
 
-    const-string v0, "vince"
+    const-string v0, "ugg"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -730,9 +720,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->ru:Z
 
-    const-string v0, "whyred"
+    const-string v0, "vince"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -740,9 +730,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->rv:Z
 
-    const-string v0, "beryllium"
+    const-string v0, "whyred"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -750,9 +740,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->rw:Z
 
-    const-string v0, "violet"
+    const-string v0, "beryllium"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -760,15 +750,25 @@
 
     sput-boolean v0, Lcom/mi/config/b;->rx:Z
 
-    const-string v0, "pisces"
+    const-string v0, "violet"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     sput-boolean v0, Lcom/mi/config/b;->ry:Z
+
+    const-string v0, "pisces"
+
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/mi/config/b;->rz:Z
 
     const-string v0, "is_hongmi"
 
@@ -788,17 +788,7 @@
 
     const-string v0, "hammerhead"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/mi/config/b;->rz:Z
-
-    const-string v0, "santoni"
-
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -806,9 +796,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->rA:Z
 
-    const-string v0, "polaris"
+    const-string v0, "santoni"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -816,9 +806,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->rB:Z
 
-    const-string v0, "sirius"
+    const-string v0, "polaris"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -826,9 +816,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->rC:Z
 
-    const-string v0, "dipper"
+    const-string v0, "sirius"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -836,9 +826,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->rD:Z
 
-    const-string v0, "ursa"
+    const-string v0, "dipper"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -846,9 +836,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->rE:Z
 
-    const-string v0, "equuleus"
+    const-string v0, "ursa"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -856,9 +846,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->rF:Z
 
-    const-string v0, "andromeda"
+    const-string v0, "equuleus"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -866,9 +856,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->rG:Z
 
-    const-string v0, "perseus"
+    const-string v0, "andromeda"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -876,9 +866,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->rH:Z
 
-    const-string v0, "cepheus"
+    const-string v0, "perseus"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -886,9 +876,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->rI:Z
 
-    const-string v0, "grus"
+    const-string v0, "cepheus"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -896,9 +886,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->rJ:Z
 
-    const-string v0, "pine"
+    const-string v0, "grus"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -906,9 +896,9 @@
 
     sput-boolean v0, Lcom/mi/config/b;->rK:Z
 
-    const-string v0, "pyxis"
+    const-string v0, "pine"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -916,13 +906,23 @@
 
     sput-boolean v0, Lcom/mi/config/b;->rL:Z
 
-    sget-boolean v0, Lmiui/os/Build;->IS_STABLE_VERSION:Z
+    const-string v0, "pyxis"
+
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
 
     sput-boolean v0, Lcom/mi/config/b;->rM:Z
 
-    sget-boolean v0, Lmiui/os/Build;->IS_CM_CUSTOMIZATION_TEST:Z
+    sget-boolean v0, Lmiui/os/Build;->IS_STABLE_VERSION:Z
 
     sput-boolean v0, Lcom/mi/config/b;->rN:Z
+
+    sget-boolean v0, Lmiui/os/Build;->IS_CM_CUSTOMIZATION_TEST:Z
+
+    sput-boolean v0, Lcom/mi/config/b;->rO:Z
 
     return-void
 .end method
@@ -949,10 +949,10 @@
     return v0
 .end method
 
-.method public static gH()Z
+.method public static gK()Z
     .locals 2
 
-    invoke-static {}, Lcom/mi/config/b;->iD()Z
+    invoke-static {}, Lcom/mi/config/b;->iG()Z
 
     move-result v0
 
@@ -972,7 +972,7 @@
     return v0
 .end method
 
-.method public static gI()Z
+.method public static gL()Z
     .locals 2
 
     const-string v0, "is_camera_use_still_effect_image"
@@ -988,10 +988,10 @@
     return v0
 .end method
 
-.method public static gJ()Z
+.method public static gM()Z
     .locals 2
 
-    sget-boolean v0, Lcom/mi/config/b;->qN:Z
+    sget-boolean v0, Lcom/mi/config/b;->qO:Z
 
     const/4 v1, 0x0
 
@@ -1018,7 +1018,7 @@
     return v1
 .end method
 
-.method public static gK()Z
+.method public static gN()Z
     .locals 2
 
     const-string v0, "support_camera_shader_effect"
@@ -1032,10 +1032,10 @@
     return v0
 .end method
 
-.method public static gL()Z
+.method public static gO()Z
     .locals 1
 
-    invoke-static {}, Lcom/mi/config/b;->gM()Z
+    invoke-static {}, Lcom/mi/config/b;->gP()Z
 
     move-result v0
 
@@ -1044,7 +1044,7 @@
     return v0
 .end method
 
-.method public static gM()Z
+.method public static gP()Z
     .locals 2
 
     sget-boolean v0, Lmiui/os/Build;->IS_INTERNATIONAL_BUILD:Z
@@ -1094,7 +1094,7 @@
     return v0
 .end method
 
-.method public static gN()Z
+.method public static gQ()Z
     .locals 2
 
     const-string v0, "support_camera_burst_shoot"
@@ -1108,7 +1108,7 @@
     return v0
 .end method
 
-.method public static gO()Z
+.method public static gR()Z
     .locals 2
 
     const-string v0, "support_camera_skin_beauty"
@@ -1122,7 +1122,7 @@
     return v0
 .end method
 
-.method public static gP()Z
+.method public static gS()Z
     .locals 2
 
     sget-boolean v0, Lmiui/os/Build;->IS_INTERNATIONAL_BUILD:Z
@@ -1147,7 +1147,7 @@
     return v1
 .end method
 
-.method public static gQ()Z
+.method public static gT()Z
     .locals 2
 
     const-string v0, "support_camera_record_location"
@@ -1161,7 +1161,7 @@
     return v0
 .end method
 
-.method public static gR()Z
+.method public static gU()Z
     .locals 2
 
     sget v0, Lcom/android/camera/Util;->sWindowHeight:I
@@ -1198,7 +1198,7 @@
     return v1
 .end method
 
-.method public static gS()Z
+.method public static gV()Z
     .locals 2
 
     const-string v0, "support_camera_water_mark"
@@ -1212,7 +1212,7 @@
     return v0
 .end method
 
-.method public static gT()Z
+.method public static gW()Z
     .locals 2
 
     const-string v0, "support_camera_new_style_time_water_mark"
@@ -1226,7 +1226,7 @@
     return v0
 .end method
 
-.method public static gU()Z
+.method public static gX()Z
     .locals 2
 
     const-string v0, "support_camera_face_info_water_mark"
@@ -1240,7 +1240,7 @@
     return v0
 .end method
 
-.method public static gV()Z
+.method public static gY()Z
     .locals 2
 
     const-string v0, "support_camera_video_pause"
@@ -1254,10 +1254,10 @@
     return v0
 .end method
 
-.method public static gW()Z
+.method public static gZ()Z
     .locals 2
 
-    sget-boolean v0, Lcom/mi/config/b;->rN:Z
+    sget-boolean v0, Lcom/mi/config/b;->rO:Z
 
     const/4 v1, 0x0
 
@@ -1277,56 +1277,6 @@
 
     :cond_0
     return v1
-.end method
-
-.method public static gX()Z
-    .locals 2
-
-    const-string v0, "is_lower_size_effect"
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/mi/config/d;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public static gY()Z
-    .locals 2
-
-    const-string v0, "qcom"
-
-    const-string v1, "vendor"
-
-    invoke-static {v1}, Lcom/mi/config/d;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public static gZ()Z
-    .locals 2
-
-    const-string v0, "nvidia"
-
-    const-string v1, "vendor"
-
-    invoke-static {v1}, Lcom/mi/config/d;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    return v0
 .end method
 
 .method public static ge()Z
@@ -1360,7 +1310,7 @@
 .method public static getGivenName()Ljava/lang/String;
     .locals 3
 
-    invoke-static {}, Lcom/mi/config/b;->iD()Z
+    invoke-static {}, Lcom/mi/config/b;->iG()Z
 
     move-result v0
 
@@ -1428,7 +1378,7 @@
     return-object v0
 
     :cond_3
-    invoke-static {}, Lcom/mi/config/b;->iE()Z
+    invoke-static {}, Lcom/mi/config/b;->iH()Z
 
     move-result v0
 
@@ -1451,6 +1401,56 @@
 .end method
 
 .method public static hA()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/mi/config/b;->IS_XIAOMI:Z
+
+    if-nez v0, :cond_0
+
+    sget-boolean v0, Lcom/mi/config/b;->IS_HONGMI:Z
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+.end method
+
+.method public static hB()Z
+    .locals 2
+
+    const-string v0, "is_capture_stop_face_detection"
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/mi/config/d;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static hC()Z
+    .locals 2
+
+    const-string v0, "is_camera_hold_blur_background"
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/mi/config/d;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static hD()Z
     .locals 2
 
     const-string v0, "support_camera_peaking_mf"
@@ -1464,16 +1464,16 @@
     return v0
 .end method
 
-.method public static hB()Z
+.method public static hE()Z
     .locals 2
 
-    sget-boolean v0, Lcom/mi/config/b;->qE:Z
+    sget-boolean v0, Lcom/mi/config/b;->qF:Z
 
     const/4 v1, 0x1
 
     if-nez v0, :cond_0
 
-    sget-boolean v0, Lcom/mi/config/b;->qN:Z
+    sget-boolean v0, Lcom/mi/config/b;->qO:Z
 
     if-nez v0, :cond_0
 
@@ -1481,15 +1481,11 @@
 
     if-nez v0, :cond_0
 
-    sget-boolean v0, Lcom/mi/config/b;->qy:Z
+    sget-boolean v0, Lcom/mi/config/b;->qz:Z
 
     if-nez v0, :cond_0
 
-    sget-boolean v0, Lcom/mi/config/b;->qF:Z
-
-    if-nez v0, :cond_0
-
-    sget-boolean v0, Lcom/mi/config/b;->qA:Z
+    sget-boolean v0, Lcom/mi/config/b;->qG:Z
 
     if-nez v0, :cond_0
 
@@ -1497,11 +1493,15 @@
 
     if-nez v0, :cond_0
 
-    sget-boolean v0, Lcom/mi/config/b;->qD:Z
+    sget-boolean v0, Lcom/mi/config/b;->qC:Z
 
     if-nez v0, :cond_0
 
-    sget-boolean v0, Lcom/mi/config/b;->qw:Z
+    sget-boolean v0, Lcom/mi/config/b;->qE:Z
+
+    if-nez v0, :cond_0
+
+    sget-boolean v0, Lcom/mi/config/b;->qx:Z
 
     if-nez v0, :cond_0
 
@@ -1509,11 +1509,11 @@
 
     if-nez v0, :cond_0
 
-    sget-boolean v0, Lcom/mi/config/b;->qz:Z
+    sget-boolean v0, Lcom/mi/config/b;->qA:Z
 
     if-nez v0, :cond_0
 
-    sget-boolean v0, Lcom/mi/config/b;->qO:Z
+    sget-boolean v0, Lcom/mi/config/b;->qP:Z
 
     if-nez v0, :cond_0
 
@@ -1534,7 +1534,7 @@
     return v1
 .end method
 
-.method public static hC()Z
+.method public static hF()Z
     .locals 2
 
     const-string v0, "is_surface_size_limit"
@@ -1548,10 +1548,10 @@
     return v0
 .end method
 
-.method public static hD()Z
+.method public static hG()Z
     .locals 1
 
-    sget-boolean v0, Lcom/mi/config/b;->qw:Z
+    sget-boolean v0, Lcom/mi/config/b;->qx:Z
 
     if-eqz v0, :cond_0
 
@@ -1570,7 +1570,7 @@
     return v0
 .end method
 
-.method public static hE()Z
+.method public static hH()Z
     .locals 2
 
     const-string v0, "support_camera_gradienter"
@@ -1584,7 +1584,7 @@
     return v0
 .end method
 
-.method public static hF()I
+.method public static hI()I
     .locals 2
 
     const-string v0, "camera_hibernation_timeout_in_minutes"
@@ -1598,7 +1598,7 @@
     return v0
 .end method
 
-.method public static hG()Z
+.method public static hJ()Z
     .locals 2
 
     const-string v0, "is_camera_lower_qrscan_frequency"
@@ -1612,7 +1612,7 @@
     return v0
 .end method
 
-.method public static hH()Z
+.method public static hK()Z
     .locals 2
 
     const-string v0, "is_camera_preview_with_subthread_looper"
@@ -1626,7 +1626,7 @@
     return v0
 .end method
 
-.method public static hI()Z
+.method public static hL()Z
     .locals 1
 
     const/4 v0, 0x0
@@ -1634,7 +1634,7 @@
     return v0
 .end method
 
-.method public static hJ()Z
+.method public static hM()Z
     .locals 2
 
     const-string v0, "is_camera_app_water_mark"
@@ -1648,7 +1648,7 @@
     return v0
 .end method
 
-.method public static hK()Z
+.method public static hN()Z
     .locals 2
 
     const-string v0, "support_edge_handgrip"
@@ -1662,7 +1662,7 @@
     return v0
 .end method
 
-.method public static hL()Z
+.method public static hO()Z
     .locals 2
 
     const-string v0, "support_camera_tilt_shift"
@@ -1676,7 +1676,7 @@
     return v0
 .end method
 
-.method public static hM()Z
+.method public static hP()Z
     .locals 2
 
     sget-boolean v0, Lmiui/os/Build;->IS_INTERNATIONAL_BUILD:Z
@@ -1701,7 +1701,7 @@
     return v1
 .end method
 
-.method public static hN()Ljava/lang/String;
+.method public static hQ()Ljava/lang/String;
     .locals 1
 
     const-string v0, "camera_continuous_shot_callback_class"
@@ -1713,7 +1713,7 @@
     return-object v0
 .end method
 
-.method public static hO()Ljava/lang/String;
+.method public static hR()Ljava/lang/String;
     .locals 1
 
     const-string v0, "camera_continuous_shot_callback_setter"
@@ -1725,7 +1725,7 @@
     return-object v0
 .end method
 
-.method public static hP()Z
+.method public static hS()Z
     .locals 2
 
     const-string v0, "is_hal_does_caf_when_flash_on"
@@ -1739,7 +1739,7 @@
     return v0
 .end method
 
-.method public static hQ()Z
+.method public static hT()Z
     .locals 2
 
     sget-boolean v0, Lmiui/os/Build;->IS_INTERNATIONAL_BUILD:Z
@@ -1764,10 +1764,10 @@
     return v1
 .end method
 
-.method public static hR()Z
+.method public static hU()Z
     .locals 1
 
-    sget-boolean v0, Lcom/mi/config/b;->qK:Z
+    sget-boolean v0, Lcom/mi/config/b;->qL:Z
 
     if-eqz v0, :cond_0
 
@@ -1776,7 +1776,7 @@
     if-nez v0, :cond_1
 
     :cond_0
-    sget-boolean v0, Lcom/mi/config/b;->rc:Z
+    sget-boolean v0, Lcom/mi/config/b;->rd:Z
 
     if-eqz v0, :cond_2
 
@@ -1792,7 +1792,7 @@
     return v0
 .end method
 
-.method public static hS()Z
+.method public static hV()Z
     .locals 1
 
     const/4 v0, 0x1
@@ -1800,7 +1800,7 @@
     return v0
 .end method
 
-.method public static hT()Z
+.method public static hW()Z
     .locals 2
 
     const-string v0, "support_camera_square_mode"
@@ -1814,16 +1814,16 @@
     return v0
 .end method
 
-.method public static hU()Z
+.method public static hX()Z
     .locals 2
 
-    sget-boolean v0, Lcom/mi/config/b;->qy:Z
+    sget-boolean v0, Lcom/mi/config/b;->qz:Z
 
     const/4 v1, 0x1
 
     if-nez v0, :cond_0
 
-    sget-boolean v0, Lcom/mi/config/b;->qO:Z
+    sget-boolean v0, Lcom/mi/config/b;->qP:Z
 
     if-nez v0, :cond_0
 
@@ -1831,7 +1831,7 @@
 
     if-nez v0, :cond_0
 
-    sget-boolean v0, Lcom/mi/config/b;->qE:Z
+    sget-boolean v0, Lcom/mi/config/b;->qF:Z
 
     if-nez v0, :cond_0
 
@@ -1852,7 +1852,7 @@
     return v1
 .end method
 
-.method public static hV()Z
+.method public static hY()Z
     .locals 2
 
     const-string v0, "support_full_size_panorama"
@@ -1868,7 +1868,7 @@
     return v0
 .end method
 
-.method public static hW()Z
+.method public static hZ()Z
     .locals 2
 
     const-string v0, "is_hrf_video_capture_support"
@@ -1895,24 +1895,10 @@
     return v1
 .end method
 
-.method public static hX()Z
+.method public static ha()Z
     .locals 2
 
-    const-string v0, "support_hfr_video_pause"
-
-    const/4 v1, 0x1
-
-    invoke-static {v0, v1}, Lcom/mi/config/d;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public static hY()Z
-    .locals 2
-
-    const-string v0, "is_support_stereo"
+    const-string v0, "is_lower_size_effect"
 
     const/4 v1, 0x0
 
@@ -1923,15 +1909,43 @@
     return v0
 .end method
 
-.method public static hZ()Z
-    .locals 1
+.method public static hb()Z
+    .locals 2
 
-    const/4 v0, 0x0
+    const-string v0, "qcom"
+
+    const-string v1, "vendor"
+
+    invoke-static {v1}, Lcom/mi/config/d;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
 
     return v0
 .end method
 
-.method public static ha()Z
+.method public static hc()Z
+    .locals 2
+
+    const-string v0, "nvidia"
+
+    const-string v1, "vendor"
+
+    invoke-static {v1}, Lcom/mi/config/d;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static hd()Z
     .locals 2
 
     const-string v0, "leadcore"
@@ -1949,7 +1963,7 @@
     return v0
 .end method
 
-.method public static hb()Z
+.method public static he()Z
     .locals 2
 
     const-string v0, "support_dual_sd_card"
@@ -1963,7 +1977,7 @@
     return v0
 .end method
 
-.method public static hc()Z
+.method public static hf()Z
     .locals 1
 
     const/4 v0, 0x0
@@ -1971,7 +1985,7 @@
     return v0
 .end method
 
-.method public static hd()Z
+.method public static hg()Z
     .locals 2
 
     const-string v0, "support_camera_aohdr"
@@ -1985,7 +1999,7 @@
     return v0
 .end method
 
-.method public static he()Z
+.method public static hh()Z
     .locals 2
 
     const-string v0, "support_camera_hfr"
@@ -1999,7 +2013,7 @@
     return v0
 .end method
 
-.method public static hf()Z
+.method public static hi()Z
     .locals 2
 
     const-string v0, "support_chroma_flash"
@@ -2013,7 +2027,7 @@
     return v0
 .end method
 
-.method public static hg()Z
+.method public static hj()Z
     .locals 2
 
     const-string v0, "support_object_track"
@@ -2027,7 +2041,7 @@
     return v0
 .end method
 
-.method public static hh()Z
+.method public static hk()Z
     .locals 2
 
     const-string v0, "support_camera_4k_quality"
@@ -2041,7 +2055,7 @@
     return v0
 .end method
 
-.method public static hi()Z
+.method public static hl()Z
     .locals 2
 
     const-string v0, "support_camera_ubifocus"
@@ -2055,7 +2069,7 @@
     return v0
 .end method
 
-.method public static hj()Z
+.method public static hm()Z
     .locals 3
 
     const-string v0, "camera_supported_asd"
@@ -2080,7 +2094,7 @@
     return v1
 .end method
 
-.method public static hk()Z
+.method public static hn()Z
     .locals 2
 
     const-string v0, "camera_supported_asd"
@@ -2103,7 +2117,7 @@
     return v1
 .end method
 
-.method public static hl()Z
+.method public static ho()Z
     .locals 1
 
     invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemFeature()Lcom/mi/config/a;
@@ -2131,7 +2145,7 @@
     return v0
 .end method
 
-.method public static hm()Z
+.method public static hp()Z
     .locals 2
 
     const-string v0, "camera_supported_asd"
@@ -2154,7 +2168,7 @@
     return v1
 .end method
 
-.method public static hn()Z
+.method public static hq()Z
     .locals 2
 
     const-string v0, "is_support_tele_asd_night"
@@ -2167,7 +2181,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/mi/config/b;->ho()Z
+    invoke-static {}, Lcom/mi/config/b;->hr()Z
 
     move-result v0
 
@@ -2181,7 +2195,7 @@
     return v1
 .end method
 
-.method public static ho()Z
+.method public static hr()Z
     .locals 1
 
     const/4 v0, 0x0
@@ -2189,7 +2203,7 @@
     return v0
 .end method
 
-.method public static hp()Z
+.method public static hs()Z
     .locals 2
 
     const-string v0, "support_camera_manual_function"
@@ -2203,7 +2217,7 @@
     return v0
 .end method
 
-.method public static hq()Z
+.method public static ht()Z
     .locals 2
 
     const-string v0, "support_camera_audio_focus"
@@ -2217,16 +2231,16 @@
     return v0
 .end method
 
-.method public static hr()Z
+.method public static hu()Z
     .locals 2
 
-    sget-boolean v0, Lcom/mi/config/b;->qE:Z
+    sget-boolean v0, Lcom/mi/config/b;->qF:Z
 
     const/4 v1, 0x1
 
     if-nez v0, :cond_0
 
-    sget-boolean v0, Lcom/mi/config/b;->qN:Z
+    sget-boolean v0, Lcom/mi/config/b;->qO:Z
 
     if-nez v0, :cond_0
 
@@ -2234,15 +2248,11 @@
 
     if-nez v0, :cond_0
 
-    sget-boolean v0, Lcom/mi/config/b;->qy:Z
+    sget-boolean v0, Lcom/mi/config/b;->qz:Z
 
     if-nez v0, :cond_0
 
-    sget-boolean v0, Lcom/mi/config/b;->qF:Z
-
-    if-nez v0, :cond_0
-
-    sget-boolean v0, Lcom/mi/config/b;->qA:Z
+    sget-boolean v0, Lcom/mi/config/b;->qG:Z
 
     if-nez v0, :cond_0
 
@@ -2250,11 +2260,15 @@
 
     if-nez v0, :cond_0
 
-    sget-boolean v0, Lcom/mi/config/b;->qD:Z
+    sget-boolean v0, Lcom/mi/config/b;->qC:Z
 
     if-nez v0, :cond_0
 
-    sget-boolean v0, Lcom/mi/config/b;->qw:Z
+    sget-boolean v0, Lcom/mi/config/b;->qE:Z
+
+    if-nez v0, :cond_0
+
+    sget-boolean v0, Lcom/mi/config/b;->qx:Z
 
     if-nez v0, :cond_0
 
@@ -2262,7 +2276,7 @@
 
     if-nez v0, :cond_0
 
-    sget-boolean v0, Lcom/mi/config/b;->qz:Z
+    sget-boolean v0, Lcom/mi/config/b;->qA:Z
 
     if-nez v0, :cond_0
 
@@ -2283,7 +2297,7 @@
     return v1
 .end method
 
-.method public static hs()Z
+.method public static hv()Z
     .locals 1
 
     const/4 v0, 0x0
@@ -2291,7 +2305,7 @@
     return v0
 .end method
 
-.method public static ht()Z
+.method public static hw()Z
     .locals 2
 
     const-string v0, "support_camera_torch_capture"
@@ -2305,10 +2319,10 @@
     return v0
 .end method
 
-.method public static hu()Z
+.method public static hx()Z
     .locals 2
 
-    invoke-static {}, Lcom/mi/config/b;->gY()Z
+    invoke-static {}, Lcom/mi/config/b;->hb()Z
 
     move-result v0
 
@@ -2331,7 +2345,7 @@
     return v0
 .end method
 
-.method public static hv()Z
+.method public static hy()Z
     .locals 2
 
     const-string v0, "is_camera_freeze_after_hdr_capture"
@@ -2345,7 +2359,7 @@
     return v0
 .end method
 
-.method public static hw()Z
+.method public static hz()Z
     .locals 2
 
     const-string v0, "is_camera_face_detection_need_orientation"
@@ -2359,57 +2373,49 @@
     return v0
 .end method
 
-.method public static hx()Z
-    .locals 1
-
-    sget-boolean v0, Lcom/mi/config/b;->IS_XIAOMI:Z
-
-    if-nez v0, :cond_0
-
-    sget-boolean v0, Lcom/mi/config/b;->IS_HONGMI:Z
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
-    return v0
-.end method
-
-.method public static hy()Z
-    .locals 2
-
-    const-string v0, "is_capture_stop_face_detection"
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/mi/config/d;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public static hz()Z
-    .locals 2
-
-    const-string v0, "is_camera_hold_blur_background"
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/mi/config/d;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    return v0
-.end method
-
 .method public static iA()Z
+    .locals 2
+
+    const-string v0, "use_legacy_normal_filter"
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/mi/config/d;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static iB()Z
+    .locals 2
+
+    const-string v0, "enable_algorithm_in_file_suffix"
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/mi/config/d;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static iC()Z
+    .locals 2
+
+    const-string v0, "support_realtime_manual_exposure_time"
+
+    const/4 v1, 0x1
+
+    invoke-static {v0, v1}, Lcom/mi/config/d;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static iD()Z
     .locals 2
 
     const-string v0, "support_picture_watermark"
@@ -2423,14 +2429,14 @@
     return v0
 .end method
 
-.method public static iB()Z
+.method public static iE()Z
     .locals 1
 
-    sget-boolean v0, Lcom/mi/config/b;->rD:Z
+    sget-boolean v0, Lcom/mi/config/b;->rE:Z
 
     if-nez v0, :cond_1
 
-    sget-boolean v0, Lcom/mi/config/b;->rB:Z
+    sget-boolean v0, Lcom/mi/config/b;->rC:Z
 
     if-eqz v0, :cond_0
 
@@ -2449,7 +2455,7 @@
     return v0
 .end method
 
-.method public static iC()Z
+.method public static iF()Z
     .locals 2
 
     const-string v0, "sensor_has_latency"
@@ -2463,12 +2469,12 @@
     return v0
 .end method
 
-.method public static iD()Z
+.method public static iG()Z
     .locals 3
 
     const-string v0, "onc"
 
-    sget-object v1, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v1, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -2509,10 +2515,10 @@
     return v1
 .end method
 
-.method public static iE()Z
+.method public static iH()Z
     .locals 2
 
-    sget-object v0, Lcom/mi/config/b;->qn:Ljava/lang/String;
+    sget-object v0, Lcom/mi/config/b;->qo:Ljava/lang/String;
 
     const-string v1, "lavender"
 
@@ -2520,13 +2526,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     const-string v0, "India_48_5"
 
     const-string v1, "ro.boot.hwc"
 
-    invoke-static {v1}, Ljava/lang/System;->getProperty(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -2534,34 +2540,23 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_0
 
-    sget-object v0, Landroid/os/Build;->MODEL:Ljava/lang/String;
-
-    const-string v1, "7S"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    :cond_0
     const/4 v0, 0x1
 
     goto :goto_0
 
-    :cond_1
+    :cond_0
     const/4 v0, 0x0
 
     :goto_0
     return v0
 .end method
 
-.method public static iF()Z
+.method public static iI()Z
     .locals 1
 
-    sget-boolean v0, Lcom/mi/config/b;->rH:Z
+    sget-boolean v0, Lcom/mi/config/b;->rI:Z
 
     if-eqz v0, :cond_0
 
@@ -2580,24 +2575,28 @@
     return v0
 .end method
 
-.method public static iG()Z
+.method public static iJ()Z
     .locals 1
 
-    sget-boolean v0, Lcom/mi/config/b;->rI:Z
+    sget-boolean v0, Lcom/mi/config/b;->rJ:Z
 
     return v0
 .end method
 
-.method public static iH()Z
+.method public static iK()Z
     .locals 1
 
-    invoke-static {}, Lcom/mi/config/b;->iF()Z
+    invoke-static {}, Lcom/mi/config/b;->iI()Z
 
     move-result v0
 
     if-nez v0, :cond_1
 
-    sget-boolean v0, Lcom/mi/config/b;->rL:Z
+    sget-boolean v0, Lcom/mi/config/b;->rM:Z
+
+    if-nez v0, :cond_1
+
+    sget-boolean v0, Lcom/mi/config/b;->rK:Z
 
     if-eqz v0, :cond_0
 
@@ -2616,7 +2615,43 @@
     return v0
 .end method
 
-.method public static ia()Ljava/util/ArrayList;
+.method public static ia()Z
+    .locals 2
+
+    const-string v0, "support_hfr_video_pause"
+
+    const/4 v1, 0x1
+
+    invoke-static {v0, v1}, Lcom/mi/config/d;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static ib()Z
+    .locals 2
+
+    const-string v0, "is_support_stereo"
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/mi/config/d;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static ic()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public static id()Ljava/util/ArrayList;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2627,7 +2662,7 @@
         }
     .end annotation
 
-    sget-object v0, Lcom/mi/config/b;->rR:Ljava/util/ArrayList;
+    sget-object v0, Lcom/mi/config/b;->rS:Ljava/util/ArrayList;
 
     if-nez v0, :cond_0
 
@@ -2635,7 +2670,7 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    sput-object v0, Lcom/mi/config/b;->rR:Ljava/util/ArrayList;
+    sput-object v0, Lcom/mi/config/b;->rS:Ljava/util/ArrayList;
 
     const-string v0, "fp_nav_event_name_list"
 
@@ -2645,17 +2680,17 @@
 
     if-eqz v0, :cond_0
 
-    sget-object v1, Lcom/mi/config/b;->rR:Ljava/util/ArrayList;
+    sget-object v1, Lcom/mi/config/b;->rS:Ljava/util/ArrayList;
 
     invoke-static {v1, v0}, Ljava/util/Collections;->addAll(Ljava/util/Collection;[Ljava/lang/Object;)Z
 
     :cond_0
-    sget-object v0, Lcom/mi/config/b;->rR:Ljava/util/ArrayList;
+    sget-object v0, Lcom/mi/config/b;->rS:Ljava/util/ArrayList;
 
     return-object v0
 .end method
 
-.method public static ib()Z
+.method public static ie()Z
     .locals 2
 
     const-string v0, "is_full_size_effect"
@@ -2669,7 +2704,7 @@
     return v0
 .end method
 
-.method public static ic()Z
+.method public static if()Z
     .locals 2
 
     const-string v0, "support_camera_burst_shoot_denoise"
@@ -2683,7 +2718,7 @@
     return v0
 .end method
 
-.method public static id()Z
+.method public static ig()Z
     .locals 1
 
     const/4 v0, 0x0
@@ -2691,7 +2726,7 @@
     return v0
 .end method
 
-.method public static ie()Z
+.method public static ih()Z
     .locals 2
 
     const-string v0, "is_camera_isp_rotated"
@@ -2705,7 +2740,7 @@
     return v0
 .end method
 
-.method public static if()Z
+.method public static ii()Z
     .locals 2
 
     const-string v0, "is_support_fhd_fhr"
@@ -2719,10 +2754,10 @@
     return v0
 .end method
 
-.method public static ig()Z
+.method public static ij()Z
     .locals 2
 
-    sget-boolean v0, Lcom/mi/config/b;->rv:Z
+    sget-boolean v0, Lcom/mi/config/b;->rw:Z
 
     if-eqz v0, :cond_0
 
@@ -2752,18 +2787,18 @@
     return v0
 .end method
 
-.method public static ih()Z
+.method public static ik()Z
     .locals 1
 
-    sget-boolean v0, Lcom/mi/config/b;->qZ:Z
+    sget-boolean v0, Lcom/mi/config/b;->ra:Z
 
     if-nez v0, :cond_1
 
-    sget-boolean v0, Lcom/mi/config/b;->rs:Z
+    sget-boolean v0, Lcom/mi/config/b;->rt:Z
 
     if-nez v0, :cond_1
 
-    sget-boolean v0, Lcom/mi/config/b;->rB:Z
+    sget-boolean v0, Lcom/mi/config/b;->rC:Z
 
     if-eqz v0, :cond_0
 
@@ -2782,7 +2817,7 @@
     return v0
 .end method
 
-.method public static ii()Z
+.method public static il()Z
     .locals 2
 
     const-string v0, "support_psensor_pocket_mode"
@@ -2796,7 +2831,7 @@
     return v0
 .end method
 
-.method public static ij()Z
+.method public static im()Z
     .locals 2
 
     const-string v0, "is_rgb888_egl_prefer"
@@ -2810,7 +2845,7 @@
     return v0
 .end method
 
-.method public static ik()Z
+.method public static in()Z
     .locals 2
 
     const-string v0, "support_front_flash"
@@ -2824,10 +2859,10 @@
     return v0
 .end method
 
-.method public static il()Z
+.method public static ip()Z
     .locals 2
 
-    invoke-static {}, Lcom/mi/config/b;->ik()Z
+    invoke-static {}, Lcom/mi/config/b;->in()Z
 
     move-result v0
 
@@ -2852,7 +2887,7 @@
     return v1
 .end method
 
-.method private static im()Z
+.method private static iq()Z
     .locals 2
 
     const-string v0, "ro.hardware.fp.fod"
@@ -2866,7 +2901,7 @@
     return v0
 .end method
 
-.method private static in()Z
+.method private static ir()Z
     .locals 2
 
     const-string v0, "front_fingerprint_sensor"
@@ -2879,7 +2914,7 @@
 
     if-nez v0, :cond_1
 
-    invoke-static {}, Lcom/mi/config/b;->im()Z
+    invoke-static {}, Lcom/mi/config/b;->iq()Z
 
     move-result v0
 
@@ -2898,10 +2933,10 @@
     return v1
 .end method
 
-.method public static ip()Z
+.method public static is()Z
     .locals 2
 
-    invoke-static {}, Lcom/mi/config/b;->in()Z
+    invoke-static {}, Lcom/mi/config/b;->ir()Z
 
     move-result v0
 
@@ -2916,7 +2951,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/mi/config/a;->gC()Z
+    invoke-virtual {v0}, Lcom/mi/config/a;->gD()Z
 
     move-result v0
 
@@ -2925,13 +2960,13 @@
     return v1
 
     :cond_1
-    invoke-static {}, Lcom/mi/config/b;->ia()Ljava/util/ArrayList;
+    invoke-static {}, Lcom/mi/config/b;->id()Ljava/util/ArrayList;
 
     move-result-object v0
 
     if-eqz v0, :cond_2
 
-    invoke-static {}, Lcom/mi/config/b;->ia()Ljava/util/ArrayList;
+    invoke-static {}, Lcom/mi/config/b;->id()Ljava/util/ArrayList;
 
     move-result-object v0
 
@@ -2947,48 +2982,6 @@
 
     :cond_2
     return v1
-.end method
-
-.method public static iq()Z
-    .locals 2
-
-    const-string v0, "support_screen_light"
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/mi/config/d;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public static ir()Z
-    .locals 2
-
-    const-string v0, "support_camera_dynamic_light_spot"
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/mi/config/d;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public static is()Z
-    .locals 2
-
-    const-string v0, "support_front_beauty_mfnr"
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/mi/config/d;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    return v0
 .end method
 
 .method public static isMTKPlatform()Z
@@ -3054,7 +3047,7 @@
 .method public static it()Z
     .locals 2
 
-    const-string v0, "support_video_hfr_mode"
+    const-string v0, "support_screen_light"
 
     const/4 v1, 0x0
 
@@ -3068,7 +3061,7 @@
 .method public static iu()Z
     .locals 2
 
-    const-string v0, "support_3d_face_beauty"
+    const-string v0, "support_camera_dynamic_light_spot"
 
     const/4 v1, 0x0
 
@@ -3082,7 +3075,7 @@
 .method public static iv()Z
     .locals 2
 
-    const-string v0, "support_mi_face_beauty"
+    const-string v0, "support_front_beauty_mfnr"
 
     const/4 v1, 0x0
 
@@ -3094,15 +3087,57 @@
 .end method
 
 .method public static iw()Z
+    .locals 2
+
+    const-string v0, "support_video_hfr_mode"
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/mi/config/d;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static ix()Z
+    .locals 2
+
+    const-string v0, "support_3d_face_beauty"
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/mi/config/d;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static iy()Z
+    .locals 2
+
+    const-string v0, "support_mi_face_beauty"
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/mi/config/d;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static iz()Z
     .locals 1
 
-    invoke-static {}, Lcom/mi/config/b;->iu()Z
+    invoke-static {}, Lcom/mi/config/b;->ix()Z
 
     move-result v0
 
     if-nez v0, :cond_1
 
-    invoke-static {}, Lcom/mi/config/b;->iv()Z
+    invoke-static {}, Lcom/mi/config/b;->iy()Z
 
     move-result v0
 
@@ -3123,44 +3158,27 @@
     return v0
 .end method
 
-.method public static ix()Z
+.method public static r(Z)Z
     .locals 2
 
-    const-string v0, "use_legacy_normal_filter"
+    const-string v0, "ro.miui.customized.region"
 
-    const/4 v1, 0x0
+    invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-static {v0, v1}, Lcom/mi/config/d;->getBoolean(Ljava/lang/String;Z)Z
+    move-result-object v0
+
+    const-string v1, "fr_sfr"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    return v0
-.end method
+    if-eqz v0, :cond_0
 
-.method public static iy()Z
-    .locals 2
+    const/4 p0, 0x0
 
-    const-string v0, "enable_algorithm_in_file_suffix"
+    return p0
 
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/mi/config/d;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public static iz()Z
-    .locals 2
-
-    const-string v0, "support_realtime_manual_exposure_time"
-
-    const/4 v1, 0x1
-
-    invoke-static {v0, v1}, Lcom/mi/config/d;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    return v0
+    :cond_0
+    return p0
 .end method

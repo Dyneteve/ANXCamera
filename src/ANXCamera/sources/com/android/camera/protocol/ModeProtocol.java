@@ -15,7 +15,6 @@ import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.v4.app.FragmentManager;
 import android.util.Pair;
-import android.util.SparseArray;
 import android.view.MotionEvent;
 import android.view.Surface;
 import android.view.TextureView;
@@ -31,7 +30,6 @@ import com.android.camera.data.data.config.ComponentManuallyISO;
 import com.android.camera.data.data.config.ComponentManuallyWB;
 import com.android.camera.data.data.runing.ComponentRunningShine;
 import com.android.camera.data.data.runing.ComponentRunningShine.ShineType;
-import com.android.camera.fragment.beauty.MenuItem;
 import com.android.camera.fragment.lifeCircle.BaseLifecycleListener;
 import com.android.camera.fragment.manually.ManuallyListener;
 import com.android.camera.fragment.mimoji.MimojiInfo;
@@ -96,6 +94,7 @@ public interface ModeProtocol {
     public static final int PROTOCOL_MANUALLY_ADJUST = 181;
     public static final int PROTOCOL_MANUALLY_CHANGE = 174;
     public static final int PROTOCOL_MIMOJI = 217;
+    public static final int PROTOCOL_MIMOJI_ALERT = 226;
     public static final int PROTOCOL_MIMOJI_DATA_BASE = 225;
     public static final int PROTOCOL_MIMOJI_EDITOR = 224;
     public static final int PROTOCOL_MODE_CHANGE_CONTROLLER = 179;
@@ -121,6 +120,8 @@ public interface ModeProtocol {
         public static final int TYPE_TAG = 162;
 
         void filterUiChange();
+
+        boolean forceSwitchFront();
 
         void hideExtra();
 
@@ -286,8 +287,6 @@ public interface ModeProtocol {
 
         int getBeautyActionMenuType();
 
-        SparseArray<MenuItem> getMenuData();
-
         void onBottomMenuAnimate(int i, int i2);
 
         void onSwitchBeautyActionMenu(int i);
@@ -388,6 +387,8 @@ public interface ModeProtocol {
         void setPortraitHintVisible(int i);
 
         void showCloseTip(int i, boolean z);
+
+        void showMimoji();
 
         void showMimojiTip();
 
@@ -932,11 +933,20 @@ public interface ModeProtocol {
     }
 
     public interface MiBeautyProtocol extends BaseProtocol {
+        public static final int DISMISS_ALPHA = 3;
+        public static final int DISMISS_SILENT = 1;
+        public static final int DISMISS_SLIDE = 2;
         public static final int TYPE_TAG = 194;
+
+        @Retention(RetentionPolicy.SOURCE)
+        public @interface DismissType {
+        }
+
+        void clearBeauty();
 
         void closeEyeLight();
 
-        void dismiss();
+        void dismiss(int i);
 
         List<TypeItem> getSupportedBeautyItems(@ShineType String str);
 
@@ -946,17 +956,27 @@ public interface ModeProtocol {
 
         void resetBeauty();
 
-        void switchShineType(@ShineType String str);
+        void show();
+
+        void switchShineType(@ShineType String str, boolean z);
+    }
+
+    public interface MimojiAlert extends BaseProtocol {
+        public static final int TYPE_TAG = 226;
+
+        void refreshMimojiList();
     }
 
     public interface MimojiAvatarEngine extends BaseProtocol {
         public static final int TYPE_TAG = 217;
 
-        void backToPreview(boolean z);
+        void backToPreview(boolean z, boolean z2);
 
         void initAvatarEngine(int i, int i2, int i3, int i4, boolean z);
 
         boolean isOnCreateMimoji();
+
+        boolean isRecordStopping();
 
         boolean isRecording();
 
@@ -966,7 +986,7 @@ public interface ModeProtocol {
 
         void onDeviceRotationChange(int i);
 
-        void onDrawFrame();
+        void onDrawFrame(int i, int i2, boolean z);
 
         void onMimojiCreate();
 
@@ -976,19 +996,21 @@ public interface ModeProtocol {
 
         void onRecordStart(ContentValues contentValues);
 
-        void onRecordStop();
+        void onRecordStop(boolean z);
 
         void onResume();
 
         void releaseRender();
 
         void setDetectSuccess(boolean z);
+
+        void setDisableSingleTapUp(boolean z);
     }
 
     public interface MimojiEditor extends BaseProtocol {
         public static final int TYPE_TAG = 224;
 
-        void directlyEnterEditMode(String str);
+        void directlyEnterEditMode(MimojiInfo mimojiInfo, int i);
 
         void onDeviceRotationChange(int i);
 
@@ -997,8 +1019,6 @@ public interface ModeProtocol {
         void requestRender();
 
         void resetConfig();
-
-        void showOrHideTips(boolean z);
 
         void startMimojiEdit();
     }
@@ -1126,6 +1146,8 @@ public interface ModeProtocol {
 
         void alertLightingTitle(boolean z);
 
+        void alertMimojiFaceDetect(boolean z, @StringRes int i);
+
         void alertMoonModeSelector(int i, boolean z);
 
         void alertMusicClose(boolean z);
@@ -1175,8 +1197,6 @@ public interface ModeProtocol {
         void setRecordingTimeState(int i);
 
         void showConfigMenu();
-
-        void showOrHideMimojiCreateTitle(boolean z);
 
         void startLiveShotAnimation();
 

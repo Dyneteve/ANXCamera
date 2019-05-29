@@ -4,13 +4,13 @@
 
 
 # static fields
-.field private static final qa:I = 0x1f
+.field private static final qb:I = 0x1f
 
-.field private static final qb:I = 0x11
-
-.field private static final qc:[C
+.field private static final qc:I = 0x11
 
 .field private static final qe:[C
+
+.field private static final qf:[C
 
 
 # direct methods
@@ -23,13 +23,13 @@
 
     move-result-object v0
 
-    sput-object v0, Lcom/bumptech/glide/util/k;->qc:[C
+    sput-object v0, Lcom/bumptech/glide/util/k;->qe:[C
 
     const/16 v0, 0x40
 
     new-array v0, v0, [C
 
-    sput-object v0, Lcom/bumptech/glide/util/k;->qe:[C
+    sput-object v0, Lcom/bumptech/glide/util/k;->qf:[C
 
     return-void
 .end method
@@ -164,7 +164,7 @@
 
     mul-int/lit8 v2, v0, 0x2
 
-    sget-object v3, Lcom/bumptech/glide/util/k;->qc:[C
+    sget-object v3, Lcom/bumptech/glide/util/k;->qe:[C
 
     ushr-int/lit8 v4, v1, 0x4
 
@@ -174,7 +174,7 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    sget-object v3, Lcom/bumptech/glide/util/k;->qc:[C
+    sget-object v3, Lcom/bumptech/glide/util/k;->qe:[C
 
     and-int/lit8 v1, v1, 0xf
 
@@ -418,7 +418,7 @@
     sget-object p0, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
     :cond_0
-    sget-object v0, Lcom/bumptech/glide/util/k$1;->hJ:[I
+    sget-object v0, Lcom/bumptech/glide/util/k$1;->hK:[I
 
     invoke-virtual {p0}, Landroid/graphics/Bitmap$Config;->ordinal()I
 
@@ -540,12 +540,12 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/util/k;->qe:[C
+    sget-object v0, Lcom/bumptech/glide/util/k;->qf:[C
 
     monitor-enter v0
 
     :try_start_0
-    sget-object v1, Lcom/bumptech/glide/util/k;->qe:[C
+    sget-object v1, Lcom/bumptech/glide/util/k;->qf:[C
 
     invoke-static {p0, v1}, Lcom/bumptech/glide/util/k;->a([B[C)Ljava/lang/String;
 

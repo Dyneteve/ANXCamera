@@ -26,7 +26,7 @@
 
 
 # instance fields
-.field private final pw:Lcom/bumptech/glide/request/a/g;
+.field private final px:Lcom/bumptech/glide/request/a/g;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/request/a/g<",
@@ -51,7 +51,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/request/a/a;->pw:Lcom/bumptech/glide/request/a/g;
+    iput-object p1, p0, Lcom/bumptech/glide/request/a/a;->px:Lcom/bumptech/glide/request/a/g;
 
     return-void
 .end method
@@ -70,7 +70,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/a/a;->pw:Lcom/bumptech/glide/request/a/g;
+    iget-object v0, p0, Lcom/bumptech/glide/request/a/a;->px:Lcom/bumptech/glide/request/a/g;
 
     invoke-interface {v0, p1, p2}, Lcom/bumptech/glide/request/a/g;->a(Lcom/bumptech/glide/load/DataSource;Z)Lcom/bumptech/glide/request/a/f;
 

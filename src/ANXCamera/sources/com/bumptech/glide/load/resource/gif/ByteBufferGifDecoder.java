@@ -26,13 +26,13 @@ import java.util.Queue;
 
 public class ByteBufferGifDecoder implements g<ByteBuffer, b> {
     private static final String TAG = "BufferGifDecoder";
-    private static final GifDecoderFactory md = new GifDecoderFactory();
-    private static final GifHeaderParserPool me = new GifHeaderParserPool();
+    private static final GifDecoderFactory me = new GifDecoderFactory();
+    private static final GifHeaderParserPool mf = new GifHeaderParserPool();
     private final Context context;
-    private final List<ImageHeaderParser> eu;
-    private final GifHeaderParserPool mf;
-    private final GifDecoderFactory mg;
-    private final a mh;
+    private final List<ImageHeaderParser> ev;
+    private final GifHeaderParserPool mg;
+    private final GifDecoderFactory mh;
+    private final a mi;
 
     @VisibleForTesting
     static class GifDecoderFactory {
@@ -47,7 +47,7 @@ public class ByteBufferGifDecoder implements g<ByteBuffer, b> {
 
     @VisibleForTesting
     static class GifHeaderParserPool {
-        private final Queue<d> hT = k.Y(0);
+        private final Queue<d> hU = k.Y(0);
 
         GifHeaderParserPool() {
         }
@@ -55,13 +55,13 @@ public class ByteBufferGifDecoder implements g<ByteBuffer, b> {
         /* access modifiers changed from: 0000 */
         public synchronized void a(d dVar) {
             dVar.clear();
-            this.hT.offer(dVar);
+            this.hU.offer(dVar);
         }
 
         /* access modifiers changed from: 0000 */
         public synchronized d e(ByteBuffer byteBuffer) {
             d dVar;
-            dVar = (d) this.hT.poll();
+            dVar = (d) this.hU.poll();
             if (dVar == null) {
                 dVar = new d();
             }
@@ -74,16 +74,16 @@ public class ByteBufferGifDecoder implements g<ByteBuffer, b> {
     }
 
     public ByteBufferGifDecoder(Context context2, List<ImageHeaderParser> list, com.bumptech.glide.load.engine.bitmap_recycle.d dVar, b bVar) {
-        this(context2, list, dVar, bVar, me, md);
+        this(context2, list, dVar, bVar, mf, me);
     }
 
     @VisibleForTesting
     ByteBufferGifDecoder(Context context2, List<ImageHeaderParser> list, com.bumptech.glide.load.engine.bitmap_recycle.d dVar, b bVar, GifHeaderParserPool gifHeaderParserPool, GifDecoderFactory gifDecoderFactory) {
         this.context = context2.getApplicationContext();
-        this.eu = list;
-        this.mg = gifDecoderFactory;
-        this.mh = new a(dVar, bVar);
-        this.mf = gifHeaderParserPool;
+        this.ev = list;
+        this.mh = gifDecoderFactory;
+        this.mi = new a(dVar, bVar);
+        this.mg = gifHeaderParserPool;
     }
 
     private static int a(c cVar, int i, int i2) {
@@ -115,10 +115,10 @@ public class ByteBufferGifDecoder implements g<ByteBuffer, b> {
             c ac = dVar.ac();
             if (ac.ab() > 0) {
                 if (ac.getStatus() == 0) {
-                    Config config = fVar.a(g.lm) == DecodeFormat.PREFER_RGB_565 ? Config.RGB_565 : Config.ARGB_8888;
+                    Config config = fVar.a(g.ln) == DecodeFormat.PREFER_RGB_565 ? Config.RGB_565 : Config.ARGB_8888;
                     int i3 = i;
                     int i4 = i2;
-                    a a = this.mg.a(this.mh, ac, byteBuffer, a(ac, i3, i4));
+                    a a = this.mh.a(this.mi, ac, byteBuffer, a(ac, i3, i4));
                     a.a(config);
                     a.advance();
                     Bitmap aa = a.aa();
@@ -164,17 +164,17 @@ public class ByteBufferGifDecoder implements g<ByteBuffer, b> {
     }
 
     public boolean a(@NonNull ByteBuffer byteBuffer, @NonNull f fVar) throws IOException {
-        return !((Boolean) fVar.a(g.mF)).booleanValue() && com.bumptech.glide.load.b.a(this.eu, byteBuffer) == ImageType.GIF;
+        return !((Boolean) fVar.a(g.mG)).booleanValue() && com.bumptech.glide.load.b.a(this.ev, byteBuffer) == ImageType.GIF;
     }
 
     /* renamed from: b */
     public d a(@NonNull ByteBuffer byteBuffer, int i, int i2, @NonNull f fVar) {
-        d e = this.mf.e(byteBuffer);
+        d e = this.mg.e(byteBuffer);
         try {
             d a = a(byteBuffer, i, i2, e, fVar);
             return a;
         } finally {
-            this.mf.a(e);
+            this.mg.a(e);
         }
     }
 }

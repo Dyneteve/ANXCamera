@@ -5,9 +5,9 @@ public enum DecodeFormat {
     PREFER_ARGB_8888_DISALLOW_HARDWARE,
     PREFER_RGB_565;
     
-    public static final DecodeFormat dl = null;
+    public static final DecodeFormat dm = null;
 
     static {
-        dl = PREFER_ARGB_8888_DISALLOW_HARDWARE;
+        dm = PREFER_ARGB_8888_DISALLOW_HARDWARE;
     }
 }

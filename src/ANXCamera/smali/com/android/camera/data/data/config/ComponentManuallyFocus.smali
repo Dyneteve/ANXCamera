@@ -190,7 +190,7 @@
 
     if-ltz p1, :cond_1
 
-    const p1, 0x7f020107
+    const p1, 0x7f02010d
 
     return p1
 
@@ -201,12 +201,12 @@
 
     if-ltz p1, :cond_2
 
-    const p1, 0x7f020108
+    const p1, 0x7f02010e
 
     return p1
 
     :cond_2
-    const p1, 0x7f020106
+    const p1, 0x7f02010c
 
     return p1
 .end method

@@ -17,23 +17,23 @@ public class MimojiStatusManager {
     }
 
     public boolean IsInMimojiCreate() {
-        return this.mIsAvatarInited && this.mMode == MIMOJI_CREATE;
+        return this.mMode == MIMOJI_CREATE;
     }
 
     public boolean IsInMimojiEdit() {
-        return this.mIsAvatarInited && this.mMode == MIMOJI_EIDT;
+        return this.mMode == MIMOJI_EIDT;
     }
 
     public boolean IsInMimojiEditMid() {
-        return this.mIsAvatarInited && this.mMode == MIMOJI_EDIT_MID;
+        return this.mMode == MIMOJI_EDIT_MID;
     }
 
     public boolean IsInMimojiPreview() {
-        return this.mIsAvatarInited && this.mMode == MIMOJI_PREVIEW;
+        return this.mMode == MIMOJI_PREVIEW;
     }
 
     public boolean IsInPreviewSurface() {
-        return this.mMode < MIMOJI_EDIT_MID;
+        return this.mMode < MIMOJI_CREATE;
     }
 
     public synchronized int getMode() {

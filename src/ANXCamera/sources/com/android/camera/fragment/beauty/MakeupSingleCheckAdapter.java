@@ -27,8 +27,7 @@ public class MakeupSingleCheckAdapter extends Adapter<SingleCheckViewHolder> {
     public Context mContext;
     /* access modifiers changed from: private */
     public boolean mIsCustomWidth;
-    /* access modifiers changed from: private */
-    public int mItemHorizontalMargin = 0;
+    private int mItemHorizontalMargin = 0;
     /* access modifiers changed from: private */
     public int mItemWidth;
     /* access modifiers changed from: private */
@@ -53,9 +52,7 @@ public class MakeupSingleCheckAdapter extends Adapter<SingleCheckViewHolder> {
             this.itemView = view;
             this.mText = (TextView) view.findViewById(R.id.makeup_item_name);
             this.mBase = (ColorImageView) view.findViewById(R.id.makeup_item_icon);
-            MarginLayoutParams marginLayoutParams = (MarginLayoutParams) this.mBase.getLayoutParams();
-            marginLayoutParams.setMarginStart(MakeupSingleCheckAdapter.this.mItemHorizontalMargin);
-            marginLayoutParams.setMarginEnd(MakeupSingleCheckAdapter.this.mItemHorizontalMargin);
+            MarginLayoutParams marginLayoutParams = (MarginLayoutParams) view.getLayoutParams();
             if (MakeupSingleCheckAdapter.this.mIsCustomWidth) {
                 marginLayoutParams.width = MakeupSingleCheckAdapter.this.mItemWidth;
             }
@@ -119,9 +116,9 @@ public class MakeupSingleCheckAdapter extends Adapter<SingleCheckViewHolder> {
             Resources resources = MakeupSingleCheckAdapter.this.mContext.getResources();
             this.mText.setText(resources.getString(typeItem.getTextResource()));
             TextView textView = this.mText;
-            int access$500 = MakeupSingleCheckAdapter.this.mSelectedItem;
+            int access$400 = MakeupSingleCheckAdapter.this.mSelectedItem;
             int i2 = ColorConstant.COLOR_COMMON_SELECTED;
-            textView.setTextColor(i == access$500 ? -16733953 : resources.getColor(R.color.beautycamera_beauty_advanced_item_text_normal));
+            textView.setTextColor(i == access$400 ? -16733953 : resources.getColor(R.color.beautycamera_beauty_advanced_item_text_normal));
             if (Util.isAccessible()) {
                 TextView textView2 = this.mText;
                 if (i == MakeupSingleCheckAdapter.this.mSelectedItem) {

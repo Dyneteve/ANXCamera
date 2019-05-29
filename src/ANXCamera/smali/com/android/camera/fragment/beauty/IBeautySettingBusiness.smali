@@ -7,6 +7,9 @@
 
 
 # virtual methods
+.method public abstract clearBeauty()V
+.end method
+
 .method public abstract getDefaultProgressByCurrentItem()I
 .end method
 
@@ -37,4 +40,7 @@
 .end method
 
 .method public abstract setProgressForCurrentItem(I)V
+.end method
+
+.method public abstract updateExtraTable()V
 .end method

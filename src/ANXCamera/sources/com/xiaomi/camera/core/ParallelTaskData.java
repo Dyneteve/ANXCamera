@@ -8,6 +8,7 @@ public class ParallelTaskData {
     private static final String GROUPSHOT_ORIGINAL_SUFFIX = "_ORG";
     private static final String TAG = ParallelTaskData.class.getSimpleName();
     private int currentModuleIndex = -1;
+    private boolean isAbandoned = false;
     private boolean isAdaptiveSnapshotSize;
     private boolean isLiveShotTask;
     private boolean isNeedThumbnail;
@@ -216,6 +217,10 @@ public class ParallelTaskData {
         return this.mTimestamp;
     }
 
+    public boolean isAbandoned() {
+        return this.isAbandoned;
+    }
+
     public boolean isAdaptiveSnapshotSize() {
         return this.isAdaptiveSnapshotSize;
     }
@@ -291,6 +296,10 @@ public class ParallelTaskData {
         this.isPictureFilled = false;
         this.mDataOfTheRegionUnderWatermarks = null;
         this.mCoordinatesOfTheRegionUnderWatermarks = null;
+    }
+
+    public void setAbandoned(boolean z) {
+        this.isAbandoned = z;
     }
 
     public void setAdaptiveSnapshotSize(boolean z) {

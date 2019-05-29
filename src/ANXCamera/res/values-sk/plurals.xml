@@ -6,4 +6,10 @@
         <item quantity="few">Zaostrené. Rozpoznané %d tváre</item>
         <item quantity="many">Zaostrené. Rozpoznanej %d tváre</item>
     </plurals>
+    <plurals name="toast_burst_snap_finished_summary">
+        <item quantity="other">Dávkové fotografovanie dokončené, vytvorených %1$s záberov</item>
+        <item quantity="one">Dávkové fotografovanie dokončené, vytvorený %1$s záber</item>
+        <item quantity="few">Dávkové fotografovanie dokončené, vytvorené %1$s zábery</item>
+        <item quantity="many">Dávkové fotografovanie dokončené, vytvoreného %1$s záberu</item>
+    </plurals>
 </resources>

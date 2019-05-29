@@ -158,7 +158,7 @@ public class ExtraAdapter extends Adapter<CommonRecyclerViewHolder> {
     /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r3v4
   assigns: []
   uses: []
-  mth insns count: 214
+  mth insns count: 215
     	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
     	at java.util.ArrayList.forEach(Unknown Source)
     	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
@@ -211,14 +211,14 @@ public class ExtraAdapter extends Adapter<CommonRecyclerViewHolder> {
                         break;
                     case 211:
                         i2 = R.string.module_name_square;
-                        r3 = 2130837742;
+                        r3 = 2130837748;
                         r1 = ModuleManager.isSquareModule();
                         break;
                     default:
                         switch (config) {
                             case 225:
                                 resText = R.string.config_name_setting;
-                                r0 = 2130837730;
+                                r0 = 2130837736;
                                 break;
                             case 226:
                                 ComponentRunningTimer componentRunningTimer = this.mDataItemRunning.getComponentRunningTimer();
@@ -246,51 +246,51 @@ public class ExtraAdapter extends Adapter<CommonRecyclerViewHolder> {
                                         }
                                     case 229:
                                         i2 = R.string.config_name_straighten;
-                                        r3 = 2130837743;
+                                        r3 = 2130837749;
                                         r1 = this.mDataItemRunning.isSwitchOn("pref_camera_gradienter_key");
                                         break;
                                     case 230:
                                         i2 = R.string.config_name_hht;
-                                        r3 = 2130837736;
+                                        r3 = 2130837742;
                                         r1 = this.mDataItemRunning.isSwitchOn("pref_camera_hand_night_key");
                                         break;
                                     case 231:
                                         i2 = R.string.config_name_magic;
-                                        r3 = 2130837737;
+                                        r3 = 2130837743;
                                         r1 = this.mDataItemRunning.isSwitchOn("pref_camera_ubifocus_key");
                                         break;
                                     case 232:
                                         i2 = R.string.pref_video_speed_slow_title;
-                                        r3 = 2130837741;
+                                        r3 = 2130837747;
                                         r1 = ModuleManager.isSlowMotionModule();
                                         break;
                                     case 233:
                                         i2 = R.string.pref_video_speed_fast_title;
-                                        r3 = 2130837731;
+                                        r3 = 2130837737;
                                         r1 = ModuleManager.isFastMotionModule();
                                         break;
                                     case 234:
                                         i2 = R.string.config_name_scene;
-                                        r3 = 2130837740;
+                                        r3 = 2130837746;
                                         r1 = this.mDataItemRunning.isSwitchOn("pref_camera_scenemode_setting_key");
                                         break;
                                     case 235:
                                         i2 = R.string.config_name_group;
-                                        r3 = 2130837734;
+                                        r3 = 2130837740;
                                         r1 = this.mDataItemRunning.isSwitchOn("pref_camera_groupshot_mode_key");
                                         break;
                                     case 236:
                                         i2 = R.string.pref_camera_magic_mirror_title;
-                                        r3 = 2130837738;
+                                        r3 = 2130837744;
                                         r1 = this.mDataItemRunning.isSwitchOn("pref_camera_magic_mirror_key");
                                         break;
                                     case 237:
                                         resText = R.string.pref_camera_picture_format_entry_raw;
-                                        r0 = 2130837739;
+                                        r0 = 2130837745;
                                         break;
                                     case 238:
                                         i2 = R.string.pref_camera_show_gender_age_config_title;
-                                        r3 = 2130837733;
+                                        r3 = 2130837739;
                                         r1 = this.mDataItemRunning.isSwitchOn("pref_camera_show_gender_age_key");
                                         break;
                                     case 239:
@@ -303,22 +303,22 @@ public class ExtraAdapter extends Adapter<CommonRecyclerViewHolder> {
                                         break;
                                     case 240:
                                         i2 = R.string.pref_camera_device_watermark_title;
-                                        r3 = 2130837729;
+                                        r3 = 2130837735;
                                         r1 = CameraSettings.isDualCameraWaterMarkOpen();
                                         break;
                                     case 241:
                                         i2 = R.string.config_name_super_resolution;
-                                        r3 = 2130837744;
+                                        r3 = 2130837750;
                                         r1 = this.mDataItemRunning.isSwitchOn("pref_camera_super_resolution_key");
                                         break;
                                     case 242:
                                         if (!Util.isGlobalVersion()) {
                                             resText = R.string.pref_ai_detect;
-                                            r0 = 2130837724;
+                                            r0 = 2130837730;
                                             break;
                                         } else {
                                             resText = R.string.pref_google_lens;
-                                            r0 = 2130837725;
+                                            r0 = 2130837731;
                                             break;
                                         }
                                     default:
@@ -344,10 +344,11 @@ public class ExtraAdapter extends Adapter<CommonRecyclerViewHolder> {
             r3 = r32;
         } else {
             i2 = R.string.hand_gesture_tip;
-            r3 = 2130837735;
+            r3 = 2130837741;
             r1 = this.mDataItemRunning.isSwitchOn("pref_hand_gesture");
         }
         TextView textView = (TextView) commonRecyclerViewHolder.getView(R.id.extra_item_text);
+        textView.setSelected(true);
         ColorImageView colorImageView = (ColorImageView) commonRecyclerViewHolder.getView(R.id.extra_item_image);
         if (i2 != -1) {
             textView.setText(i2);

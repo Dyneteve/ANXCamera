@@ -50,8 +50,6 @@
 
 .field private mLiveMusicHintLayout:Landroid/widget/LinearLayout;
 
-.field private mMimojiCreateTitle:Landroid/widget/TextView;
-
 .field private mPermanentTip:Landroid/widget/TextView;
 
 .field private mRecommendTip:Landroid/widget/TextView;
@@ -701,7 +699,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a016d
+    const v2, 0x7f0a014d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -746,7 +744,7 @@
 
     cmpl-float v3, v0, v3
 
-    if-nez v3, :cond_8
+    if-nez v3, :cond_a
 
     invoke-static {}, Lcom/android/camera/module/loader/camera2/Camera2DataContainer;->getInstance()Lcom/android/camera/module/loader/camera2/Camera2DataContainer;
 
@@ -791,7 +789,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v3}, Lcom/android/camera/module/loader/camera2/Camera2DataContainer;->getFrontCameraId()I
+    invoke-virtual {v3}, Lcom/android/camera/module/loader/camera2/Camera2DataContainer;->getUltraWideBokehCameraId()I
 
     move-result v3
 
@@ -804,7 +802,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v3}, Lcom/android/camera/module/loader/camera2/Camera2DataContainer;->getBokehFrontCameraId()I
+    invoke-virtual {v3}, Lcom/android/camera/module/loader/camera2/Camera2DataContainer;->getFrontCameraId()I
 
     move-result v3
 
@@ -813,17 +811,30 @@
     return-object v2
 
     :cond_5
+    invoke-static {}, Lcom/android/camera/module/loader/camera2/Camera2DataContainer;->getInstance()Lcom/android/camera/module/loader/camera2/Camera2DataContainer;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/camera/module/loader/camera2/Camera2DataContainer;->getBokehFrontCameraId()I
+
+    move-result v3
+
+    if-ne v1, v3, :cond_6
+
+    return-object v2
+
+    :cond_6
     sget-boolean v3, Lcom/android/camera/HybridZoomingSystem;->IS_2_SAT:Z
 
-    if-nez v3, :cond_6
+    if-nez v3, :cond_7
 
     invoke-static {}, Lcom/android/camera/CameraSettings;->isSupportedOpticalZoom()Z
 
     move-result v3
 
-    if-nez v3, :cond_7
+    if-nez v3, :cond_8
 
-    :cond_6
+    :cond_7
     invoke-static {}, Lcom/android/camera/module/loader/camera2/Camera2DataContainer;->getInstance()Lcom/android/camera/module/loader/camera2/Camera2DataContainer;
 
     move-result-object v3
@@ -832,29 +843,38 @@
 
     move-result v3
 
-    if-ne v1, v3, :cond_7
-
-    return-object v2
-
-    :cond_7
-    iget v3, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mCurrentMode:I
-
-    const/16 v4, 0xa7
-
-    if-ne v3, v4, :cond_8
+    if-ne v1, v3, :cond_8
 
     return-object v2
 
     :cond_8
+    iget v3, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mCurrentMode:I
+
+    const/16 v4, 0xa7
+
+    if-ne v3, v4, :cond_9
+
+    return-object v2
+
+    :cond_9
+    iget v3, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mCurrentMode:I
+
+    const/16 v4, 0xa6
+
+    if-ne v3, v4, :cond_a
+
+    return-object v2
+
+    :cond_a
     sget v3, Lcom/android/camera/HybridZoomingSystem;->FLOAT_ZOOM_RATIO_ULTR:F
 
     cmpl-float v3, v0, v3
 
-    if-nez v3, :cond_9
+    if-nez v3, :cond_b
 
     sget-boolean v3, Lcom/android/camera/HybridZoomingSystem;->IS_3_OR_MORE_SAT:Z
 
-    if-eqz v3, :cond_9
+    if-eqz v3, :cond_b
 
     invoke-static {}, Lcom/android/camera/module/loader/camera2/Camera2DataContainer;->getInstance()Lcom/android/camera/module/loader/camera2/Camera2DataContainer;
 
@@ -864,11 +884,11 @@
 
     move-result v3
 
-    if-ne v1, v3, :cond_9
+    if-ne v1, v3, :cond_b
 
     return-object v2
 
-    :cond_9
+    :cond_b
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -909,7 +929,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040055
+    const v1, 0x7f040057
 
     const/4 v2, 0x0
 
@@ -933,7 +953,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04004d
+    const v1, 0x7f04004f
 
     const/4 v2, 0x0
 
@@ -957,7 +977,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04004f
+    const v1, 0x7f040051
 
     const/4 v2, 0x0
 
@@ -1023,7 +1043,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040053
+    const v1, 0x7f040055
 
     const/4 v2, 0x0
 
@@ -1047,7 +1067,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040054
+    const v1, 0x7f040056
 
     const/4 v2, 0x0
 
@@ -1071,7 +1091,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040056
+    const v1, 0x7f040058
 
     const/4 v2, 0x0
 
@@ -1095,7 +1115,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04005f
+    const v1, 0x7f040061
 
     const/4 v2, 0x0
 
@@ -1543,7 +1563,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0201f5
+    const v2, 0x7f0201fe
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1847,7 +1867,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090200
+    const v1, 0x7f0901fe
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1857,7 +1877,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090201
+    const v1, 0x7f0901ff
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1910,7 +1930,7 @@
 
     if-eqz p1, :cond_2
 
-    invoke-static {}, Lcom/mi/config/b;->ik()Z
+    invoke-static {}, Lcom/mi/config/b;->in()Z
 
     move-result p1
 
@@ -1925,12 +1945,12 @@
 
     if-eqz p2, :cond_3
 
-    const p2, 0x7f0200c8
+    const p2, 0x7f0200ce
 
     goto :goto_1
 
     :cond_3
-    const p2, 0x7f0200c7
+    const p2, 0x7f0200cd
 
     :goto_1
     invoke-virtual {p1, p2}, Landroid/widget/ImageView;->setImageResource(I)V
@@ -1997,12 +2017,12 @@
 
     if-eqz p2, :cond_2
 
-    const p2, 0x7f0200ca
+    const p2, 0x7f0200d0
 
     goto :goto_1
 
     :cond_2
-    const p2, 0x7f0200c9
+    const p2, 0x7f0200cf
 
     :goto_1
     invoke-virtual {p1, p2}, Landroid/widget/ImageView;->setImageResource(I)V
@@ -2056,17 +2076,17 @@
     goto :goto_0
 
     :pswitch_1
-    const p1, 0x7f090208
+    const p1, 0x7f090206
 
     goto :goto_1
 
     :pswitch_2
-    const p1, 0x7f090209
+    const p1, 0x7f090207
 
     goto :goto_1
 
     :pswitch_3
-    const p1, 0x7f09020a
+    const p1, 0x7f090208
 
     goto :goto_1
 
@@ -2121,7 +2141,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mToastAiSwitchTip:Landroid/widget/TextView;
 
-    const v0, 0x7f090206
+    const v0, 0x7f090204
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setText(I)V
 
@@ -2167,6 +2187,53 @@
     iget-object v0, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mViewHideRunnable:Ljava/lang/Runnable;
 
     invoke-virtual {p1, v0}, Landroid/widget/LinearLayout;->removeCallbacks(Ljava/lang/Runnable;)Z
+
+    iget-object p1, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mToastAiSwitchTip:Landroid/widget/TextView;
+
+    invoke-direct {p0, p1}, Lcom/android/camera/fragment/top/FragmentTopAlert;->removeViewToToastLayout(Landroid/view/View;)V
+
+    :cond_1
+    :goto_0
+    return-void
+.end method
+
+.method public alertMimojiFaceDetect(ZI)V
+    .locals 0
+
+    if-eqz p1, :cond_0
+
+    iget-object p1, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mToastAiSwitchTip:Landroid/widget/TextView;
+
+    invoke-virtual {p1, p2}, Landroid/widget/TextView;->setText(I)V
+
+    iget-object p1, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mToastAiSwitchTip:Landroid/widget/TextView;
+
+    const/4 p2, 0x0
+
+    invoke-virtual {p1, p2}, Landroid/widget/TextView;->setVisibility(I)V
+
+    iget-object p1, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mToastAiSwitchTip:Landroid/widget/TextView;
+
+    invoke-direct {p0, p1}, Lcom/android/camera/fragment/top/FragmentTopAlert;->addViewToToastLayout(Landroid/view/View;)V
+
+    goto :goto_0
+
+    :cond_0
+    iget-object p1, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mToastAiSwitchTip:Landroid/widget/TextView;
+
+    invoke-virtual {p1}, Landroid/widget/TextView;->getVisibility()I
+
+    move-result p1
+
+    const/16 p2, 0x8
+
+    if-eq p1, p2, :cond_1
+
+    iget-object p1, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mTopTipLayout:Landroid/widget/LinearLayout;
+
+    iget-object p2, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mViewHideRunnable:Ljava/lang/Runnable;
+
+    invoke-virtual {p1, p2}, Landroid/widget/LinearLayout;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     iget-object p1, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mToastAiSwitchTip:Landroid/widget/TextView;
 
@@ -2396,11 +2463,11 @@
 
     invoke-virtual {p1, p2, v0, v1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    iget-object p1, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mTopTipLayout:Landroid/widget/LinearLayout;
+    iget-object p1, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mHandler:Landroid/os/Handler;
 
     iget-object p2, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mViewHideRunnable:Ljava/lang/Runnable;
 
-    invoke-virtual {p1, p2}, Landroid/widget/LinearLayout;->removeCallbacks(Ljava/lang/Runnable;)Z
+    invoke-virtual {p1, p2}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
     iget-object p1, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mHandler:Landroid/os/Handler;
 
@@ -2639,7 +2706,7 @@
     return-void
 .end method
 
-.method public clear()V
+.method public clear(Z)V
     .locals 7
 
     invoke-virtual {p0}, Lcom/android/camera/fragment/top/FragmentTopAlert;->clearAlertStatus()V
@@ -2663,7 +2730,7 @@
     move v3, v2
 
     :goto_0
-    if-ge v3, v0, :cond_2
+    if-ge v3, v0, :cond_3
 
     iget-object v4, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mToastTopTipLayout:Landroid/widget/LinearLayout;
 
@@ -2697,59 +2764,64 @@
     invoke-interface {v1, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_1
+    if-eqz p1, :cond_2
+
+    invoke-interface {v1, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    :cond_2
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_1
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_3
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/view/View;
-
-    iget-object v4, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mToastTopTipLayout:Landroid/widget/LinearLayout;
-
-    invoke-virtual {v4, v3}, Landroid/widget/LinearLayout;->removeView(Landroid/view/View;)V
-
-    goto :goto_1
-
-    :cond_3
-    invoke-interface {v1}, Ljava/util/List;->clear()V
-
-    iget-object v0, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mTopTipLayout:Landroid/widget/LinearLayout;
-
-    invoke-virtual {v0}, Landroid/widget/LinearLayout;->getChildCount()I
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
+    if-eqz v0, :cond_4
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/View;
+
+    iget-object v3, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mToastTopTipLayout:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v3, v0}, Landroid/widget/LinearLayout;->removeView(Landroid/view/View;)V
+
+    goto :goto_1
+
+    :cond_4
+    invoke-interface {v1}, Ljava/util/List;->clear()V
+
+    iget-object p1, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mTopTipLayout:Landroid/widget/LinearLayout;
+
+    invoke-virtual {p1}, Landroid/widget/LinearLayout;->getChildCount()I
+
+    move-result p1
+
     :goto_2
-    if-ge v2, v0, :cond_5
+    if-ge v2, p1, :cond_6
 
-    iget-object v3, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mTopTipLayout:Landroid/widget/LinearLayout;
+    iget-object v0, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mTopTipLayout:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v3, v2}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v3
+    move-result-object v0
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_5
 
-    invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_3
 
-    :cond_4
+    :cond_5
     invoke-direct {p0}, Lcom/android/camera/fragment/top/FragmentTopAlert;->setToastTipLayoutParams()V
 
     :goto_3
@@ -2757,50 +2829,50 @@
 
     goto :goto_2
 
-    :cond_5
+    :cond_6
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object p1
 
     :goto_4
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_6
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/view/View;
-
-    iget-object v2, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mTopTipLayout:Landroid/widget/LinearLayout;
-
-    invoke-virtual {v2, v1}, Landroid/widget/LinearLayout;->removeView(Landroid/view/View;)V
-
-    goto :goto_4
-
-    :cond_6
-    iget-object v0, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mVideoUltraClearTip:Landroid/widget/TextView;
-
-    if-eqz v0, :cond_7
-
-    iget-object v0, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mVideoUltraClearTip:Landroid/widget/TextView;
-
-    invoke-virtual {v0}, Landroid/widget/TextView;->getVisibility()I
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    const/16 v1, 0x8
+    if-eqz v0, :cond_7
 
-    if-eq v0, v1, :cond_7
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    iget-object v0, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mVideoUltraClearTip:Landroid/widget/TextView;
+    move-result-object v0
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+    check-cast v0, Landroid/view/View;
+
+    iget-object v1, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mTopTipLayout:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v0}, Landroid/widget/LinearLayout;->removeView(Landroid/view/View;)V
+
+    goto :goto_4
 
     :cond_7
+    iget-object p1, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mVideoUltraClearTip:Landroid/widget/TextView;
+
+    if-eqz p1, :cond_8
+
+    iget-object p1, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mVideoUltraClearTip:Landroid/widget/TextView;
+
+    invoke-virtual {p1}, Landroid/widget/TextView;->getVisibility()I
+
+    move-result p1
+
+    const/16 v0, 0x8
+
+    if-eq p1, v0, :cond_8
+
+    iget-object p1, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mVideoUltraClearTip:Landroid/widget/TextView;
+
+    invoke-virtual {p1, v0}, Landroid/widget/TextView;->setVisibility(I)V
+
+    :cond_8
     return-void
 .end method
 
@@ -2833,7 +2905,7 @@
 .method protected getLayoutResourceId()I
     .locals 1
 
-    const v0, 0x7f040039
+    const v0, 0x7f04003a
 
     return v0
 .end method
@@ -2878,7 +2950,7 @@
 
     iput-object v0, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mAlertRecordingText:Landroid/widget/TextView;
 
-    const v0, 0x7f0d00d0
+    const v0, 0x7f0d00cf
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2899,47 +2971,9 @@
     invoke-direct {p0, v0, v1}, Lcom/android/camera/fragment/top/FragmentTopAlert;->setViewMargin(Landroid/view/View;I)V
 
     :cond_0
-    const v0, 0x7f0d00cf
-
-    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    iput-object v0, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mMimojiCreateTitle:Landroid/widget/TextView;
-
-    iget-object v0, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mMimojiCreateTitle:Landroid/widget/TextView;
-
-    sget-boolean v1, Lcom/android/camera/Util;->isNotchDevice:Z
-
-    if-eqz v1, :cond_1
-
-    sget v1, Lcom/android/camera/Util;->sStatusBarHeight:I
-
-    goto :goto_0
-
-    :cond_1
-    invoke-virtual {p0}, Lcom/android/camera/fragment/top/FragmentTopAlert;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x7f0a00c2
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v1
-
-    :goto_0
-    invoke-direct {p0, v0, v1}, Lcom/android/camera/fragment/top/FragmentTopAlert;->setViewMargin(Landroid/view/View;I)V
-
     iget-object v0, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mAlertRecordingText:Landroid/widget/TextView;
 
     const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Landroid/support/v4/view/ViewCompat;->setAlpha(Landroid/view/View;F)V
-
-    iget-object v0, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mMimojiCreateTitle:Landroid/widget/TextView;
 
     invoke-static {v0, v1}, Landroid/support/v4/view/ViewCompat;->setAlpha(Landroid/view/View;F)V
 
@@ -2947,7 +2981,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     sget v0, Lcom/android/camera/fragment/top/FragmentTopAlert;->sPendingRecordingTimeState:I
 
@@ -2955,8 +2989,8 @@
 
     invoke-static {v1}, Lcom/android/camera/fragment/top/FragmentTopAlert;->setPendingRecordingState(I)V
 
-    :cond_2
-    const v0, 0x7f0d00d1
+    :cond_1
+    const v0, 0x7f0d00d0
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2990,7 +3024,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0201f6
+    const v2, 0x7f0201ff
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -3034,7 +3068,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mLiveMusicHintLayout:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f0d010f
+    const v0, 0x7f0d010d
 
     invoke-virtual {p1, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -3046,7 +3080,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mLiveMusicHintLayout:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f0d0110
+    const v0, 0x7f0d010e
 
     invoke-virtual {p1, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -3143,7 +3177,7 @@
 .end method
 
 .method public provideAnimateElement(ILjava/util/List;I)V
-    .locals 0
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -3153,20 +3187,25 @@
         }
     .end annotation
 
+    iget v0, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mCurrentMode:I
+
     invoke-super {p0, p1, p2, p3}, Lcom/android/camera/fragment/BaseFragment;->provideAnimateElement(ILjava/util/List;I)V
 
-    const/16 p2, 0xa2
+    const/4 p2, 0x1
 
-    if-eq p2, p1, :cond_0
+    if-eq v0, p1, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/camera/fragment/top/FragmentTopAlert;->hideSwitchHint()V
+    move p1, p2
+
+    goto :goto_0
 
     :cond_0
-    invoke-virtual {p0}, Lcom/android/camera/fragment/top/FragmentTopAlert;->clear()V
+    const/4 p1, 0x0
 
-    const/4 p1, 0x1
+    :goto_0
+    invoke-virtual {p0, p1}, Lcom/android/camera/fragment/top/FragmentTopAlert;->clear(Z)V
 
-    invoke-virtual {p0, p1}, Lcom/android/camera/fragment/top/FragmentTopAlert;->setShow(Z)V
+    invoke-virtual {p0, p2}, Lcom/android/camera/fragment/top/FragmentTopAlert;->setShow(Z)V
 
     return-void
 .end method
@@ -3369,42 +3408,6 @@
 
     iput-boolean p1, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mShow:Z
 
-    return-void
-.end method
-
-.method public showOrHideMimojiCreateTitle(Z)V
-    .locals 1
-
-    if-eqz p1, :cond_0
-
-    new-instance p1, Lcom/android/camera/animation/type/AlphaInOnSubscribe;
-
-    iget-object v0, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mMimojiCreateTitle:Landroid/widget/TextView;
-
-    invoke-direct {p1, v0}, Lcom/android/camera/animation/type/AlphaInOnSubscribe;-><init>(Landroid/view/View;)V
-
-    invoke-static {p1}, Lio/reactivex/Completable;->create(Lio/reactivex/CompletableOnSubscribe;)Lio/reactivex/Completable;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Lio/reactivex/Completable;->subscribe()Lio/reactivex/disposables/Disposable;
-
-    goto :goto_0
-
-    :cond_0
-    new-instance p1, Lcom/android/camera/animation/type/AlphaOutOnSubscribe;
-
-    iget-object v0, p0, Lcom/android/camera/fragment/top/FragmentTopAlert;->mMimojiCreateTitle:Landroid/widget/TextView;
-
-    invoke-direct {p1, v0}, Lcom/android/camera/animation/type/AlphaOutOnSubscribe;-><init>(Landroid/view/View;)V
-
-    invoke-static {p1}, Lio/reactivex/Completable;->create(Lio/reactivex/CompletableOnSubscribe;)Lio/reactivex/Completable;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Lio/reactivex/Completable;->subscribe()Lio/reactivex/disposables/Disposable;
-
-    :goto_0
     return-void
 .end method
 

@@ -20,7 +20,7 @@
 # static fields
 .field private static final TAG:Ljava/lang/String; = "BitmapEncoder"
 
-.field public static final kB:Lcom/bumptech/glide/load/e;
+.field public static final kC:Lcom/bumptech/glide/load/e;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/e<",
@@ -30,7 +30,7 @@
     .end annotation
 .end field
 
-.field public static final kC:Lcom/bumptech/glide/load/e;
+.field public static final kD:Lcom/bumptech/glide/load/e;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/e<",
@@ -42,7 +42,7 @@
 
 
 # instance fields
-.field private final ap:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
+.field private final aq:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 .end field
@@ -64,7 +64,7 @@
 
     move-result-object v0
 
-    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/e;->kB:Lcom/bumptech/glide/load/e;
+    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/e;->kC:Lcom/bumptech/glide/load/e;
 
     const-string v0, "com.bumptech.glide.load.resource.bitmap.BitmapEncoder.CompressionFormat"
 
@@ -72,7 +72,7 @@
 
     move-result-object v0
 
-    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/e;->kC:Lcom/bumptech/glide/load/e;
+    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/e;->kD:Lcom/bumptech/glide/load/e;
 
     return-void
 .end method
@@ -86,7 +86,7 @@
 
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/e;->ap:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
+    iput-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/e;->aq:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
 
     return-void
 .end method
@@ -100,7 +100,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/e;->ap:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
+    iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/e;->aq:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
 
     return-void
 .end method
@@ -108,7 +108,7 @@
 .method private a(Landroid/graphics/Bitmap;Lcom/bumptech/glide/load/f;)Landroid/graphics/Bitmap$CompressFormat;
     .locals 1
 
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/e;->kC:Lcom/bumptech/glide/load/e;
+    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/e;->kD:Lcom/bumptech/glide/load/e;
 
     invoke-virtual {p2, v0}, Lcom/bumptech/glide/load/f;->a(Lcom/bumptech/glide/load/e;)Ljava/lang/Object;
 
@@ -200,7 +200,7 @@
 
     move-result-wide v1
 
-    sget-object v3, Lcom/bumptech/glide/load/resource/bitmap/e;->kB:Lcom/bumptech/glide/load/e;
+    sget-object v3, Lcom/bumptech/glide/load/resource/bitmap/e;->kC:Lcom/bumptech/glide/load/e;
 
     invoke-virtual {p3, v3}, Lcom/bumptech/glide/load/f;->a(Lcom/bumptech/glide/load/e;)Ljava/lang/Object;
 
@@ -227,13 +227,13 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     :try_start_2
-    iget-object p2, p0, Lcom/bumptech/glide/load/resource/bitmap/e;->ap:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
+    iget-object p2, p0, Lcom/bumptech/glide/load/resource/bitmap/e;->aq:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
 
     if-eqz p2, :cond_0
 
     new-instance p2, Lcom/bumptech/glide/load/a/c;
 
-    iget-object v5, p0, Lcom/bumptech/glide/load/resource/bitmap/e;->ap:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
+    iget-object v5, p0, Lcom/bumptech/glide/load/resource/bitmap/e;->aq:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
 
     invoke-direct {p2, v6, v5}, Lcom/bumptech/glide/load/a/c;-><init>(Ljava/io/OutputStream;Lcom/bumptech/glide/load/engine/bitmap_recycle/b;)V
     :try_end_2
@@ -376,7 +376,7 @@
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/e;->kC:Lcom/bumptech/glide/load/e;
+    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/e;->kD:Lcom/bumptech/glide/load/e;
 
     invoke-virtual {p3, v0}, Lcom/bumptech/glide/load/f;->a(Lcom/bumptech/glide/load/e;)Ljava/lang/Object;
 
@@ -471,7 +471,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    sget-object p1, Lcom/bumptech/glide/load/EncodeStrategy;->dp:Lcom/bumptech/glide/load/EncodeStrategy;
+    sget-object p1, Lcom/bumptech/glide/load/EncodeStrategy;->dq:Lcom/bumptech/glide/load/EncodeStrategy;
 
     return-object p1
 .end method

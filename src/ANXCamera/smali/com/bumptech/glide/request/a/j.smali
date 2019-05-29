@@ -26,7 +26,7 @@
 
 
 # instance fields
-.field private final pH:Lcom/bumptech/glide/request/a/j$a;
+.field private final pI:Lcom/bumptech/glide/request/a/j$a;
 
 
 # direct methods
@@ -35,7 +35,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/request/a/j;->pH:Lcom/bumptech/glide/request/a/j$a;
+    iput-object p1, p0, Lcom/bumptech/glide/request/a/j;->pI:Lcom/bumptech/glide/request/a/j$a;
 
     return-void
 .end method
@@ -58,7 +58,7 @@
 
     if-eqz p1, :cond_0
 
-    iget-object p1, p0, Lcom/bumptech/glide/request/a/j;->pH:Lcom/bumptech/glide/request/a/j$a;
+    iget-object p1, p0, Lcom/bumptech/glide/request/a/j;->pI:Lcom/bumptech/glide/request/a/j$a;
 
     invoke-interface {p2}, Lcom/bumptech/glide/request/a/f$a;->getView()Landroid/view/View;
 

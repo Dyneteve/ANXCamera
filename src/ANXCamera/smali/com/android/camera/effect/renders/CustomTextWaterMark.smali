@@ -146,7 +146,7 @@
 .method public static newInstance(Landroid/graphics/Bitmap;FFLjava/lang/String;)Lcom/android/camera/effect/renders/CustomTextWaterMark;
     .locals 12
 
-    const v0, 0x7f0a0135
+    const v0, 0x7f0a017b
 
     const/high16 v1, 0x3f800000    # 1.0f
 

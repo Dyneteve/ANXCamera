@@ -14,7 +14,7 @@
 
 .field private final orientation:I
 
-.field private final pL:J
+.field private final pM:J
 
 
 # direct methods
@@ -34,7 +34,7 @@
     :cond_0
     iput-object p1, p0, Lcom/bumptech/glide/e/c;->mimeType:Ljava/lang/String;
 
-    iput-wide p2, p0, Lcom/bumptech/glide/e/c;->pL:J
+    iput-wide p2, p0, Lcom/bumptech/glide/e/c;->pM:J
 
     iput p4, p0, Lcom/bumptech/glide/e/c;->orientation:I
 
@@ -72,9 +72,9 @@
     :cond_1
     check-cast p1, Lcom/bumptech/glide/e/c;
 
-    iget-wide v2, p0, Lcom/bumptech/glide/e/c;->pL:J
+    iget-wide v2, p0, Lcom/bumptech/glide/e/c;->pM:J
 
-    iget-wide v4, p1, Lcom/bumptech/glide/e/c;->pL:J
+    iget-wide v4, p1, Lcom/bumptech/glide/e/c;->pM:J
 
     cmp-long v2, v2, v4
 
@@ -125,9 +125,9 @@
 
     mul-int/2addr v0, v1
 
-    iget-wide v2, p0, Lcom/bumptech/glide/e/c;->pL:J
+    iget-wide v2, p0, Lcom/bumptech/glide/e/c;->pM:J
 
-    iget-wide v4, p0, Lcom/bumptech/glide/e/c;->pL:J
+    iget-wide v4, p0, Lcom/bumptech/glide/e/c;->pM:J
 
     const/16 v6, 0x20
 
@@ -161,7 +161,7 @@
 
     move-result-object v0
 
-    iget-wide v1, p0, Lcom/bumptech/glide/e/c;->pL:J
+    iget-wide v1, p0, Lcom/bumptech/glide/e/c;->pM:J
 
     invoke-virtual {v0, v1, v2}, Ljava/nio/ByteBuffer;->putLong(J)Ljava/nio/ByteBuffer;
 
@@ -181,7 +181,7 @@
 
     iget-object v0, p0, Lcom/bumptech/glide/e/c;->mimeType:Ljava/lang/String;
 
-    sget-object v1, Lcom/bumptech/glide/e/c;->dG:Ljava/nio/charset/Charset;
+    sget-object v1, Lcom/bumptech/glide/e/c;->dH:Ljava/nio/charset/Charset;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
 

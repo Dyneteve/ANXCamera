@@ -34,27 +34,25 @@ import java.util.Map;
 public class f implements Cloneable {
     private static final int PRIORITY = 8;
     private static final int UNSET = -1;
-    private static final int nN = 2;
-    private static final int nO = 4;
-    private static final int nP = 16;
-    private static final int nQ = 32;
-    private static final int nR = 64;
-    private static final int nS = 128;
-    private static final int nT = 256;
-    private static final int nU = 512;
-    private static final int nV = 1024;
-    private static final int nW = 2048;
-    private static final int nX = 4096;
-    private static final int nY = 8192;
-    private static final int nZ = 16384;
-    private static final int oa = 32768;
-    private static final int ob = 65536;
-    private static final int oc = 131072;
-    private static final int od = 262144;
-    private static final int oe = 524288;
-    private static final int of = 1048576;
-    @Nullable
-    private static f og;
+    private static final int nO = 2;
+    private static final int nP = 4;
+    private static final int nQ = 16;
+    private static final int nR = 32;
+    private static final int nS = 64;
+    private static final int nT = 128;
+    private static final int nU = 256;
+    private static final int nV = 512;
+    private static final int nW = 1024;
+    private static final int nX = 2048;
+    private static final int nY = 4096;
+    private static final int nZ = 8192;
+    private static final int oa = 16384;
+    private static final int ob = 32768;
+    private static final int oc = 65536;
+    private static final int od = 131072;
+    private static final int oe = 262144;
+    private static final int of = 524288;
+    private static final int og = 1048576;
     @Nullable
     private static f oh;
     @Nullable
@@ -69,42 +67,44 @@ public class f implements Cloneable {
     private static f om;
     @Nullable
     private static f on;
-    private boolean eC = true;
+    @Nullable
+    private static f oo;
+    private boolean eD = true;
     @NonNull
-    private c eN = b.eH();
+    private c eO = b.eH();
     @NonNull
-    private com.bumptech.glide.load.f eP = new com.bumptech.glide.load.f();
+    private com.bumptech.glide.load.f eQ = new com.bumptech.glide.load.f();
     @NonNull
-    private Class<?> eR = Object.class;
+    private Class<?> eS = Object.class;
     @NonNull
-    private Map<Class<?>, i<?>> eT = new CachedHashCodeArrayMap();
+    private Map<Class<?>, i<?>> eU = new CachedHashCodeArrayMap();
     @NonNull
-    private Priority eW = Priority.NORMAL;
+    private Priority eX = Priority.NORMAL;
     @NonNull
-    private g eX = g.fW;
-    private boolean eY;
-    private boolean eZ = true;
-    private boolean fl;
-    private boolean gy;
+    private g eY = g.fX;
+    private boolean eZ;
+    private boolean fa = true;
+    private boolean fm;
+    private boolean gz;
     private boolean isLocked;
+    private int oA;
     @Nullable
-    private Theme oA;
-    private boolean oB;
+    private Theme oB;
     private boolean oC;
-    private int oo;
-    private float oq = 1.0f;
+    private boolean oD;
+    private int oq;
+    private float or = 1.0f;
     @Nullable
-    private Drawable or;
-    private int os;
+    private Drawable os;
+    private int ot;
     @Nullable
-    private Drawable ot;
-    private int ou;
-    private int ov = -1;
+    private Drawable ou;
+    private int ov;
     private int ow = -1;
-    private boolean ox = true;
+    private int ox = -1;
+    private boolean oy = true;
     @Nullable
-    private Drawable oy;
-    private int oz;
+    private Drawable oz;
 
     @CheckResult
     @NonNull
@@ -162,7 +162,7 @@ public class f implements Cloneable {
 
     @NonNull
     private f a(@NonNull i<Bitmap> iVar, boolean z) {
-        if (this.oB) {
+        if (this.oC) {
             return clone().a(iVar, z);
         }
         p pVar = new p(iVar, z);
@@ -182,25 +182,25 @@ public class f implements Cloneable {
     @NonNull
     private f a(@NonNull DownsampleStrategy downsampleStrategy, @NonNull i<Bitmap> iVar, boolean z) {
         f b = z ? b(downsampleStrategy, iVar) : a(downsampleStrategy, iVar);
-        b.eZ = true;
+        b.fa = true;
         return b;
     }
 
     @NonNull
     private <T> f a(@NonNull Class<T> cls, @NonNull i<T> iVar, boolean z) {
-        if (this.oB) {
+        if (this.oC) {
             return clone().a(cls, iVar, z);
         }
         com.bumptech.glide.util.i.checkNotNull(cls);
         com.bumptech.glide.util.i.checkNotNull(iVar);
-        this.eT.put(cls, iVar);
-        this.oo |= 2048;
-        this.ox = true;
-        this.oo |= 65536;
-        this.eZ = false;
+        this.eU.put(cls, iVar);
+        this.oq |= 2048;
+        this.oy = true;
+        this.oq |= 65536;
+        this.fa = false;
         if (z) {
-            this.oo |= 131072;
-            this.eY = true;
+            this.oq |= 131072;
+            this.eZ = true;
         }
         return dN();
     }
@@ -244,55 +244,55 @@ public class f implements Cloneable {
     @CheckResult
     @NonNull
     public static f dr() {
-        if (oi == null) {
-            oi = new f().dE().dM();
-        }
-        return oi;
-    }
-
-    @CheckResult
-    @NonNull
-    public static f ds() {
         if (oj == null) {
-            oj = new f().dG().dM();
+            oj = new f().dE().dM();
         }
         return oj;
     }
 
     @CheckResult
     @NonNull
-    public static f dt() {
+    public static f ds() {
         if (ok == null) {
-            ok = new f().dC().dM();
+            ok = new f().dG().dM();
         }
         return ok;
     }
 
     @CheckResult
     @NonNull
-    public static f du() {
+    public static f dt() {
         if (ol == null) {
-            ol = new f().dI().dM();
+            ol = new f().dC().dM();
         }
         return ol;
     }
 
     @CheckResult
     @NonNull
-    public static f dv() {
+    public static f du() {
         if (om == null) {
-            om = new f().dJ().dM();
+            om = new f().dI().dM();
         }
         return om;
     }
 
     @CheckResult
     @NonNull
-    public static f dw() {
+    public static f dv() {
         if (on == null) {
-            on = new f().dK().dM();
+            on = new f().dJ().dM();
         }
         return on;
+    }
+
+    @CheckResult
+    @NonNull
+    public static f dw() {
+        if (oo == null) {
+            oo = new f().dK().dM();
+        }
+        return oo;
     }
 
     @CheckResult
@@ -317,19 +317,19 @@ public class f implements Cloneable {
     @NonNull
     public static f i(boolean z) {
         if (z) {
-            if (og == null) {
-                og = new f().m(true).dM();
+            if (oh == null) {
+                oh = new f().m(true).dM();
             }
-            return og;
+            return oh;
         }
-        if (oh == null) {
-            oh = new f().m(false).dM();
+        if (oi == null) {
+            oi = new f().m(false).dM();
         }
-        return oh;
+        return oi;
     }
 
     private boolean isSet(int i) {
-        return n(this.oo, i);
+        return n(this.oq, i);
     }
 
     @CheckResult
@@ -357,33 +357,33 @@ public class f implements Cloneable {
     @CheckResult
     @NonNull
     public f N(@DrawableRes int i) {
-        if (this.oB) {
+        if (this.oC) {
             return clone().N(i);
         }
-        this.ou = i;
-        this.oo |= 128;
+        this.ov = i;
+        this.oq |= 128;
         return dN();
     }
 
     @CheckResult
     @NonNull
     public f O(@DrawableRes int i) {
-        if (this.oB) {
+        if (this.oC) {
             return clone().O(i);
         }
-        this.oz = i;
-        this.oo |= 16384;
+        this.oA = i;
+        this.oq |= 16384;
         return dN();
     }
 
     @CheckResult
     @NonNull
     public f P(@DrawableRes int i) {
-        if (this.oB) {
+        if (this.oC) {
             return clone().P(i);
         }
-        this.os = i;
-        this.oo |= 32;
+        this.ot = i;
+        this.oq |= 32;
         return dN();
     }
 
@@ -396,30 +396,30 @@ public class f implements Cloneable {
     @CheckResult
     @NonNull
     public f R(@IntRange(from = 0, to = 100) int i) {
-        return c(com.bumptech.glide.load.resource.bitmap.e.kB, (T) Integer.valueOf(i));
+        return c(com.bumptech.glide.load.resource.bitmap.e.kC, (T) Integer.valueOf(i));
     }
 
     @CheckResult
     @NonNull
     public f S(@IntRange(from = 0) int i) {
-        return c(com.bumptech.glide.load.model.a.b.kw, (T) Integer.valueOf(i));
+        return c(com.bumptech.glide.load.model.a.b.kx, (T) Integer.valueOf(i));
     }
 
     @CheckResult
     @NonNull
     public f a(@Nullable Theme theme) {
-        if (this.oB) {
+        if (this.oC) {
             return clone().a(theme);
         }
-        this.oA = theme;
-        this.oo |= 32768;
+        this.oB = theme;
+        this.oq |= 32768;
         return dN();
     }
 
     /* access modifiers changed from: 0000 */
     @NonNull
     public final f a(@NonNull DownsampleStrategy downsampleStrategy, @NonNull i<Bitmap> iVar) {
-        if (this.oB) {
+        if (this.oC) {
             return clone().a(downsampleStrategy, iVar);
         }
         b(downsampleStrategy);
@@ -440,50 +440,50 @@ public class f implements Cloneable {
 
     @NonNull
     public final c aA() {
-        return this.eN;
+        return this.eO;
     }
 
     /* access modifiers changed from: 0000 */
     public boolean aE() {
-        return this.eZ;
+        return this.fa;
     }
 
     @NonNull
     public final g ax() {
-        return this.eX;
+        return this.eY;
     }
 
     @NonNull
     public final Priority ay() {
-        return this.eW;
+        return this.eX;
     }
 
     @NonNull
     public final com.bumptech.glide.load.f az() {
-        return this.eP;
+        return this.eQ;
     }
 
     @CheckResult
     @NonNull
     public f b(@NonNull CompressFormat compressFormat) {
-        return c(com.bumptech.glide.load.resource.bitmap.e.kC, (T) com.bumptech.glide.util.i.checkNotNull(compressFormat));
+        return c(com.bumptech.glide.load.resource.bitmap.e.kD, (T) com.bumptech.glide.util.i.checkNotNull(compressFormat));
     }
 
     @CheckResult
     @NonNull
     public f b(@NonNull DecodeFormat decodeFormat) {
         com.bumptech.glide.util.i.checkNotNull(decodeFormat);
-        return c(n.lm, (T) decodeFormat).c(com.bumptech.glide.load.resource.gif.g.lm, (T) decodeFormat);
+        return c(n.ln, (T) decodeFormat).c(com.bumptech.glide.load.resource.gif.g.ln, (T) decodeFormat);
     }
 
     @CheckResult
     @NonNull
     public f b(@NonNull g gVar) {
-        if (this.oB) {
+        if (this.oC) {
             return clone().b(gVar);
         }
-        this.eX = (g) com.bumptech.glide.util.i.checkNotNull(gVar);
-        this.oo |= 4;
+        this.eY = (g) com.bumptech.glide.util.i.checkNotNull(gVar);
+        this.oq |= 4;
         return dN();
     }
 
@@ -496,14 +496,14 @@ public class f implements Cloneable {
     @CheckResult
     @NonNull
     public f b(@NonNull DownsampleStrategy downsampleStrategy) {
-        return c(DownsampleStrategy.li, (T) com.bumptech.glide.util.i.checkNotNull(downsampleStrategy));
+        return c(DownsampleStrategy.lj, (T) com.bumptech.glide.util.i.checkNotNull(downsampleStrategy));
     }
 
     /* access modifiers changed from: 0000 */
     @CheckResult
     @NonNull
     public final f b(@NonNull DownsampleStrategy downsampleStrategy, @NonNull i<Bitmap> iVar) {
-        if (this.oB) {
+        if (this.oC) {
             return clone().b(downsampleStrategy, iVar);
         }
         b(downsampleStrategy);
@@ -518,29 +518,29 @@ public class f implements Cloneable {
 
     @NonNull
     public final Class<?> bf() {
-        return this.eR;
+        return this.eS;
     }
 
     @CheckResult
     @NonNull
     public f c(@NonNull Priority priority) {
-        if (this.oB) {
+        if (this.oC) {
             return clone().c(priority);
         }
-        this.eW = (Priority) com.bumptech.glide.util.i.checkNotNull(priority);
-        this.oo |= 8;
+        this.eX = (Priority) com.bumptech.glide.util.i.checkNotNull(priority);
+        this.oq |= 8;
         return dN();
     }
 
     @CheckResult
     @NonNull
     public <T> f c(@NonNull com.bumptech.glide.load.e<T> eVar, @NonNull T t) {
-        if (this.oB) {
+        if (this.oC) {
             return clone().c(eVar, t);
         }
         com.bumptech.glide.util.i.checkNotNull(eVar);
         com.bumptech.glide.util.i.checkNotNull(t);
-        this.eP.a(eVar, t);
+        this.eQ.a(eVar, t);
         return dN();
     }
 
@@ -553,77 +553,77 @@ public class f implements Cloneable {
     @CheckResult
     @NonNull
     public f dA() {
-        return c(n.lp, (T) Boolean.valueOf(false));
+        return c(n.lq, (T) Boolean.valueOf(false));
     }
 
     @CheckResult
     @NonNull
     public f dB() {
-        return a(DownsampleStrategy.lc, (i<Bitmap>) new j<Bitmap>());
+        return a(DownsampleStrategy.ld, (i<Bitmap>) new j<Bitmap>());
     }
 
     @CheckResult
     @NonNull
     public f dC() {
-        return b(DownsampleStrategy.lc, (i<Bitmap>) new j<Bitmap>());
+        return b(DownsampleStrategy.ld, (i<Bitmap>) new j<Bitmap>());
     }
 
     @CheckResult
     @NonNull
     public f dD() {
-        return d(DownsampleStrategy.lb, new q());
+        return d(DownsampleStrategy.lc, new q());
     }
 
     @CheckResult
     @NonNull
     public f dE() {
-        return c(DownsampleStrategy.lb, (i<Bitmap>) new q<Bitmap>());
+        return c(DownsampleStrategy.lc, (i<Bitmap>) new q<Bitmap>());
     }
 
     @CheckResult
     @NonNull
     public f dF() {
-        return d(DownsampleStrategy.lf, new k());
+        return d(DownsampleStrategy.lg, new k());
     }
 
     @CheckResult
     @NonNull
     public f dG() {
-        return c(DownsampleStrategy.lf, (i<Bitmap>) new k<Bitmap>());
+        return c(DownsampleStrategy.lg, (i<Bitmap>) new k<Bitmap>());
     }
 
     @CheckResult
     @NonNull
     public f dH() {
-        return a(DownsampleStrategy.lc, (i<Bitmap>) new l<Bitmap>());
+        return a(DownsampleStrategy.ld, (i<Bitmap>) new l<Bitmap>());
     }
 
     @CheckResult
     @NonNull
     public f dI() {
-        return b(DownsampleStrategy.lf, (i<Bitmap>) new l<Bitmap>());
+        return b(DownsampleStrategy.lg, (i<Bitmap>) new l<Bitmap>());
     }
 
     @CheckResult
     @NonNull
     public f dJ() {
-        if (this.oB) {
+        if (this.oC) {
             return clone().dJ();
         }
-        this.eT.clear();
-        this.oo &= -2049;
-        this.eY = false;
-        this.oo &= -131073;
-        this.ox = false;
-        this.oo |= 65536;
-        this.eZ = true;
+        this.eU.clear();
+        this.oq &= -2049;
+        this.eZ = false;
+        this.oq &= -131073;
+        this.oy = false;
+        this.oq |= 65536;
+        this.fa = true;
         return dN();
     }
 
     @CheckResult
     @NonNull
     public f dK() {
-        return c(com.bumptech.glide.load.resource.gif.g.mF, (T) Boolean.valueOf(true));
+        return c(com.bumptech.glide.load.resource.gif.g.mG, (T) Boolean.valueOf(true));
     }
 
     @NonNull
@@ -634,8 +634,8 @@ public class f implements Cloneable {
 
     @NonNull
     public f dM() {
-        if (!this.isLocked || this.oB) {
-            this.oB = true;
+        if (!this.isLocked || this.oC) {
+            this.oC = true;
             return dL();
         }
         throw new IllegalStateException("You cannot auto lock an already locked options object, try clone() first");
@@ -643,7 +643,7 @@ public class f implements Cloneable {
 
     /* access modifiers changed from: protected */
     public boolean dO() {
-        return this.oB;
+        return this.oC;
     }
 
     public final boolean dP() {
@@ -656,42 +656,42 @@ public class f implements Cloneable {
 
     @NonNull
     public final Map<Class<?>, i<?>> dR() {
-        return this.eT;
+        return this.eU;
     }
 
     public final boolean dS() {
-        return this.eY;
+        return this.eZ;
     }
 
     @Nullable
     public final Drawable dT() {
-        return this.or;
-    }
-
-    public final int dU() {
         return this.os;
     }
 
+    public final int dU() {
+        return this.ot;
+    }
+
     public final int dV() {
-        return this.ou;
+        return this.ov;
     }
 
     @Nullable
     public final Drawable dW() {
-        return this.ot;
+        return this.ou;
     }
 
     public final int dX() {
-        return this.oz;
+        return this.oA;
     }
 
     @Nullable
     public final Drawable dY() {
-        return this.oy;
+        return this.oz;
     }
 
     public final boolean dZ() {
-        return this.eC;
+        return this.eD;
     }
 
     @CheckResult
@@ -699,12 +699,12 @@ public class f implements Cloneable {
     public f clone() {
         try {
             f fVar = (f) super.clone();
-            fVar.eP = new com.bumptech.glide.load.f();
-            fVar.eP.a(this.eP);
-            fVar.eT = new CachedHashCodeArrayMap();
-            fVar.eT.putAll(this.eT);
+            fVar.eQ = new com.bumptech.glide.load.f();
+            fVar.eQ.a(this.eQ);
+            fVar.eU = new CachedHashCodeArrayMap();
+            fVar.eU.putAll(this.eU);
             fVar.isLocked = false;
-            fVar.oB = false;
+            fVar.oC = false;
             return fVar;
         } catch (CloneNotSupportedException e) {
             throw new RuntimeException(e);
@@ -712,7 +712,7 @@ public class f implements Cloneable {
     }
 
     public final boolean dy() {
-        return this.ox;
+        return this.oy;
     }
 
     public final boolean dz() {
@@ -722,7 +722,7 @@ public class f implements Cloneable {
     @CheckResult
     @NonNull
     public f e(@IntRange(from = 0) long j) {
-        return c(VideoDecoder.lS, (T) Long.valueOf(j));
+        return c(VideoDecoder.lT, (T) Long.valueOf(j));
     }
 
     public final boolean ea() {
@@ -730,31 +730,31 @@ public class f implements Cloneable {
     }
 
     public final int eb() {
-        return this.ow;
+        return this.ox;
     }
 
     public final boolean ec() {
-        return com.bumptech.glide.util.k.s(this.ow, this.ov);
+        return com.bumptech.glide.util.k.s(this.ox, this.ow);
     }
 
     public final int ed() {
-        return this.ov;
+        return this.ow;
     }
 
     public final float ee() {
-        return this.oq;
+        return this.or;
     }
 
     public final boolean ef() {
-        return this.oC;
+        return this.oD;
     }
 
     public final boolean eg() {
-        return this.gy;
+        return this.gz;
     }
 
     public final boolean eh() {
-        return this.fl;
+        return this.fm;
     }
 
     public boolean equals(Object obj) {
@@ -763,7 +763,7 @@ public class f implements Cloneable {
             return false;
         }
         f fVar = (f) obj;
-        if (Float.compare(fVar.oq, this.oq) == 0 && this.os == fVar.os && com.bumptech.glide.util.k.c(this.or, fVar.or) && this.ou == fVar.ou && com.bumptech.glide.util.k.c(this.ot, fVar.ot) && this.oz == fVar.oz && com.bumptech.glide.util.k.c(this.oy, fVar.oy) && this.eC == fVar.eC && this.ov == fVar.ov && this.ow == fVar.ow && this.eY == fVar.eY && this.ox == fVar.ox && this.oC == fVar.oC && this.fl == fVar.fl && this.eX.equals(fVar.eX) && this.eW == fVar.eW && this.eP.equals(fVar.eP) && this.eT.equals(fVar.eT) && this.eR.equals(fVar.eR) && com.bumptech.glide.util.k.c(this.eN, fVar.eN) && com.bumptech.glide.util.k.c(this.oA, fVar.oA)) {
+        if (Float.compare(fVar.or, this.or) == 0 && this.ot == fVar.ot && com.bumptech.glide.util.k.c(this.os, fVar.os) && this.ov == fVar.ov && com.bumptech.glide.util.k.c(this.ou, fVar.ou) && this.oA == fVar.oA && com.bumptech.glide.util.k.c(this.oz, fVar.oz) && this.eD == fVar.eD && this.ow == fVar.ow && this.ox == fVar.ox && this.eZ == fVar.eZ && this.oy == fVar.oy && this.oD == fVar.oD && this.fm == fVar.fm && this.eY.equals(fVar.eY) && this.eX == fVar.eX && this.eQ.equals(fVar.eQ) && this.eU.equals(fVar.eU) && this.eS.equals(fVar.eS) && com.bumptech.glide.util.k.c(this.eO, fVar.eO) && com.bumptech.glide.util.k.c(this.oB, fVar.oB)) {
             z = true;
         }
         return z;
@@ -772,114 +772,114 @@ public class f implements Cloneable {
     @CheckResult
     @NonNull
     public f g(@NonNull f fVar) {
-        if (this.oB) {
+        if (this.oC) {
             return clone().g(fVar);
         }
-        if (n(fVar.oo, 2)) {
-            this.oq = fVar.oq;
-        }
-        if (n(fVar.oo, 262144)) {
-            this.oC = fVar.oC;
-        }
-        if (n(fVar.oo, 1048576)) {
-            this.gy = fVar.gy;
-        }
-        if (n(fVar.oo, 4)) {
-            this.eX = fVar.eX;
-        }
-        if (n(fVar.oo, 8)) {
-            this.eW = fVar.eW;
-        }
-        if (n(fVar.oo, 16)) {
+        if (n(fVar.oq, 2)) {
             this.or = fVar.or;
         }
-        if (n(fVar.oo, 32)) {
-            this.os = fVar.os;
+        if (n(fVar.oq, 262144)) {
+            this.oD = fVar.oD;
         }
-        if (n(fVar.oo, 64)) {
-            this.ot = fVar.ot;
+        if (n(fVar.oq, 1048576)) {
+            this.gz = fVar.gz;
         }
-        if (n(fVar.oo, 128)) {
-            this.ou = fVar.ou;
-        }
-        if (n(fVar.oo, 256)) {
-            this.eC = fVar.eC;
-        }
-        if (n(fVar.oo, 512)) {
-            this.ow = fVar.ow;
-            this.ov = fVar.ov;
-        }
-        if (n(fVar.oo, 1024)) {
-            this.eN = fVar.eN;
-        }
-        if (n(fVar.oo, 4096)) {
-            this.eR = fVar.eR;
-        }
-        if (n(fVar.oo, 8192)) {
-            this.oy = fVar.oy;
-        }
-        if (n(fVar.oo, 16384)) {
-            this.oz = fVar.oz;
-        }
-        if (n(fVar.oo, 32768)) {
-            this.oA = fVar.oA;
-        }
-        if (n(fVar.oo, 65536)) {
-            this.ox = fVar.ox;
-        }
-        if (n(fVar.oo, 131072)) {
+        if (n(fVar.oq, 4)) {
             this.eY = fVar.eY;
         }
-        if (n(fVar.oo, 2048)) {
-            this.eT.putAll(fVar.eT);
+        if (n(fVar.oq, 8)) {
+            this.eX = fVar.eX;
+        }
+        if (n(fVar.oq, 16)) {
+            this.os = fVar.os;
+        }
+        if (n(fVar.oq, 32)) {
+            this.ot = fVar.ot;
+        }
+        if (n(fVar.oq, 64)) {
+            this.ou = fVar.ou;
+        }
+        if (n(fVar.oq, 128)) {
+            this.ov = fVar.ov;
+        }
+        if (n(fVar.oq, 256)) {
+            this.eD = fVar.eD;
+        }
+        if (n(fVar.oq, 512)) {
+            this.ox = fVar.ox;
+            this.ow = fVar.ow;
+        }
+        if (n(fVar.oq, 1024)) {
+            this.eO = fVar.eO;
+        }
+        if (n(fVar.oq, 4096)) {
+            this.eS = fVar.eS;
+        }
+        if (n(fVar.oq, 8192)) {
+            this.oz = fVar.oz;
+        }
+        if (n(fVar.oq, 16384)) {
+            this.oA = fVar.oA;
+        }
+        if (n(fVar.oq, 32768)) {
+            this.oB = fVar.oB;
+        }
+        if (n(fVar.oq, 65536)) {
+            this.oy = fVar.oy;
+        }
+        if (n(fVar.oq, 131072)) {
             this.eZ = fVar.eZ;
         }
-        if (n(fVar.oo, 524288)) {
-            this.fl = fVar.fl;
+        if (n(fVar.oq, 2048)) {
+            this.eU.putAll(fVar.eU);
+            this.fa = fVar.fa;
         }
-        if (!this.ox) {
-            this.eT.clear();
-            this.oo &= -2049;
-            this.eY = false;
-            this.oo &= -131073;
-            this.eZ = true;
+        if (n(fVar.oq, 524288)) {
+            this.fm = fVar.fm;
         }
-        this.oo |= fVar.oo;
-        this.eP.a(fVar.eP);
+        if (!this.oy) {
+            this.eU.clear();
+            this.oq &= -2049;
+            this.eZ = false;
+            this.oq &= -131073;
+            this.fa = true;
+        }
+        this.oq |= fVar.oq;
+        this.eQ.a(fVar.eQ);
         return dN();
     }
 
     @Nullable
     public final Theme getTheme() {
-        return this.oA;
+        return this.oB;
     }
 
     @CheckResult
     @NonNull
     public f h(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        if (this.oB) {
+        if (this.oC) {
             return clone().h(f);
         }
         if (f < 0.0f || f > 1.0f) {
             throw new IllegalArgumentException("sizeMultiplier must be between 0 and 1");
         }
-        this.oq = f;
-        this.oo |= 2;
+        this.or = f;
+        this.oq |= 2;
         return dN();
     }
 
     public int hashCode() {
-        return com.bumptech.glide.util.k.a((Object) this.oA, com.bumptech.glide.util.k.a((Object) this.eN, com.bumptech.glide.util.k.a((Object) this.eR, com.bumptech.glide.util.k.a((Object) this.eT, com.bumptech.glide.util.k.a((Object) this.eP, com.bumptech.glide.util.k.a((Object) this.eW, com.bumptech.glide.util.k.a((Object) this.eX, com.bumptech.glide.util.k.a(this.fl, com.bumptech.glide.util.k.a(this.oC, com.bumptech.glide.util.k.a(this.ox, com.bumptech.glide.util.k.a(this.eY, com.bumptech.glide.util.k.t(this.ow, com.bumptech.glide.util.k.t(this.ov, com.bumptech.glide.util.k.a(this.eC, com.bumptech.glide.util.k.a((Object) this.oy, com.bumptech.glide.util.k.t(this.oz, com.bumptech.glide.util.k.a((Object) this.ot, com.bumptech.glide.util.k.t(this.ou, com.bumptech.glide.util.k.a((Object) this.or, com.bumptech.glide.util.k.t(this.os, com.bumptech.glide.util.k.hashCode(this.oq)))))))))))))))))))));
+        return com.bumptech.glide.util.k.a((Object) this.oB, com.bumptech.glide.util.k.a((Object) this.eO, com.bumptech.glide.util.k.a((Object) this.eS, com.bumptech.glide.util.k.a((Object) this.eU, com.bumptech.glide.util.k.a((Object) this.eQ, com.bumptech.glide.util.k.a((Object) this.eX, com.bumptech.glide.util.k.a((Object) this.eY, com.bumptech.glide.util.k.a(this.fm, com.bumptech.glide.util.k.a(this.oD, com.bumptech.glide.util.k.a(this.oy, com.bumptech.glide.util.k.a(this.eZ, com.bumptech.glide.util.k.t(this.ox, com.bumptech.glide.util.k.t(this.ow, com.bumptech.glide.util.k.a(this.eD, com.bumptech.glide.util.k.a((Object) this.oz, com.bumptech.glide.util.k.t(this.oA, com.bumptech.glide.util.k.a((Object) this.ou, com.bumptech.glide.util.k.t(this.ov, com.bumptech.glide.util.k.a((Object) this.os, com.bumptech.glide.util.k.t(this.ot, com.bumptech.glide.util.k.hashCode(this.or)))))))))))))))))))));
     }
 
     @CheckResult
     @NonNull
     public f i(@Nullable Drawable drawable) {
-        if (this.oB) {
+        if (this.oC) {
             return clone().i(drawable);
         }
-        this.ot = drawable;
-        this.oo |= 64;
+        this.ou = drawable;
+        this.oq |= 64;
         return dN();
     }
 
@@ -890,100 +890,100 @@ public class f implements Cloneable {
     @CheckResult
     @NonNull
     public f j(@Nullable Drawable drawable) {
-        if (this.oB) {
+        if (this.oC) {
             return clone().j(drawable);
         }
-        this.oy = drawable;
-        this.oo |= 8192;
+        this.oz = drawable;
+        this.oq |= 8192;
         return dN();
     }
 
     @CheckResult
     @NonNull
     public f j(boolean z) {
-        if (this.oB) {
+        if (this.oC) {
             return clone().j(z);
         }
-        this.oC = z;
-        this.oo |= 262144;
+        this.oD = z;
+        this.oq |= 262144;
         return dN();
     }
 
     @CheckResult
     @NonNull
     public f k(@Nullable Drawable drawable) {
-        if (this.oB) {
+        if (this.oC) {
             return clone().k(drawable);
         }
-        this.or = drawable;
-        this.oo |= 16;
+        this.os = drawable;
+        this.oq |= 16;
         return dN();
     }
 
     @CheckResult
     @NonNull
     public f k(@NonNull c cVar) {
-        if (this.oB) {
+        if (this.oC) {
             return clone().k(cVar);
         }
-        this.eN = (c) com.bumptech.glide.util.i.checkNotNull(cVar);
-        this.oo |= 1024;
+        this.eO = (c) com.bumptech.glide.util.i.checkNotNull(cVar);
+        this.oq |= 1024;
         return dN();
     }
 
     @CheckResult
     @NonNull
     public f k(boolean z) {
-        if (this.oB) {
+        if (this.oC) {
             return clone().k(z);
         }
-        this.gy = z;
-        this.oo |= 1048576;
+        this.gz = z;
+        this.oq |= 1048576;
         return dN();
     }
 
     @CheckResult
     @NonNull
     public f l(boolean z) {
-        if (this.oB) {
+        if (this.oC) {
             return clone().l(z);
         }
-        this.fl = z;
-        this.oo |= 524288;
+        this.fm = z;
+        this.oq |= 524288;
         return dN();
     }
 
     @CheckResult
     @NonNull
     public f m(boolean z) {
-        if (this.oB) {
+        if (this.oC) {
             return clone().m(true);
         }
-        this.eC = !z;
-        this.oo |= 256;
+        this.eD = !z;
+        this.oq |= 256;
         return dN();
     }
 
     @CheckResult
     @NonNull
     public f o(int i, int i2) {
-        if (this.oB) {
+        if (this.oC) {
             return clone().o(i, i2);
         }
-        this.ow = i;
-        this.ov = i2;
-        this.oo |= 512;
+        this.ox = i;
+        this.ow = i2;
+        this.oq |= 512;
         return dN();
     }
 
     @CheckResult
     @NonNull
     public f p(@NonNull Class<?> cls) {
-        if (this.oB) {
+        if (this.oC) {
             return clone().p(cls);
         }
-        this.eR = (Class) com.bumptech.glide.util.i.checkNotNull(cls);
-        this.oo |= 4096;
+        this.eS = (Class) com.bumptech.glide.util.i.checkNotNull(cls);
+        this.oq |= 4096;
         return dN();
     }
 }

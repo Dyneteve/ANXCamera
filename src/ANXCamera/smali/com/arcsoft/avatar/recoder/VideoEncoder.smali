@@ -12,6 +12,8 @@
 
 
 # static fields
+.field private static E:Ljava/lang/String; = null
+
 .field public static final ENCODER_THREAD_NAME:Ljava/lang/String; = "Arc_Video_Encoder"
 
 .field public static final NAME:Ljava/lang/String; = "ARC_V"
@@ -26,19 +28,15 @@
 
 .field private static final y:I = 0xa
 
-.field private static z:Ljava/lang/String;
-
 
 # instance fields
-.field private A:Landroid/media/MediaFormat;
+.field private A:I
 
 .field private B:I
 
-.field private C:I
+.field private C:Z
 
-.field private D:Z
-
-.field private E:I
+.field private D:I
 
 .field private F:Landroid/view/Surface;
 
@@ -54,19 +52,21 @@
 
 .field protected t:J
 
+.field private z:Landroid/media/MediaFormat;
+
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
 
-    const-string v0, "video/avc"
+    const-string v0, "video/hevc"
 
-    sput-object v0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->z:Ljava/lang/String;
+    sput-object v0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->E:Ljava/lang/String;
 
     return-void
 .end method
 
-.method public constructor <init>(Lcom/arcsoft/avatar/recoder/MuxerWrapper;IILjava/lang/Object;Lcom/arcsoft/avatar/recoder/RecordingListener;Landroid/opengl/EGLContext;I)V
+.method public constructor <init>(Lcom/arcsoft/avatar/recoder/MuxerWrapper;IILjava/lang/Object;Lcom/arcsoft/avatar/recoder/RecordingListener;Landroid/opengl/EGLContext;ILjava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1, p4, p5}, Lcom/arcsoft/avatar/recoder/BaseEncoder;-><init>(Lcom/arcsoft/avatar/recoder/MuxerWrapper;Ljava/lang/Object;Lcom/arcsoft/avatar/recoder/RecordingListener;)V
@@ -75,9 +75,9 @@
 
     iput-object p1, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->I:Landroid/opengl/EGLContext;
 
-    iput p2, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->B:I
+    iput p2, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->A:I
 
-    iput p3, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->C:I
+    iput p3, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->B:I
 
     const/4 p1, 0x0
 
@@ -86,6 +86,8 @@
     iput p7, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->K:I
 
     iput-object p6, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->I:Landroid/opengl/EGLContext;
+
+    sput-object p8, Lcom/arcsoft/avatar/recoder/VideoEncoder;->E:Ljava/lang/String;
 
     const/4 p1, 0x1
 
@@ -171,19 +173,19 @@
 
     invoke-static {v0, v1}, Lcom/arcsoft/avatar/util/CodecLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    sget-object v0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->z:Ljava/lang/String;
+    sget-object v0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->E:Ljava/lang/String;
 
-    iget v1, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->B:I
+    iget v1, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->A:I
 
-    iget v2, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->C:I
+    iget v2, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->B:I
 
     invoke-static {v0, v1, v2}, Landroid/media/MediaFormat;->createVideoFormat(Ljava/lang/String;II)Landroid/media/MediaFormat;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->A:Landroid/media/MediaFormat;
+    iput-object v0, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->z:Landroid/media/MediaFormat;
 
-    iget-object v0, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->A:Landroid/media/MediaFormat;
+    iget-object v0, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->z:Landroid/media/MediaFormat;
 
     const-string v1, "color-format"
 
@@ -191,7 +193,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/media/MediaFormat;->setInteger(Ljava/lang/String;I)V
 
-    iget-object v0, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->A:Landroid/media/MediaFormat;
+    iget-object v0, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->z:Landroid/media/MediaFormat;
 
     const-string v1, "bitrate"
 
@@ -199,7 +201,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/media/MediaFormat;->setInteger(Ljava/lang/String;I)V
 
-    iget-object v0, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->A:Landroid/media/MediaFormat;
+    iget-object v0, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->z:Landroid/media/MediaFormat;
 
     const-string v1, "frame-rate"
 
@@ -207,7 +209,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/media/MediaFormat;->setInteger(Ljava/lang/String;I)V
 
-    iget-object v0, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->A:Landroid/media/MediaFormat;
+    iget-object v0, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->z:Landroid/media/MediaFormat;
 
     const-string v1, "i-frame-interval"
 
@@ -218,7 +220,7 @@
     const/4 v0, 0x0
 
     :try_start_0
-    sget-object v1, Lcom/arcsoft/avatar/recoder/VideoEncoder;->z:Ljava/lang/String;
+    sget-object v1, Lcom/arcsoft/avatar/recoder/VideoEncoder;->E:Ljava/lang/String;
 
     invoke-static {v1}, Landroid/media/MediaCodec;->createEncoderByType(Ljava/lang/String;)Landroid/media/MediaCodec;
 
@@ -288,7 +290,7 @@
     :try_start_1
     iget-object v3, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->i:Landroid/media/MediaCodec;
 
-    iget-object v4, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->A:Landroid/media/MediaFormat;
+    iget-object v4, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->z:Landroid/media/MediaFormat;
 
     const/4 v5, 0x1
 
@@ -422,11 +424,11 @@
 
     new-instance v0, Lcom/arcsoft/avatar/gl/GLRender;
 
-    iget v1, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->B:I
+    iget v1, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->A:I
 
-    iget v2, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->C:I
+    iget v2, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->B:I
 
-    iget v3, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->E:I
+    iget v3, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->D:I
 
     const/4 v4, 0x1
 
@@ -490,7 +492,7 @@
 .method static synthetic e(Lcom/arcsoft/avatar/recoder/VideoEncoder;)I
     .locals 0
 
-    iget p0, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->B:I
+    iget p0, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->A:I
 
     return p0
 .end method
@@ -498,9 +500,9 @@
 .method private e()V
     .locals 8
 
-    iget v0, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->B:I
+    iget v0, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->A:I
 
-    iget v1, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->C:I
+    iget v1, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->B:I
 
     mul-int/2addr v0, v1
 
@@ -516,9 +518,9 @@
 
     invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
-    iget v3, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->B:I
+    iget v3, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->A:I
 
-    iget v4, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->C:I
+    iget v4, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->B:I
 
     const/4 v1, 0x0
 
@@ -544,7 +546,7 @@
 .method static synthetic f(Lcom/arcsoft/avatar/recoder/VideoEncoder;)I
     .locals 0
 
-    iget p0, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->C:I
+    iget p0, p0, Lcom/arcsoft/avatar/recoder/VideoEncoder;->B:I
 
     return p0
 .end method

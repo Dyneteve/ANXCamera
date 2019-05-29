@@ -10,7 +10,7 @@ import java.nio.ByteBuffer;
 
 /* compiled from: ByteArrayLoader */
 public class b<Data> implements m<byte[], Data> {
-    private final C0006b<Data> js;
+    private final C0006b<Data> jt;
 
     /* compiled from: ByteArrayLoader */
     public static class a implements n<byte[], ByteBuffer> {
@@ -42,21 +42,21 @@ public class b<Data> implements m<byte[], Data> {
 
     /* compiled from: ByteArrayLoader */
     private static class c<Data> implements com.bumptech.glide.load.a.d<Data> {
-        private final C0006b<Data> js;
-        private final byte[] ju;
+        private final C0006b<Data> jt;
+        private final byte[] jv;
 
         c(byte[] bArr, C0006b<Data> bVar) {
-            this.ju = bArr;
-            this.js = bVar;
+            this.jv = bArr;
+            this.jt = bVar;
         }
 
         public void a(@NonNull Priority priority, @NonNull com.bumptech.glide.load.a.d.a<? super Data> aVar) {
-            aVar.k(this.js.h(this.ju));
+            aVar.k(this.jt.h(this.jv));
         }
 
         @NonNull
         public Class<Data> aj() {
-            return this.js.aj();
+            return this.jt.aj();
         }
 
         @NonNull
@@ -92,12 +92,12 @@ public class b<Data> implements m<byte[], Data> {
     }
 
     public b(C0006b<Data> bVar) {
-        this.js = bVar;
+        this.jt = bVar;
     }
 
     /* renamed from: a */
     public com.bumptech.glide.load.model.m.a<Data> b(@NonNull byte[] bArr, int i, int i2, @NonNull f fVar) {
-        return new com.bumptech.glide.load.model.m.a<>(new com.bumptech.glide.e.d(bArr), new c(bArr, this.js));
+        return new com.bumptech.glide.load.model.m.a<>(new com.bumptech.glide.e.d(bArr), new c(bArr, this.jt));
     }
 
     /* renamed from: f */

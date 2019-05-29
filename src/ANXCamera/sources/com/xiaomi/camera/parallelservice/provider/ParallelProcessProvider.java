@@ -14,7 +14,6 @@ import android.os.ParcelFileDescriptor;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
-import com.android.camera.db.DbContainer;
 import com.android.camera.db.DbRepository;
 import com.android.camera.db.element.SaveTask;
 import com.android.camera.db.item.DbItemSaveTask;
@@ -183,7 +182,6 @@ public class ParallelProcessProvider extends ContentProvider {
 
     public boolean onCreate() {
         Log.v(TAG, "onCreate");
-        DbContainer.init(getContext());
         this.dbItemSaveTask = DbRepository.dbItemSaveTask();
         return true;
     }

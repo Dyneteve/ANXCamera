@@ -97,7 +97,7 @@ public class FunctionCameraPrepare extends Func1Base<Camera, BaseModule> {
                 editor.remove(CameraSettings.KEY_QC_ISO);
             }
         }
-        if (!b.hp()) {
+        if (!b.hs()) {
             editor.remove(CameraSettings.KEY_QC_FOCUS_POSITION);
             editor.remove(CameraSettings.KEY_QC_EXPOSURETIME);
         } else if (this.mTargetMode == 167) {
@@ -154,7 +154,7 @@ public class FunctionCameraPrepare extends Func1Base<Camera, BaseModule> {
                     DataRepository.dataItemLive().editor().remove(CameraSettings.KEY_LIVE_MUSIC_PATH).remove(CameraSettings.KEY_LIVE_MUSIC_HINT).remove(CameraSettings.KEY_LIVE_STICKER).remove(CameraSettings.KEY_LIVE_STICKER_NAME).remove(CameraSettings.KEY_LIVE_STICKER_HINT).remove(CameraSettings.KEY_LIVE_SPEED).remove(CameraSettings.KEY_LIVE_FILTER).remove("key_live_shrink_face_ratio").remove("key_live_enlarge_eye_ratio").remove("key_live_smooth_strength").remove(CameraSettings.KEY_LIVE_BEAUTY_STATUS).apply();
                 }
                 if (DataRepository.dataItemFeature().fP()) {
-                    DataRepository.dataItemLive().editor().remove(CameraSettings.KEY_MIMOJI_INDEX).apply();
+                    DataRepository.dataItemLive().editor().remove(CameraSettings.KEY_MIMOJI_INDEX).remove(CameraSettings.KEY_MIMOJI_PANNEL_STATE).apply();
                 }
                 DataRepository.dataItemLive().getMimojiStatusManager().reset();
                 break;
@@ -184,7 +184,7 @@ public class FunctionCameraPrepare extends Func1Base<Camera, BaseModule> {
                                     i = dataItemGlobal.getCurrentCameraId();
                                     break;
                                 case 171:
-                                    if (DataRepository.dataItemFeature().gB()) {
+                                    if (DataRepository.dataItemFeature().gC()) {
                                         i = dataItemGlobal.getCurrentCameraId();
                                         break;
                                     }

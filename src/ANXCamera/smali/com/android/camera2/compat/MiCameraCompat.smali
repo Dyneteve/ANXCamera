@@ -11,7 +11,7 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    invoke-static {}, Lcom/mi/config/b;->gY()Z
+    invoke-static {}, Lcom/mi/config/b;->hb()Z
 
     move-result v0
 

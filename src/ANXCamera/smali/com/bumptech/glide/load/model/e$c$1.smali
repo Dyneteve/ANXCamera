@@ -27,14 +27,14 @@
 
 
 # instance fields
-.field final synthetic jC:Lcom/bumptech/glide/load/model/e$c;
+.field final synthetic jD:Lcom/bumptech/glide/load/model/e$c;
 
 
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/load/model/e$c;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/model/e$c$1;->jC:Lcom/bumptech/glide/load/model/e$c;
+    iput-object p1, p0, Lcom/bumptech/glide/load/model/e$c$1;->jD:Lcom/bumptech/glide/load/model/e$c;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 

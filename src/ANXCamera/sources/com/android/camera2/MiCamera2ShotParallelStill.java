@@ -49,10 +49,10 @@ public class MiCamera2ShotParallelStill extends MiCamera2ShotParallel<ParallelTa
         if (this.mMiCamera.getCameraConfigs().isHDREnabled() || this.mMiCamera.isFrontBeautyOn()) {
             return false;
         }
-        if (CameraSettings.isFrontCamera() && (b.rJ || b.rL)) {
+        if (CameraSettings.isFrontCamera() && (b.rK || b.rM)) {
             return false;
         }
-        if (b.iG()) {
+        if (b.iJ()) {
             return CaptureResultParser.isQuadCfaRunning(this.mPreviewCaptureResult);
         }
         Integer num = (Integer) this.mPreviewCaptureResult.get(CaptureResult.SENSOR_SENSITIVITY);

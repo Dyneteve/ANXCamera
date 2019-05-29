@@ -412,7 +412,7 @@
 .method protected static getColorEffectKey()Ljava/lang/String;
     .locals 1
 
-    invoke-static {}, Lcom/mi/config/b;->gK()Z
+    invoke-static {}, Lcom/mi/config/b;->gN()Z
 
     move-result v0
 
@@ -800,6 +800,12 @@
     :cond_1
     invoke-virtual {p0, p1}, Lcom/android/camera/module/BaseModule;->consumePreference([I)V
 
+    invoke-virtual {p0}, Lcom/android/camera/module/BaseModule;->isAlive()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_2
+
     iget-object p1, p0, Lcom/android/camera/module/BaseModule;->mActivity:Lcom/android/camera/Camera;
 
     invoke-virtual {p1}, Lcom/android/camera/Camera;->getCameraScreenNail()Lcom/android/camera/CameraScreenNail;
@@ -820,7 +826,16 @@
 
     invoke-virtual {p1}, Lcom/android/camera2/Camera2Proxy;->resumePreview()V
 
+    goto :goto_0
+
     :cond_2
+    const-string p1, "BaseModule"
+
+    const-string v0, "skip resumePreview on accept"
+
+    invoke-static {p1, v0}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_0
     return-void
 .end method
 
@@ -2410,13 +2425,13 @@
 
     const/high16 v1, 0x3f800000    # 1.0f
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_8
 
     invoke-virtual {p0}, Lcom/android/camera/module/BaseModule;->isBackCamera()Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_8
 
     iget v0, p0, Lcom/android/camera/module/BaseModule;->mModuleIndex:I
 
@@ -2520,7 +2535,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/camera/module/BaseModule;->setZoomRatio(F)V
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_3
     iget v0, p0, Lcom/android/camera/module/BaseModule;->mModuleIndex:I
@@ -2557,7 +2572,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/camera/module/BaseModule;->setZoomRatio(F)V
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_4
     :pswitch_1
@@ -2607,6 +2622,55 @@
     goto :goto_0
 
     :cond_6
+    invoke-static {}, Lcom/android/camera/CameraSettings;->isSupportedOpticalZoom()Z
+
+    move-result v0
+
+    if-nez v0, :cond_7
+
+    invoke-static {}, Lcom/android/camera/CameraSettings;->isUltraPixelRear48MPOn()Z
+
+    move-result v0
+
+    if-nez v0, :cond_7
+
+    iget v0, p0, Lcom/android/camera/module/BaseModule;->mModuleIndex:I
+
+    invoke-static {v1}, Ljava/lang/Float;->toString(F)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v0, v2}, Lcom/android/camera/HybridZoomingSystem;->getZoomRatioHistory(ILjava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v2, "BaseModule"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "resetZoomRatio(): set zoom ratio to "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {v0, v1}, Lcom/android/camera/HybridZoomingSystem;->toFloat(Ljava/lang/String;F)F
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Lcom/android/camera/module/BaseModule;->setZoomRatio(F)V
+
+    goto :goto_0
+
+    :cond_7
     const-string v0, "BaseModule"
 
     const-string v2, "resetZoomRatio(): set zoom ratio to 1.0"
@@ -2617,7 +2681,7 @@
 
     goto :goto_0
 
-    :cond_7
+    :cond_8
     const-string v0, "BaseModule"
 
     const-string v2, "resetZoomRatio(): set zoom ratio to 1.0"
@@ -4953,7 +5017,7 @@
     move v5, v4
 
     :goto_1
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_7
 
     const/4 v5, 0x5
 
@@ -4963,24 +5027,47 @@
 
     invoke-virtual {p0, v5}, Lcom/android/camera/module/BaseModule;->updatePreferenceTrampoline([I)V
 
+    iget-object v5, p0, Lcom/android/camera/module/BaseModule;->mUltraCameraCapabilities:Lcom/android/camera2/CameraCapabilities;
+
+    if-nez v5, :cond_5
+
+    invoke-static {}, Lcom/android/camera/module/loader/camera2/Camera2DataContainer;->getInstance()Lcom/android/camera/module/loader/camera2/Camera2DataContainer;
+
+    move-result-object v5
+
+    invoke-static {}, Lcom/android/camera/module/loader/camera2/Camera2DataContainer;->getInstance()Lcom/android/camera/module/loader/camera2/Camera2DataContainer;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Lcom/android/camera/module/loader/camera2/Camera2DataContainer;->getUltraWideCameraId()I
+
+    move-result v6
+
+    invoke-virtual {v5, v6}, Lcom/android/camera/module/loader/camera2/Camera2DataContainer;->getCapabilities(I)Lcom/android/camera2/CameraCapabilities;
+
+    move-result-object v5
+
+    iput-object v5, p0, Lcom/android/camera/module/BaseModule;->mUltraCameraCapabilities:Lcom/android/camera2/CameraCapabilities;
+
+    :cond_5
     cmpg-float v5, p1, v2
 
-    if-gez v5, :cond_5
+    if-gez v5, :cond_6
 
     iget-object v5, p0, Lcom/android/camera/module/BaseModule;->mUltraCameraCapabilities:Lcom/android/camera2/CameraCapabilities;
 
     goto :goto_2
 
-    :cond_5
+    :cond_6
     iget-object v5, p0, Lcom/android/camera/module/BaseModule;->mCameraCapabilities:Lcom/android/camera2/CameraCapabilities;
 
     :goto_2
     invoke-virtual {p0, v5}, Lcom/android/camera/module/BaseModule;->onCapabilityChanged(Lcom/android/camera2/CameraCapabilities;)V
 
-    :cond_6
+    :cond_7
     sget-boolean v5, Lcom/android/camera/HybridZoomingSystem;->IS_3_OR_MORE_SAT:Z
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_8
 
     const/4 v1, 0x3
 
@@ -4992,7 +5079,7 @@
 
     goto :goto_3
 
-    :cond_7
+    :cond_8
     new-array v5, v4, [I
 
     const/16 v6, 0x18
@@ -5016,25 +5103,25 @@
 
     const/4 v5, 0x2
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_9
 
     invoke-interface {v1}, Lcom/android/camera/protocol/ModeProtocol$DualController;->isZoomVisible()Z
 
     move-result v6
 
-    if-eqz v6, :cond_8
+    if-eqz v6, :cond_9
 
     invoke-interface {v1, p2}, Lcom/android/camera/protocol/ModeProtocol$DualController;->updateZoomRatio(I)V
 
     goto :goto_4
 
-    :cond_8
+    :cond_9
     invoke-virtual {p0, v5}, Lcom/android/camera/module/BaseModule;->updateStatusBar(I)V
 
     :goto_4
     sget-boolean p2, Lcom/android/camera/HybridZoomingSystem;->IS_3_OR_MORE_SAT:Z
 
-    if-eqz p2, :cond_b
+    if-eqz p2, :cond_c
 
     invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
 
@@ -5048,23 +5135,23 @@
 
     check-cast p2, Lcom/android/camera/protocol/ModeProtocol$BottomPopupTips;
 
-    if-eqz p2, :cond_b
+    if-eqz p2, :cond_c
 
     cmpl-float v0, v0, v2
 
     const v1, 0x7f0902a8
 
-    if-ltz v0, :cond_a
+    if-ltz v0, :cond_b
 
     cmpg-float v0, p1, v2
 
-    if-gez v0, :cond_a
+    if-gez v0, :cond_b
 
     invoke-virtual {p0}, Lcom/android/camera/module/BaseModule;->isCameraSwitchingDuringZoomingAllowed()Z
 
     move-result p1
 
-    if-nez p1, :cond_9
+    if-nez p1, :cond_a
 
     iget p1, p0, Lcom/android/camera/module/BaseModule;->mActualCameraId:I
 
@@ -5076,14 +5163,16 @@
 
     move-result v0
 
-    if-ne p1, v0, :cond_b
+    if-ne p1, v0, :cond_c
 
-    :cond_9
-    invoke-static {}, Lcom/android/camera/CameraSettings;->shouldShowUltraWideSatTip()Z
+    :cond_a
+    iget p1, p0, Lcom/android/camera/module/BaseModule;->mModuleIndex:I
+
+    invoke-static {p1}, Lcom/android/camera/CameraSettings;->shouldShowUltraWideSatTip(I)Z
 
     move-result p1
 
-    if-eqz p1, :cond_b
+    if-eqz p1, :cond_c
 
     const/16 p1, 0xd
 
@@ -5091,22 +5180,22 @@
 
     goto :goto_5
 
-    :cond_a
-    if-gez v3, :cond_b
+    :cond_b
+    if-gez v3, :cond_c
 
     cmpl-float p1, p1, v2
 
-    if-ltz p1, :cond_b
+    if-ltz p1, :cond_c
 
     invoke-interface {p2, v1}, Lcom/android/camera/protocol/ModeProtocol$BottomPopupTips;->containTips(I)Z
 
     move-result p1
 
-    if-eqz p1, :cond_b
+    if-eqz p1, :cond_c
 
     invoke-interface {p2}, Lcom/android/camera/protocol/ModeProtocol$BottomPopupTips;->directlyHideTips()V
 
-    :cond_b
+    :cond_c
     :goto_5
     return v4
 
@@ -5514,14 +5603,6 @@
 .method public setCameraDevice(Lcom/android/camera2/Camera2Proxy;)V
     .locals 2
 
-    iput-object p1, p0, Lcom/android/camera/module/BaseModule;->mCamera2Device:Lcom/android/camera2/Camera2Proxy;
-
-    invoke-virtual {p1}, Lcom/android/camera2/Camera2Proxy;->getCapabilities()Lcom/android/camera2/CameraCapabilities;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/camera/module/BaseModule;->mCameraCapabilities:Lcom/android/camera2/CameraCapabilities;
-
     sget-boolean v0, Lcom/android/camera/HybridZoomingSystem;->IS_3_OR_MORE_SAT:Z
 
     if-eqz v0, :cond_0
@@ -5545,6 +5626,14 @@
     iput-object v0, p0, Lcom/android/camera/module/BaseModule;->mUltraCameraCapabilities:Lcom/android/camera2/CameraCapabilities;
 
     :cond_0
+    iput-object p1, p0, Lcom/android/camera/module/BaseModule;->mCamera2Device:Lcom/android/camera2/Camera2Proxy;
+
+    invoke-virtual {p1}, Lcom/android/camera2/Camera2Proxy;->getCapabilities()Lcom/android/camera2/CameraCapabilities;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/camera/module/BaseModule;->mCameraCapabilities:Lcom/android/camera2/CameraCapabilities;
+
     iget-object v0, p0, Lcom/android/camera/module/BaseModule;->mCameraCapabilities:Lcom/android/camera2/CameraCapabilities;
 
     invoke-virtual {v0}, Lcom/android/camera2/CameraCapabilities;->isZoomSupported()Z
@@ -5808,13 +5897,28 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-eqz v1, :cond_1
 
+    invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemConfig()Lcom/android/camera/data/data/config/DataItemConfig;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/camera/data/data/config/DataItemConfig;->getComponentFlash()Lcom/android/camera/data/data/config/ComponentConfigFlash;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/camera/data/data/config/ComponentConfigFlash;->isHardwareSupported()Z
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    :cond_1
     invoke-virtual {p0}, Lcom/android/camera/module/BaseModule;->isFrontCamera()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3
 
     iget-object v1, p0, Lcom/android/camera/module/BaseModule;->mActivity:Lcom/android/camera/Camera;
 
@@ -5822,14 +5926,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3
 
-    :cond_1
+    :cond_2
     nop
 
     move p1, v0
 
-    :cond_2
+    :cond_3
     iget-object v0, p0, Lcom/android/camera/module/BaseModule;->mCamera2Device:Lcom/android/camera2/Camera2Proxy;
 
     invoke-static {}, Lcom/android/camera/CameraSettings;->isOptimizedFlashEnable()Z

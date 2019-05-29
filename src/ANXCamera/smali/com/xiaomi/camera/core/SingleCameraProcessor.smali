@@ -336,6 +336,30 @@
 .method isIdle()Z
     .locals 3
 
+    sget-object v0, Lcom/xiaomi/camera/core/SingleCameraProcessor;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "isIdle: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v2, p0, Lcom/xiaomi/camera/core/SingleCameraProcessor;->mNeedProcessNormalImageSize:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    invoke-virtual {v2}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     iget-boolean v0, p0, Lcom/xiaomi/camera/core/SingleCameraProcessor;->mIsBokehMode:Z
 
     const/4 v1, 0x0
@@ -395,16 +419,35 @@
     return v1
 .end method
 
-.method processImage(Lcom/xiaomi/camera/core/CaptureData$CaptureDataBean;)V
-    .locals 3
+.method processImage(Ljava/util/List;)V
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Lcom/xiaomi/camera/core/CaptureData$CaptureDataBean;",
+            ">;)V"
+        }
+    .end annotation
 
+    if-eqz p1, :cond_3
+
+    invoke-interface {p1}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    goto :goto_1
+
+    :cond_0
     iget-object v0, p0, Lcom/xiaomi/camera/core/SingleCameraProcessor;->mNeedProcessNormalImageSize:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->getAndIncrement()I
 
     iget-boolean v0, p0, Lcom/xiaomi/camera/core/SingleCameraProcessor;->mIsBokehMode:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/xiaomi/camera/core/SingleCameraProcessor;->mNeedProcessRawImageSize:Ljava/util/concurrent/atomic/AtomicInteger;
 
@@ -414,22 +457,52 @@
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->getAndIncrement()I
 
-    :cond_0
-    invoke-virtual {p1}, Lcom/xiaomi/camera/core/CaptureData$CaptureDataBean;->getResult()Lcom/xiaomi/protocol/ICustomCaptureResult;
-
-    move-result-object v0
-
-    invoke-virtual {p1}, Lcom/xiaomi/camera/core/CaptureData$CaptureDataBean;->getMainImage()Landroid/media/Image;
+    :cond_1
+    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object p1
 
-    const-string v1, "[ORIGINAL]"
+    :goto_0
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    const/4 v2, 0x0
+    move-result v0
 
-    invoke-static {v1, v2}, Lcom/xiaomi/camera/base/PerformanceTracker;->trackAlgorithmProcess(Ljava/lang/String;I)V
+    if-eqz v0, :cond_2
 
-    invoke-direct {p0, v0, p1}, Lcom/xiaomi/camera/core/SingleCameraProcessor;->processCaptureResult(Lcom/xiaomi/protocol/ICustomCaptureResult;Landroid/media/Image;)V
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/xiaomi/camera/core/CaptureData$CaptureDataBean;
+
+    invoke-virtual {v0}, Lcom/xiaomi/camera/core/CaptureData$CaptureDataBean;->getResult()Lcom/xiaomi/protocol/ICustomCaptureResult;
+
+    move-result-object v1
+
+    invoke-virtual {v0}, Lcom/xiaomi/camera/core/CaptureData$CaptureDataBean;->getMainImage()Landroid/media/Image;
+
+    move-result-object v0
+
+    const-string v2, "[ORIGINAL]"
+
+    const/4 v3, 0x0
+
+    invoke-static {v2, v3}, Lcom/xiaomi/camera/base/PerformanceTracker;->trackAlgorithmProcess(Ljava/lang/String;I)V
+
+    invoke-direct {p0, v1, v0}, Lcom/xiaomi/camera/core/SingleCameraProcessor;->processCaptureResult(Lcom/xiaomi/protocol/ICustomCaptureResult;Landroid/media/Image;)V
+
+    goto :goto_0
+
+    :cond_2
+    return-void
+
+    :cond_3
+    :goto_1
+    sget-object p1, Lcom/xiaomi/camera/core/SingleCameraProcessor;->TAG:Ljava/lang/String;
+
+    const-string v0, "processImage: dataBeans is empty!"
+
+    invoke-static {p1, v0}, Lcom/android/camera/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method

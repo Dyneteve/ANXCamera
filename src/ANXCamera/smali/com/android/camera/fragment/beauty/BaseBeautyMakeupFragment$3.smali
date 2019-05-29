@@ -1,14 +1,11 @@
 .class Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment$3;
-.super Ljava/lang/Object;
+.super Landroid/support/v4/view/ViewPropertyAnimatorListenerAdapter;
 .source "BaseBeautyMakeupFragment.java"
-
-# interfaces
-.implements Landroid/widget/AdapterView$OnItemClickListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->initOnItemClickListener()Landroid/widget/AdapterView$OnItemClickListener;
+    value = Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->animateView(Landroid/view/View;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,53 +24,21 @@
 
     iput-object p1, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment$3;->this$0:Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/support/v4/view/ViewPropertyAnimatorListenerAdapter;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/widget/AdapterView<",
-            "*>;",
-            "Landroid/view/View;",
-            "IJ)V"
-        }
-    .end annotation
+.method public onAnimationEnd(Landroid/view/View;)V
+    .locals 1
 
-    iget-object p1, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment$3;->this$0:Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;
+    invoke-super {p0, p1}, Landroid/support/v4/view/ViewPropertyAnimatorListenerAdapter;->onAnimationEnd(Landroid/view/View;)V
 
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+    const/4 v0, 0x0
 
-    move-result-wide p4
+    invoke-virtual {p1, v0}, Landroid/view/View;->setRotation(F)V
 
-    invoke-static {p1, p4, p5}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->access$202(Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;J)J
-
-    iget-object p1, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment$3;->this$0:Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;
-
-    iput p3, p1, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mSelectedParam:I
-
-    invoke-virtual {p2}, Landroid/view/View;->getTag()Ljava/lang/Object;
-
-    move-result-object p1
-
-    if-eqz p1, :cond_0
-
-    instance-of p2, p1, Lcom/android/camera/data/data/TypeItem;
-
-    if-eqz p2, :cond_0
-
-    check-cast p1, Lcom/android/camera/data/data/TypeItem;
-
-    iget-object p2, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment$3;->this$0:Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;
-
-    invoke-virtual {p2, p1}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->onAdapterItemClick(Lcom/android/camera/data/data/TypeItem;)V
-
-    :cond_0
     return-void
 .end method

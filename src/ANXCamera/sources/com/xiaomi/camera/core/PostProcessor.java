@@ -36,6 +36,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import miui.os.Build;
 
 public class PostProcessor {
+    private static final int MAX_PARALLEL_REQUEST_NUMBER = 10;
     /* access modifiers changed from: private */
     public static final String TAG = PostProcessor.class.getSimpleName();
     /* access modifiers changed from: private */
@@ -129,11 +130,11 @@ public class PostProcessor {
                                 }
                             }
                         }
-                        if (PostProcessor.this.mImageProcessor != null) {
-                            PostProcessor.this.mImageProcessor.dispatchTask(captureDataBean2);
-                        } else {
-                            throw new RuntimeException("ImageProcessor is not allowed to be null");
-                        }
+                    }
+                    if (PostProcessor.this.mImageProcessor != null) {
+                        PostProcessor.this.mImageProcessor.dispatchTask(captureDataBeanList);
+                    } else {
+                        throw new RuntimeException("ImageProcessor is not allowed to be null");
                     }
                 } else if (!Build.IS_DEBUGGABLE) {
                     Log.e(PostProcessor.TAG, "[1] onCaptureDataAvailable: There are no result to process!");
@@ -144,78 +145,19 @@ public class PostProcessor {
         }
 
         public void onOriginalImageClosed(Image image) {
-            PostProcessor.this.releaseImage(image);
+            if (PostProcessor.this.mImageMemoryManager != null && image != null) {
+                String access$000 = PostProcessor.TAG;
+                StringBuilder sb = new StringBuilder();
+                sb.append("onOriginalImageClosed: ");
+                sb.append(image);
+                Log.d(access$000, sb.toString());
+                PostProcessor.this.mImageMemoryManager.releaseAnImage(image);
+            }
         }
     };
     private CaptureStatusListener mCaptureStatusListener = new CaptureStatusListener();
     /* access modifiers changed from: private */
     public int mCurrentAlgoType = 0;
-    private DataListener mDataListener = new DataListener() {
-        public void onParallelDataAvailable(@NonNull CaptureData captureData) {
-            String access$000 = PostProcessor.TAG;
-            StringBuilder sb = new StringBuilder();
-            sb.append("[z] onParallelDataAvailable: ");
-            sb.append(captureData.getCaptureTimestamp());
-            Log.d(access$000, sb.toString());
-            if (Build.IS_DEBUGGABLE) {
-                for (CaptureDataBean captureDataBean : captureData.getCaptureDataBeanList()) {
-                    Log.d(PostProcessor.TAG, "[z] onParallelDataAvailable: ------------------------");
-                    String access$0002 = PostProcessor.TAG;
-                    StringBuilder sb2 = new StringBuilder();
-                    sb2.append("[z] Result timestamp: ");
-                    sb2.append(captureDataBean.getResult().getTimeStamp());
-                    Log.d(access$0002, sb2.toString());
-                }
-            }
-            int algoType = captureData.getAlgoType();
-            String access$0003 = PostProcessor.TAG;
-            StringBuilder sb3 = new StringBuilder();
-            sb3.append("onParallelDataAvailable: algoType is ");
-            sb3.append(algoType);
-            Log.d(access$0003, sb3.toString());
-            if (algoType != 4) {
-                ImageFormat imageQueueKey = ImagePool.getInstance().toImageQueueKey(((CaptureDataBean) captureData.getCaptureDataBeanList().get(0)).getMainImage());
-                if (ImagePool.getInstance().isImageQueueFull(imageQueueKey, 4)) {
-                    Log.w(PostProcessor.TAG, "[z] wait image pool>>");
-                    ImagePool.getInstance().waitIfImageQueueFull(imageQueueKey, 4, 0);
-                    Log.w(PostProcessor.TAG, "[z] wait image pool<<");
-                }
-                PostProcessor.this.mImageProcessorStatusCb.onImageProcessStart(captureData.getCaptureTimestamp());
-            }
-            if (algoType == 2) {
-                captureData.setMultiFrameProcessListener(PostProcessor.this.mCaptureDataListener);
-                ParallelTaskData parallelTaskData = (ParallelTaskData) PostProcessor.this.mParallelTaskHashMap.get(Long.valueOf(captureData.getCaptureTimestamp()));
-                if (parallelTaskData != null) {
-                    captureData.setCapturedByFrontCamera(parallelTaskData.getDataParameter().isFrontCamera());
-                }
-                MultiFrameProcessor.getInstance().processData(captureData);
-            } else if (algoType == 5) {
-                captureData.setMultiFrameProcessListener(PostProcessor.this.mCaptureDataListener);
-                ParallelTaskData parallelTaskData2 = (ParallelTaskData) PostProcessor.this.mParallelTaskHashMap.get(Long.valueOf(captureData.getCaptureTimestamp()));
-                if (parallelTaskData2 != null && parallelTaskData2.getDataParameter().isSaveGroupshotPrimitive()) {
-                    captureData.setSaveInputImage(true);
-                }
-                MultiFrameProcessor.getInstance().processData(captureData);
-            } else {
-                PostProcessor.this.mCaptureDataListener.onCaptureDataAvailable(captureData);
-            }
-        }
-
-        public void onParallelDataUnmatched(CaptureDataBean captureDataBean) {
-            if (captureDataBean != null) {
-                Image mainImage = captureDataBean.getMainImage();
-                if (mainImage != null) {
-                    mainImage.close();
-                    PostProcessor.this.releaseImage(mainImage);
-                }
-                Image subImage = captureDataBean.getSubImage();
-                if (subImage != null) {
-                    subImage.close();
-                    PostProcessor.this.releaseImage(subImage);
-                }
-            }
-        }
-    };
     /* access modifiers changed from: private */
     public FilterProcessor mFilterProcessor;
     /* access modifiers changed from: private */
@@ -419,6 +361,92 @@ public class PostProcessor {
     private TaskSession mTaskSession;
     private Handler mWorkerHandler;
     private HandlerThread mWorkerThread = new HandlerThread("CallbackHandleThread");
+    /* access modifiers changed from: private */
+    public DataListener mZipperResultListener = new DataListener() {
+        public void onParallelDataAbandoned(CaptureData captureData) {
+            if (captureData != null) {
+                String access$000 = PostProcessor.TAG;
+                StringBuilder sb = new StringBuilder();
+                sb.append("onParallelDataAbandoned: ");
+                sb.append(captureData);
+                Log.d(access$000, sb.toString());
+                for (CaptureDataBean captureDataBean : captureData.getCaptureDataBeanList()) {
+                    if (captureDataBean != null) {
+                        Image mainImage = captureDataBean.getMainImage();
+                        String access$0002 = PostProcessor.TAG;
+                        StringBuilder sb2 = new StringBuilder();
+                        sb2.append("onParallelDataAbandoned: mainImage = ");
+                        sb2.append(mainImage);
+                        Log.d(access$0002, sb2.toString());
+                        if (mainImage != null) {
+                            mainImage.close();
+                            PostProcessor.this.mCaptureDataListener.onOriginalImageClosed(mainImage);
+                        }
+                        Image subImage = captureDataBean.getSubImage();
+                        String access$0003 = PostProcessor.TAG;
+                        StringBuilder sb3 = new StringBuilder();
+                        sb3.append("onParallelDataAbandoned: subImage = ");
+                        sb3.append(subImage);
+                        Log.d(access$0003, sb3.toString());
+                        if (subImage != null) {
+                            subImage.close();
+                            PostProcessor.this.mCaptureDataListener.onOriginalImageClosed(subImage);
+                        }
+                    }
+                }
+            }
+        }
+
+        public void onParallelDataAvailable(@NonNull CaptureData captureData) {
+            String access$000 = PostProcessor.TAG;
+            StringBuilder sb = new StringBuilder();
+            sb.append("[z] onParallelDataAvailable: ");
+            sb.append(captureData.getCaptureTimestamp());
+            Log.d(access$000, sb.toString());
+            if (Build.IS_DEBUGGABLE) {
+                for (CaptureDataBean captureDataBean : captureData.getCaptureDataBeanList()) {
+                    Log.d(PostProcessor.TAG, "[z] onParallelDataAvailable: ------------------------");
+                    String access$0002 = PostProcessor.TAG;
+                    StringBuilder sb2 = new StringBuilder();
+                    sb2.append("[z] Result timestamp: ");
+                    sb2.append(captureDataBean.getResult().getTimeStamp());
+                    Log.d(access$0002, sb2.toString());
+                }
+            }
+            int algoType = captureData.getAlgoType();
+            String access$0003 = PostProcessor.TAG;
+            StringBuilder sb3 = new StringBuilder();
+            sb3.append("onParallelDataAvailable: algoType is ");
+            sb3.append(algoType);
+            Log.d(access$0003, sb3.toString());
+            if (algoType != 4) {
+                ImageFormat imageQueueKey = ImagePool.getInstance().toImageQueueKey(((CaptureDataBean) captureData.getCaptureDataBeanList().get(0)).getMainImage());
+                if (ImagePool.getInstance().isImageQueueFull(imageQueueKey, 4)) {
+                    Log.w(PostProcessor.TAG, "[z] wait image pool>>");
+                    ImagePool.getInstance().waitIfImageQueueFull(imageQueueKey, 4, 0);
+                    Log.w(PostProcessor.TAG, "[z] wait image pool<<");
+                }
+                PostProcessor.this.mImageProcessorStatusCb.onImageProcessStart(captureData.getCaptureTimestamp());
+            }
+            if (algoType == 2) {
+                captureData.setMultiFrameProcessListener(PostProcessor.this.mCaptureDataListener);
+                ParallelTaskData parallelTaskData = (ParallelTaskData) PostProcessor.this.mParallelTaskHashMap.get(Long.valueOf(captureData.getCaptureTimestamp()));
+                if (parallelTaskData != null) {
+                    captureData.setCapturedByFrontCamera(parallelTaskData.getDataParameter().isFrontCamera());
+                }
+                MultiFrameProcessor.getInstance().processData(captureData);
+            } else if (algoType == 5) {
+                captureData.setMultiFrameProcessListener(PostProcessor.this.mCaptureDataListener);
+                ParallelTaskData parallelTaskData2 = (ParallelTaskData) PostProcessor.this.mParallelTaskHashMap.get(Long.valueOf(captureData.getCaptureTimestamp()));
+                if (parallelTaskData2 != null && parallelTaskData2.getDataParameter().isSaveGroupshotPrimitive()) {
+                    captureData.setSaveInputImage(true);
+                }
+                MultiFrameProcessor.getInstance().processData(captureData);
+            } else {
+                PostProcessor.this.mCaptureDataListener.onCaptureDataAvailable(captureData);
+            }
+        }
+    };
 
     public class CaptureStatusListener {
         public CaptureStatusListener() {
@@ -452,11 +480,10 @@ public class PostProcessor {
             sb.append(timestamp);
             Log.d(access$000, sb.toString());
             PostProcessor.this.mParallelTaskHashMap.put(Long.valueOf(timestamp), parallelTaskData);
-            int algoType = parallelTaskData.getAlgoType();
-            int i = PostProcessor.this.mImageProcessor instanceof DualCameraProcessor ? 2 : 1;
-            int burstNum = parallelTaskData.getBurstNum();
-            PostProcessor.this.mCurrentAlgoType = algoType;
-            ParallelDataZipper.getInstance().startTask(algoType, i, burstNum, timestamp);
+            PostProcessor.this.mCurrentAlgoType = parallelTaskData.getAlgoType();
+            CaptureData captureData = new CaptureData(PostProcessor.this.mCurrentAlgoType, PostProcessor.this.mImageProcessor instanceof DualCameraProcessor ? 2 : 1, parallelTaskData.getBurstNum(), timestamp, parallelTaskData.isAbandoned());
+            captureData.setDataListener(PostProcessor.this.mZipperResultListener);
+            ParallelDataZipper.getInstance().startTask(captureData);
         }
     }
 
@@ -495,13 +522,6 @@ public class PostProcessor {
         this.mWorkerHandler = new Handler(this.mWorkerThread.getLooper());
         this.mPostProcessStatusCallback = postProcessStatusCallback;
         init();
-    }
-
-    /* access modifiers changed from: private */
-    public void releaseImage(Image image) {
-        if (this.mImageMemoryManager != null && image != null) {
-            this.mImageMemoryManager.releaseAnImage(image);
-        }
     }
 
     /* access modifiers changed from: private */
@@ -616,11 +636,20 @@ public class PostProcessor {
     }
 
     public void init() {
-        ParallelDataZipper.getInstance().setDataListener(this.mDataListener);
     }
 
     public boolean isIdle() {
         return this.mParallelTaskHashMap.isEmpty();
+    }
+
+    public boolean needWaitAlgorithmEngine() {
+        boolean z = this.mImageProcessor != null && this.mImageProcessor.getProcessingRequestNumber() >= 10;
+        String str = TAG;
+        StringBuilder sb = new StringBuilder();
+        sb.append("needWaitAlgorithmEngine: return ");
+        sb.append(z);
+        Log.c(str, sb.toString());
+        return z;
     }
 
     public boolean needWaitImageClose() {

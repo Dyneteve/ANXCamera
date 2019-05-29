@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public final class MimojiThumbnailRenderThread extends Thread {
-    private static float[] BACKGROUND_COLOR = {0.0f, 0.0f, 0.0f, 0.0f};
+    private static float[] BACKGROUND_COLOR = {0.1098f, 0.1176f, 0.1254f, 1.0f};
     private static final int MSG_AVATAR_INIT = 32;
     private static final int MSG_DRAW_REQUESTED = 16;
     private static final int MSG_QUIT_REQUESTED = 64;
@@ -95,7 +95,7 @@ public final class MimojiThumbnailRenderThread extends Thread {
         Log.d(TAG, "init avatar");
         if (this.mAvatar == null) {
             this.mAvatar = new AvatarEngine();
-            this.mAvatar.init(AvatarEngineManager.TRACK_DATA, AvatarEngineManager.FACE_MODEL, AvatarEngineManager.PersonTemplatePath);
+            this.mAvatar.init(AvatarEngineManager.TRACK_DATA, AvatarEngineManager.FACE_MODEL);
         }
         this.mAvatar.setTemplatePath(AvatarEngineManager.PersonTemplatePath);
         this.mAvatar.loadConfig(str);
@@ -219,6 +219,12 @@ public final class MimojiThumbnailRenderThread extends Thread {
     }
 
     private void release() {
+        if (this.mAvatar != null) {
+            this.mAvatar.releaseRender();
+            this.mAvatar.unInit();
+            this.mAvatar.destroy();
+            this.mAvatar = null;
+        }
         if (this.mEGLWrapper != null) {
             this.mEGLWrapper.release();
             this.mEGLWrapper = null;
@@ -226,6 +232,7 @@ public final class MimojiThumbnailRenderThread extends Thread {
     }
 
     private void resetConfig(ArrayList<ASAvatarConfigInfo> arrayList) {
+        this.mConfigInfoThumUtils.reset(this.mAvatar, AvatarEngineManager.getInstance().getASAvatarConfigValue());
         int i = 0;
         int currentConfigIdWithType = AvatarConfigUtils.getCurrentConfigIdWithType(((ASAvatarConfigInfo) arrayList.get(0)).configType, AvatarEngineManager.getInstance().getASAvatarConfigValue());
         if (currentConfigIdWithType != -1) {

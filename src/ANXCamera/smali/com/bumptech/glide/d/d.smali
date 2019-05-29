@@ -4,7 +4,7 @@
 
 
 # instance fields
-.field private final nA:Ljava/util/concurrent/atomic/AtomicReference;
+.field private final nB:Ljava/util/concurrent/atomic/AtomicReference;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/concurrent/atomic/AtomicReference<",
@@ -14,7 +14,7 @@
     .end annotation
 .end field
 
-.field private final nB:Landroid/support/v4/util/ArrayMap;
+.field private final nC:Landroid/support/v4/util/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/support/v4/util/ArrayMap<",
@@ -37,13 +37,13 @@
 
     invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicReference;-><init>()V
 
-    iput-object v0, p0, Lcom/bumptech/glide/d/d;->nA:Ljava/util/concurrent/atomic/AtomicReference;
+    iput-object v0, p0, Lcom/bumptech/glide/d/d;->nB:Ljava/util/concurrent/atomic/AtomicReference;
 
     new-instance v0, Landroid/support/v4/util/ArrayMap;
 
     invoke-direct {v0}, Landroid/support/v4/util/ArrayMap;-><init>()V
 
-    iput-object v0, p0, Lcom/bumptech/glide/d/d;->nB:Landroid/support/v4/util/ArrayMap;
+    iput-object v0, p0, Lcom/bumptech/glide/d/d;->nC:Landroid/support/v4/util/ArrayMap;
 
     return-void
 .end method
@@ -77,12 +77,12 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/d/d;->nB:Landroid/support/v4/util/ArrayMap;
+    iget-object v0, p0, Lcom/bumptech/glide/d/d;->nC:Landroid/support/v4/util/ArrayMap;
 
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/bumptech/glide/d/d;->nB:Landroid/support/v4/util/ArrayMap;
+    iget-object v1, p0, Lcom/bumptech/glide/d/d;->nC:Landroid/support/v4/util/ArrayMap;
 
     new-instance v2, Lcom/bumptech/glide/util/h;
 
@@ -107,12 +107,12 @@
 .method public clear()V
     .locals 2
 
-    iget-object v0, p0, Lcom/bumptech/glide/d/d;->nB:Landroid/support/v4/util/ArrayMap;
+    iget-object v0, p0, Lcom/bumptech/glide/d/d;->nC:Landroid/support/v4/util/ArrayMap;
 
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/bumptech/glide/d/d;->nB:Landroid/support/v4/util/ArrayMap;
+    iget-object v1, p0, Lcom/bumptech/glide/d/d;->nC:Landroid/support/v4/util/ArrayMap;
 
     invoke-virtual {v1}, Landroid/support/v4/util/ArrayMap;->clear()V
 
@@ -156,7 +156,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/d/d;->nA:Ljava/util/concurrent/atomic/AtomicReference;
+    iget-object v0, p0, Lcom/bumptech/glide/d/d;->nB:Ljava/util/concurrent/atomic/AtomicReference;
 
     const/4 v1, 0x0
 
@@ -178,12 +178,12 @@
     invoke-virtual {v0, p1, p2}, Lcom/bumptech/glide/util/h;->j(Ljava/lang/Class;Ljava/lang/Class;)V
 
     :goto_0
-    iget-object p1, p0, Lcom/bumptech/glide/d/d;->nB:Landroid/support/v4/util/ArrayMap;
+    iget-object p1, p0, Lcom/bumptech/glide/d/d;->nC:Landroid/support/v4/util/ArrayMap;
 
     monitor-enter p1
 
     :try_start_0
-    iget-object p2, p0, Lcom/bumptech/glide/d/d;->nB:Landroid/support/v4/util/ArrayMap;
+    iget-object p2, p0, Lcom/bumptech/glide/d/d;->nC:Landroid/support/v4/util/ArrayMap;
 
     invoke-virtual {p2, v0}, Landroid/support/v4/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -195,7 +195,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    iget-object p1, p0, Lcom/bumptech/glide/d/d;->nA:Ljava/util/concurrent/atomic/AtomicReference;
+    iget-object p1, p0, Lcom/bumptech/glide/d/d;->nB:Ljava/util/concurrent/atomic/AtomicReference;
 
     invoke-virtual {p1, v0}, Ljava/util/concurrent/atomic/AtomicReference;->set(Ljava/lang/Object;)V
 

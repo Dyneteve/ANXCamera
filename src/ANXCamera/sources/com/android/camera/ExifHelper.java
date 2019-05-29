@@ -98,9 +98,9 @@ public class ExifHelper {
                         exifInterface.setAttribute("GPSLongitudeRef", GpsLongitudeRef.WEST);
                     }
                 }
-                if (!b.qw) {
+                if (!b.qx) {
                     if (!b.IS_MI2A) {
-                        exifInterface.setAttribute("Model", b.qv);
+                        exifInterface.setAttribute("Model", b.qw);
                         exifInterface.saveAttributes();
                         return;
                     }

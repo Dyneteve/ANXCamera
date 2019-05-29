@@ -56,7 +56,7 @@
 
     iget-object v0, p0, Lcom/android/camera/module/loader/camera2/Camera2OpenManager$4;->this$0:Lcom/android/camera/module/loader/camera2/Camera2OpenManager;
 
-    invoke-static {v0, p1}, Lcom/android/camera/module/loader/camera2/Camera2OpenManager;->access$502(Lcom/android/camera/module/loader/camera2/Camera2OpenManager;Lio/reactivex/ObservableEmitter;)Lio/reactivex/ObservableEmitter;
+    invoke-static {v0, p1}, Lcom/android/camera/module/loader/camera2/Camera2OpenManager;->access$602(Lcom/android/camera/module/loader/camera2/Camera2OpenManager;Lio/reactivex/ObservableEmitter;)Lio/reactivex/ObservableEmitter;
 
     return-void
 .end method

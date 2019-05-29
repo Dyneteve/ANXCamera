@@ -4,4 +4,8 @@
         <item quantity="other">குவிக்கப்பட்டது. %d முகங்கள் கண்டறியப்பட்டன</item>
         <item quantity="one">குவிக்கப்பட்டது. %d முகம் கண்டறியப்பட்டது</item>
     </plurals>
+    <plurals name="toast_burst_snap_finished_summary">
+        <item quantity="other">பர்ஸ்ட் ஷாட் எடுக்கப்பட்டது, %1$s படங்கள் எடுக்கப்பட்டன</item>
+        <item quantity="one">பர்ஸ்ட் ஷாட் எடுக்கப்பட்டது, %1$s படம் எடுக்கப்பட்டது</item>
+    </plurals>
 </resources>

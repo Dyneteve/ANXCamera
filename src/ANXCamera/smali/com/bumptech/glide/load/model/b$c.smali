@@ -29,7 +29,7 @@
 
 
 # instance fields
-.field private final js:Lcom/bumptech/glide/load/model/b$b;
+.field private final jt:Lcom/bumptech/glide/load/model/b$b;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/model/b$b<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final ju:[B
+.field private final jv:[B
 
 
 # direct methods
@@ -54,9 +54,9 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/model/b$c;->ju:[B
+    iput-object p1, p0, Lcom/bumptech/glide/load/model/b$c;->jv:[B
 
-    iput-object p2, p0, Lcom/bumptech/glide/load/model/b$c;->js:Lcom/bumptech/glide/load/model/b$b;
+    iput-object p2, p0, Lcom/bumptech/glide/load/model/b$c;->jt:Lcom/bumptech/glide/load/model/b$b;
 
     return-void
 .end method
@@ -82,9 +82,9 @@
         }
     .end annotation
 
-    iget-object p1, p0, Lcom/bumptech/glide/load/model/b$c;->js:Lcom/bumptech/glide/load/model/b$b;
+    iget-object p1, p0, Lcom/bumptech/glide/load/model/b$c;->jt:Lcom/bumptech/glide/load/model/b$b;
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/b$c;->ju:[B
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/b$c;->jv:[B
 
     invoke-interface {p1, v0}, Lcom/bumptech/glide/load/model/b$b;->h([B)Ljava/lang/Object;
 
@@ -108,7 +108,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/b$c;->js:Lcom/bumptech/glide/load/model/b$b;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/b$c;->jt:Lcom/bumptech/glide/load/model/b$b;
 
     invoke-interface {v0}, Lcom/bumptech/glide/load/model/b$b;->aj()Ljava/lang/Class;
 
@@ -122,7 +122,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/load/DataSource;->dc:Lcom/bumptech/glide/load/DataSource;
+    sget-object v0, Lcom/bumptech/glide/load/DataSource;->dd:Lcom/bumptech/glide/load/DataSource;
 
     return-object v0
 .end method

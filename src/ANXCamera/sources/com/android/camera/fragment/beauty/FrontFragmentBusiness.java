@@ -17,7 +17,7 @@ public class FrontFragmentBusiness extends AbBeautyFragmentBusiness {
         } else {
             this.mFragments.clear();
         }
-        if (b.iw()) {
+        if (b.iz()) {
             this.mFragments.add(new BeautyLevelFragment());
         } else {
             this.mFragments.add(new BeautyLevelFragment());

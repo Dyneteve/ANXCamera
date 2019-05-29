@@ -35,7 +35,7 @@ public class BottomAnimationConfig {
             this.mDuration = 2000;
         } else if (this.mCurrentMode == 162 && this.mIsVideoBokeh) {
             this.mDuration = 30000;
-        } else if (this.mCurrentMode == 161) {
+        } else if (this.mCurrentMode == 161 || this.mCurrentMode == 177) {
             this.mDuration = DurationConstant.DURATION_VIDEO_RECORDING_FUN;
         } else if (this.mCurrentMode == 174) {
             this.mDuration = DurationConstant.DURATION_LIVE_RECORD;

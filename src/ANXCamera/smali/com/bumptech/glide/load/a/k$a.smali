@@ -27,7 +27,7 @@
 
 
 # instance fields
-.field private final ed:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
+.field private final ee:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
 
 
 # direct methods
@@ -36,7 +36,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/a/k$a;->ed:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
+    iput-object p1, p0, Lcom/bumptech/glide/load/a/k$a;->ee:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
 
     return-void
 .end method
@@ -80,7 +80,7 @@
 
     new-instance v0, Lcom/bumptech/glide/load/a/k;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/a/k$a;->ed:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
+    iget-object v1, p0, Lcom/bumptech/glide/load/a/k$a;->ee:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
 
     invoke-direct {v0, p1, v1}, Lcom/bumptech/glide/load/a/k;-><init>(Ljava/io/InputStream;Lcom/bumptech/glide/load/engine/bitmap_recycle/b;)V
 

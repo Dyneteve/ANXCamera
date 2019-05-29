@@ -6,7 +6,7 @@
 # static fields
 .field private static final TAG:Ljava/lang/String; = "DrawableToBitmap"
 
-.field private static final lx:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
+.field private static final ly:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
 
 # direct methods
@@ -17,7 +17,7 @@
 
     invoke-direct {v0}, Lcom/bumptech/glide/load/resource/bitmap/o$1;-><init>()V
 
-    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/o;->lx:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
+    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/o;->ly:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
     return-void
 .end method
@@ -91,7 +91,7 @@
     goto :goto_1
 
     :cond_2
-    sget-object p0, Lcom/bumptech/glide/load/resource/bitmap/o;->lx:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
+    sget-object p0, Lcom/bumptech/glide/load/resource/bitmap/o;->ly:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
     :goto_1
     invoke-static {p1, p0}, Lcom/bumptech/glide/load/resource/bitmap/f;->a(Landroid/graphics/Bitmap;Lcom/bumptech/glide/load/engine/bitmap_recycle/d;)Lcom/bumptech/glide/load/resource/bitmap/f;

@@ -180,6 +180,13 @@ public class BottomActionMenu implements OnClickListener {
         }
     }
 
+    public void clearBottomMenu() {
+        if (this.beautyOperateMenuView != null && this.beautyOperateMenuView.getVisibility() == 0) {
+            this.beautyOperateMenuView.setVisibility(8);
+            AlphaInOnSubscribe.directSetResult(this.mCameraOperateMenuView);
+        }
+    }
+
     /* Code decompiled incorrectly, please refer to instructions dump. */
     public void expandShine(ComponentRunningShine componentRunningShine, int i) {
         char c;
@@ -196,10 +203,12 @@ public class BottomActionMenu implements OnClickListener {
             colorActivateTextView.setActivateColor(ColorConstant.COLOR_COMMON_SELECTED);
             colorActivateTextView.setText(this.mContext.getString(componentDataItem.mDisplayNameRes));
             colorActivateTextView.setTag(componentDataItem.mValue);
-            colorActivateTextView.setOnClickListener(this);
-            if (z2 && currentType.equals(componentDataItem.mValue)) {
-                this.mLastSelectedView = colorActivateTextView;
-                colorActivateTextView.setActivated(true);
+            if (z2) {
+                colorActivateTextView.setOnClickListener(this);
+                if (currentType.equals(componentDataItem.mValue)) {
+                    this.mLastSelectedView = colorActivateTextView;
+                    colorActivateTextView.setActivated(true);
+                }
             }
             this.beautyOperateMenuView.addView(colorActivateTextView);
             if (z) {
@@ -268,14 +277,14 @@ public class BottomActionMenu implements OnClickListener {
         }
     }
 
-    /* JADX WARNING: Code restructure failed: missing block: B:12:0x0046, code lost:
-        if (r7.equals("10") != false) goto L_0x0054;
+    /* JADX WARNING: Code restructure failed: missing block: B:9:0x003c, code lost:
+        if (r7.equals(com.android.camera.data.data.runing.ComponentRunningShine.SHINE_LIVE_BEAUTY) != false) goto L_0x0054;
      */
     /* JADX WARNING: Removed duplicated region for block: B:18:0x0058  */
     /* JADX WARNING: Removed duplicated region for block: B:19:0x005c  */
     /* Code decompiled incorrectly, please refer to instructions dump. */
     public void onClick(View view) {
-        char c = 1;
+        char c = 0;
         if (this.mLastSelectedView != null) {
             this.mLastSelectedView.setActivated(false);
             this.mLastSelectedView = (ColorActivateTextView) view;
@@ -288,12 +297,12 @@ public class BottomActionMenu implements OnClickListener {
             if (hashCode != 54) {
                 switch (hashCode) {
                     case 1567:
-                        break;
-                    case 1568:
-                        if (str.equals(ComponentRunningShine.SHINE_LIVE_BEAUTY)) {
-                            c = 0;
+                        if (str.equals("10")) {
+                            c = 1;
                             break;
                         }
+                    case 1568:
+                        break;
                 }
             } else if (str.equals("6")) {
                 c = 2;
@@ -306,7 +315,7 @@ public class BottomActionMenu implements OnClickListener {
                         CameraStatUtil.trackBeautyBodyCounterPort(str);
                         break;
                 }
-                miBeautyProtocol.switchShineType(str);
+                miBeautyProtocol.switchShineType(str, true);
             }
             c = 65535;
             switch (c) {
@@ -316,7 +325,7 @@ public class BottomActionMenu implements OnClickListener {
                 case 2:
                     break;
             }
-            miBeautyProtocol.switchShineType(str);
+            miBeautyProtocol.switchShineType(str, true);
         }
     }
 

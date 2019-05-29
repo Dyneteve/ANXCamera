@@ -391,6 +391,145 @@
     return v0
 .end method
 
+.method public static loadYuvImageTextures(IIII[I)V
+    .locals 10
+
+    const/4 v0, 0x0
+
+    if-eqz p4, :cond_3
+
+    array-length v1, p4
+
+    const/4 v2, 0x2
+
+    if-ge v1, v2, :cond_0
+
+    goto :goto_2
+
+    :cond_0
+    aget v1, p4, v0
+
+    const v2, 0x84c0
+
+    const/4 v3, -0x1
+
+    const/4 v4, 0x1
+
+    const/16 v5, 0xde1
+
+    if-ne v1, v3, :cond_1
+
+    invoke-static {v4, p4, v0}, Landroid/opengl/GLES20;->glGenTextures(I[II)V
+
+    invoke-static {v2}, Landroid/opengl/GLES20;->glActiveTexture(I)V
+
+    aget v0, p4, v0
+
+    invoke-static {v5, v0}, Landroid/opengl/GLES20;->glBindTexture(II)V
+
+    goto :goto_0
+
+    :cond_1
+    invoke-static {v2}, Landroid/opengl/GLES20;->glActiveTexture(I)V
+
+    aget v0, p4, v0
+
+    invoke-static {v5, v0}, Landroid/opengl/GLES20;->glBindTexture(II)V
+
+    :goto_0
+    invoke-static {p0, p1, p2}, Lcom/android/camera/effect/ShaderNativeUtil;->texChannelY(III)V
+
+    const/16 p2, 0x2800
+
+    const v0, 0x46180400    # 9729.0f
+
+    invoke-static {v5, p2, v0}, Landroid/opengl/GLES20;->glTexParameterf(IIF)V
+
+    const/16 v1, 0x2801
+
+    invoke-static {v5, v1, v0}, Landroid/opengl/GLES20;->glTexParameterf(IIF)V
+
+    const/16 v2, 0x2802
+
+    const v6, 0x47012f00    # 33071.0f
+
+    invoke-static {v5, v2, v6}, Landroid/opengl/GLES20;->glTexParameterf(IIF)V
+
+    const/16 v7, 0x2803
+
+    invoke-static {v5, v7, v6}, Landroid/opengl/GLES20;->glTexParameterf(IIF)V
+
+    aget v8, p4, v4
+
+    const v9, 0x84c1
+
+    if-ne v8, v3, :cond_2
+
+    invoke-static {v4, p4, v4}, Landroid/opengl/GLES20;->glGenTextures(I[II)V
+
+    invoke-static {v9}, Landroid/opengl/GLES20;->glActiveTexture(I)V
+
+    aget p4, p4, v4
+
+    invoke-static {v5, p4}, Landroid/opengl/GLES20;->glBindTexture(II)V
+
+    goto :goto_1
+
+    :cond_2
+    invoke-static {v9}, Landroid/opengl/GLES20;->glActiveTexture(I)V
+
+    aget p4, p4, v4
+
+    invoke-static {v5, p4}, Landroid/opengl/GLES20;->glBindTexture(II)V
+
+    :goto_1
+    shr-int/2addr p0, v4
+
+    shr-int/2addr p1, v4
+
+    invoke-static {p0, p1, p3}, Lcom/android/camera/effect/ShaderNativeUtil;->texChannelUV(III)V
+
+    invoke-static {v5, p2, v0}, Landroid/opengl/GLES20;->glTexParameterf(IIF)V
+
+    invoke-static {v5, v1, v0}, Landroid/opengl/GLES20;->glTexParameterf(IIF)V
+
+    invoke-static {v5, v2, v6}, Landroid/opengl/GLES20;->glTexParameterf(IIF)V
+
+    invoke-static {v5, v7, v6}, Landroid/opengl/GLES20;->glTexParameterf(IIF)V
+
+    return-void
+
+    :cond_3
+    :goto_2
+    const-string p0, "Camera_ShaderUtil"
+
+    new-instance p1, Ljava/lang/StringBuilder;
+
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string p2, "invalid output texture size "
+
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    if-nez p4, :cond_4
+
+    goto :goto_3
+
+    :cond_4
+    array-length v0, p4
+
+    :goto_3
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-static {p0, p1}, Lcom/android/camera/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+.end method
+
 .method public static loadYuvToTextures(Ljava/nio/Buffer;Ljava/nio/Buffer;II[I)V
     .locals 17
 

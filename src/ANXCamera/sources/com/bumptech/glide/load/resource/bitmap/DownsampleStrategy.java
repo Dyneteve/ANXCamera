@@ -1,14 +1,14 @@
 package com.bumptech.glide.load.resource.bitmap;
 
 public abstract class DownsampleStrategy {
-    public static final DownsampleStrategy lb = new e();
-    public static final DownsampleStrategy lc = new d();
-    public static final DownsampleStrategy ld = new a();
-    public static final DownsampleStrategy le = new b();
-    public static final DownsampleStrategy lf = new c();
-    public static final DownsampleStrategy lg = new f();
-    public static final DownsampleStrategy lh = lc;
-    public static final com.bumptech.glide.load.e<DownsampleStrategy> li = com.bumptech.glide.load.e.a("com.bumptech.glide.load.resource.bitmap.Downsampler.DownsampleStrategy", lh);
+    public static final DownsampleStrategy lc = new e();
+    public static final DownsampleStrategy ld = new d();
+    public static final DownsampleStrategy le = new a();
+    public static final DownsampleStrategy lf = new b();
+    public static final DownsampleStrategy lg = new c();
+    public static final DownsampleStrategy lh = new f();
+    public static final DownsampleStrategy li = ld;
+    public static final com.bumptech.glide.load.e<DownsampleStrategy> lj = com.bumptech.glide.load.e.a("com.bumptech.glide.load.resource.bitmap.Downsampler.DownsampleStrategy", li);
 
     public enum SampleSizeRounding {
         MEMORY,
@@ -56,7 +56,7 @@ public abstract class DownsampleStrategy {
         }
 
         public float a(int i, int i2, int i3, int i4) {
-            return Math.min(1.0f, lb.a(i, i2, i3, i4));
+            return Math.min(1.0f, lc.a(i, i2, i3, i4));
         }
 
         public SampleSizeRounding b(int i, int i2, int i3, int i4) {

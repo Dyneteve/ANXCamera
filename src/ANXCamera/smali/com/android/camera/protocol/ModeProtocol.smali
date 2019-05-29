@@ -46,6 +46,7 @@
         Lcom/android/camera/protocol/ModeProtocol$CameraModuleSpecial;,
         Lcom/android/camera/protocol/ModeProtocol$CameraAction;,
         Lcom/android/camera/protocol/ModeProtocol$TopAlert;,
+        Lcom/android/camera/protocol/ModeProtocol$MimojiAlert;,
         Lcom/android/camera/protocol/ModeProtocol$MimojiEditor;,
         Lcom/android/camera/protocol/ModeProtocol$MimojiAvatarEngine;,
         Lcom/android/camera/protocol/ModeProtocol$LiveConfigChanges;,
@@ -152,6 +153,8 @@
 .field public static final PROTOCOL_MANUALLY_CHANGE:I = 0xae
 
 .field public static final PROTOCOL_MIMOJI:I = 0xd9
+
+.field public static final PROTOCOL_MIMOJI_ALERT:I = 0xe2
 
 .field public static final PROTOCOL_MIMOJI_DATA_BASE:I = 0xe1
 

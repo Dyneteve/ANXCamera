@@ -22,13 +22,16 @@
 
 
 # virtual methods
-.method public abstract backToPreview(Z)V
+.method public abstract backToPreview(ZZ)V
 .end method
 
 .method public abstract initAvatarEngine(IIIIZ)V
 .end method
 
 .method public abstract isOnCreateMimoji()Z
+.end method
+
+.method public abstract isRecordStopping()Z
 .end method
 
 .method public abstract isRecording()Z
@@ -43,7 +46,7 @@
 .method public abstract onDeviceRotationChange(I)V
 .end method
 
-.method public abstract onDrawFrame()V
+.method public abstract onDrawFrame(IIZ)V
 .end method
 
 .method public abstract onMimojiCreate()V
@@ -58,7 +61,7 @@
 .method public abstract onRecordStart(Landroid/content/ContentValues;)V
 .end method
 
-.method public abstract onRecordStop()V
+.method public abstract onRecordStop(Z)V
 .end method
 
 .method public abstract onResume()V
@@ -68,4 +71,7 @@
 .end method
 
 .method public abstract setDetectSuccess(Z)V
+.end method
+
+.method public abstract setDisableSingleTapUp(Z)V
 .end method

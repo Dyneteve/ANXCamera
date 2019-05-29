@@ -476,7 +476,7 @@
 .method protected getStateImageResource(I)I
     .locals 1
 
-    const v0, 0x7f0201ab
+    const v0, 0x7f0201b4
 
     if-eqz p1, :cond_0
 
@@ -490,12 +490,12 @@
     return v0
 
     :pswitch_1
-    const p1, 0x7f0201ac
+    const p1, 0x7f0201b5
 
     return p1
 
     :pswitch_2
-    const p1, 0x7f0201ad
+    const p1, 0x7f0201b6
 
     return p1
 

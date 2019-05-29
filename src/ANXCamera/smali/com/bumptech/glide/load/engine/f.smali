@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final fO:Ljava/util/List;
+.field private final fP:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -49,7 +49,7 @@
     .end annotation
 .end field
 
-.field private final fP:Lcom/bumptech/glide/load/resource/d/e;
+.field private final fQ:Lcom/bumptech/glide/load/resource/d/e;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/resource/d/e<",
@@ -58,7 +58,7 @@
     .end annotation
 .end field
 
-.field private final fQ:Landroid/support/v4/util/Pools$Pool;
+.field private final fR:Landroid/support/v4/util/Pools$Pool;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/support/v4/util/Pools$Pool<",
@@ -69,7 +69,7 @@
     .end annotation
 .end field
 
-.field private final fR:Ljava/lang/String;
+.field private final fS:Ljava/lang/String;
 
 
 # direct methods
@@ -101,11 +101,11 @@
 
     iput-object p1, p0, Lcom/bumptech/glide/load/engine/f;->dataClass:Ljava/lang/Class;
 
-    iput-object p4, p0, Lcom/bumptech/glide/load/engine/f;->fO:Ljava/util/List;
+    iput-object p4, p0, Lcom/bumptech/glide/load/engine/f;->fP:Ljava/util/List;
 
-    iput-object p5, p0, Lcom/bumptech/glide/load/engine/f;->fP:Lcom/bumptech/glide/load/resource/d/e;
+    iput-object p5, p0, Lcom/bumptech/glide/load/engine/f;->fQ:Lcom/bumptech/glide/load/resource/d/e;
 
-    iput-object p6, p0, Lcom/bumptech/glide/load/engine/f;->fQ:Landroid/support/v4/util/Pools$Pool;
+    iput-object p6, p0, Lcom/bumptech/glide/load/engine/f;->fR:Landroid/support/v4/util/Pools$Pool;
 
     new-instance p4, Ljava/lang/StringBuilder;
 
@@ -149,7 +149,7 @@
 
     move-result-object p1
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/engine/f;->fR:Ljava/lang/String;
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/f;->fS:Ljava/lang/String;
 
     return-void
 .end method
@@ -181,7 +181,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/f;->fQ:Landroid/support/v4/util/Pools$Pool;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/f;->fR:Landroid/support/v4/util/Pools$Pool;
 
     invoke-interface {v0}, Landroid/support/v4/util/Pools$Pool;->acquire()Ljava/lang/Object;
 
@@ -212,7 +212,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    iget-object p2, p0, Lcom/bumptech/glide/load/engine/f;->fQ:Landroid/support/v4/util/Pools$Pool;
+    iget-object p2, p0, Lcom/bumptech/glide/load/engine/f;->fR:Landroid/support/v4/util/Pools$Pool;
 
     invoke-interface {p2, v0}, Landroid/support/v4/util/Pools$Pool;->release(Ljava/lang/Object;)Z
 
@@ -221,7 +221,7 @@
     :catchall_0
     move-exception p1
 
-    iget-object p2, p0, Lcom/bumptech/glide/load/engine/f;->fQ:Landroid/support/v4/util/Pools$Pool;
+    iget-object p2, p0, Lcom/bumptech/glide/load/engine/f;->fR:Landroid/support/v4/util/Pools$Pool;
 
     invoke-interface {p2, v0}, Landroid/support/v4/util/Pools$Pool;->release(Ljava/lang/Object;)Z
 
@@ -259,7 +259,7 @@
 
     nop
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/f;->fO:Ljava/util/List;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/f;->fP:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
 
@@ -272,7 +272,7 @@
     :goto_0
     if-ge v2, v0, :cond_3
 
-    iget-object v3, p0, Lcom/bumptech/glide/load/engine/f;->fO:Ljava/util/List;
+    iget-object v3, p0, Lcom/bumptech/glide/load/engine/f;->fP:Ljava/util/List;
 
     invoke-interface {v3, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -361,7 +361,7 @@
     :cond_4
     new-instance p1, Lcom/bumptech/glide/load/engine/GlideException;
 
-    iget-object p2, p0, Lcom/bumptech/glide/load/engine/f;->fR:Ljava/lang/String;
+    iget-object p2, p0, Lcom/bumptech/glide/load/engine/f;->fS:Ljava/lang/String;
 
     new-instance p3, Ljava/util/ArrayList;
 
@@ -407,7 +407,7 @@
 
     move-result-object p1
 
-    iget-object p2, p0, Lcom/bumptech/glide/load/engine/f;->fP:Lcom/bumptech/glide/load/resource/d/e;
+    iget-object p2, p0, Lcom/bumptech/glide/load/engine/f;->fQ:Lcom/bumptech/glide/load/resource/d/e;
 
     invoke-interface {p2, p1, p4}, Lcom/bumptech/glide/load/resource/d/e;->a(Lcom/bumptech/glide/load/engine/p;Lcom/bumptech/glide/load/f;)Lcom/bumptech/glide/load/engine/p;
 
@@ -435,7 +435,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/f;->fO:Ljava/util/List;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/f;->fP:Ljava/util/List;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -443,7 +443,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/f;->fP:Lcom/bumptech/glide/load/resource/d/e;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/f;->fQ:Lcom/bumptech/glide/load/resource/d/e;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 

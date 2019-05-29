@@ -3,7 +3,6 @@ package com.android.zxing;
 import android.media.Image;
 import android.os.Handler;
 import android.os.HandlerThread;
-import com.android.camera.log.Log;
 import com.android.camera2.Camera2Proxy;
 import com.android.camera2.Camera2Proxy.PreviewCallback;
 import java.util.Map.Entry;
@@ -17,10 +16,6 @@ public class PreviewDecodeManager {
     public ConcurrentHashMap<Integer, Decoder> mDecoders;
     private Handler mHandler;
     private PreviewCallback mPreviewCallback;
-    /* access modifiers changed from: private */
-    public int mPreviewHeight;
-    /* access modifiers changed from: private */
-    public int mPreviewWidth;
 
     private static class Singleton {
         public static final PreviewDecodeManager INSTANCE = new PreviewDecodeManager();
@@ -33,7 +28,7 @@ public class PreviewDecodeManager {
         this.mPreviewCallback = new PreviewCallback() {
             public void onPreviewFrame(Image image, Camera2Proxy camera2Proxy, int i) {
                 for (Entry value : PreviewDecodeManager.this.mDecoders.entrySet()) {
-                    ((Decoder) value.getValue()).onPreviewFrame(image, PreviewDecodeManager.this.mPreviewWidth, PreviewDecodeManager.this.mPreviewHeight, i);
+                    ((Decoder) value.getValue()).onPreviewFrame(image, i);
                 }
             }
         };
@@ -108,23 +103,6 @@ public class PreviewDecodeManager {
         if (this.mDecoders.get(Integer.valueOf(0)) != null) {
             ((QrDecoder) this.mDecoders.get(Integer.valueOf(0))).resetScanResult();
         }
-    }
-
-    public void setPreviewSize(int i, int i2) {
-        if (!(this.mPreviewWidth == i && this.mPreviewHeight == i2)) {
-            this.mPreviewWidth = i;
-            this.mPreviewHeight = i2;
-            for (Entry value : this.mDecoders.entrySet()) {
-                ((Decoder) value.getValue()).updatePreviewSize(i, i2);
-            }
-        }
-        String str = TAG;
-        StringBuilder sb = new StringBuilder();
-        sb.append("setPreviewSize: ");
-        sb.append(i);
-        sb.append(" x ");
-        sb.append(i2);
-        Log.d(str, sb.toString());
     }
 
     public void startDecode() {

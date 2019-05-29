@@ -52,11 +52,11 @@
 .method public b(Lcom/bumptech/glide/load/DataSource;)Z
     .locals 1
 
-    sget-object v0, Lcom/bumptech/glide/load/DataSource;->de:Lcom/bumptech/glide/load/DataSource;
+    sget-object v0, Lcom/bumptech/glide/load/DataSource;->df:Lcom/bumptech/glide/load/DataSource;
 
     if-eq p1, v0, :cond_0
 
-    sget-object v0, Lcom/bumptech/glide/load/DataSource;->dg:Lcom/bumptech/glide/load/DataSource;
+    sget-object v0, Lcom/bumptech/glide/load/DataSource;->dh:Lcom/bumptech/glide/load/DataSource;
 
     if-eq p1, v0, :cond_0
 

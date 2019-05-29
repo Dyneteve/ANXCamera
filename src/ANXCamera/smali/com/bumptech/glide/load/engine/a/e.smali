@@ -9,21 +9,21 @@
 # static fields
 .field private static final TAG:Ljava/lang/String; = "DiskLruCacheWrapper"
 
-.field private static final hY:I = 0x1
-
 .field private static final hZ:I = 0x1
 
-.field private static ia:Lcom/bumptech/glide/load/engine/a/e;
+.field private static final ia:I = 0x1
+
+.field private static ib:Lcom/bumptech/glide/load/engine/a/e;
 
 
 # instance fields
 .field private final directory:Ljava/io/File;
 
-.field private final ib:Lcom/bumptech/glide/load/engine/a/m;
+.field private final ic:Lcom/bumptech/glide/load/engine/a/m;
 
-.field private final ic:Lcom/bumptech/glide/load/engine/a/c;
+.field private final ie:Lcom/bumptech/glide/load/engine/a/c;
 
-.field private ie:Lcom/bumptech/glide/a/a;
+.field private if:Lcom/bumptech/glide/a/a;
 
 .field private final maxSize:J
 
@@ -40,7 +40,7 @@
 
     invoke-direct {v0}, Lcom/bumptech/glide/load/engine/a/c;-><init>()V
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/a/e;->ic:Lcom/bumptech/glide/load/engine/a/c;
+    iput-object v0, p0, Lcom/bumptech/glide/load/engine/a/e;->ie:Lcom/bumptech/glide/load/engine/a/c;
 
     iput-object p1, p0, Lcom/bumptech/glide/load/engine/a/e;->directory:Ljava/io/File;
 
@@ -50,7 +50,7 @@
 
     invoke-direct {p1}, Lcom/bumptech/glide/load/engine/a/m;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/engine/a/e;->ib:Lcom/bumptech/glide/load/engine/a/m;
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/a/e;->ic:Lcom/bumptech/glide/load/engine/a/m;
 
     return-void
 .end method
@@ -65,7 +65,7 @@
     monitor-enter v0
 
     :try_start_0
-    sget-object v1, Lcom/bumptech/glide/load/engine/a/e;->ia:Lcom/bumptech/glide/load/engine/a/e;
+    sget-object v1, Lcom/bumptech/glide/load/engine/a/e;->ib:Lcom/bumptech/glide/load/engine/a/e;
 
     if-nez v1, :cond_0
 
@@ -73,10 +73,10 @@
 
     invoke-direct {v1, p0, p1, p2}, Lcom/bumptech/glide/load/engine/a/e;-><init>(Ljava/io/File;J)V
 
-    sput-object v1, Lcom/bumptech/glide/load/engine/a/e;->ia:Lcom/bumptech/glide/load/engine/a/e;
+    sput-object v1, Lcom/bumptech/glide/load/engine/a/e;->ib:Lcom/bumptech/glide/load/engine/a/e;
 
     :cond_0
-    sget-object p0, Lcom/bumptech/glide/load/engine/a/e;->ia:Lcom/bumptech/glide/load/engine/a/e;
+    sget-object p0, Lcom/bumptech/glide/load/engine/a/e;->ib:Lcom/bumptech/glide/load/engine/a/e;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -113,7 +113,7 @@
     monitor-enter p0
 
     :try_start_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a/e;->ie:Lcom/bumptech/glide/a/a;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a/e;->if:Lcom/bumptech/glide/a/a;
 
     if-nez v0, :cond_0
 
@@ -127,10 +127,10 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/a/e;->ie:Lcom/bumptech/glide/a/a;
+    iput-object v0, p0, Lcom/bumptech/glide/load/engine/a/e;->if:Lcom/bumptech/glide/a/a;
 
     :cond_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a/e;->ie:Lcom/bumptech/glide/a/a;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a/e;->if:Lcom/bumptech/glide/a/a;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -154,7 +154,7 @@
     const/4 v0, 0x0
 
     :try_start_0
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/a/e;->ie:Lcom/bumptech/glide/a/a;
+    iput-object v0, p0, Lcom/bumptech/glide/load/engine/a/e;->if:Lcom/bumptech/glide/a/a;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -175,13 +175,13 @@
 .method public a(Lcom/bumptech/glide/load/c;Lcom/bumptech/glide/load/engine/a/a$b;)V
     .locals 4
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a/e;->ib:Lcom/bumptech/glide/load/engine/a/m;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a/e;->ic:Lcom/bumptech/glide/load/engine/a/m;
 
     invoke-virtual {v0, p1}, Lcom/bumptech/glide/load/engine/a/m;->h(Lcom/bumptech/glide/load/c;)Ljava/lang/String;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/a/e;->ic:Lcom/bumptech/glide/load/engine/a/c;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/a/e;->ie:Lcom/bumptech/glide/load/engine/a/c;
 
     invoke-virtual {v1, v0}, Lcom/bumptech/glide/load/engine/a/c;->t(Ljava/lang/String;)V
 
@@ -237,7 +237,7 @@
 
     if-eqz v1, :cond_1
 
-    iget-object p1, p0, Lcom/bumptech/glide/load/engine/a/e;->ic:Lcom/bumptech/glide/load/engine/a/c;
+    iget-object p1, p0, Lcom/bumptech/glide/load/engine/a/e;->ie:Lcom/bumptech/glide/load/engine/a/c;
 
     invoke-virtual {p1, v0}, Lcom/bumptech/glide/load/engine/a/c;->u(Ljava/lang/String;)V
 
@@ -334,7 +334,7 @@
 
     :cond_4
     :goto_0
-    iget-object p1, p0, Lcom/bumptech/glide/load/engine/a/e;->ic:Lcom/bumptech/glide/load/engine/a/c;
+    iget-object p1, p0, Lcom/bumptech/glide/load/engine/a/e;->ie:Lcom/bumptech/glide/load/engine/a/c;
 
     invoke-virtual {p1, v0}, Lcom/bumptech/glide/load/engine/a/c;->u(Ljava/lang/String;)V
 
@@ -345,7 +345,7 @@
     :catchall_1
     move-exception p1
 
-    iget-object p2, p0, Lcom/bumptech/glide/load/engine/a/e;->ic:Lcom/bumptech/glide/load/engine/a/c;
+    iget-object p2, p0, Lcom/bumptech/glide/load/engine/a/e;->ie:Lcom/bumptech/glide/load/engine/a/c;
 
     invoke-virtual {p2, v0}, Lcom/bumptech/glide/load/engine/a/c;->u(Ljava/lang/String;)V
 
@@ -429,7 +429,7 @@
 .method public e(Lcom/bumptech/glide/load/c;)Ljava/io/File;
     .locals 4
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a/e;->ib:Lcom/bumptech/glide/load/engine/a/m;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a/e;->ic:Lcom/bumptech/glide/load/engine/a/m;
 
     invoke-virtual {v0, p1}, Lcom/bumptech/glide/load/engine/a/m;->h(Lcom/bumptech/glide/load/c;)Ljava/lang/String;
 
@@ -523,7 +523,7 @@
 .method public f(Lcom/bumptech/glide/load/c;)V
     .locals 2
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a/e;->ib:Lcom/bumptech/glide/load/engine/a/m;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a/e;->ic:Lcom/bumptech/glide/load/engine/a/m;
 
     invoke-virtual {v0, p1}, Lcom/bumptech/glide/load/engine/a/m;->h(Lcom/bumptech/glide/load/c;)Ljava/lang/String;
 

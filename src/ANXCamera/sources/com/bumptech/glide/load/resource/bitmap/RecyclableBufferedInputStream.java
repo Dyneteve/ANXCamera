@@ -10,7 +10,7 @@ import java.io.InputStream;
 public class RecyclableBufferedInputStream extends FilterInputStream {
     private volatile byte[] buf;
     private int count;
-    private final b ed;
+    private final b ee;
     private int marklimit;
     private int markpos;
     private int pos;
@@ -31,7 +31,7 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
     RecyclableBufferedInputStream(@NonNull InputStream inputStream, @NonNull b bVar, int i) {
         super(inputStream);
         this.markpos = -1;
-        this.ed = bVar;
+        this.ee = bVar;
         this.buf = (byte[]) bVar.a(i, byte[].class);
     }
 
@@ -50,10 +50,10 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
             if (length > this.marklimit) {
                 length = this.marklimit;
             }
-            byte[] bArr2 = (byte[]) this.ed.a(length, byte[].class);
+            byte[] bArr2 = (byte[]) this.ee.a(length, byte[].class);
             System.arraycopy(bArr, 0, bArr2, 0, bArr.length);
             this.buf = bArr2;
-            this.ed.put(bArr);
+            this.ee.put(bArr);
             bArr = bArr2;
         } else if (this.markpos > 0) {
             System.arraycopy(bArr, this.markpos, bArr, 0, bArr.length - this.markpos);
@@ -81,7 +81,7 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
 
     public void close() throws IOException {
         if (this.buf != null) {
-            this.ed.put(this.buf);
+            this.ee.put(this.buf);
             this.buf = null;
         }
         InputStream inputStream = this.in;
@@ -200,7 +200,7 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
 
     public synchronized void release() {
         if (this.buf != null) {
-            this.ed.put(this.buf);
+            this.ee.put(this.buf);
             this.buf = null;
         }
     }

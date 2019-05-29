@@ -273,7 +273,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0025
+    const v1, 0x7f0a0004
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -731,7 +731,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f020053
+    const v2, 0x7f020059
 
     invoke-static {v1, v2}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -977,7 +977,7 @@
 
     iput p3, p0, Lcom/android/camera/fragment/FragmentFilter;->mCurrentMode:I
 
-    const p3, 0x7f04001c
+    const p3, 0x7f04001d
 
     const/4 v0, 0x0
 

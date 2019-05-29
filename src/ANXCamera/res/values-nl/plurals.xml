@@ -4,4 +4,8 @@
         <item quantity="other">Gefocust. %d gezichten gedetecteerd</item>
         <item quantity="one">Gefocust. %d gezicht gedetecteerd</item>
     </plurals>
+    <plurals name="toast_burst_snap_finished_summary">
+        <item quantity="other">"Burst shot voltooid, %1$s foto's genomen"</item>
+        <item quantity="one">Burst shot voltooid, %1$s foto genomen</item>
+    </plurals>
 </resources>

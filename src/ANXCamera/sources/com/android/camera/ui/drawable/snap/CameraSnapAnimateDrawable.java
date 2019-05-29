@@ -274,22 +274,22 @@ public class CameraSnapAnimateDrawable extends Drawable implements Animatable {
             case 172:
                 this.mCirclePaintItem.setTargetValues(0.75f, -1, 0, (float) Util.dpToPixel(1.0f));
                 this.mRoundPaintItem.setTargetValues(0.55f, -109521, CameraPaintBase.ALPHA_OPAQUE, 15.0f);
-                this.mSecondPaintItem.setTargetValues(0.751f, -1, CameraPaintBase.ALPHA_OUTSTANDING, 3.0f);
+                this.mSecondPaintItem.setTargetValues(0.751f, -1, CameraPaintBase.ALPHA_OUTSTANDING, (float) Util.dpToPixel(1.0f));
                 this.mSecondPaintItem.setNeedSpacing(z);
-                this.mMotionPaintItem.setTargetValues(0.751f, -1, 0, 3.0f);
+                this.mMotionPaintItem.setTargetValues(0.751f, -1, 0, (float) Util.dpToPixel(1.0f));
                 return;
             case 169:
                 this.mCirclePaintItem.setTargetValues(0.75f, -1, 0, (float) Util.dpToPixel(1.0f));
                 this.mRoundPaintItem.setTargetValues(0.55f, -109521, CameraPaintBase.ALPHA_OPAQUE, 15.0f);
-                this.mSecondPaintItem.setTargetValues(0.751f, -1, 0, 3.0f);
-                this.mMotionPaintItem.setTargetValues(0.751f, -1, CameraPaintBase.ALPHA_OUTSTANDING, 3.0f);
+                this.mSecondPaintItem.setTargetValues(0.751f, -1, 0, (float) Util.dpToPixel(1.0f));
+                this.mMotionPaintItem.setTargetValues(0.751f, -1, CameraPaintBase.ALPHA_OUTSTANDING, (float) Util.dpToPixel(1.0f));
                 return;
             case 173:
                 this.mCirclePaintItem.setTargetValues(0.75f, -1, 0, (float) Util.dpToPixel(1.0f));
                 this.mRoundPaintItem.setTargetValues(0.55f, -1, CameraPaintBase.ALPHA_OPAQUE, 15.0f);
-                this.mSecondPaintItem.setTargetValues(0.751f, -1, CameraPaintBase.ALPHA_OUTSTANDING, 3.0f);
+                this.mSecondPaintItem.setTargetValues(0.751f, -1, CameraPaintBase.ALPHA_OUTSTANDING, (float) Util.dpToPixel(1.0f));
                 this.mSecondPaintItem.setNeedSpacing(false);
-                this.mMotionPaintItem.setTargetValues(0.751f, -1, 0, 3.0f);
+                this.mMotionPaintItem.setTargetValues(0.751f, -1, 0, (float) Util.dpToPixel(1.0f));
                 return;
             default:
                 this.mCirclePaintItem.setTargetValues(0.75f, -1, CameraPaintBase.ALPHA_OPAQUE, (float) Util.dpToPixel(1.0f));

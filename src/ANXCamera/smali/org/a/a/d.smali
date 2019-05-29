@@ -28,7 +28,7 @@
 
 .field sampleRateInHz:I
 
-.field vQ:Lorg/a/a/c;
+.field vV:Lorg/a/a/c;
 
 
 # direct methods
@@ -98,7 +98,7 @@
 
     iput-boolean v1, p0, Lorg/a/a/d;->isRecording:Z
 
-    iput-object p1, p0, Lorg/a/a/d;->vQ:Lorg/a/a/c;
+    iput-object p1, p0, Lorg/a/a/d;->vV:Lorg/a/a/c;
 
     const-string p1, "SM919"
 
@@ -181,7 +181,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    iget-object v0, p0, Lorg/a/a/d;->vQ:Lorg/a/a/c;
+    iget-object v0, p0, Lorg/a/a/d;->vV:Lorg/a/a/c;
 
     iget v1, p0, Lorg/a/a/d;->sampleRateInHz:I
 
@@ -726,7 +726,7 @@
     invoke-virtual {v0}, Landroid/media/AudioRecord;->stop()V
 
     :cond_1
-    iget-object v0, p0, Lorg/a/a/d;->vQ:Lorg/a/a/c;
+    iget-object v0, p0, Lorg/a/a/d;->vV:Lorg/a/a/c;
 
     invoke-interface {v0}, Lorg/a/a/c;->closeWavFile()I
 
@@ -804,7 +804,7 @@
     iput-object v1, p0, Lorg/a/a/d;->audio:Landroid/media/AudioRecord;
 
     :cond_1
-    iput-object v1, p0, Lorg/a/a/d;->vQ:Lorg/a/a/c;
+    iput-object v1, p0, Lorg/a/a/d;->vV:Lorg/a/a/c;
 
     return-void
 .end method

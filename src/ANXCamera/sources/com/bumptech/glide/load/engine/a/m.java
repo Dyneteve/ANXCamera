@@ -12,8 +12,8 @@ import java.security.NoSuchAlgorithmException;
 
 /* compiled from: SafeKeyGenerator */
 public class m {
-    private final f<c, String> iD = new f<>(1000);
-    private final Pool<a> iE = com.bumptech.glide.util.a.a.b(10, new C0011a<a>() {
+    private final f<c, String> iE = new f<>(1000);
+    private final Pool<a> iF = com.bumptech.glide.util.a.a.b(10, new C0011a<a>() {
         /* renamed from: bM */
         public a create() {
             try {
@@ -26,7 +26,7 @@ public class m {
 
     /* compiled from: SafeKeyGenerator */
     private static final class a implements com.bumptech.glide.util.a.a.c {
-        private final com.bumptech.glide.util.a.c fc = com.bumptech.glide.util.a.c.eS();
+        private final com.bumptech.glide.util.a.c fd = com.bumptech.glide.util.a.c.eS();
         final MessageDigest messageDigest;
 
         a(MessageDigest messageDigest2) {
@@ -35,30 +35,30 @@ public class m {
 
         @NonNull
         public com.bumptech.glide.util.a.c aQ() {
-            return this.fc;
+            return this.fd;
         }
     }
 
     private String i(c cVar) {
-        a aVar = (a) i.checkNotNull(this.iE.acquire());
+        a aVar = (a) i.checkNotNull(this.iF.acquire());
         try {
             cVar.updateDiskCacheKey(aVar.messageDigest);
             return k.j(aVar.messageDigest.digest());
         } finally {
-            this.iE.release(aVar);
+            this.iF.release(aVar);
         }
     }
 
     public String h(c cVar) {
         String str;
-        synchronized (this.iD) {
-            str = (String) this.iD.get(cVar);
+        synchronized (this.iE) {
+            str = (String) this.iE.get(cVar);
         }
         if (str == null) {
             str = i(cVar);
         }
-        synchronized (this.iD) {
-            this.iD.put(cVar, str);
+        synchronized (this.iE) {
+            this.iE.put(cVar, str);
         }
         return str;
     }

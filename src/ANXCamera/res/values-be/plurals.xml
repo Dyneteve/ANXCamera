@@ -6,4 +6,10 @@
         <item quantity="few">Сфакусавана. Выяўлена %d асобы</item>
         <item quantity="many">Сфакусавана. Выяўлена %d асобаў</item>
     </plurals>
+    <plurals name="toast_burst_snap_finished_summary">
+        <item quantity="other">Серыйная здымка скончана, зроблена %1$s фота</item>
+        <item quantity="one">Серыйная здымка скончана, зроблена %1$s фота</item>
+        <item quantity="few">Серыйная здымка скончана, зроблена %1$s фота</item>
+        <item quantity="many">Серыйная здымка скончана, зроблена %1$s фота</item>
+    </plurals>
 </resources>

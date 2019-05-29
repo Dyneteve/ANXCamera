@@ -59,7 +59,7 @@ public class OpenGLUtils {
         return iArr[0];
     }
 
-    private static Bitmap getImageFromAssetsFile(Context context, String str) {
+    public static Bitmap getImageFromAssetsFile(Context context, String str) {
         Bitmap bitmap;
         try {
             InputStream open = context.getResources().getAssets().open(str);

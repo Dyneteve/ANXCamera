@@ -175,9 +175,9 @@
 
     const v0, 0x7f0900f0
 
-    const v1, 0x7f020143
+    const v1, 0x7f02014a
 
-    const v2, 0x7f020142
+    const v2, 0x7f020149
 
     if-eq p1, p3, :cond_3
 

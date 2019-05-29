@@ -609,7 +609,7 @@
 
     fill-array-data v0, :array_0
 
-    const v1, 0x7f0c000f
+    const v1, 0x7f0c0011
 
     invoke-virtual {p1, v1, v0}, Landroid/content/Context;->obtainStyledAttributes(I[I)Landroid/content/res/TypedArray;
 
@@ -647,7 +647,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0a0015
+    const v2, 0x7f0a0016
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -661,7 +661,7 @@
 
     iput v2, p0, Lcom/android/camera/fragment/manually/adapter/sat/DuoSatZoomSliderAdapter;->mLineHalfHeight:F
 
-    const v2, 0x7f0a0016
+    const v2, 0x7f0a0017
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -669,7 +669,7 @@
 
     iput v2, p0, Lcom/android/camera/fragment/manually/adapter/sat/DuoSatZoomSliderAdapter;->mLineWidth:I
 
-    const v2, 0x7f0a0019
+    const v2, 0x7f0a001a
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -677,7 +677,7 @@
 
     iput v2, p0, Lcom/android/camera/fragment/manually/adapter/sat/DuoSatZoomSliderAdapter;->mDotRadius:I
 
-    const v2, 0x7f0a0017
+    const v2, 0x7f0a0018
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -685,7 +685,7 @@
 
     iput v2, p0, Lcom/android/camera/fragment/manually/adapter/sat/DuoSatZoomSliderAdapter;->mLineLineGap:I
 
-    const v2, 0x7f0a0018
+    const v2, 0x7f0a0019
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -693,7 +693,7 @@
 
     iput v2, p0, Lcom/android/camera/fragment/manually/adapter/sat/DuoSatZoomSliderAdapter;->mLineTextGap:I
 
-    const v2, 0x7f0a001a
+    const v2, 0x7f0a001b
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -701,7 +701,7 @@
 
     iput v2, p0, Lcom/android/camera/fragment/manually/adapter/sat/DuoSatZoomSliderAdapter;->mLineDotYGap:I
 
-    const v2, 0x7f0b004e
+    const v2, 0x7f0b0050
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -709,7 +709,7 @@
 
     iput v2, p0, Lcom/android/camera/fragment/manually/adapter/sat/DuoSatZoomSliderAdapter;->mLineColorDefault:I
 
-    const v2, 0x7f0b004f
+    const v2, 0x7f0b0051
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -759,7 +759,7 @@
 
     new-instance v0, Landroid/text/style/TextAppearanceSpan;
 
-    const v1, 0x7f0c0016
+    const v1, 0x7f0c0018
 
     invoke-direct {v0, p1, v1}, Landroid/text/style/TextAppearanceSpan;-><init>(Landroid/content/Context;I)V
 
@@ -767,7 +767,7 @@
 
     new-instance v0, Landroid/text/style/TextAppearanceSpan;
 
-    const v1, 0x7f0c0017
+    const v1, 0x7f0c0019
 
     invoke-direct {v0, p1, v1}, Landroid/text/style/TextAppearanceSpan;-><init>(Landroid/content/Context;I)V
 

@@ -28,7 +28,7 @@
 
 
 # instance fields
-.field private final ko:Landroid/content/res/Resources;
+.field private final kp:Landroid/content/res/Resources;
 
 
 # direct methods
@@ -37,7 +37,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/model/r$d;->ko:Landroid/content/res/Resources;
+    iput-object p1, p0, Lcom/bumptech/glide/load/model/r$d;->kp:Landroid/content/res/Resources;
 
     return-void
 .end method
@@ -63,7 +63,7 @@
 
     new-instance p1, Lcom/bumptech/glide/load/model/r;
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/r$d;->ko:Landroid/content/res/Resources;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/r$d;->kp:Landroid/content/res/Resources;
 
     invoke-static {}, Lcom/bumptech/glide/load/model/u;->ck()Lcom/bumptech/glide/load/model/u;
 

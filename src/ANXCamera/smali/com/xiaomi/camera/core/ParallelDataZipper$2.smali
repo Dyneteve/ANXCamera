@@ -67,7 +67,7 @@
 
     iget-object v2, p0, Lcom/xiaomi/camera/core/ParallelDataZipper$2;->this$0:Lcom/xiaomi/camera/core/ParallelDataZipper;
 
-    invoke-static {v2, v0, v1}, Lcom/xiaomi/camera/core/ParallelDataZipper;->access$300(Lcom/xiaomi/camera/core/ParallelDataZipper;J)I
+    invoke-static {v2, v0, v1}, Lcom/xiaomi/camera/core/ParallelDataZipper;->access$100(Lcom/xiaomi/camera/core/ParallelDataZipper;J)I
 
     move-result v2
 
@@ -86,7 +86,7 @@
     move-object v2, v3
 
     :cond_0
-    invoke-static {}, Lcom/xiaomi/camera/core/ParallelDataZipper;->access$500()Ljava/lang/String;
+    invoke-static {}, Lcom/xiaomi/camera/core/ParallelDataZipper;->access$300()Ljava/lang/String;
 
     move-result-object v3
 
@@ -138,7 +138,7 @@
 
     iget-object v0, p0, Lcom/xiaomi/camera/core/ParallelDataZipper$2;->this$0:Lcom/xiaomi/camera/core/ParallelDataZipper;
 
-    invoke-static {v0, v2}, Lcom/xiaomi/camera/core/ParallelDataZipper;->access$700(Lcom/xiaomi/camera/core/ParallelDataZipper;Lcom/xiaomi/camera/core/CaptureData$CaptureDataBean;)V
+    invoke-static {v0, v2}, Lcom/xiaomi/camera/core/ParallelDataZipper;->access$400(Lcom/xiaomi/camera/core/ParallelDataZipper;Lcom/xiaomi/camera/core/CaptureData$CaptureDataBean;)V
 
     :cond_1
     return-void

@@ -268,7 +268,7 @@
 .method protected getLayoutResourceId()I
     .locals 1
 
-    const v0, 0x7f04001f
+    const v0, 0x7f040020
 
     return v0
 .end method
@@ -368,7 +368,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0a00c7
+    const v0, 0x7f0a00aa
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

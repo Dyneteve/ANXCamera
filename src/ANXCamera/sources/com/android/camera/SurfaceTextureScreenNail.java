@@ -24,7 +24,7 @@ import com.android.gallery3d.ui.ScreenNail;
 import com.mi.config.b;
 
 public abstract class SurfaceTextureScreenNail implements OnFrameAvailableListener, Rotatable, ScreenNail {
-    private static final float MOVIE_SOLID_CROPPED_X = (b.gZ() ? 0.9f : 0.8f);
+    private static final float MOVIE_SOLID_CROPPED_X = (b.hc() ? 0.9f : 0.8f);
     private static final float MOVIE_SOLID_CROPPED_Y;
     private static final String TAG = "STScreenNail";
     private static HandlerThread sFrameListener = new HandlerThread("FrameListener");
@@ -44,6 +44,7 @@ public abstract class SurfaceTextureScreenNail implements OnFrameAvailableListen
     private int mHeight;
     private boolean mIsFullScreen;
     private boolean mIsRatio16_9 = true;
+    protected final Object mLock = new Object();
     protected boolean mModuleSwitching;
     private boolean mNeedCropped;
     private int mRenderHeight;
@@ -80,7 +81,7 @@ public abstract class SurfaceTextureScreenNail implements OnFrameAvailableListen
 
     static {
         float f = 0.8f;
-        if (b.gZ()) {
+        if (b.hc()) {
             f = 0.9f;
         }
         MOVIE_SOLID_CROPPED_Y = f;
@@ -230,7 +231,7 @@ public abstract class SurfaceTextureScreenNail implements OnFrameAvailableListen
             this.mExtTexture = new ExtTexture();
         }
         this.mExtTexture.setSize(this.mWidth, this.mHeight);
-        if (b.hH() && !sFrameListener.isAlive()) {
+        if (b.hK() && !sFrameListener.isAlive()) {
             sFrameListener.start();
         }
         if (this.mSurfaceTexture == null) {
@@ -245,7 +246,7 @@ public abstract class SurfaceTextureScreenNail implements OnFrameAvailableListen
         sb.append(this.mHeight);
         Log.d(str, sb.toString());
         this.mSurfaceTexture.setDefaultBufferSize(this.mWidth, this.mHeight);
-        if (VERSION.SDK_INT < 21 || !b.hH()) {
+        if (VERSION.SDK_INT < 21 || !b.hK()) {
             this.mSurfaceTexture.setOnFrameAvailableListener(this);
         } else {
             CompatibilityUtils.setSurfaceTextureOnFrameAvailableListener(this.mSurfaceTexture, this, new Handler(sFrameListener.getLooper()));
@@ -293,14 +294,14 @@ public abstract class SurfaceTextureScreenNail implements OnFrameAvailableListen
             }
             return;
         }
-        if (ModuleManager.isFunARModule()) {
+        if (ModuleManager.isFunARModule() && this.mSurfaceTexture != null) {
             this.mSurfaceTexture.updateTexImage();
             if (!isAnimationRunning() && DataRepository.dataItemLive().getMimojiStatusManager().IsAvatarInited()) {
                 return;
             }
         }
         gLCanvas.clearBuffer();
-        if (!this.mIsFullScreen || b.gR() || Util.isNotchDevice || Util.isLongRatioScreen || Util.sIsnotchScreenHidden) {
+        if (!this.mIsFullScreen || b.gU() || Util.isNotchDevice || Util.isLongRatioScreen || Util.sIsnotchScreenHidden) {
             draw(gLCanvas, this.mTx, this.mTy, this.mTwidth, this.mTheight);
         } else {
             draw(gLCanvas, 0, 0, this.mSurfaceWidth, this.mSurfaceHeight);
@@ -310,7 +311,7 @@ public abstract class SurfaceTextureScreenNail implements OnFrameAvailableListen
     public void draw(GLCanvas gLCanvas, int i, int i2, int i3, int i4) {
         synchronized (this) {
             if (this.mHasTexture) {
-                if (b.hH()) {
+                if (b.hK()) {
                     checkThreadPriority();
                 }
                 gLCanvas.setPreviewSize(this.mWidth, this.mHeight);
@@ -333,7 +334,11 @@ public abstract class SurfaceTextureScreenNail implements OnFrameAvailableListen
     }
 
     public ExtTexture getExtTexture() {
-        return this.mExtTexture;
+        ExtTexture extTexture;
+        synchronized (this.mLock) {
+            extTexture = this.mExtTexture;
+        }
+        return extTexture;
     }
 
     public int getHeight() {
@@ -357,7 +362,11 @@ public abstract class SurfaceTextureScreenNail implements OnFrameAvailableListen
     }
 
     public SurfaceTexture getSurfaceTexture() {
-        return this.mSurfaceTexture;
+        SurfaceTexture surfaceTexture;
+        synchronized (this.mLock) {
+            surfaceTexture = this.mSurfaceTexture;
+        }
+        return surfaceTexture;
     }
 
     public int getWidth() {
@@ -430,7 +439,7 @@ public abstract class SurfaceTextureScreenNail implements OnFrameAvailableListen
             sb.append(i);
             sb.append(" | ");
             sb.append(i2);
-            Log.e(str, sb.toString());
+            Log.d(str, sb.toString());
             this.mSurfaceTexture.setDefaultBufferSize(i, i2);
         }
     }
@@ -444,7 +453,7 @@ public abstract class SurfaceTextureScreenNail implements OnFrameAvailableListen
     }
 
     public void setVideoStabilizationCropped(boolean z) {
-        if (b.gH()) {
+        if (b.gK()) {
             this.mVideoStabilizationCropped = z;
         } else {
             this.mVideoStabilizationCropped = false;

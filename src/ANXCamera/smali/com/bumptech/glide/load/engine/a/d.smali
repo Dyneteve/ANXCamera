@@ -15,9 +15,9 @@
 
 
 # instance fields
-.field private final hU:J
+.field private final hV:J
 
-.field private final hV:Lcom/bumptech/glide/load/engine/a/d$a;
+.field private final hW:Lcom/bumptech/glide/load/engine/a/d$a;
 
 
 # direct methods
@@ -26,9 +26,9 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-wide p2, p0, Lcom/bumptech/glide/load/engine/a/d;->hU:J
+    iput-wide p2, p0, Lcom/bumptech/glide/load/engine/a/d;->hV:J
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/engine/a/d;->hV:Lcom/bumptech/glide/load/engine/a/d$a;
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/a/d;->hW:Lcom/bumptech/glide/load/engine/a/d$a;
 
     return-void
 .end method
@@ -62,7 +62,7 @@
 .method public bz()Lcom/bumptech/glide/load/engine/a/a;
     .locals 3
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a/d;->hV:Lcom/bumptech/glide/load/engine/a/d$a;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a/d;->hW:Lcom/bumptech/glide/load/engine/a/d$a;
 
     invoke-interface {v0}, Lcom/bumptech/glide/load/engine/a/d$a;->bB()Ljava/io/File;
 
@@ -97,7 +97,7 @@
     return-object v1
 
     :cond_2
-    iget-wide v1, p0, Lcom/bumptech/glide/load/engine/a/d;->hU:J
+    iget-wide v1, p0, Lcom/bumptech/glide/load/engine/a/d;->hV:J
 
     invoke-static {v0, v1, v2}, Lcom/bumptech/glide/load/engine/a/e;->b(Ljava/io/File;J)Lcom/bumptech/glide/load/engine/a/a;
 

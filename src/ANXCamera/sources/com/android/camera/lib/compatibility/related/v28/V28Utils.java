@@ -11,6 +11,7 @@ import android.hardware.camera2.CaptureRequest.Builder;
 import android.hardware.camera2.impl.CameraMetadataNative;
 import android.hardware.camera2.params.OutputConfiguration;
 import android.hardware.camera2.params.SessionConfiguration;
+import android.hardware.display.DisplayManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.RemoteException;
@@ -30,6 +31,16 @@ public class V28Utils {
     public static Builder constructCaptureRequestBuilder(CameraMetadataNative cameraMetadataNative, boolean z, int i, CaptureRequest captureRequest) {
         Builder builder = new Builder(cameraMetadataNative, z, i, captureRequest.getLogicalCameraId(), null);
         return builder;
+    }
+
+    public static void createCaptureSessionWithCustomOperationMode(CameraDevice cameraDevice, int i, List<OutputConfiguration> list, CaptureRequest captureRequest, StateCallback stateCallback, final Handler handler) throws CameraAccessException {
+        SessionConfiguration sessionConfiguration = new SessionConfiguration(i, list, handler == null ? null : new Executor() {
+            public void execute(Runnable runnable) {
+                handler.post(runnable);
+            }
+        }, stateCallback);
+        sessionConfiguration.setSessionParameters(captureRequest);
+        cameraDevice.createCaptureSession(sessionConfiguration);
     }
 
     public static void createCaptureSessionWithSessionConfiguration(CameraDevice cameraDevice, List<Surface> list, CaptureRequest captureRequest, StateCallback stateCallback, final Handler handler) throws CameraAccessException {
@@ -81,5 +92,9 @@ public class V28Utils {
         LayoutParams attributes = window.getAttributes();
         attributes.layoutInDisplayCutoutMode = 1;
         window.setAttributes(attributes);
+    }
+
+    public static void setTemporaryAutoBrightnessAdjustment(DisplayManager displayManager, float f) {
+        displayManager.setTemporaryAutoBrightnessAdjustment(f);
     }
 }

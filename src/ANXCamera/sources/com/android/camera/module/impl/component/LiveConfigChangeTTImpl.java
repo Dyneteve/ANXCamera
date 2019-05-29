@@ -338,19 +338,24 @@ public class LiveConfigChangeTTImpl implements LiveConfigChanges {
     public void onRecordPause() {
         if (this.mRecorder != null && !this.mMediaRecorderRecordingPaused) {
             DataRepository.dataItemRunning().setLiveConfigIsNeedRestore(true);
-            this.mRecorder.stopRecord();
+            int stopRecord = this.mRecorder.stopRecord();
+            String str = TAG;
+            StringBuilder sb = new StringBuilder();
+            sb.append("stopRecordResult onPause: ");
+            sb.append(stopRecord);
+            Log.d(str, sb.toString());
             long endFrameTime = this.mRecorder.getEndFrameTime();
             if (endFrameTime > MIN_RECORD_TIME || endFrameTime < 0) {
                 this.mDurings = this.mRecorder.getSegmentInfo();
                 this.mTotalRecordingTime = (long) TimeSpeedModel.calculateRealTime(this.mDurings);
             } else {
                 deleteLastSegment();
-                String str = TAG;
-                StringBuilder sb = new StringBuilder();
-                sb.append("recording time = ");
-                sb.append(endFrameTime);
-                sb.append(", it's too short");
-                Log.d(str, sb.toString());
+                String str2 = TAG;
+                StringBuilder sb2 = new StringBuilder();
+                sb2.append("recording time = ");
+                sb2.append(endFrameTime);
+                sb2.append(", it's too short");
+                Log.d(str2, sb2.toString());
             }
             this.mMediaRecorderRecordingPaused = true;
             this.mMediaRecorderRecording = false;
@@ -368,7 +373,12 @@ public class LiveConfigChangeTTImpl implements LiveConfigChanges {
             }, 3, 1);
             this.mMediaRecorderRecordingPaused = false;
             this.mMediaRecorderRecording = true;
-            this.mRecorder.startRecord(this.mSpeed);
+            int startRecord = this.mRecorder.startRecord(this.mSpeed);
+            String str = TAG;
+            StringBuilder sb = new StringBuilder();
+            sb.append("startRecordResult onResume: ");
+            sb.append(startRecord);
+            Log.d(str, sb.toString());
             updateRecordingTime();
         }
     }
@@ -393,7 +403,12 @@ public class LiveConfigChangeTTImpl implements LiveConfigChanges {
                 }
             }, 3, 1);
             DataRepository.dataItemRunning().setLiveConfigIsNeedRestore(true);
-            this.mRecorder.startRecord(this.mSpeed);
+            int startRecord = this.mRecorder.startRecord(this.mSpeed);
+            String str = TAG;
+            StringBuilder sb = new StringBuilder();
+            sb.append("startRecordResult onStart: ");
+            sb.append(startRecord);
+            Log.d(str, sb.toString());
             if (this.mBGMPath != null) {
                 this.mRecorder.setRecordBGM(this.mBGMPath, 0, DurationConstant.DURATION_VIDEO_RECORDING_FUN, 1);
             }
@@ -453,7 +468,18 @@ public class LiveConfigChangeTTImpl implements LiveConfigChanges {
         synchronized (this.mRecorderLock) {
             Log.d(TAG, "release");
             if (this.mRecorder != null) {
-                this.mRecorder.stopPreview();
+                int stopRecord = this.mRecorder.stopRecord();
+                String str = TAG;
+                StringBuilder sb = new StringBuilder();
+                sb.append("stopRecordResult onRelease: ");
+                sb.append(stopRecord);
+                Log.d(str, sb.toString());
+                int stopPreview = this.mRecorder.stopPreview();
+                String str2 = TAG;
+                StringBuilder sb2 = new StringBuilder();
+                sb2.append("stopPreviewResult onRelease: ");
+                sb2.append(stopPreview);
+                Log.d(str2, sb2.toString());
                 this.mRecorder.setRecrodStateCallback(null);
                 this.mRecorder.setRenderCallback(null);
                 this.mRecorder.destroy();
@@ -571,7 +597,12 @@ public class LiveConfigChangeTTImpl implements LiveConfigChanges {
             }
         });
         this.mRecorder.setRenderCallback(r0);
-        this.mRecorder.startPreview(surface);
+        int startPreview = this.mRecorder.startPreview(surface);
+        String str = TAG;
+        StringBuilder sb = new StringBuilder();
+        sb.append("previewResult: ");
+        sb.append(startPreview);
+        Log.d(str, sb.toString());
         TERecorder.addSlamDetectListener(slamDetectListener);
     }
 

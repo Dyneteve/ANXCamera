@@ -26,7 +26,7 @@
 
 
 # instance fields
-.field private final pE:Lcom/bumptech/glide/request/a/k$a;
+.field private final pF:Lcom/bumptech/glide/request/a/k$a;
 
 
 # direct methods
@@ -35,7 +35,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/request/a/k;->pE:Lcom/bumptech/glide/request/a/k$a;
+    iput-object p1, p0, Lcom/bumptech/glide/request/a/k;->pF:Lcom/bumptech/glide/request/a/k$a;
 
     return-void
 .end method
@@ -60,7 +60,7 @@
 
     invoke-virtual {p1}, Landroid/view/View;->clearAnimation()V
 
-    iget-object p2, p0, Lcom/bumptech/glide/request/a/k;->pE:Lcom/bumptech/glide/request/a/k$a;
+    iget-object p2, p0, Lcom/bumptech/glide/request/a/k;->pF:Lcom/bumptech/glide/request/a/k$a;
 
     invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
 

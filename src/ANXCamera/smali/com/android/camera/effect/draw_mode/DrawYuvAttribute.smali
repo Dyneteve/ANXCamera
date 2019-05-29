@@ -8,6 +8,10 @@
 
 .field public mAttribute:Lcom/android/camera/effect/EffectController$EffectRectAttribute;
 
+.field public mBlockHeight:I
+
+.field public mBlockWidth:I
+
 .field public mCoordinatesOfTheRegionUnderWatermarks:[I
 
 .field public mDataOfTheRegionUnderWatermarks:[B
@@ -25,6 +29,10 @@
 .field public mJpegRotation:I
 
 .field public mMirror:Z
+
+.field public mOffsetUV:I
+
+.field public mOffsetY:I
 
 .field public mOrientation:I
 

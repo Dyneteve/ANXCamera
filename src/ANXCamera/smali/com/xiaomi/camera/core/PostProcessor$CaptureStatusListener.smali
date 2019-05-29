@@ -112,7 +112,7 @@
 .end method
 
 .method public onCaptureStarted(Lcom/xiaomi/camera/core/ParallelTaskData;)V
-    .locals 6
+    .locals 7
     .param p1    # Lcom/xiaomi/camera/core/ParallelTaskData;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -154,13 +154,17 @@
 
     invoke-virtual {v0, v1, p1}, Ljava/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    iget-object v0, p0, Lcom/xiaomi/camera/core/PostProcessor$CaptureStatusListener;->this$0:Lcom/xiaomi/camera/core/PostProcessor;
+
     invoke-virtual {p1}, Lcom/xiaomi/camera/core/ParallelTaskData;->getAlgoType()I
 
     move-result v1
 
+    invoke-static {v0, v1}, Lcom/xiaomi/camera/core/PostProcessor;->access$202(Lcom/xiaomi/camera/core/PostProcessor;I)I
+
     iget-object v0, p0, Lcom/xiaomi/camera/core/PostProcessor$CaptureStatusListener;->this$0:Lcom/xiaomi/camera/core/PostProcessor;
 
-    invoke-static {v0}, Lcom/xiaomi/camera/core/PostProcessor;->access$200(Lcom/xiaomi/camera/core/PostProcessor;)Lcom/xiaomi/camera/core/ImageProcessor;
+    invoke-static {v0}, Lcom/xiaomi/camera/core/PostProcessor;->access$300(Lcom/xiaomi/camera/core/PostProcessor;)Lcom/xiaomi/camera/core/ImageProcessor;
 
     move-result-object v0
 
@@ -185,15 +189,35 @@
 
     move-result v3
 
-    iget-object p1, p0, Lcom/xiaomi/camera/core/PostProcessor$CaptureStatusListener;->this$0:Lcom/xiaomi/camera/core/PostProcessor;
+    invoke-virtual {p1}, Lcom/xiaomi/camera/core/ParallelTaskData;->isAbandoned()Z
 
-    invoke-static {p1, v1}, Lcom/xiaomi/camera/core/PostProcessor;->access$302(Lcom/xiaomi/camera/core/PostProcessor;I)I
+    move-result v6
+
+    new-instance p1, Lcom/xiaomi/camera/core/CaptureData;
+
+    iget-object v0, p0, Lcom/xiaomi/camera/core/PostProcessor$CaptureStatusListener;->this$0:Lcom/xiaomi/camera/core/PostProcessor;
+
+    invoke-static {v0}, Lcom/xiaomi/camera/core/PostProcessor;->access$200(Lcom/xiaomi/camera/core/PostProcessor;)I
+
+    move-result v1
+
+    move-object v0, p1
+
+    invoke-direct/range {v0 .. v6}, Lcom/xiaomi/camera/core/CaptureData;-><init>(IIIJZ)V
+
+    iget-object v0, p0, Lcom/xiaomi/camera/core/PostProcessor$CaptureStatusListener;->this$0:Lcom/xiaomi/camera/core/PostProcessor;
+
+    invoke-static {v0}, Lcom/xiaomi/camera/core/PostProcessor;->access$400(Lcom/xiaomi/camera/core/PostProcessor;)Lcom/xiaomi/camera/core/ParallelDataZipper$DataListener;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Lcom/xiaomi/camera/core/CaptureData;->setDataListener(Lcom/xiaomi/camera/core/ParallelDataZipper$DataListener;)V
 
     invoke-static {}, Lcom/xiaomi/camera/core/ParallelDataZipper;->getInstance()Lcom/xiaomi/camera/core/ParallelDataZipper;
 
     move-result-object v0
 
-    invoke-virtual/range {v0 .. v5}, Lcom/xiaomi/camera/core/ParallelDataZipper;->startTask(IIIJ)V
+    invoke-virtual {v0, p1}, Lcom/xiaomi/camera/core/ParallelDataZipper;->startTask(Lcom/xiaomi/camera/core/CaptureData;)V
 
     return-void
 .end method

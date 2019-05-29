@@ -138,7 +138,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    sget-object p1, Lcom/bumptech/glide/load/EncodeStrategy;->do:Lcom/bumptech/glide/load/EncodeStrategy;
+    sget-object p1, Lcom/bumptech/glide/load/EncodeStrategy;->dp:Lcom/bumptech/glide/load/EncodeStrategy;
 
     return-object p1
 .end method

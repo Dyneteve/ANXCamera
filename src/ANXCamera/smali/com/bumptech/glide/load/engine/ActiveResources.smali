@@ -13,13 +13,13 @@
 
 
 # static fields
-.field private static final ev:I = 0x1
+.field private static final ew:I = 0x1
 
 
 # instance fields
-.field private final aC:Z
+.field private final aD:Z
 
-.field private final aD:Landroid/os/Handler;
+.field private final aE:Landroid/os/Handler;
 
 .field final activeEngineResources:Ljava/util/Map;
     .annotation build Landroid/support/annotation/VisibleForTesting;
@@ -35,14 +35,16 @@
     .end annotation
 .end field
 
-.field private volatile eA:Lcom/bumptech/glide/load/engine/ActiveResources$DequeuedResourceCallback;
+.field private volatile eA:Z
+
+.field private volatile eB:Lcom/bumptech/glide/load/engine/ActiveResources$DequeuedResourceCallback;
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 .end field
 
-.field private ew:Lcom/bumptech/glide/load/engine/k$a;
+.field private ex:Lcom/bumptech/glide/load/engine/k$a;
 
-.field private ex:Ljava/lang/ref/ReferenceQueue;
+.field private ey:Ljava/lang/ref/ReferenceQueue;
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
@@ -55,12 +57,10 @@
     .end annotation
 .end field
 
-.field private ey:Ljava/lang/Thread;
+.field private ez:Ljava/lang/Thread;
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 .end field
-
-.field private volatile ez:Z
 
 
 # direct methods
@@ -81,7 +81,7 @@
 
     invoke-direct {v0, v1, v2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;Landroid/os/Handler$Callback;)V
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->aD:Landroid/os/Handler;
+    iput-object v0, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->aE:Landroid/os/Handler;
 
     new-instance v0, Ljava/util/HashMap;
 
@@ -89,7 +89,7 @@
 
     iput-object v0, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->activeEngineResources:Ljava/util/Map;
 
-    iput-boolean p1, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->aC:Z
+    iput-boolean p1, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->aD:Z
 
     return-void
 .end method
@@ -105,7 +105,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->ex:Ljava/lang/ref/ReferenceQueue;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->ey:Ljava/lang/ref/ReferenceQueue;
 
     if-nez v0, :cond_0
 
@@ -113,7 +113,7 @@
 
     invoke-direct {v0}, Ljava/lang/ref/ReferenceQueue;-><init>()V
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->ex:Ljava/lang/ref/ReferenceQueue;
+    iput-object v0, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->ey:Ljava/lang/ref/ReferenceQueue;
 
     new-instance v0, Ljava/lang/Thread;
 
@@ -125,14 +125,14 @@
 
     invoke-direct {v0, v1, v2}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;Ljava/lang/String;)V
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->ey:Ljava/lang/Thread;
+    iput-object v0, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->ez:Ljava/lang/Thread;
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->ey:Ljava/lang/Thread;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->ez:Ljava/lang/Thread;
 
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
     :cond_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->ex:Ljava/lang/ref/ReferenceQueue;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->ey:Ljava/lang/ref/ReferenceQueue;
 
     return-object v0
 .end method
@@ -175,7 +175,7 @@
 
     move-result-object v1
 
-    iget-boolean v2, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->aC:Z
+    iget-boolean v2, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->aD:Z
 
     invoke-direct {v0, p1, p2, v1, v2}, Lcom/bumptech/glide/load/engine/ActiveResources$ResourceWeakReference;-><init>(Lcom/bumptech/glide/load/c;Lcom/bumptech/glide/load/engine/k;Ljava/lang/ref/ReferenceQueue;Z)V
 
@@ -210,11 +210,11 @@
 
     invoke-interface {v0, v1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-boolean v0, p1, Lcom/bumptech/glide/load/engine/ActiveResources$ResourceWeakReference;->eC:Z
+    iget-boolean v0, p1, Lcom/bumptech/glide/load/engine/ActiveResources$ResourceWeakReference;->eD:Z
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p1, Lcom/bumptech/glide/load/engine/ActiveResources$ResourceWeakReference;->eD:Lcom/bumptech/glide/load/engine/p;
+    iget-object v0, p1, Lcom/bumptech/glide/load/engine/ActiveResources$ResourceWeakReference;->eE:Lcom/bumptech/glide/load/engine/p;
 
     if-nez v0, :cond_0
 
@@ -223,7 +223,7 @@
     :cond_0
     new-instance v0, Lcom/bumptech/glide/load/engine/k;
 
-    iget-object v1, p1, Lcom/bumptech/glide/load/engine/ActiveResources$ResourceWeakReference;->eD:Lcom/bumptech/glide/load/engine/p;
+    iget-object v1, p1, Lcom/bumptech/glide/load/engine/ActiveResources$ResourceWeakReference;->eE:Lcom/bumptech/glide/load/engine/p;
 
     const/4 v2, 0x1
 
@@ -233,11 +233,11 @@
 
     iget-object v1, p1, Lcom/bumptech/glide/load/engine/ActiveResources$ResourceWeakReference;->key:Lcom/bumptech/glide/load/c;
 
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->ew:Lcom/bumptech/glide/load/engine/k$a;
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->ex:Lcom/bumptech/glide/load/engine/k$a;
 
     invoke-virtual {v0, v1, v2}, Lcom/bumptech/glide/load/engine/k;->a(Lcom/bumptech/glide/load/c;Lcom/bumptech/glide/load/engine/k$a;)V
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->ew:Lcom/bumptech/glide/load/engine/k$a;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->ex:Lcom/bumptech/glide/load/engine/k$a;
 
     iget-object p1, p1, Lcom/bumptech/glide/load/engine/ActiveResources$ResourceWeakReference;->key:Lcom/bumptech/glide/load/c;
 
@@ -253,7 +253,7 @@
 .method a(Lcom/bumptech/glide/load/engine/k$a;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->ew:Lcom/bumptech/glide/load/engine/k$a;
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->ex:Lcom/bumptech/glide/load/engine/k$a;
 
     return-void
 .end method
@@ -262,12 +262,12 @@
     .locals 3
 
     :goto_0
-    iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->ez:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->eA:Z
 
     if-nez v0, :cond_1
 
     :try_start_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->ex:Ljava/lang/ref/ReferenceQueue;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->ey:Ljava/lang/ref/ReferenceQueue;
 
     invoke-virtual {v0}, Ljava/lang/ref/ReferenceQueue;->remove()Ljava/lang/ref/Reference;
 
@@ -275,7 +275,7 @@
 
     check-cast v0, Lcom/bumptech/glide/load/engine/ActiveResources$ResourceWeakReference;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->aD:Landroid/os/Handler;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->aE:Landroid/os/Handler;
 
     const/4 v2, 0x1
 
@@ -285,7 +285,7 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->eA:Lcom/bumptech/glide/load/engine/ActiveResources$DequeuedResourceCallback;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->eB:Lcom/bumptech/glide/load/engine/ActiveResources$DequeuedResourceCallback;
 
     if-eqz v0, :cond_0
 
@@ -361,7 +361,7 @@
     .annotation build Landroid/support/annotation/VisibleForTesting;
     .end annotation
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->eA:Lcom/bumptech/glide/load/engine/ActiveResources$DequeuedResourceCallback;
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->eB:Lcom/bumptech/glide/load/engine/ActiveResources$DequeuedResourceCallback;
 
     return-void
 .end method
@@ -373,21 +373,21 @@
 
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->ez:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->eA:Z
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->ey:Ljava/lang/Thread;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->ez:Ljava/lang/Thread;
 
     if-nez v0, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->ey:Ljava/lang/Thread;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->ez:Ljava/lang/Thread;
 
     invoke-virtual {v0}, Ljava/lang/Thread;->interrupt()V
 
     :try_start_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->ey:Ljava/lang/Thread;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->ez:Ljava/lang/Thread;
 
     sget-object v1, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
 
@@ -399,7 +399,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/Thread;->join(J)V
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->ey:Ljava/lang/Thread;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/ActiveResources;->ez:Ljava/lang/Thread;
 
     invoke-virtual {v0}, Ljava/lang/Thread;->isAlive()Z
 

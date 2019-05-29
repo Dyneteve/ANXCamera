@@ -1,6 +1,9 @@
-.class synthetic Lcom/android/camera/module/LiveModule$7;
+.class Lcom/android/camera/module/LiveModule$7;
 .super Ljava/lang/Object;
 .source "LiveModule.java"
+
+# interfaces
+.implements Lcom/android/camera/SensorStateManager$SensorStateListener;
 
 
 # annotations
@@ -9,133 +12,235 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
+    accessFlags = 0x0
     name = null
 .end annotation
 
 
-# static fields
-.field static final synthetic $SwitchMap$com$ss$android$ttve$oauth$TEOAuthResult:[I
+# instance fields
+.field final synthetic this$0:Lcom/android/camera/module/LiveModule;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 3
+.method constructor <init>(Lcom/android/camera/module/LiveModule;)V
+    .locals 0
 
-    invoke-static {}, Lcom/ss/android/ttve/oauth/TEOAuthResult;->values()[Lcom/ss/android/ttve/oauth/TEOAuthResult;
+    iput-object p1, p0, Lcom/android/camera/module/LiveModule$7;->this$0:Lcom/android/camera/module/LiveModule;
 
-    move-result-object v0
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    array-length v0, v0
+    return-void
+.end method
 
-    new-array v0, v0, [I
 
-    sput-object v0, Lcom/android/camera/module/LiveModule$7;->$SwitchMap$com$ss$android$ttve$oauth$TEOAuthResult:[I
+# virtual methods
+.method public isWorking()Z
+    .locals 1
 
-    :try_start_0
-    sget-object v0, Lcom/android/camera/module/LiveModule$7;->$SwitchMap$com$ss$android$ttve$oauth$TEOAuthResult:[I
+    iget-object v0, p0, Lcom/android/camera/module/LiveModule$7;->this$0:Lcom/android/camera/module/LiveModule;
 
-    sget-object v1, Lcom/ss/android/ttve/oauth/TEOAuthResult;->OK:Lcom/ss/android/ttve/oauth/TEOAuthResult;
+    invoke-virtual {v0}, Lcom/android/camera/module/LiveModule;->isAlive()Z
 
-    invoke-virtual {v1}, Lcom/ss/android/ttve/oauth/TEOAuthResult;->ordinal()I
+    move-result v0
 
-    move-result v1
+    if-eqz v0, :cond_0
 
-    const/4 v2, 0x1
+    iget-object v0, p0, Lcom/android/camera/module/LiveModule$7;->this$0:Lcom/android/camera/module/LiveModule;
 
-    aput v2, v0, v1
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-virtual {v0}, Lcom/android/camera/module/LiveModule;->getCameraState()I
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
 
     goto :goto_0
 
-    :catch_0
-    move-exception v0
+    :cond_0
+    const/4 v0, 0x0
 
     :goto_0
-    :try_start_1
-    sget-object v0, Lcom/android/camera/module/LiveModule$7;->$SwitchMap$com$ss$android$ttve$oauth$TEOAuthResult:[I
+    return v0
+.end method
 
-    sget-object v1, Lcom/ss/android/ttve/oauth/TEOAuthResult;->TBD:Lcom/ss/android/ttve/oauth/TEOAuthResult;
+.method public notifyDevicePostureChanged()V
+    .locals 1
 
-    invoke-virtual {v1}, Lcom/ss/android/ttve/oauth/TEOAuthResult;->ordinal()I
+    iget-object v0, p0, Lcom/android/camera/module/LiveModule$7;->this$0:Lcom/android/camera/module/LiveModule;
 
-    move-result v1
+    iget-object v0, v0, Lcom/android/camera/module/LiveModule;->mActivity:Lcom/android/camera/Camera;
 
-    const/4 v2, 0x2
+    invoke-virtual {v0}, Lcom/android/camera/Camera;->getEdgeShutterView()Lcom/android/camera/ui/V9EdgeShutterView;
 
-    aput v2, v0, v1
-    :try_end_1
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_1
+    move-result-object v0
 
-    goto :goto_1
+    invoke-virtual {v0}, Lcom/android/camera/ui/V9EdgeShutterView;->onDevicePostureChanged()V
 
-    :catch_1
-    move-exception v0
+    return-void
+.end method
 
-    :goto_1
-    :try_start_2
-    sget-object v0, Lcom/android/camera/module/LiveModule$7;->$SwitchMap$com$ss$android$ttve$oauth$TEOAuthResult:[I
+.method public onDeviceBecomeStable()V
+    .locals 2
 
-    sget-object v1, Lcom/ss/android/ttve/oauth/TEOAuthResult;->FAIL:Lcom/ss/android/ttve/oauth/TEOAuthResult;
+    invoke-static {}, Lcom/android/camera/module/LiveModule;->access$300()Ljava/lang/String;
 
-    invoke-virtual {v1}, Lcom/ss/android/ttve/oauth/TEOAuthResult;->ordinal()I
+    move-result-object v0
 
-    move-result v1
+    const-string v1, "onDeviceBecomeStable"
 
-    const/4 v2, 0x3
+    invoke-static {v0, v1}, Lcom/android/camera/log/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    aput v2, v0, v1
-    :try_end_2
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_2
+    return-void
+.end method
 
-    goto :goto_2
+.method public onDeviceBeginMoving()V
+    .locals 0
 
-    :catch_2
-    move-exception v0
+    return-void
+.end method
 
-    :goto_2
-    :try_start_3
-    sget-object v0, Lcom/android/camera/module/LiveModule$7;->$SwitchMap$com$ss$android$ttve$oauth$TEOAuthResult:[I
+.method public onDeviceKeepMoving(D)V
+    .locals 7
 
-    sget-object v1, Lcom/ss/android/ttve/oauth/TEOAuthResult;->EXPIRED:Lcom/ss/android/ttve/oauth/TEOAuthResult;
+    iget-object v0, p0, Lcom/android/camera/module/LiveModule$7;->this$0:Lcom/android/camera/module/LiveModule;
 
-    invoke-virtual {v1}, Lcom/ss/android/ttve/oauth/TEOAuthResult;->ordinal()I
+    iget-object v0, v0, Lcom/android/camera/module/LiveModule;->mMainProtocol:Lcom/android/camera/protocol/ModeProtocol$MainContentProtocol;
 
-    move-result v1
+    const/4 v1, 0x1
 
-    const/4 v2, 0x4
+    invoke-interface {v0, v1}, Lcom/android/camera/protocol/ModeProtocol$MainContentProtocol;->isEvAdjusted(Z)Z
 
-    aput v2, v0, v1
-    :try_end_3
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_3
+    move-result v0
 
-    goto :goto_3
+    if-nez v0, :cond_0
 
-    :catch_3
-    move-exception v0
+    iget-object v0, p0, Lcom/android/camera/module/LiveModule$7;->this$0:Lcom/android/camera/module/LiveModule;
 
-    :goto_3
-    :try_start_4
-    sget-object v0, Lcom/android/camera/module/LiveModule$7;->$SwitchMap$com$ss$android$ttve$oauth$TEOAuthResult:[I
+    iget-boolean v0, v0, Lcom/android/camera/module/LiveModule;->mPaused:Z
 
-    sget-object v1, Lcom/ss/android/ttve/oauth/TEOAuthResult;->NOT_MATCH:Lcom/ss/android/ttve/oauth/TEOAuthResult;
+    if-nez v0, :cond_0
 
-    invoke-virtual {v1}, Lcom/ss/android/ttve/oauth/TEOAuthResult;->ordinal()I
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result v1
+    move-result-wide v1
 
-    const/4 v2, 0x5
+    iget-object v0, p0, Lcom/android/camera/module/LiveModule$7;->this$0:Lcom/android/camera/module/LiveModule;
 
-    aput v2, v0, v1
-    :try_end_4
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_4
+    invoke-static {v0}, Lcom/android/camera/module/LiveModule;->access$500(Lcom/android/camera/module/LiveModule;)J
 
-    goto :goto_4
+    move-result-wide v3
 
-    :catch_4
-    move-exception v0
+    const-wide/16 v5, 0xbb8
 
-    :goto_4
+    invoke-static/range {v1 .. v6}, Lcom/android/camera/Util;->isTimeout(JJJ)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/camera/module/LiveModule$7;->this$0:Lcom/android/camera/module/LiveModule;
+
+    invoke-virtual {v0}, Lcom/android/camera/module/LiveModule;->is3ALocked()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/camera/module/LiveModule$7;->this$0:Lcom/android/camera/module/LiveModule;
+
+    invoke-static {v0}, Lcom/android/camera/module/LiveModule;->access$600(Lcom/android/camera/module/LiveModule;)Lcom/android/camera/module/loader/camera2/FocusManager2;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/camera/module/LiveModule$7;->this$0:Lcom/android/camera/module/LiveModule;
+
+    invoke-static {v0}, Lcom/android/camera/module/LiveModule;->access$600(Lcom/android/camera/module/LiveModule;)Lcom/android/camera/module/loader/camera2/FocusManager2;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/camera/module/loader/camera2/FocusManager2;->isNeedCancelAutoFocus()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/camera/module/LiveModule$7;->this$0:Lcom/android/camera/module/LiveModule;
+
+    invoke-virtual {v0}, Lcom/android/camera/module/LiveModule;->isRecording()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/camera/module/LiveModule$7;->this$0:Lcom/android/camera/module/LiveModule;
+
+    invoke-static {v0}, Lcom/android/camera/module/LiveModule;->access$600(Lcom/android/camera/module/LiveModule;)Lcom/android/camera/module/loader/camera2/FocusManager2;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1, p2}, Lcom/android/camera/module/loader/camera2/FocusManager2;->onDeviceKeepMoving(D)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public onDeviceKeepStable()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onDeviceOrientationChanged(FZ)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onDeviceRotationChanged([F)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/camera/module/LiveModule$7;->this$0:Lcom/android/camera/module/LiveModule;
+
+    invoke-static {v0}, Lcom/android/camera/module/LiveModule;->access$700(Lcom/android/camera/module/LiveModule;)Lcom/android/camera/protocol/ModeProtocol$LiveConfigChanges;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/camera/module/LiveModule$7;->this$0:Lcom/android/camera/module/LiveModule;
+
+    invoke-static {v0}, Lcom/android/camera/module/LiveModule;->access$700(Lcom/android/camera/module/LiveModule;)Lcom/android/camera/protocol/ModeProtocol$LiveConfigChanges;
+
+    move-result-object v0
+
+    invoke-interface {v0, p1}, Lcom/android/camera/protocol/ModeProtocol$LiveConfigChanges;->onDeviceRotationChange([F)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public onSensorChanged(Landroid/hardware/SensorEvent;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/camera/module/LiveModule$7;->this$0:Lcom/android/camera/module/LiveModule;
+
+    invoke-static {v0}, Lcom/android/camera/module/LiveModule;->access$700(Lcom/android/camera/module/LiveModule;)Lcom/android/camera/protocol/ModeProtocol$LiveConfigChanges;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/camera/module/LiveModule$7;->this$0:Lcom/android/camera/module/LiveModule;
+
+    invoke-static {v0}, Lcom/android/camera/module/LiveModule;->access$700(Lcom/android/camera/module/LiveModule;)Lcom/android/camera/protocol/ModeProtocol$LiveConfigChanges;
+
+    move-result-object v0
+
+    invoke-interface {v0, p1}, Lcom/android/camera/protocol/ModeProtocol$LiveConfigChanges;->onSensorChanged(Landroid/hardware/SensorEvent;)V
+
+    :cond_0
     return-void
 .end method

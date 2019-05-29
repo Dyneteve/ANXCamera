@@ -5,8 +5,8 @@ import com.ss.android.ugc.effectmanager.effect.model.ComposerHelper;
 
 /* compiled from: MediaStoreUtil */
 public final class b {
-    private static final int el = 512;
-    private static final int em = 384;
+    private static final int em = 512;
+    private static final int en = 384;
 
     private b() {
     }
@@ -28,6 +28,6 @@ public final class b {
     }
 
     public static boolean j(int i, int i2) {
-        return i != Integer.MIN_VALUE && i2 != Integer.MIN_VALUE && i <= 512 && i2 <= em;
+        return i != Integer.MIN_VALUE && i2 != Integer.MIN_VALUE && i <= 512 && i2 <= en;
     }
 }

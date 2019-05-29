@@ -35,15 +35,38 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .locals 2
+
+    invoke-static {}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$100()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "releaseRender...."
+
+    invoke-static {v0, v1}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v0, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$3;->this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
 
-    invoke-static {v0}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$400(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;)Lcom/arcsoft/avatar/AvatarEngine;
+    invoke-static {v0}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$600(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;)Lcom/arcsoft/avatar/AvatarEngine;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$3;->this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
+
+    invoke-static {v0}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$600(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;)Lcom/arcsoft/avatar/AvatarEngine;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/arcsoft/avatar/AvatarEngine;->releaseRender()V
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$3;->this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
+
+    const/4 v1, 0x1
+
+    invoke-static {v0, v1}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$702(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;Z)Z
 
     return-void
 .end method

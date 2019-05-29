@@ -11,34 +11,34 @@ import java.security.MessageDigest;
 
 /* compiled from: ResourceCacheKey */
 final class r implements c {
-    private static final f<Class<?>, byte[]> gT = new f<>(50);
-    private final b ap;
-    private final c eI;
-    private final c eN;
-    private final com.bumptech.glide.load.f eP;
-    private final Class<?> gU;
-    private final i<?> gV;
+    private static final f<Class<?>, byte[]> gU = new f<>(50);
+    private final b aq;
+    private final c eJ;
+    private final c eO;
+    private final com.bumptech.glide.load.f eQ;
+    private final Class<?> gV;
+    private final i<?> gW;
     private final int height;
     private final int width;
 
     r(b bVar, c cVar, c cVar2, int i, int i2, i<?> iVar, Class<?> cls, com.bumptech.glide.load.f fVar) {
-        this.ap = bVar;
-        this.eI = cVar;
-        this.eN = cVar2;
+        this.aq = bVar;
+        this.eJ = cVar;
+        this.eO = cVar2;
         this.width = i;
         this.height = i2;
-        this.gV = iVar;
-        this.gU = cls;
-        this.eP = fVar;
+        this.gW = iVar;
+        this.gV = cls;
+        this.eQ = fVar;
     }
 
     private byte[] bj() {
-        byte[] bArr = (byte[]) gT.get(this.gU);
+        byte[] bArr = (byte[]) gU.get(this.gV);
         if (bArr != null) {
             return bArr;
         }
-        byte[] bytes = this.gU.getName().getBytes(dG);
-        gT.put(this.gU, bytes);
+        byte[] bytes = this.gV.getName().getBytes(dH);
+        gU.put(this.gV, bytes);
         return bytes;
     }
 
@@ -48,52 +48,52 @@ final class r implements c {
             return false;
         }
         r rVar = (r) obj;
-        if (this.height == rVar.height && this.width == rVar.width && k.c(this.gV, rVar.gV) && this.gU.equals(rVar.gU) && this.eI.equals(rVar.eI) && this.eN.equals(rVar.eN) && this.eP.equals(rVar.eP)) {
+        if (this.height == rVar.height && this.width == rVar.width && k.c(this.gW, rVar.gW) && this.gV.equals(rVar.gV) && this.eJ.equals(rVar.eJ) && this.eO.equals(rVar.eO) && this.eQ.equals(rVar.eQ)) {
             z = true;
         }
         return z;
     }
 
     public int hashCode() {
-        int hashCode = (((((this.eI.hashCode() * 31) + this.eN.hashCode()) * 31) + this.width) * 31) + this.height;
-        if (this.gV != null) {
-            hashCode = (hashCode * 31) + this.gV.hashCode();
+        int hashCode = (((((this.eJ.hashCode() * 31) + this.eO.hashCode()) * 31) + this.width) * 31) + this.height;
+        if (this.gW != null) {
+            hashCode = (hashCode * 31) + this.gW.hashCode();
         }
-        return (31 * ((hashCode * 31) + this.gU.hashCode())) + this.eP.hashCode();
+        return (31 * ((hashCode * 31) + this.gV.hashCode())) + this.eQ.hashCode();
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("ResourceCacheKey{sourceKey=");
-        sb.append(this.eI);
+        sb.append(this.eJ);
         sb.append(", signature=");
-        sb.append(this.eN);
+        sb.append(this.eO);
         sb.append(", width=");
         sb.append(this.width);
         sb.append(", height=");
         sb.append(this.height);
         sb.append(", decodedResourceClass=");
-        sb.append(this.gU);
-        sb.append(", transformation='");
         sb.append(this.gV);
+        sb.append(", transformation='");
+        sb.append(this.gW);
         sb.append('\'');
         sb.append(", options=");
-        sb.append(this.eP);
+        sb.append(this.eQ);
         sb.append('}');
         return sb.toString();
     }
 
     public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
-        byte[] bArr = (byte[]) this.ap.b(8, byte[].class);
+        byte[] bArr = (byte[]) this.aq.b(8, byte[].class);
         ByteBuffer.wrap(bArr).putInt(this.width).putInt(this.height).array();
-        this.eN.updateDiskCacheKey(messageDigest);
-        this.eI.updateDiskCacheKey(messageDigest);
+        this.eO.updateDiskCacheKey(messageDigest);
+        this.eJ.updateDiskCacheKey(messageDigest);
         messageDigest.update(bArr);
-        if (this.gV != null) {
-            this.gV.updateDiskCacheKey(messageDigest);
+        if (this.gW != null) {
+            this.gW.updateDiskCacheKey(messageDigest);
         }
-        this.eP.updateDiskCacheKey(messageDigest);
+        this.eQ.updateDiskCacheKey(messageDigest);
         messageDigest.update(bj());
-        this.ap.put(bArr);
+        this.aq.put(bArr);
     }
 }

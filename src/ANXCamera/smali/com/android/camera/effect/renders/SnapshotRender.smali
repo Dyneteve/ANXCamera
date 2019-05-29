@@ -12,13 +12,9 @@
 
 
 # static fields
-.field private static final CONFIG_SPEC:[I
-
 .field private static final DUMP_TEXTURE:Z = false
 
 .field private static final EGL_CONTEXT_CLIENT_VERSION:I = 0x3098
-
-.field private static final EGL_OPENGL_ES2_BIT:I = 0x4
 
 .field private static final QUEUE_LIMIT:I = 0x7
 
@@ -28,35 +24,49 @@
 # instance fields
 .field private m48MCameraWaterMarkBitmap:Landroid/graphics/Bitmap;
 
+.field private mBlockHeight:I
+
+.field private mBlockWidth:I
+
 .field private mCurrentCustomWaterMarkText:Ljava/lang/String;
+
+.field private mDeviceWaterMarkParam:Lcom/android/camera/effect/renders/DeviceWatermarkParam;
 
 .field private mDualCameraWaterMarkBitmap:Landroid/graphics/Bitmap;
 
-.field private mDualCameraWaterMarkParam:Lcom/android/camera/effect/renders/DualWatermarkParam;
-
-.field private mEgl:Ljavax/microedition/khronos/egl/EGL10;
-
-.field private mEglConfig:Ljavax/microedition/khronos/egl/EGLConfig;
-
-.field private mEglContext:Ljavax/microedition/khronos/egl/EGLContext;
-
-.field private mEglDisplay:Ljavax/microedition/khronos/egl/EGLDisplay;
+.field private mEglCore:Lcom/android/camera/effect/framework/gles/EglCore;
 
 .field private mEglHandler:Lcom/android/camera/effect/renders/SnapshotRender$EGLHandler;
-
-.field private mEglSurface:Ljavax/microedition/khronos/egl/EGLSurface;
 
 .field private mEglThread:Landroid/os/HandlerThread;
 
 .field private mEglThreadBlockVar:Landroid/os/ConditionVariable;
 
+.field private mFrameCounter:Lcom/android/camera/effect/framework/utils/CounterUtil;
+
+.field private mFrontCameraWaterMarkBitmap:Landroid/graphics/Bitmap;
+
 .field private volatile mImageQueueSize:I
 
 .field private final mLock:Ljava/lang/Object;
 
+.field private mMemImage:Lcom/android/camera/effect/framework/image/MemYuvImage;
+
+.field private mQuality:I
+
 .field private mRelease:Z
 
 .field private mReleasePending:Z
+
+.field private mRenderCounter:Lcom/android/camera/effect/framework/utils/CounterUtil;
+
+.field private mRenderSurface:Lcom/android/camera/effect/framework/gles/PbufferSurface;
+
+.field private mSplitter:Lcom/android/camera/effect/framework/graphics/Splitter;
+
+.field private mTextureId:I
+
+.field private mTotalCounter:Lcom/android/camera/effect/framework/utils/CounterUtil;
 
 
 # direct methods
@@ -97,28 +107,7 @@
 
     sput-object v0, Lcom/android/camera/effect/renders/SnapshotRender;->TAG:Ljava/lang/String;
 
-    const/16 v0, 0x9
-
-    new-array v0, v0, [I
-
-    fill-array-data v0, :array_0
-
-    sput-object v0, Lcom/android/camera/effect/renders/SnapshotRender;->CONFIG_SPEC:[I
-
     return-void
-
-    :array_0
-    .array-data 4
-        0x3040
-        0x4
-        0x3024
-        0x8
-        0x3023
-        0x8
-        0x3022
-        0x8
-        0x3038
-    .end array-data
 .end method
 
 .method public constructor <init>(Landroid/util/Size;)V
@@ -129,6 +118,10 @@
     .end param
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/16 v0, 0x61
+
+    iput v0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mQuality:I
 
     const/4 v0, 0x0
 
@@ -194,6 +187,41 @@
 
     iput-object v1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mEglHandler:Lcom/android/camera/effect/renders/SnapshotRender$EGLHandler;
 
+    iget-object v1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mMemImage:Lcom/android/camera/effect/framework/image/MemYuvImage;
+
+    if-nez v1, :cond_0
+
+    new-instance v1, Lcom/android/camera/effect/framework/image/MemYuvImage;
+
+    invoke-direct {v1}, Lcom/android/camera/effect/framework/image/MemYuvImage;-><init>()V
+
+    iput-object v1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mMemImage:Lcom/android/camera/effect/framework/image/MemYuvImage;
+
+    :cond_0
+    new-instance v1, Lcom/android/camera/effect/framework/utils/CounterUtil;
+
+    invoke-direct {v1}, Lcom/android/camera/effect/framework/utils/CounterUtil;-><init>()V
+
+    iput-object v1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mFrameCounter:Lcom/android/camera/effect/framework/utils/CounterUtil;
+
+    new-instance v1, Lcom/android/camera/effect/framework/utils/CounterUtil;
+
+    invoke-direct {v1}, Lcom/android/camera/effect/framework/utils/CounterUtil;-><init>()V
+
+    iput-object v1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mTotalCounter:Lcom/android/camera/effect/framework/utils/CounterUtil;
+
+    new-instance v1, Lcom/android/camera/effect/framework/utils/CounterUtil;
+
+    invoke-direct {v1}, Lcom/android/camera/effect/framework/utils/CounterUtil;-><init>()V
+
+    iput-object v1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mRenderCounter:Lcom/android/camera/effect/framework/utils/CounterUtil;
+
+    new-instance v1, Lcom/android/camera/effect/framework/graphics/Splitter;
+
+    invoke-direct {v1}, Lcom/android/camera/effect/framework/graphics/Splitter;-><init>()V
+
+    iput-object v1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mSplitter:Lcom/android/camera/effect/framework/graphics/Splitter;
+
     iget-object v1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mEglHandler:Lcom/android/camera/effect/renders/SnapshotRender$EGLHandler;
 
     invoke-virtual {v1, v0, p1}, Lcom/android/camera/effect/renders/SnapshotRender$EGLHandler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
@@ -225,23 +253,23 @@
     return p0
 .end method
 
-.method static synthetic access$1000(Lcom/android/camera/effect/renders/SnapshotRender;)Ljavax/microedition/khronos/egl/EGLSurface;
+.method static synthetic access$1000(Lcom/android/camera/effect/renders/SnapshotRender;)Landroid/graphics/Bitmap;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mEglSurface:Ljavax/microedition/khronos/egl/EGLSurface;
+    iget-object p0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mFrontCameraWaterMarkBitmap:Landroid/graphics/Bitmap;
 
     return-object p0
 .end method
 
-.method static synthetic access$1002(Lcom/android/camera/effect/renders/SnapshotRender;Ljavax/microedition/khronos/egl/EGLSurface;)Ljavax/microedition/khronos/egl/EGLSurface;
+.method static synthetic access$1100(Lcom/android/camera/effect/renders/SnapshotRender;)Lcom/android/camera/effect/renders/DeviceWatermarkParam;
     .locals 0
 
-    iput-object p1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mEglSurface:Ljavax/microedition/khronos/egl/EGLSurface;
+    iget-object p0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mDeviceWaterMarkParam:Lcom/android/camera/effect/renders/DeviceWatermarkParam;
 
-    return-object p1
+    return-object p0
 .end method
 
-.method static synthetic access$1100(Lcom/android/camera/effect/renders/SnapshotRender;)Landroid/graphics/Bitmap;
+.method static synthetic access$1200(Lcom/android/camera/effect/renders/SnapshotRender;)Landroid/graphics/Bitmap;
     .locals 0
 
     iget-object p0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mDualCameraWaterMarkBitmap:Landroid/graphics/Bitmap;
@@ -249,20 +277,12 @@
     return-object p0
 .end method
 
-.method static synthetic access$1102(Lcom/android/camera/effect/renders/SnapshotRender;Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
+.method static synthetic access$1202(Lcom/android/camera/effect/renders/SnapshotRender;Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
     .locals 0
 
     iput-object p1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mDualCameraWaterMarkBitmap:Landroid/graphics/Bitmap;
 
     return-object p1
-.end method
-
-.method static synthetic access$1200(Lcom/android/camera/effect/renders/SnapshotRender;)Lcom/android/camera/effect/renders/DualWatermarkParam;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mDualCameraWaterMarkParam:Lcom/android/camera/effect/renders/DualWatermarkParam;
-
-    return-object p0
 .end method
 
 .method static synthetic access$1300(Lcom/android/camera/effect/renders/SnapshotRender;)Ljava/lang/String;
@@ -317,12 +337,28 @@
     return-object p0
 .end method
 
-.method static synthetic access$1700(Lcom/android/camera/effect/renders/SnapshotRender;)V
+.method static synthetic access$1700(Lcom/android/camera/effect/renders/SnapshotRender;)Lcom/android/camera/effect/framework/utils/CounterUtil;
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/camera/effect/renders/SnapshotRender;->destroy()V
+    iget-object p0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mTotalCounter:Lcom/android/camera/effect/framework/utils/CounterUtil;
 
-    return-void
+    return-object p0
+.end method
+
+.method static synthetic access$1800(Lcom/android/camera/effect/renders/SnapshotRender;)Lcom/android/camera/effect/framework/image/MemYuvImage;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mMemImage:Lcom/android/camera/effect/framework/image/MemYuvImage;
+
+    return-object p0
+.end method
+
+.method static synthetic access$1900(Lcom/android/camera/effect/renders/SnapshotRender;)Lcom/android/camera/effect/framework/graphics/Splitter;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mSplitter:Lcom/android/camera/effect/framework/graphics/Splitter;
+
+    return-object p0
 .end method
 
 .method static synthetic access$200(Lcom/android/camera/effect/renders/SnapshotRender;)Ljava/lang/Object;
@@ -331,6 +367,30 @@
     iget-object p0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mLock:Ljava/lang/Object;
 
     return-object p0
+.end method
+
+.method static synthetic access$2000(Lcom/android/camera/effect/renders/SnapshotRender;)Lcom/android/camera/effect/framework/utils/CounterUtil;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mFrameCounter:Lcom/android/camera/effect/framework/utils/CounterUtil;
+
+    return-object p0
+.end method
+
+.method static synthetic access$2100(Lcom/android/camera/effect/renders/SnapshotRender;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mQuality:I
+
+    return p0
+.end method
+
+.method static synthetic access$2200(Lcom/android/camera/effect/renders/SnapshotRender;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/camera/effect/renders/SnapshotRender;->destroy()V
+
+    return-void
 .end method
 
 .method static synthetic access$310(Lcom/android/camera/effect/renders/SnapshotRender;)I
@@ -345,39 +405,7 @@
     return v0
 .end method
 
-.method static synthetic access$400(Lcom/android/camera/effect/renders/SnapshotRender;)Ljavax/microedition/khronos/egl/EGL10;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mEgl:Ljavax/microedition/khronos/egl/EGL10;
-
-    return-object p0
-.end method
-
-.method static synthetic access$402(Lcom/android/camera/effect/renders/SnapshotRender;Ljavax/microedition/khronos/egl/EGL10;)Ljavax/microedition/khronos/egl/EGL10;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mEgl:Ljavax/microedition/khronos/egl/EGL10;
-
-    return-object p1
-.end method
-
-.method static synthetic access$500(Lcom/android/camera/effect/renders/SnapshotRender;)Ljavax/microedition/khronos/egl/EGLDisplay;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mEglDisplay:Ljavax/microedition/khronos/egl/EGLDisplay;
-
-    return-object p0
-.end method
-
-.method static synthetic access$502(Lcom/android/camera/effect/renders/SnapshotRender;Ljavax/microedition/khronos/egl/EGLDisplay;)Ljavax/microedition/khronos/egl/EGLDisplay;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mEglDisplay:Ljavax/microedition/khronos/egl/EGLDisplay;
-
-    return-object p1
-.end method
-
-.method static synthetic access$600()Ljava/lang/String;
+.method static synthetic access$400()Ljava/lang/String;
     .locals 1
 
     sget-object v0, Lcom/android/camera/effect/renders/SnapshotRender;->TAG:Ljava/lang/String;
@@ -385,131 +413,118 @@
     return-object v0
 .end method
 
-.method static synthetic access$700(Lcom/android/camera/effect/renders/SnapshotRender;)Ljavax/microedition/khronos/egl/EGLConfig;
+.method static synthetic access$500(Lcom/android/camera/effect/renders/SnapshotRender;II)I
     .locals 0
 
-    iget-object p0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mEglConfig:Ljavax/microedition/khronos/egl/EGLConfig;
-
-    return-object p0
-.end method
-
-.method static synthetic access$702(Lcom/android/camera/effect/renders/SnapshotRender;Ljavax/microedition/khronos/egl/EGLConfig;)Ljavax/microedition/khronos/egl/EGLConfig;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mEglConfig:Ljavax/microedition/khronos/egl/EGLConfig;
-
-    return-object p1
-.end method
-
-.method static synthetic access$800(Ljavax/microedition/khronos/egl/EGL10;Ljavax/microedition/khronos/egl/EGLDisplay;)Ljavax/microedition/khronos/egl/EGLConfig;
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/android/camera/effect/renders/SnapshotRender;->chooseConfig(Ljavax/microedition/khronos/egl/EGL10;Ljavax/microedition/khronos/egl/EGLDisplay;)Ljavax/microedition/khronos/egl/EGLConfig;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method static synthetic access$900(Lcom/android/camera/effect/renders/SnapshotRender;)Ljavax/microedition/khronos/egl/EGLContext;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mEglContext:Ljavax/microedition/khronos/egl/EGLContext;
-
-    return-object p0
-.end method
-
-.method static synthetic access$902(Lcom/android/camera/effect/renders/SnapshotRender;Ljavax/microedition/khronos/egl/EGLContext;)Ljavax/microedition/khronos/egl/EGLContext;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mEglContext:Ljavax/microedition/khronos/egl/EGLContext;
-
-    return-object p1
-.end method
-
-.method private static chooseConfig(Ljavax/microedition/khronos/egl/EGL10;Ljavax/microedition/khronos/egl/EGLDisplay;)Ljavax/microedition/khronos/egl/EGLConfig;
-    .locals 9
-
-    const/4 v0, 0x1
-
-    new-array v0, v0, [I
-
-    sget-object v3, Lcom/android/camera/effect/renders/SnapshotRender;->CONFIG_SPEC:[I
-
-    const/4 v4, 0x0
-
-    const/4 v5, 0x0
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object v6, v0
-
-    invoke-interface/range {v1 .. v6}, Ljavax/microedition/khronos/egl/EGL10;->eglChooseConfig(Ljavax/microedition/khronos/egl/EGLDisplay;[I[Ljavax/microedition/khronos/egl/EGLConfig;I[I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    const/4 v7, 0x0
-
-    aget v5, v0, v7
-
-    if-lez v5, :cond_1
-
-    new-array v8, v5, [Ljavax/microedition/khronos/egl/EGLConfig;
-
-    sget-object v3, Lcom/android/camera/effect/renders/SnapshotRender;->CONFIG_SPEC:[I
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object v4, v8
-
-    move-object v6, v0
-
-    invoke-interface/range {v1 .. v6}, Ljavax/microedition/khronos/egl/EGL10;->eglChooseConfig(Ljavax/microedition/khronos/egl/EGLDisplay;[I[Ljavax/microedition/khronos/egl/EGLConfig;I[I)Z
+    invoke-direct {p0, p1, p2}, Lcom/android/camera/effect/renders/SnapshotRender;->calEachBlockHeight(II)I
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    return p0
+.end method
 
-    aget-object p0, v8, v7
+.method static synthetic access$600(Lcom/android/camera/effect/renders/SnapshotRender;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mBlockWidth:I
+
+    return p0
+.end method
+
+.method static synthetic access$602(Lcom/android/camera/effect/renders/SnapshotRender;I)I
+    .locals 0
+
+    iput p1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mBlockWidth:I
+
+    return p1
+.end method
+
+.method static synthetic access$700(Lcom/android/camera/effect/renders/SnapshotRender;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mBlockHeight:I
+
+    return p0
+.end method
+
+.method static synthetic access$702(Lcom/android/camera/effect/renders/SnapshotRender;I)I
+    .locals 0
+
+    iput p1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mBlockHeight:I
+
+    return p1
+.end method
+
+.method static synthetic access$712(Lcom/android/camera/effect/renders/SnapshotRender;I)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mBlockHeight:I
+
+    add-int/2addr v0, p1
+
+    iput v0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mBlockHeight:I
+
+    return v0
+.end method
+
+.method static synthetic access$800(Lcom/android/camera/effect/renders/SnapshotRender;)Lcom/android/camera/effect/framework/gles/EglCore;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mEglCore:Lcom/android/camera/effect/framework/gles/EglCore;
 
     return-object p0
+.end method
+
+.method static synthetic access$802(Lcom/android/camera/effect/renders/SnapshotRender;Lcom/android/camera/effect/framework/gles/EglCore;)Lcom/android/camera/effect/framework/gles/EglCore;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mEglCore:Lcom/android/camera/effect/framework/gles/EglCore;
+
+    return-object p1
+.end method
+
+.method static synthetic access$900(Lcom/android/camera/effect/renders/SnapshotRender;)Lcom/android/camera/effect/framework/gles/PbufferSurface;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mRenderSurface:Lcom/android/camera/effect/framework/gles/PbufferSurface;
+
+    return-object p0
+.end method
+
+.method static synthetic access$902(Lcom/android/camera/effect/renders/SnapshotRender;Lcom/android/camera/effect/framework/gles/PbufferSurface;)Lcom/android/camera/effect/framework/gles/PbufferSurface;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mRenderSurface:Lcom/android/camera/effect/framework/gles/PbufferSurface;
+
+    return-object p1
+.end method
+
+.method private calEachBlockHeight(II)I
+    .locals 3
+
+    nop
+
+    const/4 v0, 0x1
+
+    :goto_0
+    mul-int v1, p1, p2
+
+    const v2, 0x5b8d80
+
+    if-le v1, v2, :cond_0
+
+    shr-int/lit8 p2, p2, 0x1
+
+    shl-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
 
     :cond_0
-    new-instance p0, Ljava/lang/IllegalArgumentException;
-
-    const-string p1, "eglChooseConfig#2 failed"
-
-    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw p0
-
-    :cond_1
-    new-instance p0, Ljava/lang/IllegalArgumentException;
-
-    const-string p1, "No configs match configSpec"
-
-    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw p0
-
-    :cond_2
-    new-instance p0, Ljava/lang/IllegalArgumentException;
-
-    const-string p1, "eglChooseConfig failed"
-
-    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw p0
+    return v0
 .end method
 
 .method private destroy()V
-    .locals 5
+    .locals 3
 
     const/4 v0, 0x1
 
@@ -519,71 +534,72 @@
 
     iput-boolean v0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mReleasePending:Z
 
-    iget-object v0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mEgl:Ljavax/microedition/khronos/egl/EGL10;
+    iget-object v0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mRenderSurface:Lcom/android/camera/effect/framework/gles/PbufferSurface;
 
-    iget-object v1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mEglDisplay:Ljavax/microedition/khronos/egl/EGLDisplay;
+    const/4 v1, 0x0
 
-    iget-object v2, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mEglSurface:Ljavax/microedition/khronos/egl/EGLSurface;
+    if-eqz v0, :cond_0
 
-    invoke-interface {v0, v1, v2}, Ljavax/microedition/khronos/egl/EGL10;->eglDestroySurface(Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLSurface;)Z
+    iget-object v0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mRenderSurface:Lcom/android/camera/effect/framework/gles/PbufferSurface;
 
-    iget-object v0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mEgl:Ljavax/microedition/khronos/egl/EGL10;
+    invoke-virtual {v0}, Lcom/android/camera/effect/framework/gles/PbufferSurface;->release()V
 
-    iget-object v1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mEglDisplay:Ljavax/microedition/khronos/egl/EGLDisplay;
-
-    iget-object v2, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mEglContext:Ljavax/microedition/khronos/egl/EGLContext;
-
-    invoke-interface {v0, v1, v2}, Ljavax/microedition/khronos/egl/EGL10;->eglDestroyContext(Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLContext;)Z
-
-    iget-object v0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mEgl:Ljavax/microedition/khronos/egl/EGL10;
-
-    iget-object v1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mEglDisplay:Ljavax/microedition/khronos/egl/EGLDisplay;
-
-    sget-object v2, Ljavax/microedition/khronos/egl/EGL10;->EGL_NO_SURFACE:Ljavax/microedition/khronos/egl/EGLSurface;
-
-    sget-object v3, Ljavax/microedition/khronos/egl/EGL10;->EGL_NO_SURFACE:Ljavax/microedition/khronos/egl/EGLSurface;
-
-    sget-object v4, Ljavax/microedition/khronos/egl/EGL10;->EGL_NO_CONTEXT:Ljavax/microedition/khronos/egl/EGLContext;
-
-    invoke-interface {v0, v1, v2, v3, v4}, Ljavax/microedition/khronos/egl/EGL10;->eglMakeCurrent(Ljavax/microedition/khronos/egl/EGLDisplay;Ljavax/microedition/khronos/egl/EGLSurface;Ljavax/microedition/khronos/egl/EGLSurface;Ljavax/microedition/khronos/egl/EGLContext;)Z
-
-    iget-object v0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mEgl:Ljavax/microedition/khronos/egl/EGL10;
-
-    iget-object v1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mEglDisplay:Ljavax/microedition/khronos/egl/EGLDisplay;
-
-    invoke-interface {v0, v1}, Ljavax/microedition/khronos/egl/EGL10;->eglTerminate(Ljavax/microedition/khronos/egl/EGLDisplay;)Z
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mEglSurface:Ljavax/microedition/khronos/egl/EGLSurface;
-
-    iput-object v0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mEglContext:Ljavax/microedition/khronos/egl/EGLContext;
-
-    iput-object v0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mEglDisplay:Ljavax/microedition/khronos/egl/EGLDisplay;
-
-    iget-object v1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mEglThread:Landroid/os/HandlerThread;
-
-    invoke-virtual {v1}, Landroid/os/HandlerThread;->quit()Z
-
-    iget-object v1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mDualCameraWaterMarkBitmap:Landroid/graphics/Bitmap;
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mDualCameraWaterMarkBitmap:Landroid/graphics/Bitmap;
-
-    invoke-virtual {v1}, Landroid/graphics/Bitmap;->isRecycled()Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mDualCameraWaterMarkBitmap:Landroid/graphics/Bitmap;
-
-    invoke-virtual {v1}, Landroid/graphics/Bitmap;->recycle()V
-
-    iput-object v0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mDualCameraWaterMarkBitmap:Landroid/graphics/Bitmap;
+    iput-object v1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mRenderSurface:Lcom/android/camera/effect/framework/gles/PbufferSurface;
 
     :cond_0
+    iget-object v0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mEglCore:Lcom/android/camera/effect/framework/gles/EglCore;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mEglCore:Lcom/android/camera/effect/framework/gles/EglCore;
+
+    invoke-virtual {v0}, Lcom/android/camera/effect/framework/gles/EglCore;->release()V
+
+    iput-object v1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mEglCore:Lcom/android/camera/effect/framework/gles/EglCore;
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mEglThread:Landroid/os/HandlerThread;
+
+    invoke-virtual {v0}, Landroid/os/HandlerThread;->quit()Z
+
+    iget-object v0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mDualCameraWaterMarkBitmap:Landroid/graphics/Bitmap;
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mDualCameraWaterMarkBitmap:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v0}, Landroid/graphics/Bitmap;->isRecycled()Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mDualCameraWaterMarkBitmap:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
+
+    iput-object v1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mDualCameraWaterMarkBitmap:Landroid/graphics/Bitmap;
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mFrontCameraWaterMarkBitmap:Landroid/graphics/Bitmap;
+
+    if-eqz v0, :cond_3
+
+    iget-object v0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mFrontCameraWaterMarkBitmap:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v0}, Landroid/graphics/Bitmap;->isRecycled()Z
+
+    move-result v0
+
+    if-nez v0, :cond_3
+
+    iget-object v0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mFrontCameraWaterMarkBitmap:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
+
+    iput-object v1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mFrontCameraWaterMarkBitmap:Landroid/graphics/Bitmap;
+
+    :cond_3
     invoke-static {}, Ljava/lang/System;->gc()V
 
     sget-object v0, Lcom/android/camera/effect/renders/SnapshotRender;->TAG:Ljava/lang/String;
@@ -881,34 +897,20 @@
     return v0
 .end method
 
-.method public prepareEffectRender(Lcom/android/camera/effect/renders/DualWatermarkParam;I)V
+.method public prepareEffectRender(Lcom/android/camera/effect/renders/DeviceWatermarkParam;I)V
     .locals 2
 
-    iput-object p1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mDualCameraWaterMarkParam:Lcom/android/camera/effect/renders/DualWatermarkParam;
+    iput-object p1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mDeviceWaterMarkParam:Lcom/android/camera/effect/renders/DeviceWatermarkParam;
 
-    invoke-virtual {p1}, Lcom/android/camera/effect/renders/DualWatermarkParam;->isDualWatermarkEnable()Z
+    invoke-virtual {p1}, Lcom/android/camera/effect/renders/DeviceWatermarkParam;->isDualWatermarkEnable()Z
 
-    move-result p1
+    move-result v0
 
-    const/4 v0, 0x0
+    if-eqz v0, :cond_0
 
-    if-eqz p1, :cond_0
+    iget-object v0, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mDualCameraWaterMarkBitmap:Landroid/graphics/Bitmap;
 
-    iget-object p1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mDualCameraWaterMarkBitmap:Landroid/graphics/Bitmap;
-
-    if-nez p1, :cond_0
-
-    new-instance p1, Landroid/graphics/BitmapFactory$Options;
-
-    invoke-direct {p1}, Landroid/graphics/BitmapFactory$Options;-><init>()V
-
-    iput-boolean v0, p1, Landroid/graphics/BitmapFactory$Options;->inScaled:Z
-
-    const/4 v1, 0x1
-
-    iput-boolean v1, p1, Landroid/graphics/BitmapFactory$Options;->inPurgeable:Z
-
-    iput-boolean v0, p1, Landroid/graphics/BitmapFactory$Options;->inPremultiplied:Z
+    if-nez v0, :cond_0
 
     invoke-static {}, Lcom/android/camera/CameraAppImpl;->getAndroidContext()Landroid/content/Context;
 
@@ -926,22 +928,48 @@
 
     iput-object p1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mCurrentCustomWaterMarkText:Ljava/lang/String;
 
+    goto :goto_0
+
     :cond_0
+    invoke-virtual {p1}, Lcom/android/camera/effect/renders/DeviceWatermarkParam;->isFrontWatermarkEnable()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1
+
+    iget-object p1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mFrontCameraWaterMarkBitmap:Landroid/graphics/Bitmap;
+
+    if-nez p1, :cond_1
+
+    invoke-static {}, Lcom/android/camera/CameraAppImpl;->getAndroidContext()Landroid/content/Context;
+
+    move-result-object p1
+
+    invoke-static {p1}, Lcom/android/camera/Util;->loadFrontCameraWatermark(Landroid/content/Context;)Landroid/graphics/Bitmap;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mFrontCameraWaterMarkBitmap:Landroid/graphics/Bitmap;
+
+    :cond_1
+    :goto_0
     sget p1, Lcom/android/camera/effect/FilterInfo;->FILTER_ID_NONE:I
 
-    if-eq p2, p1, :cond_1
+    if-eq p2, p1, :cond_2
 
     iget-object p1, p0, Lcom/android/camera/effect/renders/SnapshotRender;->mEglHandler:Lcom/android/camera/effect/renders/SnapshotRender$EGLHandler;
 
-    const/4 v1, 0x6
+    const/4 v0, 0x6
 
-    invoke-virtual {p1, v1, p2, v0}, Lcom/android/camera/effect/renders/SnapshotRender$EGLHandler;->obtainMessage(III)Landroid/os/Message;
+    const/4 v1, 0x0
+
+    invoke-virtual {p1, v0, p2, v1}, Lcom/android/camera/effect/renders/SnapshotRender$EGLHandler;->obtainMessage(III)Landroid/os/Message;
 
     move-result-object p1
 
     invoke-virtual {p1}, Landroid/os/Message;->sendToTarget()V
 
-    :cond_1
+    :cond_2
     return-void
 .end method
 

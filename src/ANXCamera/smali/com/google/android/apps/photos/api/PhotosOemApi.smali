@@ -31,7 +31,7 @@
 .method public static getAuthority(Landroid/content/Context;)Ljava/lang/String;
     .locals 1
 
-    const v0, 0x7f090217
+    const v0, 0x7f090215
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

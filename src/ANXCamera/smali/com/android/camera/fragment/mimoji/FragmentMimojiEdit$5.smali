@@ -3,12 +3,12 @@
 .source "FragmentMimojiEdit.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;->goBack(ZZ)V
+    value = Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;->showAlertDialog(I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,12 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;
 
+.field final synthetic val$backType:I
+
 
 # direct methods
-.method constructor <init>(Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;)V
+.method constructor <init>(Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit$5;->this$0:Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;
+
+    iput p2, p0, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit$5;->val$backType:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -34,41 +38,83 @@
 
 
 # virtual methods
-.method public run()V
+.method public onClick(Landroid/content/DialogInterface;I)V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit$5;->this$0:Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;
+    iget p1, p0, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit$5;->val$backType:I
 
-    invoke-static {v0}, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;->access$100(Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;)Lcom/arcsoft/avatar/AvatarEngine;
+    const/4 p2, 0x0
 
-    move-result-object v0
+    const/4 v0, 0x1
 
-    if-eqz v0, :cond_0
+    const/4 v1, 0x2
 
-    sget-object v0, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;->TAG:Ljava/lang/String;
+    if-eq p1, v1, :cond_1
 
-    const-string v1, "releaseRender 2"
+    iget p1, p0, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit$5;->val$backType:I
 
-    invoke-static {v0, v1}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    if-eq p1, v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit$5;->this$0:Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;
+    iget p1, p0, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit$5;->val$backType:I
 
-    invoke-static {v0}, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;->access$100(Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;)Lcom/arcsoft/avatar/AvatarEngine;
+    const/4 v1, 0x3
 
-    move-result-object v0
+    if-ne p1, v1, :cond_0
 
-    invoke-virtual {v0}, Lcom/arcsoft/avatar/AvatarEngine;->releaseRender()V
+    goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit$5;->this$0:Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;
+    move v0, p2
 
-    invoke-static {v0}, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;->access$600(Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;)Lcom/android/camera/ui/MimojiEditGLSurfaceView;
+    goto :goto_1
 
-    move-result-object v0
+    :cond_1
+    :goto_0
+    nop
 
-    const/4 v1, 0x1
+    :goto_1
+    if-nez v0, :cond_3
 
-    invoke-virtual {v0, v1}, Lcom/android/camera/ui/MimojiEditGLSurfaceView;->setStopRender(Z)V
+    iget-object p1, p0, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit$5;->this$0:Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;
+
+    invoke-static {p1}, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;->access$1100(Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_3
+
+    iget-object p1, p0, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit$5;->this$0:Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;
+
+    invoke-static {p1}, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;->access$400(Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;)Lcom/arcsoft/avatar/AvatarEngine;
+
+    move-result-object p1
+
+    iget-object v1, p0, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit$5;->this$0:Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;
+
+    invoke-static {v1}, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;->access$1200(Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    iget-object v1, p0, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit$5;->this$0:Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;
+
+    invoke-static {v1}, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;->access$1300(Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;)Ljava/lang/String;
+
+    move-result-object v1
+
+    goto :goto_2
+
+    :cond_2
+    sget-object v1, Lcom/android/camera/fragment/mimoji/AvatarEngineManager;->TempOriginalConfigPath:Ljava/lang/String;
+
+    :goto_2
+    invoke-virtual {p1, v1}, Lcom/arcsoft/avatar/AvatarEngine;->loadConfig(Ljava/lang/String;)V
+
+    :cond_3
+    iget-object p1, p0, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit$5;->this$0:Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;
+
+    invoke-static {p1, v0, p2}, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;->access$700(Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;ZZ)V
 
     return-void
 .end method

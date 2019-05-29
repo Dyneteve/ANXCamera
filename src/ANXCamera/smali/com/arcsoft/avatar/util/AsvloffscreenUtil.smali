@@ -289,13 +289,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
-
-    invoke-virtual {p0}, Landroid/graphics/Bitmap;->hasAlpha()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_0
 
     goto :goto_0
 

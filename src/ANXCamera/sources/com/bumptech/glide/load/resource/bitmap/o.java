@@ -16,7 +16,7 @@ import java.util.concurrent.locks.Lock;
 /* compiled from: DrawableToBitmapConverter */
 final class o {
     private static final String TAG = "DrawableToBitmap";
-    private static final d lx = new e() {
+    private static final d ly = new e() {
         public void d(Bitmap bitmap) {
         }
     };
@@ -38,7 +38,7 @@ final class o {
             bitmap = null;
         }
         if (!z) {
-            dVar = lx;
+            dVar = ly;
         }
         return f.a(bitmap, dVar);
     }

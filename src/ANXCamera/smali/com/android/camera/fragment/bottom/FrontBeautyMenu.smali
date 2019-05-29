@@ -75,7 +75,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/mi/config/a;->gE()Z
+    invoke-virtual {v0}, Lcom/mi/config/a;->gF()Z
 
     move-result v0
 
@@ -185,7 +185,7 @@
 
     move-result-object v4
 
-    const v6, 0x7f040003
+    const v6, 0x7f040004
 
     iget-object v7, p0, Lcom/android/camera/fragment/bottom/FrontBeautyMenu;->mContainerView:Landroid/widget/LinearLayout;
 
@@ -241,7 +241,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0200f7
+    const v7, 0x7f0200fd
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -253,7 +253,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0a006a
+    const v8, 0x7f0a0061
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -381,13 +381,13 @@
 
     move-result-object v2
 
-    const v3, 0x7f090236
+    const v3, 0x7f090235
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-static {}, Lcom/mi/config/b;->iw()Z
+    invoke-static {}, Lcom/mi/config/b;->iz()Z
 
     move-result v3
 

@@ -1,8 +1,6 @@
 package com.android.camera.fragment.beauty;
 
 import com.android.camera.CameraSettings;
-import com.android.camera.data.DataRepository;
-import com.android.camera.data.data.global.DataItemGlobal;
 import com.android.camera.effect.EffectController;
 import com.miui.filtersdk.beauty.BeautyParameterType;
 import com.miui.filtersdk.beauty.BeautyProcessor;
@@ -55,16 +53,6 @@ public class BeautyParameters {
 
     private Map<BeautyParameterType, Float> getProcessorBeautyParams(IntelligentBeautyProcessor intelligentBeautyProcessor, int i) {
         return intelligentBeautyProcessor.getIntelligentLevelParams(i);
-    }
-
-    public static boolean isCurrentModeSupportBeauty() {
-        int currentMode = ((DataItemGlobal) DataRepository.provider().dataGlobal()).getCurrentMode();
-        return currentMode == 162 || currentMode == 161 || currentMode == 174 || currentMode == 176;
-    }
-
-    public static boolean isHiddenBeautyPanelOnShutter() {
-        int currentMode = ((DataItemGlobal) DataRepository.provider().dataGlobal()).getCurrentMode();
-        return currentMode == 162 || currentMode == 161 || currentMode == 174 || currentMode == 176;
     }
 
     private void setBeautyParameters() {

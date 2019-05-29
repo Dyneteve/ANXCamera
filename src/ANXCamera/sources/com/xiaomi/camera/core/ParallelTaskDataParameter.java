@@ -3,7 +3,7 @@ package com.xiaomi.camera.core;
 import android.location.Location;
 import android.support.annotation.NonNull;
 import android.util.Size;
-import com.android.camera.effect.renders.DualWatermarkParam;
+import com.android.camera.effect.renders.DeviceWatermarkParam;
 import com.android.camera.watermark.WaterMarkData;
 import java.util.List;
 
@@ -15,7 +15,7 @@ public class ParallelTaskDataParameter {
     /* access modifiers changed from: private */
     public boolean mBokehFrontCamera;
     /* access modifiers changed from: private */
-    public DualWatermarkParam mDualWatermarkParam;
+    public DeviceWatermarkParam mDeviceWatermarkParam;
     /* access modifiers changed from: private */
     public List<WaterMarkData> mFaceWaterMarkList;
     /* access modifiers changed from: private */
@@ -89,8 +89,8 @@ public class ParallelTaskDataParameter {
             return this;
         }
 
-        public Builder setDualWatermarkParam(DualWatermarkParam dualWatermarkParam) {
-            this.mParameter.mDualWatermarkParam = dualWatermarkParam;
+        public Builder setDeviceWatermarkParam(DeviceWatermarkParam deviceWatermarkParam) {
+            this.mParameter.mDeviceWatermarkParam = deviceWatermarkParam;
             return this;
         }
 
@@ -227,7 +227,7 @@ public class ParallelTaskDataParameter {
         this.mSuffix = parallelTaskDataParameter.mSuffix;
         this.mIsGradienterOn = parallelTaskDataParameter.mIsGradienterOn;
         this.mTiltShiftMode = parallelTaskDataParameter.mTiltShiftMode;
-        this.mDualWatermarkParam = parallelTaskDataParameter.mDualWatermarkParam;
+        this.mDeviceWatermarkParam = parallelTaskDataParameter.mDeviceWatermarkParam;
         this.mJpegQuality = parallelTaskDataParameter.mJpegQuality;
     }
 
@@ -235,8 +235,8 @@ public class ParallelTaskDataParameter {
         return this.mAlgorithmName;
     }
 
-    public DualWatermarkParam getDualWatermarkParam() {
-        return this.mDualWatermarkParam;
+    public DeviceWatermarkParam getDeviceWatermarkParam() {
+        return this.mDeviceWatermarkParam;
     }
 
     public List<WaterMarkData> getFaceWaterMarkList() {
@@ -325,6 +325,10 @@ public class ParallelTaskDataParameter {
 
     public boolean isHasDualWaterMark() {
         return this.mHasDualWaterMark;
+    }
+
+    public boolean isHasFrontWaterMark() {
+        return this.mDeviceWatermarkParam.isFrontWatermarkEnable();
     }
 
     public boolean isMirror() {

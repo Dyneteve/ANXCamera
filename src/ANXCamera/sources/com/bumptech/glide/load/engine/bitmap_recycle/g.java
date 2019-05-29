@@ -9,13 +9,13 @@ import java.util.Map;
 
 /* compiled from: GroupedLinkedMap */
 class g<K extends l, V> {
-    private final a<K, V> hh = new a<>();
-    private final Map<K, a<K, V>> hi = new HashMap();
+    private final a<K, V> hi = new a<>();
+    private final Map<K, a<K, V>> hj = new HashMap();
 
     /* compiled from: GroupedLinkedMap */
     private static class a<K, V> {
-        a<K, V> hj;
         a<K, V> hk;
+        a<K, V> hl;
         final K key;
         private List<V> values;
 
@@ -24,8 +24,8 @@ class g<K extends l, V> {
         }
 
         a(K k) {
+            this.hl = this;
             this.hk = this;
-            this.hj = this;
             this.key = k;
         }
 
@@ -58,34 +58,34 @@ class g<K extends l, V> {
 
     private void a(a<K, V> aVar) {
         d(aVar);
-        aVar.hk = this.hh;
-        aVar.hj = this.hh.hj;
+        aVar.hl = this.hi;
+        aVar.hk = this.hi.hk;
         c(aVar);
     }
 
     private void b(a<K, V> aVar) {
         d(aVar);
-        aVar.hk = this.hh.hk;
-        aVar.hj = this.hh;
+        aVar.hl = this.hi.hl;
+        aVar.hk = this.hi;
         c(aVar);
     }
 
     private static <K, V> void c(a<K, V> aVar) {
-        aVar.hj.hk = aVar;
-        aVar.hk.hj = aVar;
+        aVar.hk.hl = aVar;
+        aVar.hl.hk = aVar;
     }
 
     private static <K, V> void d(a<K, V> aVar) {
-        aVar.hk.hj = aVar.hj;
-        aVar.hj.hk = aVar.hk;
+        aVar.hl.hk = aVar.hk;
+        aVar.hk.hl = aVar.hl;
     }
 
     public void a(K k, V v) {
-        a aVar = (a) this.hi.get(k);
+        a aVar = (a) this.hj.get(k);
         if (aVar == null) {
             aVar = new a(k);
             b(aVar);
-            this.hi.put(k, aVar);
+            this.hj.put(k, aVar);
         } else {
             k.bm();
         }
@@ -94,10 +94,10 @@ class g<K extends l, V> {
 
     @Nullable
     public V b(K k) {
-        a aVar = (a) this.hi.get(k);
+        a aVar = (a) this.hj.get(k);
         if (aVar == null) {
             aVar = new a(k);
-            this.hi.put(k, aVar);
+            this.hj.put(k, aVar);
         } else {
             k.bm();
         }
@@ -107,13 +107,13 @@ class g<K extends l, V> {
 
     @Nullable
     public V removeLast() {
-        for (a<K, V> aVar = this.hh.hk; !aVar.equals(this.hh); aVar = aVar.hk) {
+        for (a<K, V> aVar = this.hi.hl; !aVar.equals(this.hi); aVar = aVar.hl) {
             V removeLast = aVar.removeLast();
             if (removeLast != null) {
                 return removeLast;
             }
             d(aVar);
-            this.hi.remove(aVar.key);
+            this.hj.remove(aVar.key);
             ((l) aVar.key).bm();
         }
         return null;
@@ -122,7 +122,7 @@ class g<K extends l, V> {
     public String toString() {
         StringBuilder sb = new StringBuilder("GroupedLinkedMap( ");
         boolean z = false;
-        for (a<K, V> aVar = this.hh.hj; !aVar.equals(this.hh); aVar = aVar.hj) {
+        for (a<K, V> aVar = this.hi.hk; !aVar.equals(this.hi); aVar = aVar.hk) {
             z = true;
             sb.append('{');
             sb.append(aVar.key);

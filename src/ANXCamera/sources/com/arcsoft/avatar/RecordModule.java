@@ -354,7 +354,7 @@ public class RecordModule {
                     return true;
                 }
                 d.a("avatarProcessWithInfo");
-                this.G.avatarProcessWithInfoEx(asvloffscreen, 90, this.A, i2, this.M);
+                this.G.avatarProcessWithInfoEx(asvloffscreen, 90, this.A, i2, this.M, false);
                 d.a("performance", "avatarProcessWithInfo");
                 this.U = c();
                 this.i = false;
@@ -422,14 +422,14 @@ public class RecordModule {
         }
     }
 
-    public void startRecording(@NonNull String str, RecordingListener recordingListener, int i2, @NonNull int i3, @NonNull int i4, int i5) {
+    public void startRecording(@NonNull String str, RecordingListener recordingListener, int i2, @NonNull int i3, @NonNull int i4, int i5, String str2) {
         int i6 = i2;
-        String str2 = a;
+        String str3 = a;
         StringBuilder sb = new StringBuilder();
         sb.append("save video path = ");
-        String str3 = str;
-        sb.append(str3);
-        Log.d(str2, sb.toString());
+        String str4 = str;
+        sb.append(str4);
+        Log.d(str3, sb.toString());
         try {
             this.e.lock();
             if (!this.g) {
@@ -437,7 +437,7 @@ public class RecordModule {
                 return;
             }
             this.e.unlock();
-            if (i3 != 0 && i4 != 0 && str3.length() != 0) {
+            if (i3 != 0 && i4 != 0 && str4.length() != 0) {
                 if (this.H != null) {
                     throw new RuntimeException("Recording has been started already.");
                 } else if (i6 == 0 || 90 == i6 || 180 == i6 || 270 == i6) {
@@ -446,10 +446,10 @@ public class RecordModule {
                     if (EGL14.EGL_NO_CONTEXT == this.m) {
                         a();
                     }
-                    MediaManager mediaManager = new MediaManager(str3, i3, i4, this.B, this.A, i6, recordingListener2);
+                    MediaManager mediaManager = new MediaManager(str4, i3, i4, this.B, this.A, i6, recordingListener2);
                     this.H = mediaManager;
                     this.H.setEncoderCount(2);
-                    this.H.initVideoEncoderWithSharedContext(this.m, i5, true);
+                    this.H.initVideoEncoderWithSharedContext(this.m, i5, true, str2);
                     this.H.initAudioEncoder();
                     this.H.startRecording();
                     this.K = true;

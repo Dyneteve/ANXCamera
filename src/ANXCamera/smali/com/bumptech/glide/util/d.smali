@@ -20,7 +20,7 @@
 
 
 # instance fields
-.field private final pS:[I
+.field private final pT:[I
 
 
 # direct methods
@@ -41,7 +41,7 @@
 
     aput p2, v0, p1
 
-    iput-object v0, p0, Lcom/bumptech/glide/util/d;->pS:[I
+    iput-object v0, p0, Lcom/bumptech/glide/util/d;->pT:[I
 
     return-void
 .end method
@@ -63,7 +63,7 @@
         }
     .end annotation
 
-    iget-object p1, p0, Lcom/bumptech/glide/util/d;->pS:[I
+    iget-object p1, p0, Lcom/bumptech/glide/util/d;->pT:[I
 
     return-object p1
 .end method

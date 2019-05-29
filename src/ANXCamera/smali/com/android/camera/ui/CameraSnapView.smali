@@ -140,8 +140,21 @@
 .end method
 
 .method private inRegion(II)Z
-    .locals 1
+    .locals 2
 
+    const-string v0, "hercules"
+
+    sget-object v1, Landroid/os/Build;->DEVICE:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    add-int/lit8 p2, p2, -0x60
+
+    :cond_0
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
@@ -539,7 +552,7 @@
 
     const/4 v7, 0x1
 
-    if-eq v0, v1, :cond_5
+    if-eq v0, v1, :cond_6
 
     const/4 v1, 0x0
 
@@ -569,7 +582,7 @@
 
     cmp-long v0, v0, v2
 
-    if-gez v0, :cond_5
+    if-gez v0, :cond_6
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawX()F
 
@@ -587,11 +600,20 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/camera/ui/CameraSnapView;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, v7}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+
+    goto :goto_3
+
+    :cond_1
+    sget-object v0, Lcom/android/camera/ui/CameraSnapView;->TAG:Ljava/lang/String;
+
+    const-string v1, "out of shutter button when you touch up"
+
+    invoke-static {v0, v1}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_3
 
@@ -607,11 +629,11 @@
 
     move-result p1
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_3
 
     iget-boolean p1, p0, Lcom/android/camera/ui/CameraSnapView;->mMissTaken:Z
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_2
 
     iput-boolean v7, p0, Lcom/android/camera/ui/CameraSnapView;->mMissTaken:Z
 
@@ -619,7 +641,7 @@
 
     cmp-long p1, v2, v5
 
-    if-lez p1, :cond_1
+    if-lez p1, :cond_2
 
     iget-object p1, p0, Lcom/android/camera/ui/CameraSnapView;->mSnapListener:Lcom/android/camera/ui/CameraSnapView$SnapListener;
 
@@ -638,11 +660,11 @@
     :pswitch_4
     goto :goto_1
 
-    :cond_1
+    :cond_2
     :goto_0
     return v1
 
-    :cond_2
+    :cond_3
     iget-object p1, p0, Lcom/android/camera/ui/CameraSnapView;->cameraSnapAnimateDrawable:Lcom/android/camera/ui/drawable/snap/CameraSnapAnimateDrawable;
 
     invoke-virtual {p1}, Lcom/android/camera/ui/drawable/snap/CameraSnapAnimateDrawable;->startScaleDownAnimation()V
@@ -664,7 +686,7 @@
 
     cmp-long p1, v0, v5
 
-    if-lez p1, :cond_3
+    if-lez p1, :cond_4
 
     iget-object p1, p0, Lcom/android/camera/ui/CameraSnapView;->mSnapListener:Lcom/android/camera/ui/CameraSnapView$SnapListener;
 
@@ -676,18 +698,18 @@
 
     invoke-interface {p1, v0, v1}, Lcom/android/camera/ui/CameraSnapView$SnapListener;->onTrackSnapTaken(J)V
 
-    :cond_3
+    :cond_4
     iget p1, p0, Lcom/android/camera/ui/CameraSnapView;->mCurrentMode:I
 
     const/16 v0, 0xb1
 
-    if-ne p1, v0, :cond_4
+    if-ne p1, v0, :cond_5
 
     const/16 p1, 0x12c
 
     goto :goto_2
 
-    :cond_4
+    :cond_5
     const/16 p1, 0x320
 
     :goto_2
@@ -701,7 +723,7 @@
 
     goto :goto_6
 
-    :cond_5
+    :cond_6
     :goto_3
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
@@ -717,7 +739,7 @@
 
     cmp-long v2, v0, v2
 
-    if-lez v2, :cond_7
+    if-lez v2, :cond_8
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawX()F
 
@@ -735,7 +757,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_7
 
     iget-object p1, p0, Lcom/android/camera/ui/CameraSnapView;->mHandler:Landroid/os/Handler;
 
@@ -745,24 +767,24 @@
 
     goto :goto_4
 
-    :cond_6
+    :cond_7
     iget-object p1, p0, Lcom/android/camera/ui/CameraSnapView;->mHandler:Landroid/os/Handler;
 
     const/4 v2, 0x3
 
     invoke-virtual {p1, v2}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    :cond_7
+    :cond_8
     :goto_4
     const-wide/16 v2, 0x78
 
     cmp-long p1, v0, v2
 
-    if-lez p1, :cond_8
+    if-lez p1, :cond_9
 
     goto :goto_5
 
-    :cond_8
+    :cond_9
     sub-long v5, v2, v0
 
     :goto_5
@@ -962,6 +984,8 @@
 
     invoke-virtual {p2, p1, p3}, Lcom/android/camera/ui/drawable/snap/CameraSnapAnimateDrawable;->initParameters(IZ)V
 
+    invoke-virtual {p0}, Lcom/android/camera/ui/CameraSnapView;->invalidate()V
+
     :goto_0
     return-void
 .end method
@@ -1017,7 +1041,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0201fa
+    const v1, 0x7f020203
 
     invoke-static {v0, v1}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 

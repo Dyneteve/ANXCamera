@@ -62,6 +62,34 @@
     return-object p0
 .end method
 
+.method public static createCaptureSessionWithCustomOperationMode(Landroid/hardware/camera2/CameraDevice;ILjava/util/List;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CameraCaptureSession$StateCallback;Landroid/os/Handler;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/hardware/camera2/CameraDevice;",
+            "I",
+            "Ljava/util/List<",
+            "Landroid/hardware/camera2/params/OutputConfiguration;",
+            ">;",
+            "Landroid/hardware/camera2/CaptureRequest;",
+            "Landroid/hardware/camera2/CameraCaptureSession$StateCallback;",
+            "Landroid/os/Handler;",
+            ")V"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/hardware/camera2/CameraAccessException;
+        }
+    .end annotation
+
+    invoke-static/range {p0 .. p5}, Lcom/android/camera/lib/compatibility/related/v28/V28Utils;->createCaptureSessionWithCustomOperationMode(Landroid/hardware/camera2/CameraDevice;ILjava/util/List;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CameraCaptureSession$StateCallback;Landroid/os/Handler;)V
+
+    return-void
+.end method
+
 .method public static createCaptureSessionWithSessionConfiguration(Landroid/hardware/camera2/CameraDevice;Ljava/util/List;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CameraCaptureSession$StateCallback;Landroid/os/Handler;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -195,6 +223,14 @@
     .locals 0
 
     invoke-static {p0, p1, p2}, Lcom/android/camera/lib/compatibility/related/v21/V21Utils;->setSurfaceTextureOnFrameAvailableListener(Landroid/graphics/SurfaceTexture;Landroid/graphics/SurfaceTexture$OnFrameAvailableListener;Landroid/os/Handler;)V
+
+    return-void
+.end method
+
+.method public static setTemporaryAutoBrightnessAdjustment(Landroid/hardware/display/DisplayManager;F)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/camera/lib/compatibility/related/v28/V28Utils;->setTemporaryAutoBrightnessAdjustment(Landroid/hardware/display/DisplayManager;F)V
 
     return-void
 .end method

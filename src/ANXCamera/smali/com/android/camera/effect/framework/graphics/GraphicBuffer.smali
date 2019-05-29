@@ -42,6 +42,16 @@
     return v0
 .end method
 
+.method public getFrameBufferTexId()I
+    .locals 1
+
+    invoke-static {}, Lcom/android/camera/effect/ShaderNativeUtil;->getGraphicBufferFboTexId()I
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public initBuffer(II)V
     .locals 1
 
@@ -54,6 +64,18 @@
     iput p1, p0, Lcom/android/camera/effect/framework/graphics/GraphicBuffer;->mWidth:I
 
     iput p2, p0, Lcom/android/camera/effect/framework/graphics/GraphicBuffer;->mHeight:I
+
+    return-void
+.end method
+
+.method public initBuffer(III)V
+    .locals 0
+
+    invoke-static {p1, p2, p3}, Lcom/android/camera/effect/ShaderNativeUtil;->setupGraphicBufferWithChannels(III)I
+
+    move-result p1
+
+    iput p1, p0, Lcom/android/camera/effect/framework/graphics/GraphicBuffer;->mFboId:I
 
     return-void
 .end method

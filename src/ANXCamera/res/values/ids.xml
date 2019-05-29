@@ -166,18 +166,18 @@
     <item type="id" name="manually_item_key" />
     <item type="id" name="manually_item_value" />
     <item type="id" name="manually_item_value_image" />
+    <item type="id" name="rl_bubble_pop_parent" />
     <item type="id" name="ll_bubble_pop_occupation" />
     <item type="id" name="mimoji_none_item" />
     <item type="id" name="mimoji_none_selected_indicator" />
-    <item type="id" name="mimoji_add_item" />
     <item type="id" name="mimoji_list" />
     <item type="id" name="rv_navigation_layout" />
     <item type="id" name="tv_back" />
     <item type="id" name="btn_confirm" />
+    <item type="id" name="rv_part2" />
     <item type="id" name="mimoji_edit_preview" />
     <item type="id" name="popup_tips_no_face" />
-    <item type="id" name="mimoji_type_scroll_view" />
-    <item type="id" name="mimoji_type_select_view" />
+    <item type="id" name="mimoji_type_view" />
     <item type="id" name="operate_select_layout" />
     <item type="id" name="tv_recapture" />
     <item type="id" name="tv_save" />
@@ -207,7 +207,6 @@
     <item type="id" name="iv_selected" />
     <item type="id" name="sticker_item_list" />
     <item type="id" name="alert_recording_time_view" />
-    <item type="id" name="alert_mimoji_on_create" />
     <item type="id" name="video_ultra_clear_tip" />
     <item type="id" name="top_tip_layout" />
     <item type="id" name="top_config_menu" />
@@ -240,8 +239,7 @@
     <item type="id" name="front_camera_hint_text_place" />
     <item type="id" name="text" />
     <item type="id" name="iv_color" />
-    <item type="id" name="effect_item_selected_inner_indicator" />
-    <item type="id" name="view_divider" />
+    <item type="id" name="tv_type" />
     <item type="id" name="tv_subtitle" />
     <item type="id" name="color_select" />
     <item type="id" name="thumbnail_gride_view" />

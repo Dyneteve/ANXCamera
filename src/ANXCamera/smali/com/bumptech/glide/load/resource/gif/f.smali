@@ -19,7 +19,7 @@
 
 
 # instance fields
-.field private final ak:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
+.field private final al:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
 
 # direct methods
@@ -28,7 +28,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/resource/gif/f;->ak:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
+    iput-object p1, p0, Lcom/bumptech/glide/load/resource/gif/f;->al:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
     return-void
 .end method
@@ -62,7 +62,7 @@
 
     move-result-object p1
 
-    iget-object p2, p0, Lcom/bumptech/glide/load/resource/gif/f;->ak:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
+    iget-object p2, p0, Lcom/bumptech/glide/load/resource/gif/f;->al:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
     invoke-static {p1, p2}, Lcom/bumptech/glide/load/resource/bitmap/f;->a(Landroid/graphics/Bitmap;Lcom/bumptech/glide/load/engine/bitmap_recycle/d;)Lcom/bumptech/glide/load/resource/bitmap/f;
 

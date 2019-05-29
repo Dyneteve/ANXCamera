@@ -21,7 +21,7 @@
 
 
 # instance fields
-.field private final hN:Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$KeyPool;
+.field private final hO:Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$KeyPool;
 
 .field size:I
 
@@ -32,7 +32,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$Key;->hN:Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$KeyPool;
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$Key;->hO:Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$KeyPool;
 
     return-void
 .end method
@@ -42,7 +42,7 @@
 .method public bm()V
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$Key;->hN:Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$KeyPool;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$Key;->hO:Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$KeyPool;
 
     invoke-virtual {v0, p0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$KeyPool;->a(Lcom/bumptech/glide/load/engine/bitmap_recycle/l;)V
 

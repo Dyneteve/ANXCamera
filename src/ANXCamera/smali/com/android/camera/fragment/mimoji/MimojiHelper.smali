@@ -684,22 +684,22 @@
     return p0
 
     :pswitch_1
-    const p0, 0x7f0902b6
+    const p0, 0x7f09034a
 
     return p0
 
     :pswitch_2
-    const p0, 0x7f0902b7
+    const p0, 0x7f09034b
 
     return p0
 
     :pswitch_3
-    const p0, 0x7f0902b3
+    const p0, 0x7f090347
 
     return p0
 
     :pswitch_4
-    const p0, 0x7f0902b1
+    const p0, 0x7f090345
 
     return p0
 
@@ -732,17 +732,17 @@
     goto :goto_0
 
     :pswitch_0
-    const p0, 0x7f0902c5
+    const p0, 0x7f09034d
 
     goto :goto_0
 
     :pswitch_1
-    const p0, 0x7f0902b4
+    const p0, 0x7f090348
 
     goto :goto_0
 
     :pswitch_2
-    const p0, 0x7f0902b5
+    const p0, 0x7f090349
 
     nop
 

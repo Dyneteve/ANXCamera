@@ -14,17 +14,17 @@ import java.io.IOException;
 public abstract class l<T> implements d<T> {
     private static final String TAG = "LocalUriFetcher";
     private T data;
-    private final ContentResolver ee;
+    private final ContentResolver ef;
     private final Uri uri;
 
     public l(ContentResolver contentResolver, Uri uri2) {
-        this.ee = contentResolver;
+        this.ef = contentResolver;
         this.uri = uri2;
     }
 
     public final void a(@NonNull Priority priority, @NonNull a<? super T> aVar) {
         try {
-            this.data = b(this.uri, this.ee);
+            this.data = b(this.uri, this.ef);
             aVar.k(this.data);
         } catch (FileNotFoundException e) {
             if (Log.isLoggable(TAG, 3)) {

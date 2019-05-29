@@ -4,21 +4,21 @@
 
 
 # static fields
-.field private static final lA:Ljava/io/File;
+.field private static final lA:I = 0x80
 
-.field private static final lB:I = 0x32
+.field private static final lB:Ljava/io/File;
 
-.field private static final lC:I = 0x2bc
+.field private static final lC:I = 0x32
 
-.field private static volatile lF:Lcom/bumptech/glide/load/resource/bitmap/r; = null
+.field private static final lD:I = 0x2bc
 
-.field private static final lz:I = 0x80
+.field private static volatile lG:Lcom/bumptech/glide/load/resource/bitmap/r;
 
 
 # instance fields
-.field private volatile lD:I
+.field private volatile lE:I
 
-.field private volatile lE:Z
+.field private volatile lF:Z
 
 
 # direct methods
@@ -31,7 +31,7 @@
 
     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/r;->lA:Ljava/io/File;
+    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/r;->lB:Ljava/io/File;
 
     return-void
 .end method
@@ -43,7 +43,7 @@
 
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/load/resource/bitmap/r;->lE:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/load/resource/bitmap/r;->lF:Z
 
     return-void
 .end method
@@ -51,7 +51,7 @@
 .method static cv()Lcom/bumptech/glide/load/resource/bitmap/r;
     .locals 2
 
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/r;->lF:Lcom/bumptech/glide/load/resource/bitmap/r;
+    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/r;->lG:Lcom/bumptech/glide/load/resource/bitmap/r;
 
     if-nez v0, :cond_1
 
@@ -60,7 +60,7 @@
     monitor-enter v0
 
     :try_start_0
-    sget-object v1, Lcom/bumptech/glide/load/resource/bitmap/r;->lF:Lcom/bumptech/glide/load/resource/bitmap/r;
+    sget-object v1, Lcom/bumptech/glide/load/resource/bitmap/r;->lG:Lcom/bumptech/glide/load/resource/bitmap/r;
 
     if-nez v1, :cond_0
 
@@ -68,7 +68,7 @@
 
     invoke-direct {v1}, Lcom/bumptech/glide/load/resource/bitmap/r;-><init>()V
 
-    sput-object v1, Lcom/bumptech/glide/load/resource/bitmap/r;->lF:Lcom/bumptech/glide/load/resource/bitmap/r;
+    sput-object v1, Lcom/bumptech/glide/load/resource/bitmap/r;->lG:Lcom/bumptech/glide/load/resource/bitmap/r;
 
     :cond_0
     monitor-exit v0
@@ -86,7 +86,7 @@
 
     :cond_1
     :goto_0
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/r;->lF:Lcom/bumptech/glide/load/resource/bitmap/r;
+    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/r;->lG:Lcom/bumptech/glide/load/resource/bitmap/r;
 
     return-object v0
 .end method
@@ -97,13 +97,13 @@
     monitor-enter p0
 
     :try_start_0
-    iget v0, p0, Lcom/bumptech/glide/load/resource/bitmap/r;->lD:I
+    iget v0, p0, Lcom/bumptech/glide/load/resource/bitmap/r;->lE:I
 
     const/4 v1, 0x1
 
     add-int/2addr v0, v1
 
-    iput v0, p0, Lcom/bumptech/glide/load/resource/bitmap/r;->lD:I
+    iput v0, p0, Lcom/bumptech/glide/load/resource/bitmap/r;->lE:I
 
     const/16 v2, 0x32
 
@@ -111,9 +111,9 @@
 
     const/4 v0, 0x0
 
-    iput v0, p0, Lcom/bumptech/glide/load/resource/bitmap/r;->lD:I
+    iput v0, p0, Lcom/bumptech/glide/load/resource/bitmap/r;->lE:I
 
-    sget-object v2, Lcom/bumptech/glide/load/resource/bitmap/r;->lA:Ljava/io/File;
+    sget-object v2, Lcom/bumptech/glide/load/resource/bitmap/r;->lB:Ljava/io/File;
 
     invoke-virtual {v2}, Ljava/io/File;->list()[Ljava/lang/String;
 
@@ -130,9 +130,9 @@
     nop
 
     :cond_0
-    iput-boolean v0, p0, Lcom/bumptech/glide/load/resource/bitmap/r;->lE:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/load/resource/bitmap/r;->lF:Z
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/load/resource/bitmap/r;->lE:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/load/resource/bitmap/r;->lF:Z
 
     if-nez v0, :cond_1
 
@@ -171,7 +171,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
-    iget-boolean v0, p0, Lcom/bumptech/glide/load/resource/bitmap/r;->lE:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/load/resource/bitmap/r;->lF:Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -205,7 +205,7 @@
 
     if-lt p5, v1, :cond_3
 
-    sget-object p5, Lcom/bumptech/glide/load/DecodeFormat;->dj:Lcom/bumptech/glide/load/DecodeFormat;
+    sget-object p5, Lcom/bumptech/glide/load/DecodeFormat;->dk:Lcom/bumptech/glide/load/DecodeFormat;
 
     if-eq p4, p5, :cond_3
 

@@ -1,9 +1,6 @@
 .class Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$14;
-.super Ljava/lang/Object;
+.super Landroid/os/Handler;
 .source "MimojiAvatarEngineImpl.java"
-
-# interfaces
-.implements Lcom/arcsoft/avatar/recoder/RecordingListener;
 
 
 # annotations
@@ -22,146 +19,46 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;)V
+.method constructor <init>(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;Landroid/os/Looper;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$14;->this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onRecordingListener(ILjava/lang/Object;)V
-    .locals 5
+.method public handleMessage(Landroid/os/Message;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$14;->this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
+    invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
-    invoke-static {v0}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$2200(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;)Landroid/os/Handler;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/os/Handler;->obtainMessage()Landroid/os/Message;
-
-    move-result-object v0
-
-    const-wide/16 v1, 0x400
-
-    const-wide/16 v3, 0x3e8
+    iget p1, p1, Landroid/os/Message;->what:I
 
     packed-switch p1, :pswitch_data_0
 
     goto :goto_0
 
     :pswitch_0
-    check-cast p2, Ljava/lang/Long;
-
-    invoke-virtual {p2}, Ljava/lang/Long;->longValue()J
-
-    move-result-wide p1
-
-    div-long/2addr p1, v1
-
-    long-to-int p1, p1
-
-    iput p1, v0, Landroid/os/Message;->arg1:I
-
-    const/4 p1, 0x3
-
-    iput p1, v0, Landroid/os/Message;->what:I
-
     goto :goto_0
 
     :pswitch_1
-    check-cast p2, Ljava/lang/Long;
-
-    invoke-virtual {p2}, Ljava/lang/Long;->longValue()J
-
-    move-result-wide p1
-
-    div-long/2addr p1, v1
-
-    long-to-int p1, p1
-
-    iput p1, v0, Landroid/os/Message;->arg1:I
-
-    const/4 p1, 0x4
-
-    iput p1, v0, Landroid/os/Message;->what:I
-
     goto :goto_0
 
     :pswitch_2
-    check-cast p2, Ljava/lang/Long;
-
-    invoke-virtual {p2}, Ljava/lang/Long;->longValue()J
-
-    move-result-wide p1
-
-    div-long/2addr p1, v3
-
-    div-long/2addr p1, v3
-
-    long-to-int v1, p1
-
-    iput v1, v0, Landroid/os/Message;->arg1:I
-
-    invoke-static {}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$100()Ljava/lang/String;
-
-    move-result-object v1
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "onRecordingListener_time = "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-static {v1, p1}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 p1, 0x1
-
-    iput p1, v0, Landroid/os/Message;->what:I
-
     goto :goto_0
 
     :pswitch_3
-    check-cast p2, Ljava/lang/Long;
-
-    invoke-virtual {p2}, Ljava/lang/Long;->longValue()J
-
-    move-result-wide p1
-
-    div-long/2addr p1, v3
-
-    div-long/2addr p1, v3
-
-    long-to-int p1, p1
-
-    iput p1, v0, Landroid/os/Message;->arg1:I
-
-    const/4 p1, 0x2
-
-    iput p1, v0, Landroid/os/Message;->what:I
-
     nop
 
     :goto_0
-    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
-
     return-void
 
     :pswitch_data_0
-    .packed-switch 0x101
+    .packed-switch 0x0
         :pswitch_3
         :pswitch_2
         :pswitch_1

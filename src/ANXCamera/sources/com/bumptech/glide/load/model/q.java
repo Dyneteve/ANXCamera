@@ -15,12 +15,12 @@ import java.util.Set;
 
 /* compiled from: MultiModelLoaderFactory */
 public class q {
-    private static final c kg = new c();
-    private static final m<Object, Object> kh = new a();
-    private final Pool<List<Throwable>> bo;
-    private final List<b<?, ?>> ki;
-    private final c kj;
-    private final Set<b<?, ?>> kk;
+    private static final c kh = new c();
+    private static final m<Object, Object> ki = new a();
+    private final Pool<List<Throwable>> bp;
+    private final List<b<?, ?>> kj;
+    private final c kk;
+    private final Set<b<?, ?>> kl;
 
     /* compiled from: MultiModelLoaderFactory */
     private static class a implements m<Object, Object> {
@@ -40,13 +40,13 @@ public class q {
     /* compiled from: MultiModelLoaderFactory */
     private static class b<Model, Data> {
         final Class<Data> dataClass;
-        private final Class<Model> kl;
-        final n<? extends Model, ? extends Data> km;
+        private final Class<Model> km;
+        final n<? extends Model, ? extends Data> kn;
 
         public b(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull n<? extends Model, ? extends Data> nVar) {
-            this.kl = cls;
+            this.km = cls;
             this.dataClass = cls2;
-            this.km = nVar;
+            this.kn = nVar;
         }
 
         public boolean d(@NonNull Class<?> cls, @NonNull Class<?> cls2) {
@@ -54,7 +54,7 @@ public class q {
         }
 
         public boolean l(@NonNull Class<?> cls) {
-            return this.kl.isAssignableFrom(cls);
+            return this.km.isAssignableFrom(cls);
         }
     }
 
@@ -70,34 +70,34 @@ public class q {
     }
 
     public q(@NonNull Pool<List<Throwable>> pool) {
-        this(pool, kg);
+        this(pool, kh);
     }
 
     @VisibleForTesting
     q(@NonNull Pool<List<Throwable>> pool, @NonNull c cVar) {
-        this.ki = new ArrayList();
-        this.kk = new HashSet();
-        this.bo = pool;
-        this.kj = cVar;
+        this.kj = new ArrayList();
+        this.kl = new HashSet();
+        this.bp = pool;
+        this.kk = cVar;
     }
 
     @NonNull
     private <Model, Data> n<Model, Data> a(@NonNull b<?, ?> bVar) {
-        return bVar.km;
+        return bVar.kn;
     }
 
     private <Model, Data> void a(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull n<? extends Model, ? extends Data> nVar, boolean z) {
-        this.ki.add(z ? this.ki.size() : 0, new b(cls, cls2, nVar));
+        this.kj.add(z ? this.kj.size() : 0, new b(cls, cls2, nVar));
     }
 
     @NonNull
     private <Model, Data> m<Model, Data> b(@NonNull b<?, ?> bVar) {
-        return (m) i.checkNotNull(bVar.km.a(this));
+        return (m) i.checkNotNull(bVar.kn.a(this));
     }
 
     @NonNull
     private static <Model, Data> m<Model, Data> cj() {
-        return kh;
+        return ki;
     }
 
     @NonNull
@@ -105,17 +105,17 @@ public class q {
         try {
             ArrayList arrayList = new ArrayList();
             boolean z = false;
-            for (b bVar : this.ki) {
-                if (this.kk.contains(bVar)) {
+            for (b bVar : this.kj) {
+                if (this.kl.contains(bVar)) {
                     z = true;
                 } else if (bVar.d(cls, cls2)) {
-                    this.kk.add(bVar);
+                    this.kl.add(bVar);
                     arrayList.add(b(bVar));
-                    this.kk.remove(bVar);
+                    this.kl.remove(bVar);
                 }
             }
             if (arrayList.size() > 1) {
-                return this.kj.a(arrayList, this.bo);
+                return this.kk.a(arrayList, this.bp);
             } else if (arrayList.size() == 1) {
                 return (m) arrayList.get(0);
             } else if (z) {
@@ -124,7 +124,7 @@ public class q {
                 throw new NoModelLoaderAvailableException(cls, cls2);
             }
         } catch (Throwable th) {
-            this.kk.clear();
+            this.kl.clear();
             throw th;
         }
     }
@@ -134,7 +134,7 @@ public class q {
     public synchronized <Model, Data> List<n<? extends Model, ? extends Data>> c(@NonNull Class<Model> cls, @NonNull Class<Data> cls2) {
         ArrayList arrayList;
         arrayList = new ArrayList();
-        Iterator it = this.ki.iterator();
+        Iterator it = this.kj.iterator();
         while (it.hasNext()) {
             b bVar = (b) it.next();
             if (bVar.d(cls, cls2)) {
@@ -169,7 +169,7 @@ public class q {
     public synchronized List<Class<?>> h(@NonNull Class<?> cls) {
         ArrayList arrayList;
         arrayList = new ArrayList();
-        for (b bVar : this.ki) {
+        for (b bVar : this.kj) {
             if (!arrayList.contains(bVar.dataClass) && bVar.l(cls)) {
                 arrayList.add(bVar.dataClass);
             }
@@ -183,17 +183,17 @@ public class q {
         ArrayList arrayList;
         try {
             arrayList = new ArrayList();
-            for (b bVar : this.ki) {
-                if (!this.kk.contains(bVar)) {
+            for (b bVar : this.kj) {
+                if (!this.kl.contains(bVar)) {
                     if (bVar.l(cls)) {
-                        this.kk.add(bVar);
+                        this.kl.add(bVar);
                         arrayList.add(b(bVar));
-                        this.kk.remove(bVar);
+                        this.kl.remove(bVar);
                     }
                 }
             }
         } catch (Throwable th) {
-            this.kk.clear();
+            this.kl.clear();
             throw th;
         }
         return arrayList;

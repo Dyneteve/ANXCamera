@@ -148,81 +148,95 @@ public class FragmentDualCameraAdjust extends BaseFragment implements ManuallyLi
         notifyTipsMargin();
     }
 
-    /* JADX WARNING: Removed duplicated region for block: B:55:0x00ae  */
-    /* JADX WARNING: Removed duplicated region for block: B:56:0x00b0  */
-    /* JADX WARNING: Removed duplicated region for block: B:58:0x00b5  */
+    /* JADX WARNING: Removed duplicated region for block: B:56:0x00ad  */
+    /* JADX WARNING: Removed duplicated region for block: B:57:0x00af  */
+    /* JADX WARNING: Removed duplicated region for block: B:59:0x00b4  */
+    /* JADX WARNING: Removed duplicated region for block: B:89:0x011e  */
     /* Code decompiled incorrectly, please refer to instructions dump. */
     private static ViewSpec getViewSpecForCapturingMode(int i) {
         boolean z;
         boolean z2;
         int i2;
         boolean z3;
+        boolean z4;
         int i3;
-        boolean z4 = false;
-        int i4 = -1;
-        boolean z5 = true;
+        int i4;
+        boolean z5 = false;
+        int i5 = -1;
+        boolean z6 = true;
         if (DataRepository.dataItemGlobal().getCurrentCameraId() != 1 && !CameraSettings.isMacroModeEnabled(i) && !CameraSettings.isAutoZoomEnabled(i) && HybridZoomingSystem.IS_2_OR_MORE_SAT) {
             if (i == 161) {
-                i2 = (!HybridZoomingSystem.IS_2_SAT && !CameraSettings.isMacroModeEnabled(i) && !CameraSettings.isUltraWideConfigOpen(i)) ? 1 : -1;
-                z3 = i2 == -1;
-                if (i2 != -1) {
-                    z5 = false;
+                i3 = (!HybridZoomingSystem.IS_2_SAT && !CameraSettings.isMacroModeEnabled(i) && !CameraSettings.isUltraWideConfigOpen(i)) ? 1 : -1;
+                z2 = i3 == -1;
+                if (i3 != -1) {
+                    z6 = false;
                 }
             } else if (i == 174) {
-                i2 = (!HybridZoomingSystem.IS_2_SAT && !CameraSettings.isMacroModeEnabled(i) && !CameraSettings.isUltraWideConfigOpen(i)) ? 1 : -1;
-                z3 = i2 == -1;
-                if (i2 != -1) {
-                    z5 = false;
+                i3 = (!HybridZoomingSystem.IS_2_SAT && !CameraSettings.isMacroModeEnabled(i) && !CameraSettings.isUltraWideConfigOpen(i)) ? 1 : -1;
+                z2 = i3 == -1;
+                if (i3 != -1) {
+                    z6 = false;
                 }
             } else if (i == 162) {
                 if (!HybridZoomingSystem.IS_2_SAT) {
                     MiBeautyProtocol miBeautyProtocol = (MiBeautyProtocol) ModeCoordinatorImpl.getInstance().getAttachProtocol(194);
                     if ((miBeautyProtocol == null || !miBeautyProtocol.isBeautyPanelShow()) && !CameraSettings.isMacroModeEnabled(i) && !CameraSettings.isUltraWideConfigOpen(i)) {
-                        i3 = 1;
-                        z3 = i2 != -1;
-                        if (i2 != -1) {
-                            z5 = false;
+                        i4 = 1;
+                        z2 = i3 != -1;
+                        if (i3 != -1) {
+                            z6 = false;
                         }
                     }
                 }
-                i3 = -1;
-                if (i2 != -1) {
+                i4 = -1;
+                if (i3 != -1) {
                 }
-                if (i2 != -1) {
+                if (i3 != -1) {
                 }
             } else {
                 if (i == 163) {
-                    if (!CameraSettings.isMacroModeEnabled(i) && !CameraSettings.isUltraWideConfigOpen(i)) {
-                        i4 = 1;
+                    if (!CameraSettings.isMacroModeEnabled(i) && !CameraSettings.isUltraWideConfigOpen(i) && !CameraSettings.isUltraPixelRear48MPOn()) {
+                        i5 = 1;
                     }
-                    z2 = HybridZoomingSystem.IS_2_SAT;
-                    z = HybridZoomingSystem.IS_2_SAT;
+                    z3 = HybridZoomingSystem.IS_2_SAT;
+                    z4 = HybridZoomingSystem.IS_2_SAT;
                 } else if (i == 165) {
                     if (!CameraSettings.isMacroModeEnabled(i) && !CameraSettings.isUltraWideConfigOpen(i)) {
-                        i4 = 1;
+                        i5 = 1;
                     }
-                    z2 = HybridZoomingSystem.IS_2_SAT;
-                    z = HybridZoomingSystem.IS_2_SAT;
+                    z3 = HybridZoomingSystem.IS_2_SAT;
+                    z4 = HybridZoomingSystem.IS_2_SAT;
                 } else if (i == 173) {
                     z = true;
-                    z4 = true;
-                    i4 = 1;
-                    return new ViewSpec(i4, z5, z, z4);
+                    z2 = true;
+                    i5 = 1;
+                    if (CameraSettings.isSupportedOpticalZoom()) {
+                        z5 = z6;
+                    }
+                    return new ViewSpec(i5, z2, z, z5);
                 } else if (i == 166 && DataRepository.dataItemFeature().fV()) {
-                    int i5 = 1;
+                    i2 = 1;
                 }
-                z4 = true;
-                z5 = z2;
-                return new ViewSpec(i4, z5, z, z4);
+                boolean z7 = z4;
+                z2 = z3;
+                z = z7;
+                if (CameraSettings.isSupportedOpticalZoom()) {
+                }
+                return new ViewSpec(i5, z2, z, z5);
             }
-            i4 = i2;
-            boolean z6 = z5;
-            z5 = z3;
+            i2 = i3;
             z = z6;
-            return new ViewSpec(i4, z5, z, z4);
+            z6 = false;
+            if (CameraSettings.isSupportedOpticalZoom()) {
+            }
+            return new ViewSpec(i5, z2, z, z5);
         }
         z = true;
-        return new ViewSpec(i4, z5, z, z4);
+        z2 = true;
+        z6 = false;
+        if (CameraSettings.isSupportedOpticalZoom()) {
+        }
+        return new ViewSpec(i5, z2, z, z5);
     }
 
     private void initSlideZoomView(ComponentData componentData) {
@@ -280,20 +294,27 @@ public class FragmentDualCameraAdjust extends BaseFragment implements ManuallyLi
             sb4.append("initiateZoomRatio(): fake-sat-zoom: ");
             sb4.append(this.mZoomRatio);
             Log.d(str3, sb4.toString());
-        } else if (!HybridZoomingSystem.IS_3_OR_MORE_SAT || this.mCurrentMode != 161) {
-            this.mZoomRatio = HybridZoomingSystem.FLOAT_ZOOM_RATIO_WIDE;
+        } else if (HybridZoomingSystem.IS_3_OR_MORE_SAT && this.mCurrentMode == 161) {
+            this.mZoomRatio = Float.parseFloat(HybridZoomingSystem.getZoomRatioHistory(this.mCurrentMode, "1.0"));
             String str4 = TAG;
             StringBuilder sb5 = new StringBuilder();
-            sb5.append("initiateZoomRatio(): real-sat-zoom: ");
+            sb5.append("initiateZoomRatio(): fake-sat-zoom: ");
             sb5.append(this.mZoomRatio);
             Log.d(str4, sb5.toString());
-        } else {
-            this.mZoomRatio = Float.parseFloat(HybridZoomingSystem.getZoomRatioHistory(this.mCurrentMode, "1.0"));
+        } else if (!HybridZoomingSystem.IS_3_OR_MORE_SAT || CameraSettings.isSupportedOpticalZoom() || !(this.mCurrentMode == 163 || this.mCurrentMode == 165)) {
+            this.mZoomRatio = HybridZoomingSystem.FLOAT_ZOOM_RATIO_WIDE;
             String str5 = TAG;
             StringBuilder sb6 = new StringBuilder();
-            sb6.append("initiateZoomRatio(): fake-sat-zoom: ");
+            sb6.append("initiateZoomRatio(): real-sat-zoom: ");
             sb6.append(this.mZoomRatio);
             Log.d(str5, sb6.toString());
+        } else {
+            this.mZoomRatio = Float.parseFloat(HybridZoomingSystem.getZoomRatioHistory(this.mCurrentMode, "1.0"));
+            String str6 = TAG;
+            StringBuilder sb7 = new StringBuilder();
+            sb7.append("initiateZoomRatio(): fake-sat-zoom: ");
+            sb7.append(this.mZoomRatio);
+            Log.d(str6, sb7.toString());
         }
     }
 
@@ -735,7 +756,7 @@ public class FragmentDualCameraAdjust extends BaseFragment implements ManuallyLi
         super.register(modeCoordinator);
         modeCoordinator.attachProtocol(182, this);
         registerBackStack(modeCoordinator, this);
-        if (b.isSupportedOpticalZoom()) {
+        if (b.isSupportedOpticalZoom() || HybridZoomingSystem.IS_3_OR_MORE_SAT) {
             modeCoordinator.attachProtocol(184, this);
         }
     }
@@ -797,7 +818,7 @@ public class FragmentDualCameraAdjust extends BaseFragment implements ManuallyLi
         this.mHandler.removeCallbacksAndMessages(null);
         modeCoordinator.detachProtocol(182, this);
         unRegisterBackStack(modeCoordinator, this);
-        if (b.isSupportedOpticalZoom()) {
+        if (b.isSupportedOpticalZoom() || HybridZoomingSystem.IS_3_OR_MORE_SAT) {
             modeCoordinator.detachProtocol(184, this);
         }
     }

@@ -20,9 +20,9 @@
 
 
 # instance fields
-.field private final ko:Landroid/content/res/Resources;
+.field private final kp:Landroid/content/res/Resources;
 
-.field private final lG:Lcom/bumptech/glide/load/engine/p;
+.field private final lH:Lcom/bumptech/glide/load/engine/p;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/engine/p<",
@@ -62,7 +62,7 @@
 
     check-cast p1, Landroid/content/res/Resources;
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/s;->ko:Landroid/content/res/Resources;
+    iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/s;->kp:Landroid/content/res/Resources;
 
     invoke-static {p2}, Lcom/bumptech/glide/util/i;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -70,7 +70,7 @@
 
     check-cast p1, Lcom/bumptech/glide/load/engine/p;
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/s;->lG:Lcom/bumptech/glide/load/engine/p;
+    iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/s;->lH:Lcom/bumptech/glide/load/engine/p;
 
     return-void
 .end method
@@ -195,9 +195,9 @@
 
     new-instance v0, Landroid/graphics/drawable/BitmapDrawable;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/resource/bitmap/s;->ko:Landroid/content/res/Resources;
+    iget-object v1, p0, Lcom/bumptech/glide/load/resource/bitmap/s;->kp:Landroid/content/res/Resources;
 
-    iget-object v2, p0, Lcom/bumptech/glide/load/resource/bitmap/s;->lG:Lcom/bumptech/glide/load/engine/p;
+    iget-object v2, p0, Lcom/bumptech/glide/load/resource/bitmap/s;->lH:Lcom/bumptech/glide/load/engine/p;
 
     invoke-interface {v2}, Lcom/bumptech/glide/load/engine/p;->get()Ljava/lang/Object;
 
@@ -225,7 +225,7 @@
 .method public getSize()I
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/s;->lG:Lcom/bumptech/glide/load/engine/p;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/s;->lH:Lcom/bumptech/glide/load/engine/p;
 
     invoke-interface {v0}, Lcom/bumptech/glide/load/engine/p;->getSize()I
 
@@ -237,13 +237,13 @@
 .method public initialize()V
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/s;->lG:Lcom/bumptech/glide/load/engine/p;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/s;->lH:Lcom/bumptech/glide/load/engine/p;
 
     instance-of v0, v0, Lcom/bumptech/glide/load/engine/l;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/s;->lG:Lcom/bumptech/glide/load/engine/p;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/s;->lH:Lcom/bumptech/glide/load/engine/p;
 
     check-cast v0, Lcom/bumptech/glide/load/engine/l;
 
@@ -256,7 +256,7 @@
 .method public recycle()V
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/s;->lG:Lcom/bumptech/glide/load/engine/p;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/s;->lH:Lcom/bumptech/glide/load/engine/p;
 
     invoke-interface {v0}, Lcom/bumptech/glide/load/engine/p;->recycle()V
 

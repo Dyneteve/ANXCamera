@@ -78,7 +78,7 @@
 
     new-instance v1, Lcom/android/camera/data/data/ComponentDataItem;
 
-    const v2, 0x7f090245
+    const v2, 0x7f090244
 
     const-string v4, "ultra"
 

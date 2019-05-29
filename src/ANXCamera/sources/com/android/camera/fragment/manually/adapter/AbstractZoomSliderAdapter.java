@@ -6,7 +6,7 @@ import com.mi.config.b;
 
 public abstract class AbstractZoomSliderAdapter extends HorizontalDrawAdapter implements OnPositionSelectListener {
     protected static int getRealZoomRatioTele() {
-        return b.rB ? 17 : 20;
+        return b.rC ? 17 : 20;
     }
 
     public abstract boolean isEnable();

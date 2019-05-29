@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final pG:I
+.field private final pH:I
 
 
 # direct methods
@@ -27,7 +27,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput p1, p0, Lcom/bumptech/glide/request/a/h$b;->pG:I
+    iput p1, p0, Lcom/bumptech/glide/request/a/h$b;->pH:I
 
     return-void
 .end method
@@ -37,7 +37,7 @@
 .method public m(Landroid/content/Context;)Landroid/view/animation/Animation;
     .locals 1
 
-    iget v0, p0, Lcom/bumptech/glide/request/a/h$b;->pG:I
+    iget v0, p0, Lcom/bumptech/glide/request/a/h$b;->pH:I
 
     invoke-static {p1, v0}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 

@@ -2,8 +2,8 @@ package com.google.android.libraries.lens.lenslite;
 
 import android.app.Activity;
 import android.content.Context;
-import android.media.Image;
 import android.util.Log;
+import com.google.android.libraries.lens.lenslite.api.LinkImage;
 
 public class LensliteApi {
     private static final String TAG = "LensliteApi";
@@ -23,7 +23,7 @@ public class LensliteApi {
         return null;
     }
 
-    public void onNewImage(Image image, int i) {
+    public void onNewImage(LinkImage linkImage) {
     }
 
     public void onPause() {

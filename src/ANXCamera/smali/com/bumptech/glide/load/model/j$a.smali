@@ -15,11 +15,11 @@
 
 
 # static fields
-.field private static final jO:Ljava/lang/String; = "User-Agent"
+.field private static final jP:Ljava/lang/String; = "User-Agent"
 
-.field private static final jP:Ljava/lang/String;
+.field private static final jQ:Ljava/lang/String;
 
-.field private static final jQ:Ljava/util/Map;
+.field private static final jR:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -45,9 +45,9 @@
     .end annotation
 .end field
 
-.field private jR:Z
-
 .field private jS:Z
+
+.field private jT:Z
 
 
 # direct methods
@@ -58,7 +58,7 @@
 
     move-result-object v0
 
-    sput-object v0, Lcom/bumptech/glide/load/model/j$a;->jP:Ljava/lang/String;
+    sput-object v0, Lcom/bumptech/glide/load/model/j$a;->jQ:Ljava/lang/String;
 
     new-instance v0, Ljava/util/HashMap;
 
@@ -66,7 +66,7 @@
 
     invoke-direct {v0, v1}, Ljava/util/HashMap;-><init>(I)V
 
-    sget-object v1, Lcom/bumptech/glide/load/model/j$a;->jP:Ljava/lang/String;
+    sget-object v1, Lcom/bumptech/glide/load/model/j$a;->jQ:Ljava/lang/String;
 
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -78,7 +78,7 @@
 
     new-instance v2, Lcom/bumptech/glide/load/model/j$b;
 
-    sget-object v3, Lcom/bumptech/glide/load/model/j$a;->jP:Ljava/lang/String;
+    sget-object v3, Lcom/bumptech/glide/load/model/j$a;->jQ:Ljava/lang/String;
 
     invoke-direct {v2, v3}, Lcom/bumptech/glide/load/model/j$b;-><init>(Ljava/lang/String;)V
 
@@ -93,7 +93,7 @@
 
     move-result-object v0
 
-    sput-object v0, Lcom/bumptech/glide/load/model/j$a;->jQ:Ljava/util/Map;
+    sput-object v0, Lcom/bumptech/glide/load/model/j$a;->jR:Ljava/util/Map;
 
     return-void
 .end method
@@ -105,13 +105,13 @@
 
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/load/model/j$a;->jR:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/load/model/j$a;->jS:Z
 
-    sget-object v1, Lcom/bumptech/glide/load/model/j$a;->jQ:Ljava/util/Map;
+    sget-object v1, Lcom/bumptech/glide/load/model/j$a;->jR:Ljava/util/Map;
 
     iput-object v1, p0, Lcom/bumptech/glide/load/model/j$a;->headers:Ljava/util/Map;
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/load/model/j$a;->jS:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/load/model/j$a;->jT:Z
 
     return-void
 .end method
@@ -119,13 +119,13 @@
 .method private ce()V
     .locals 1
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/load/model/j$a;->jR:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/load/model/j$a;->jS:Z
 
     if-eqz v0, :cond_0
 
     const/4 v0, 0x0
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/load/model/j$a;->jR:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/load/model/j$a;->jS:Z
 
     invoke-direct {p0}, Lcom/bumptech/glide/load/model/j$a;->cg()Ljava/util/Map;
 
@@ -321,7 +321,7 @@
 .method public a(Ljava/lang/String;Lcom/bumptech/glide/load/model/i;)Lcom/bumptech/glide/load/model/j$a;
     .locals 1
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/load/model/j$a;->jS:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/load/model/j$a;->jT:Z
 
     if-eqz v0, :cond_0
 
@@ -374,7 +374,7 @@
     invoke-interface {v0, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :goto_0
-    iget-boolean p2, p0, Lcom/bumptech/glide/load/model/j$a;->jS:Z
+    iget-boolean p2, p0, Lcom/bumptech/glide/load/model/j$a;->jT:Z
 
     if-eqz p2, :cond_1
 
@@ -388,7 +388,7 @@
 
     const/4 p1, 0x0
 
-    iput-boolean p1, p0, Lcom/bumptech/glide/load/model/j$a;->jS:Z
+    iput-boolean p1, p0, Lcom/bumptech/glide/load/model/j$a;->jT:Z
 
     :cond_1
     return-object p0
@@ -399,7 +399,7 @@
 
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/load/model/j$a;->jR:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/load/model/j$a;->jS:Z
 
     new-instance v0, Lcom/bumptech/glide/load/model/j;
 

@@ -75,7 +75,7 @@ public class DataItemGlobal extends DataItemBase {
             case 175:
                 return 0;
             case 171:
-                if (this.mDataItemFeature.gB()) {
+                if (this.mDataItemFeature.gC()) {
                     return Integer.valueOf(getString("pref_camera_id_key", String.valueOf(getDefaultCameraId(i)))).intValue();
                 }
                 return 0;
@@ -107,7 +107,7 @@ public class DataItemGlobal extends DataItemBase {
             case 172:
                 return 162;
             case 171:
-                if (this.mDataItemFeature.gB()) {
+                if (this.mDataItemFeature.gC()) {
                     return currentMode;
                 }
                 break;
@@ -218,9 +218,9 @@ public class DataItemGlobal extends DataItemBase {
     }
 
     public boolean matchCustomWatermarkVersion() {
-        String gF = this.mDataItemFeature.gF();
+        String gG = this.mDataItemFeature.gG();
         if (!contains(DATA_COMMON_CUSTOM_WATERMARK_VERSION)) {
-            return !this.mDataItemFeature.K(c.tL);
+            return !this.mDataItemFeature.K(c.tM);
         }
         if (arrayMapContainsKey(DATA_COMMON_CUSTOM_WATERMARK_VERSION)) {
             arrayMapRemove(DATA_COMMON_CUSTOM_WATERMARK_VERSION);
@@ -231,9 +231,9 @@ public class DataItemGlobal extends DataItemBase {
             String substring = string.substring(0, indexOf);
             String substring2 = string.substring(indexOf + 1);
             StringBuilder sb = new StringBuilder();
-            sb.append(b.qn);
+            sb.append(b.qo);
             sb.append(b.getGivenName());
-            if (substring.equals(sb.toString()) && substring2.equals(gF)) {
+            if (substring.equals(sb.toString()) && substring2.equals(gG)) {
                 return true;
             }
         }
@@ -535,6 +535,13 @@ public class DataItemGlobal extends DataItemBase {
         int currentCameraId = getCurrentCameraId(getCurrentMode());
         this.mLastCameraId = currentCameraId;
         editor.putString("pref_camera_id_key", String.valueOf(currentCameraId));
+        String str = TAG;
+        StringBuilder sb = new StringBuilder();
+        sb.append("reInit: mLastCameraId = ");
+        sb.append(this.mLastCameraId);
+        sb.append(", currentCameraId = ");
+        sb.append(currentCameraId);
+        Log.d(str, sb.toString());
         editor.apply();
     }
 
@@ -555,11 +562,25 @@ public class DataItemGlobal extends DataItemBase {
     public void setCameraId(int i) {
         this.mLastCameraId = getCurrentCameraId(getCurrentMode());
         editor().putString("pref_camera_id_key", String.valueOf(i)).apply();
+        String str = TAG;
+        StringBuilder sb = new StringBuilder();
+        sb.append("setCameraId: mLastCameraId = ");
+        sb.append(this.mLastCameraId);
+        sb.append(", cameraId = ");
+        sb.append(i);
+        Log.d(str, sb.toString());
     }
 
     public void setCameraIdTransient(int i) {
         this.mLastCameraId = getCurrentCameraId(getCurrentMode());
         putString("pref_camera_id_key", String.valueOf(i));
+        String str = TAG;
+        StringBuilder sb = new StringBuilder();
+        sb.append("setCameraIdTransient: mLastCameraId = ");
+        sb.append(this.mLastCameraId);
+        sb.append(", cameraId = ");
+        sb.append(i);
+        Log.d(str, sb.toString());
     }
 
     public void setCurrentMode(int i) {
@@ -587,12 +608,12 @@ public class DataItemGlobal extends DataItemBase {
     }
 
     public void updateCustomWatermarkVersion() {
-        String gF = this.mDataItemFeature.gF();
+        String gG = this.mDataItemFeature.gG();
         StringBuilder sb = new StringBuilder();
-        sb.append(b.qn);
+        sb.append(b.qo);
         sb.append(b.getGivenName());
         sb.append(":");
-        sb.append(gF);
+        sb.append(gG);
         String sb2 = sb.toString();
         editor().putString(DATA_COMMON_CUSTOM_WATERMARK_VERSION, sb2).apply();
         String str = TAG;

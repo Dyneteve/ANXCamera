@@ -84,6 +84,44 @@
     return-object p1
 .end method
 
+.method public putInt(Lcom/android/camera/data/data/TypeItem;I)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/android/camera/data/data/TypeItem<",
+            "Ljava/lang/Integer;",
+            ">;I)V"
+        }
+    .end annotation
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p2
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/camera/data/data/ComponentMultiple;->putValue(Lcom/android/camera/data/data/TypeItem;Ljava/lang/Object;)V
+
+    return-void
+.end method
+
+.method public putString(Lcom/android/camera/data/data/TypeItem;Ljava/lang/String;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/android/camera/data/data/TypeItem<",
+            "Ljava/lang/String;",
+            ">;",
+            "Ljava/lang/String;",
+            ")V"
+        }
+    .end annotation
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/camera/data/data/ComponentMultiple;->putValue(Lcom/android/camera/data/data/TypeItem;Ljava/lang/Object;)V
+
+    return-void
+.end method
+
 .method public putValue(Lcom/android/camera/data/data/TypeItem;Ljava/lang/Object;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -95,6 +133,10 @@
             "TT;>;TT;)V"
         }
     .end annotation
+
+    iget-object p1, p1, Lcom/android/camera/data/data/TypeItem;->mKeyOrType:Ljava/lang/String;
+
+    instance-of p1, p2, Ljava/lang/String;
 
     return-void
 .end method

@@ -16,7 +16,7 @@ public class DrawJPEGAttribute extends DrawAttribute {
     public byte[] mData;
     public byte[] mDataOfTheRegionUnderWatermarks;
     public long mDate;
-    public boolean mDualCameraWaterMarkEnabled;
+    public boolean mDeviceWaterMarkEnabled;
     public int mEffectIndex;
     public ExifInterface mExif;
     public boolean mFinalImage;
@@ -60,7 +60,7 @@ public class DrawJPEGAttribute extends DrawAttribute {
         this.mApplyWaterMark = z3;
         this.mInfo = pictureInfo;
         this.mWaterInfos = list;
-        this.mDualCameraWaterMarkEnabled = z4;
+        this.mDeviceWaterMarkEnabled = z4;
         this.mTimeWaterMarkText = str3;
         this.mIsPortraitRawData = z5;
         this.mTarget = 9;

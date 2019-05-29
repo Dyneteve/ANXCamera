@@ -475,7 +475,7 @@
     :pswitch_2
     if-nez v1, :cond_0
 
-    const v1, 0x7f0901fe
+    const v1, 0x7f0901fc
 
     invoke-interface {v2, v5, v1}, Lcom/android/camera/protocol/ModeProtocol$TopAlert;->alertSwitchHint(II)V
 
@@ -490,7 +490,7 @@
     goto :goto_0
 
     :cond_0
-    const v1, 0x7f0901ff
+    const v1, 0x7f0901fd
 
     invoke-interface {v2, v5, v1}, Lcom/android/camera/protocol/ModeProtocol$TopAlert;->alertSwitchHint(II)V
 
@@ -1619,13 +1619,13 @@
 
     if-eqz v4, :cond_11
 
-    const-string v2, "REAR_48M"
+    const-string v0, "REAR_48M"
 
-    invoke-virtual {v2, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_10
+    if-eqz v0, :cond_10
 
     if-eqz p1, :cond_10
 
@@ -1637,12 +1637,6 @@
     if-eqz v1, :cond_15
 
     invoke-interface {v1}, Lcom/android/camera/protocol/ModeProtocol$DualController;->hideZoomButton()V
-
-    if-eqz v0, :cond_15
-
-    const/4 p1, 0x2
-
-    invoke-interface {v0, p1}, Lcom/android/camera/protocol/ModeProtocol$TopAlert;->alertUpdateValue(I)V
 
     goto :goto_6
 
@@ -1820,7 +1814,7 @@
 
     const/16 v3, 0x1f4
 
-    const v4, 0x7f090243
+    const v4, 0x7f090242
 
     if-eqz v0, :cond_4
 
@@ -1838,7 +1832,7 @@
     goto :goto_1
 
     :cond_5
-    const v0, 0x7f090244
+    const v0, 0x7f090243
 
     const/4 v3, 0x6
 
@@ -1903,7 +1897,7 @@
 
     invoke-virtual {v2, v4}, Lcom/android/camera/data/data/runing/DataItemRunning;->switchOff(Ljava/lang/String;)V
 
-    const v2, 0x7f090255
+    const v2, 0x7f090254
 
     invoke-interface {v0, v3, v2}, Lcom/android/camera/protocol/ModeProtocol$TopAlert;->alertSwitchHint(II)V
 
@@ -1918,7 +1912,7 @@
 
     invoke-virtual {v2, v4}, Lcom/android/camera/data/data/runing/DataItemRunning;->switchOn(Ljava/lang/String;)V
 
-    const v2, 0x7f090254
+    const v2, 0x7f090253
 
     invoke-interface {v0, v3, v2}, Lcom/android/camera/protocol/ModeProtocol$TopAlert;->alertSwitchHint(II)V
 
@@ -2051,12 +2045,12 @@
 
     if-nez v1, :cond_1
 
-    const v0, 0x7f090214
+    const v0, 0x7f090212
 
     goto :goto_1
 
     :cond_1
-    const v0, 0x7f090215
+    const v0, 0x7f090213
 
     :goto_1
     invoke-interface {p1, v5, v0}, Lcom/android/camera/protocol/ModeProtocol$TopAlert;->alertSwitchHint(II)V
@@ -2130,7 +2124,7 @@
 
     if-ne v2, v4, :cond_1
 
-    const v1, 0x7f090243
+    const v1, 0x7f090242
 
     const/4 v2, 0x4
 
@@ -2626,7 +2620,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_3
 
     invoke-virtual {v1, v0}, Lcom/android/camera/data/data/config/ComponentConfigBeauty;->isClosed(I)Z
 
@@ -2639,6 +2633,33 @@
     :cond_0
     invoke-virtual {v1, p1, v0}, Lcom/android/camera/data/data/config/ComponentConfigBeauty;->setClosed(ZI)V
 
+    if-eqz p1, :cond_1
+
+    invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
+
+    move-result-object p1
+
+    const/16 v0, 0xc2
+
+    invoke-virtual {p1, v0}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getAttachProtocol(I)Lcom/android/camera/protocol/ModeProtocol$BaseProtocol;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/android/camera/protocol/ModeProtocol$MiBeautyProtocol;
+
+    if-eqz p1, :cond_1
+
+    invoke-interface {p1}, Lcom/android/camera/protocol/ModeProtocol$MiBeautyProtocol;->isBeautyPanelShow()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const/4 v0, 0x2
+
+    invoke-interface {p1, v0}, Lcom/android/camera/protocol/ModeProtocol$MiBeautyProtocol;->dismiss(I)V
+
+    :cond_1
     invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
 
     move-result-object p1
@@ -2651,16 +2672,16 @@
 
     check-cast p1, Lcom/android/camera/protocol/ModeProtocol$OnFaceBeautyChangedProtocol;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2
 
     const/4 v0, 0x1
 
     invoke-interface {p1, v0}, Lcom/android/camera/protocol/ModeProtocol$OnFaceBeautyChangedProtocol;->onBeautyChanged(Z)V
 
-    :cond_1
+    :cond_2
     return-void
 
-    :cond_2
+    :cond_3
     :goto_0
     return-void
 .end method
@@ -2765,7 +2786,9 @@
 
     if-eqz v0, :cond_1
 
-    invoke-interface {p1}, Lcom/android/camera/protocol/ModeProtocol$MiBeautyProtocol;->dismiss()V
+    const/4 v0, 0x2
+
+    invoke-interface {p1, v0}, Lcom/android/camera/protocol/ModeProtocol$MiBeautyProtocol;->dismiss(I)V
 
     :cond_1
     return-void
@@ -3050,60 +3073,84 @@
 
     invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p2
+    move-result v0
 
-    if-eqz p2, :cond_2
+    if-eqz v0, :cond_2
 
     invoke-static {}, Lcom/android/camera/CameraSettings;->isFrontCamera()Z
 
-    move-result p2
+    move-result v0
 
-    if-eqz p2, :cond_1
+    if-eqz v0, :cond_1
 
-    iget-object p2, p0, Lcom/android/camera/module/impl/component/ConfigChangeImpl;->mActivity:Lcom/android/camera/ActivityBase;
+    iget-object v0, p0, Lcom/android/camera/module/impl/component/ConfigChangeImpl;->mActivity:Lcom/android/camera/ActivityBase;
 
-    const v0, 0x7f09022b
+    const v1, 0x7f09022a
 
-    invoke-static {p2, v0}, Lcom/android/camera/ToastUtils;->showToast(Landroid/content/Context;I)V
+    invoke-static {v0, v1}, Lcom/android/camera/ToastUtils;->showToast(Landroid/content/Context;I)V
 
     goto :goto_0
 
     :cond_1
-    iget-object p2, p0, Lcom/android/camera/module/impl/component/ConfigChangeImpl;->mActivity:Lcom/android/camera/ActivityBase;
+    iget-object v0, p0, Lcom/android/camera/module/impl/component/ConfigChangeImpl;->mActivity:Lcom/android/camera/ActivityBase;
 
-    const v0, 0x7f09022c
+    const v1, 0x7f09022b
 
-    invoke-static {p2, v0}, Lcom/android/camera/ToastUtils;->showToast(Landroid/content/Context;I)V
+    invoke-static {v0, v1}, Lcom/android/camera/ToastUtils;->showToast(Landroid/content/Context;I)V
 
     :cond_2
     :goto_0
-    const/4 p2, 0x1
+    invoke-virtual {p1}, Lcom/android/camera/module/BaseModule;->isDoingAction()Z
 
-    new-array v0, p2, [I
+    move-result v0
 
     const/16 v1, 0xa
 
     const/4 v2, 0x0
 
-    aput v1, v0, v2
+    const/4 v3, 0x1
 
-    invoke-virtual {p1, v0}, Lcom/android/camera/module/BaseModule;->updatePreferenceInWorkThread([I)V
+    if-eqz v0, :cond_3
 
+    const-string v0, "0"
+
+    invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p2
+
+    if-nez p2, :cond_3
+
+    new-array p2, v3, [I
+
+    aput v1, p2, v2
+
+    invoke-virtual {p1, p2}, Lcom/android/camera/module/BaseModule;->updatePreferenceTrampoline([I)V
+
+    goto :goto_1
+
+    :cond_3
+    new-array p2, v3, [I
+
+    aput v1, p2, v2
+
+    invoke-virtual {p1, p2}, Lcom/android/camera/module/BaseModule;->updatePreferenceInWorkThread([I)V
+
+    :goto_1
     invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
 
     move-result-object p1
 
-    const/16 v0, 0xac
+    const/16 p2, 0xac
 
-    invoke-virtual {p1, v0}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getAttachProtocol(I)Lcom/android/camera/protocol/ModeProtocol$BaseProtocol;
+    invoke-virtual {p1, p2}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getAttachProtocol(I)Lcom/android/camera/protocol/ModeProtocol$BaseProtocol;
 
     move-result-object p1
 
     check-cast p1, Lcom/android/camera/protocol/ModeProtocol$TopAlert;
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_4
 
-    new-array p2, p2, [I
+    new-array p2, v3, [I
 
     const/16 v0, 0xc1
 
@@ -3111,7 +3158,7 @@
 
     invoke-interface {p1, p2}, Lcom/android/camera/protocol/ModeProtocol$TopAlert;->updateConfigItem([I)V
 
-    :cond_3
+    :cond_4
     return-void
 .end method
 
@@ -3827,7 +3874,7 @@
 
     const/16 v1, 0x9
 
-    const v2, 0x7f090229
+    const v2, 0x7f090228
 
     const/4 v3, 0x4
 
@@ -4121,7 +4168,7 @@
 
     move-result v1
 
-    const v2, 0x7f090243
+    const v2, 0x7f090242
 
     const/16 v3, 0xd
 
@@ -4476,7 +4523,7 @@
 
     invoke-virtual {v0, v2}, Lcom/android/camera/module/Camera2Module;->stopLiveShot(Z)V
 
-    const p1, 0x7f090248
+    const p1, 0x7f090247
 
     invoke-interface {v1, v4, p1}, Lcom/android/camera/protocol/ModeProtocol$TopAlert;->alertSwitchHint(II)V
 
@@ -4502,7 +4549,7 @@
     :cond_7
     invoke-virtual {v0}, Lcom/android/camera/module/Camera2Module;->startLiveShot()V
 
-    const p1, 0x7f090247
+    const p1, 0x7f090246
 
     invoke-interface {v1, v4, p1}, Lcom/android/camera/protocol/ModeProtocol$TopAlert;->alertSwitchHint(II)V
 
@@ -5605,13 +5652,13 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_8
 
     invoke-virtual {v0}, Lcom/android/camera/module/BaseModule;->isFrameAvailable()Z
 
     move-result v1
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_8
 
     invoke-virtual {v0}, Lcom/android/camera/module/BaseModule;->isSelectingCapturedResult()Z
 
@@ -5619,7 +5666,7 @@
 
     if-eqz v1, :cond_1
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_1
     invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemConfig()Lcom/android/camera/data/data/config/DataItemConfig;
@@ -5632,11 +5679,17 @@
 
     invoke-virtual {v1}, Lcom/android/camera/data/data/config/ComponentConfigFlash;->isEmpty()Z
 
+    move-result v2
+
+    if-nez v2, :cond_7
+
+    invoke-virtual {v1}, Lcom/android/camera/data/data/config/ComponentConfigFlash;->isHardwareSupported()Z
+
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-nez v1, :cond_2
 
-    return-void
+    goto :goto_1
 
     :cond_2
     const-string v1, ""
@@ -5696,6 +5749,16 @@
 
     :cond_7
     :goto_1
+    sget-object p1, Lcom/android/camera/module/impl/component/ConfigChangeImpl;->TAG:Ljava/lang/String;
+
+    const-string v0, "onThermalNotification don\'t support hardware flash"
+
+    invoke-static {p1, v0}, Lcom/android/camera/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_8
+    :goto_2
     sget-object p1, Lcom/android/camera/module/impl/component/ConfigChangeImpl;->TAG:Ljava/lang/String;
 
     const-string v0, "onThermalNotification current module is null ready"
@@ -5775,7 +5838,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/mi/config/a;->gD()Z
+    invoke-virtual {v0}, Lcom/mi/config/a;->gE()Z
 
     move-result v0
 
@@ -6008,7 +6071,7 @@
 
     const/4 v1, 0x1
 
-    const v2, 0x7f090247
+    const v2, 0x7f090246
 
     invoke-interface {v0, v1, v2}, Lcom/android/camera/protocol/ModeProtocol$TopAlert;->alertSwitchHint(II)V
 
@@ -7286,11 +7349,11 @@
 
     const/4 v5, 0x0
 
-    if-eq v0, v3, :cond_9
+    if-eq v0, v3, :cond_a
 
     const/16 v6, 0xa9
 
-    if-eq v0, v6, :cond_8
+    if-eq v0, v6, :cond_9
 
     nop
 
@@ -7319,13 +7382,15 @@
     move v4, v5
 
     :cond_0
-    if-eqz v4, :cond_7
+    const/4 v6, 0x2
+
+    if-eqz v4, :cond_8
 
     invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3, v2}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getAttachProtocol(I)Lcom/android/camera/protocol/ModeProtocol$BaseProtocol;
+    invoke-virtual {v4, v2}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getAttachProtocol(I)Lcom/android/camera/protocol/ModeProtocol$BaseProtocol;
 
     move-result-object v2
 
@@ -7335,9 +7400,9 @@
 
     invoke-interface {v2}, Lcom/android/camera/protocol/ModeProtocol$BottomPopupTips;->directlyHideTips()V
 
-    const/16 v3, 0x8
+    const/16 v4, 0x8
 
-    invoke-interface {v2, v3}, Lcom/android/camera/protocol/ModeProtocol$BottomPopupTips;->setPortraitHintVisible(I)V
+    invoke-interface {v2, v4}, Lcom/android/camera/protocol/ModeProtocol$BottomPopupTips;->setPortraitHintVisible(I)V
 
     invoke-interface {v2}, Lcom/android/camera/protocol/ModeProtocol$BottomPopupTips;->hideTipImage()V
 
@@ -7352,15 +7417,13 @@
 
     move-result-object v2
 
-    const/16 v3, 0xb6
+    const/16 v4, 0xb6
 
-    invoke-virtual {v2, v3}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getAttachProtocol(I)Lcom/android/camera/protocol/ModeProtocol$BaseProtocol;
+    invoke-virtual {v2, v4}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getAttachProtocol(I)Lcom/android/camera/protocol/ModeProtocol$BaseProtocol;
 
     move-result-object v2
 
     check-cast v2, Lcom/android/camera/protocol/ModeProtocol$DualController;
-
-    const/4 v3, 0x2
 
     const/16 v4, 0xab
 
@@ -7382,7 +7445,7 @@
 
     if-eqz v1, :cond_2
 
-    invoke-interface {v1, v3}, Lcom/android/camera/protocol/ModeProtocol$TopAlert;->alertUpdateValue(I)V
+    invoke-interface {v1, v6}, Lcom/android/camera/protocol/ModeProtocol$TopAlert;->alertUpdateValue(I)V
 
     :cond_2
     const/16 v1, 0xa7
@@ -7459,6 +7522,13 @@
 
     invoke-interface {v1, v0}, Lcom/android/camera/protocol/ModeProtocol$BottomMenuProtocol;->expandShineBottomMenu(Lcom/android/camera/data/data/runing/ComponentRunningShine;)V
 
+    if-eqz v3, :cond_6
+
+    invoke-interface {v3}, Lcom/android/camera/protocol/ModeProtocol$MiBeautyProtocol;->show()V
+
+    goto :goto_1
+
+    :cond_6
     invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
 
     move-result-object v0
@@ -7471,32 +7541,33 @@
 
     check-cast v0, Lcom/android/camera/protocol/ModeProtocol$BaseDelegate;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_7
 
-    invoke-interface {v0, v3}, Lcom/android/camera/protocol/ModeProtocol$BaseDelegate;->delegateEvent(I)V
-
-    :cond_6
-    goto :goto_1
+    invoke-interface {v0, v6}, Lcom/android/camera/protocol/ModeProtocol$BaseDelegate;->delegateEvent(I)V
 
     :cond_7
-    invoke-interface {v3}, Lcom/android/camera/protocol/ModeProtocol$MiBeautyProtocol;->dismiss()V
-
     :goto_1
-    return-void
+    goto :goto_2
 
     :cond_8
+    invoke-interface {v3, v6}, Lcom/android/camera/protocol/ModeProtocol$MiBeautyProtocol;->dismiss(I)V
+
+    :goto_2
+    return-void
+
+    :cond_9
     nop
 
     invoke-direct {p0}, Lcom/android/camera/module/impl/component/ConfigChangeImpl;->closeVideoFast()V
 
     move v6, v4
 
-    goto :goto_2
+    goto :goto_3
 
-    :cond_9
+    :cond_a
     move v6, v5
 
-    :goto_2
+    :goto_3
     const/4 v7, 0x0
 
     invoke-static {v0, v7}, Lcom/android/camera/CameraSettings;->isFaceBeautyOn(ILcom/android/camera/fragment/beauty/BeautyValues;)Z
@@ -7515,7 +7586,7 @@
 
     move-result-object v7
 
-    if-eqz v4, :cond_e
+    if-eqz v4, :cond_f
 
     invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemConfig()Lcom/android/camera/data/data/config/DataItemConfig;
 
@@ -7531,7 +7602,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_b
 
     invoke-static {v0, v5}, Lcom/android/camera/CameraSettings;->setAutoZoomEnabled(IZ)V
 
@@ -7561,7 +7632,7 @@
 
     invoke-interface {v1}, Lcom/android/camera/protocol/ModeProtocol$TopAlert;->hideSwitchHint()V
 
-    :cond_a
+    :cond_b
     invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemRunning()Lcom/android/camera/data/data/runing/DataItemRunning;
 
     move-result-object v1
@@ -7574,7 +7645,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_b
+    if-eqz v2, :cond_c
 
     invoke-static {}, Lcom/android/camera/HybridZoomingSystem;->clearZoomRatioHistory()V
 
@@ -7584,63 +7655,63 @@
 
     invoke-direct {p0, v0}, Lcom/android/camera/module/impl/component/ConfigChangeImpl;->hideTipMessage(I)V
 
-    :cond_b
-    invoke-virtual {v7}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->supportBeautyLevel()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_c
-
-    const/4 v0, 0x3
-
-    invoke-static {v0}, Lcom/android/camera/CameraSettings;->setFaceBeautyLevel(I)V
-
-    goto :goto_3
-
     :cond_c
-    invoke-virtual {v7}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->supportSmoothLevel()Z
+    invoke-virtual {v7}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->supportBeautyLevel()Z
 
     move-result v0
 
     if-eqz v0, :cond_d
 
+    const/4 v0, 0x3
+
+    invoke-static {v0}, Lcom/android/camera/CameraSettings;->setFaceBeautyLevel(I)V
+
+    goto :goto_4
+
+    :cond_d
+    invoke-virtual {v7}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->supportSmoothLevel()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_e
+
     const/16 v0, 0x28
 
     invoke-static {v0}, Lcom/android/camera/CameraSettings;->setFaceBeautySmoothLevel(I)V
 
-    :cond_d
-    :goto_3
-    goto :goto_4
-
     :cond_e
-    invoke-virtual {v7}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->supportBeautyLevel()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_f
-
-    invoke-static {v5}, Lcom/android/camera/CameraSettings;->setFaceBeautyLevel(I)V
-
-    goto :goto_4
+    :goto_4
+    goto :goto_5
 
     :cond_f
-    invoke-virtual {v7}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->supportSmoothLevel()Z
+    invoke-virtual {v7}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->supportBeautyLevel()Z
 
     move-result v0
 
     if-eqz v0, :cond_10
 
-    invoke-static {v5}, Lcom/android/camera/CameraSettings;->setFaceBeautySmoothLevel(I)V
-
-    :cond_10
-    :goto_4
-    if-eqz v6, :cond_11
-
-    invoke-direct {p0, v3}, Lcom/android/camera/module/impl/component/ConfigChangeImpl;->changeMode(I)V
+    invoke-static {v5}, Lcom/android/camera/CameraSettings;->setFaceBeautyLevel(I)V
 
     goto :goto_5
 
+    :cond_10
+    invoke-virtual {v7}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->supportSmoothLevel()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_11
+
+    invoke-static {v5}, Lcom/android/camera/CameraSettings;->setFaceBeautySmoothLevel(I)V
+
     :cond_11
+    :goto_5
+    if-eqz v6, :cond_12
+
+    invoke-direct {p0, v3}, Lcom/android/camera/module/impl/component/ConfigChangeImpl;->changeMode(I)V
+
+    goto :goto_6
+
+    :cond_12
     invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
 
     move-result-object v0
@@ -7653,12 +7724,12 @@
 
     check-cast v0, Lcom/android/camera/protocol/ModeProtocol$OnFaceBeautyChangedProtocol;
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_13
 
     invoke-interface {v0, v5}, Lcom/android/camera/protocol/ModeProtocol$OnFaceBeautyChangedProtocol;->onBeautyChanged(Z)V
 
-    :cond_12
-    :goto_5
+    :cond_13
+    :goto_6
     return-void
 .end method
 

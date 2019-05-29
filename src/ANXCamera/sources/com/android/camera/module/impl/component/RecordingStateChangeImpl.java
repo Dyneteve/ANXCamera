@@ -71,14 +71,10 @@ public class RecordingStateChangeImpl implements RecordState {
 
     public void onMimojiCreateBack() {
         ((ActionProcessing) ModeCoordinatorImpl.getInstance().getAttachProtocol(162)).processingMimojiBack();
-        ((MimojiAvatarEngine) ModeCoordinatorImpl.getInstance().getAttachProtocol(217)).backToPreview(false);
-        TopAlert topAlert = (TopAlert) ModeCoordinatorImpl.getInstance().getAttachProtocol(172);
-        topAlert.showConfigMenu();
-        topAlert.showOrHideMimojiCreateTitle(false);
-        topAlert.enableMenuItem(true, 225, 193);
-        BottomPopupTips bottomPopupTips = (BottomPopupTips) ModeCoordinatorImpl.getInstance().getAttachProtocol(175);
-        bottomPopupTips.reInitTipImage();
-        bottomPopupTips.directlyHideTips();
+        MimojiAvatarEngine mimojiAvatarEngine = (MimojiAvatarEngine) ModeCoordinatorImpl.getInstance().getAttachProtocol(217);
+        if (mimojiAvatarEngine != null) {
+            mimojiAvatarEngine.backToPreview(false, true);
+        }
         ((MainContentProtocol) ModeCoordinatorImpl.getInstance().getAttachProtocol(166)).mimojiEnd();
     }
 
@@ -291,9 +287,7 @@ public class RecordingStateChangeImpl implements RecordState {
         if (actionProcessing.isShowFilterView()) {
             actionProcessing.showOrHideFilterView();
         }
-        TopAlert topAlert = (TopAlert) ModeCoordinatorImpl.getInstance().getAttachProtocol(172);
-        topAlert.hideConfigMenu();
-        topAlert.showOrHideMimojiCreateTitle(true);
+        ((TopAlert) ModeCoordinatorImpl.getInstance().getAttachProtocol(172)).disableMenuItem(true, 225, 193);
         BottomPopupTips bottomPopupTips = (BottomPopupTips) ModeCoordinatorImpl.getInstance().getAttachProtocol(175);
         bottomPopupTips.hideTipImage();
         bottomPopupTips.hideLeftTipImage();

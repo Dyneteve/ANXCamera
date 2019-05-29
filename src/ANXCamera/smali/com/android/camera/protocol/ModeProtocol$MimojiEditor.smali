@@ -22,7 +22,7 @@
 
 
 # virtual methods
-.method public abstract directlyEnterEditMode(Ljava/lang/String;)V
+.method public abstract directlyEnterEditMode(Lcom/android/camera/fragment/mimoji/MimojiInfo;I)V
 .end method
 
 .method public abstract onDeviceRotationChange(I)V
@@ -35,9 +35,6 @@
 .end method
 
 .method public abstract resetConfig()V
-.end method
-
-.method public abstract showOrHideTips(Z)V
 .end method
 
 .method public abstract startMimojiEdit()V

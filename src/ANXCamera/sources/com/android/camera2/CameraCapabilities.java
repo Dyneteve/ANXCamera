@@ -15,10 +15,12 @@ import android.util.Rational;
 import android.util.Size;
 import android.util.SizeF;
 import android.util.SparseArray;
+import com.android.camera.CameraSettings;
 import com.android.camera.CameraSize;
 import com.android.camera.Util;
 import com.android.camera.constant.DurationConstant;
 import com.android.camera.constant.MiCameraCharacteristics;
+import com.android.camera.data.DataRepository;
 import com.android.camera.log.Log;
 import com.android.camera.module.BaseModule;
 import com.android.camera.module.loader.camera2.Camera2DataContainer;
@@ -206,11 +208,11 @@ public class CameraCapabilities {
     }
 
     private boolean isQcfaMode() {
-        return this.mOperatingMode == 32775 || this.mOperatingMode == 36865;
+        return this.mOperatingMode == 32775 || this.mOperatingMode == 36865 || DataRepository.dataItemFeature().q(CameraSettings.isFrontCamera());
     }
 
     private boolean isSupportedAndroidScalerStream() {
-        return (b.rJ || b.rL) && getFacing() == 1;
+        return (b.rK || b.rM) && getFacing() == 1;
     }
 
     private boolean isUltraPixelPhotographyMode() {

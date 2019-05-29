@@ -27,9 +27,9 @@
 
 
 # instance fields
-.field private final pE:Lcom/bumptech/glide/request/a/k$a;
+.field private final pF:Lcom/bumptech/glide/request/a/k$a;
 
-.field private px:Lcom/bumptech/glide/request/a/f;
+.field private py:Lcom/bumptech/glide/request/a/f;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/request/a/f<",
@@ -69,7 +69,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/request/a/h;->pE:Lcom/bumptech/glide/request/a/k$a;
+    iput-object p1, p0, Lcom/bumptech/glide/request/a/h;->pF:Lcom/bumptech/glide/request/a/k$a;
 
     return-void
 .end method
@@ -88,7 +88,7 @@
         }
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/load/DataSource;->dg:Lcom/bumptech/glide/load/DataSource;
+    sget-object v0, Lcom/bumptech/glide/load/DataSource;->dh:Lcom/bumptech/glide/load/DataSource;
 
     if-eq p1, v0, :cond_2
 
@@ -97,20 +97,20 @@
     goto :goto_0
 
     :cond_0
-    iget-object p1, p0, Lcom/bumptech/glide/request/a/h;->px:Lcom/bumptech/glide/request/a/f;
+    iget-object p1, p0, Lcom/bumptech/glide/request/a/h;->py:Lcom/bumptech/glide/request/a/f;
 
     if-nez p1, :cond_1
 
     new-instance p1, Lcom/bumptech/glide/request/a/k;
 
-    iget-object p2, p0, Lcom/bumptech/glide/request/a/h;->pE:Lcom/bumptech/glide/request/a/k$a;
+    iget-object p2, p0, Lcom/bumptech/glide/request/a/h;->pF:Lcom/bumptech/glide/request/a/k$a;
 
     invoke-direct {p1, p2}, Lcom/bumptech/glide/request/a/k;-><init>(Lcom/bumptech/glide/request/a/k$a;)V
 
-    iput-object p1, p0, Lcom/bumptech/glide/request/a/h;->px:Lcom/bumptech/glide/request/a/f;
+    iput-object p1, p0, Lcom/bumptech/glide/request/a/h;->py:Lcom/bumptech/glide/request/a/f;
 
     :cond_1
-    iget-object p1, p0, Lcom/bumptech/glide/request/a/h;->px:Lcom/bumptech/glide/request/a/f;
+    iget-object p1, p0, Lcom/bumptech/glide/request/a/h;->py:Lcom/bumptech/glide/request/a/f;
 
     return-object p1
 

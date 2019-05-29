@@ -13,7 +13,7 @@ public class MeatureViewHeightWeight {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             windowManager.getDefaultDisplay().getMetrics(displayMetrics);
             LayoutParams layoutParams = gridView.getLayoutParams();
-            layoutParams.height = 272 * (i % 3 != 0 ? (i / 3) + 1 : i / 3);
+            layoutParams.height = 330 * (i % 3 != 0 ? (i / 3) + 1 : i / 3);
             layoutParams.width = displayMetrics.widthPixels;
             gridView.setLayoutParams(layoutParams);
         }

@@ -18,7 +18,7 @@
 
 
 # static fields
-.field static final gX:I = 0x1
+.field static final gY:I = 0x1
 
 
 # direct methods

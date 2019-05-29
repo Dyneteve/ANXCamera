@@ -14,10 +14,10 @@ import java.io.OutputStream;
 /* compiled from: StreamEncoder */
 public class s implements a<InputStream> {
     private static final String TAG = "StreamEncoder";
-    private final b ed;
+    private final b ee;
 
     public s(b bVar) {
-        this.ed = bVar;
+        this.ee = bVar;
     }
 
     /* JADX WARNING: Removed duplicated region for block: B:22:0x003d A[Catch:{ all -> 0x0031 }] */
@@ -25,7 +25,7 @@ public class s implements a<InputStream> {
     /* JADX WARNING: Removed duplicated region for block: B:30:0x0054 A[SYNTHETIC, Splitter:B:30:0x0054] */
     /* Code decompiled incorrectly, please refer to instructions dump. */
     public boolean a(@NonNull InputStream inputStream, @NonNull File file, @NonNull f fVar) {
-        byte[] bArr = (byte[]) this.ed.a(65536, byte[].class);
+        byte[] bArr = (byte[]) this.ee.a(65536, byte[].class);
         boolean z = false;
         OutputStream outputStream = null;
         try {
@@ -45,7 +45,7 @@ public class s implements a<InputStream> {
                         }
                         if (outputStream != null) {
                         }
-                        this.ed.put(bArr);
+                        this.ee.put(bArr);
                         return z;
                     } catch (Throwable th) {
                         th = th;
@@ -55,7 +55,7 @@ public class s implements a<InputStream> {
                             } catch (IOException e2) {
                             }
                         }
-                        this.ed.put(bArr);
+                        this.ee.put(bArr);
                         throw th;
                     }
                 } catch (Throwable th2) {
@@ -63,7 +63,7 @@ public class s implements a<InputStream> {
                     outputStream = fileOutputStream;
                     if (outputStream != null) {
                     }
-                    this.ed.put(bArr);
+                    this.ee.put(bArr);
                     throw th;
                 }
             }
@@ -84,10 +84,10 @@ public class s implements a<InputStream> {
                 } catch (IOException e5) {
                 }
             }
-            this.ed.put(bArr);
+            this.ee.put(bArr);
             return z;
         }
-        this.ed.put(bArr);
+        this.ee.put(bArr);
         return z;
     }
 }

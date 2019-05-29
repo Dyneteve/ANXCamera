@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field hR:I
+.field hS:I
 
 .field final lock:Ljava/util/concurrent/locks/Lock;
 

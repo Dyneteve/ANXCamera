@@ -757,7 +757,7 @@
 
     if-nez v1, :cond_18
 
-    invoke-static {}, Lcom/mi/config/b;->hL()Z
+    invoke-static {}, Lcom/mi/config/b;->hO()Z
 
     move-result v1
 
@@ -1111,7 +1111,7 @@
 
     if-nez v0, :cond_24
 
-    invoke-static {}, Lcom/mi/config/b;->hA()Z
+    invoke-static {}, Lcom/mi/config/b;->hD()Z
 
     move-result v0
 
@@ -1610,7 +1610,7 @@
 
     const v4, 0x7f09006f
 
-    const v5, 0x7f02003b
+    const v5, 0x7f020041
 
     invoke-direct {v1, v2, v4, v5, v3}, Lcom/android/camera/effect/FilterInfo;-><init>(IIII)V
 
@@ -1664,7 +1664,7 @@
 
     const v6, 0x7f09007c
 
-    const v7, 0x7f020036
+    const v7, 0x7f02003c
 
     goto/16 :goto_1
 
@@ -1673,7 +1673,7 @@
 
     const v6, 0x7f09007b
 
-    const v7, 0x7f020033
+    const v7, 0x7f020039
 
     goto :goto_1
 
@@ -1682,7 +1682,7 @@
 
     const v6, 0x7f09007a
 
-    const v7, 0x7f020032
+    const v7, 0x7f020038
 
     goto :goto_1
 
@@ -1691,7 +1691,7 @@
 
     const v6, 0x7f090079
 
-    const v7, 0x7f020038
+    const v7, 0x7f02003e
 
     goto :goto_1
 
@@ -1700,7 +1700,7 @@
 
     const v6, 0x7f090078
 
-    const v7, 0x7f020035
+    const v7, 0x7f02003b
 
     goto :goto_1
 
@@ -1709,7 +1709,7 @@
 
     const v6, 0x7f090077
 
-    const v7, 0x7f02003d
+    const v7, 0x7f020043
 
     goto :goto_1
 
@@ -1718,7 +1718,7 @@
 
     const v6, 0x7f090076
 
-    const v7, 0x7f02003c
+    const v7, 0x7f020042
 
     goto :goto_1
 
@@ -1727,7 +1727,7 @@
 
     const v6, 0x7f090075
 
-    const v7, 0x7f020034
+    const v7, 0x7f02003a
 
     goto :goto_1
 
@@ -1736,7 +1736,7 @@
 
     const v6, 0x7f090074
 
-    const v7, 0x7f02003f
+    const v7, 0x7f020045
 
     goto :goto_1
 
@@ -1745,7 +1745,7 @@
 
     const v6, 0x7f090073
 
-    const v7, 0x7f02003a
+    const v7, 0x7f020040
 
     goto :goto_1
 
@@ -1754,7 +1754,7 @@
 
     const v6, 0x7f090072
 
-    const v7, 0x7f020039
+    const v7, 0x7f02003f
 
     goto :goto_1
 
@@ -1763,7 +1763,7 @@
 
     const v6, 0x7f090071
 
-    const v7, 0x7f020037
+    const v7, 0x7f02003d
 
     goto :goto_1
 
@@ -1772,7 +1772,7 @@
 
     const v6, 0x7f090070
 
-    const v7, 0x7f02003e
+    const v7, 0x7f020044
 
     nop
 
@@ -1958,7 +1958,7 @@
 
     const v4, 0x7f09006f
 
-    const v5, 0x7f020204
+    const v5, 0x7f02020d
 
     invoke-direct {v1, v2, v4, v5, v3}, Lcom/android/camera/effect/FilterInfo;-><init>(IIII)V
 
@@ -2012,7 +2012,7 @@
 
     const v6, 0x7f090081
 
-    const v7, 0x7f0201ff
+    const v7, 0x7f020208
 
     goto :goto_1
 
@@ -2021,7 +2021,7 @@
 
     const v6, 0x7f090082
 
-    const v7, 0x7f020200
+    const v7, 0x7f020209
 
     goto :goto_1
 
@@ -2030,7 +2030,7 @@
 
     const v6, 0x7f090080
 
-    const v7, 0x7f020202
+    const v7, 0x7f02020b
 
     goto :goto_1
 
@@ -2039,7 +2039,7 @@
 
     const v6, 0x7f09007f
 
-    const v7, 0x7f020205
+    const v7, 0x7f02020e
 
     goto :goto_1
 
@@ -2048,7 +2048,7 @@
 
     const v6, 0x7f09007e
 
-    const v7, 0x7f020203
+    const v7, 0x7f02020c
 
     goto :goto_1
 
@@ -2057,7 +2057,7 @@
 
     const v6, 0x7f09007d
 
-    const v7, 0x7f020201
+    const v7, 0x7f02020a
 
     nop
 
@@ -2637,7 +2637,7 @@
 .method public getEffectGroup(Lcom/android/gallery3d/ui/GLCanvas;Lcom/android/camera/effect/renders/RenderGroup;ZZI)Lcom/android/camera/effect/renders/RenderGroup;
     .locals 4
 
-    invoke-static {}, Lcom/mi/config/b;->gK()Z
+    invoke-static {}, Lcom/mi/config/b;->gN()Z
 
     move-result v0
 
@@ -2944,12 +2944,12 @@
 .end method
 
 .method public hasEffect()Z
-    .locals 12
+    .locals 13
 
     monitor-enter p0
 
     :try_start_0
-    invoke-static {}, Lcom/mi/config/b;->gK()Z
+    invoke-static {}, Lcom/mi/config/b;->gN()Z
 
     move-result v0
 
@@ -3007,17 +3007,21 @@
 
     move-result v8
 
-    invoke-static {}, Lcom/android/camera/CameraSettings;->isTimeWaterMarkOpen()Z
+    invoke-static {}, Lcom/android/camera/CameraSettings;->isFrontCameraWaterMarkOpen()Z
 
     move-result v9
 
-    invoke-static {}, Lcom/android/camera/CameraSettings;->isAgeGenderWaterMarkOpen()Z
+    invoke-static {}, Lcom/android/camera/CameraSettings;->isTimeWaterMarkOpen()Z
 
     move-result v10
 
-    invoke-static {}, Lcom/android/camera/CameraSettings;->isMagicMirrorWaterMarkOpen()Z
+    invoke-static {}, Lcom/android/camera/CameraSettings;->isAgeGenderWaterMarkOpen()Z
 
     move-result v11
+
+    invoke-static {}, Lcom/android/camera/CameraSettings;->isMagicMirrorWaterMarkOpen()Z
+
+    move-result v12
 
     if-nez v8, :cond_2
 
@@ -3025,7 +3029,9 @@
 
     if-nez v10, :cond_2
 
-    if-eqz v11, :cond_1
+    if-nez v11, :cond_2
+
+    if-eqz v12, :cond_1
 
     goto :goto_1
 

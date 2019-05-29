@@ -20,16 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
 
-.field final synthetic val$res:I
+.field final synthetic val$topAlert:Lcom/android/camera/protocol/ModeProtocol$TopAlert;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;I)V
+.method constructor <init>(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;Lcom/android/camera/protocol/ModeProtocol$TopAlert;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$10;->this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
 
-    iput p2, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$10;->val$res:I
+    iput-object p2, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$10;->val$topAlert:Lcom/android/camera/protocol/ModeProtocol$TopAlert;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -41,25 +41,17 @@
 .method public run()V
     .locals 3
 
-    iget-object v0, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$10;->this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
+    iget-object v0, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$10;->val$topAlert:Lcom/android/camera/protocol/ModeProtocol$TopAlert;
 
-    invoke-static {v0}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$2000(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;)Lcom/android/camera/protocol/ModeProtocol$MimojiEditor;
+    iget-object v1, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$10;->this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
 
-    move-result-object v0
+    invoke-static {v1}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$2200(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;)Z
 
-    iget v1, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$10;->val$res:I
+    move-result v1
 
-    const/4 v2, 0x1
+    const v2, 0x7f090345
 
-    if-ne v1, v2, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v2, 0x0
-
-    :goto_0
-    invoke-interface {v0, v2}, Lcom/android/camera/protocol/ModeProtocol$MimojiEditor;->showOrHideTips(Z)V
+    invoke-interface {v0, v1, v2}, Lcom/android/camera/protocol/ModeProtocol$TopAlert;->alertMimojiFaceDetect(ZI)V
 
     return-void
 .end method

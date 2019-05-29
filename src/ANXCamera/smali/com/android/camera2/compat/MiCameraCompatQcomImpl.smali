@@ -10,45 +10,6 @@
 
 
 # static fields
-.field private static final AI_SCENE:Landroid/hardware/camera2/CaptureRequest$Key;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Landroid/hardware/camera2/CaptureRequest$Key<",
-            "Ljava/lang/Boolean;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private static final AI_SCENE_APPLY:Landroid/hardware/camera2/CaptureRequest$Key;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Landroid/hardware/camera2/CaptureRequest$Key<",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private static final AI_SCENE_AVAILABLE_MODES:Landroid/hardware/camera2/CaptureRequest$Key;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Landroid/hardware/camera2/CaptureRequest$Key<",
-            "[I>;"
-        }
-    .end annotation
-.end field
-
-.field private static final AI_SCENE_PERIOD:Landroid/hardware/camera2/CaptureRequest$Key;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Landroid/hardware/camera2/CaptureRequest$Key<",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 .field private static final CONTRAST_LEVEL:Landroid/hardware/camera2/CaptureRequest$Key;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -83,41 +44,11 @@
 
 .field private static final ISO_PRIORITY:I
 
-.field private static final IS_HFR_PREVIEW:Landroid/hardware/camera2/CaptureRequest$Key;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Landroid/hardware/camera2/CaptureRequest$Key<",
-            "Ljava/lang/Byte;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 .field private static final KEY_HDR_BRACKET_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/hardware/camera2/CaptureRequest$Key<",
             "Ljava/lang/Byte;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private static final KEY_MACRO_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Landroid/hardware/camera2/CaptureRequest$Key<",
-            "Ljava/lang/Byte;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private static final KEY_MULTIFRAME_INPUTNUM:Landroid/hardware/camera2/CaptureRequest$Key;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Landroid/hardware/camera2/CaptureRequest$Key<",
-            "Ljava/lang/Integer;",
             ">;"
         }
     .end annotation
@@ -254,40 +185,6 @@
 
     sput-object v0, Lcom/android/camera2/compat/MiCameraCompatQcomImpl;->RECORDING_END_STREAM:Landroid/hardware/camera2/CaptureRequest$Key;
 
-    const-string v0, "xiaomi.ai.asd.enabled"
-
-    invoke-static {v0}, Lcom/android/camera2/compat/MiCameraCompatQcomImpl;->genBooleanRequestKey(Ljava/lang/String;)Landroid/hardware/camera2/CaptureRequest$Key;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/android/camera2/compat/MiCameraCompatQcomImpl;->AI_SCENE:Landroid/hardware/camera2/CaptureRequest$Key;
-
-    const-string v0, "xiaomi.ai.asd.sceneApplied"
-
-    invoke-static {v0}, Lcom/android/camera2/compat/MiCameraCompatQcomImpl;->genIntegerRequestKey(Ljava/lang/String;)Landroid/hardware/camera2/CaptureRequest$Key;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/android/camera2/compat/MiCameraCompatQcomImpl;->AI_SCENE_APPLY:Landroid/hardware/camera2/CaptureRequest$Key;
-
-    const-string v0, "xiaomi.ai.asd.availableSceneMode"
-
-    const-class v1, [I
-
-    invoke-static {v0, v1}, Lcom/android/camera2/compat/MiCameraCompatQcomImpl;->genRequestKey(Ljava/lang/String;Ljava/lang/Class;)Landroid/hardware/camera2/CaptureRequest$Key;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/android/camera2/compat/MiCameraCompatQcomImpl;->AI_SCENE_AVAILABLE_MODES:Landroid/hardware/camera2/CaptureRequest$Key;
-
-    const-string v0, "xiaomi.ai.asd.period"
-
-    invoke-static {v0}, Lcom/android/camera2/compat/MiCameraCompatQcomImpl;->genIntegerRequestKey(Ljava/lang/String;)Landroid/hardware/camera2/CaptureRequest$Key;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/android/camera2/compat/MiCameraCompatQcomImpl;->AI_SCENE_PERIOD:Landroid/hardware/camera2/CaptureRequest$Key;
-
     const-string v0, "org.codeaurora.qcamera3.contrast.level"
 
     invoke-static {v0}, Lcom/android/camera2/compat/MiCameraCompatQcomImpl;->genIntegerRequestKey(Ljava/lang/String;)Landroid/hardware/camera2/CaptureRequest$Key;
@@ -296,14 +193,6 @@
 
     sput-object v0, Lcom/android/camera2/compat/MiCameraCompatQcomImpl;->CONTRAST_LEVEL:Landroid/hardware/camera2/CaptureRequest$Key;
 
-    const-string v0, "xiaomi.hfrPreview.isHFRPreview"
-
-    invoke-static {v0}, Lcom/android/camera2/compat/MiCameraCompatQcomImpl;->genByteRequestKey(Ljava/lang/String;)Landroid/hardware/camera2/CaptureRequest$Key;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/android/camera2/compat/MiCameraCompatQcomImpl;->IS_HFR_PREVIEW:Landroid/hardware/camera2/CaptureRequest$Key;
-
     const-string v0, "org.codeaurora.qcamera3.ae_bracket.mode"
 
     invoke-static {v0}, Lcom/android/camera2/compat/MiCameraCompatQcomImpl;->genByteRequestKey(Ljava/lang/String;)Landroid/hardware/camera2/CaptureRequest$Key;
@@ -311,22 +200,6 @@
     move-result-object v0
 
     sput-object v0, Lcom/android/camera2/compat/MiCameraCompatQcomImpl;->KEY_HDR_BRACKET_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
-
-    const-string v0, "xiaomi.multiframe.inputNum"
-
-    invoke-static {v0}, Lcom/android/camera2/compat/MiCameraCompatQcomImpl;->genIntegerRequestKey(Ljava/lang/String;)Landroid/hardware/camera2/CaptureRequest$Key;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/android/camera2/compat/MiCameraCompatQcomImpl;->KEY_MULTIFRAME_INPUTNUM:Landroid/hardware/camera2/CaptureRequest$Key;
-
-    const-string v0, "xiaomi.MacroMode.enabled"
-
-    invoke-static {v0}, Lcom/android/camera2/compat/MiCameraCompatQcomImpl;->genByteRequestKey(Ljava/lang/String;)Landroid/hardware/camera2/CaptureRequest$Key;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/android/camera2/compat/MiCameraCompatQcomImpl;->KEY_MACRO_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
 
     return-void
 .end method
@@ -341,62 +214,6 @@
 
 
 # virtual methods
-.method public applyASDEnable(Landroid/hardware/camera2/CaptureRequest$Builder;Z)V
-    .locals 1
-
-    sget-object v0, Lcom/android/camera2/compat/MiCameraCompatQcomImpl;->AI_SCENE:Landroid/hardware/camera2/CaptureRequest$Key;
-
-    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object p2
-
-    invoke-virtual {p1, v0, p2}, Landroid/hardware/camera2/CaptureRequest$Builder;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
-
-    return-void
-.end method
-
-.method public applyASDScene(Landroid/hardware/camera2/CaptureRequest$Builder;I)V
-    .locals 1
-
-    sget-object v0, Lcom/android/camera2/compat/MiCameraCompatQcomImpl;->AI_SCENE_APPLY:Landroid/hardware/camera2/CaptureRequest$Key;
-
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p2
-
-    invoke-virtual {p1, v0, p2}, Landroid/hardware/camera2/CaptureRequest$Builder;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
-
-    return-void
-.end method
-
-.method public applyAiScenePeriod(Landroid/hardware/camera2/CaptureRequest$Builder;I)V
-    .locals 1
-
-    sget-object v0, Lcom/android/camera2/compat/MiCameraCompatQcomImpl;->AI_SCENE_PERIOD:Landroid/hardware/camera2/CaptureRequest$Key;
-
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p2
-
-    invoke-virtual {p1, v0, p2}, Landroid/hardware/camera2/CaptureRequest$Builder;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
-
-    return-void
-.end method
-
-.method public applyCameraAi30Enable(Landroid/hardware/camera2/CaptureRequest$Builder;Z)V
-    .locals 1
-
-    sget-object v0, Lcom/android/camera2/compat/MiCameraCompatQcomImpl;->CAMERA_AI_30:Landroid/hardware/camera2/CaptureRequest$Key;
-
-    invoke-static {p2}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
-
-    move-result-object p2
-
-    invoke-virtual {p1, v0, p2}, Landroid/hardware/camera2/CaptureRequest$Builder;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
-
-    return-void
-.end method
-
 .method public applyContrast(Landroid/hardware/camera2/CaptureRequest$Builder;I)V
     .locals 1
 
@@ -419,20 +236,6 @@
     sget-object v0, Lcom/android/camera2/compat/MiCameraCompatQcomImpl;->USE_CUSTOM_WB:Landroid/hardware/camera2/CaptureRequest$Key;
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p2
-
-    invoke-virtual {p1, v0, p2}, Landroid/hardware/camera2/CaptureRequest$Builder;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
-
-    return-void
-.end method
-
-.method public applyDepurpleEnable(Landroid/hardware/camera2/CaptureRequest$Builder;Z)V
-    .locals 1
-
-    sget-object v0, Lcom/android/camera2/compat/MiCameraCompatQcomImpl;->DEPURPLE_TAG:Landroid/hardware/camera2/CaptureRequest$Key;
-
-    invoke-static {p2}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
 
     move-result-object p2
 
@@ -515,53 +318,6 @@
     :cond_2
     invoke-super {p0, p1, p2, p3}, Lcom/android/camera2/compat/MiCameraCompatBaseImpl;->applyExposureTime(Landroid/hardware/camera2/CaptureRequest$Builder;J)V
 
-    return-void
-.end method
-
-.method public applyHFRDeflicker(Landroid/hardware/camera2/CaptureRequest$Builder;Z)V
-    .locals 1
-
-    :try_start_0
-    sget-object v0, Lcom/android/camera2/compat/MiCameraCompatQcomImpl;->DEFLICKER_ENABLED:Landroid/hardware/camera2/CaptureRequest$Key;
-
-    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object p2
-
-    invoke-virtual {p1, v0, p2}, Landroid/hardware/camera2/CaptureRequest$Builder;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception p1
-
-    const-string p1, "applyHFRDeflicker"
-
-    new-instance p2, Ljava/lang/StringBuilder;
-
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v0, "not support ("
-
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    sget-object v0, Lcom/android/camera2/compat/MiCameraCompatQcomImpl;->DEFLICKER_ENABLED:Landroid/hardware/camera2/CaptureRequest$Key;
-
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const-string v0, ")"
-
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p2
-
-    invoke-static {p1, p2}, Lcom/android/camera/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_0
     return-void
 .end method
 
@@ -751,113 +507,6 @@
     return-void
 .end method
 
-.method public applyIsHfrPreview(Landroid/hardware/camera2/CaptureRequest$Builder;Z)V
-    .locals 1
-
-    sget-object v0, Lcom/android/camera2/compat/MiCameraCompatQcomImpl;->IS_HFR_PREVIEW:Landroid/hardware/camera2/CaptureRequest$Key;
-
-    invoke-static {p2}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
-
-    move-result-object p2
-
-    invoke-virtual {p1, v0, p2}, Landroid/hardware/camera2/CaptureRequest$Builder;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
-
-    return-void
-.end method
-
-.method public applyMacroMode(Landroid/hardware/camera2/CaptureRequest$Builder;Z)V
-    .locals 1
-
-    :try_start_0
-    sget-object v0, Lcom/android/camera2/compat/MiCameraCompatQcomImpl;->KEY_MACRO_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
-
-    invoke-static {p2}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
-
-    move-result-object p2
-
-    invoke-virtual {p1, v0, p2}, Landroid/hardware/camera2/CaptureRequest$Builder;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception p1
-
-    const-string p1, "macro_mode"
-
-    new-instance p2, Ljava/lang/StringBuilder;
-
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v0, "not support ("
-
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    sget-object v0, Lcom/android/camera2/compat/MiCameraCompatQcomImpl;->KEY_MACRO_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
-
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const-string v0, ")"
-
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p2
-
-    invoke-static {p1, p2}, Lcom/android/camera/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_0
-    return-void
-.end method
-
-.method public applyMultiFrameInputNum(Landroid/hardware/camera2/CaptureRequest$Builder;I)V
-    .locals 1
-
-    sget-object v0, Lcom/android/camera2/compat/MiCameraCompatQcomImpl;->KEY_MULTIFRAME_INPUTNUM:Landroid/hardware/camera2/CaptureRequest$Key;
-
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p2
-
-    invoke-virtual {p1, v0, p2}, Landroid/hardware/camera2/CaptureRequest$Builder;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
-
-    return-void
-.end method
-
-.method public applyNormalWideLDC(Landroid/hardware/camera2/CaptureRequest$Builder;Z)V
-    .locals 3
-
-    const-string v0, "MiCameraCompat"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "applyNormalWideLDC: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    sget-object v0, Lcom/android/camera2/compat/MiCameraCompatQcomImpl;->NORMAL_WIDE_LENS_DISTORTION_CORRECTION_LEVEL:Landroid/hardware/camera2/CaptureRequest$Key;
-
-    invoke-static {p2}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
-
-    move-result-object p2
-
-    invoke-virtual {p1, v0, p2}, Landroid/hardware/camera2/CaptureRequest$Builder;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
-
-    return-void
-.end method
-
 .method public applySaturation(Landroid/hardware/camera2/CaptureRequest$Builder;I)V
     .locals 1
 
@@ -994,38 +643,6 @@
         :pswitch_1
         :pswitch_0
     .end packed-switch
-.end method
-
-.method public applyUltraWideLDC(Landroid/hardware/camera2/CaptureRequest$Builder;Z)V
-    .locals 3
-
-    const-string v0, "MiCameraCompat"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "applyUltraWideLDC: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    sget-object v0, Lcom/android/camera2/compat/MiCameraCompatQcomImpl;->ULTRA_WIDE_LENS_DISTORTION_CORRECTION_LEVEL:Landroid/hardware/camera2/CaptureRequest$Key;
-
-    invoke-static {p2}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
-
-    move-result-object p2
-
-    invoke-virtual {p1, v0, p2}, Landroid/hardware/camera2/CaptureRequest$Builder;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
-
-    return-void
 .end method
 
 .method public applyVideoStreamState(Landroid/hardware/camera2/CaptureRequest$Builder;Z)V

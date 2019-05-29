@@ -49,6 +49,8 @@
 
 .field public static final DEFAULT_VPN_ENABLE_PASSWORD:I = 0x0
 
+.field public static final ENABLE_AUTO_SPEAKER:Ljava/lang/String; = "enable_auto_speaker"
+
 .field public static final ENABLE_MIKEY_MODE:Ljava/lang/String; = "enable_mikey_mode"
 
 .field public static final ENABLE_MIUI_IME_XIAOAI_VOICE:Ljava/lang/String; = "enable_miui_ime_xiaoai_voice"
@@ -73,6 +75,12 @@
 
 .field public static final KID_USER_ID:Ljava/lang/String; = "kid_user_id"
 
+.field public static final LIGHT_TURN_ON:Ljava/lang/String; = "light_turn_on"
+
+.field public static final LIGHT_TURN_ON_ENDTIME:Ljava/lang/String; = "light_turn_on_endTime"
+
+.field public static final LIGHT_TURN_ON_STARTTIME:Ljava/lang/String; = "light_turn_on_startTime"
+
 .field public static final LOCAL_AUTO_BACKUP:Ljava/lang/String; = "local_auto_backup"
 
 .field public static final LOCK_SCREEN_SECURE_AFTER_TIMEOUT:Ljava/lang/String; = "enable_lock_screen_secure_after_timeout"
@@ -80,6 +88,10 @@
 .field public static MIUI_OPTIMIZATION:Ljava/lang/String; = null
 
 .field public static final MOBILE_POLICY:Ljava/lang/String; = "mobile_policy"
+
+.field public static final MUSIC_LIGHT_TURN_ON:Ljava/lang/String; = "music_light_turn_on"
+
+.field public static final NOTIFICATION_LIGHT_TURN_ON:Ljava/lang/String; = "notification_light_turn_on"
 
 .field public static final OPEN_CROSS_USER_NOTIFICATION:Ljava/lang/String; = "open_cross_user_notification"
 
@@ -160,37 +172,37 @@
 .method static constructor <clinit>()V
     .registers 1
 
-    .line 2611
+    .line 2647
     const-string/jumbo v0, "resister_find_device_sim_number"
 
     sput-object v0, Landroid/provider/MiuiSettings$Secure;->REGISTER_FIND_DEVICE_SIM_NUMBER:Ljava/lang/String;
 
-    .line 2617
+    .line 2653
     const-string/jumbo v0, "unlock_failed_attempts"
 
     sput-object v0, Landroid/provider/MiuiSettings$Secure;->UNLOCK_FAILED_ATTEMPTS:Ljava/lang/String;
 
-    .line 2623
+    .line 2659
     const-string/jumbo v0, "permanently_lock_sim_change"
 
     sput-object v0, Landroid/provider/MiuiSettings$Secure;->PERMANENTLY_LOCK_SIM_CHANGE:Ljava/lang/String;
 
-    .line 2633
+    .line 2669
     const-string v0, "find_device_pin_lock"
 
     sput-object v0, Landroid/provider/MiuiSettings$Secure;->FIND_DEVICE_PIN_LOCK:Ljava/lang/String;
 
-    .line 2643
+    .line 2679
     const-string v0, "force_close_dialog_enabled"
 
     sput-object v0, Landroid/provider/MiuiSettings$Secure;->FORCE_CLOCE_DIALOG_ENABLED:Ljava/lang/String;
 
-    .line 2647
+    .line 2683
     const-string/jumbo v0, "miui_optimization"
 
     sput-object v0, Landroid/provider/MiuiSettings$Secure;->MIUI_OPTIMIZATION:Ljava/lang/String;
 
-    .line 2795
+    .line 2831
     const-string v0, "app_encrypt_password"
 
     sput-object v0, Landroid/provider/MiuiSettings$Secure;->APP_ENCRYPT_PASSWORD:Ljava/lang/String;
@@ -223,14 +235,14 @@
     .registers 4
     .param p0, "businessKey"    # Ljava/lang/String;
 
-    .line 3033
+    .line 3069
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.app.action.SET_NEW_PASSWORD"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 3034
+    .line 3070
     .local v0, "intent":Landroid/content/Intent;
     const-string/jumbo v1, "set_keyguard_password"
 
@@ -238,12 +250,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 3035
+    .line 3071
     const-string v1, "common_password_business_key"
 
     invoke-virtual {v0, v1, p0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 3036
+    .line 3072
     return-object v0
 .end method
 
@@ -253,12 +265,12 @@
     .param p1, "isOpen"    # Z
     .param p2, "userId"    # I
 
-    .line 3192
+    .line 3228
     const-string/jumbo v0, "open_cross_user_notification"
 
     invoke-static {p0, v0, p1, p2}, Landroid/provider/Settings$Secure;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
 
-    .line 3193
+    .line 3229
     return-void
 .end method
 
@@ -268,12 +280,12 @@
     .param p1, "isOpen"    # Z
     .param p2, "userId"    # I
 
-    .line 3178
+    .line 3214
     const-string/jumbo v0, "open_switch_user_notification"
 
     invoke-static {p0, v0, p1, p2}, Landroid/provider/Settings$Secure;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
 
-    .line 3179
+    .line 3215
     return-void
 .end method
 
@@ -282,16 +294,16 @@
     .param p0, "cr"    # Landroid/content/ContentResolver;
     .param p1, "allow"    # Z
 
-    .line 3140
+    .line 3176
     move v0, p1
 
-    .line 3141
+    .line 3177
     .local v0, "enable":I
     const-string v1, "http_invoke_app"
 
     invoke-static {p0, v1, v0}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 3142
+    .line 3178
     return-void
 .end method
 
@@ -300,16 +312,16 @@
     .param p0, "cr"    # Landroid/content/ContentResolver;
     .param p1, "allow"    # Z
 
-    .line 3124
+    .line 3160
     move v0, p1
 
-    .line 3125
+    .line 3161
     .local v0, "enable":I
     const-string/jumbo v1, "upload_debug_log_pref"
 
     invoke-static {p0, v1, v0}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 3126
+    .line 3162
     return-void
 .end method
 
@@ -318,16 +330,16 @@
     .param p0, "cr"    # Landroid/content/ContentResolver;
     .param p1, "allow"    # Z
 
-    .line 3108
+    .line 3144
     move v0, p1
 
-    .line 3109
+    .line 3145
     .local v0, "enable":I
     const-string/jumbo v1, "upload_log_pref"
 
     invoke-static {p0, v1, v0}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 3110
+    .line 3146
     return-void
 .end method
 
@@ -337,7 +349,7 @@
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "defValue"    # Z
 
-    .line 2973
+    .line 3009
     invoke-static {p0, p1, p2}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v0
@@ -359,17 +371,17 @@
     .registers 3
     .param p0, "cr"    # Landroid/content/ContentResolver;
 
-    .line 2962
+    .line 2998
     sget-boolean v0, Lmiui/os/Build;->IS_INTERNATIONAL_BUILD:Z
 
     if-eqz v0, :cond_6
 
-    .line 2963
+    .line 2999
     const/4 v0, 0x0
 
     return v0
 
-    .line 2966
+    .line 3002
     :cond_6
     const-string/jumbo v0, "tst_support"
 
@@ -386,7 +398,7 @@
     .registers 4
     .param p0, "cr"    # Landroid/content/ContentResolver;
 
-    .line 3164
+    .line 3200
     const-string/jumbo v0, "ts_user_disable_hybrid_icon_tip"
 
     const-wide/16 v1, -0x1
@@ -403,7 +415,7 @@
     .param p0, "cr"    # Landroid/content/ContentResolver;
     .param p1, "userId"    # I
 
-    .line 3198
+    .line 3234
     const-string/jumbo v0, "second_space_entrance_status"
 
     const/4 v1, 0x1
@@ -419,12 +431,12 @@
     .registers 3
     .param p0, "context"    # Landroid/content/Context;
 
-    .line 2987
+    .line 3023
     invoke-static {p0}, Lmiui/util/LockPatternUtilsWrapper;->getActivePasswordQuality(Landroid/content/Context;)I
 
     move-result v0
 
-    .line 2988
+    .line 3024
     .local v0, "quality":I
     if-eqz v0, :cond_8
 
@@ -444,7 +456,7 @@
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "businessId"    # Ljava/lang/String;
 
-    .line 2995
+    .line 3031
     const-string/jumbo v0, "miui_keyguard"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -457,7 +469,7 @@
 
     if-eqz v0, :cond_14
 
-    .line 2996
+    .line 3032
     invoke-static {p0}, Lmiui/util/LockPatternUtilsWrapper;->getActivePasswordQuality(Landroid/content/Context;)I
 
     move-result v0
@@ -472,7 +484,7 @@
     :goto_13
     return v1
 
-    .line 2999
+    .line 3035
     :cond_14
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -498,7 +510,7 @@
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "businessId"    # Ljava/lang/String;
 
-    .line 3007
+    .line 3043
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -525,7 +537,7 @@
     .registers 6
     .param p0, "context"    # Landroid/content/Context;
 
-    .line 2658
+    .line 2694
     const/4 v0, 0x0
 
     const/4 v1, 0x1
@@ -554,11 +566,11 @@
     :cond_11
     return v0
 
-    .line 2660
+    .line 2696
     :catch_12
     move-exception v2
 
-    .line 2662
+    .line 2698
     const-string/jumbo v2, "user"
 
     sget-object v3, Lmiui/os/Build;->TYPE:Ljava/lang/String;
@@ -594,7 +606,7 @@
     .registers 4
     .param p0, "cr"    # Landroid/content/ContentResolver;
 
-    .line 2917
+    .line 2953
     const-string v0, "green_kid_active"
 
     const/4 v1, 0x0
@@ -619,7 +631,7 @@
     .registers 3
     .param p0, "cr"    # Landroid/content/ContentResolver;
 
-    .line 3148
+    .line 3184
     const-string v0, "http_invoke_app"
 
     const/4 v1, 0x1
@@ -644,7 +656,7 @@
     .param p0, "cr"    # Landroid/content/ContentResolver;
     .param p1, "userId"    # I
 
-    .line 3185
+    .line 3221
     const-string/jumbo v0, "open_cross_user_notification"
 
     const/4 v1, 0x1
@@ -669,7 +681,7 @@
     .param p0, "cr"    # Landroid/content/ContentResolver;
     .param p1, "userId"    # I
 
-    .line 3171
+    .line 3207
     const-string/jumbo v0, "open_switch_user_notification"
 
     const/4 v1, 0x1
@@ -693,7 +705,7 @@
     .registers 3
     .param p0, "cr"    # Landroid/content/ContentResolver;
 
-    .line 2943
+    .line 2979
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
     move-result v0
@@ -722,7 +734,7 @@
     .registers 4
     .param p0, "cr"    # Landroid/content/ContentResolver;
 
-    .line 2929
+    .line 2965
     const-string/jumbo v0, "time_change_disallow"
 
     const/4 v1, 0x0
@@ -747,12 +759,12 @@
     .registers 4
     .param p0, "cr"    # Landroid/content/ContentResolver;
 
-    .line 3132
+    .line 3168
     invoke-static {p0}, Landroid/provider/MiuiSettings$Secure;->isUserExperienceProgramEnable(Landroid/content/ContentResolver;)Z
 
     move-result v0
 
-    .line 3133
+    .line 3169
     .local v0, "default_value":I
     const-string/jumbo v1, "upload_debug_log_pref"
 
@@ -777,10 +789,10 @@
     .registers 4
     .param p0, "cr"    # Landroid/content/ContentResolver;
 
-    .line 3116
+    .line 3152
     sget-boolean v0, Lmiui/os/Build;->IS_DEVELOPMENT_VERSION:Z
 
-    .line 3117
+    .line 3153
     .local v0, "default_value":I
     const-string/jumbo v1, "upload_log_pref"
 
@@ -807,10 +819,10 @@
     .param p1, "name"    # Ljava/lang/String;
     .param p2, "value"    # Z
 
-    .line 2980
+    .line 3016
     invoke-static {p0, p1, p2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 2981
+    .line 3017
     return-void
 .end method
 
@@ -821,7 +833,7 @@
     .param p2, "value"    # Ljava/lang/String;
     .param p3, "userHandle"    # I
 
-    .line 3217
+    .line 3253
     const-string v0, "enabled_accessibility_services"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -830,10 +842,10 @@
 
     if-nez v0, :cond_9
 
-    .line 3218
+    .line 3254
     return-void
 
-    .line 3220
+    .line 3256
     :cond_9
     const-string v0, "enabled_accessibility_services"
 
@@ -841,7 +853,7 @@
 
     move-result-object v0
 
-    .line 3222
+    .line 3258
     .local v0, "oldValue":Ljava/lang/String;
     const/4 v1, 0x0
 
@@ -858,7 +870,7 @@
 
     move-result-object v2
 
-    .line 3223
+    .line 3259
     .local v2, "oldServices":[Ljava/lang/String;
     :goto_1b
     if-nez p2, :cond_20
@@ -874,7 +886,7 @@
 
     move-result-object v3
 
-    .line 3224
+    .line 3260
     .local v3, "newServices":[Ljava/lang/String;
     :goto_26
     array-length v4, v2
@@ -886,7 +898,7 @@
 
     aget-object v6, v2, v5
 
-    .line 3225
+    .line 3261
     .local v6, "oldService":Ljava/lang/String;
     invoke-static {v6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -897,12 +909,12 @@
     .end local v6    # "oldService":Ljava/lang/String;
     goto :goto_67
 
-    .line 3226
+    .line 3262
     .restart local v6    # "oldService":Ljava/lang/String;
     :cond_33
     const/4 v7, 0x0
 
-    .line 3227
+    .line 3263
     .local v7, "contains":Z
     array-length v8, v3
 
@@ -913,7 +925,7 @@
 
     aget-object v10, v3, v9
 
-    .line 3228
+    .line 3264
     .local v10, "newService":Ljava/lang/String;
     invoke-virtual {v6, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -921,25 +933,25 @@
 
     if-eqz v11, :cond_42
 
-    .line 3229
+    .line 3265
     const/4 v7, 0x1
 
-    .line 3230
+    .line 3266
     goto :goto_45
 
-    .line 3227
+    .line 3263
     .end local v10    # "newService":Ljava/lang/String;
     :cond_42
     add-int/lit8 v9, v9, 0x1
 
     goto :goto_36
 
-    .line 3233
+    .line 3269
     :cond_45
     :goto_45
     if-nez v7, :cond_67
 
-    .line 3235
+    .line 3271
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
@@ -952,7 +964,7 @@
 
     const-string v10, "_"
 
-    .line 3236
+    .line 3272
     invoke-virtual {v6, v9, v10}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v9
@@ -963,15 +975,15 @@
 
     move-result-object v8
 
-    .line 3237
+    .line 3273
     invoke-virtual {p0}, Landroid/content/ContentResolver;->getPackageName()Ljava/lang/String;
 
     move-result-object v9
 
-    .line 3235
+    .line 3271
     invoke-static {p0, v8, v9, p3}, Landroid/provider/Settings$Secure;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
 
-    .line 3224
+    .line 3260
     .end local v6    # "oldService":Ljava/lang/String;
     .end local v7    # "contains":Z
     :cond_67
@@ -980,7 +992,7 @@
 
     goto :goto_28
 
-    .line 3240
+    .line 3276
     :cond_6a
     array-length v4, v3
 
@@ -991,7 +1003,7 @@
 
     aget-object v6, v3, v5
 
-    .line 3241
+    .line 3277
     .local v6, "newService":Ljava/lang/String;
     invoke-static {v6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -1002,12 +1014,12 @@
     .end local v6    # "newService":Ljava/lang/String;
     goto :goto_ab
 
-    .line 3242
+    .line 3278
     .restart local v6    # "newService":Ljava/lang/String;
     :cond_77
     const/4 v7, 0x0
 
-    .line 3243
+    .line 3279
     .restart local v7    # "contains":Z
     array-length v8, v2
 
@@ -1018,7 +1030,7 @@
 
     aget-object v10, v2, v9
 
-    .line 3244
+    .line 3280
     .local v10, "oldService":Ljava/lang/String;
     invoke-virtual {v10, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1026,25 +1038,25 @@
 
     if-eqz v11, :cond_86
 
-    .line 3245
+    .line 3281
     const/4 v7, 0x1
 
-    .line 3246
+    .line 3282
     goto :goto_89
 
-    .line 3243
+    .line 3279
     .end local v10    # "oldService":Ljava/lang/String;
     :cond_86
     add-int/lit8 v9, v9, 0x1
 
     goto :goto_7a
 
-    .line 3249
+    .line 3285
     :cond_89
     :goto_89
     if-nez v7, :cond_ab
 
-    .line 3251
+    .line 3287
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
@@ -1057,7 +1069,7 @@
 
     const-string v10, "_"
 
-    .line 3252
+    .line 3288
     invoke-virtual {v6, v9, v10}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v9
@@ -1068,15 +1080,15 @@
 
     move-result-object v8
 
-    .line 3253
+    .line 3289
     invoke-virtual {p0}, Landroid/content/ContentResolver;->getPackageName()Ljava/lang/String;
 
     move-result-object v9
 
-    .line 3251
+    .line 3287
     invoke-static {p0, v8, v9, p3}, Landroid/provider/Settings$Secure;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
 
-    .line 3240
+    .line 3276
     .end local v6    # "newService":Ljava/lang/String;
     .end local v7    # "contains":Z
     :cond_ab
@@ -1085,7 +1097,7 @@
 
     goto :goto_6c
 
-    .line 3256
+    .line 3292
     :cond_ae
     return-void
 .end method
@@ -1095,21 +1107,21 @@
     .param p0, "cr"    # Landroid/content/ContentResolver;
     .param p1, "ctaSupport"    # I
 
-    .line 2951
+    .line 2987
     sget-boolean v0, Lmiui/os/Build;->IS_INTERNATIONAL_BUILD:Z
 
     if-eqz v0, :cond_5
 
-    .line 2952
+    .line 2988
     return-void
 
-    .line 2955
+    .line 2991
     :cond_5
     const-string/jumbo v0, "tst_support"
 
     invoke-static {p0, v0, p1}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 2956
+    .line 2992
     return-void
 .end method
 
@@ -1118,7 +1130,7 @@
     .param p0, "cr"    # Landroid/content/ContentResolver;
     .param p1, "timeStamp"    # J
 
-    .line 3156
+    .line 3192
     const-string/jumbo v0, "ts_user_disable_hybrid_icon_tip"
 
     invoke-static {p0, v0, p1, p2}, Landroid/provider/Settings$Secure;->putLong(Landroid/content/ContentResolver;Ljava/lang/String;J)Z
@@ -1134,12 +1146,12 @@
     .param p1, "isShow"    # Z
     .param p2, "userId"    # I
 
-    .line 3205
+    .line 3241
     const-string/jumbo v0, "second_space_entrance_status"
 
     invoke-static {p0, v0, p1, p2}, Landroid/provider/Settings$Secure;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
 
-    .line 3206
+    .line 3242
     return-void
 .end method
 
@@ -1148,7 +1160,7 @@
     .param p0, "cr"    # Landroid/content/ContentResolver;
     .param p1, "disallow"    # Z
 
-    .line 2936
+    .line 2972
     const-string/jumbo v0, "time_change_disallow"
 
     invoke-static {p0, v0, p1}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
@@ -1165,12 +1177,12 @@
     .param p2, "businessKey"    # Ljava/lang/String;
     .param p3, "businessName"    # Ljava/lang/String;
 
-    .line 3083
+    .line 3119
     new-instance v0, Landroid/provider/MiuiSettings$Secure$3;
 
     invoke-direct {v0, p0, p2, p1}, Landroid/provider/MiuiSettings$Secure$3;-><init>(Landroid/app/Activity;Ljava/lang/String;Landroid/content/DialogInterface$OnClickListener;)V
 
-    .line 3095
+    .line 3131
     .local v0, "listener":Landroid/content/DialogInterface$OnClickListener;
     new-instance v1, Landroid/app/AlertDialog$Builder;
 
@@ -1182,7 +1194,7 @@
 
     move-result-object v1
 
-    .line 3096
+    .line 3132
     const v3, 0x1010355
 
     invoke-virtual {v1, v3}, Landroid/app/AlertDialog$Builder;->setIconAttribute(I)Landroid/app/AlertDialog$Builder;
@@ -1195,8 +1207,8 @@
 
     aput-object p3, v4, v2
 
-    .line 3097
-    const v5, 0x110900af
+    .line 3133
+    const v5, 0x110900b0
 
     invoke-virtual {p0, v5, v4}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1210,8 +1222,8 @@
 
     aput-object p3, v3, v2
 
-    .line 3098
-    const v2, 0x110900b0
+    .line 3134
+    const v2, 0x110900b1
 
     invoke-virtual {p0, v2, v3}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1221,28 +1233,28 @@
 
     move-result-object v1
 
-    .line 3099
-    const v2, 0x110900b1
+    .line 3135
+    const v2, 0x110900b2
 
     invoke-virtual {v1, v2, v0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    .line 3100
-    const v2, 0x110900ab
+    .line 3136
+    const v2, 0x110900ac
 
     invoke-virtual {v1, v2, v0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    .line 3101
+    .line 3137
     invoke-virtual {v1}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v1
 
     invoke-virtual {v1}, Landroid/app/AlertDialog;->show()V
 
-    .line 3102
+    .line 3138
     return-void
 .end method
 
@@ -1251,7 +1263,7 @@
     .param p0, "activity"    # Landroid/app/Activity;
     .param p1, "listener"    # Landroid/content/DialogInterface$OnClickListener;
 
-    .line 3041
+    .line 3077
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
@@ -1262,49 +1274,49 @@
 
     move-result-object v0
 
-    .line 3042
+    .line 3078
     const v1, 0x1010355
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setIconAttribute(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    .line 3043
-    const v1, 0x110900ad
+    .line 3079
+    const v1, 0x110900ae
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    .line 3044
-    const v1, 0x110900ae
+    .line 3080
+    const v1, 0x110900af
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    .line 3045
-    const v1, 0x110900ac
+    .line 3081
+    const v1, 0x110900ad
 
     invoke-virtual {v0, v1, p1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    .line 3046
-    const v1, 0x110900ab
+    .line 3082
+    const v1, 0x110900ac
 
     invoke-virtual {v0, v1, p1}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    .line 3047
+    .line 3083
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
 
-    .line 3048
+    .line 3084
     return-void
 .end method
 
@@ -1315,27 +1327,27 @@
     .param p2, "businessKey"    # Ljava/lang/String;
     .param p3, "setPasswordRequestCode"    # I
 
-    .line 3058
+    .line 3094
     :try_start_0
     new-instance v0, Landroid/provider/MiuiSettings$Secure$2;
 
     invoke-direct {v0, p0, p2, p3, p1}, Landroid/provider/MiuiSettings$Secure$2;-><init>(Landroid/app/Activity;Ljava/lang/String;ILandroid/content/DialogInterface$OnClickListener;)V
 
-    .line 3070
+    .line 3106
     .local v0, "listener":Landroid/content/DialogInterface$OnClickListener;
     invoke-static {p0, v0}, Landroid/provider/MiuiSettings$Secure;->showConfirmDialog(Landroid/app/Activity;Landroid/content/DialogInterface$OnClickListener;)V
     :try_end_8
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_8} :catch_9
 
-    .line 3073
+    .line 3109
     .end local v0    # "listener":Landroid/content/DialogInterface$OnClickListener;
     goto :goto_a
 
-    .line 3071
+    .line 3107
     :catch_9
     move-exception v0
 
-    .line 3074
+    .line 3110
     :goto_a
     return-void
 .end method
@@ -1347,12 +1359,12 @@
     .param p2, "businessKey"    # Ljava/lang/String;
     .param p3, "setPasswordRequestCode"    # I
 
-    .line 3017
+    .line 3053
     new-instance v0, Landroid/provider/MiuiSettings$Secure$1;
 
     invoke-direct {v0, p0, p2, p3, p1}, Landroid/provider/MiuiSettings$Secure$1;-><init>(Landroid/app/Fragment;Ljava/lang/String;ILandroid/content/DialogInterface$OnClickListener;)V
 
-    .line 3029
+    .line 3065
     .local v0, "listener":Landroid/content/DialogInterface$OnClickListener;
     invoke-virtual {p0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
@@ -1360,6 +1372,6 @@
 
     invoke-static {v1, v0}, Landroid/provider/MiuiSettings$Secure;->showConfirmDialog(Landroid/app/Activity;Landroid/content/DialogInterface$OnClickListener;)V
 
-    .line 3030
+    .line 3066
     return-void
 .end method

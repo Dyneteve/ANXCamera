@@ -23,11 +23,11 @@
     .end annotation
 .end field
 
-.field private static final hl:I = 0x2
+.field private static final hm:I = 0x2
 
 
 # instance fields
-.field private final he:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
+.field private final hf:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/engine/bitmap_recycle/g<",
@@ -38,9 +38,9 @@
     .end annotation
 .end field
 
-.field private final hm:Lcom/bumptech/glide/load/engine/bitmap_recycle/i$b;
+.field private final hn:Lcom/bumptech/glide/load/engine/bitmap_recycle/i$b;
 
-.field private final hn:Ljava/util/Map;
+.field private final ho:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -54,7 +54,7 @@
     .end annotation
 .end field
 
-.field private final ho:Ljava/util/Map;
+.field private final hp:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -66,7 +66,7 @@
     .end annotation
 .end field
 
-.field private hp:I
+.field private hq:I
 
 .field private final maxSize:I
 
@@ -83,25 +83,25 @@
 
     invoke-direct {v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/g;-><init>()V
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->he:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
+    iput-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hf:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
 
     new-instance v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i$b;
 
     invoke-direct {v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/i$b;-><init>()V
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hm:Lcom/bumptech/glide/load/engine/bitmap_recycle/i$b;
-
-    new-instance v0, Ljava/util/HashMap;
-
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
-
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hn:Ljava/util/Map;
+    iput-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hn:Lcom/bumptech/glide/load/engine/bitmap_recycle/i$b;
 
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->ho:Ljava/util/Map;
+
+    new-instance v0, Ljava/util/HashMap;
+
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+
+    iput-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hp:Ljava/util/Map;
 
     const/high16 v0, 0x400000
 
@@ -119,25 +119,25 @@
 
     invoke-direct {v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/g;-><init>()V
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->he:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
+    iput-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hf:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
 
     new-instance v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i$b;
 
     invoke-direct {v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/i$b;-><init>()V
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hm:Lcom/bumptech/glide/load/engine/bitmap_recycle/i$b;
-
-    new-instance v0, Ljava/util/HashMap;
-
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
-
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hn:Ljava/util/Map;
+    iput-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hn:Lcom/bumptech/glide/load/engine/bitmap_recycle/i$b;
 
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->ho:Ljava/util/Map;
+
+    new-instance v0, Ljava/util/HashMap;
+
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+
+    iput-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hp:Ljava/util/Map;
 
     iput p1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->maxSize:I
 
@@ -159,7 +159,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->he:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hf:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
 
     invoke-virtual {v0, p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/g;->b(Lcom/bumptech/glide/load/engine/bitmap_recycle/l;)Ljava/lang/Object;
 
@@ -191,7 +191,7 @@
 
     if-eqz v1, :cond_0
 
-    iget v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hp:I
+    iget v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hq:I
 
     invoke-interface {v0, v1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/a;->n(Ljava/lang/Object;)I
 
@@ -205,7 +205,7 @@
 
     sub-int/2addr v2, v3
 
-    iput v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hp:I
+    iput v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hq:I
 
     invoke-interface {v0, v1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/a;->n(Ljava/lang/Object;)I
 
@@ -301,13 +301,13 @@
 .method private bq()Z
     .locals 2
 
-    iget v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hp:I
+    iget v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hq:I
 
     if-eqz v0, :cond_1
 
     iget v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->maxSize:I
 
-    iget v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hp:I
+    iget v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hq:I
 
     div-int/2addr v0, v1
 
@@ -444,7 +444,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hn:Ljava/util/Map;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->ho:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -458,7 +458,7 @@
 
     invoke-direct {v0}, Ljava/util/TreeMap;-><init>()V
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hn:Ljava/util/Map;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->ho:Ljava/util/Map;
 
     invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -480,7 +480,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->ho:Ljava/util/Map;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hp:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -518,7 +518,7 @@
     invoke-direct {v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/f;-><init>()V
 
     :goto_0
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->ho:Ljava/util/Map;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hp:Ljava/util/Map;
 
     invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -601,11 +601,11 @@
     .locals 5
 
     :goto_0
-    iget v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hp:I
+    iget v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hq:I
 
     if-le v0, p1, :cond_1
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->he:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hf:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
 
     invoke-virtual {v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/g;->removeLast()Ljava/lang/Object;
 
@@ -617,7 +617,7 @@
 
     move-result-object v1
 
-    iget v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hp:I
+    iget v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hq:I
 
     invoke-interface {v1, v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/a;->n(Ljava/lang/Object;)I
 
@@ -631,7 +631,7 @@
 
     sub-int/2addr v2, v3
 
-    iput v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hp:I
+    iput v2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hq:I
 
     invoke-interface {v1, v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/a;->n(Ljava/lang/Object;)I
 
@@ -723,7 +723,7 @@
 
     if-eqz v1, :cond_0
 
-    iget-object p1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hm:Lcom/bumptech/glide/load/engine/bitmap_recycle/i$b;
+    iget-object p1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hn:Lcom/bumptech/glide/load/engine/bitmap_recycle/i$b;
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
@@ -736,7 +736,7 @@
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hm:Lcom/bumptech/glide/load/engine/bitmap_recycle/i$b;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hn:Lcom/bumptech/glide/load/engine/bitmap_recycle/i$b;
 
     invoke-virtual {v0, p1, p2}, Lcom/bumptech/glide/load/engine/bitmap_recycle/i$b;->e(ILjava/lang/Class;)Lcom/bumptech/glide/load/engine/bitmap_recycle/i$a;
 
@@ -796,7 +796,7 @@
     monitor-enter p0
 
     :try_start_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hm:Lcom/bumptech/glide/load/engine/bitmap_recycle/i$b;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hn:Lcom/bumptech/glide/load/engine/bitmap_recycle/i$b;
 
     invoke-virtual {v0, p1, p2}, Lcom/bumptech/glide/load/engine/bitmap_recycle/i$b;->e(ILjava/lang/Class;)Lcom/bumptech/glide/load/engine/bitmap_recycle/i$a;
 
@@ -825,7 +825,7 @@
 
     nop
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hn:Ljava/util/Map;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->ho:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->keySet()Ljava/util/Set;
 
@@ -850,7 +850,7 @@
 
     check-cast v2, Ljava/lang/Class;
 
-    iget-object v3, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hn:Ljava/util/Map;
+    iget-object v3, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->ho:Ljava/util/Map;
 
     invoke-interface {v3, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -887,7 +887,7 @@
 
     move-result v6
 
-    iget-object v7, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hn:Ljava/util/Map;
+    iget-object v7, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->ho:Ljava/util/Map;
 
     invoke-interface {v7, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -993,13 +993,13 @@
 
     :cond_0
     :try_start_1
-    iget-object v3, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hm:Lcom/bumptech/glide/load/engine/bitmap_recycle/i$b;
+    iget-object v3, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hn:Lcom/bumptech/glide/load/engine/bitmap_recycle/i$b;
 
     invoke-virtual {v3, v2, v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/i$b;->e(ILjava/lang/Class;)Lcom/bumptech/glide/load/engine/bitmap_recycle/i$a;
 
     move-result-object v2
 
-    iget-object v3, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->he:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
+    iget-object v3, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hf:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
 
     invoke-virtual {v3, v2, p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/g;->a(Lcom/bumptech/glide/load/engine/bitmap_recycle/l;Ljava/lang/Object;)V
 
@@ -1045,11 +1045,11 @@
 
     invoke-interface {p1, v2, v0}, Ljava/util/NavigableMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget p1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hp:I
+    iget p1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hq:I
 
     add-int/2addr p1, v1
 
-    iput p1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hp:I
+    iput p1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->hq:I
 
     invoke-direct {p0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;->br()V
     :try_end_1

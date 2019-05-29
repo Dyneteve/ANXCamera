@@ -15,14 +15,14 @@
 
 
 # instance fields
-.field final synthetic ca:Lcom/bumptech/glide/a/b;
+.field final synthetic cb:Lcom/bumptech/glide/a/b;
 
 
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/a/b;I)V
     .locals 0
 
-    iput-object p1, p0, Lcom/bumptech/glide/a/b$1;->ca:Lcom/bumptech/glide/a/b;
+    iput-object p1, p0, Lcom/bumptech/glide/a/b$1;->cb:Lcom/bumptech/glide/a/b;
 
     invoke-direct {p0, p2}, Ljava/io/ByteArrayOutputStream;-><init>(I)V
 
@@ -67,7 +67,7 @@
 
     const/4 v3, 0x0
 
-    iget-object v4, p0, Lcom/bumptech/glide/a/b$1;->ca:Lcom/bumptech/glide/a/b;
+    iget-object v4, p0, Lcom/bumptech/glide/a/b$1;->cb:Lcom/bumptech/glide/a/b;
 
     invoke-static {v4}, Lcom/bumptech/glide/a/b;->a(Lcom/bumptech/glide/a/b;)Ljava/nio/charset/Charset;
 

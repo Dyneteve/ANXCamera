@@ -11,8 +11,8 @@ import com.android.camera.effect.FilterInfo;
 import com.android.camera.fragment.beauty.BeautyValues;
 import com.android.camera2.CameraCapabilities;
 import com.mi.config.b;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class ComponentRunningShine extends ComponentData {
     public static final int ENTRY_NONE = -1;
@@ -62,7 +62,7 @@ public class ComponentRunningShine extends ComponentData {
     }
 
     private ComponentDataItem generateBeautyLevelItem(boolean z) {
-        return b.iw() ? new ComponentDataItem(R.drawable.ic_beauty_off, R.drawable.ic_beauty_on, R.string.beauty_fragment_tab_name_3d_beauty, "1") : new ComponentDataItem(R.drawable.ic_beauty_off, R.drawable.ic_beauty_on, R.string.beauty_fragment_tab_name_beauty, "1");
+        return b.iz() ? new ComponentDataItem(R.drawable.ic_beauty_off, R.drawable.ic_beauty_on, R.string.beauty_fragment_tab_name_3d_beauty, "1") : new ComponentDataItem(R.drawable.ic_beauty_off, R.drawable.ic_beauty_on, R.string.beauty_fragment_tab_name_beauty, "1");
     }
 
     private ComponentDataItem generateFigureItem() {
@@ -78,7 +78,7 @@ public class ComponentRunningShine extends ComponentData {
     }
 
     private ComponentDataItem generateModelItem() {
-        if (!b.iw()) {
+        if (!b.iz()) {
             return new ComponentDataItem(R.drawable.ic_beauty_off, R.drawable.ic_beauty_on, R.string.beauty_fragment_tab_name_makeup, "3");
         }
         return new ComponentDataItem(R.drawable.ic_beauty_off, R.drawable.ic_beauty_on, isSmoothDependBeautyVersion() ? R.string.beauty_fragment_tab_name_3d_beauty : R.string.beauty_fragment_tab_name_3d_remodeling, "4");
@@ -296,6 +296,14 @@ public class ComponentRunningShine extends ComponentData {
         return this.mBeautyVersion == 3;
     }
 
+    public void reInit() {
+        if (this.mItems == null) {
+            this.mItems = new CopyOnWriteArrayList();
+        } else {
+            this.mItems.clear();
+        }
+    }
+
     public void reInit(int i, int i2, CameraCapabilities cameraCapabilities) {
         boolean z;
         boolean z2;
@@ -304,15 +312,11 @@ public class ComponentRunningShine extends ComponentData {
         boolean z5;
         boolean z6;
         boolean z7;
-        if (this.mItems == null) {
-            this.mItems = new ArrayList();
-        } else {
-            this.mItems.clear();
-        }
+        reInit();
         this.mBeautyVersion = cameraCapabilities.getBeautyVersion();
         boolean z8 = true;
         if (this.mBeautyVersion < 0) {
-            if (b.iw()) {
+            if (b.iz()) {
                 this.mBeautyVersion = 2;
             } else {
                 this.mBeautyVersion = 1;
@@ -414,7 +418,7 @@ public class ComponentRunningShine extends ComponentData {
                         }
                     } else {
                         this.mShineEntry = 4;
-                        if (!DataRepository.dataItemFeature().gE()) {
+                        if (!DataRepository.dataItemFeature().gF()) {
                             this.mSupportBeautyModel = true;
                             this.mItems.add(generateModelItem());
                             if (DataRepository.dataItemFeature().fw() && cameraCapabilities.isSupportBeautyMakeup()) {
@@ -456,8 +460,9 @@ public class ComponentRunningShine extends ComponentData {
                 break;
             case 174:
                 this.mShineEntry = 4;
-                this.mItems.add(new ComponentDataItem(R.drawable.ic_new_effect_button_normal, R.drawable.ic_new_effect_button_selected, R.string.pref_camera_coloreffect_title, "10"));
+                this.mDefaultType = "10";
                 this.mItems.add(new ComponentDataItem(R.drawable.ic_beauty_off, R.drawable.ic_beauty_on, R.string.beauty_fragment_tab_name_3d_beauty, SHINE_LIVE_BEAUTY));
+                this.mItems.add(new ComponentDataItem(R.drawable.ic_new_effect_button_normal, R.drawable.ic_new_effect_button_selected, R.string.pref_camera_coloreffect_title, "10"));
                 break;
             case 176:
                 this.mShineEntry = 4;
@@ -483,14 +488,6 @@ public class ComponentRunningShine extends ComponentData {
             this.mDefaultType = ((ComponentDataItem) this.mItems.get(0)).mValue;
         }
         this.mCurrentType = this.mDefaultType;
-    }
-
-    public void reInit(@ShineType String str) {
-        if (this.mItems == null) {
-            this.mItems = new ArrayList();
-        } else {
-            this.mItems.clear();
-        }
     }
 
     public void setClosed(boolean z) {

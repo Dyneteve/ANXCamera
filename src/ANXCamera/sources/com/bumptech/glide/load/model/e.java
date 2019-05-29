@@ -12,9 +12,9 @@ import java.io.InputStream;
 
 /* compiled from: DataUrlLoader */
 public final class e<Model, Data> implements m<Model, Data> {
-    private static final String jw = "data:image";
-    private static final String jx = ";base64";
-    private final a<Data> jy;
+    private static final String jx = "data:image";
+    private static final String jy = ";base64";
+    private final a<Data> jz;
 
     /* compiled from: DataUrlLoader */
     public interface a<Data> {
@@ -28,17 +28,17 @@ public final class e<Model, Data> implements m<Model, Data> {
     /* compiled from: DataUrlLoader */
     private static final class b<Data> implements d<Data> {
         private Data data;
-        private final a<Data> jA;
-        private final String jz;
+        private final String jA;
+        private final a<Data> jB;
 
         b(String str, a<Data> aVar) {
-            this.jz = str;
-            this.jA = aVar;
+            this.jA = str;
+            this.jB = aVar;
         }
 
         public void a(@NonNull Priority priority, @NonNull com.bumptech.glide.load.a.d.a<? super Data> aVar) {
             try {
-                this.data = this.jA.x(this.jz);
+                this.data = this.jB.x(this.jA);
                 aVar.k(this.data);
             } catch (IllegalArgumentException e) {
                 aVar.b(e);
@@ -47,7 +47,7 @@ public final class e<Model, Data> implements m<Model, Data> {
 
         @NonNull
         public Class<Data> aj() {
-            return this.jA.aj();
+            return this.jB.aj();
         }
 
         @NonNull
@@ -60,7 +60,7 @@ public final class e<Model, Data> implements m<Model, Data> {
 
         public void cleanup() {
             try {
-                this.jA.j(this.data);
+                this.jB.j(this.data);
             } catch (IOException e) {
             }
         }
@@ -68,7 +68,7 @@ public final class e<Model, Data> implements m<Model, Data> {
 
     /* compiled from: DataUrlLoader */
     public static final class c<Model> implements n<Model, InputStream> {
-        private final a<InputStream> jB = new a<InputStream>() {
+        private final a<InputStream> jC = new a<InputStream>() {
             public Class<InputStream> aj() {
                 return InputStream.class;
             }
@@ -80,11 +80,11 @@ public final class e<Model, Data> implements m<Model, Data> {
 
             /* renamed from: y */
             public InputStream x(String str) {
-                if (str.startsWith(e.jw)) {
+                if (str.startsWith(e.jx)) {
                     int indexOf = str.indexOf(44);
                     if (indexOf == -1) {
                         throw new IllegalArgumentException("Missing comma in data URL.");
-                    } else if (str.substring(0, indexOf).endsWith(e.jx)) {
+                    } else if (str.substring(0, indexOf).endsWith(e.jy)) {
                         return new ByteArrayInputStream(Base64.decode(str.substring(indexOf + 1), 0));
                     } else {
                         throw new IllegalArgumentException("Not a base64 image data URL.");
@@ -97,7 +97,7 @@ public final class e<Model, Data> implements m<Model, Data> {
 
         @NonNull
         public m<Model, InputStream> a(@NonNull q qVar) {
-            return new e(this.jB);
+            return new e(this.jC);
         }
 
         public void bX() {
@@ -105,14 +105,14 @@ public final class e<Model, Data> implements m<Model, Data> {
     }
 
     public e(a<Data> aVar) {
-        this.jy = aVar;
+        this.jz = aVar;
     }
 
     public com.bumptech.glide.load.model.m.a<Data> b(@NonNull Model model, int i, int i2, @NonNull f fVar) {
-        return new com.bumptech.glide.load.model.m.a<>(new com.bumptech.glide.e.d(model), new b(model.toString(), this.jy));
+        return new com.bumptech.glide.load.model.m.a<>(new com.bumptech.glide.e.d(model), new b(model.toString(), this.jz));
     }
 
     public boolean q(@NonNull Model model) {
-        return model.toString().startsWith(jw);
+        return model.toString().startsWith(jx);
     }
 }

@@ -142,12 +142,12 @@ public final class BitMatrix implements Cloneable {
                 }
             }
         }
-        int width2 = right - left;
+        int y2 = right - left;
         int height2 = bottom - top;
-        if (width2 < 0 || height2 < 0) {
+        if (y2 < 0 || height2 < 0) {
             return null;
         }
-        return new int[]{left, top, width2, height2};
+        return new int[]{left, top, y2, height2};
     }
 
     public int[] getTopLeftOnBit() {

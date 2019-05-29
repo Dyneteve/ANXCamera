@@ -8,7 +8,7 @@ import java.security.MessageDigest;
 
 /* compiled from: Options */
 public final class f implements c {
-    private final ArrayMap<e<?>, Object> dL = new CachedHashCodeArrayMap();
+    private final ArrayMap<e<?>, Object> dM = new CachedHashCodeArrayMap();
 
     private static <T> void a(@NonNull e<T> eVar, @NonNull Object obj, @NonNull MessageDigest messageDigest) {
         eVar.a(obj, messageDigest);
@@ -16,41 +16,41 @@ public final class f implements c {
 
     @NonNull
     public <T> f a(@NonNull e<T> eVar, @NonNull T t) {
-        this.dL.put(eVar, t);
+        this.dM.put(eVar, t);
         return this;
     }
 
     @Nullable
     public <T> T a(@NonNull e<T> eVar) {
-        return this.dL.containsKey(eVar) ? this.dL.get(eVar) : eVar.getDefaultValue();
+        return this.dM.containsKey(eVar) ? this.dM.get(eVar) : eVar.getDefaultValue();
     }
 
     public void a(@NonNull f fVar) {
-        this.dL.putAll(fVar.dL);
+        this.dM.putAll(fVar.dM);
     }
 
     public boolean equals(Object obj) {
         if (!(obj instanceof f)) {
             return false;
         }
-        return this.dL.equals(((f) obj).dL);
+        return this.dM.equals(((f) obj).dM);
     }
 
     public int hashCode() {
-        return this.dL.hashCode();
+        return this.dM.hashCode();
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Options{values=");
-        sb.append(this.dL);
+        sb.append(this.dM);
         sb.append('}');
         return sb.toString();
     }
 
     public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
-        for (int i = 0; i < this.dL.size(); i++) {
-            a((e) this.dL.keyAt(i), this.dL.valueAt(i), messageDigest);
+        for (int i = 0; i < this.dM.size(); i++) {
+            a((e) this.dM.keyAt(i), this.dM.valueAt(i), messageDigest);
         }
     }
 }

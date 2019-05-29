@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private volatile ql:Ljava/lang/RuntimeException;
+.field private volatile qm:Ljava/lang/RuntimeException;
 
 
 # direct methods
@@ -34,7 +34,7 @@
 .method public eT()V
     .locals 3
 
-    iget-object v0, p0, Lcom/bumptech/glide/util/a/c$a;->ql:Ljava/lang/RuntimeException;
+    iget-object v0, p0, Lcom/bumptech/glide/util/a/c$a;->qm:Ljava/lang/RuntimeException;
 
     if-nez v0, :cond_0
 
@@ -43,7 +43,7 @@
     :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
-    iget-object v1, p0, Lcom/bumptech/glide/util/a/c$a;->ql:Ljava/lang/RuntimeException;
+    iget-object v1, p0, Lcom/bumptech/glide/util/a/c$a;->qm:Ljava/lang/RuntimeException;
 
     const-string v2, "Already released"
 
@@ -63,14 +63,14 @@
 
     invoke-direct {p1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    iput-object p1, p0, Lcom/bumptech/glide/util/a/c$a;->ql:Ljava/lang/RuntimeException;
+    iput-object p1, p0, Lcom/bumptech/glide/util/a/c$a;->qm:Ljava/lang/RuntimeException;
 
     goto :goto_0
 
     :cond_0
     const/4 p1, 0x0
 
-    iput-object p1, p0, Lcom/bumptech/glide/util/a/c$a;->ql:Ljava/lang/RuntimeException;
+    iput-object p1, p0, Lcom/bumptech/glide/util/a/c$a;->qm:Ljava/lang/RuntimeException;
 
     :goto_0
     return-void

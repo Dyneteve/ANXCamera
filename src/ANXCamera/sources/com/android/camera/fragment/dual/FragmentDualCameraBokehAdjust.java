@@ -153,10 +153,10 @@ public class FragmentDualCameraBokehAdjust extends BaseFragment implements OnCli
                 Completable.create(new TranslateYAlphaOutOnSubscribe(this.mDualBokehFButton, this.mSlideLayoutHeight).setInterpolator(new OvershootInterpolator())).subscribe();
             }
         }
-        if (!isVisible(this.mImageIndicator)) {
-            Completable.create(new TranslateYAlphaInOnSubscribe(this.mImageIndicator, this.mHorizontalSlideLayout.getVisibility() != 8 ? this.mSlideLayoutHeight : 0).setInterpolator(new OvershootInterpolator())).subscribe();
-        } else {
+        if (isVisible(this.mImageIndicator)) {
             Completable.create(new TranslateYOnSubscribe(this.mImageIndicator, this.mHorizontalSlideLayout.getVisibility() != 8 ? this.mSlideLayoutHeight : 0).setInterpolator(new OvershootInterpolator())).subscribe();
+        } else if (DataRepository.dataItemGlobal().isNormalIntent()) {
+            Completable.create(new TranslateYAlphaInOnSubscribe(this.mImageIndicator, this.mHorizontalSlideLayout.getVisibility() != 8 ? this.mSlideLayoutHeight : 0).setInterpolator(new OvershootInterpolator())).subscribe();
         }
         notifyTipsMargin(0);
         BottomPopupTips bottomPopupTips = (BottomPopupTips) ModeCoordinatorImpl.getInstance().getAttachProtocol(175);

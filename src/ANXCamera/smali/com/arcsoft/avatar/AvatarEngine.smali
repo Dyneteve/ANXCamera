@@ -114,10 +114,13 @@
 .method private native nativeGetSupportConfigType(JILcom/arcsoft/avatar/AvatarConfig$GetSupportConfigTypeCallback;)I
 .end method
 
-.method private native nativeInit(JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+.method private native nativeInit(JLjava/lang/String;Ljava/lang/String;)I
 .end method
 
 .method private native nativeIsSupportSwitchGender(J)Z
+.end method
+
+.method private native nativeLoadColorValue(Ljava/lang/String;)I
 .end method
 
 .method private native nativeLoadConfig(JLjava/lang/String;)I
@@ -141,7 +144,7 @@
 .method private native nativeProcessWithInfo(J[BIIIIZILcom/arcsoft/avatar/AvatarConfig$ASAvatarProcessInfo;)I
 .end method
 
-.method private native nativeProcessWithInfoEx(JLcom/arcsoft/avatar/util/ASVLOFFSCREEN;IZILcom/arcsoft/avatar/AvatarConfig$ASAvatarProcessInfo;)I
+.method private native nativeProcessWithInfoEx(JLcom/arcsoft/avatar/util/ASVLOFFSCREEN;IZILcom/arcsoft/avatar/AvatarConfig$ASAvatarProcessInfo;Z)I
 .end method
 
 .method private native nativeReleaseRender(J)I
@@ -153,7 +156,7 @@
 .method private native nativeRenderBackgroundWithTexture(JIIZ)I
 .end method
 
-.method private native nativeRenderThumb(JIIII[BIII[F)I
+.method private native nativeRenderThumb(JIIII[BIII[FF)I
 .end method
 
 .method private native nativeRenderWithBackground(JLcom/arcsoft/avatar/util/ASVLOFFSCREEN;IZIIIIZ[I[B)I
@@ -351,8 +354,8 @@
     return v0
 .end method
 
-.method public avatarProcessWithInfoEx(Lcom/arcsoft/avatar/util/ASVLOFFSCREEN;IZILcom/arcsoft/avatar/AvatarConfig$ASAvatarProcessInfo;)I
-    .locals 8
+.method public avatarProcessWithInfoEx(Lcom/arcsoft/avatar/util/ASVLOFFSCREEN;IZILcom/arcsoft/avatar/AvatarConfig$ASAvatarProcessInfo;Z)I
+    .locals 9
 
     iget-wide v1, p0, Lcom/arcsoft/avatar/AvatarEngine;->e:J
 
@@ -368,7 +371,9 @@
 
     move-object v7, p5
 
-    invoke-direct/range {v0 .. v7}, Lcom/arcsoft/avatar/AvatarEngine;->nativeProcessWithInfoEx(JLcom/arcsoft/avatar/util/ASVLOFFSCREEN;IZILcom/arcsoft/avatar/AvatarConfig$ASAvatarProcessInfo;)I
+    move v8, p6
+
+    invoke-direct/range {v0 .. v8}, Lcom/arcsoft/avatar/AvatarEngine;->nativeProcessWithInfoEx(JLcom/arcsoft/avatar/util/ASVLOFFSCREEN;IZILcom/arcsoft/avatar/AvatarConfig$ASAvatarProcessInfo;Z)I
 
     move-result p1
 
@@ -751,8 +756,8 @@
     throw p1
 .end method
 
-.method public declared-synchronized init(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 8
+.method public declared-synchronized init(Ljava/lang/String;Ljava/lang/String;)V
+    .locals 2
 
     monitor-enter p0
 
@@ -767,33 +772,25 @@
 
     iput-wide v0, p0, Lcom/arcsoft/avatar/AvatarEngine;->e:J
 
-    iget-wide v3, p0, Lcom/arcsoft/avatar/AvatarEngine;->e:J
+    iget-wide v0, p0, Lcom/arcsoft/avatar/AvatarEngine;->e:J
 
-    move-object v2, p0
-
-    move-object v5, p1
-
-    move-object v6, p2
-
-    move-object v7, p3
-
-    invoke-direct/range {v2 .. v7}, Lcom/arcsoft/avatar/AvatarEngine;->nativeInit(JLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {p0, v0, v1, p1, p2}, Lcom/arcsoft/avatar/AvatarEngine;->nativeInit(JLjava/lang/String;Ljava/lang/String;)I
 
     move-result p1
 
     const-string p2, "AvatarEngine"
 
-    new-instance p3, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {p3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v0, "init res = "
+    const-string v1, "init res = "
 
-    invoke-virtual {p3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -843,6 +840,30 @@
     monitor-exit p0
 
     throw v0
+.end method
+
+.method public declared-synchronized loadColorValue(Ljava/lang/String;)I
+    .locals 0
+
+    monitor-enter p0
+
+    :try_start_0
+    invoke-direct {p0, p1}, Lcom/arcsoft/avatar/AvatarEngine;->nativeLoadColorValue(Ljava/lang/String;)I
+
+    move-result p1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
+
+    return p1
+
+    :catchall_0
+    move-exception p1
+
+    monitor-exit p0
+
+    throw p1
 .end method
 
 .method public declared-synchronized loadConfig(Ljava/lang/String;)V
@@ -1147,10 +1168,10 @@
     return p1
 .end method
 
-.method public declared-synchronized renderThumb(IIII[BIII[F)I
-    .locals 14
+.method public declared-synchronized renderThumb(IIII[BIII[FF)I
+    .locals 15
 
-    move-object v13, p0
+    move-object v14, p0
 
     monitor-enter p0
 
@@ -1159,11 +1180,11 @@
 
     invoke-static {v0}, Lcom/arcsoft/avatar/util/d;->a(Ljava/lang/String;)V
 
-    iget-wide v2, v13, Lcom/arcsoft/avatar/AvatarEngine;->e:J
+    iget-wide v2, v14, Lcom/arcsoft/avatar/AvatarEngine;->e:J
 
-    move-object v1, v13
+    move-object v1, v14
 
-    move v4, p1
+    move/from16 v4, p1
 
     move/from16 v5, p2
 
@@ -1181,7 +1202,9 @@
 
     move-object/from16 v12, p9
 
-    invoke-direct/range {v1 .. v12}, Lcom/arcsoft/avatar/AvatarEngine;->nativeRenderThumb(JIIII[BIII[F)I
+    move/from16 v13, p10
+
+    invoke-direct/range {v1 .. v13}, Lcom/arcsoft/avatar/AvatarEngine;->nativeRenderThumb(JIIII[BIII[FF)I
 
     move-result v0
 

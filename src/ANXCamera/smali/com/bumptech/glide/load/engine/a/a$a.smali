@@ -15,9 +15,9 @@
 
 
 # static fields
-.field public static final ag:Ljava/lang/String; = "image_manager_disk_cache"
+.field public static final ah:Ljava/lang/String; = "image_manager_disk_cache"
 
-.field public static final hO:I = 0xfa00000
+.field public static final hP:I = 0xfa00000
 
 
 # virtual methods

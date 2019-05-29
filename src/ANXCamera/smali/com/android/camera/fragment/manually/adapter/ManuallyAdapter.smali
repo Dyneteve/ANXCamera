@@ -83,7 +83,7 @@
 .end method
 
 .method public onBindViewHolder(Lcom/android/camera/fragment/CommonRecyclerViewHolder;I)V
-    .locals 6
+    .locals 7
 
     iget-object v0, p0, Lcom/android/camera/fragment/manually/adapter/ManuallyAdapter;->mComponentDataList:Ljava/util/List;
 
@@ -127,33 +127,39 @@
 
     check-cast v2, Landroid/widget/ImageView;
 
-    invoke-virtual {p2}, Lcom/android/camera/data/data/ComponentData;->getDisplayTitleString()I
+    const/4 v3, 0x1
 
-    move-result v3
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setSelected(Z)V
 
-    const/16 v4, 0x8
-
-    const/4 v5, 0x0
-
-    if-lez v3, :cond_1
+    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setSelected(Z)V
 
     invoke-virtual {p2}, Lcom/android/camera/data/data/ComponentData;->getDisplayTitleString()I
 
-    move-result v3
+    move-result v4
 
-    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(I)V
+    const/16 v5, 0x8
+
+    const/4 v6, 0x0
+
+    if-lez v4, :cond_1
+
+    invoke-virtual {p2}, Lcom/android/camera/data/data/ComponentData;->getDisplayTitleString()I
+
+    move-result v4
+
+    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setText(I)V
 
     invoke-virtual {p2}, Lcom/android/camera/data/data/ComponentData;->disableUpdate()Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_0
+    if-eqz v4, :cond_0
 
     iget-object p1, p1, Lcom/android/camera/fragment/CommonRecyclerViewHolder;->itemView:Landroid/view/View;
 
-    invoke-virtual {p1, v5}, Landroid/view/View;->setEnabled(Z)V
+    invoke-virtual {p1, v6}, Landroid/view/View;->setEnabled(Z)V
 
-    invoke-virtual {v1, v5}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v1, v6}, Landroid/widget/TextView;->setVisibility(I)V
 
     iget p1, p0, Lcom/android/camera/fragment/manually/adapter/ManuallyAdapter;->mCurrentMode:I
 
@@ -163,7 +169,7 @@
 
     invoke-virtual {v1, p1}, Landroid/widget/TextView;->setText(I)V
 
-    invoke-virtual {v2, v4}, Landroid/widget/ImageView;->setVisibility(I)V
+    invoke-virtual {v2, v5}, Landroid/widget/ImageView;->setVisibility(I)V
 
     const p1, 0x4dffffff    # 5.3687088E8f
 
@@ -175,8 +181,6 @@
 
     :cond_0
     iget-object p1, p1, Lcom/android/camera/fragment/CommonRecyclerViewHolder;->itemView:Landroid/view/View;
-
-    const/4 v3, 0x1
 
     invoke-virtual {p1, v3}, Landroid/view/View;->setEnabled(Z)V
 
@@ -209,16 +213,16 @@
 
     if-eq p1, v0, :cond_3
 
-    invoke-virtual {v1, v5}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v1, v6}, Landroid/widget/TextView;->setVisibility(I)V
 
     invoke-virtual {v1, p1}, Landroid/widget/TextView;->setText(I)V
 
-    invoke-virtual {v2, v4}, Landroid/widget/ImageView;->setVisibility(I)V
+    invoke-virtual {v2, v5}, Landroid/widget/ImageView;->setVisibility(I)V
 
     goto :goto_1
 
     :cond_3
-    invoke-virtual {v1, v4}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v1, v5}, Landroid/widget/TextView;->setVisibility(I)V
 
     iget p1, p0, Lcom/android/camera/fragment/manually/adapter/ManuallyAdapter;->mCurrentMode:I
 
@@ -228,7 +232,7 @@
 
     invoke-virtual {v2, p1}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    invoke-virtual {v2, v5}, Landroid/widget/ImageView;->setVisibility(I)V
+    invoke-virtual {v2, v6}, Landroid/widget/ImageView;->setVisibility(I)V
 
     :goto_1
     return-void
@@ -255,7 +259,7 @@
 
     move-result-object p2
 
-    const v0, 0x7f04002c
+    const v0, 0x7f04002d
 
     const/4 v1, 0x0
 

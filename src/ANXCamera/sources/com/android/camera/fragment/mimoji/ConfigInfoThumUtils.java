@@ -3,34 +3,38 @@ package com.android.camera.fragment.mimoji;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import com.arcsoft.avatar.AvatarConfig.ASAvatarConfigInfo;
+import com.arcsoft.avatar.AvatarConfig.ASAvatarConfigValue;
 import com.arcsoft.avatar.AvatarEngine;
+import com.arcsoft.avatar.util.AvatarConfigUtils;
 import com.arcsoft.avatar.util.LOG;
-import com.arcsoft.avatar.util.NotifyMessage;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Iterator;
 
 public class ConfigInfoThumUtils {
     private static final String TAG = "ConfigInfoThumUtils";
-    private final int[] mBeardStyleRegion = {522, 628, 160, 326, 200, 200};
-    private final int[] mEarShapeRegion = {1031, 1240, 179, 543, 200, 200};
-    private final int[] mEyeBrowSharpRegion = {NotifyMessage.MSG_MEDIA_RECORDER_ERROR_ENCODER, 635, 164, 209, 200, 200};
-    private final int[] mEyeSharpRegion = {NotifyMessage.MSG_MEDIA_RECORDER_ERROR_ENCODER, 635, 164, 209, 200, 200};
+    private final float[] mBeardStyleRegion = {522.0f, 628.0f, 160.0f, 326.0f, 200.0f, 200.0f, 1.0f};
+    private final float[] mEarShapeRegion = {1031.0f, 1240.0f, 179.0f, 543.0f, 200.0f, 200.0f, 1.0f};
+    private final float[] mEyeBrowSharpRegion = {528.0f, 635.0f, 164.0f, 209.0f, 200.0f, 200.0f, 1.0f};
+    private final float[] mEyeSharpRegion = {528.0f, 635.0f, 164.0f, 209.0f, 200.0f, 200.0f, 1.0f};
     private ArrayList<ASAvatarConfigInfo> mEyeWearList;
-    private final int[] mEyeWearStyleRegin = {261, 314, 35, 40, 200, 200};
-    private final int[] mEyelashStyleRegion = {1306, 1570, 389, 668, 200, 200};
-    private final int[] mFaceSharpRegion = {261, 314, 35, 40, 200, 200};
-    private final int[] mFrecklesRegion = {601, 723, 201, 274, 200, 200};
+    private final float[] mEyeWearStyleRegin = {261.0f, 314.0f, 35.0f, 40.0f, 200.0f, 200.0f, 1.0f};
+    private final float[] mEyelashStyleRegion = {1306.0f, 1570.0f, 389.0f, 668.0f, 200.0f, 200.0f, 1.0f};
+    private final float[] mFaceSharpRegion = {261.0f, 314.0f, 35.0f, 40.0f, 200.0f, 200.0f, 1.0f};
+    private final float[] mFrecklesRegion = {601.0f, 723.0f, 201.0f, 274.0f, 200.0f, 200.0f, 1.0f};
     private ArrayList<ASAvatarConfigInfo> mHairList;
-    private final int[] mHairStyleRegion = {251, 303, 25, 35, 200, 200};
-    private final int[] mHeadWearStyleRegion = {261, 314, 35, 30, 200, 200};
-    private final int[] mMouthSharpRegion = {1198, 1442, 499, 784, 200, 200};
-    private final int[] mNevusRegion = {601, 723, 201, 274, 200, 200};
+    private final float[] mHairStyleRegion = {270.0f, 325.0f, 23.0f, 37.0f, 220.0f, 220.0f, 1.0f};
+    private final String mHat = "Hat";
+    private final float[] mHatStyleRegion = {270.0f, 325.0f, 23.0f, 20.0f, 220.0f, 220.0f, 1.0f};
+    private final String mHeadWear = "Hea";
+    private final float[] mHeadWearStyleRegion = {422.0f, 510.0f, 98.0f, 15.0f, 220.0f, 220.0f, 0.8f};
+    private final float[] mMouthSharpRegion = {1198.0f, 1442.0f, 499.0f, 784.0f, 200.0f, 200.0f, 1.0f};
+    private final float[] mNevusRegion = {601.0f, 723.0f, 201.0f, 274.0f, 200.0f, 200.0f, 1.0f};
     private boolean mNoEyeWear = false;
     private boolean mNoHair = false;
-    private final int[] mNoseShapeRegion = {737, 887, 270, 378, 200, 200};
-    private int[] mTempRegion = new int[6];
-    private final int[] mnNormalRegion = {200, 200, 0, 0, 200, 200};
+    private final float[] mNoseShapeRegion = {737.0f, 887.0f, 270.0f, 378.0f, 200.0f, 200.0f, 1.0f};
+    private float[] mTempRegion = new float[7];
+    private final float[] mnNormalRegion = {200.0f, 200.0f, 0.0f, 0.0f, 200.0f, 200.0f, 1.0f};
 
     public void renderThumb(AvatarEngine avatarEngine, ASAvatarConfigInfo aSAvatarConfigInfo, int i, float[] fArr) {
         AvatarEngine avatarEngine2 = avatarEngine;
@@ -47,10 +51,11 @@ public class ConfigInfoThumUtils {
         if (i3 == 1) {
             this.mTempRegion = this.mHairStyleRegion;
         } else if (i3 == 12) {
-            this.mTempRegion = this.mHeadWearStyleRegion;
+            this.mTempRegion = aSAvatarConfigInfo2.name.substring(0, 3).equalsIgnoreCase("Hat") ? this.mHatStyleRegion : this.mHeadWearStyleRegion;
         } else if (i3 == 14) {
             this.mTempRegion = this.mBeardStyleRegion;
             this.mNoEyeWear = true;
+            this.mNoHair = true;
         } else if (i3 == 17) {
             this.mTempRegion = this.mEyelashStyleRegion;
             this.mNoEyeWear = true;
@@ -114,21 +119,57 @@ public class ConfigInfoThumUtils {
             avatarEngine2.setConfig((ASAvatarConfigInfo) this.mEyeWearList.get(0));
         }
         avatarEngine.setConfig(aSAvatarConfigInfo);
-        int i4 = this.mTempRegion[4];
-        int i5 = this.mTempRegion[5];
+        int i4 = (int) this.mTempRegion[4];
+        int i5 = (int) this.mTempRegion[5];
         byte[] bArr = new byte[(i4 * i5 * 4)];
-        String str2 = TAG;
-        StringBuilder sb2 = new StringBuilder();
-        sb2.append("mTempRegion");
-        sb2.append(Arrays.toString(this.mTempRegion));
-        LOG.d(str2, sb2.toString());
-        int i6 = this.mTempRegion[0];
-        int i7 = this.mTempRegion[1];
-        int i8 = this.mTempRegion[2];
-        int i9 = this.mTempRegion[3];
-        avatarEngine2.renderThumb(i6, i7, i8, i9, bArr, i4, i5, i4 * 4, fArr);
+        avatarEngine2.renderThumb((int) this.mTempRegion[0], (int) this.mTempRegion[1], (int) this.mTempRegion[2], (int) this.mTempRegion[3], bArr, i4, i5, i4 * 4, fArr, this.mTempRegion[6]);
         Bitmap createBitmap = Bitmap.createBitmap(i4, i5, Config.ARGB_8888);
         createBitmap.copyPixelsFromBuffer(ByteBuffer.wrap(bArr));
         aSAvatarConfigInfo2.thum = createBitmap;
+    }
+
+    public void reset(AvatarEngine avatarEngine, ASAvatarConfigValue aSAvatarConfigValue) {
+        ASAvatarConfigInfo aSAvatarConfigInfo;
+        ASAvatarConfigInfo aSAvatarConfigInfo2 = null;
+        if (this.mNoHair) {
+            int currentConfigIdWithType = AvatarConfigUtils.getCurrentConfigIdWithType(1, aSAvatarConfigValue);
+            if (currentConfigIdWithType == -1) {
+                currentConfigIdWithType = 0;
+            }
+            Iterator it = this.mHairList.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    aSAvatarConfigInfo = null;
+                    break;
+                }
+                aSAvatarConfigInfo = (ASAvatarConfigInfo) it.next();
+                if (aSAvatarConfigInfo.configID == currentConfigIdWithType) {
+                    break;
+                }
+            }
+            if (aSAvatarConfigInfo != null) {
+                avatarEngine.setConfig(aSAvatarConfigInfo);
+            }
+        }
+        if (this.mNoEyeWear) {
+            int currentConfigIdWithType2 = AvatarConfigUtils.getCurrentConfigIdWithType(9, aSAvatarConfigValue);
+            if (currentConfigIdWithType2 == -1) {
+                currentConfigIdWithType2 = 0;
+            }
+            Iterator it2 = this.mEyeWearList.iterator();
+            while (true) {
+                if (!it2.hasNext()) {
+                    break;
+                }
+                ASAvatarConfigInfo aSAvatarConfigInfo3 = (ASAvatarConfigInfo) it2.next();
+                if (aSAvatarConfigInfo3.configID == currentConfigIdWithType2) {
+                    aSAvatarConfigInfo2 = aSAvatarConfigInfo3;
+                    break;
+                }
+            }
+            if (aSAvatarConfigInfo2 != null) {
+                avatarEngine.setConfig(aSAvatarConfigInfo2);
+            }
+        }
     }
 }

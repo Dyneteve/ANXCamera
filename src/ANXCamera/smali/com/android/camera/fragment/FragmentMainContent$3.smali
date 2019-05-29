@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 3
 
     iget v0, p0, Lcom/android/camera/fragment/FragmentMainContent$3;->val$result:I
 
@@ -51,23 +51,23 @@
 
     move-result-object v1
 
-    const/16 v2, 0xaf
+    const/16 v2, 0xac
 
     invoke-virtual {v1, v2}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getAttachProtocol(I)Lcom/android/camera/protocol/ModeProtocol$BaseProtocol;
 
     move-result-object v1
 
-    check-cast v1, Lcom/android/camera/protocol/ModeProtocol$BottomPopupTips;
+    check-cast v1, Lcom/android/camera/protocol/ModeProtocol$TopAlert;
 
     if-eqz v1, :cond_0
 
-    if-lez v0, :cond_0
+    const/4 v2, -0x1
 
-    const/16 v2, 0x13
+    if-eq v0, v2, :cond_0
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    invoke-interface {v1, v2, v0, v3}, Lcom/android/camera/protocol/ModeProtocol$BottomPopupTips;->showTips(III)V
+    invoke-interface {v1, v2, v0}, Lcom/android/camera/protocol/ModeProtocol$TopAlert;->alertMimojiFaceDetect(ZI)V
 
     :cond_0
     return-void

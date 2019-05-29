@@ -136,12 +136,12 @@
 
     iput-object p1, p0, Lcom/android/camera/fragment/beauty/AbBeautySettingBusiness;->mCurrentBeautyItemType:Ljava/lang/String;
 
-    invoke-direct {p0}, Lcom/android/camera/fragment/beauty/AbBeautySettingBusiness;->updateExtraTable()V
-
     return-void
 .end method
 
-.method private updateExtraTable()V
+
+# virtual methods
+.method public clearBeauty()V
     .locals 4
 
     invoke-direct {p0}, Lcom/android/camera/fragment/beauty/AbBeautySettingBusiness;->getBeautyType()Ljava/lang/String;
@@ -161,7 +161,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -169,23 +169,12 @@
 
     check-cast v1, Lcom/android/camera/data/data/TypeItem;
 
-    const/4 v2, 0x0
-
     iget-object v1, v1, Lcom/android/camera/data/data/TypeItem;->mKeyOrType:Ljava/lang/String;
 
-    const-string v3, ""
+    const/4 v2, 0x0
 
-    invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {v1, v2}, Lcom/android/camera/CameraSettings;->setFaceBeautyRatio(Ljava/lang/String;I)V
 
-    move-result v3
-
-    if-nez v3, :cond_0
-
-    invoke-static {v1}, Lcom/android/camera/CameraSettings;->getFaceBeautyRatio(Ljava/lang/String;)I
-
-    move-result v2
-
-    :cond_0
     iget-object v3, p0, Lcom/android/camera/fragment/beauty/AbBeautySettingBusiness;->mExtraTable:Ljava/util/Map;
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -196,12 +185,12 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_0
+    invoke-static {}, Lcom/android/camera/fragment/beauty/BeautyHelper;->onBeautyChanged()V
+
     return-void
 .end method
 
-
-# virtual methods
 .method public getDefaultProgressByCurrentItem()I
     .locals 1
 
@@ -290,7 +279,7 @@
 .end method
 
 .method public resetBeauty()V
-    .locals 4
+    .locals 5
 
     invoke-direct {p0}, Lcom/android/camera/fragment/beauty/AbBeautySettingBusiness;->getBeautyType()Ljava/lang/String;
 
@@ -323,19 +312,15 @@
 
     move-result v2
 
+    iget-object v3, p0, Lcom/android/camera/fragment/beauty/AbBeautySettingBusiness;->mExtraTable:Ljava/util/Map;
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    invoke-interface {v3, v1, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
     invoke-static {v1, v2}, Lcom/android/camera/CameraSettings;->setFaceBeautyRatio(Ljava/lang/String;I)V
-
-    iget-object v2, p0, Lcom/android/camera/fragment/beauty/AbBeautySettingBusiness;->mExtraTable:Ljava/util/Map;
-
-    invoke-virtual {p0, v1}, Lcom/android/camera/fragment/beauty/AbBeautySettingBusiness;->getProgressDefValue(Ljava/lang/String;)I
-
-    move-result v3
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-interface {v2, v1, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 
@@ -436,5 +421,62 @@
     invoke-static {}, Lcom/android/camera/fragment/beauty/BeautyHelper;->onBeautyChanged()V
 
     :cond_2
+    return-void
+.end method
+
+.method public updateExtraTable()V
+    .locals 4
+
+    invoke-direct {p0}, Lcom/android/camera/fragment/beauty/AbBeautySettingBusiness;->getBeautyType()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/android/camera/fragment/beauty/AbBeautySettingBusiness;->getSupportedTypeArray(Ljava/lang/String;)Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/camera/data/data/TypeItem;
+
+    const/4 v2, 0x0
+
+    iget-object v1, v1, Lcom/android/camera/data/data/TypeItem;->mKeyOrType:Ljava/lang/String;
+
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    invoke-static {v1}, Lcom/android/camera/CameraSettings;->getFaceBeautyRatio(Ljava/lang/String;)I
+
+    move-result v2
+
+    :cond_0
+    iget-object v3, p0, Lcom/android/camera/fragment/beauty/AbBeautySettingBusiness;->mExtraTable:Ljava/util/Map;
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-interface {v3, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_0
+
+    :cond_1
     return-void
 .end method

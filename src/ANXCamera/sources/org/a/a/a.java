@@ -10,112 +10,112 @@ public class a {
     /* access modifiers changed from: private */
     public int mStatus = 0;
     /* access modifiers changed from: private */
-    public AudioTrack vL = null;
-    private long vM = 0;
-    private Thread vN = null;
+    public AudioTrack vQ = null;
+    private long vR = 0;
+    private Thread vS = null;
     /* access modifiers changed from: private */
-    public b vO = null;
+    public b vT = null;
 
     public a(long j) {
         this.mHandle = j;
     }
 
-    private void iM() {
-        iN();
-        AudioTrack audioTrack = new AudioTrack(3, 44100, 12, 2, (int) this.vM, 1);
-        this.vL = audioTrack;
+    private void iP() {
+        iQ();
+        AudioTrack audioTrack = new AudioTrack(3, 44100, 12, 2, (int) this.vR, 1);
+        this.vQ = audioTrack;
     }
 
-    private void iN() {
-        if (this.vL != null) {
-            this.vL.flush();
-            if (this.vL.getPlayState() == 1) {
-                this.vL.stop();
+    private void iQ() {
+        if (this.vQ != null) {
+            this.vQ.flush();
+            if (this.vQ.getPlayState() == 1) {
+                this.vQ.stop();
             }
-            this.vL.release();
-            this.vL = null;
+            this.vQ.release();
+            this.vQ = null;
         }
     }
 
-    private int iO() {
+    private int iR() {
         if (this.mStatus != 2) {
             return -1;
         }
-        if (this.vO == null) {
+        if (this.vT == null) {
             return -2;
         }
-        this.vN = new Thread(new Runnable() {
+        this.vS = new Thread(new Runnable() {
             public void run() {
-                if (a.this.vL != null && a.this.mStatus == 2) {
-                    a.this.vL.play();
+                if (a.this.vQ != null && a.this.mStatus == 2) {
+                    a.this.vQ.play();
                 }
                 while (a.this.mStatus != 4) {
-                    byte[] playAudioSamples = a.this.mStatus == 3 ? null : a.this.vO.playAudioSamples(a.this.mHandle);
+                    byte[] playAudioSamples = a.this.mStatus == 3 ? null : a.this.vT.playAudioSamples(a.this.mHandle);
                     if (playAudioSamples == null || playAudioSamples.length <= 0) {
                         try {
                             Thread.sleep(10);
                         } catch (InterruptedException e) {
                             return;
                         }
-                    } else if (a.this.vL != null) {
+                    } else if (a.this.vQ != null) {
                         try {
-                            a.this.vL.write(playAudioSamples, 0, playAudioSamples.length);
+                            a.this.vQ.write(playAudioSamples, 0, playAudioSamples.length);
                         } catch (Exception e2) {
                         }
                     }
                 }
             }
         });
-        this.vN.start();
+        this.vS.start();
         return 0;
     }
 
     public boolean a(b bVar) {
-        this.vO = bVar;
-        this.vM = (long) AudioTrack.getMinBufferSize(44100, 12, 2);
-        if (this.vM <= 0) {
+        this.vT = bVar;
+        this.vR = (long) AudioTrack.getMinBufferSize(44100, 12, 2);
+        if (this.vR <= 0) {
             return false;
         }
-        iM();
-        if (this.vL.getState() != 1) {
+        iP();
+        if (this.vQ.getState() != 1) {
             return false;
         }
         this.mStatus = 1;
-        if (this.vO != null) {
-            this.vO.setAudioMinSize(this.mHandle, PlaybackStateCompat.ACTION_SKIP_TO_QUEUE_ITEM);
+        if (this.vT != null) {
+            this.vT.setAudioMinSize(this.mHandle, PlaybackStateCompat.ACTION_SKIP_TO_QUEUE_ITEM);
         }
         return true;
     }
 
-    public long iI() {
+    public long iL() {
         return this.mHandle;
     }
 
-    public void iJ() {
+    public void iM() {
         this.mStatus = 0;
-        iL();
-        iN();
+        iO();
+        iQ();
     }
 
-    public void iK() {
+    public void iN() {
         if (this.mStatus == 1) {
             this.mStatus = 2;
-            iO();
+            iR();
         }
     }
 
-    public void iL() {
+    public void iO() {
         this.mStatus = 4;
-        if (this.vO != null) {
-            this.vO.stopAudio(this.mHandle);
+        if (this.vT != null) {
+            this.vT.stopAudio(this.mHandle);
         }
-        if (this.vN != null) {
+        if (this.vS != null) {
             try {
-                this.vN.join();
+                this.vS.join();
             } catch (Exception e) {
             }
         }
-        this.vN = null;
+        this.vS = null;
     }
 
     public void pause() {

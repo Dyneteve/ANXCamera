@@ -11,30 +11,32 @@ import java.io.IOException;
 /* compiled from: DiskLruCacheWrapper */
 public class e implements a {
     private static final String TAG = "DiskLruCacheWrapper";
-    private static final int hY = 1;
     private static final int hZ = 1;
-    private static e ia;
+    private static final int ia = 1;
+    private static e ib;
     private final File directory;
-    private final m ib;
-    private final c ic = new c();
-    private a ie;
+    private final m ic;
+    private final c ie = new c();
+
+    /* renamed from: if reason: not valid java name */
+    private a f1if;
     private final long maxSize;
 
     @Deprecated
     protected e(File file, long j) {
         this.directory = file;
         this.maxSize = j;
-        this.ib = new m();
+        this.ic = new m();
     }
 
     @Deprecated
     public static synchronized a a(File file, long j) {
         e eVar;
         synchronized (e.class) {
-            if (ia == null) {
-                ia = new e(file, j);
+            if (ib == null) {
+                ib = new e(file, j);
             }
-            eVar = ia;
+            eVar = ib;
         }
         return eVar;
     }
@@ -44,20 +46,20 @@ public class e implements a {
     }
 
     private synchronized a bC() throws IOException {
-        if (this.ie == null) {
-            this.ie = a.a(this.directory, 1, 1, this.maxSize);
+        if (this.f1if == null) {
+            this.f1if = a.a(this.directory, 1, 1, this.maxSize);
         }
-        return this.ie;
+        return this.f1if;
     }
 
     private synchronized void bD() {
-        this.ie = null;
+        this.f1if = null;
     }
 
     public void a(c cVar, b bVar) {
         a.b o;
-        String h = this.ib.h(cVar);
-        this.ic.t(h);
+        String h = this.ic.h(cVar);
+        this.ie.t(h);
         try {
             if (Log.isLoggable(TAG, 2)) {
                 String str = TAG;
@@ -77,7 +79,7 @@ public class e implements a {
                             o.commit();
                         }
                         o.abortUnlessCommitted();
-                        this.ic.u(h);
+                        this.ie.u(h);
                         return;
                     }
                     StringBuilder sb2 = new StringBuilder();
@@ -94,7 +96,7 @@ public class e implements a {
                 throw th;
             }
         } finally {
-            this.ic.u(h);
+            this.ie.u(h);
         }
     }
 
@@ -115,7 +117,7 @@ public class e implements a {
     }
 
     public File e(c cVar) {
-        String h = this.ib.h(cVar);
+        String h = this.ic.h(cVar);
         if (Log.isLoggable(TAG, 2)) {
             String str = TAG;
             StringBuilder sb = new StringBuilder();
@@ -142,7 +144,7 @@ public class e implements a {
 
     public void f(c cVar) {
         try {
-            bC().remove(this.ib.h(cVar));
+            bC().remove(this.ic.h(cVar));
         } catch (IOException e) {
             if (Log.isLoggable(TAG, 5)) {
                 Log.w(TAG, "Unable to delete from disk cache", e);

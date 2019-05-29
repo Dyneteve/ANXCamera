@@ -4,7 +4,7 @@
 
 
 # instance fields
-.field private final jk:Ljava/util/Map;
+.field private final jl:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -15,7 +15,7 @@
     .end annotation
 .end field
 
-.field private final jl:Ljava/util/List;
+.field private final jm:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -25,9 +25,9 @@
     .end annotation
 .end field
 
-.field private jm:I
-
 .field private jn:I
+
+.field private jo:I
 
 
 # direct methods
@@ -45,7 +45,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jk:Ljava/util/Map;
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jl:Ljava/util/Map;
 
     new-instance v0, Ljava/util/ArrayList;
 
@@ -55,7 +55,7 @@
 
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jl:Ljava/util/List;
+    iput-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jm:Ljava/util/List;
 
     invoke-interface {p1}, Ljava/util/Map;->values()Ljava/util/Collection;
 
@@ -78,7 +78,7 @@
 
     check-cast v0, Ljava/lang/Integer;
 
-    iget v1, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jm:I
+    iget v1, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jn:I
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
@@ -86,7 +86,7 @@
 
     add-int/2addr v1, v0
 
-    iput v1, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jm:I
+    iput v1, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jn:I
 
     goto :goto_0
 
@@ -99,9 +99,9 @@
 .method public bV()Lcom/bumptech/glide/load/engine/prefill/c;
     .locals 4
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jl:Ljava/util/List;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jm:Ljava/util/List;
 
-    iget v1, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jn:I
+    iget v1, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jo:I
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -109,7 +109,7 @@
 
     check-cast v0, Lcom/bumptech/glide/load/engine/prefill/c;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jk:Ljava/util/Map;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jl:Ljava/util/Map;
 
     invoke-interface {v1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -125,20 +125,20 @@
 
     if-ne v2, v3, :cond_0
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jk:Ljava/util/Map;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jl:Ljava/util/Map;
 
     invoke-interface {v1, v0}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jl:Ljava/util/List;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jm:Ljava/util/List;
 
-    iget v2, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jn:I
+    iget v2, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jo:I
 
     invoke-interface {v1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
     goto :goto_0
 
     :cond_0
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jk:Ljava/util/Map;
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jl:Ljava/util/Map;
 
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
@@ -153,13 +153,13 @@
     invoke-interface {v2, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :goto_0
-    iget v1, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jm:I
+    iget v1, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jn:I
 
     sub-int/2addr v1, v3
 
-    iput v1, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jm:I
+    iput v1, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jn:I
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jl:Ljava/util/List;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jm:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
 
@@ -172,11 +172,11 @@
     goto :goto_1
 
     :cond_1
-    iget v1, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jn:I
+    iget v1, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jo:I
 
     add-int/2addr v1, v3
 
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jl:Ljava/util/List;
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jm:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->size()I
 
@@ -185,7 +185,7 @@
     rem-int/2addr v1, v2
 
     :goto_1
-    iput v1, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jn:I
+    iput v1, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jo:I
 
     return-object v0
 .end method
@@ -193,7 +193,7 @@
 .method public getSize()I
     .locals 1
 
-    iget v0, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jm:I
+    iget v0, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jn:I
 
     return v0
 .end method
@@ -201,7 +201,7 @@
 .method public isEmpty()Z
     .locals 1
 
-    iget v0, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jm:I
+    iget v0, p0, Lcom/bumptech/glide/load/engine/prefill/b;->jn:I
 
     if-nez v0, :cond_0
 

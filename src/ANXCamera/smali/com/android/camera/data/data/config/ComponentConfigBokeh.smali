@@ -41,7 +41,7 @@
 
     move-result-object p1
 
-    invoke-virtual {p1}, Lcom/mi/config/a;->gD()Z
+    invoke-virtual {p1}, Lcom/mi/config/a;->gE()Z
 
     move-result p1
 
@@ -63,7 +63,7 @@
 
     const-string v1, "off"
 
-    const v2, 0x7f02015f
+    const v2, 0x7f020166
 
     invoke-direct {p1, v2, v2, v0, v1}, Lcom/android/camera/data/data/ComponentDataItem;-><init>(IIILjava/lang/String;)V
 

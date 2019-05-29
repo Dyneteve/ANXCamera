@@ -6,4 +6,10 @@
         <item quantity="few">Złapano ostrość. Wykryto %d twarze</item>
         <item quantity="many">Złapano ostrość. Wykryto %d twarzy</item>
     </plurals>
+    <plurals name="toast_burst_snap_finished_summary">
+        <item quantity="other">Wykonano zdjęcia seryjne, %1$s zdjęć w serii</item>
+        <item quantity="one">Wykonano zdjęcia seryjne, %1$s zdjęcie w serii</item>
+        <item quantity="few">Wykonano zdjęcia seryjne, %1$s zdjęcia w serii</item>
+        <item quantity="many">Wykonano zdjęcia seryjne, %1$s zdjęć w serii</item>
+    </plurals>
 </resources>

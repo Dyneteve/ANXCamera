@@ -8,14 +8,14 @@ import com.bumptech.glide.load.f;
 
 /* compiled from: UnitModelLoader */
 public class u<Model> implements m<Model, Model> {
-    private static final u<?> kp = new u<>();
+    private static final u<?> kq = new u<>();
 
     /* compiled from: UnitModelLoader */
     public static class a<Model> implements n<Model, Model> {
-        private static final a<?> kq = new a<>();
+        private static final a<?> kr = new a<>();
 
         public static <T> a<T> cl() {
-            return kq;
+            return kr;
         }
 
         @NonNull
@@ -57,7 +57,7 @@ public class u<Model> implements m<Model, Model> {
     }
 
     public static <T> u<T> ck() {
-        return kp;
+        return kq;
     }
 
     public com.bumptech.glide.load.model.m.a<Model> b(@NonNull Model model, int i, int i2, @NonNull f fVar) {

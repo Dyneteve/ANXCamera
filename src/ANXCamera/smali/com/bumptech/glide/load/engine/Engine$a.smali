@@ -18,9 +18,9 @@
 
 
 # instance fields
-.field private final gm:Lcom/bumptech/glide/load/engine/a/a$a;
+.field private final gn:Lcom/bumptech/glide/load/engine/a/a$a;
 
-.field private volatile gn:Lcom/bumptech/glide/load/engine/a/a;
+.field private volatile go:Lcom/bumptech/glide/load/engine/a/a;
 
 
 # direct methods
@@ -29,7 +29,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/engine/Engine$a;->gm:Lcom/bumptech/glide/load/engine/a/a$a;
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/Engine$a;->gn:Lcom/bumptech/glide/load/engine/a/a$a;
 
     return-void
 .end method
@@ -39,27 +39,27 @@
 .method public aw()Lcom/bumptech/glide/load/engine/a/a;
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$a;->gn:Lcom/bumptech/glide/load/engine/a/a;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$a;->go:Lcom/bumptech/glide/load/engine/a/a;
 
     if-nez v0, :cond_2
 
     monitor-enter p0
 
     :try_start_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$a;->gn:Lcom/bumptech/glide/load/engine/a/a;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$a;->go:Lcom/bumptech/glide/load/engine/a/a;
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$a;->gm:Lcom/bumptech/glide/load/engine/a/a$a;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$a;->gn:Lcom/bumptech/glide/load/engine/a/a$a;
 
     invoke-interface {v0}, Lcom/bumptech/glide/load/engine/a/a$a;->bz()Lcom/bumptech/glide/load/engine/a/a;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$a;->gn:Lcom/bumptech/glide/load/engine/a/a;
+    iput-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$a;->go:Lcom/bumptech/glide/load/engine/a/a;
 
     :cond_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$a;->gn:Lcom/bumptech/glide/load/engine/a/a;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$a;->go:Lcom/bumptech/glide/load/engine/a/a;
 
     if-nez v0, :cond_1
 
@@ -67,7 +67,7 @@
 
     invoke-direct {v0}, Lcom/bumptech/glide/load/engine/a/b;-><init>()V
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$a;->gn:Lcom/bumptech/glide/load/engine/a/a;
+    iput-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$a;->go:Lcom/bumptech/glide/load/engine/a/a;
 
     :cond_1
     monitor-exit p0
@@ -85,7 +85,7 @@
 
     :cond_2
     :goto_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$a;->gn:Lcom/bumptech/glide/load/engine/a/a;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$a;->go:Lcom/bumptech/glide/load/engine/a/a;
 
     return-object v0
 .end method
@@ -98,7 +98,7 @@
     monitor-enter p0
 
     :try_start_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$a;->gn:Lcom/bumptech/glide/load/engine/a/a;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$a;->go:Lcom/bumptech/glide/load/engine/a/a;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -110,7 +110,7 @@
 
     :cond_0
     :try_start_1
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$a;->gn:Lcom/bumptech/glide/load/engine/a/a;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$a;->go:Lcom/bumptech/glide/load/engine/a/a;
 
     invoke-interface {v0}, Lcom/bumptech/glide/load/engine/a/a;->clear()V
     :try_end_1

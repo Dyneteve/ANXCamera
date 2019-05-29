@@ -20,16 +20,12 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
 
-.field final synthetic val$contentValues:Landroid/content/ContentValues;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;Landroid/content/ContentValues;)V
+.method constructor <init>(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$6;->this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
-
-    iput-object p2, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$6;->val$contentValues:Landroid/content/ContentValues;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -39,80 +35,77 @@
 
 # virtual methods
 .method public run()V
-    .locals 8
+    .locals 10
 
     iget-object v0, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$6;->this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
 
-    invoke-static {v0}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$700(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;)Lcom/arcsoft/avatar/RecordModule;
+    invoke-static {v0}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$800(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;)Lcom/arcsoft/avatar/RecordModule;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$6;->this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
+    invoke-static {}, Lcom/android/camera/CameraSettings;->getVideoEncoder()I
 
-    const/4 v1, 0x1
+    move-result v0
 
-    invoke-static {v0, v1}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$902(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;Z)Z
+    iget-object v1, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$6;->this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
 
-    iget-object v0, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$6;->this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
-
-    iget-object v1, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$6;->val$contentValues:Landroid/content/ContentValues;
-
-    invoke-static {v0, v1}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$1002(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;Landroid/content/ContentValues;)Landroid/content/ContentValues;
-
-    iget-object v0, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$6;->this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
-
-    iget-object v1, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$6;->val$contentValues:Landroid/content/ContentValues;
-
-    const-string v2, "_data"
-
-    invoke-virtual {v1, v2}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$1102(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;Ljava/lang/String;)Ljava/lang/String;
-
-    iget-object v0, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$6;->this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
-
-    invoke-static {v0}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$700(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;)Lcom/arcsoft/avatar/RecordModule;
-
-    move-result-object v1
-
-    iget-object v0, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$6;->this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
-
-    invoke-static {v0}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$1100(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;)Ljava/lang/String;
+    invoke-static {v1}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$800(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;)Lcom/arcsoft/avatar/RecordModule;
 
     move-result-object v2
 
-    iget-object v0, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$6;->this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
+    iget-object v1, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$6;->this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
 
-    invoke-static {v0}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$1200(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;)Lcom/arcsoft/avatar/recoder/RecordingListener;
+    invoke-static {v1}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$900(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;)Ljava/lang/String;
 
     move-result-object v3
 
-    iget-object v0, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$6;->this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
+    iget-object v1, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$6;->this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
 
-    invoke-static {v0}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$1300(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;)I
+    invoke-static {v1}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$1000(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;)Lcom/arcsoft/avatar/recoder/RecordingListener;
 
-    move-result v4
+    move-result-object v4
 
-    iget-object v0, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$6;->this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
+    iget-object v1, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$6;->this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
 
-    invoke-static {v0}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$1400(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;)I
+    invoke-static {v1}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$1100(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;)I
 
     move-result v5
 
-    iget-object v0, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$6;->this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
+    iget-object v1, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$6;->this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
 
-    invoke-static {v0}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$1500(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;)I
+    invoke-static {v1}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$1200(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;)I
 
     move-result v6
 
-    const v7, 0x989680
+    iget-object v1, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$6;->this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
 
-    invoke-virtual/range {v1 .. v7}, Lcom/arcsoft/avatar/RecordModule;->startRecording(Ljava/lang/String;Lcom/arcsoft/avatar/recoder/RecordingListener;IIII)V
+    invoke-static {v1}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$1300(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;)I
+
+    move-result v7
+
+    const v8, 0x989680
+
+    const/4 v1, 0x5
+
+    if-ne v0, v1, :cond_0
+
+    const-string v0, "video/hevc"
+
+    :goto_0
+    move-object v9, v0
+
+    goto :goto_1
 
     :cond_0
+    const-string v0, "video/avc"
+
+    goto :goto_0
+
+    :goto_1
+    invoke-virtual/range {v2 .. v9}, Lcom/arcsoft/avatar/RecordModule;->startRecording(Ljava/lang/String;Lcom/arcsoft/avatar/recoder/RecordingListener;IIIILjava/lang/String;)V
+
+    :cond_1
     return-void
 .end method

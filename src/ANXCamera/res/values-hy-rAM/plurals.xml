@@ -4,4 +4,8 @@
         <item quantity="other">Ֆոկուս կա։ %d դեմքը հայտնաբերված է</item>
         <item quantity="one">Ֆոկուս կա։ %d դեմքը հայտնաբերված է</item>
     </plurals>
+    <plurals name="toast_burst_snap_finished_summary">
+        <item quantity="other">Բազմակի լուսանկարումը կատարվեց, %1$s լուսանկարներ նկարված են</item>
+        <item quantity="one">Բազմակի լուսանկարումը կատարվեց, %1$s լուսանկար նկրված է</item>
+    </plurals>
 </resources>

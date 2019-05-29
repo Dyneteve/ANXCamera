@@ -10,66 +10,66 @@ import java.util.List;
 
 /* compiled from: ResourceCacheGenerator */
 class q implements a<Object>, d {
-    private final e<?> eF;
-    private final d.a eG;
-    private int eH;
-    private c eI;
-    private List<m<File, ?>> eJ;
-    private int eK;
-    private volatile m.a<?> eL;
-    private File eM;
-    private int gR = -1;
-    private r gS;
+    private final e<?> eG;
+    private final d.a eH;
+    private int eI;
+    private c eJ;
+    private List<m<File, ?>> eK;
+    private int eL;
+    private volatile m.a<?> eM;
+    private File eN;
+    private int gS = -1;
+    private r gT;
 
     q(e<?> eVar, d.a aVar) {
-        this.eF = eVar;
-        this.eG = aVar;
+        this.eG = eVar;
+        this.eH = aVar;
     }
 
     private boolean at() {
-        return this.eK < this.eJ.size();
+        return this.eL < this.eK.size();
     }
 
     public boolean as() {
-        List aG = this.eF.aG();
+        List aG = this.eG.aG();
         boolean z = false;
         if (aG.isEmpty()) {
             return false;
         }
-        List aD = this.eF.aD();
-        if (aD.isEmpty() && File.class.equals(this.eF.aB())) {
+        List aD = this.eG.aD();
+        if (aD.isEmpty() && File.class.equals(this.eG.aB())) {
             return false;
         }
         while (true) {
-            if (this.eJ == null || !at()) {
-                this.gR++;
-                if (this.gR >= aD.size()) {
-                    this.eH++;
-                    if (this.eH >= aG.size()) {
+            if (this.eK == null || !at()) {
+                this.gS++;
+                if (this.gS >= aD.size()) {
+                    this.eI++;
+                    if (this.eI >= aG.size()) {
                         return false;
                     }
-                    this.gR = 0;
+                    this.gS = 0;
                 }
-                c cVar = (c) aG.get(this.eH);
-                Class cls = (Class) aD.get(this.gR);
+                c cVar = (c) aG.get(this.eI);
+                Class cls = (Class) aD.get(this.gS);
                 c cVar2 = cVar;
-                r rVar = new r(this.eF.l(), cVar2, this.eF.aA(), this.eF.getWidth(), this.eF.getHeight(), this.eF.e(cls), cls, this.eF.az());
-                this.gS = rVar;
-                this.eM = this.eF.aw().e(this.gS);
-                if (this.eM != null) {
-                    this.eI = cVar;
-                    this.eJ = this.eF.g(this.eM);
-                    this.eK = 0;
+                r rVar = new r(this.eG.l(), cVar2, this.eG.aA(), this.eG.getWidth(), this.eG.getHeight(), this.eG.e(cls), cls, this.eG.az());
+                this.gT = rVar;
+                this.eN = this.eG.aw().e(this.gT);
+                if (this.eN != null) {
+                    this.eJ = cVar;
+                    this.eK = this.eG.g(this.eN);
+                    this.eL = 0;
                 }
             } else {
-                this.eL = null;
+                this.eM = null;
                 while (!z && at()) {
-                    List<m<File, ?>> list = this.eJ;
-                    int i = this.eK;
-                    this.eK = i + 1;
-                    this.eL = ((m) list.get(i)).b(this.eM, this.eF.getWidth(), this.eF.getHeight(), this.eF.az());
-                    if (this.eL != null && this.eF.c(this.eL.jX.aj())) {
-                        this.eL.jX.a(this.eF.ay(), this);
+                    List<m<File, ?>> list = this.eK;
+                    int i = this.eL;
+                    this.eL = i + 1;
+                    this.eM = ((m) list.get(i)).b(this.eN, this.eG.getWidth(), this.eG.getHeight(), this.eG.az());
+                    if (this.eM != null && this.eG.c(this.eM.jY.aj())) {
+                        this.eM.jY.a(this.eG.ay(), this);
                         z = true;
                     }
                 }
@@ -79,17 +79,17 @@ class q implements a<Object>, d {
     }
 
     public void b(@NonNull Exception exc) {
-        this.eG.a(this.gS, exc, this.eL.jX, DataSource.RESOURCE_DISK_CACHE);
+        this.eH.a(this.gT, exc, this.eM.jY, DataSource.RESOURCE_DISK_CACHE);
     }
 
     public void cancel() {
-        m.a<?> aVar = this.eL;
+        m.a<?> aVar = this.eM;
         if (aVar != null) {
-            aVar.jX.cancel();
+            aVar.jY.cancel();
         }
     }
 
     public void k(Object obj) {
-        this.eG.a(this.eI, obj, this.eL.jX, DataSource.RESOURCE_DISK_CACHE, this.gS);
+        this.eH.a(this.eJ, obj, this.eM.jY, DataSource.RESOURCE_DISK_CACHE, this.gT);
     }
 }

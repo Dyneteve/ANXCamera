@@ -12,7 +12,7 @@
 
 
 # static fields
-.field private static final gI:[Ljava/lang/StackTraceElement;
+.field private static final gJ:[Ljava/lang/StackTraceElement;
 
 .field private static final serialVersionUID:J = 0x1L
 
@@ -52,7 +52,7 @@
 
     new-array v0, v0, [Ljava/lang/StackTraceElement;
 
-    sput-object v0, Lcom/bumptech/glide/load/engine/GlideException;->gI:[Ljava/lang/StackTraceElement;
+    sput-object v0, Lcom/bumptech/glide/load/engine/GlideException;->gJ:[Ljava/lang/StackTraceElement;
 
     return-void
 .end method
@@ -97,7 +97,7 @@
 
     iput-object p1, p0, Lcom/bumptech/glide/load/engine/GlideException;->detailMessage:Ljava/lang/String;
 
-    sget-object p1, Lcom/bumptech/glide/load/engine/GlideException;->gI:[Ljava/lang/StackTraceElement;
+    sget-object p1, Lcom/bumptech/glide/load/engine/GlideException;->gJ:[Ljava/lang/StackTraceElement;
 
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/load/engine/GlideException;->setStackTrace([Ljava/lang/StackTraceElement;)V
 

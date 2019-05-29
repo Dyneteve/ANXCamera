@@ -6,11 +6,11 @@
 # static fields
 .field private static final ID:Ljava/lang/String; = "com.bumptech.glide.load.resource.bitmap.RoundedCorners"
 
-.field private static final kE:[B
+.field private static final kF:[B
 
 
 # instance fields
-.field private final lI:I
+.field private final lJ:I
 
 
 # direct methods
@@ -19,13 +19,13 @@
 
     const-string v0, "com.bumptech.glide.load.resource.bitmap.RoundedCorners"
 
-    sget-object v1, Lcom/bumptech/glide/load/resource/bitmap/u;->dG:Ljava/nio/charset/Charset;
+    sget-object v1, Lcom/bumptech/glide/load/resource/bitmap/u;->dH:Ljava/nio/charset/Charset;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
 
     move-result-object v0
 
-    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/u;->kE:[B
+    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/u;->kF:[B
 
     return-void
 .end method
@@ -49,7 +49,7 @@
 
     invoke-static {v0, v1}, Lcom/bumptech/glide/util/i;->a(ZLjava/lang/String;)V
 
-    iput p1, p0, Lcom/bumptech/glide/load/resource/bitmap/u;->lI:I
+    iput p1, p0, Lcom/bumptech/glide/load/resource/bitmap/u;->lJ:I
 
     return-void
 .end method
@@ -67,9 +67,9 @@
 
     check-cast p1, Lcom/bumptech/glide/load/resource/bitmap/u;
 
-    iget v0, p0, Lcom/bumptech/glide/load/resource/bitmap/u;->lI:I
+    iget v0, p0, Lcom/bumptech/glide/load/resource/bitmap/u;->lJ:I
 
-    iget p1, p1, Lcom/bumptech/glide/load/resource/bitmap/u;->lI:I
+    iget p1, p1, Lcom/bumptech/glide/load/resource/bitmap/u;->lJ:I
 
     if-ne v0, p1, :cond_0
 
@@ -93,7 +93,7 @@
 
     move-result v0
 
-    iget v1, p0, Lcom/bumptech/glide/load/resource/bitmap/u;->lI:I
+    iget v1, p0, Lcom/bumptech/glide/load/resource/bitmap/u;->lJ:I
 
     invoke-static {v1}, Lcom/bumptech/glide/util/k;->hashCode(I)I
 
@@ -117,7 +117,7 @@
         .end annotation
     .end param
 
-    iget p3, p0, Lcom/bumptech/glide/load/resource/bitmap/u;->lI:I
+    iget p3, p0, Lcom/bumptech/glide/load/resource/bitmap/u;->lJ:I
 
     invoke-static {p1, p2, p3}, Lcom/bumptech/glide/load/resource/bitmap/w;->b(Lcom/bumptech/glide/load/engine/bitmap_recycle/d;Landroid/graphics/Bitmap;I)Landroid/graphics/Bitmap;
 
@@ -133,7 +133,7 @@
         .end annotation
     .end param
 
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/u;->kE:[B
+    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/u;->kF:[B
 
     invoke-virtual {p1, v0}, Ljava/security/MessageDigest;->update([B)V
 
@@ -143,7 +143,7 @@
 
     move-result-object v0
 
-    iget v1, p0, Lcom/bumptech/glide/load/resource/bitmap/u;->lI:I
+    iget v1, p0, Lcom/bumptech/glide/load/resource/bitmap/u;->lJ:I
 
     invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->putInt(I)Ljava/nio/ByteBuffer;
 

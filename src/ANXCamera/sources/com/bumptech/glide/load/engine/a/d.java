@@ -5,8 +5,8 @@ import java.io.File;
 
 /* compiled from: DiskLruCacheFactory */
 public class d implements C0003a {
-    private final long hU;
-    private final a hV;
+    private final long hV;
+    private final a hW;
 
     /* compiled from: DiskLruCacheFactory */
     public interface a {
@@ -14,8 +14,8 @@ public class d implements C0003a {
     }
 
     public d(a aVar, long j) {
-        this.hU = j;
-        this.hV = aVar;
+        this.hV = j;
+        this.hW = aVar;
     }
 
     public d(final String str, long j) {
@@ -35,12 +35,12 @@ public class d implements C0003a {
     }
 
     public a bz() {
-        File bB = this.hV.bB();
+        File bB = this.hW.bB();
         if (bB == null) {
             return null;
         }
         if (bB.mkdirs() || (bB.exists() && bB.isDirectory())) {
-            return e.b(bB, this.hU);
+            return e.b(bB, this.hV);
         }
         return null;
     }

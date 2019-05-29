@@ -18,14 +18,14 @@
 
 
 # instance fields
-.field final synthetic pr:Lcom/bumptech/glide/request/target/ViewTarget;
+.field final synthetic ps:Lcom/bumptech/glide/request/target/ViewTarget;
 
 
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/request/target/ViewTarget;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/bumptech/glide/request/target/ViewTarget$1;->pr:Lcom/bumptech/glide/request/target/ViewTarget;
+    iput-object p1, p0, Lcom/bumptech/glide/request/target/ViewTarget$1;->ps:Lcom/bumptech/glide/request/target/ViewTarget;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -37,7 +37,7 @@
 .method public onViewAttachedToWindow(Landroid/view/View;)V
     .locals 0
 
-    iget-object p1, p0, Lcom/bumptech/glide/request/target/ViewTarget$1;->pr:Lcom/bumptech/glide/request/target/ViewTarget;
+    iget-object p1, p0, Lcom/bumptech/glide/request/target/ViewTarget$1;->ps:Lcom/bumptech/glide/request/target/ViewTarget;
 
     invoke-virtual {p1}, Lcom/bumptech/glide/request/target/ViewTarget;->eu()V
 
@@ -47,7 +47,7 @@
 .method public onViewDetachedFromWindow(Landroid/view/View;)V
     .locals 0
 
-    iget-object p1, p0, Lcom/bumptech/glide/request/target/ViewTarget$1;->pr:Lcom/bumptech/glide/request/target/ViewTarget;
+    iget-object p1, p0, Lcom/bumptech/glide/request/target/ViewTarget$1;->ps:Lcom/bumptech/glide/request/target/ViewTarget;
 
     invoke-virtual {p1}, Lcom/bumptech/glide/request/target/ViewTarget;->ev()V
 

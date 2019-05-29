@@ -136,13 +136,19 @@ public class DualCameraProcessor extends ImageProcessor {
     }
 
     /* access modifiers changed from: 0000 */
-    public void processImage(CaptureDataBean captureDataBean) {
+    public void processImage(List<CaptureDataBean> list) {
+        if (list == null || list.size() == 0) {
+            Log.w(TAG, "processImage: dataBeans is empty!");
+            return;
+        }
         this.mNeedProcessNormalImageSize.getAndIncrement();
         this.mNeedProcessRawImageSize.getAndIncrement();
         this.mNeedProcessDepthImageSize.getAndIncrement();
-        ICustomCaptureResult result = captureDataBean.getResult();
-        PerformanceTracker.trackAlgorithmProcess("[ORIGINAL]", 0);
-        processCaptureResult(result, captureDataBean.getMainImage(), 0);
-        processCaptureResult(result, captureDataBean.getSubImage(), 1);
+        for (CaptureDataBean captureDataBean : list) {
+            ICustomCaptureResult result = captureDataBean.getResult();
+            PerformanceTracker.trackAlgorithmProcess("[ORIGINAL]", 0);
+            processCaptureResult(result, captureDataBean.getMainImage(), 0);
+            processCaptureResult(result, captureDataBean.getSubImage(), 1);
+        }
     }
 }

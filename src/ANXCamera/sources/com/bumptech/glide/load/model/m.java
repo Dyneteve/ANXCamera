@@ -14,18 +14,18 @@ public interface m<Model, Data> {
 
     /* compiled from: ModelLoader */
     public static class a<Data> {
-        public final c eI;
-        public final List<c> jW;
-        public final d<Data> jX;
+        public final c eJ;
+        public final List<c> jX;
+        public final d<Data> jY;
 
         public a(@NonNull c cVar, @NonNull d<Data> dVar) {
             this(cVar, Collections.emptyList(), dVar);
         }
 
         public a(@NonNull c cVar, @NonNull List<c> list, @NonNull d<Data> dVar) {
-            this.eI = (c) i.checkNotNull(cVar);
-            this.jW = (List) i.checkNotNull(list);
-            this.jX = (d) i.checkNotNull(dVar);
+            this.eJ = (c) i.checkNotNull(cVar);
+            this.jX = (List) i.checkNotNull(list);
+            this.jY = (d) i.checkNotNull(dVar);
         }
     }
 

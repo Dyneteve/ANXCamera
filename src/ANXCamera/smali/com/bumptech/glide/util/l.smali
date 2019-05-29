@@ -28,9 +28,9 @@
 
 
 # instance fields
-.field private pS:[I
+.field private pT:[I
 
-.field private qf:Lcom/bumptech/glide/util/l$a;
+.field private qg:Lcom/bumptech/glide/util/l$a;
 
 
 # direct methods
@@ -55,7 +55,7 @@
 
     invoke-direct {v0, p1, p0}, Lcom/bumptech/glide/util/l$a;-><init>(Landroid/view/View;Lcom/bumptech/glide/request/target/m;)V
 
-    iput-object v0, p0, Lcom/bumptech/glide/util/l;->qf:Lcom/bumptech/glide/util/l$a;
+    iput-object v0, p0, Lcom/bumptech/glide/util/l;->qg:Lcom/bumptech/glide/util/l$a;
 
     return-void
 .end method
@@ -77,7 +77,7 @@
         }
     .end annotation
 
-    iget-object p1, p0, Lcom/bumptech/glide/util/l;->pS:[I
+    iget-object p1, p0, Lcom/bumptech/glide/util/l;->pT:[I
 
     if-nez p1, :cond_0
 
@@ -86,9 +86,9 @@
     return-object p1
 
     :cond_0
-    iget-object p1, p0, Lcom/bumptech/glide/util/l;->pS:[I
+    iget-object p1, p0, Lcom/bumptech/glide/util/l;->pT:[I
 
-    iget-object p2, p0, Lcom/bumptech/glide/util/l;->pS:[I
+    iget-object p2, p0, Lcom/bumptech/glide/util/l;->pT:[I
 
     array-length p2, p2
 
@@ -114,11 +114,11 @@
 
     aput p2, v0, p1
 
-    iput-object v0, p0, Lcom/bumptech/glide/util/l;->pS:[I
+    iput-object v0, p0, Lcom/bumptech/glide/util/l;->pT:[I
 
     const/4 p1, 0x0
 
-    iput-object p1, p0, Lcom/bumptech/glide/util/l;->qf:Lcom/bumptech/glide/util/l$a;
+    iput-object p1, p0, Lcom/bumptech/glide/util/l;->qg:Lcom/bumptech/glide/util/l$a;
 
     return-void
 .end method
@@ -130,11 +130,11 @@
         .end annotation
     .end param
 
-    iget-object v0, p0, Lcom/bumptech/glide/util/l;->pS:[I
+    iget-object v0, p0, Lcom/bumptech/glide/util/l;->pT:[I
 
     if-nez v0, :cond_1
 
-    iget-object v0, p0, Lcom/bumptech/glide/util/l;->qf:Lcom/bumptech/glide/util/l$a;
+    iget-object v0, p0, Lcom/bumptech/glide/util/l;->qg:Lcom/bumptech/glide/util/l$a;
 
     if-eqz v0, :cond_0
 
@@ -145,7 +145,7 @@
 
     invoke-direct {v0, p1, p0}, Lcom/bumptech/glide/util/l$a;-><init>(Landroid/view/View;Lcom/bumptech/glide/request/target/m;)V
 
-    iput-object v0, p0, Lcom/bumptech/glide/util/l;->qf:Lcom/bumptech/glide/util/l$a;
+    iput-object v0, p0, Lcom/bumptech/glide/util/l;->qg:Lcom/bumptech/glide/util/l$a;
 
     return-void
 

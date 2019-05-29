@@ -22,62 +22,62 @@ import java.util.concurrent.TimeUnit;
 
 public class Engine implements com.bumptech.glide.load.engine.a.j.a, h, a {
     private static final String TAG = "Engine";
-    private static final int fX = 150;
-    private static final boolean fY = Log.isLoggable(TAG, 2);
-    private final m fZ;
-    private final j ga;
+    private static final int fY = 150;
+    private static final boolean fZ = Log.isLoggable(TAG, 2);
+    private final m ga;
     private final j gb;
-    private final EngineJobFactory gc;
-    private final s gd;
-    private final a ge;
-    private final DecodeJobFactory gf;
-    private final ActiveResources gg;
+    private final j gc;
+    private final EngineJobFactory gd;
+    private final s ge;
+    private final a gf;
+    private final DecodeJobFactory gg;
+    private final ActiveResources gh;
 
     @VisibleForTesting
     static class DecodeJobFactory {
-        final d eS;
-        final Pool<DecodeJob<?>> fd = com.bumptech.glide.util.a.a.a(150, (C0011a<T>) new C0011a<DecodeJob<?>>() {
+        final d eT;
+        final Pool<DecodeJob<?>> fe = com.bumptech.glide.util.a.a.a(150, (C0011a<T>) new C0011a<DecodeJob<?>>() {
             /* renamed from: aW */
             public DecodeJob<?> create() {
-                return new DecodeJob<>(DecodeJobFactory.this.eS, DecodeJobFactory.this.fd);
+                return new DecodeJob<>(DecodeJobFactory.this.eT, DecodeJobFactory.this.fe);
             }
         });
-        private int gh;
+        private int gi;
 
         DecodeJobFactory(d dVar) {
-            this.eS = dVar;
+            this.eT = dVar;
         }
 
         /* access modifiers changed from: 0000 */
         public <R> DecodeJob<R> a(e eVar, Object obj, i iVar, c cVar, int i, int i2, Class<?> cls, Class<R> cls2, Priority priority, g gVar, Map<Class<?>, i<?>> map, boolean z, boolean z2, boolean z3, f fVar, a<R> aVar) {
-            DecodeJob decodeJob = (DecodeJob) com.bumptech.glide.util.i.checkNotNull((DecodeJob) this.fd.acquire());
-            int i3 = this.gh;
-            this.gh = i3 + 1;
+            DecodeJob decodeJob = (DecodeJob) com.bumptech.glide.util.i.checkNotNull((DecodeJob) this.fe.acquire());
+            int i3 = this.gi;
+            this.gi = i3 + 1;
             return decodeJob.a(eVar, obj, iVar, cVar, i, i2, cls, cls2, priority, gVar, map, z, z2, z3, fVar, aVar, i3);
         }
     }
 
     @VisibleForTesting
     static class EngineJobFactory {
-        final com.bumptech.glide.load.engine.b.a aB;
-        final com.bumptech.glide.load.engine.b.a av;
+        final com.bumptech.glide.load.engine.b.a aC;
         final com.bumptech.glide.load.engine.b.a aw;
-        final Pool<EngineJob<?>> fd = com.bumptech.glide.util.a.a.a(150, (C0011a<T>) new C0011a<EngineJob<?>>() {
+        final com.bumptech.glide.load.engine.b.a ax;
+        final Pool<EngineJob<?>> fe = com.bumptech.glide.util.a.a.a(150, (C0011a<T>) new C0011a<EngineJob<?>>() {
             /* renamed from: aX */
             public EngineJob<?> create() {
-                EngineJob engineJob = new EngineJob(EngineJobFactory.this.aw, EngineJobFactory.this.av, EngineJobFactory.this.gj, EngineJobFactory.this.aB, EngineJobFactory.this.gk, EngineJobFactory.this.fd);
+                EngineJob engineJob = new EngineJob(EngineJobFactory.this.ax, EngineJobFactory.this.aw, EngineJobFactory.this.gk, EngineJobFactory.this.aC, EngineJobFactory.this.gl, EngineJobFactory.this.fe);
                 return engineJob;
             }
         });
-        final com.bumptech.glide.load.engine.b.a gj;
-        final h gk;
+        final com.bumptech.glide.load.engine.b.a gk;
+        final h gl;
 
         EngineJobFactory(com.bumptech.glide.load.engine.b.a aVar, com.bumptech.glide.load.engine.b.a aVar2, com.bumptech.glide.load.engine.b.a aVar3, com.bumptech.glide.load.engine.b.a aVar4, h hVar) {
-            this.aw = aVar;
-            this.av = aVar2;
-            this.gj = aVar3;
-            this.aB = aVar4;
-            this.gk = hVar;
+            this.ax = aVar;
+            this.aw = aVar2;
+            this.gk = aVar3;
+            this.aC = aVar4;
+            this.gl = hVar;
         }
 
         private static void a(ExecutorService executorService) {
@@ -96,77 +96,77 @@ public class Engine implements com.bumptech.glide.load.engine.a.j.a, h, a {
 
         /* access modifiers changed from: 0000 */
         public <R> EngineJob<R> a(c cVar, boolean z, boolean z2, boolean z3, boolean z4) {
-            return ((EngineJob) com.bumptech.glide.util.i.checkNotNull((EngineJob) this.fd.acquire())).init(cVar, z, z2, z3, z4);
+            return ((EngineJob) com.bumptech.glide.util.i.checkNotNull((EngineJob) this.fe.acquire())).init(cVar, z, z2, z3, z4);
         }
 
         /* access modifiers changed from: 0000 */
         @VisibleForTesting
         public void shutdown() {
+            a(this.ax);
             a(this.aw);
-            a(this.av);
-            a(this.gj);
-            a(this.aB);
+            a(this.gk);
+            a(this.aC);
         }
     }
 
     private static class a implements d {
-        private final C0003a gm;
-        private volatile com.bumptech.glide.load.engine.a.a gn;
+        private final C0003a gn;
+        private volatile com.bumptech.glide.load.engine.a.a go;
 
         a(C0003a aVar) {
-            this.gm = aVar;
+            this.gn = aVar;
         }
 
         public com.bumptech.glide.load.engine.a.a aw() {
-            if (this.gn == null) {
+            if (this.go == null) {
                 synchronized (this) {
-                    if (this.gn == null) {
-                        this.gn = this.gm.bz();
+                    if (this.go == null) {
+                        this.go = this.gn.bz();
                     }
-                    if (this.gn == null) {
-                        this.gn = new com.bumptech.glide.load.engine.a.b();
+                    if (this.go == null) {
+                        this.go = new com.bumptech.glide.load.engine.a.b();
                     }
                 }
             }
-            return this.gn;
+            return this.go;
         }
 
         /* access modifiers changed from: 0000 */
         @VisibleForTesting
         public synchronized void clearDiskCacheIfCreated() {
-            if (this.gn != null) {
-                this.gn.clear();
+            if (this.go != null) {
+                this.go.clear();
             }
         }
     }
 
     public static class b {
-        private final EngineJob<?> go;
-        private final g gp;
+        private final EngineJob<?> gp;
+        private final g gq;
 
         b(g gVar, EngineJob<?> engineJob) {
-            this.gp = gVar;
-            this.go = engineJob;
+            this.gq = gVar;
+            this.gp = engineJob;
         }
 
         public void cancel() {
-            this.go.b(this.gp);
+            this.gp.b(this.gq);
         }
     }
 
     @VisibleForTesting
     Engine(j jVar, C0003a aVar, com.bumptech.glide.load.engine.b.a aVar2, com.bumptech.glide.load.engine.b.a aVar3, com.bumptech.glide.load.engine.b.a aVar4, com.bumptech.glide.load.engine.b.a aVar5, m mVar, j jVar2, ActiveResources activeResources, EngineJobFactory engineJobFactory, DecodeJobFactory decodeJobFactory, s sVar, boolean z) {
         j jVar3 = jVar;
-        this.gb = jVar3;
-        this.ge = new a(aVar);
+        this.gc = jVar3;
+        this.gf = new a(aVar);
         ActiveResources activeResources2 = activeResources == null ? new ActiveResources(z) : activeResources;
-        this.gg = activeResources2;
+        this.gh = activeResources2;
         activeResources2.a((a) this);
-        this.ga = jVar2 == null ? new j() : jVar2;
-        this.fZ = mVar == null ? new m() : mVar;
-        this.gc = engineJobFactory == null ? new EngineJobFactory(aVar2, aVar3, aVar4, aVar5, this) : engineJobFactory;
-        this.gf = decodeJobFactory == null ? new DecodeJobFactory(this.ge) : decodeJobFactory;
-        this.gd = sVar == null ? new s() : sVar;
+        this.gb = jVar2 == null ? new j() : jVar2;
+        this.ga = mVar == null ? new m() : mVar;
+        this.gd = engineJobFactory == null ? new EngineJobFactory(aVar2, aVar3, aVar4, aVar5, this) : engineJobFactory;
+        this.gg = decodeJobFactory == null ? new DecodeJobFactory(this.gf) : decodeJobFactory;
+        this.ge = sVar == null ? new s() : sVar;
         jVar3.a(this);
     }
 
@@ -179,7 +179,7 @@ public class Engine implements com.bumptech.glide.load.engine.a.j.a, h, a {
         if (!z) {
             return null;
         }
-        k<?> b2 = this.gg.b(cVar);
+        k<?> b2 = this.gh.b(cVar);
         if (b2 != null) {
             b2.acquire();
         }
@@ -204,13 +204,13 @@ public class Engine implements com.bumptech.glide.load.engine.a.j.a, h, a {
         k<?> d = d(cVar);
         if (d != null) {
             d.acquire();
-            this.gg.a(cVar, d);
+            this.gh.a(cVar, d);
         }
         return d;
     }
 
     private k<?> d(c cVar) {
-        p g = this.gb.g(cVar);
+        p g = this.gc.g(cVar);
         if (g == null) {
             return null;
         }
@@ -221,12 +221,12 @@ public class Engine implements com.bumptech.glide.load.engine.a.j.a, h, a {
         boolean z7 = z3;
         g gVar3 = gVar2;
         k.eL();
-        long eK = fY ? com.bumptech.glide.util.e.eK() : 0;
-        i a2 = this.ga.a(obj, cVar, i, i2, map, cls, cls2, fVar);
+        long eK = fZ ? com.bumptech.glide.util.e.eK() : 0;
+        i a2 = this.gb.a(obj, cVar, i, i2, map, cls, cls2, fVar);
         k a3 = a((c) a2, z7);
         if (a3 != null) {
             gVar3.c(a3, DataSource.MEMORY_CACHE);
-            if (fY) {
+            if (fZ) {
                 a("Loaded resource from active resources", eK, (c) a2);
             }
             return null;
@@ -234,26 +234,26 @@ public class Engine implements com.bumptech.glide.load.engine.a.j.a, h, a {
         k b2 = b((c) a2, z7);
         if (b2 != null) {
             gVar3.c(b2, DataSource.MEMORY_CACHE);
-            if (fY) {
+            if (fZ) {
                 a("Loaded resource from cache", eK, (c) a2);
             }
             return null;
         }
         boolean z8 = z6;
-        EngineJob c = this.fZ.c(a2, z8);
+        EngineJob c = this.ga.c(a2, z8);
         if (c != null) {
             c.a(gVar3);
-            if (fY) {
+            if (fZ) {
                 a("Added to existing load", eK, (c) a2);
             }
             return new b(gVar3, c);
         }
-        EngineJob a4 = this.gc.a(a2, z7, z4, z5, z8);
-        DecodeJob a5 = this.gf.a(eVar, obj, a2, cVar, i, i2, cls, cls2, priority, gVar, map, z, z2, z6, fVar, a4);
-        this.fZ.a(a2, a4);
+        EngineJob a4 = this.gd.a(a2, z7, z4, z5, z8);
+        DecodeJob a5 = this.gg.a(eVar, obj, a2, cVar, i, i2, cls, cls2, priority, gVar, map, z, z2, z6, fVar, a4);
+        this.ga.a(a2, a4);
         a4.a(gVar3);
         a4.c(a5);
-        if (fY) {
+        if (fZ) {
             a("Started new load", eK, (c) a2);
         }
         return new b(gVar3, a4);
@@ -261,7 +261,7 @@ public class Engine implements com.bumptech.glide.load.engine.a.j.a, h, a {
 
     public void a(EngineJob<?> engineJob, c cVar) {
         k.eL();
-        this.fZ.b(cVar, engineJob);
+        this.ga.b(cVar, engineJob);
     }
 
     public void a(EngineJob<?> engineJob, c cVar, k<?> kVar) {
@@ -269,19 +269,19 @@ public class Engine implements com.bumptech.glide.load.engine.a.j.a, h, a {
         if (kVar != null) {
             kVar.a(cVar, this);
             if (kVar.be()) {
-                this.gg.a(cVar, kVar);
+                this.gh.a(cVar, kVar);
             }
         }
-        this.fZ.b(cVar, engineJob);
+        this.ga.b(cVar, engineJob);
     }
 
     public void b(c cVar, k<?> kVar) {
         k.eL();
-        this.gg.a(cVar);
+        this.gh.a(cVar);
         if (kVar.be()) {
-            this.gb.b(cVar, kVar);
+            this.gc.b(cVar, kVar);
         } else {
-            this.gd.h(kVar);
+            this.ge.h(kVar);
         }
     }
 
@@ -296,17 +296,17 @@ public class Engine implements com.bumptech.glide.load.engine.a.j.a, h, a {
 
     public void e(@NonNull p<?> pVar) {
         k.eL();
-        this.gd.h(pVar);
+        this.ge.h(pVar);
     }
 
     public void p() {
-        this.ge.aw().clear();
+        this.gf.aw().clear();
     }
 
     @VisibleForTesting
     public void shutdown() {
-        this.gc.shutdown();
-        this.ge.clearDiskCacheIfCreated();
-        this.gg.shutdown();
+        this.gd.shutdown();
+        this.gf.clearDiskCacheIfCreated();
+        this.gh.shutdown();
     }
 }

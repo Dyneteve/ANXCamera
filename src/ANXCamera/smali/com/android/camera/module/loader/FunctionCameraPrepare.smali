@@ -268,7 +268,7 @@
     invoke-interface {v5, v8}, Lcom/android/camera/data/provider/DataProvider$ProviderEditor;->remove(Ljava/lang/String;)Lcom/android/camera/data/provider/DataProvider$ProviderEditor;
 
     :cond_6
-    invoke-static {}, Lcom/mi/config/b;->hp()Z
+    invoke-static {}, Lcom/mi/config/b;->hs()Z
 
     move-result v8
 
@@ -418,7 +418,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/mi/config/a;->gB()Z
+    invoke-virtual {v2}, Lcom/mi/config/a;->gC()Z
 
     move-result v2
 
@@ -721,6 +721,12 @@
     move-result-object v1
 
     const-string v2, "pref_mimoji_index"
+
+    invoke-interface {v1, v2}, Lcom/android/camera/data/provider/DataProvider$ProviderEditor;->remove(Ljava/lang/String;)Lcom/android/camera/data/provider/DataProvider$ProviderEditor;
+
+    move-result-object v1
+
+    const-string v2, "pref_mimoji_pannel_state"
 
     invoke-interface {v1, v2}, Lcom/android/camera/data/provider/DataProvider$ProviderEditor;->remove(Ljava/lang/String;)Lcom/android/camera/data/provider/DataProvider$ProviderEditor;
 

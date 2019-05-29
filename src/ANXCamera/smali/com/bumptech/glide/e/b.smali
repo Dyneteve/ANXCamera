@@ -7,7 +7,7 @@
 
 
 # static fields
-.field private static final pK:Lcom/bumptech/glide/e/b;
+.field private static final pL:Lcom/bumptech/glide/e/b;
 
 
 # direct methods
@@ -18,7 +18,7 @@
 
     invoke-direct {v0}, Lcom/bumptech/glide/e/b;-><init>()V
 
-    sput-object v0, Lcom/bumptech/glide/e/b;->pK:Lcom/bumptech/glide/e/b;
+    sput-object v0, Lcom/bumptech/glide/e/b;->pL:Lcom/bumptech/glide/e/b;
 
     return-void
 .end method
@@ -36,7 +36,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/e/b;->pK:Lcom/bumptech/glide/e/b;
+    sget-object v0, Lcom/bumptech/glide/e/b;->pL:Lcom/bumptech/glide/e/b;
 
     return-object v0
 .end method

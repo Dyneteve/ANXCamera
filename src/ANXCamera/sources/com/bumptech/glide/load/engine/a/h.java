@@ -8,11 +8,11 @@ import java.io.File;
 /* compiled from: InternalCacheDiskCacheFactory */
 public final class h extends d {
     public h(Context context) {
-        this(context, C0003a.ag, 262144000);
+        this(context, C0003a.ah, 262144000);
     }
 
     public h(Context context, long j) {
-        this(context, C0003a.ag, j);
+        this(context, C0003a.ah, j);
     }
 
     public h(final Context context, final String str, long j) {

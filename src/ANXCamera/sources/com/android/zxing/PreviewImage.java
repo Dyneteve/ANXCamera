@@ -16,25 +16,19 @@ public class PreviewImage {
     private int mFormat;
     private int mHeight;
     private int mOrientation;
-    private int mPreviewStatus;
+    private int mPreviewStatus = 0;
     private long mTimestamp;
     private int mWidth;
 
     public PreviewImage(int i, int i2) {
-        this.mPreviewStatus = 0;
         this.mPreviewStatus = i;
         this.mCameraId = i2;
     }
 
     public PreviewImage(Image image, int i) {
-        this(image, -1, -1, i);
-    }
-
-    public PreviewImage(Image image, int i, int i2, int i3) {
-        this.mPreviewStatus = 0;
         long currentTimeMillis = System.currentTimeMillis();
-        convertYUV420ToNV21(image, i, i2);
-        this.mOrientation = i3;
+        convertYUV420ToNV21(image);
+        this.mOrientation = i;
         this.mPreviewStatus = 2;
         String str = TAG;
         StringBuilder sb = new StringBuilder();
@@ -44,7 +38,7 @@ public class PreviewImage {
         Log.d(str, sb.toString());
     }
 
-    private void convertYUV420ToNV21(Image image, int i, int i2) {
+    private void convertYUV420ToNV21(Image image) {
         if (image != null) {
             try {
                 if (image.getFormat() == 35) {
@@ -52,11 +46,6 @@ public class PreviewImage {
                     this.mWidth = image.getWidth();
                     this.mHeight = image.getHeight();
                     this.mFormat = image.getFormat();
-                    if (i < 0 || i2 < 0) {
-                        i = this.mWidth;
-                        i2 = this.mHeight;
-                    }
-                    int i3 = 0;
                     int rowStride = image.getPlanes()[0].getRowStride();
                     int rowStride2 = image.getPlanes()[2].getRowStride();
                     ByteBuffer buffer = image.getPlanes()[0].getBuffer();
@@ -77,34 +66,27 @@ public class PreviewImage {
                     this.mData = new byte[(limit + limit2)];
                     buffer.get(this.mData, 0, limit);
                     buffer2.get(this.mData, limit, limit2);
-                    double d = ((double) (i * i2)) * 1.5d;
-                    if (((double) this.mData.length) > d) {
-                        byte[] bArr = new byte[((int) d)];
-                        int i4 = 0;
-                        int i5 = 0;
-                        int i6 = 0;
-                        while (i4 < i2) {
-                            System.arraycopy(this.mData, i5, bArr, i6, i);
-                            i5 = i4 == i2 + -1 ? i5 + i : i5 + rowStride;
-                            i6 += i;
-                            i4++;
+                    if (((double) this.mData.length) > ((double) (this.mWidth * this.mHeight)) * 1.5d) {
+                        byte[] bArr = new byte[((int) (((double) (this.mWidth * this.mHeight)) * 1.5d))];
+                        int i = 0;
+                        int i2 = 0;
+                        int i3 = 0;
+                        while (i < this.mHeight) {
+                            System.arraycopy(this.mData, i2, bArr, i3, this.mWidth);
+                            i2 = i == this.mHeight + -1 ? i2 + this.mWidth : i2 + rowStride;
+                            i3 += this.mWidth;
+                            i++;
                         }
-                        while (true) {
-                            int i7 = i2 / 2;
-                            if (i3 < i7) {
-                                if (i3 == i7 - 1) {
-                                    System.arraycopy(this.mData, i5, bArr, i6, i - 1);
-                                } else {
-                                    System.arraycopy(this.mData, i5, bArr, i6, i);
-                                }
-                                i5 += rowStride2;
-                                i6 += i;
-                                i3++;
+                        for (int i4 = 0; i4 < this.mHeight / 2; i4++) {
+                            if (i4 == (this.mHeight / 2) - 1) {
+                                System.arraycopy(this.mData, i2, bArr, i3, this.mWidth - 1);
                             } else {
-                                this.mData = bArr;
-                                return;
+                                System.arraycopy(this.mData, i2, bArr, i3, this.mWidth);
                             }
+                            i2 += rowStride2;
+                            i3 += this.mWidth;
                         }
+                        this.mData = bArr;
                     }
                 }
             } catch (Exception e) {

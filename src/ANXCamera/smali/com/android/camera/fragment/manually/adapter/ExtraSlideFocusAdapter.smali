@@ -226,7 +226,7 @@
 
     fill-array-data v0, :array_0
 
-    const v1, 0x7f0c000f
+    const v1, 0x7f0c0011
 
     invoke-virtual {p1, v1, v0}, Landroid/content/Context;->obtainStyledAttributes(I[I)Landroid/content/res/TypedArray;
 
@@ -264,7 +264,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0a0015
+    const v0, 0x7f0a0016
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -278,7 +278,7 @@
 
     iput v0, p0, Lcom/android/camera/fragment/manually/adapter/ExtraSlideFocusAdapter;->mLineHalfHeight:F
 
-    const v0, 0x7f0a0016
+    const v0, 0x7f0a0017
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -286,7 +286,7 @@
 
     iput v0, p0, Lcom/android/camera/fragment/manually/adapter/ExtraSlideFocusAdapter;->mLineWidth:I
 
-    const v0, 0x7f0a0017
+    const v0, 0x7f0a0018
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -294,7 +294,7 @@
 
     iput v0, p0, Lcom/android/camera/fragment/manually/adapter/ExtraSlideFocusAdapter;->mLineLineGap:I
 
-    const v0, 0x7f0a0018
+    const v0, 0x7f0a0019
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -302,7 +302,7 @@
 
     iput v0, p0, Lcom/android/camera/fragment/manually/adapter/ExtraSlideFocusAdapter;->mLineTextGap:I
 
-    const v0, 0x7f0b004d
+    const v0, 0x7f0b004f
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getColor(I)I
 

@@ -22,6 +22,8 @@ public interface Database {
 
     boolean isDbLockedByCurrentThread();
 
+    boolean isOpen();
+
     Cursor rawQuery(String str, String[] strArr);
 
     void setTransactionSuccessful();

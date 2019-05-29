@@ -28,17 +28,17 @@
 .method static constructor <clinit>()V
     .registers 1
 
-    .line 6335
+    .line 6371
     const/4 v0, -0x1
 
     sput v0, Landroid/provider/MiuiSettings$ForceTouch;->mSupportForceTouch:I
 
-    .line 6336
+    .line 6372
     const/high16 v0, -0x40800000    # -1.0f
 
     sput v0, Landroid/provider/MiuiSettings$ForceTouch;->mLightPress:F
 
-    .line 6337
+    .line 6373
     sput v0, Landroid/provider/MiuiSettings$ForceTouch;->mDeepPress:F
 
     return-void
@@ -47,7 +47,7 @@
 .method public constructor <init>()V
     .registers 1
 
-    .line 6333
+    .line 6369
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -56,7 +56,7 @@
 .method private static checkHighend()V
     .registers 7
 
-    .line 6382
+    .line 6418
     const-string/jumbo v0, "ro.product.device"
 
     const-string v1, ""
@@ -65,7 +65,7 @@
 
     move-result-object v0
 
-    .line 6383
+    .line 6419
     .local v0, "device":Ljava/lang/String;
     const-string v1, "capricorn"
 
@@ -75,18 +75,18 @@
 
     if-eqz v1, :cond_2e
 
-    .line 6384
+    .line 6420
     invoke-static {}, Landroid/provider/MiuiSettings$ForceTouch;->getTotalInternalMemory()J
 
     move-result-wide v1
 
-    .line 6385
+    .line 6421
     .local v1, "internalMemroyRom":J
     invoke-static {}, Lmiui/util/HardwareInfo;->getTotalPhysicalMemory()J
 
     move-result-wide v3
 
-    .line 6386
+    .line 6422
     .local v3, "ram":J
     const-wide v5, 0x1dcd650000L
 
@@ -100,13 +100,13 @@
 
     if-gez v5, :cond_2e
 
-    .line 6387
+    .line 6423
     :cond_2b
     const/4 v5, 0x0
 
     sput v5, Landroid/provider/MiuiSettings$ForceTouch;->mSupportForceTouch:I
 
-    .line 6390
+    .line 6426
     .end local v1    # "internalMemroyRom":J
     .end local v3    # "ram":J
     :cond_2e
@@ -116,7 +116,7 @@
 .method public static getDeepPressure()F
     .registers 2
 
-    .line 6375
+    .line 6411
     sget v0, Landroid/provider/MiuiSettings$ForceTouch;->mDeepPress:F
 
     const/4 v1, 0x0
@@ -125,7 +125,7 @@
 
     if-gez v0, :cond_16
 
-    .line 6376
+    .line 6412
     const-string v0, "force_touch_deep"
 
     const v1, 0x3f4ccccd    # 0.8f
@@ -140,7 +140,7 @@
 
     sput v0, Landroid/provider/MiuiSettings$ForceTouch;->mDeepPress:F
 
-    .line 6378
+    .line 6414
     :cond_16
     sget v0, Landroid/provider/MiuiSettings$ForceTouch;->mDeepPress:F
 
@@ -150,7 +150,7 @@
 .method public static getLightPressure()F
     .registers 2
 
-    .line 6368
+    .line 6404
     sget v0, Landroid/provider/MiuiSettings$ForceTouch;->mLightPress:F
 
     const/4 v1, 0x0
@@ -159,7 +159,7 @@
 
     if-gez v0, :cond_16
 
-    .line 6369
+    .line 6405
     const-string v0, "force_touch_light"
 
     const v1, 0x3ecccccd    # 0.4f
@@ -174,7 +174,7 @@
 
     sput v0, Landroid/provider/MiuiSettings$ForceTouch;->mLightPress:F
 
-    .line 6371
+    .line 6407
     :cond_16
     sget v0, Landroid/provider/MiuiSettings$ForceTouch;->mLightPress:F
 
@@ -184,16 +184,16 @@
 .method private static getTotalInternalMemory()J
     .registers 15
 
-    .line 6393
+    .line 6429
     const-wide/16 v0, 0x0
 
-    .line 6394
+    .line 6430
     .local v0, "totalSize":J
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 6395
+    .line 6431
     .local v2, "pathList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/io/File;>;"
     invoke-static {}, Landroid/os/Environment;->getDataDirectory()Ljava/io/File;
 
@@ -201,7 +201,7 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 6397
+    .line 6433
     const-string/jumbo v3, "mixed"
 
     const-string/jumbo v4, "ro.boot.sdcard.type"
@@ -218,12 +218,12 @@
 
     if-nez v3, :cond_3e
 
-    .line 6398
+    .line 6434
     invoke-static {}, Landroid/os/Environment;->getExternalStorageState()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 6399
+    .line 6435
     .local v3, "state":Ljava/lang/String;
     const-string/jumbo v4, "mounted"
 
@@ -235,14 +235,14 @@
 
     const-string/jumbo v4, "mounted_ro"
 
-    .line 6400
+    .line 6436
     invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
     if-eqz v4, :cond_3e
 
-    .line 6401
+    .line 6437
     :cond_37
     invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;
 
@@ -250,7 +250,7 @@
 
     invoke-virtual {v2, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 6405
+    .line 6441
     .end local v3    # "state":Ljava/lang/String;
     :cond_3e
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -270,7 +270,7 @@
 
     check-cast v4, Ljava/io/File;
 
-    .line 6406
+    .line 6442
     .local v4, "path":Ljava/io/File;
     invoke-virtual {v4}, Ljava/io/File;->getTotalSpace()J
 
@@ -278,23 +278,23 @@
 
     add-long/2addr v0, v5
 
-    .line 6407
+    .line 6443
     .end local v4    # "path":Ljava/io/File;
     goto :goto_42
 
-    .line 6409
+    .line 6445
     :cond_54
     move-wide v3, v0
 
-    .line 6410
+    .line 6446
     .local v3, "totalInternalMemory":J
     const-wide/32 v5, 0xf4240
 
-    .line 6411
+    .line 6447
     .local v5, "MB":J
     const-wide/32 v7, 0x3b9aca00
 
-    .line 6412
+    .line 6448
     .local v7, "GB":J
     const-wide/16 v9, 0x8
 
@@ -304,7 +304,7 @@
 
     if-ltz v9, :cond_7b
 
-    .line 6413
+    .line 6449
     div-long v9, v3, v7
 
     long-to-double v9, v9
@@ -338,7 +338,7 @@
     :goto_7a
     goto :goto_82
 
-    .line 6415
+    .line 6451
     .end local v9    # "totalInternalMemory":J
     .restart local v3    # "totalInternalMemory":J
     :cond_7b
@@ -352,7 +352,7 @@
 
     goto :goto_7a
 
-    .line 6417
+    .line 6453
     .end local v3    # "totalInternalMemory":J
     .restart local v9    # "totalInternalMemory":J
     :goto_82
@@ -363,7 +363,7 @@
     .registers 5
     .param p0, "context"    # Landroid/content/Context;
 
-    .line 6350
+    .line 6386
     invoke-static {}, Landroid/provider/MiuiSettings$ForceTouch;->isSupport()Z
 
     move-result v0
@@ -372,16 +372,16 @@
 
     if-nez v0, :cond_8
 
-    .line 6351
+    .line 6387
     return v1
 
-    .line 6353
+    .line 6389
     :cond_8
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 6354
+    .line 6390
     .local v0, "resolver":Landroid/content/ContentResolver;
     const-string v2, "force_touch_enable"
 
@@ -391,7 +391,7 @@
 
     move-result v2
 
-    .line 6355
+    .line 6391
     .local v2, "enable":I
     if-eqz v2, :cond_17
 
@@ -406,7 +406,7 @@
 .method public static isSupport()Z
     .registers 3
 
-    .line 6340
+    .line 6376
     sget v0, Landroid/provider/MiuiSettings$ForceTouch;->mSupportForceTouch:I
 
     const/4 v1, 0x0
@@ -415,7 +415,7 @@
 
     if-gez v0, :cond_16
 
-    .line 6341
+    .line 6377
     const-string/jumbo v0, "support_force_touch"
 
     invoke-static {v0, v1}, Lmiui/util/FeatureParser;->getBoolean(Ljava/lang/String;Z)Z
@@ -424,15 +424,15 @@
 
     sput v0, Landroid/provider/MiuiSettings$ForceTouch;->mSupportForceTouch:I
 
-    .line 6342
+    .line 6378
     sget v0, Landroid/provider/MiuiSettings$ForceTouch;->mSupportForceTouch:I
 
     if-ne v0, v2, :cond_16
 
-    .line 6343
+    .line 6379
     invoke-static {}, Landroid/provider/MiuiSettings$ForceTouch;->checkHighend()V
 
-    .line 6346
+    .line 6382
     :cond_16
     sget v0, Landroid/provider/MiuiSettings$ForceTouch;->mSupportForceTouch:I
 
@@ -451,31 +451,31 @@
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "value"    # Z
 
-    .line 6359
+    .line 6395
     invoke-static {}, Landroid/provider/MiuiSettings$ForceTouch;->isSupport()Z
 
     move-result v0
 
     if-nez v0, :cond_8
 
-    .line 6360
+    .line 6396
     const/4 v0, 0x0
 
     return v0
 
-    .line 6362
+    .line 6398
     :cond_8
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 6363
+    .line 6399
     .local v0, "resolver":Landroid/content/ContentResolver;
     const-string v1, "force_touch_enable"
 
     invoke-static {v0, v1, p1}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 6364
+    .line 6400
     const/4 v1, 0x1
 
     return v1

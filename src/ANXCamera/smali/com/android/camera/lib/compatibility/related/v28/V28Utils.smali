@@ -46,6 +46,54 @@
     return-object v6
 .end method
 
+.method public static createCaptureSessionWithCustomOperationMode(Landroid/hardware/camera2/CameraDevice;ILjava/util/List;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CameraCaptureSession$StateCallback;Landroid/os/Handler;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/hardware/camera2/CameraDevice;",
+            "I",
+            "Ljava/util/List<",
+            "Landroid/hardware/camera2/params/OutputConfiguration;",
+            ">;",
+            "Landroid/hardware/camera2/CaptureRequest;",
+            "Landroid/hardware/camera2/CameraCaptureSession$StateCallback;",
+            "Landroid/os/Handler;",
+            ")V"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/hardware/camera2/CameraAccessException;
+        }
+    .end annotation
+
+    new-instance v0, Landroid/hardware/camera2/params/SessionConfiguration;
+
+    if-nez p5, :cond_0
+
+    const/4 p5, 0x0
+
+    goto :goto_0
+
+    :cond_0
+    new-instance v1, Lcom/android/camera/lib/compatibility/related/v28/V28Utils$3;
+
+    invoke-direct {v1, p5}, Lcom/android/camera/lib/compatibility/related/v28/V28Utils$3;-><init>(Landroid/os/Handler;)V
+
+    move-object p5, v1
+
+    :goto_0
+    invoke-direct {v0, p1, p2, p5, p4}, Landroid/hardware/camera2/params/SessionConfiguration;-><init>(ILjava/util/List;Ljava/util/concurrent/Executor;Landroid/hardware/camera2/CameraCaptureSession$StateCallback;)V
+
+    invoke-virtual {v0, p3}, Landroid/hardware/camera2/params/SessionConfiguration;->setSessionParameters(Landroid/hardware/camera2/CaptureRequest;)V
+
+    invoke-virtual {p0, v0}, Landroid/hardware/camera2/CameraDevice;->createCaptureSession(Landroid/hardware/camera2/params/SessionConfiguration;)V
+
+    return-void
+.end method
+
 .method public static createCaptureSessionWithSessionConfiguration(Landroid/hardware/camera2/CameraDevice;Ljava/util/List;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CameraCaptureSession$StateCallback;Landroid/os/Handler;)V
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
@@ -155,6 +203,14 @@
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->layoutInDisplayCutoutMode:I
 
     invoke-virtual {p0, v0}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
+
+    return-void
+.end method
+
+.method public static setTemporaryAutoBrightnessAdjustment(Landroid/hardware/display/DisplayManager;F)V
+    .locals 0
+
+    invoke-virtual {p0, p1}, Landroid/hardware/display/DisplayManager;->setTemporaryAutoBrightnessAdjustment(F)V
 
     return-void
 .end method

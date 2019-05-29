@@ -5,7 +5,7 @@ import com.bumptech.glide.load.EncodeStrategy;
 
 /* compiled from: DiskCacheStrategy */
 public abstract class g {
-    public static final g fS = new g() {
+    public static final g fT = new g() {
         public boolean a(boolean z, DataSource dataSource, EncodeStrategy encodeStrategy) {
             return (dataSource == DataSource.RESOURCE_DISK_CACHE || dataSource == DataSource.MEMORY_CACHE) ? false : true;
         }
@@ -22,7 +22,7 @@ public abstract class g {
             return dataSource == DataSource.REMOTE;
         }
     };
-    public static final g fT = new g() {
+    public static final g fU = new g() {
         public boolean a(boolean z, DataSource dataSource, EncodeStrategy encodeStrategy) {
             return false;
         }
@@ -39,7 +39,7 @@ public abstract class g {
             return false;
         }
     };
-    public static final g fU = new g() {
+    public static final g fV = new g() {
         public boolean a(boolean z, DataSource dataSource, EncodeStrategy encodeStrategy) {
             return false;
         }
@@ -56,7 +56,7 @@ public abstract class g {
             return (dataSource == DataSource.DATA_DISK_CACHE || dataSource == DataSource.MEMORY_CACHE) ? false : true;
         }
     };
-    public static final g fV = new g() {
+    public static final g fW = new g() {
         public boolean a(boolean z, DataSource dataSource, EncodeStrategy encodeStrategy) {
             return (dataSource == DataSource.RESOURCE_DISK_CACHE || dataSource == DataSource.MEMORY_CACHE) ? false : true;
         }
@@ -73,7 +73,7 @@ public abstract class g {
             return false;
         }
     };
-    public static final g fW = new g() {
+    public static final g fX = new g() {
         public boolean a(boolean z, DataSource dataSource, EncodeStrategy encodeStrategy) {
             return ((z && dataSource == DataSource.DATA_DISK_CACHE) || dataSource == DataSource.LOCAL) && encodeStrategy == EncodeStrategy.TRANSFORMED;
         }

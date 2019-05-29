@@ -47,13 +47,13 @@
 
     iget-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty$6;->this$0:Lcom/android/camera/fragment/FragmentBeauty;
 
-    invoke-static {v0}, Lcom/android/camera/fragment/FragmentBeauty;->access$900(Lcom/android/camera/fragment/FragmentBeauty;)Lcom/android/camera/fragment/beauty/BeautyEyeLightFragment;
+    invoke-static {v0}, Lcom/android/camera/fragment/FragmentBeauty;->access$500(Lcom/android/camera/fragment/FragmentBeauty;)Lcom/android/camera/fragment/beauty/BeautyEyeLightFragment;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/camera/fragment/FragmentBeauty$6;->this$0:Lcom/android/camera/fragment/FragmentBeauty;
 
-    invoke-static {v1}, Lcom/android/camera/fragment/FragmentBeauty;->access$900(Lcom/android/camera/fragment/FragmentBeauty;)Lcom/android/camera/fragment/beauty/BeautyEyeLightFragment;
+    invoke-static {v1}, Lcom/android/camera/fragment/FragmentBeauty;->access$500(Lcom/android/camera/fragment/FragmentBeauty;)Lcom/android/camera/fragment/beauty/BeautyEyeLightFragment;
 
     move-result-object v1
 
@@ -63,11 +63,11 @@
 
     const/4 v2, 0x0
 
-    invoke-static {p1, v2, v0, v1}, Lcom/android/camera/fragment/FragmentBeauty;->access$1000(Lcom/android/camera/fragment/FragmentBeauty;ZLandroid/support/v4/app/Fragment;Ljava/lang/String;)V
+    invoke-static {p1, v2, v0, v1}, Lcom/android/camera/fragment/FragmentBeauty;->access$600(Lcom/android/camera/fragment/FragmentBeauty;ZLandroid/support/v4/app/Fragment;Ljava/lang/String;)V
 
     iget-object p1, p0, Lcom/android/camera/fragment/FragmentBeauty$6;->this$0:Lcom/android/camera/fragment/FragmentBeauty;
 
-    invoke-static {p1}, Lcom/android/camera/fragment/FragmentBeauty;->access$900(Lcom/android/camera/fragment/FragmentBeauty;)Lcom/android/camera/fragment/beauty/BeautyEyeLightFragment;
+    invoke-static {p1}, Lcom/android/camera/fragment/FragmentBeauty;->access$500(Lcom/android/camera/fragment/FragmentBeauty;)Lcom/android/camera/fragment/beauty/BeautyEyeLightFragment;
 
     move-result-object p1
 

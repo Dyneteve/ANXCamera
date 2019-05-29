@@ -23,8 +23,6 @@
 
 
 # static fields
-.field public static final enum oN:Lcom/bumptech/glide/request/SingleRequest$Status;
-
 .field public static final enum oO:Lcom/bumptech/glide/request/SingleRequest$Status;
 
 .field public static final enum oP:Lcom/bumptech/glide/request/SingleRequest$Status;
@@ -39,7 +37,9 @@
 
 .field public static final enum oU:Lcom/bumptech/glide/request/SingleRequest$Status;
 
-.field private static final synthetic oV:[Lcom/bumptech/glide/request/SingleRequest$Status;
+.field public static final enum oV:Lcom/bumptech/glide/request/SingleRequest$Status;
+
+.field private static final synthetic oW:[Lcom/bumptech/glide/request/SingleRequest$Status;
 
 
 # direct methods
@@ -54,7 +54,7 @@
 
     invoke-direct {v0, v1, v2}, Lcom/bumptech/glide/request/SingleRequest$Status;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/bumptech/glide/request/SingleRequest$Status;->oN:Lcom/bumptech/glide/request/SingleRequest$Status;
+    sput-object v0, Lcom/bumptech/glide/request/SingleRequest$Status;->oO:Lcom/bumptech/glide/request/SingleRequest$Status;
 
     new-instance v0, Lcom/bumptech/glide/request/SingleRequest$Status;
 
@@ -64,7 +64,7 @@
 
     invoke-direct {v0, v1, v3}, Lcom/bumptech/glide/request/SingleRequest$Status;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/bumptech/glide/request/SingleRequest$Status;->oO:Lcom/bumptech/glide/request/SingleRequest$Status;
+    sput-object v0, Lcom/bumptech/glide/request/SingleRequest$Status;->oP:Lcom/bumptech/glide/request/SingleRequest$Status;
 
     new-instance v0, Lcom/bumptech/glide/request/SingleRequest$Status;
 
@@ -74,7 +74,7 @@
 
     invoke-direct {v0, v1, v4}, Lcom/bumptech/glide/request/SingleRequest$Status;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/bumptech/glide/request/SingleRequest$Status;->oP:Lcom/bumptech/glide/request/SingleRequest$Status;
+    sput-object v0, Lcom/bumptech/glide/request/SingleRequest$Status;->oQ:Lcom/bumptech/glide/request/SingleRequest$Status;
 
     new-instance v0, Lcom/bumptech/glide/request/SingleRequest$Status;
 
@@ -84,7 +84,7 @@
 
     invoke-direct {v0, v1, v5}, Lcom/bumptech/glide/request/SingleRequest$Status;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/bumptech/glide/request/SingleRequest$Status;->oQ:Lcom/bumptech/glide/request/SingleRequest$Status;
+    sput-object v0, Lcom/bumptech/glide/request/SingleRequest$Status;->oR:Lcom/bumptech/glide/request/SingleRequest$Status;
 
     new-instance v0, Lcom/bumptech/glide/request/SingleRequest$Status;
 
@@ -94,7 +94,7 @@
 
     invoke-direct {v0, v1, v6}, Lcom/bumptech/glide/request/SingleRequest$Status;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/bumptech/glide/request/SingleRequest$Status;->oR:Lcom/bumptech/glide/request/SingleRequest$Status;
+    sput-object v0, Lcom/bumptech/glide/request/SingleRequest$Status;->oS:Lcom/bumptech/glide/request/SingleRequest$Status;
 
     new-instance v0, Lcom/bumptech/glide/request/SingleRequest$Status;
 
@@ -104,7 +104,7 @@
 
     invoke-direct {v0, v1, v7}, Lcom/bumptech/glide/request/SingleRequest$Status;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/bumptech/glide/request/SingleRequest$Status;->oS:Lcom/bumptech/glide/request/SingleRequest$Status;
+    sput-object v0, Lcom/bumptech/glide/request/SingleRequest$Status;->oT:Lcom/bumptech/glide/request/SingleRequest$Status;
 
     new-instance v0, Lcom/bumptech/glide/request/SingleRequest$Status;
 
@@ -114,7 +114,7 @@
 
     invoke-direct {v0, v1, v8}, Lcom/bumptech/glide/request/SingleRequest$Status;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/bumptech/glide/request/SingleRequest$Status;->oT:Lcom/bumptech/glide/request/SingleRequest$Status;
+    sput-object v0, Lcom/bumptech/glide/request/SingleRequest$Status;->oU:Lcom/bumptech/glide/request/SingleRequest$Status;
 
     new-instance v0, Lcom/bumptech/glide/request/SingleRequest$Status;
 
@@ -124,45 +124,45 @@
 
     invoke-direct {v0, v1, v9}, Lcom/bumptech/glide/request/SingleRequest$Status;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/bumptech/glide/request/SingleRequest$Status;->oU:Lcom/bumptech/glide/request/SingleRequest$Status;
+    sput-object v0, Lcom/bumptech/glide/request/SingleRequest$Status;->oV:Lcom/bumptech/glide/request/SingleRequest$Status;
 
     const/16 v0, 0x8
 
     new-array v0, v0, [Lcom/bumptech/glide/request/SingleRequest$Status;
 
-    sget-object v1, Lcom/bumptech/glide/request/SingleRequest$Status;->oN:Lcom/bumptech/glide/request/SingleRequest$Status;
+    sget-object v1, Lcom/bumptech/glide/request/SingleRequest$Status;->oO:Lcom/bumptech/glide/request/SingleRequest$Status;
 
     aput-object v1, v0, v2
 
-    sget-object v1, Lcom/bumptech/glide/request/SingleRequest$Status;->oO:Lcom/bumptech/glide/request/SingleRequest$Status;
+    sget-object v1, Lcom/bumptech/glide/request/SingleRequest$Status;->oP:Lcom/bumptech/glide/request/SingleRequest$Status;
 
     aput-object v1, v0, v3
 
-    sget-object v1, Lcom/bumptech/glide/request/SingleRequest$Status;->oP:Lcom/bumptech/glide/request/SingleRequest$Status;
+    sget-object v1, Lcom/bumptech/glide/request/SingleRequest$Status;->oQ:Lcom/bumptech/glide/request/SingleRequest$Status;
 
     aput-object v1, v0, v4
 
-    sget-object v1, Lcom/bumptech/glide/request/SingleRequest$Status;->oQ:Lcom/bumptech/glide/request/SingleRequest$Status;
+    sget-object v1, Lcom/bumptech/glide/request/SingleRequest$Status;->oR:Lcom/bumptech/glide/request/SingleRequest$Status;
 
     aput-object v1, v0, v5
 
-    sget-object v1, Lcom/bumptech/glide/request/SingleRequest$Status;->oR:Lcom/bumptech/glide/request/SingleRequest$Status;
+    sget-object v1, Lcom/bumptech/glide/request/SingleRequest$Status;->oS:Lcom/bumptech/glide/request/SingleRequest$Status;
 
     aput-object v1, v0, v6
 
-    sget-object v1, Lcom/bumptech/glide/request/SingleRequest$Status;->oS:Lcom/bumptech/glide/request/SingleRequest$Status;
+    sget-object v1, Lcom/bumptech/glide/request/SingleRequest$Status;->oT:Lcom/bumptech/glide/request/SingleRequest$Status;
 
     aput-object v1, v0, v7
 
-    sget-object v1, Lcom/bumptech/glide/request/SingleRequest$Status;->oT:Lcom/bumptech/glide/request/SingleRequest$Status;
+    sget-object v1, Lcom/bumptech/glide/request/SingleRequest$Status;->oU:Lcom/bumptech/glide/request/SingleRequest$Status;
 
     aput-object v1, v0, v8
 
-    sget-object v1, Lcom/bumptech/glide/request/SingleRequest$Status;->oU:Lcom/bumptech/glide/request/SingleRequest$Status;
+    sget-object v1, Lcom/bumptech/glide/request/SingleRequest$Status;->oV:Lcom/bumptech/glide/request/SingleRequest$Status;
 
     aput-object v1, v0, v9
 
-    sput-object v0, Lcom/bumptech/glide/request/SingleRequest$Status;->oV:[Lcom/bumptech/glide/request/SingleRequest$Status;
+    sput-object v0, Lcom/bumptech/glide/request/SingleRequest$Status;->oW:[Lcom/bumptech/glide/request/SingleRequest$Status;
 
     return-void
 .end method
@@ -197,7 +197,7 @@
 .method public static values()[Lcom/bumptech/glide/request/SingleRequest$Status;
     .locals 1
 
-    sget-object v0, Lcom/bumptech/glide/request/SingleRequest$Status;->oV:[Lcom/bumptech/glide/request/SingleRequest$Status;
+    sget-object v0, Lcom/bumptech/glide/request/SingleRequest$Status;->oW:[Lcom/bumptech/glide/request/SingleRequest$Status;
 
     invoke-virtual {v0}, [Lcom/bumptech/glide/request/SingleRequest$Status;->clone()Ljava/lang/Object;
 

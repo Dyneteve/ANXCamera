@@ -258,7 +258,7 @@ public class EffectController {
             renderGroup2.addRender(z2 ? new GradienterSnapshotEffectRender(gLCanvas2, FilterInfo.FILTER_ID_GRADIENTER) : new GradienterEffectRender(gLCanvas2, FilterInfo.FILTER_ID_GRADIENTER));
             z3 = true;
         }
-        if (renderGroup2.getRender(FilterInfo.FILTER_ID_TILTSHIFT) == null && b.hL() && (z || i2 == FilterInfo.FILTER_ID_TILTSHIFT || (i2 < 0 && !z3))) {
+        if (renderGroup2.getRender(FilterInfo.FILTER_ID_TILTSHIFT) == null && b.hO() && (z || i2 == FilterInfo.FILTER_ID_TILTSHIFT || (i2 < 0 && !z3))) {
             if (z || i2 == FilterInfo.FILTER_ID_TILTSHIFT || renderGroup2.isPartComplete(3)) {
                 PipeRenderPair pipeRenderPair3 = new PipeRenderPair(gLCanvas2, FilterInfo.FILTER_ID_TILTSHIFT, new PipeRenderPair(gLCanvas2, renderGroup2.getPartRender(0) != null ? renderGroup2.getPartRender(0) : new XTiltShiftEffectRender(gLCanvas2), renderGroup2.getPartRender(1) != null ? renderGroup2.getPartRender(1) : new YTiltShiftEffectRender(gLCanvas2), false), renderGroup2.getPartRender(2) != null ? renderGroup2.getPartRender(2) : new TiltShiftMaskEffectRender(gLCanvas2), false);
                 renderGroup2.addRender(pipeRenderPair3);
@@ -272,7 +272,7 @@ public class EffectController {
             }
             z3 = true;
         }
-        if (d.getBoolean(d.uv, false) || renderGroup2.getRender(FilterInfo.FILTER_ID_GAUSSIAN) != null || (!z && i2 != FilterInfo.FILTER_ID_GAUSSIAN && (i2 >= 0 || z3))) {
+        if (d.getBoolean(d.uA, false) || renderGroup2.getRender(FilterInfo.FILTER_ID_GAUSSIAN) != null || (!z && i2 != FilterInfo.FILTER_ID_GAUSSIAN && (i2 >= 0 || z3))) {
             z4 = z3;
         } else if (z || i2 == FilterInfo.FILTER_ID_GAUSSIAN || renderGroup2.isPartComplete(3)) {
             PipeRenderPair pipeRenderPair4 = new PipeRenderPair(gLCanvas2, FilterInfo.FILTER_ID_GAUSSIAN, new PipeRenderPair(gLCanvas2, renderGroup2.getPartRender(0) != null ? renderGroup2.getPartRender(0) : new XGaussianEffectRender(gLCanvas2), renderGroup2.getPartRender(1) != null ? renderGroup2.getPartRender(1) : new YGaussianEffectRender(gLCanvas2), false), renderGroup2.getPartRender(2) != null ? renderGroup2.getPartRender(2) : new GaussianMaskEffectRender(gLCanvas2), false);
@@ -285,7 +285,7 @@ public class EffectController {
         } else if (renderGroup2.getPartRender(2) == null) {
             renderGroup2.addPartRender(new GaussianMaskEffectRender(gLCanvas2));
         }
-        if (renderGroup2.getRender(FilterInfo.FILTER_ID_PEAKINGMF) == null && b.hA() && !z2 && (z || i2 == FilterInfo.FILTER_ID_PEAKINGMF || (i2 < 0 && !z4))) {
+        if (renderGroup2.getRender(FilterInfo.FILTER_ID_PEAKINGMF) == null && b.hD() && !z2 && (z || i2 == FilterInfo.FILTER_ID_PEAKINGMF || (i2 < 0 && !z4))) {
             renderGroup2.addRender(new FocusPeakingRender(gLCanvas2, FilterInfo.FILTER_ID_PEAKINGMF));
         }
         if (renderGroup2.getRender(FilterInfo.FILTER_ID_STICKER) == null && (z || i2 == FilterInfo.FILTER_ID_STICKER || (i2 < 0 && !z4))) {
@@ -707,7 +707,7 @@ public class EffectController {
     }
 
     public RenderGroup getEffectGroup(GLCanvas gLCanvas, RenderGroup renderGroup, boolean z, boolean z2, int i) {
-        if (!b.gK()) {
+        if (!b.gN()) {
             return null;
         }
         if (!z && !renderGroup.isNeedInit(i)) {
@@ -803,7 +803,7 @@ public class EffectController {
         boolean z;
         boolean z2;
         synchronized (this) {
-            boolean gK = b.gK();
+            boolean gN = b.gN();
             z = false;
             boolean z3 = (this.mEffectId == FilterInfo.FILTER_ID_NONE || FilterInfo.getCategory(this.mEffectId) == 6) ? false : true;
             boolean isSquareModule = ModuleManager.isSquareModule();
@@ -811,14 +811,15 @@ public class EffectController {
             boolean isTiltShiftOn = CameraSettings.isTiltShiftOn();
             boolean fn = DataRepository.dataItemFeature().fn();
             boolean isDualCameraWaterMarkOpen = CameraSettings.isDualCameraWaterMarkOpen();
+            boolean isFrontCameraWaterMarkOpen = CameraSettings.isFrontCameraWaterMarkOpen();
             boolean isTimeWaterMarkOpen = CameraSettings.isTimeWaterMarkOpen();
             boolean isAgeGenderWaterMarkOpen = CameraSettings.isAgeGenderWaterMarkOpen();
             boolean isMagicMirrorWaterMarkOpen = CameraSettings.isMagicMirrorWaterMarkOpen();
-            if (!isDualCameraWaterMarkOpen && !isTimeWaterMarkOpen && !isAgeGenderWaterMarkOpen) {
+            if (!isDualCameraWaterMarkOpen && !isFrontCameraWaterMarkOpen && !isTimeWaterMarkOpen && !isAgeGenderWaterMarkOpen) {
                 if (!isMagicMirrorWaterMarkOpen) {
                     z2 = false;
                     boolean z4 = !fn && z2;
-                    if (gK && (z3 || isSquareModule || isGradienterOn || isTiltShiftOn || z4)) {
+                    if (gN && (z3 || isSquareModule || isGradienterOn || isTiltShiftOn || z4)) {
                         z = true;
                     }
                 }

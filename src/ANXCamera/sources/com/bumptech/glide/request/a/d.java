@@ -8,11 +8,11 @@ import com.bumptech.glide.request.a.f.a;
 /* compiled from: DrawableCrossFadeTransition */
 public class d implements f<Drawable> {
     private final int duration;
-    private final boolean pz;
+    private final boolean pA;
 
     public d(int i, boolean z) {
         this.duration = i;
-        this.pz = z;
+        this.pA = z;
     }
 
     public boolean a(Drawable drawable, a aVar) {
@@ -21,7 +21,7 @@ public class d implements f<Drawable> {
             currentDrawable = new ColorDrawable(0);
         }
         TransitionDrawable transitionDrawable = new TransitionDrawable(new Drawable[]{currentDrawable, drawable});
-        transitionDrawable.setCrossFadeEnabled(this.pz);
+        transitionDrawable.setCrossFadeEnabled(this.pA);
         transitionDrawable.startTransition(this.duration);
         aVar.setDrawable(transitionDrawable);
         return true;

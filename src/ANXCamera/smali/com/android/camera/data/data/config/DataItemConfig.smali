@@ -489,7 +489,7 @@
 
     :cond_7
     :goto_2
-    invoke-static {}, Lcom/mi/config/b;->hj()Z
+    invoke-static {}, Lcom/mi/config/b;->hm()Z
 
     move-result p2
 

@@ -18,12 +18,12 @@ public class j implements d {
     private static final Config DEFAULT_CONFIG = Config.ARGB_8888;
     private static final String TAG = "LruBitmapPool";
     private int hA;
-    private final k hs;
-    private final Set<Config> ht;
-    private final long hu;
-    private final a hv;
-    private long hw;
-    private int hx;
+    private int hB;
+    private final k ht;
+    private final Set<Config> hu;
+    private final long hv;
+    private final a hw;
+    private long hx;
     private int hy;
     private int hz;
     private long maxSize;
@@ -49,14 +49,14 @@ public class j implements d {
 
     /* compiled from: LruBitmapPool */
     private static class c implements a {
-        private final Set<Bitmap> hB = Collections.synchronizedSet(new HashSet());
+        private final Set<Bitmap> hC = Collections.synchronizedSet(new HashSet());
 
         private c() {
         }
 
         public void j(Bitmap bitmap) {
-            if (!this.hB.contains(bitmap)) {
-                this.hB.add(bitmap);
+            if (!this.hC.contains(bitmap)) {
+                this.hC.add(bitmap);
                 return;
             }
             StringBuilder sb = new StringBuilder();
@@ -71,8 +71,8 @@ public class j implements d {
         }
 
         public void k(Bitmap bitmap) {
-            if (this.hB.contains(bitmap)) {
-                this.hB.remove(bitmap);
+            if (this.hC.contains(bitmap)) {
+                this.hC.remove(bitmap);
                 return;
             }
             throw new IllegalStateException("Cannot remove bitmap not in tracker");
@@ -84,11 +84,11 @@ public class j implements d {
     }
 
     j(long j, k kVar, Set<Config> set) {
-        this.hu = j;
+        this.hv = j;
         this.maxSize = j;
-        this.hs = kVar;
-        this.ht = set;
-        this.hv = new b();
+        this.ht = kVar;
+        this.hu = set;
+        this.hw = new b();
     }
 
     public j(long j, Set<Config> set) {
@@ -96,24 +96,24 @@ public class j implements d {
     }
 
     private synchronized void b(long j) {
-        while (this.hw > j) {
-            Bitmap bl = this.hs.bl();
+        while (this.hx > j) {
+            Bitmap bl = this.ht.bl();
             if (bl == null) {
                 if (Log.isLoggable(TAG, 5)) {
                     Log.w(TAG, "Size mismatch, resetting");
                     bu();
                 }
-                this.hw = 0;
+                this.hx = 0;
                 return;
             }
-            this.hv.k(bl);
-            this.hw -= (long) this.hs.f(bl);
-            this.hA++;
+            this.hw.k(bl);
+            this.hx -= (long) this.ht.f(bl);
+            this.hB++;
             if (Log.isLoggable(TAG, 3)) {
                 String str = TAG;
                 StringBuilder sb = new StringBuilder();
                 sb.append("Evicting bitmap=");
-                sb.append(this.hs.e(bl));
+                sb.append(this.ht.e(bl));
                 Log.d(str, sb.toString());
             }
             dump();
@@ -140,19 +140,19 @@ public class j implements d {
         String str = TAG;
         StringBuilder sb = new StringBuilder();
         sb.append("Hits=");
-        sb.append(this.hx);
-        sb.append(", misses=");
         sb.append(this.hy);
-        sb.append(", puts=");
+        sb.append(", misses=");
         sb.append(this.hz);
-        sb.append(", evictions=");
+        sb.append(", puts=");
         sb.append(this.hA);
+        sb.append(", evictions=");
+        sb.append(this.hB);
         sb.append(", currentSize=");
-        sb.append(this.hw);
+        sb.append(this.hx);
         sb.append(", maxSize=");
         sb.append(this.maxSize);
         sb.append("\nStrategy=");
-        sb.append(this.hs);
+        sb.append(this.ht);
         Log.v(str, sb.toString());
     }
 
@@ -190,27 +190,27 @@ public class j implements d {
     private synchronized Bitmap h(int i, int i2, @Nullable Config config) {
         Bitmap b2;
         b(config);
-        b2 = this.hs.b(i, i2, config != null ? config : DEFAULT_CONFIG);
+        b2 = this.ht.b(i, i2, config != null ? config : DEFAULT_CONFIG);
         if (b2 == null) {
             if (Log.isLoggable(TAG, 3)) {
                 String str = TAG;
                 StringBuilder sb = new StringBuilder();
                 sb.append("Missing bitmap=");
-                sb.append(this.hs.c(i, i2, config));
+                sb.append(this.ht.c(i, i2, config));
                 Log.d(str, sb.toString());
             }
-            this.hy++;
+            this.hz++;
         } else {
-            this.hx++;
-            this.hw -= (long) this.hs.f(b2);
-            this.hv.k(b2);
+            this.hy++;
+            this.hx -= (long) this.ht.f(b2);
+            this.hw.k(b2);
             h(b2);
         }
         if (Log.isLoggable(TAG, 2)) {
             String str2 = TAG;
             StringBuilder sb2 = new StringBuilder();
             sb2.append("Get bitmap=");
-            sb2.append(this.hs.c(i, i2, config));
+            sb2.append(this.ht.c(i, i2, config));
             Log.v(str2, sb2.toString());
         }
         dump();
@@ -240,7 +240,7 @@ public class j implements d {
     }
 
     public synchronized void b(float f) {
-        this.maxSize = (long) Math.round(((float) this.hu) * f);
+        this.maxSize = (long) Math.round(((float) this.hv) * f);
         br();
     }
 
@@ -248,18 +248,18 @@ public class j implements d {
         if (bitmap == null) {
             throw new NullPointerException("Bitmap must not be null");
         } else if (!bitmap.isRecycled()) {
-            if (bitmap.isMutable() && ((long) this.hs.f(bitmap)) <= this.maxSize) {
-                if (this.ht.contains(bitmap.getConfig())) {
-                    int f = this.hs.f(bitmap);
-                    this.hs.d(bitmap);
-                    this.hv.j(bitmap);
-                    this.hz++;
-                    this.hw += (long) f;
+            if (bitmap.isMutable() && ((long) this.ht.f(bitmap)) <= this.maxSize) {
+                if (this.hu.contains(bitmap.getConfig())) {
+                    int f = this.ht.f(bitmap);
+                    this.ht.d(bitmap);
+                    this.hw.j(bitmap);
+                    this.hA++;
+                    this.hx += (long) f;
                     if (Log.isLoggable(TAG, 2)) {
                         String str = TAG;
                         StringBuilder sb = new StringBuilder();
                         sb.append("Put bitmap in pool=");
-                        sb.append(this.hs.e(bitmap));
+                        sb.append(this.ht.e(bitmap));
                         Log.v(str, sb.toString());
                     }
                     dump();
@@ -271,11 +271,11 @@ public class j implements d {
                 String str2 = TAG;
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append("Reject bitmap from pool, bitmap: ");
-                sb2.append(this.hs.e(bitmap));
+                sb2.append(this.ht.e(bitmap));
                 sb2.append(", is mutable: ");
                 sb2.append(bitmap.isMutable());
                 sb2.append(", is allowed config: ");
-                sb2.append(this.ht.contains(bitmap.getConfig()));
+                sb2.append(this.hu.contains(bitmap.getConfig()));
                 Log.v(str2, sb2.toString());
             }
             bitmap.recycle();

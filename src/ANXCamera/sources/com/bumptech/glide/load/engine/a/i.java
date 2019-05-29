@@ -10,9 +10,7 @@ import com.bumptech.glide.util.f;
 
 /* compiled from: LruResourceCache */
 public class i extends f<c, p<?>> implements j {
-
-    /* renamed from: if reason: not valid java name */
-    private a f1if;
+    private a ig;
 
     public i(long j) {
         super(j);
@@ -21,13 +19,13 @@ public class i extends f<c, p<?>> implements j {
     /* access modifiers changed from: protected */
     /* renamed from: a */
     public void b(@NonNull c cVar, @Nullable p<?> pVar) {
-        if (this.f1if != null && pVar != null) {
-            this.f1if.e(pVar);
+        if (this.ig != null && pVar != null) {
+            this.ig.e(pVar);
         }
     }
 
     public void a(@NonNull a aVar) {
-        this.f1if = aVar;
+        this.ig = aVar;
     }
 
     @Nullable

@@ -7,7 +7,7 @@
 
 
 # static fields
-.field private static final gT:Lcom/bumptech/glide/util/f;
+.field private static final gU:Lcom/bumptech/glide/util/f;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/util/f<",
@@ -19,15 +19,15 @@
 
 
 # instance fields
-.field private final ap:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
+.field private final aq:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
 
-.field private final eI:Lcom/bumptech/glide/load/c;
+.field private final eJ:Lcom/bumptech/glide/load/c;
 
-.field private final eN:Lcom/bumptech/glide/load/c;
+.field private final eO:Lcom/bumptech/glide/load/c;
 
-.field private final eP:Lcom/bumptech/glide/load/f;
+.field private final eQ:Lcom/bumptech/glide/load/f;
 
-.field private final gU:Ljava/lang/Class;
+.field private final gV:Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/Class<",
@@ -36,7 +36,7 @@
     .end annotation
 .end field
 
-.field private final gV:Lcom/bumptech/glide/load/i;
+.field private final gW:Lcom/bumptech/glide/load/i;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/i<",
@@ -60,7 +60,7 @@
 
     invoke-direct {v0, v1, v2}, Lcom/bumptech/glide/util/f;-><init>(J)V
 
-    sput-object v0, Lcom/bumptech/glide/load/engine/r;->gT:Lcom/bumptech/glide/util/f;
+    sput-object v0, Lcom/bumptech/glide/load/engine/r;->gU:Lcom/bumptech/glide/util/f;
 
     return-void
 .end method
@@ -85,21 +85,21 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/engine/r;->ap:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/r;->aq:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
 
-    iput-object p2, p0, Lcom/bumptech/glide/load/engine/r;->eI:Lcom/bumptech/glide/load/c;
+    iput-object p2, p0, Lcom/bumptech/glide/load/engine/r;->eJ:Lcom/bumptech/glide/load/c;
 
-    iput-object p3, p0, Lcom/bumptech/glide/load/engine/r;->eN:Lcom/bumptech/glide/load/c;
+    iput-object p3, p0, Lcom/bumptech/glide/load/engine/r;->eO:Lcom/bumptech/glide/load/c;
 
     iput p4, p0, Lcom/bumptech/glide/load/engine/r;->width:I
 
     iput p5, p0, Lcom/bumptech/glide/load/engine/r;->height:I
 
-    iput-object p6, p0, Lcom/bumptech/glide/load/engine/r;->gV:Lcom/bumptech/glide/load/i;
+    iput-object p6, p0, Lcom/bumptech/glide/load/engine/r;->gW:Lcom/bumptech/glide/load/i;
 
-    iput-object p7, p0, Lcom/bumptech/glide/load/engine/r;->gU:Ljava/lang/Class;
+    iput-object p7, p0, Lcom/bumptech/glide/load/engine/r;->gV:Ljava/lang/Class;
 
-    iput-object p8, p0, Lcom/bumptech/glide/load/engine/r;->eP:Lcom/bumptech/glide/load/f;
+    iput-object p8, p0, Lcom/bumptech/glide/load/engine/r;->eQ:Lcom/bumptech/glide/load/f;
 
     return-void
 .end method
@@ -107,9 +107,9 @@
 .method private bj()[B
     .locals 3
 
-    sget-object v0, Lcom/bumptech/glide/load/engine/r;->gT:Lcom/bumptech/glide/util/f;
+    sget-object v0, Lcom/bumptech/glide/load/engine/r;->gU:Lcom/bumptech/glide/util/f;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/r;->gU:Ljava/lang/Class;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/r;->gV:Ljava/lang/Class;
 
     invoke-virtual {v0, v1}, Lcom/bumptech/glide/util/f;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -119,21 +119,21 @@
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/r;->gU:Ljava/lang/Class;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/r;->gV:Ljava/lang/Class;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
     move-result-object v0
 
-    sget-object v1, Lcom/bumptech/glide/load/engine/r;->dG:Ljava/nio/charset/Charset;
+    sget-object v1, Lcom/bumptech/glide/load/engine/r;->dH:Ljava/nio/charset/Charset;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
 
     move-result-object v0
 
-    sget-object v1, Lcom/bumptech/glide/load/engine/r;->gT:Lcom/bumptech/glide/util/f;
+    sget-object v1, Lcom/bumptech/glide/load/engine/r;->gU:Lcom/bumptech/glide/util/f;
 
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/r;->gU:Ljava/lang/Class;
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/r;->gV:Ljava/lang/Class;
 
     invoke-virtual {v1, v2, v0}, Lcom/bumptech/glide/util/f;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -166,9 +166,9 @@
 
     if-ne v0, v2, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/r;->gV:Lcom/bumptech/glide/load/i;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/r;->gW:Lcom/bumptech/glide/load/i;
 
-    iget-object v2, p1, Lcom/bumptech/glide/load/engine/r;->gV:Lcom/bumptech/glide/load/i;
+    iget-object v2, p1, Lcom/bumptech/glide/load/engine/r;->gW:Lcom/bumptech/glide/load/i;
 
     invoke-static {v0, v2}, Lcom/bumptech/glide/util/k;->c(Ljava/lang/Object;Ljava/lang/Object;)Z
 
@@ -176,9 +176,9 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/r;->gU:Ljava/lang/Class;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/r;->gV:Ljava/lang/Class;
 
-    iget-object v2, p1, Lcom/bumptech/glide/load/engine/r;->gU:Ljava/lang/Class;
+    iget-object v2, p1, Lcom/bumptech/glide/load/engine/r;->gV:Ljava/lang/Class;
 
     invoke-virtual {v0, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
@@ -186,19 +186,9 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/r;->eI:Lcom/bumptech/glide/load/c;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/r;->eJ:Lcom/bumptech/glide/load/c;
 
-    iget-object v2, p1, Lcom/bumptech/glide/load/engine/r;->eI:Lcom/bumptech/glide/load/c;
-
-    invoke-interface {v0, v2}, Lcom/bumptech/glide/load/c;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/r;->eN:Lcom/bumptech/glide/load/c;
-
-    iget-object v2, p1, Lcom/bumptech/glide/load/engine/r;->eN:Lcom/bumptech/glide/load/c;
+    iget-object v2, p1, Lcom/bumptech/glide/load/engine/r;->eJ:Lcom/bumptech/glide/load/c;
 
     invoke-interface {v0, v2}, Lcom/bumptech/glide/load/c;->equals(Ljava/lang/Object;)Z
 
@@ -206,9 +196,19 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/r;->eP:Lcom/bumptech/glide/load/f;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/r;->eO:Lcom/bumptech/glide/load/c;
 
-    iget-object p1, p1, Lcom/bumptech/glide/load/engine/r;->eP:Lcom/bumptech/glide/load/f;
+    iget-object v2, p1, Lcom/bumptech/glide/load/engine/r;->eO:Lcom/bumptech/glide/load/c;
+
+    invoke-interface {v0, v2}, Lcom/bumptech/glide/load/c;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/r;->eQ:Lcom/bumptech/glide/load/f;
+
+    iget-object p1, p1, Lcom/bumptech/glide/load/engine/r;->eQ:Lcom/bumptech/glide/load/f;
 
     invoke-virtual {v0, p1}, Lcom/bumptech/glide/load/f;->equals(Ljava/lang/Object;)Z
 
@@ -230,7 +230,7 @@
 .method public hashCode()I
     .locals 3
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/r;->eI:Lcom/bumptech/glide/load/c;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/r;->eJ:Lcom/bumptech/glide/load/c;
 
     invoke-interface {v0}, Lcom/bumptech/glide/load/c;->hashCode()I
 
@@ -240,7 +240,7 @@
 
     mul-int/2addr v0, v1
 
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/r;->eN:Lcom/bumptech/glide/load/c;
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/r;->eO:Lcom/bumptech/glide/load/c;
 
     invoke-interface {v2}, Lcom/bumptech/glide/load/c;->hashCode()I
 
@@ -260,13 +260,13 @@
 
     add-int/2addr v0, v2
 
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/r;->gV:Lcom/bumptech/glide/load/i;
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/r;->gW:Lcom/bumptech/glide/load/i;
 
     if-eqz v2, :cond_0
 
     mul-int/2addr v0, v1
 
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/r;->gV:Lcom/bumptech/glide/load/i;
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/r;->gW:Lcom/bumptech/glide/load/i;
 
     invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
 
@@ -277,7 +277,7 @@
     :cond_0
     mul-int/2addr v0, v1
 
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/r;->gU:Ljava/lang/Class;
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/r;->gV:Ljava/lang/Class;
 
     invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
 
@@ -287,7 +287,7 @@
 
     mul-int/2addr v1, v0
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/r;->eP:Lcom/bumptech/glide/load/f;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/r;->eQ:Lcom/bumptech/glide/load/f;
 
     invoke-virtual {v0}, Lcom/bumptech/glide/load/f;->hashCode()I
 
@@ -309,7 +309,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/r;->eI:Lcom/bumptech/glide/load/c;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/r;->eJ:Lcom/bumptech/glide/load/c;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -317,7 +317,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/r;->eN:Lcom/bumptech/glide/load/c;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/r;->eO:Lcom/bumptech/glide/load/c;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -341,7 +341,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/r;->gU:Ljava/lang/Class;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/r;->gV:Ljava/lang/Class;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -349,7 +349,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/r;->gV:Lcom/bumptech/glide/load/i;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/r;->gW:Lcom/bumptech/glide/load/i;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -361,7 +361,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/r;->eP:Lcom/bumptech/glide/load/f;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/r;->eQ:Lcom/bumptech/glide/load/f;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -383,7 +383,7 @@
         .end annotation
     .end param
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/r;->ap:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/r;->aq:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
 
     const-class v1, [B
 
@@ -413,26 +413,26 @@
 
     invoke-virtual {v1}, Ljava/nio/ByteBuffer;->array()[B
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/r;->eN:Lcom/bumptech/glide/load/c;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/r;->eO:Lcom/bumptech/glide/load/c;
 
     invoke-interface {v1, p1}, Lcom/bumptech/glide/load/c;->updateDiskCacheKey(Ljava/security/MessageDigest;)V
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/r;->eI:Lcom/bumptech/glide/load/c;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/r;->eJ:Lcom/bumptech/glide/load/c;
 
     invoke-interface {v1, p1}, Lcom/bumptech/glide/load/c;->updateDiskCacheKey(Ljava/security/MessageDigest;)V
 
     invoke-virtual {p1, v0}, Ljava/security/MessageDigest;->update([B)V
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/r;->gV:Lcom/bumptech/glide/load/i;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/r;->gW:Lcom/bumptech/glide/load/i;
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/r;->gV:Lcom/bumptech/glide/load/i;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/r;->gW:Lcom/bumptech/glide/load/i;
 
     invoke-interface {v1, p1}, Lcom/bumptech/glide/load/i;->updateDiskCacheKey(Ljava/security/MessageDigest;)V
 
     :cond_0
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/r;->eP:Lcom/bumptech/glide/load/f;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/r;->eQ:Lcom/bumptech/glide/load/f;
 
     invoke-virtual {v1, p1}, Lcom/bumptech/glide/load/f;->updateDiskCacheKey(Ljava/security/MessageDigest;)V
 
@@ -442,7 +442,7 @@
 
     invoke-virtual {p1, v1}, Ljava/security/MessageDigest;->update([B)V
 
-    iget-object p1, p0, Lcom/bumptech/glide/load/engine/r;->ap:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
+    iget-object p1, p0, Lcom/bumptech/glide/load/engine/r;->aq:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
 
     invoke-interface {p1, v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/b;->put(Ljava/lang/Object;)V
 

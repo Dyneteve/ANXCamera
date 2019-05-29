@@ -14,6 +14,8 @@
 
 
 # static fields
+.field private static final MAX_PARALLEL_REQUEST_NUMBER:I = 0xa
+
 .field private static final TAG:Ljava/lang/String;
 
 
@@ -23,8 +25,6 @@
 .field private mCaptureStatusListener:Lcom/xiaomi/camera/core/PostProcessor$CaptureStatusListener;
 
 .field private mCurrentAlgoType:I
-
-.field private mDataListener:Lcom/xiaomi/camera/core/ParallelDataZipper$DataListener;
 
 .field private mFilterProcessor:Lcom/xiaomi/camera/core/FilterProcessor;
 
@@ -80,6 +80,8 @@
 .field private mWorkerHandler:Landroid/os/Handler;
 
 .field private mWorkerThread:Landroid/os/HandlerThread;
+
+.field private mZipperResultListener:Lcom/xiaomi/camera/core/ParallelDataZipper$DataListener;
 
 
 # direct methods
@@ -150,7 +152,7 @@
 
     invoke-direct {p1, p0}, Lcom/xiaomi/camera/core/PostProcessor$2;-><init>(Lcom/xiaomi/camera/core/PostProcessor;)V
 
-    iput-object p1, p0, Lcom/xiaomi/camera/core/PostProcessor;->mDataListener:Lcom/xiaomi/camera/core/ParallelDataZipper$DataListener;
+    iput-object p1, p0, Lcom/xiaomi/camera/core/PostProcessor;->mZipperResultListener:Lcom/xiaomi/camera/core/ParallelDataZipper$DataListener;
 
     new-instance p1, Lcom/xiaomi/camera/core/PostProcessor$3;
 
@@ -233,15 +235,7 @@
     return-void
 .end method
 
-.method static synthetic access$200(Lcom/xiaomi/camera/core/PostProcessor;)Lcom/xiaomi/camera/core/ImageProcessor;
-    .locals 0
-
-    iget-object p0, p0, Lcom/xiaomi/camera/core/PostProcessor;->mImageProcessor:Lcom/xiaomi/camera/core/ImageProcessor;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/xiaomi/camera/core/PostProcessor;)I
+.method static synthetic access$200(Lcom/xiaomi/camera/core/PostProcessor;)I
     .locals 0
 
     iget p0, p0, Lcom/xiaomi/camera/core/PostProcessor;->mCurrentAlgoType:I
@@ -249,7 +243,7 @@
     return p0
 .end method
 
-.method static synthetic access$302(Lcom/xiaomi/camera/core/PostProcessor;I)I
+.method static synthetic access$202(Lcom/xiaomi/camera/core/PostProcessor;I)I
     .locals 0
 
     iput p1, p0, Lcom/xiaomi/camera/core/PostProcessor;->mCurrentAlgoType:I
@@ -257,7 +251,23 @@
     return p1
 .end method
 
-.method static synthetic access$400(Lcom/xiaomi/camera/core/PostProcessor;)Lcom/xiaomi/camera/core/ImageMemoryManager;
+.method static synthetic access$300(Lcom/xiaomi/camera/core/PostProcessor;)Lcom/xiaomi/camera/core/ImageProcessor;
+    .locals 0
+
+    iget-object p0, p0, Lcom/xiaomi/camera/core/PostProcessor;->mImageProcessor:Lcom/xiaomi/camera/core/ImageProcessor;
+
+    return-object p0
+.end method
+
+.method static synthetic access$400(Lcom/xiaomi/camera/core/PostProcessor;)Lcom/xiaomi/camera/core/ParallelDataZipper$DataListener;
+    .locals 0
+
+    iget-object p0, p0, Lcom/xiaomi/camera/core/PostProcessor;->mZipperResultListener:Lcom/xiaomi/camera/core/ParallelDataZipper$DataListener;
+
+    return-object p0
+.end method
+
+.method static synthetic access$500(Lcom/xiaomi/camera/core/PostProcessor;)Lcom/xiaomi/camera/core/ImageMemoryManager;
     .locals 0
 
     iget-object p0, p0, Lcom/xiaomi/camera/core/PostProcessor;->mImageMemoryManager:Lcom/xiaomi/camera/core/ImageMemoryManager;
@@ -265,7 +275,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$500(Lcom/xiaomi/camera/core/PostProcessor;)Lcom/xiaomi/camera/core/ImageProcessor$ImageProcessorStatusCallback;
+.method static synthetic access$600(Lcom/xiaomi/camera/core/PostProcessor;)Lcom/xiaomi/camera/core/ImageProcessor$ImageProcessorStatusCallback;
     .locals 0
 
     iget-object p0, p0, Lcom/xiaomi/camera/core/PostProcessor;->mImageProcessorStatusCb:Lcom/xiaomi/camera/core/ImageProcessor$ImageProcessorStatusCallback;
@@ -273,20 +283,12 @@
     return-object p0
 .end method
 
-.method static synthetic access$600(Lcom/xiaomi/camera/core/PostProcessor;)Lcom/xiaomi/camera/core/CaptureDataListener;
+.method static synthetic access$700(Lcom/xiaomi/camera/core/PostProcessor;)Lcom/xiaomi/camera/core/CaptureDataListener;
     .locals 0
 
     iget-object p0, p0, Lcom/xiaomi/camera/core/PostProcessor;->mCaptureDataListener:Lcom/xiaomi/camera/core/CaptureDataListener;
 
     return-object p0
-.end method
-
-.method static synthetic access$700(Lcom/xiaomi/camera/core/PostProcessor;Landroid/media/Image;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/xiaomi/camera/core/PostProcessor;->releaseImage(Landroid/media/Image;)V
-
-    return-void
 .end method
 
 .method static synthetic access$800(Lcom/xiaomi/camera/core/PostProcessor;)Lcom/xiaomi/camera/imagecodec/ReprocessData$OnDataAvailableListener;
@@ -303,23 +305,6 @@
     iget-object p0, p0, Lcom/xiaomi/camera/core/PostProcessor;->mFilterProcessor:Lcom/xiaomi/camera/core/FilterProcessor;
 
     return-object p0
-.end method
-
-.method private releaseImage(Landroid/media/Image;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/xiaomi/camera/core/PostProcessor;->mImageMemoryManager:Lcom/xiaomi/camera/core/ImageMemoryManager;
-
-    if-eqz v0, :cond_0
-
-    if-eqz p1, :cond_0
-
-    iget-object v0, p0, Lcom/xiaomi/camera/core/PostProcessor;->mImageMemoryManager:Lcom/xiaomi/camera/core/ImageMemoryManager;
-
-    invoke-virtual {v0, p1}, Lcom/xiaomi/camera/core/ImageMemoryManager;->releaseAnImage(Landroid/media/Image;)V
-
-    :cond_0
-    return-void
 .end method
 
 .method private tryToCloseSession()V
@@ -814,15 +799,7 @@
 .end method
 
 .method public init()V
-    .locals 2
-
-    invoke-static {}, Lcom/xiaomi/camera/core/ParallelDataZipper;->getInstance()Lcom/xiaomi/camera/core/ParallelDataZipper;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/xiaomi/camera/core/PostProcessor;->mDataListener:Lcom/xiaomi/camera/core/ParallelDataZipper$DataListener;
-
-    invoke-virtual {v0, v1}, Lcom/xiaomi/camera/core/ParallelDataZipper;->setDataListener(Lcom/xiaomi/camera/core/ParallelDataZipper$DataListener;)V
+    .locals 0
 
     return-void
 .end method
@@ -835,6 +812,52 @@
     invoke-virtual {v0}, Ljava/util/concurrent/ConcurrentHashMap;->isEmpty()Z
 
     move-result v0
+
+    return v0
+.end method
+
+.method public needWaitAlgorithmEngine()Z
+    .locals 4
+
+    iget-object v0, p0, Lcom/xiaomi/camera/core/PostProcessor;->mImageProcessor:Lcom/xiaomi/camera/core/ImageProcessor;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/xiaomi/camera/core/PostProcessor;->mImageProcessor:Lcom/xiaomi/camera/core/ImageProcessor;
+
+    invoke-virtual {v0}, Lcom/xiaomi/camera/core/ImageProcessor;->getProcessingRequestNumber()I
+
+    move-result v0
+
+    const/16 v1, 0xa
+
+    if-lt v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    sget-object v1, Lcom/xiaomi/camera/core/PostProcessor;->TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "needWaitAlgorithmEngine: return "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Lcom/android/camera/log/Log;->c(Ljava/lang/String;Ljava/lang/String;)I
 
     return v0
 .end method

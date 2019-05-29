@@ -466,7 +466,7 @@
 
     :cond_5
     :goto_2
-    sget-boolean p2, Lcom/mi/config/b;->qw:Z
+    sget-boolean p2, Lcom/mi/config/b;->qx:Z
 
     if-nez p2, :cond_7
 
@@ -479,7 +479,7 @@
     :cond_6
     const-string p2, "Model"
 
-    sget-object p3, Lcom/mi/config/b;->qv:Ljava/lang/String;
+    sget-object p3, Lcom/mi/config/b;->qw:Ljava/lang/String;
 
     invoke-virtual {p1, p2, p3}, Landroid/media/ExifInterface;->setAttribute(Ljava/lang/String;Ljava/lang/String;)V
 

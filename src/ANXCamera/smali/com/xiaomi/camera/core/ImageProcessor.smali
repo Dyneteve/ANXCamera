@@ -168,25 +168,26 @@
     .end annotation
 .end method
 
-.method public dispatchTask(Lcom/xiaomi/camera/core/CaptureData$CaptureDataBean;)V
+.method public dispatchTask(Ljava/util/List;)V
     .locals 2
+    .param p1    # Ljava/util/List;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Lcom/xiaomi/camera/core/CaptureData$CaptureDataBean;",
+            ">;)V"
+        }
+    .end annotation
 
-    if-nez p1, :cond_0
-
-    sget-object p1, Lcom/xiaomi/camera/core/ImageProcessor;->TAG:Ljava/lang/String;
-
-    const-string v0, "dispatchTask: data is null"
-
-    invoke-static {p1, v0}, Lcom/android/camera/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_0
     invoke-direct {p0}, Lcom/xiaomi/camera/core/ImageProcessor;->isAlive()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/xiaomi/camera/core/ImageProcessor;->mHandler:Landroid/os/Handler;
 
@@ -208,7 +209,7 @@
 
     return-void
 
-    :cond_1
+    :cond_0
     new-instance p1, Ljava/lang/RuntimeException;
 
     const-string v0, "Thread already die!"
@@ -234,10 +235,30 @@
     return v0
 .end method
 
+.method public getProcessingRequestNumber()I
+    .locals 1
+
+    iget-object v0, p0, Lcom/xiaomi/camera/core/ImageProcessor;->mNeedProcessNormalImageSize:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
+
+    move-result v0
+
+    return v0
+.end method
+
 .method abstract isIdle()Z
 .end method
 
-.method abstract processImage(Lcom/xiaomi/camera/core/CaptureData$CaptureDataBean;)V
+.method abstract processImage(Ljava/util/List;)V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Lcom/xiaomi/camera/core/CaptureData$CaptureDataBean;",
+            ">;)V"
+        }
+    .end annotation
 .end method
 
 .method public releaseResource()V

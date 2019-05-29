@@ -95,7 +95,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f0b0044
+    const p2, 0x7f0b0046
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -207,7 +207,7 @@
 
     iget-object p2, p0, Lcom/android/camera/fragment/live/FragmentLiveSpeed$SpeedItemAdapter;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v0, 0x7f040025
+    const v0, 0x7f040026
 
     const/4 v1, 0x0
 

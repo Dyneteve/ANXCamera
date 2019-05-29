@@ -8,7 +8,7 @@ import java.util.Map;
 
 /* compiled from: DataRewinderRegistry */
 public class f {
-    private static final com.bumptech.glide.load.a.e.a<?> dP = new com.bumptech.glide.load.a.e.a<Object>() {
+    private static final com.bumptech.glide.load.a.e.a<?> dQ = new com.bumptech.glide.load.a.e.a<Object>() {
         @NonNull
         public Class<Object> aj() {
             throw new UnsupportedOperationException("Not implemented");
@@ -19,7 +19,7 @@ public class f {
             return new a(obj);
         }
     };
-    private final Map<Class<?>, com.bumptech.glide.load.a.e.a<?>> dO = new HashMap();
+    private final Map<Class<?>, com.bumptech.glide.load.a.e.a<?>> dP = new HashMap();
 
     /* compiled from: DataRewinderRegistry */
     private static final class a implements e<Object> {
@@ -39,16 +39,16 @@ public class f {
     }
 
     public synchronized void b(@NonNull com.bumptech.glide.load.a.e.a<?> aVar) {
-        this.dO.put(aVar.aj(), aVar);
+        this.dP.put(aVar.aj(), aVar);
     }
 
     @NonNull
     public synchronized <T> e<T> l(@NonNull T t) {
         com.bumptech.glide.load.a.e.a aVar;
         i.checkNotNull(t);
-        aVar = (com.bumptech.glide.load.a.e.a) this.dO.get(t.getClass());
+        aVar = (com.bumptech.glide.load.a.e.a) this.dP.get(t.getClass());
         if (aVar == null) {
-            Iterator it = this.dO.values().iterator();
+            Iterator it = this.dP.values().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -61,7 +61,7 @@ public class f {
             }
         }
         if (aVar == null) {
-            aVar = dP;
+            aVar = dQ;
         }
         return aVar.l(t);
     }

@@ -12,6 +12,8 @@
 # instance fields
 .field private currentModuleIndex:I
 
+.field private isAbandoned:Z
+
 .field private isAdaptiveSnapshotSize:Z
 
 .field private isLiveShotTask:Z
@@ -79,6 +81,10 @@
 
     iput v0, p0, Lcom/xiaomi/camera/core/ParallelTaskData;->currentModuleIndex:I
 
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/xiaomi/camera/core/ParallelTaskData;->isAbandoned:Z
+
     iput-wide p1, p0, Lcom/xiaomi/camera/core/ParallelTaskData;->mTimestamp:J
 
     iput p3, p0, Lcom/xiaomi/camera/core/ParallelTaskData;->mParallelType:I
@@ -100,6 +106,10 @@
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/xiaomi/camera/core/ParallelTaskData;->currentModuleIndex:I
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/xiaomi/camera/core/ParallelTaskData;->isAbandoned:Z
 
     iget v0, p1, Lcom/xiaomi/camera/core/ParallelTaskData;->mParallelType:I
 
@@ -659,6 +669,14 @@
     return-wide v0
 .end method
 
+.method public isAbandoned()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/xiaomi/camera/core/ParallelTaskData;->isAbandoned:Z
+
+    return v0
+.end method
+
 .method public isAdaptiveSnapshotSize()Z
     .locals 1
 
@@ -901,6 +919,14 @@
     iput-object v0, p0, Lcom/xiaomi/camera/core/ParallelTaskData;->mDataOfTheRegionUnderWatermarks:[B
 
     iput-object v0, p0, Lcom/xiaomi/camera/core/ParallelTaskData;->mCoordinatesOfTheRegionUnderWatermarks:[I
+
+    return-void
+.end method
+
+.method public setAbandoned(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/xiaomi/camera/core/ParallelTaskData;->isAbandoned:Z
 
     return-void
 .end method

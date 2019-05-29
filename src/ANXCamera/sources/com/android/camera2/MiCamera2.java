@@ -83,7 +83,7 @@ public class MiCamera2 extends Camera2Proxy {
     private static final int DEF_QUICK_SHOT_THRESHOLD_INTERVAL_TIME = 50;
     private static final int DEF_QUICK_SHOT_THRESHOLD_SHOT_CACHE_COUNT = 10;
     private static final int DEF_QUICK_SHOT_THRESHOLD_SHOT_CACHE_TIME_OUT = 10000;
-    private static final int MAX_IMAGE_BUFFER_SIZE = (b.iF() ? 12 : 10);
+    private static final int MAX_IMAGE_BUFFER_SIZE = (b.iI() ? 12 : 10);
     private static final int MSG_CHECK_CAMERA_ALIVE = 3;
     private static final int MSG_WAITING_AF_LOCK_TIMEOUT = 1;
     private static final int MSG_WAITING_LOCAL_PARALLER_SERVICE_READY = 2;
@@ -106,6 +106,8 @@ public class MiCamera2 extends Camera2Proxy {
     private long mCurrentFrameNum = -1;
     /* access modifiers changed from: private */
     public List<OutputConfiguration> mDeferOutputConfigurations = new ArrayList();
+    /* access modifiers changed from: private */
+    public Surface mDeferPreviewSurface;
     private ImageReader mDepthReader;
     private int mDisplayOrientation;
     private boolean mEnableParallelSession;
@@ -226,7 +228,13 @@ public class MiCamera2 extends Camera2Proxy {
                         MiCamera2.this.resumePreview();
                     }
                 }
-                if (MiCamera2.this.updateDeferPreviewSession(MiCamera2.this.mPreviewSurface)) {
+                boolean updateDeferPreviewSession = MiCamera2.this.updateDeferPreviewSession(MiCamera2.this.mDeferPreviewSurface);
+                String access$0002 = MiCamera2.TAG;
+                StringBuilder sb2 = new StringBuilder();
+                sb2.append("onConfigured: updateDeferPreviewSession result = ");
+                sb2.append(updateDeferPreviewSession);
+                Log.d(access$0002, sb2.toString());
+                if (updateDeferPreviewSession) {
                     onPreviewSessionSuccess();
                 }
             }
@@ -1125,6 +1133,9 @@ public class MiCamera2 extends Camera2Proxy {
                     miCamera2Shot = new MiCamera2ShotStill(this);
                     miCamera2Shot.setQuickShotAnimation(this.mConfigs.isQuickShotAnimation());
                     break;
+                case -1:
+                    miCamera2Shot = new MiCamera2ShotPreview(this, this.mCaptureCallback.getPreviewCaptureResult());
+                    break;
                 case 5:
                 case 6:
                 case 7:
@@ -1338,7 +1349,12 @@ public class MiCamera2 extends Camera2Proxy {
                         MiCamera2.this.runCaptureSequence();
                         return;
                     case 2:
-                        MiCamera2.this.updateDeferPreviewSession(MiCamera2.this.mPreviewSurface);
+                        boolean updateDeferPreviewSession = MiCamera2.this.updateDeferPreviewSession(MiCamera2.this.mPreviewSurface);
+                        String access$000 = MiCamera2.TAG;
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("handleMessage: MSG_WAITING_LOCAL_PARALLER_SERVICE_READY updateDeferPreviewSession result = ");
+                        sb.append(updateDeferPreviewSession);
+                        Log.d(access$000, sb.toString());
                         return;
                     case 3:
                         if (message.arg1 == 1 && ModuleManager.isManualModule() && MiCamera2.this.mConfigs.getExposureTime() / 1000000 >= 5000) {
@@ -1551,7 +1567,7 @@ public class MiCamera2 extends Camera2Proxy {
     }
 
     private void preparePreviewImageReader() {
-        preparePreviewImageReader(this.mConfigs.getPreviewSize(), this.mConfigs.getPreviewFormat(), this.mConfigs.getPreviewMaxImages(), null);
+        preparePreviewImageReader(this.mConfigs.getAlgorithmPreviewSize(), this.mConfigs.getAlgorithmPreviewFormat(), this.mConfigs.getPreviewMaxImages(), null);
     }
 
     private void preparePreviewImageReader(@NonNull CameraSize cameraSize, int i, int i2, Handler handler) {
@@ -1677,6 +1693,7 @@ public class MiCamera2 extends Camera2Proxy {
         }
         this.mCameraDevice = null;
         this.mPreviewSurface = null;
+        this.mDeferPreviewSurface = null;
         this.mRecordSurface = null;
         this.mSessionId = 0;
         this.mPhotoImageReader = null;
@@ -1794,7 +1811,7 @@ public class MiCamera2 extends Camera2Proxy {
 
     /* access modifiers changed from: private */
     public void triggerDeviceChecking(boolean z) {
-        if (b.rM && DataRepository.dataItemFeature().gi() && this.mHelperHandler != null) {
+        if (b.rN && DataRepository.dataItemFeature().gi() && this.mHelperHandler != null) {
             Log.d(TAG, "triggerDeviceChecking");
             this.mHelperHandler.sendMessage(this.mHelperHandler.obtainMessage(3, z ? 1 : 0, 0));
         }
@@ -1804,7 +1821,7 @@ public class MiCamera2 extends Camera2Proxy {
     public void triggerPrecapture() {
         if (!this.mCapabilities.isAutoFocusSupported() || this.mConfigs.getFocusMode() == 0) {
             runPreCaptureSequence();
-        } else if (DataRepository.dataItemFeature().gG()) {
+        } else if (DataRepository.dataItemFeature().gH()) {
             this.mCaptureCallback.setState(5);
         } else {
             lockFocus();
@@ -1967,7 +1984,11 @@ public class MiCamera2 extends Camera2Proxy {
     }
 
     public void captureAbortBurst() {
-        Log.d(TAG, "captureAbortBurst");
+        String str = TAG;
+        StringBuilder sb = new StringBuilder();
+        sb.append("captureAbortBurst: shot queue size");
+        sb.append(this.mMiCamera2ShotQueue.size());
+        Log.d(str, sb.toString());
         synchronized (this.mSessionLock) {
             if (this.mCaptureSession == null) {
                 Log.w(TAG, "captureAbortBurst: null session");
@@ -1990,6 +2011,8 @@ public class MiCamera2 extends Camera2Proxy {
         setParallelCallback(parallelCallback);
         if (this.mConfigs.getShotType() == 9) {
             this.mMiCamera2Shot = new MiCamera2ShotParallelRepeating(this, i);
+            this.mMiCamera2ShotQueue.offer(this.mMiCamera2Shot);
+            this.mCaptureTime = System.currentTimeMillis();
             this.mMiCamera2Shot.startShot();
             return;
         }
@@ -2052,11 +2075,30 @@ public class MiCamera2 extends Camera2Proxy {
         Log.d(str2, sb2.toString());
     }
 
+    public void forceTurnFlashONAndPausePreview() {
+        int flashMode = this.mConfigs.getFlashMode();
+        this.mConfigs.setFlashMode(2);
+        applyFlashMode(this.mPreviewRequestBuilder, 1);
+        resumePreview();
+        this.mCaptureCallback.setState(10);
+        this.mConfigs.setFlashMode(flashMode);
+    }
+
     public void forceTurnFlashOffAndPausePreview() {
+        int flashMode = this.mConfigs.getFlashMode();
         this.mConfigs.setFlashMode(0);
         applyFlashMode(this.mPreviewRequestBuilder, 1);
         resumePreview();
         this.mCaptureCallback.setState(11);
+        this.mConfigs.setFlashMode(flashMode);
+    }
+
+    public int getAlgorithmPreviewFormat() {
+        return this.mConfigs.getAlgorithmPreviewFormat();
+    }
+
+    public CameraSize getAlgorithmPreviewSize() {
+        return this.mConfigs.getAlgorithmPreviewSize();
     }
 
     /* access modifiers changed from: protected */
@@ -2123,10 +2165,6 @@ public class MiCamera2 extends Camera2Proxy {
     /* access modifiers changed from: protected */
     public ImageReader getPortraitRawImageReader() {
         return this.mPortraitRawImageReader;
-    }
-
-    public int getPreviewFormat() {
-        return this.mConfigs.getPreviewFormat();
     }
 
     public int getPreviewMaxImages() {
@@ -2322,7 +2360,7 @@ public class MiCamera2 extends Camera2Proxy {
         } catch (CameraAccessException e) {
             Log.e(TAG, e.getMessage(), e);
             notifyOnError(e.getReason());
-        } catch (IllegalArgumentException e2) {
+        } catch (IllegalArgumentException | IllegalStateException e2) {
             Log.e(TAG, "notifyVideoStreamEnd: ", e2);
         }
     }
@@ -2361,15 +2399,22 @@ public class MiCamera2 extends Camera2Proxy {
         }
     }
 
+    public void onMultiSnapEnd(boolean z, MiCamera2Shot miCamera2Shot) {
+        Log.d(TAG, "onMultiSnapEnd:");
+        if (this.mMiCamera2ShotQueue.remove(miCamera2Shot)) {
+            notifyCaptureBusyCallback(z);
+        }
+    }
+
     public void onParallelImagePostProcStart() {
         synchronized (this.mShotQueueLock) {
+            String str = TAG;
+            StringBuilder sb = new StringBuilder();
+            sb.append("onParallelImagePostProcStart: mMiCamera2ShotQueue.poll, size:");
+            sb.append(this.mMiCamera2ShotQueue.size());
+            Log.d(str, sb.toString());
             if (!this.mMiCamera2ShotQueue.isEmpty()) {
                 this.mMiCamera2ShotQueue.poll();
-                String str = TAG;
-                StringBuilder sb = new StringBuilder();
-                sb.append("onParallelImagePostProcStart: mMiCamera2ShotQueue.poll, size:");
-                sb.append(this.mMiCamera2ShotQueue.size());
-                Log.d(str, sb.toString());
                 notifyCaptureBusyCallback(true);
             }
         }
@@ -2465,16 +2510,21 @@ public class MiCamera2 extends Camera2Proxy {
                 this.mCaptureSession.stopRepeating();
                 abortCaptures();
                 this.mCaptureSession.close();
-                this.mCaptureSession = null;
                 Log.v(TAG, "X: releasePreview");
             } catch (CameraAccessException e) {
                 e.printStackTrace();
                 Log.e(TAG, "Failed to release preview");
                 notifyOnError(e.getReason());
             } catch (IllegalStateException e2) {
-                Log.e(TAG, "Failed to release preview, IllegalState", e2);
-                notifyOnError(256);
+                try {
+                    Log.e(TAG, "Failed to release preview, IllegalState", e2);
+                    notifyOnError(256);
+                } catch (Throwable th) {
+                    this.mCaptureSession = null;
+                    throw th;
+                }
             }
+            this.mCaptureSession = null;
         }
     }
 
@@ -2523,7 +2573,7 @@ public class MiCamera2 extends Camera2Proxy {
                     } catch (CameraAccessException e) {
                         Log.e(TAG, "Failed to resume preview", e);
                         notifyOnError(e.getReason());
-                    } catch (IllegalStateException e2) {
+                    } catch (IllegalArgumentException | IllegalStateException e2) {
                         Log.e(TAG, "Failed to resume preview, IllegalState", e2);
                         notifyOnError(256);
                     }
@@ -2594,6 +2644,24 @@ public class MiCamera2 extends Camera2Proxy {
         Log.v(str, sb.toString());
         if (this.mConfigs.setAWBMode(i)) {
             CaptureRequestBuilder.applyAWBMode(this.mPreviewRequestBuilder, this.mConfigs.getAWBMode());
+        }
+    }
+
+    public void setAlgorithmPreviewFormat(int i) {
+        if (i != this.mConfigs.getAlgorithmPreviewFormat()) {
+            this.mConfigs.setAlgorithmPreviewFormat(i);
+            if (this.mIsPreviewCallbackEnabled) {
+                preparePreviewImageReader();
+            }
+        }
+    }
+
+    public void setAlgorithmPreviewSize(CameraSize cameraSize) {
+        if (!Objects.equals(this.mConfigs.getAlgorithmPreviewSize(), cameraSize)) {
+            this.mConfigs.setAlgorithmPreviewSize(cameraSize);
+            if (this.mIsPreviewCallbackEnabled) {
+                preparePreviewImageReader();
+            }
         }
     }
 
@@ -2674,6 +2742,7 @@ public class MiCamera2 extends Camera2Proxy {
         }
         synchronized (this.mShotQueueLock) {
             if (this.mMiCamera2ShotQueue.isEmpty()) {
+                Log.d(TAG, "setCaptureBusyCallback: shot queue empty");
                 captureBusyCallback.onCaptureCompleted(true);
             } else {
                 this.mCaptureBusyCallback = captureBusyCallback;
@@ -3058,15 +3127,6 @@ public class MiCamera2 extends Camera2Proxy {
         }
     }
 
-    public void setPreviewFormat(int i) {
-        if (i != this.mConfigs.getPreviewFormat()) {
-            this.mConfigs.setPreviewFormat(i);
-            if (this.mIsPreviewCallbackEnabled) {
-                preparePreviewImageReader();
-            }
-        }
-    }
-
     public void setPreviewMaxImages(int i) {
         if (i > this.mConfigs.getPreviewMaxImages()) {
             this.mConfigs.setPreviewMaxImages(i);
@@ -3079,9 +3139,6 @@ public class MiCamera2 extends Camera2Proxy {
     public void setPreviewSize(CameraSize cameraSize) {
         if (!Objects.equals(this.mConfigs.getPreviewSize(), cameraSize)) {
             this.mConfigs.setPreviewSize(cameraSize);
-            if (this.mIsPreviewCallbackEnabled) {
-                preparePreviewImageReader();
-            }
         }
     }
 
@@ -3395,7 +3452,7 @@ public class MiCamera2 extends Camera2Proxy {
                 this.mPreviewRequestBuilder = this.mCameraDevice.createCaptureRequest(1);
                 this.mCaptureSession = null;
                 if (z4) {
-                    preparePreviewImageReader(this.mConfigs.getPreviewSize(), this.mConfigs.getPreviewFormat(), this.mConfigs.getPreviewMaxImages(), handler2);
+                    preparePreviewImageReader(this.mConfigs.getAlgorithmPreviewSize(), this.mConfigs.getAlgorithmPreviewFormat(), this.mConfigs.getPreviewMaxImages(), handler2);
                     arrayList.add(this.mPreviewImageReader.getSurface());
                 }
                 if (z2) {
@@ -3626,7 +3683,7 @@ public class MiCamera2 extends Camera2Proxy {
         }
     }
 
-    /* JADX WARNING: Code restructure failed: missing block: B:47:0x00df, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:47:0x00e1, code lost:
         return false;
      */
     /* Code decompiled incorrectly, please refer to instructions dump. */
@@ -3634,6 +3691,7 @@ public class MiCamera2 extends Camera2Proxy {
         synchronized (this.mSessionLock) {
             if (this.mPreviewSurface == null) {
                 this.mPreviewSurface = surface;
+                this.mDeferPreviewSurface = surface;
             }
             if (this.mDeferOutputConfigurations.isEmpty()) {
                 return true;

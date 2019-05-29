@@ -149,7 +149,7 @@ public class CameraStat {
     public static final String PARAM_CAMERA_ID = "前后摄";
     public static final String PARAM_CAMERA_MODE = "模式";
     public static final String PARAM_COMMON_MODE = "方式";
-    public static final String PARAM_DUAL_WATERMARK = "双摄水印";
+    public static final String PARAM_DEVICE_WATERMARK = "机型水印";
     public static final String PARAM_ET = "快门";
     public static final String PARAM_FILTER = "滤镜";
     public static final String PARAM_FLASH_MODE = "闪光灯";

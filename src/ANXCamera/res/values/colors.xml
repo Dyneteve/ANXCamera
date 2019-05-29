@@ -66,7 +66,9 @@
     <color name="black_200">#33000000</color>
     <color name="transparent">#00000000</color>
     <color name="white">#ffffffff</color>
+    <color name="white_alpha_66">#66ffffff</color>
     <color name="white_alpha_cc">#ccffffff</color>
+    <color name="white_alpha_4d">#4dffffff</color>
     <color name="common_color_fa617e">#fffa617e</color>
     <color name="common_color_00a8ff">#ff00a8ff</color>
     <color name="popup_title_color">#b3ffffff</color>
@@ -127,6 +129,8 @@
     <color name="color_990077cc">#990077cc</color>
     <color name="color_999999">#ff999999</color>
     <color name="color_333333">#ff333333</color>
+    <color name="mimoji_edit_bg">#ff151516</color>
+    <color name="mimoji_edit_adjust_bg">#ff1c1e20</color>
     <color name="front_camera_hint_popup_background_color">#d9000000</color>
     <color name="front_camera_hint_text_rotate_color">#ffffffff</color>
     <color name="front_camera_hint_text_place_color">#99ffffff</color>

@@ -5,13 +5,14 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPropertyAnimatorListener;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.Animation;
-import android.view.animation.Animation.AnimationListener;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.SeekBar;
 import com.android.camera.CameraSettings;
 import com.android.camera.R;
@@ -19,6 +20,8 @@ import com.android.camera.Util;
 import com.android.camera.animation.FragmentAnimationFactory;
 import com.android.camera.animation.type.AlphaInOnSubscribe;
 import com.android.camera.animation.type.AlphaOutOnSubscribe;
+import com.android.camera.animation.type.SlideInOnSubscribe;
+import com.android.camera.animation.type.SlideOutOnSubscribe;
 import com.android.camera.constant.BeautyConstant;
 import com.android.camera.constant.GlobalConstant;
 import com.android.camera.data.DataRepository;
@@ -29,7 +32,6 @@ import com.android.camera.data.data.runing.ComponentRunningShine.ShineType;
 import com.android.camera.fragment.beauty.BeautyBodyFragment;
 import com.android.camera.fragment.beauty.BeautyEyeLightFragment;
 import com.android.camera.fragment.beauty.BeautyLevelFragment;
-import com.android.camera.fragment.beauty.BeautyParameters;
 import com.android.camera.fragment.beauty.BeautySettingManager;
 import com.android.camera.fragment.beauty.BeautySmoothLevelFragment;
 import com.android.camera.fragment.beauty.IBeautySettingBusiness;
@@ -41,9 +43,7 @@ import com.android.camera.fragment.beauty.RemodelingParamsFragment;
 import com.android.camera.fragment.live.FragmentLiveSpeed;
 import com.android.camera.fragment.live.FragmentLiveSticker;
 import com.android.camera.log.Log;
-import com.android.camera.module.ModuleManager;
 import com.android.camera.protocol.ModeCoordinatorImpl;
-import com.android.camera.protocol.ModeProtocol.BaseDelegate;
 import com.android.camera.protocol.ModeProtocol.BokehFNumberController;
 import com.android.camera.protocol.ModeProtocol.BottomMenuProtocol;
 import com.android.camera.protocol.ModeProtocol.BottomPopupTips;
@@ -67,6 +67,7 @@ import io.reactivex.FlowableEmitter;
 import io.reactivex.FlowableOnSubscribe;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -85,26 +86,23 @@ public class FragmentBeauty extends BaseFragment implements OnClickListener, Han
     private View mBeautyContent;
     private View mBeautyExtraView;
     private BeautyPagerAdapter mBeautyPagerAdapter;
-    private boolean mBeautyPanelShow;
     private BeautySettingManager mBeautySettingManager;
     private ComponentRunningShine mComponentRunningShine;
     private IBeautySettingBusiness mCurrentSettingBusiness;
+    private int mCurrentState = -1;
     /* access modifiers changed from: private */
     public BeautyEyeLightFragment mEyeLightFragment;
     /* access modifiers changed from: private */
     public FlowableEmitter<Integer> mFlowableEmitter;
-    List<Fragment> mFragments;
     private boolean mIsEyeLightShow;
     /* access modifiers changed from: private */
     public boolean mIsRTL;
-    /* access modifiers changed from: private */
-    public boolean mRemoveFragmentBeauty;
     private Disposable mSeekBarDisposable;
     /* access modifiers changed from: private */
     public int mSeekBarMaxProgress = 100;
     private NoScrollViewPager mViewPager;
 
-    private class BeautyPagerAdapter extends FragmentPagerAdapter {
+    private static class BeautyPagerAdapter extends FragmentPagerAdapter {
         private List<Fragment> mFragmentList;
 
         public BeautyPagerAdapter(FragmentManager fragmentManager, List<Fragment> list) {
@@ -119,64 +117,27 @@ public class FragmentBeauty extends BaseFragment implements OnClickListener, Han
             return this.mFragmentList.size();
         }
 
+        public List<Fragment> getFragmentList() {
+            return this.mFragmentList;
+        }
+
         public Fragment getItem(int i) {
-            String str = BeautyParameters.TAG;
-            StringBuilder sb = new StringBuilder();
-            sb.append("fragment item positon:");
-            sb.append(i);
-            Log.d(str, sb.toString());
             return (Fragment) this.mFragmentList.get(i);
         }
-    }
 
-    private class ExitAnimationListener implements AnimationListener {
-        private ExitAnimationListener() {
+        public long getItemId(int i) {
+            Fragment item = getItem(i);
+            return item != null ? (long) (i | item.hashCode()) : super.getItemId(i);
         }
 
-        public void onAnimationEnd(Animation animation) {
-            BaseDelegate baseDelegate = (BaseDelegate) ModeCoordinatorImpl.getInstance().getAttachProtocol(160);
-            if (baseDelegate != null && baseDelegate.getActiveFragment(R.id.bottom_beauty) == 4090) {
-                baseDelegate.delegateEvent(10);
-            }
-            if (FragmentBeauty.this.mRemoveFragmentBeauty) {
-                CameraAction cameraAction = (CameraAction) ModeCoordinatorImpl.getInstance().getAttachProtocol(161);
-                if (!BeautyParameters.isCurrentModeSupportBeauty() || (cameraAction != null && !cameraAction.isDoingAction() && !cameraAction.isRecording())) {
-                    BottomPopupTips bottomPopupTips = (BottomPopupTips) ModeCoordinatorImpl.getInstance().getAttachProtocol(175);
-                    if (bottomPopupTips != null) {
-                        bottomPopupTips.reInitTipImage();
-                    }
-                    if (CameraSettings.shouldShowUltraWideStickyTip(FragmentBeauty.this.mCurrentMode) && bottomPopupTips != null) {
-                        bottomPopupTips.directlyShowTips(13, R.string.ultra_wide_open_tip);
-                    }
-                    FragmentBeauty.this.notifyTipsMargin(0);
-                    FragmentBeauty.this.showZoomTipImage();
-                    int i = FragmentBeauty.this.mCurrentMode;
-                    if (i == 163) {
-                        CameraModuleSpecial cameraModuleSpecial = (CameraModuleSpecial) ModeCoordinatorImpl.getInstance().getAttachProtocol(195);
-                        if (cameraModuleSpecial != null) {
-                            cameraModuleSpecial.showOrHideChip(true);
-                        }
-                    } else if (i == 167) {
-                        ManuallyAdjust manuallyAdjust = (ManuallyAdjust) ModeCoordinatorImpl.getInstance().getAttachProtocol(181);
-                        if (manuallyAdjust != null) {
-                            manuallyAdjust.setManuallyLayoutVisible(true);
-                        }
-                    } else if (i == 171) {
-                        BokehFNumberController bokehFNumberController = (BokehFNumberController) ModeCoordinatorImpl.getInstance().getAttachProtocol(210);
-                        if (bokehFNumberController != null) {
-                            bokehFNumberController.showFNumberPanel(true);
-                        }
-                    }
+        public void recycleFragmentList(FragmentManager fragmentManager) {
+            if (this.mFragmentList != null) {
+                FragmentTransaction beginTransaction = fragmentManager.beginTransaction();
+                for (Fragment remove : this.mFragmentList) {
+                    beginTransaction.remove(remove);
                 }
-                baseDelegate.delegateEvent(10);
-                FragmentBeauty.this.mRemoveFragmentBeauty = false;
+                beginTransaction.commit();
             }
-        }
-
-        public void onAnimationRepeat(Animation animation) {
-        }
-
-        public void onAnimationStart(Animation animation) {
         }
     }
 
@@ -192,76 +153,130 @@ public class FragmentBeauty extends BaseFragment implements OnClickListener, Han
         ViewCompat.animate(this.mViewPager).translationX(0.0f).alpha(1.0f).setDuration(280).setInterpolator(new QuinticEaseOutInterpolator()).setStartDelay(120).start();
     }
 
+    private boolean hideBeautyLayout(int i, int i2) {
+        if (this.mCurrentState == -1) {
+            return false;
+        }
+        if (3 == i && !isHiddenBeautyPanelOnShutter()) {
+            return false;
+        }
+        this.mCurrentState = -1;
+        View view = getView();
+        if (view == null) {
+            return false;
+        }
+        switch (i2) {
+            case 1:
+                resetFragment();
+                view.setVisibility(4);
+                break;
+            case 2:
+                ((BottomMenuProtocol) ModeCoordinatorImpl.getInstance().getAttachProtocol(197)).onSwitchCameraActionMenu(0);
+                Completable.create(new SlideOutOnSubscribe(view, 80).setDurationTime(140).setInterpolator(new QuinticEaseInInterpolator())).subscribe((Action) new Action() {
+                    public final void run() {
+                        FragmentBeauty.this.onDismissFinished();
+                    }
+                });
+                break;
+            case 3:
+                ((BottomMenuProtocol) ModeCoordinatorImpl.getInstance().getAttachProtocol(197)).onSwitchCameraActionMenu(0);
+                Completable.create(new AlphaOutOnSubscribe(view).setDurationTime(250).setInterpolator(new DecelerateInterpolator())).subscribe((Action) new Action() {
+                    public final void run() {
+                        FragmentBeauty.this.onDismissFinished();
+                    }
+                });
+                break;
+        }
+        return true;
+    }
+
     private void initAdjustSeekBar() {
-        this.mSeekBarDisposable = Flowable.create(new FlowableOnSubscribe<Integer>() {
-            public void subscribe(FlowableEmitter<Integer> flowableEmitter) throws Exception {
-                FragmentBeauty.this.mFlowableEmitter = flowableEmitter;
-            }
-        }, BackpressureStrategy.DROP).observeOn(GlobalConstant.sCameraSetupScheduler).onBackpressureDrop(new Consumer<Integer>() {
-            public void accept(@NonNull Integer num) throws Exception {
-                String str = Log.VIEW_TAG;
-                StringBuilder sb = new StringBuilder();
-                sb.append("seekbar change too fast :");
-                sb.append(num.toString());
-                Log.e(str, sb.toString());
-            }
-        }).subscribe((Consumer<? super T>) this);
-        this.mAdjustSeekBar.setProgressDrawable(getResources().getDrawable(R.drawable.seekbar_style));
-        this.mAdjustSeekBar.setOnSeekBarChangeListener(new OnSeekBarCompatChangeListener() {
-            public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
-                if (i == 0 || i == FragmentBeauty.this.mSeekBarMaxProgress || Math.abs(i - FragmentBeauty.this.mActiveProgress) > 5) {
-                    FragmentBeauty.this.mActiveProgress = i;
-                    FragmentBeauty.this.mFlowableEmitter.onNext(Integer.valueOf(i / 1));
+        if (this.mSeekBarDisposable == null) {
+            this.mSeekBarDisposable = Flowable.create(new FlowableOnSubscribe<Integer>() {
+                public void subscribe(FlowableEmitter<Integer> flowableEmitter) throws Exception {
+                    FragmentBeauty.this.mFlowableEmitter = flowableEmitter;
                 }
-            }
-
-            public void onStartTrackingTouch(SeekBar seekBar) {
-            }
-
-            public void onStopTrackingTouch(SeekBar seekBar) {
-            }
-        });
-        this.mAdjustSeekBar.setOnSeekBarCompatTouchListener(new OnSeekBarCompatTouchListener() {
-            private int getNextProgress(MotionEvent motionEvent) {
-                int width = FragmentBeauty.this.mAdjustSeekBar.getWidth();
-                int x = (int) (((FragmentBeauty.this.mIsRTL ? ((float) width) - motionEvent.getX() : motionEvent.getX()) / ((float) width)) * ((float) FragmentBeauty.this.mSeekBarMaxProgress));
-                int pinProgress = FragmentBeauty.this.mAdjustSeekBar.getPinProgress();
-                if (pinProgress > 0 && (motionEvent.getAction() == 2 || motionEvent.getAction() == 1)) {
-                    if (Math.abs(x + 0) <= 5) {
-                        x = 0;
-                    } else if (Math.abs(x - pinProgress) <= 5) {
-                        x = pinProgress;
-                    } else if (Math.abs(x - FragmentBeauty.this.mSeekBarMaxProgress) <= 5) {
-                        x = FragmentBeauty.this.mSeekBarMaxProgress;
+            }, BackpressureStrategy.DROP).observeOn(GlobalConstant.sCameraSetupScheduler).onBackpressureDrop(new Consumer<Integer>() {
+                public void accept(@NonNull Integer num) throws Exception {
+                    String str = Log.VIEW_TAG;
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("seekbar change too fast :");
+                    sb.append(num.toString());
+                    Log.e(str, sb.toString());
+                }
+            }).subscribe((Consumer<? super T>) this);
+            this.mAdjustSeekBar.setProgressDrawable(getResources().getDrawable(R.drawable.seekbar_style));
+            this.mAdjustSeekBar.setOnSeekBarChangeListener(new OnSeekBarCompatChangeListener() {
+                public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
+                    if (i == 0 || i == FragmentBeauty.this.mSeekBarMaxProgress || Math.abs(i - FragmentBeauty.this.mActiveProgress) > 5) {
+                        FragmentBeauty.this.mActiveProgress = i;
+                        FragmentBeauty.this.mFlowableEmitter.onNext(Integer.valueOf(i / 1));
                     }
                 }
-                return FragmentBeauty.this.mAdjustSeekBar.isCenterTwoWayMode() ? Util.clamp(x - pinProgress, 0 - pinProgress, FragmentBeauty.this.mSeekBarMaxProgress - pinProgress) : Util.clamp(x, 0, FragmentBeauty.this.mSeekBarMaxProgress);
-            }
 
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                switch (motionEvent.getAction()) {
-                    case 0:
-                        if (!FragmentBeauty.this.mAdjustSeekBar.getThumb().getBounds().contains((int) motionEvent.getX(), (int) motionEvent.getY())) {
-                            return true;
-                        }
-                        break;
-                    case 1:
-                    case 2:
-                        break;
-                    default:
-                        return false;
+                public void onStartTrackingTouch(SeekBar seekBar) {
                 }
-                FragmentBeauty.this.mAdjustSeekBar.setProgress(getNextProgress(motionEvent));
-                return true;
-            }
-        });
+
+                public void onStopTrackingTouch(SeekBar seekBar) {
+                }
+            });
+            this.mAdjustSeekBar.setOnSeekBarCompatTouchListener(new OnSeekBarCompatTouchListener() {
+                private int getNextProgress(MotionEvent motionEvent) {
+                    int width = FragmentBeauty.this.mAdjustSeekBar.getWidth();
+                    int x = (int) (((FragmentBeauty.this.mIsRTL ? ((float) width) - motionEvent.getX() : motionEvent.getX()) / ((float) width)) * ((float) FragmentBeauty.this.mSeekBarMaxProgress));
+                    int pinProgress = FragmentBeauty.this.mAdjustSeekBar.getPinProgress();
+                    if (pinProgress > 0 && (motionEvent.getAction() == 2 || motionEvent.getAction() == 1)) {
+                        if (Math.abs(x + 0) <= 5) {
+                            x = 0;
+                        } else if (Math.abs(x - pinProgress) <= 5) {
+                            x = pinProgress;
+                        } else if (Math.abs(x - FragmentBeauty.this.mSeekBarMaxProgress) <= 5) {
+                            x = FragmentBeauty.this.mSeekBarMaxProgress;
+                        }
+                    }
+                    return FragmentBeauty.this.mAdjustSeekBar.isCenterTwoWayMode() ? Util.clamp(x - pinProgress, 0 - pinProgress, FragmentBeauty.this.mSeekBarMaxProgress - pinProgress) : Util.clamp(x, 0, FragmentBeauty.this.mSeekBarMaxProgress);
+                }
+
+                public boolean onTouch(View view, MotionEvent motionEvent) {
+                    switch (motionEvent.getAction()) {
+                        case 0:
+                            if (!FragmentBeauty.this.mAdjustSeekBar.getThumb().getBounds().contains((int) motionEvent.getX(), (int) motionEvent.getY())) {
+                                return true;
+                            }
+                            break;
+                        case 1:
+                        case 2:
+                            break;
+                        default:
+                            return false;
+                    }
+                    FragmentBeauty.this.mAdjustSeekBar.setProgress(getNextProgress(motionEvent));
+                    return true;
+                }
+            });
+        }
     }
 
     private void initShineType() {
-        switchShineType(this.mComponentRunningShine.getCurrentType());
+        int uiStyle = DataRepository.dataItemRunning().getUiStyle();
+        if (uiStyle == 3 || uiStyle == 1 || this.mCurrentMode == 171 || this.mCurrentMode == 176) {
+            this.mBeautyContent.setBackgroundResource(R.color.fullscreen_background);
+        } else {
+            this.mBeautyContent.setBackgroundResource(R.color.beauty_panel_bg);
+        }
+        if (this.mBeautySettingManager == null) {
+            this.mBeautySettingManager = new BeautySettingManager();
+        }
+        this.mCurrentState = 1;
+        this.mComponentRunningShine = DataRepository.dataItemRunning().getComponentRunningShine();
+        initAdjustSeekBar();
+        String currentType = this.mComponentRunningShine.getCurrentType();
+        initShineType(currentType, false);
+        initViewPager();
+        setViewPagerPageByType(currentType);
     }
 
-    private void initShineType(String str) {
+    private void initShineType(String str, boolean z) {
         this.mComponentRunningShine.setCurrentType(str);
         if (isEyeLightShow()) {
             showHideEyeLighting(false);
@@ -336,12 +351,12 @@ public class FragmentBeauty extends BaseFragment implements OnClickListener, Han
         }
     }
 
-    /* JADX WARNING: Code restructure failed: missing block: B:37:0x009c, code lost:
-        if (r1.equals("1") != false) goto L_0x00a0;
+    /* JADX WARNING: Code restructure failed: missing block: B:37:0x009a, code lost:
+        if (r2.equals("1") != false) goto L_0x009e;
      */
     /* Code decompiled incorrectly, please refer to instructions dump. */
     private void initViewPager() {
-        this.mFragments = new ArrayList();
+        ArrayList arrayList = new ArrayList();
         Iterator it = this.mComponentRunningShine.getItems().iterator();
         while (true) {
             char c = 0;
@@ -409,43 +424,43 @@ public class FragmentBeauty extends BaseFragment implements OnClickListener, Han
                 }
                 switch (c) {
                     case 0:
-                        this.mFragments.add(new BeautyLevelFragment());
+                        arrayList.add(new BeautyLevelFragment());
                         break;
                     case 1:
-                        this.mFragments.add(new BeautySmoothLevelFragment());
+                        arrayList.add(new BeautySmoothLevelFragment());
                         break;
                     case 2:
-                        this.mFragments.add(new MakeupParamsFragment());
+                        arrayList.add(new MakeupParamsFragment());
                         break;
                     case 3:
-                        this.mFragments.add(new RemodelingParamsFragment());
+                        arrayList.add(new RemodelingParamsFragment());
                         break;
                     case 4:
-                        this.mFragments.add(new MakeupBeautyFragment());
+                        arrayList.add(new MakeupBeautyFragment());
                         break;
                     case 5:
-                        this.mFragments.add(new BeautyBodyFragment());
+                        arrayList.add(new BeautyBodyFragment());
                         break;
                     case 6:
-                        this.mFragments.add(new FragmentFilter());
+                        arrayList.add(new FragmentFilter());
                         break;
                     case 7:
-                        this.mFragments.add(new LiveBeautyFilterFragment());
+                        arrayList.add(new LiveBeautyFilterFragment());
                         break;
                     case 8:
-                        this.mFragments.add(new LiveBeautyModeFragment());
+                        arrayList.add(new LiveBeautyModeFragment());
                         break;
                     case 9:
-                        this.mFragments.add(new FragmentLiveSticker());
+                        arrayList.add(new FragmentLiveSticker());
                         break;
                     case 10:
-                        this.mFragments.add(new FragmentLiveSpeed());
+                        arrayList.add(new FragmentLiveSpeed());
                         break;
                     default:
                         throw new RuntimeException("unknown beauty type");
                 }
             } else {
-                this.mBeautyPagerAdapter = new BeautyPagerAdapter(getChildFragmentManager(), this.mFragments);
+                this.mBeautyPagerAdapter = new BeautyPagerAdapter(getChildFragmentManager(), arrayList);
                 this.mViewPager.setAdapter(this.mBeautyPagerAdapter);
                 this.mViewPager.setOffscreenPageLimit(2);
                 this.mViewPager.setFocusable(false);
@@ -455,40 +470,61 @@ public class FragmentBeauty extends BaseFragment implements OnClickListener, Han
         }
     }
 
+    private boolean isHiddenBeautyPanelOnShutter() {
+        return this.mCurrentMode == 162 || this.mCurrentMode == 161 || this.mCurrentMode == 174 || this.mCurrentMode == 176;
+    }
+
     static /* synthetic */ boolean lambda$initViewPager$0(View view, MotionEvent motionEvent) {
         return true;
     }
 
     /* access modifiers changed from: private */
-    public void notifyTipsMargin(int i) {
-        if (ModuleManager.isSquareModule()) {
-            i = 0;
-        }
-        BottomPopupTips bottomPopupTips = (BottomPopupTips) ModeCoordinatorImpl.getInstance().getAttachProtocol(175);
-        if (bottomPopupTips != null) {
-            bottomPopupTips.updateTipBottomMargin(i, true);
+    public void onDismissFinished() {
+        resetFragment();
+        CameraAction cameraAction = (CameraAction) ModeCoordinatorImpl.getInstance().getAttachProtocol(161);
+        if (!isHiddenBeautyPanelOnShutter() || (cameraAction != null && !cameraAction.isDoingAction() && !cameraAction.isRecording())) {
+            resetTips();
         }
     }
 
-    private boolean removeFragmentBeauty(int i) {
-        if (3 == i && !BeautyParameters.isHiddenBeautyPanelOnShutter()) {
-            return false;
+    private void resetFragment() {
+        this.mAdjustSeekBar.setVisibility(4);
+        this.mViewPager.setAdapter(null);
+        if (this.mBeautyPagerAdapter != null) {
+            this.mBeautyPagerAdapter.recycleFragmentList(getChildFragmentManager());
+            this.mBeautyPagerAdapter = null;
         }
-        BaseDelegate baseDelegate = (BaseDelegate) ModeCoordinatorImpl.getInstance().getAttachProtocol(160);
-        if (baseDelegate == null || baseDelegate.getActiveFragment(R.id.bottom_beauty) != 251) {
-            return false;
+    }
+
+    private void resetTips() {
+        BottomPopupTips bottomPopupTips = (BottomPopupTips) ModeCoordinatorImpl.getInstance().getAttachProtocol(175);
+        if (bottomPopupTips != null) {
+            bottomPopupTips.reInitTipImage();
         }
-        ((BottomMenuProtocol) ModeCoordinatorImpl.getInstance().getAttachProtocol(197)).onSwitchCameraActionMenu(0);
-        View view = getView();
-        if (view == null) {
-            return false;
+        if (CameraSettings.shouldShowUltraWideStickyTip(this.mCurrentMode) && bottomPopupTips != null) {
+            bottomPopupTips.directlyShowTips(13, R.string.ultra_wide_open_tip);
         }
-        Animation wrapperAnimation = FragmentAnimationFactory.wrapperAnimation(new ExitAnimationListener(), 168, 162);
-        wrapperAnimation.setDuration(140);
-        wrapperAnimation.setInterpolator(new QuinticEaseInInterpolator());
-        view.startAnimation(wrapperAnimation);
-        this.mRemoveFragmentBeauty = true;
-        return true;
+        if (bottomPopupTips != null) {
+            bottomPopupTips.updateTipBottomMargin(0, true);
+        }
+        showZoomTipImage();
+        int i = this.mCurrentMode;
+        if (i == 163) {
+            CameraModuleSpecial cameraModuleSpecial = (CameraModuleSpecial) ModeCoordinatorImpl.getInstance().getAttachProtocol(195);
+            if (cameraModuleSpecial != null) {
+                cameraModuleSpecial.showOrHideChip(true);
+            }
+        } else if (i == 167) {
+            ManuallyAdjust manuallyAdjust = (ManuallyAdjust) ModeCoordinatorImpl.getInstance().getAttachProtocol(181);
+            if (manuallyAdjust != null) {
+                manuallyAdjust.setManuallyLayoutVisible(true);
+            }
+        } else if (i == 171) {
+            BokehFNumberController bokehFNumberController = (BokehFNumberController) ModeCoordinatorImpl.getInstance().getAttachProtocol(210);
+            if (bokehFNumberController != null) {
+                bokehFNumberController.showFNumberPanel(true);
+            }
+        }
     }
 
     private void setAdjustSeekBarVisible(boolean z, boolean z2) {
@@ -510,23 +546,25 @@ public class FragmentBeauty extends BaseFragment implements OnClickListener, Han
     }
 
     private void setSeekBarMode(int i, int i2) {
-        boolean z = false;
-        switch (i) {
-            case 1:
-                this.mSeekBarMaxProgress = 100;
-                this.mAdjustSeekBar.setProgressDrawable(getResources().getDrawable(R.drawable.seekbar_style));
-                break;
-            case 2:
-                this.mSeekBarMaxProgress = 200;
-                this.mAdjustSeekBar.setProgressDrawable(getResources().getDrawable(R.drawable.center_seekbar_style));
-                i2 = 100;
-                z = true;
-                break;
+        if (this.mCurrentSettingBusiness != null) {
+            boolean z = false;
+            switch (i) {
+                case 1:
+                    this.mSeekBarMaxProgress = 100;
+                    this.mAdjustSeekBar.setProgressDrawable(getResources().getDrawable(R.drawable.seekbar_style));
+                    break;
+                case 2:
+                    this.mSeekBarMaxProgress = 200;
+                    this.mAdjustSeekBar.setProgressDrawable(getResources().getDrawable(R.drawable.center_seekbar_style));
+                    i2 = 100;
+                    z = true;
+                    break;
+            }
+            this.mAdjustSeekBar.setMax(this.mSeekBarMaxProgress);
+            this.mAdjustSeekBar.setSeekBarPinProgress(i2);
+            this.mAdjustSeekBar.setCenterTwoWayMode(z);
+            this.mAdjustSeekBar.setProgress(this.mCurrentSettingBusiness.getProgressByCurrentItem() * 1);
         }
-        this.mAdjustSeekBar.setMax(this.mSeekBarMaxProgress);
-        this.mAdjustSeekBar.setSeekBarPinProgress(i2);
-        this.mAdjustSeekBar.setCenterTwoWayMode(z);
-        this.mAdjustSeekBar.setProgress(this.mCurrentSettingBusiness.getProgressByCurrentItem() * 1);
     }
 
     private void setViewPagerPageByType(String str) {
@@ -594,7 +632,6 @@ public class FragmentBeauty extends BaseFragment implements OnClickListener, Han
         }
     }
 
-    /* access modifiers changed from: private */
     /* JADX WARNING: Code restructure failed: missing block: B:20:0x0055, code lost:
         return;
      */
@@ -602,7 +639,7 @@ public class FragmentBeauty extends BaseFragment implements OnClickListener, Han
         if (com.android.camera.HybridZoomingSystem.IS_3_OR_MORE_SAT == false) goto L_0x0055;
      */
     /* Code decompiled incorrectly, please refer to instructions dump. */
-    public void showZoomTipImage() {
+    private void showZoomTipImage() {
         switch (this.mCurrentMode) {
             case 161:
             case 162:
@@ -630,7 +667,15 @@ public class FragmentBeauty extends BaseFragment implements OnClickListener, Han
     }
 
     public void accept(@NonNull Integer num) throws Exception {
-        this.mCurrentSettingBusiness.setProgressForCurrentItem(num.intValue());
+        if (this.mCurrentSettingBusiness != null) {
+            this.mCurrentSettingBusiness.setProgressForCurrentItem(num.intValue());
+        }
+    }
+
+    public void clearBeauty() {
+        if (this.mCurrentSettingBusiness != null) {
+            this.mCurrentSettingBusiness.clearBeauty();
+        }
     }
 
     public void closeEyeLight() {
@@ -639,8 +684,8 @@ public class FragmentBeauty extends BaseFragment implements OnClickListener, Han
         }
     }
 
-    public void dismiss() {
-        onBackEvent(1);
+    public void dismiss(int i) {
+        hideBeautyLayout(1, i);
     }
 
     public int getFragmentInto() {
@@ -659,25 +704,15 @@ public class FragmentBeauty extends BaseFragment implements OnClickListener, Han
     /* access modifiers changed from: protected */
     public void initView(View view) {
         this.mIsRTL = Util.isLayoutRTL(getContext());
-        this.mRemoveFragmentBeauty = false;
         this.mBeautyContent = view.findViewById(R.id.beauty_content);
-        int uiStyle = DataRepository.dataItemRunning().getUiStyle();
-        if (uiStyle == 3 || uiStyle == 1 || this.mCurrentMode == 171 || this.mCurrentMode == 176) {
-            this.mBeautyContent.setBackgroundResource(R.color.fullscreen_background);
-        } else {
-            this.mBeautyContent.setBackgroundResource(R.color.beauty_panel_bg);
-        }
         this.mBeautyExtraView = view.findViewById(R.id.beauty_extra);
         this.mViewPager = (NoScrollViewPager) view.findViewById(R.id.beauty_viewPager);
         this.mAdjustSeekBar = (SeekBarCompat) view.findViewById(R.id.beauty_adjust_seekbar);
-        this.mComponentRunningShine = DataRepository.dataItemRunning().getComponentRunningShine();
-        initAdjustSeekBar();
-        initViewPager();
         initShineType();
     }
 
     public boolean isBeautyPanelShow() {
-        return this.mBeautyPanelShow;
+        return this.mCurrentState == 1;
     }
 
     public boolean isEyeLightShow() {
@@ -696,7 +731,19 @@ public class FragmentBeauty extends BaseFragment implements OnClickListener, Han
     }
 
     public boolean onBackEvent(int i) {
-        return removeFragmentBeauty(i);
+        int i2;
+        switch (i) {
+            case 3:
+                i2 = 3;
+                break;
+            case 4:
+                i2 = 1;
+                break;
+            default:
+                i2 = 2;
+                break;
+        }
+        return hideBeautyLayout(i, i2);
     }
 
     public void onClick(View view) {
@@ -738,7 +785,9 @@ public class FragmentBeauty extends BaseFragment implements OnClickListener, Han
 
     public void provideAnimateElement(int i, List<Completable> list, int i2) {
         super.provideAnimateElement(i, list, i2);
-        onBackEvent(4);
+        if (this.mCurrentState != -1) {
+            onBackEvent(4);
+        }
     }
 
     /* access modifiers changed from: protected */
@@ -760,29 +809,45 @@ public class FragmentBeauty extends BaseFragment implements OnClickListener, Han
         registerBackStack(modeCoordinator, this);
         modeCoordinator.attachProtocol(194, this);
         modeCoordinator.attachProtocol(180, this);
-        this.mBeautyPanelShow = true;
         this.mIsEyeLightShow = false;
-        this.mBeautySettingManager = new BeautySettingManager();
     }
 
     public void resetBeauty() {
-        this.mCurrentSettingBusiness.resetBeauty();
+        if (this.mCurrentSettingBusiness != null) {
+            this.mCurrentSettingBusiness.resetBeauty();
+        }
     }
 
     public void setClickEnable(boolean z) {
         super.setClickEnable(z);
-        if (this.mFragments != null) {
-            for (Fragment fragment : this.mFragments) {
-                if (fragment instanceof BeautyLevelFragment) {
-                    ((BeautyLevelFragment) fragment).setEnableClick(z);
-                    return;
+        if (this.mBeautyPagerAdapter != null) {
+            List<Fragment> fragmentList = this.mBeautyPagerAdapter.getFragmentList();
+            if (fragmentList != null) {
+                for (Fragment fragment : fragmentList) {
+                    if (fragment instanceof BeautyLevelFragment) {
+                        ((BeautyLevelFragment) fragment).setEnableClick(z);
+                        return;
+                    }
                 }
             }
         }
     }
 
-    public void switchShineType(String str) {
-        initShineType(str);
+    public void show() {
+        if (this.mCurrentState != 1) {
+            if (this.mCurrentMode == 163) {
+                CameraModuleSpecial cameraModuleSpecial = (CameraModuleSpecial) ModeCoordinatorImpl.getInstance().getAttachProtocol(195);
+                if (cameraModuleSpecial != null) {
+                    cameraModuleSpecial.showOrHideChip(false);
+                }
+            }
+            initShineType();
+            Completable.create(new SlideInOnSubscribe(getView(), 80).setDurationTime(280).setInterpolator(new QuinticEaseOutInterpolator())).subscribe();
+        }
+    }
+
+    public void switchShineType(String str, boolean z) {
+        initShineType(str, z);
         setViewPagerPageByType(str);
     }
 
@@ -795,7 +860,6 @@ public class FragmentBeauty extends BaseFragment implements OnClickListener, Han
         if (this.mSeekBarDisposable != null && !this.mSeekBarDisposable.isDisposed()) {
             this.mSeekBarDisposable.dispose();
         }
-        this.mBeautyPanelShow = false;
         this.mIsEyeLightShow = false;
     }
 }

@@ -8,6 +8,10 @@
 
 .field private mContext:Landroid/content/Context;
 
+.field private mInnerRadius:I
+
+.field private mOuterRadius:I
+
 .field mPaintInner:Landroid/graphics/Paint;
 
 .field mPaintOutter:Landroid/graphics/Paint;
@@ -24,6 +28,22 @@
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/camera/fragment/mimoji/CircleImageView;->mShowOutter:Z
+
+    const v0, 0x418d5c29    # 17.67f
+
+    invoke-static {v0}, Lcom/android/camera/Util;->dpToPixel(F)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/camera/fragment/mimoji/CircleImageView;->mInnerRadius:I
+
+    const v0, 0x41b2a3d7    # 22.33f
+
+    invoke-static {v0}, Lcom/android/camera/Util;->dpToPixel(F)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/camera/fragment/mimoji/CircleImageView;->mOuterRadius:I
 
     iput-object p1, p0, Lcom/android/camera/fragment/mimoji/CircleImageView;->mContext:Landroid/content/Context;
 
@@ -45,6 +65,22 @@
 
     iput-boolean p2, p0, Lcom/android/camera/fragment/mimoji/CircleImageView;->mShowOutter:Z
 
+    const p2, 0x418d5c29    # 17.67f
+
+    invoke-static {p2}, Lcom/android/camera/Util;->dpToPixel(F)I
+
+    move-result p2
+
+    iput p2, p0, Lcom/android/camera/fragment/mimoji/CircleImageView;->mInnerRadius:I
+
+    const p2, 0x41b2a3d7    # 22.33f
+
+    invoke-static {p2}, Lcom/android/camera/Util;->dpToPixel(F)I
+
+    move-result p2
+
+    iput p2, p0, Lcom/android/camera/fragment/mimoji/CircleImageView;->mOuterRadius:I
+
     iput-object p1, p0, Lcom/android/camera/fragment/mimoji/CircleImageView;->mContext:Landroid/content/Context;
 
     invoke-direct {p0}, Lcom/android/camera/fragment/mimoji/CircleImageView;->initGlobalValue()V
@@ -64,6 +100,22 @@
     const/4 p2, 0x0
 
     iput-boolean p2, p0, Lcom/android/camera/fragment/mimoji/CircleImageView;->mShowOutter:Z
+
+    const p2, 0x418d5c29    # 17.67f
+
+    invoke-static {p2}, Lcom/android/camera/Util;->dpToPixel(F)I
+
+    move-result p2
+
+    iput p2, p0, Lcom/android/camera/fragment/mimoji/CircleImageView;->mInnerRadius:I
+
+    const p2, 0x41b2a3d7    # 22.33f
+
+    invoke-static {p2}, Lcom/android/camera/Util;->dpToPixel(F)I
+
+    move-result p2
+
+    iput p2, p0, Lcom/android/camera/fragment/mimoji/CircleImageView;->mOuterRadius:I
 
     iput-object p1, p0, Lcom/android/camera/fragment/mimoji/CircleImageView;->mContext:Landroid/content/Context;
 
@@ -159,7 +211,7 @@
 
     iget-object v0, p0, Lcom/android/camera/fragment/mimoji/CircleImageView;->mPaintInner:Landroid/graphics/Paint;
 
-    const/4 v1, 0x0
+    const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
@@ -175,7 +227,7 @@
 
     iget-object v0, p0, Lcom/android/camera/fragment/mimoji/CircleImageView;->mPaintOutter:Landroid/graphics/Paint;
 
-    const/high16 v1, 0x40a00000    # 5.0f
+    const/high16 v1, 0x40c00000    # 6.0f
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
@@ -213,17 +265,21 @@
 
     int-to-float v1, v1
 
-    iget-object v2, p0, Lcom/android/camera/fragment/mimoji/CircleImageView;->mPaintInner:Landroid/graphics/Paint;
+    iget v2, p0, Lcom/android/camera/fragment/mimoji/CircleImageView;->mInnerRadius:I
 
-    const/high16 v3, 0x42200000    # 40.0f
+    int-to-float v2, v2
 
-    invoke-virtual {p1, v0, v1, v3, v2}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
+    iget-object v3, p0, Lcom/android/camera/fragment/mimoji/CircleImageView;->mPaintInner:Landroid/graphics/Paint;
+
+    invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
 
     iget-boolean v2, p0, Lcom/android/camera/fragment/mimoji/CircleImageView;->mShowOutter:Z
 
     if-eqz v2, :cond_0
 
-    const/high16 v2, 0x42480000    # 50.0f
+    iget v2, p0, Lcom/android/camera/fragment/mimoji/CircleImageView;->mOuterRadius:I
+
+    int-to-float v2, v2
 
     iget-object v3, p0, Lcom/android/camera/fragment/mimoji/CircleImageView;->mPaintOutter:Landroid/graphics/Paint;
 

@@ -39,7 +39,7 @@
 
     const-string v2, "0"
 
-    const v3, 0x7f0200f4
+    const v3, 0x7f0200fa
 
     const v4, 0x7f090176
 
@@ -51,7 +51,7 @@
 
     const-string v2, "3"
 
-    const v4, 0x7f0200f5
+    const v4, 0x7f0200fb
 
     const v5, 0x7f090177
 
@@ -63,7 +63,7 @@
 
     const-string v2, "5"
 
-    const v4, 0x7f0200f6
+    const v4, 0x7f0200fc
 
     const v5, 0x7f090178
 

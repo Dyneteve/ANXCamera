@@ -4,4 +4,8 @@
         <item quantity="other">Фокусирано. Се детектира %d лице</item>
         <item quantity="one">Фокусирано. Детектирано е %d лице</item>
     </plurals>
+    <plurals name="toast_burst_snap_finished_summary">
+        <item quantity="other">Burst shot done, %1$s photos taken</item>
+        <item quantity="one">Burst shot done, %1$s photo taken</item>
+    </plurals>
 </resources>

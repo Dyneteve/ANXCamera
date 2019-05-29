@@ -219,7 +219,7 @@
 .end method
 
 .method private getFrameBuffer(II)Lcom/android/camera/effect/FrameBuffer;
-    .locals 9
+    .locals 10
 
     nop
 
@@ -229,6 +229,8 @@
 
     move-result v0
 
+    const/4 v1, 0x1
+
     if-nez v0, :cond_3
 
     iget-object v0, p0, Lcom/android/camera/effect/renders/PipeRenderPair;->mFrameBuffers:Ljava/util/ArrayList;
@@ -237,22 +239,10 @@
 
     move-result v0
 
-    add-int/lit8 v0, v0, -0x1
+    sub-int/2addr v0, v1
 
     :goto_0
     if-ltz v0, :cond_3
-
-    iget-object v1, p0, Lcom/android/camera/effect/renders/PipeRenderPair;->mFrameBuffers:Ljava/util/ArrayList;
-
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/camera/effect/FrameBuffer;
-
-    invoke-virtual {v1}, Lcom/android/camera/effect/FrameBuffer;->getWidth()I
-
-    move-result v1
 
     iget-object v2, p0, Lcom/android/camera/effect/renders/PipeRenderPair;->mFrameBuffers:Ljava/util/ArrayList;
 
@@ -262,84 +252,96 @@
 
     check-cast v2, Lcom/android/camera/effect/FrameBuffer;
 
-    invoke-virtual {v2}, Lcom/android/camera/effect/FrameBuffer;->getHeight()I
+    invoke-virtual {v2}, Lcom/android/camera/effect/FrameBuffer;->getWidth()I
 
     move-result v2
 
+    iget-object v3, p0, Lcom/android/camera/effect/renders/PipeRenderPair;->mFrameBuffers:Ljava/util/ArrayList;
+
+    invoke-virtual {v3, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/camera/effect/FrameBuffer;
+
+    invoke-virtual {v3}, Lcom/android/camera/effect/FrameBuffer;->getHeight()I
+
+    move-result v3
+
     if-ge p1, p2, :cond_0
 
-    int-to-double v3, v2
+    int-to-double v4, v3
 
-    int-to-double v5, v1
+    int-to-double v6, v2
 
-    div-double/2addr v3, v5
+    div-double/2addr v4, v6
 
-    int-to-double v5, p2
+    int-to-double v6, p2
 
-    int-to-double v7, p1
+    int-to-double v8, p1
 
-    div-double/2addr v5, v7
+    div-double/2addr v6, v8
 
-    sub-double/2addr v3, v5
+    sub-double/2addr v4, v6
 
-    invoke-static {v3, v4}, Ljava/lang/Math;->abs(D)D
+    invoke-static {v4, v5}, Ljava/lang/Math;->abs(D)D
 
-    move-result-wide v3
+    move-result-wide v4
 
     goto :goto_1
 
     :cond_0
-    int-to-double v3, v1
+    int-to-double v4, v2
 
-    int-to-double v5, v2
+    int-to-double v6, v3
 
-    div-double/2addr v3, v5
+    div-double/2addr v4, v6
 
-    int-to-double v5, p1
+    int-to-double v6, p1
 
-    int-to-double v7, p2
+    int-to-double v8, p2
 
-    div-double/2addr v5, v7
+    div-double/2addr v6, v8
 
-    sub-double/2addr v3, v5
+    sub-double/2addr v4, v6
 
-    invoke-static {v3, v4}, Ljava/lang/Math;->abs(D)D
+    invoke-static {v4, v5}, Ljava/lang/Math;->abs(D)D
 
-    move-result-wide v3
+    move-result-wide v4
 
     :goto_1
-    const-wide v5, 0x3fb999999999999aL    # 0.1
+    const-wide v6, 0x3fb999999999999aL    # 0.1
 
-    cmpl-double v3, v3, v5
+    cmpl-double v4, v4, v6
 
-    if-lez v3, :cond_1
+    if-lez v4, :cond_1
 
     goto :goto_2
 
     :cond_1
-    invoke-static {v1}, Lcom/android/gallery3d/ui/Utils;->nextPowerOf2(I)I
-
-    move-result v1
-
-    invoke-static {p1}, Lcom/android/gallery3d/ui/Utils;->nextPowerOf2(I)I
-
-    move-result v3
-
-    if-ne v1, v3, :cond_2
-
     invoke-static {v2}, Lcom/android/gallery3d/ui/Utils;->nextPowerOf2(I)I
-
-    move-result v1
-
-    invoke-static {p2}, Lcom/android/gallery3d/ui/Utils;->nextPowerOf2(I)I
 
     move-result v2
 
-    if-ne v1, v2, :cond_2
+    invoke-static {p1}, Lcom/android/gallery3d/ui/Utils;->nextPowerOf2(I)I
 
-    iget-object v1, p0, Lcom/android/camera/effect/renders/PipeRenderPair;->mFrameBuffers:Ljava/util/ArrayList;
+    move-result v4
 
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    if-ne v2, v4, :cond_2
+
+    invoke-static {v3}, Lcom/android/gallery3d/ui/Utils;->nextPowerOf2(I)I
+
+    move-result v2
+
+    invoke-static {p2}, Lcom/android/gallery3d/ui/Utils;->nextPowerOf2(I)I
+
+    move-result v3
+
+    if-ne v2, v3, :cond_2
+
+    iget-object v2, p0, Lcom/android/camera/effect/renders/PipeRenderPair;->mFrameBuffers:Ljava/util/ArrayList;
+
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -361,11 +363,51 @@
 
     new-instance v0, Lcom/android/camera/effect/FrameBuffer;
 
-    iget-object v1, p0, Lcom/android/camera/effect/renders/PipeRenderPair;->mGLCanvas:Lcom/android/gallery3d/ui/GLCanvas;
+    iget-object v2, p0, Lcom/android/camera/effect/renders/PipeRenderPair;->mGLCanvas:Lcom/android/gallery3d/ui/GLCanvas;
 
-    iget v2, p0, Lcom/android/camera/effect/renders/PipeRenderPair;->mParentFrameBufferId:I
+    iget v3, p0, Lcom/android/camera/effect/renders/PipeRenderPair;->mParentFrameBufferId:I
 
-    invoke-direct {v0, v1, p1, p2, v2}, Lcom/android/camera/effect/FrameBuffer;-><init>(Lcom/android/gallery3d/ui/GLCanvas;III)V
+    invoke-direct {v0, v2, p1, p2, v3}, Lcom/android/camera/effect/FrameBuffer;-><init>(Lcom/android/gallery3d/ui/GLCanvas;III)V
+
+    const-string v2, "FrameBuffer alloc size %d*%d id %d"
+
+    const/4 v3, 0x3
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    const/4 v4, 0x0
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p1
+
+    aput-object p1, v3, v4
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p1
+
+    aput-object p1, v3, v1
+
+    const/4 p1, 0x2
+
+    invoke-virtual {v0}, Lcom/android/camera/effect/FrameBuffer;->getId()I
+
+    move-result p2
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p2
+
+    aput-object p2, v3, p1
+
+    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string p2, "Counter"
+
+    invoke-static {p2, p1}, Lcom/android/camera/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object p1, p0, Lcom/android/camera/effect/renders/PipeRenderPair;->mFrameBuffers:Ljava/util/ArrayList;
 
@@ -385,7 +427,7 @@
 
     move-result p2
 
-    add-int/lit8 p2, p2, -0x1
+    sub-int/2addr p2, v1
 
     invoke-virtual {p1, p2}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
@@ -763,7 +805,7 @@
 
     if-eqz v0, :cond_5
 
-    invoke-static {}, Lcom/mi/config/b;->hz()Z
+    invoke-static {}, Lcom/mi/config/b;->hC()Z
 
     move-result v0
 

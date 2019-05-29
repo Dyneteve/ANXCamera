@@ -18,9 +18,9 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 final class ActiveResources {
-    private static final int ev = 1;
-    private final boolean aC;
-    private final Handler aD = new Handler(Looper.getMainLooper(), new Callback() {
+    private static final int ew = 1;
+    private final boolean aD;
+    private final Handler aE = new Handler(Looper.getMainLooper(), new Callback() {
         public boolean handleMessage(Message message) {
             if (message.what != 1) {
                 return false;
@@ -31,14 +31,14 @@ final class ActiveResources {
     });
     @VisibleForTesting
     final Map<c, ResourceWeakReference> activeEngineResources = new HashMap();
+    private volatile boolean eA;
     @Nullable
-    private volatile DequeuedResourceCallback eA;
-    private a ew;
+    private volatile DequeuedResourceCallback eB;
+    private a ex;
     @Nullable
-    private ReferenceQueue<k<?>> ex;
+    private ReferenceQueue<k<?>> ey;
     @Nullable
-    private Thread ey;
-    private volatile boolean ez;
+    private Thread ez;
 
     @VisibleForTesting
     interface DequeuedResourceCallback {
@@ -47,42 +47,42 @@ final class ActiveResources {
 
     @VisibleForTesting
     static final class ResourceWeakReference extends WeakReference<k<?>> {
-        final boolean eC;
+        final boolean eD;
         @Nullable
-        p<?> eD;
+        p<?> eE;
         final c key;
 
         ResourceWeakReference(@NonNull c cVar, @NonNull k<?> kVar, @NonNull ReferenceQueue<? super k<?>> referenceQueue, boolean z) {
             super(kVar, referenceQueue);
             this.key = (c) i.checkNotNull(cVar);
             p<?> pVar = (!kVar.be() || !z) ? null : (p) i.checkNotNull(kVar.bd());
-            this.eD = pVar;
-            this.eC = kVar.be();
+            this.eE = pVar;
+            this.eD = kVar.be();
         }
 
         /* access modifiers changed from: 0000 */
         public void reset() {
-            this.eD = null;
+            this.eE = null;
             clear();
         }
     }
 
     ActiveResources(boolean z) {
-        this.aC = z;
+        this.aD = z;
     }
 
     private ReferenceQueue<k<?>> ap() {
-        if (this.ex == null) {
-            this.ex = new ReferenceQueue<>();
-            this.ey = new Thread(new Runnable() {
+        if (this.ey == null) {
+            this.ey = new ReferenceQueue<>();
+            this.ez = new Thread(new Runnable() {
                 public void run() {
                     Process.setThreadPriority(10);
                     ActiveResources.this.aq();
                 }
             }, "glide-active-resources");
-            this.ey.start();
+            this.ez.start();
         }
-        return this.ex;
+        return this.ey;
     }
 
     /* access modifiers changed from: 0000 */
@@ -95,7 +95,7 @@ final class ActiveResources {
 
     /* access modifiers changed from: 0000 */
     public void a(c cVar, k<?> kVar) {
-        ResourceWeakReference resourceWeakReference = (ResourceWeakReference) this.activeEngineResources.put(cVar, new ResourceWeakReference(cVar, kVar, ap(), this.aC));
+        ResourceWeakReference resourceWeakReference = (ResourceWeakReference) this.activeEngineResources.put(cVar, new ResourceWeakReference(cVar, kVar, ap(), this.aD));
         if (resourceWeakReference != null) {
             resourceWeakReference.reset();
         }
@@ -105,24 +105,24 @@ final class ActiveResources {
     public void a(@NonNull ResourceWeakReference resourceWeakReference) {
         k.eL();
         this.activeEngineResources.remove(resourceWeakReference.key);
-        if (resourceWeakReference.eC && resourceWeakReference.eD != null) {
-            k kVar = new k(resourceWeakReference.eD, true, false);
-            kVar.a(resourceWeakReference.key, this.ew);
-            this.ew.b(resourceWeakReference.key, kVar);
+        if (resourceWeakReference.eD && resourceWeakReference.eE != null) {
+            k kVar = new k(resourceWeakReference.eE, true, false);
+            kVar.a(resourceWeakReference.key, this.ex);
+            this.ex.b(resourceWeakReference.key, kVar);
         }
     }
 
     /* access modifiers changed from: 0000 */
     public void a(a aVar) {
-        this.ew = aVar;
+        this.ex = aVar;
     }
 
     /* access modifiers changed from: 0000 */
     public void aq() {
-        while (!this.ez) {
+        while (!this.eA) {
             try {
-                this.aD.obtainMessage(1, (ResourceWeakReference) this.ex.remove()).sendToTarget();
-                DequeuedResourceCallback dequeuedResourceCallback = this.eA;
+                this.aE.obtainMessage(1, (ResourceWeakReference) this.ey.remove()).sendToTarget();
+                DequeuedResourceCallback dequeuedResourceCallback = this.eB;
                 if (dequeuedResourceCallback != null) {
                     dequeuedResourceCallback.ar();
                 }
@@ -149,18 +149,18 @@ final class ActiveResources {
     /* access modifiers changed from: 0000 */
     @VisibleForTesting
     public void setDequeuedResourceCallback(DequeuedResourceCallback dequeuedResourceCallback) {
-        this.eA = dequeuedResourceCallback;
+        this.eB = dequeuedResourceCallback;
     }
 
     /* access modifiers changed from: 0000 */
     @VisibleForTesting
     public void shutdown() {
-        this.ez = true;
-        if (this.ey != null) {
-            this.ey.interrupt();
+        this.eA = true;
+        if (this.ez != null) {
+            this.ez.interrupt();
             try {
-                this.ey.join(TimeUnit.SECONDS.toMillis(5));
-                if (this.ey.isAlive()) {
+                this.ez.join(TimeUnit.SECONDS.toMillis(5));
+                if (this.ez.isAlive()) {
                     throw new RuntimeException("Failed to join in time");
                 }
             } catch (InterruptedException e) {

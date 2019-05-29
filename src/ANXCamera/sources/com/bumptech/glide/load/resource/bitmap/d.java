@@ -12,10 +12,10 @@ import java.security.MessageDigest;
 @Deprecated
 /* compiled from: BitmapDrawableTransformation */
 public class d implements i<BitmapDrawable> {
-    private final i<Drawable> kA;
+    private final i<Drawable> kB;
 
     public d(i<Bitmap> iVar) {
-        this.kA = (i) com.bumptech.glide.util.i.checkNotNull(new p(iVar, false));
+        this.kB = (i) com.bumptech.glide.util.i.checkNotNull(new p(iVar, false));
     }
 
     private static p<BitmapDrawable> j(p<Drawable> pVar) {
@@ -36,19 +36,19 @@ public class d implements i<BitmapDrawable> {
         if (!(obj instanceof d)) {
             return false;
         }
-        return this.kA.equals(((d) obj).kA);
+        return this.kB.equals(((d) obj).kB);
     }
 
     public int hashCode() {
-        return this.kA.hashCode();
+        return this.kB.hashCode();
     }
 
     @NonNull
     public p<BitmapDrawable> transform(@NonNull Context context, @NonNull p<BitmapDrawable> pVar, int i, int i2) {
-        return j(this.kA.transform(context, k(pVar), i, i2));
+        return j(this.kB.transform(context, k(pVar), i, i2));
     }
 
     public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
-        this.kA.updateDiskCacheKey(messageDigest);
+        this.kB.updateDiskCacheKey(messageDigest);
     }
 }

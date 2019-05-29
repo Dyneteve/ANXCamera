@@ -282,7 +282,7 @@
 
 .field public static final PARAM_COMMON_MODE:Ljava/lang/String; = "\u65b9\u5f0f"
 
-.field public static final PARAM_DUAL_WATERMARK:Ljava/lang/String; = "\u53cc\u6444\u6c34\u5370"
+.field public static final PARAM_DEVICE_WATERMARK:Ljava/lang/String; = "\u673a\u578b\u6c34\u5370"
 
 .field public static final PARAM_ET:Ljava/lang/String; = "\u5feb\u95e8"
 

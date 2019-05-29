@@ -58,7 +58,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "ImageFormat :"
+    const-string v2, "PanoramaInit onSaveImage start, ImageFormat :"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -74,8 +74,31 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/android/camera/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    iget-object v0, p0, Lcom/android/camera/module/Panorama3Module$PanoramaInit;->this$0:Lcom/android/camera/module/Panorama3Module;
+
+    invoke-static {v0}, Lcom/android/camera/module/Panorama3Module;->access$1700(Lcom/android/camera/module/Panorama3Module;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Lcom/android/camera/module/Panorama3Module;->access$000()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "mRequestStop when PanoramaInit"
+
+    invoke-static {v0, v1}, Lcom/android/camera/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {p1}, Lcom/android/camera/panorama/CaptureImage;->close()V
+
+    const/4 p1, 0x0
+
+    return p1
+
+    :cond_0
     sget-object v0, Lcom/android/camera/module/Panorama3Module;->mEngineLock:Ljava/lang/Object;
 
     monitor-enter v0
@@ -83,13 +106,13 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/camera/module/Panorama3Module$PanoramaInit;->this$0:Lcom/android/camera/module/Panorama3Module;
 
-    invoke-static {v1}, Lcom/android/camera/module/Panorama3Module;->access$1700(Lcom/android/camera/module/Panorama3Module;)Z
+    invoke-static {v1}, Lcom/android/camera/module/Panorama3Module;->access$1800(Lcom/android/camera/module/Panorama3Module;)Z
 
     move-result v1
 
     const/4 v2, 0x1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
     iget-object v1, p0, Lcom/android/camera/module/Panorama3Module$PanoramaInit;->this$0:Lcom/android/camera/module/Panorama3Module;
 
@@ -107,7 +130,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     invoke-static {}, Lcom/android/camera/module/Panorama3Module;->access$000()Ljava/lang/String;
 
@@ -129,7 +152,7 @@
 
     invoke-static {v3, v1}, Lcom/android/camera/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_0
+    :cond_1
     iget-object v1, p0, Lcom/android/camera/module/Panorama3Module$PanoramaInit;->this$0:Lcom/android/camera/module/Panorama3Module;
 
     new-instance v3, Lcom/android/camera/module/Panorama3Module$PanoramaFirst;
@@ -162,44 +185,22 @@
 
     invoke-virtual {v1, p1}, Lcom/android/camera/panorama/PanoramaState;->onSaveImage(Lcom/android/camera/panorama/CaptureImage;)Z
 
+    invoke-static {}, Lcom/android/camera/module/Panorama3Module;->access$000()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string v1, "PanoramaInit onSaveImage end"
+
+    invoke-static {p1, v1}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     monitor-exit v0
 
     return v2
 
-    :cond_1
+    :cond_2
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-static {}, Lcom/android/camera/module/Panorama3Module;->access$000()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v1, "go to PanoramaPreview in PanoramaInit"
-
-    invoke-static {v0, v1}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v0, p0, Lcom/android/camera/module/Panorama3Module$PanoramaInit;->this$0:Lcom/android/camera/module/Panorama3Module;
-
-    new-instance v1, Lcom/android/camera/module/Panorama3Module$PanoramaPreview;
-
-    iget-object v3, p0, Lcom/android/camera/module/Panorama3Module$PanoramaInit;->this$0:Lcom/android/camera/module/Panorama3Module;
-
-    invoke-direct {v1, v3}, Lcom/android/camera/module/Panorama3Module$PanoramaPreview;-><init>(Lcom/android/camera/module/Panorama3Module;)V
-
-    invoke-static {v0, v1}, Lcom/android/camera/module/Panorama3Module;->access$402(Lcom/android/camera/module/Panorama3Module;Lcom/android/camera/panorama/PanoramaState;)Lcom/android/camera/panorama/PanoramaState;
-
-    iget-object v0, p0, Lcom/android/camera/module/Panorama3Module$PanoramaInit;->this$0:Lcom/android/camera/module/Panorama3Module;
-
-    invoke-static {v0}, Lcom/android/camera/module/Panorama3Module;->access$400(Lcom/android/camera/module/Panorama3Module;)Lcom/android/camera/panorama/PanoramaState;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/camera/module/Panorama3Module$PanoramaInit;->listener:Lcom/android/camera/panorama/PanoramaState$IPanoramaStateEventListener;
-
-    invoke-virtual {v0, v1}, Lcom/android/camera/panorama/PanoramaState;->setPanoramaStateEventListener(Lcom/android/camera/panorama/PanoramaState$IPanoramaStateEventListener;)V
-
-    invoke-virtual {p0}, Lcom/android/camera/module/Panorama3Module$PanoramaInit;->clearListener()V
 
     invoke-virtual {p1}, Lcom/android/camera/panorama/CaptureImage;->close()V
 

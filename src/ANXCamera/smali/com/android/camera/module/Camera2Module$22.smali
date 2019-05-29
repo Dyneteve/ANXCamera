@@ -3,26 +3,17 @@
 .source "Camera2Module.java"
 
 # interfaces
-.implements Lio/reactivex/FlowableOnSubscribe;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/camera/module/Camera2Module;->initAiSceneParser()V
+    value = Lcom/android/camera/module/Camera2Module;->resetAiSceneInHdrOrFlashOn()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
     accessFlags = 0x0
     name = null
-.end annotation
-
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Lio/reactivex/FlowableOnSubscribe<",
-        "Landroid/hardware/camera2/CaptureResult;",
-        ">;"
-    }
 .end annotation
 
 
@@ -43,26 +34,20 @@
 
 
 # virtual methods
-.method public subscribe(Lio/reactivex/FlowableEmitter;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lio/reactivex/FlowableEmitter<",
-            "Landroid/hardware/camera2/CaptureResult;",
-            ">;)V"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/Exception;
-        }
-    .end annotation
+.method public run()V
+    .locals 3
 
     iget-object v0, p0, Lcom/android/camera/module/Camera2Module$22;->this$0:Lcom/android/camera/module/Camera2Module;
 
-    invoke-static {v0, p1}, Lcom/android/camera/module/Camera2Module;->access$4802(Lcom/android/camera/module/Camera2Module;Lio/reactivex/FlowableEmitter;)Lio/reactivex/FlowableEmitter;
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v2, v1}, Lcom/android/camera/module/Camera2Module;->access$4500(Lcom/android/camera/module/Camera2Module;IZ)V
+
+    iget-object v0, p0, Lcom/android/camera/module/Camera2Module$22;->this$0:Lcom/android/camera/module/Camera2Module;
+
+    invoke-static {v0, v1}, Lcom/android/camera/module/Camera2Module;->access$4702(Lcom/android/camera/module/Camera2Module;Z)Z
 
     return-void
 .end method

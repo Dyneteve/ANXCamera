@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:id="@id/ll_bubble_pop_occupation" android:layout_width="fill_parent" android:layout_height="wrap_content"
+<RelativeLayout android:id="@id/rl_bubble_pop_parent" android:layout_width="fill_parent" android:layout_height="wrap_content"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="70.0dip">
-        <LinearLayout android:orientation="vertical" android:background="@color/preview_cover_capture" android:layout_width="fill_parent" android:layout_height="wrap_content">
-            <View android:background="@color/effect_divider_color" android:layout_width="fill_parent" android:layout_height="1.0px" />
-            <FrameLayout android:layout_width="fill_parent" android:layout_height="@dimen/live_sticker_list_height">
+    <RelativeLayout android:id="@id/ll_bubble_pop_occupation" android:layout_width="fill_parent" android:layout_height="70.0dip" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/ll_bubble_pop_occupation">
+        <View android:background="@color/effect_divider_color" android:layout_width="fill_parent" android:layout_height="1.0px" />
+        <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:background="@color/preview_cover_capture" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <FrameLayout android:layout_gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="@dimen/live_sticker_list_height">
                 <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
                     <RelativeLayout android:id="@id/mimoji_none_item" android:layout_width="@dimen/live_sticker_none_item_size" android:layout_height="fill_parent">
-                        <ImageView android:layout_width="@dimen/live_sticker_image_size" android:layout_height="@dimen/live_sticker_image_size" android:src="@drawable/ic_config_front_beauty_off" android:scaleType="centerInside" android:layout_centerInParent="true" android:contentDescription="@null" />
+                        <ImageView android:layout_width="@dimen/live_sticker_image_size" android:layout_height="@dimen/live_sticker_image_size" android:src="@drawable/ic_mimoji_off" android:scaleType="centerInside" android:layout_centerInParent="true" android:contentDescription="@null" />
                         <ImageView android:id="@id/mimoji_none_selected_indicator" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/bg_live_sticker_selected" android:layout_centerInParent="true" android:contentDescription="@null" />
                     </RelativeLayout>
                     <TextView android:background="@color/beauty_divider_line" android:layout_width="@dimen/beauty_divider_stroke" android:layout_height="@dimen/live_sticker_divider_height" android:includeFontPadding="false" android:layout_centerInParent="true" />
-                    <RelativeLayout android:id="@id/mimoji_add_item" android:layout_width="@dimen/live_sticker_none_item_size" android:layout_height="fill_parent">
-                        <ImageView android:layout_width="@dimen/live_sticker_image_size" android:layout_height="@dimen/live_sticker_image_size" android:src="@drawable/mimoji_add" android:scaleType="centerInside" android:layout_centerInParent="true" android:contentDescription="@null" />
-                    </RelativeLayout>
                     <android.support.v7.widget.RecyclerView android:layout_gravity="center_vertical" android:id="@id/mimoji_list" android:focusable="false" android:layout_width="fill_parent" android:layout_height="fill_parent" />
                 </LinearLayout>
             </FrameLayout>
         </LinearLayout>
+        <View android:background="@color/effect_divider_color" android:layout_width="fill_parent" android:layout_height="1.0px" />
     </LinearLayout>
 </RelativeLayout>

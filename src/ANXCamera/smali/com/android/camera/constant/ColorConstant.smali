@@ -12,6 +12,8 @@
 
 .field public static final COLOR_COMMON_SELECTED_BEAUTY:I = -0x3967c
 
+.field public static final WHITE:I = -0x1
+
 .field public static final WHITE_ALPHA_99:I = -0x66000001
 
 

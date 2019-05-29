@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import com.android.camera.ActivityBase;
 import com.android.camera.CameraSettings;
 import com.android.camera.Exif;
@@ -16,6 +17,7 @@ import com.android.camera.JpegEncodingQualityMappings;
 import com.android.camera.Thumbnail;
 import com.android.camera.Util;
 import com.android.camera.effect.EffectController;
+import com.android.camera.effect.EffectController.EffectRectAttribute;
 import com.android.camera.effect.FilterInfo;
 import com.android.camera.effect.draw_mode.DrawJPEGAttribute;
 import com.android.camera.effect.renders.SnapshotEffectRender;
@@ -137,7 +139,14 @@ public class ImageSaver implements SaverCallback, ParallelCallback, VideoClipSav
         int i10 = i4;
         int i11 = i5;
         Location location2 = location;
-        DrawJPEGAttribute drawJPEGAttribute = new DrawJPEGAttribute(bArr, z, i10 > i11 ? Math.max(i, i2) : Math.min(i, i2), i11 > i10 ? Math.max(i, i2) : Math.min(i, i2), i10, i11, i3, EffectController.getInstance().copyEffectRectAttribute(), location2 == null ? null : new Location(location2), str, System.currentTimeMillis(), i6, i7, f, pictureInfo.isFrontMirror(), str2, z2, pictureInfo, list, CameraSettings.isDualCameraWaterMarkOpen(), CameraSettings.isTimeWaterMarkOpen() ? str3 : null, z3, i8, i9);
+        int max = i10 > i11 ? Math.max(i, i2) : Math.min(i, i2);
+        int max2 = i11 > i10 ? Math.max(i, i2) : Math.min(i, i2);
+        EffectRectAttribute copyEffectRectAttribute = EffectController.getInstance().copyEffectRectAttribute();
+        Location location3 = location2 == null ? null : new Location(location2);
+        long currentTimeMillis = System.currentTimeMillis();
+        boolean isFrontMirror = pictureInfo.isFrontMirror();
+        boolean z4 = CameraSettings.isDualCameraWaterMarkOpen() || CameraSettings.isFrontCameraWaterMarkOpen();
+        DrawJPEGAttribute drawJPEGAttribute = new DrawJPEGAttribute(bArr, z, max, max2, i10, i11, i3, copyEffectRectAttribute, location3, str, currentTimeMillis, i6, i7, f, isFrontMirror, str2, z2, pictureInfo, list, z4, CameraSettings.isTimeWaterMarkOpen() ? str3 : null, z3, i8, i9);
         return drawJPEGAttribute;
     }
 
@@ -150,10 +159,12 @@ public class ImageSaver implements SaverCallback, ParallelCallback, VideoClipSav
         addImage(jpegImageData, parallelTaskData.isNeedThumbnail(), Util.createJpegName(System.currentTimeMillis()), null, System.currentTimeMillis(), null, dataParameter.getLocation(), width, height, null, jpegRotation, false, false, true, false, false, Util.ALGORITHM_NAME_MIMOJI_CAPTURE, dataParameter.getPictureInfo(), parallelTaskData.getPreviewThumbnailHash());
     }
 
-    /* JADX WARNING: Removed duplicated region for block: B:15:0x008e  */
-    /* JADX WARNING: Removed duplicated region for block: B:36:0x01a3  */
-    /* JADX WARNING: Removed duplicated region for block: B:39:0x01ac  */
-    /* JADX WARNING: Removed duplicated region for block: B:40:0x01de  */
+    /* JADX WARNING: Removed duplicated region for block: B:15:0x0090  */
+    /* JADX WARNING: Removed duplicated region for block: B:32:0x011d A[Catch:{ all -> 0x01b7, all -> 0x01bc }] */
+    /* JADX WARNING: Removed duplicated region for block: B:33:0x0190 A[Catch:{ all -> 0x01b7, all -> 0x01bc }] */
+    /* JADX WARNING: Removed duplicated region for block: B:43:0x01be  */
+    /* JADX WARNING: Removed duplicated region for block: B:45:0x01c7  */
+    /* JADX WARNING: Removed duplicated region for block: B:46:0x01fd  */
     /* Code decompiled incorrectly, please refer to instructions dump. */
     private void insertNormalDualTask(ParallelTaskData parallelTaskData) {
         int i;
@@ -163,19 +174,21 @@ public class ImageSaver implements SaverCallback, ParallelCallback, VideoClipSav
         byte[] bArr;
         byte[] bArr2;
         byte[] bArr3;
+        byte[] bArr4;
         ParallelTaskDataParameter parallelTaskDataParameter2;
         Object obj;
-        int[] iArr2;
-        byte[] bArr4;
         byte[] bArr5;
+        int[] iArr2;
+        boolean z;
         byte[] bArr6;
+        byte[] bArr7;
         boolean isDepthMapData = ArcsoftDepthMap.isDepthMapData(parallelTaskData.getPortraitDepthData());
         byte[] jpegImageData = parallelTaskData.getJpegImageData();
         byte[] portraitRawData = parallelTaskData.getPortraitRawData();
         byte[] portraitDepthData = parallelTaskData.getPortraitDepthData();
         ParallelTaskDataParameter dataParameter = parallelTaskData.getDataParameter();
         int filterId = dataParameter.getFilterId();
-        boolean z = EffectController.getInstance().hasEffect() || filterId != FilterInfo.FILTER_ID_NONE;
+        boolean z2 = EffectController.getInstance().hasEffect() || filterId != FilterInfo.FILTER_ID_NONE;
         int width = dataParameter.getPictureSize().getWidth();
         int height = dataParameter.getPictureSize().getHeight();
         ExifInterface exif = ExifInterface.getExif(jpegImageData);
@@ -191,48 +204,73 @@ public class ImageSaver implements SaverCallback, ParallelCallback, VideoClipSav
             sb.append(Util.createJpegName(System.currentTimeMillis()));
             sb.append(dataParameter.getSuffix());
             String sb2 = sb.toString();
-            byte[] bArr7 = null;
-            if (!z) {
+            if (!z2) {
                 Object obj2 = this.mEffectProcessorLock;
                 synchronized (obj2) {
                     try {
                         if (this.mEffectProcessor != null) {
-                            obj = obj2;
-                            int i3 = filterId;
-                            ParallelTaskDataParameter parallelTaskDataParameter3 = dataParameter;
-                            DrawJPEGAttribute drawJPEGAttribute = getDrawJPEGAttribute(jpegImageData, dataParameter.getPreviewSize().getWidth(), dataParameter.getPreviewSize().getHeight(), filterId, parallelTaskData.isNeedThumbnail(), i2, i, dataParameter.getLocation(), sb2, dataParameter.getShootOrientation(), orientation, dataParameter.getShootRotation(), dataParameter.getAlgorithmName(), true, dataParameter.getTimeWaterMarkString(), dataParameter.getFaceWaterMarkList(), false, dataParameter.getPictureInfo(), parallelTaskData.getCurrentModuleIndex(), -1);
-                            this.mEffectProcessor.processorJpegSync(drawJPEGAttribute, false);
-                            byte[] bArr8 = drawJPEGAttribute.mData;
-                            byte[] bArr9 = drawJPEGAttribute.mDataOfTheRegionUnderWatermarks;
-                            int[] iArr3 = drawJPEGAttribute.mCoordinatesOfTheRegionUnderWatermarks;
-                            if (isDepthMapData) {
-                                ParallelTaskDataParameter parallelTaskDataParameter4 = parallelTaskDataParameter3;
-                                parallelTaskDataParameter = parallelTaskDataParameter4;
-                                iArr2 = iArr3;
-                                bArr5 = bArr9;
-                                bArr4 = bArr8;
-                                DrawJPEGAttribute drawJPEGAttribute2 = getDrawJPEGAttribute(portraitRawData, parallelTaskDataParameter4.getPreviewSize().getWidth(), parallelTaskDataParameter4.getPreviewSize().getHeight(), i3, parallelTaskData.isNeedThumbnail(), i2, i, parallelTaskDataParameter4.getLocation(), sb2, parallelTaskDataParameter4.getShootOrientation(), orientation, parallelTaskDataParameter4.getShootRotation(), parallelTaskDataParameter4.getAlgorithmName(), false, parallelTaskDataParameter4.getTimeWaterMarkString(), parallelTaskDataParameter4.getFaceWaterMarkList(), true, parallelTaskDataParameter4.getPictureInfo(), parallelTaskData.getCurrentModuleIndex(), -1);
-                                this.mEffectProcessor.processorJpegSync(drawJPEGAttribute2, false);
-                                bArr6 = drawJPEGAttribute2.mData;
-                            } else {
-                                iArr2 = iArr3;
-                                bArr4 = bArr8;
-                                parallelTaskDataParameter = parallelTaskDataParameter3;
-                                bArr5 = bArr9;
-                                bArr6 = portraitRawData;
+                            int width2 = dataParameter.getPreviewSize().getWidth();
+                            int height2 = dataParameter.getPreviewSize().getHeight();
+                            boolean isNeedThumbnail = parallelTaskData.isNeedThumbnail();
+                            Location location = dataParameter.getLocation();
+                            int shootOrientation = dataParameter.getShootOrientation();
+                            float shootRotation = dataParameter.getShootRotation();
+                            String algorithmName = dataParameter.getAlgorithmName();
+                            if (!dataParameter.isHasDualWaterMark()) {
+                                if (TextUtils.isEmpty(dataParameter.getTimeWaterMarkString())) {
+                                    z = false;
+                                    obj = obj2;
+                                    int i3 = filterId;
+                                    ParallelTaskDataParameter parallelTaskDataParameter3 = dataParameter;
+                                    DrawJPEGAttribute drawJPEGAttribute = getDrawJPEGAttribute(jpegImageData, width2, height2, filterId, isNeedThumbnail, i2, i, location, sb2, shootOrientation, orientation, shootRotation, algorithmName, z, dataParameter.getTimeWaterMarkString(), dataParameter.getFaceWaterMarkList(), false, dataParameter.getPictureInfo(), parallelTaskData.getCurrentModuleIndex(), -1);
+                                    this.mEffectProcessor.processorJpegSync(drawJPEGAttribute, false);
+                                    byte[] bArr8 = drawJPEGAttribute.mData;
+                                    byte[] bArr9 = drawJPEGAttribute.mDataOfTheRegionUnderWatermarks;
+                                    int[] iArr3 = drawJPEGAttribute.mCoordinatesOfTheRegionUnderWatermarks;
+                                    if (!isDepthMapData) {
+                                        ParallelTaskDataParameter parallelTaskDataParameter4 = parallelTaskDataParameter3;
+                                        parallelTaskDataParameter = parallelTaskDataParameter4;
+                                        iArr2 = iArr3;
+                                        bArr5 = bArr9;
+                                        bArr6 = bArr8;
+                                        DrawJPEGAttribute drawJPEGAttribute2 = getDrawJPEGAttribute(portraitRawData, parallelTaskDataParameter4.getPreviewSize().getWidth(), parallelTaskDataParameter4.getPreviewSize().getHeight(), i3, parallelTaskData.isNeedThumbnail(), i2, i, parallelTaskDataParameter4.getLocation(), sb2, parallelTaskDataParameter4.getShootOrientation(), orientation, parallelTaskDataParameter4.getShootRotation(), parallelTaskDataParameter4.getAlgorithmName(), false, parallelTaskDataParameter4.getTimeWaterMarkString(), parallelTaskDataParameter4.getFaceWaterMarkList(), true, parallelTaskDataParameter4.getPictureInfo(), parallelTaskData.getCurrentModuleIndex(), -1);
+                                        this.mEffectProcessor.processorJpegSync(drawJPEGAttribute2, false);
+                                        bArr7 = drawJPEGAttribute2.mData;
+                                    } else {
+                                        iArr2 = iArr3;
+                                        bArr6 = bArr8;
+                                        parallelTaskDataParameter = parallelTaskDataParameter3;
+                                        bArr5 = bArr9;
+                                        bArr7 = portraitRawData;
+                                    }
+                                    portraitRawData = bArr7;
+                                    jpegImageData = bArr6;
+                                }
                             }
-                            portraitRawData = bArr6;
-                            bArr7 = bArr5;
-                            jpegImageData = bArr4;
+                            z = true;
+                            obj = obj2;
+                            int i32 = filterId;
+                            ParallelTaskDataParameter parallelTaskDataParameter32 = dataParameter;
+                            DrawJPEGAttribute drawJPEGAttribute3 = getDrawJPEGAttribute(jpegImageData, width2, height2, filterId, isNeedThumbnail, i2, i, location, sb2, shootOrientation, orientation, shootRotation, algorithmName, z, dataParameter.getTimeWaterMarkString(), dataParameter.getFaceWaterMarkList(), false, dataParameter.getPictureInfo(), parallelTaskData.getCurrentModuleIndex(), -1);
+                            this.mEffectProcessor.processorJpegSync(drawJPEGAttribute3, false);
+                            byte[] bArr82 = drawJPEGAttribute3.mData;
+                            byte[] bArr92 = drawJPEGAttribute3.mDataOfTheRegionUnderWatermarks;
+                            int[] iArr32 = drawJPEGAttribute3.mCoordinatesOfTheRegionUnderWatermarks;
+                            if (!isDepthMapData) {
+                            }
+                            portraitRawData = bArr7;
+                            jpegImageData = bArr6;
                         } else {
                             obj = obj2;
                             parallelTaskDataParameter = dataParameter;
                             Log.d(TAG, "insertNormalDualTask(): mEffectProcessor is null");
                             iArr2 = null;
+                            bArr5 = null;
                         }
-                        bArr = bArr7;
+                        bArr3 = jpegImageData;
                         bArr2 = portraitRawData;
                         iArr = iArr2;
+                        bArr = bArr5;
                     } catch (Throwable th) {
                         th = th;
                         throw th;
@@ -240,19 +278,19 @@ public class ImageSaver implements SaverCallback, ParallelCallback, VideoClipSav
                 }
             } else {
                 parallelTaskDataParameter = dataParameter;
+                bArr3 = jpegImageData;
                 bArr = null;
                 iArr = null;
                 bArr2 = portraitRawData;
             }
-            byte[] bArr10 = jpegImageData;
             if (!isDepthMapData) {
                 parallelTaskDataParameter2 = parallelTaskDataParameter;
-                bArr3 = Util.composeDepthMapPicture(bArr10, portraitDepthData, bArr2, bArr, iArr, parallelTaskDataParameter2.isHasDualWaterMark(), parallelTaskDataParameter2.getLightingPattern(), parallelTaskDataParameter2.getTimeWaterMarkString(), parallelTaskDataParameter2.getOutputSize().getWidth(), parallelTaskDataParameter2.getOutputSize().getHeight(), parallelTaskDataParameter2.isMirror(), parallelTaskDataParameter2.isBokehFrontCamera(), parallelTaskDataParameter2.getPictureInfo());
+                bArr4 = Util.composeDepthMapPicture(bArr3, portraitDepthData, bArr2, bArr, iArr, parallelTaskDataParameter2.isHasDualWaterMark(), parallelTaskDataParameter2.isHasFrontWaterMark(), parallelTaskDataParameter2.getLightingPattern(), parallelTaskDataParameter2.getTimeWaterMarkString(), parallelTaskDataParameter2.getOutputSize().getWidth(), parallelTaskDataParameter2.getOutputSize().getHeight(), parallelTaskDataParameter2.isMirror(), parallelTaskDataParameter2.isBokehFrontCamera(), parallelTaskDataParameter2.getPictureInfo());
             } else {
                 parallelTaskDataParameter2 = parallelTaskDataParameter;
-                bArr3 = Util.composeMainSubPicture(bArr10, bArr, iArr);
+                bArr4 = Util.composeMainSubPicture(bArr3, bArr, iArr);
             }
-            addImage(bArr3, parallelTaskData.isNeedThumbnail(), sb2, null, System.currentTimeMillis(), null, parallelTaskDataParameter2.getLocation(), i2, i, null, orientation, false, false, true, false, false, parallelTaskDataParameter2.getAlgorithmName(), parallelTaskDataParameter2.getPictureInfo(), -1);
+            addImage(bArr4, parallelTaskData.isNeedThumbnail(), sb2, null, System.currentTimeMillis(), null, parallelTaskDataParameter2.getLocation(), i2, i, null, orientation, false, false, true, false, false, parallelTaskDataParameter2.getAlgorithmName(), parallelTaskDataParameter2.getPictureInfo(), -1);
         }
         i2 = width;
         i = height;
@@ -260,13 +298,11 @@ public class ImageSaver implements SaverCallback, ParallelCallback, VideoClipSav
         sb3.append(Util.createJpegName(System.currentTimeMillis()));
         sb3.append(dataParameter.getSuffix());
         String sb22 = sb3.toString();
-        byte[] bArr72 = null;
-        if (!z) {
+        if (!z2) {
         }
-        byte[] bArr102 = jpegImageData;
         if (!isDepthMapData) {
         }
-        addImage(bArr3, parallelTaskData.isNeedThumbnail(), sb22, null, System.currentTimeMillis(), null, parallelTaskDataParameter2.getLocation(), i2, i, null, orientation, false, false, true, false, false, parallelTaskDataParameter2.getAlgorithmName(), parallelTaskDataParameter2.getPictureInfo(), -1);
+        addImage(bArr4, parallelTaskData.isNeedThumbnail(), sb22, null, System.currentTimeMillis(), null, parallelTaskDataParameter2.getLocation(), i2, i, null, orientation, false, false, true, false, false, parallelTaskDataParameter2.getAlgorithmName(), parallelTaskDataParameter2.getPictureInfo(), -1);
     }
 
     private void insertParallelBurstTask(ParallelTaskData parallelTaskData) {
@@ -324,9 +360,9 @@ public class ImageSaver implements SaverCallback, ParallelCallback, VideoClipSav
         byte[] dataOfTheRegionUnderWatermarks = parallelTaskData.getDataOfTheRegionUnderWatermarks();
         int[] coordinatesOfTheRegionUnderWatermarks = parallelTaskData.getCoordinatesOfTheRegionUnderWatermarks();
         if ((6 == parallelTaskData.getParallelType() || 8 == parallelTaskData.getParallelType() || 7 == parallelTaskData.getParallelType()) && ArcsoftDepthMap.isDepthMapData(parallelTaskData.getPortraitDepthData())) {
-            composeMainSubPicture = Util.composeDepthMapPicture(parallelTaskData.getJpegImageData(), parallelTaskData.getPortraitDepthData(), parallelTaskData.getPortraitRawData(), dataOfTheRegionUnderWatermarks, coordinatesOfTheRegionUnderWatermarks, dataParameter.isHasDualWaterMark(), dataParameter.getLightingPattern(), dataParameter.getTimeWaterMarkString(), dataParameter.getOutputSize().getWidth(), dataParameter.getOutputSize().getHeight(), dataParameter.isMirror(), dataParameter.isBokehFrontCamera(), dataParameter.getPictureInfo());
+            composeMainSubPicture = Util.composeDepthMapPicture(parallelTaskData.getJpegImageData(), parallelTaskData.getPortraitDepthData(), parallelTaskData.getPortraitRawData(), dataOfTheRegionUnderWatermarks, coordinatesOfTheRegionUnderWatermarks, dataParameter.isHasDualWaterMark(), dataParameter.isHasFrontWaterMark(), dataParameter.getLightingPattern(), dataParameter.getTimeWaterMarkString(), dataParameter.getOutputSize().getWidth(), dataParameter.getOutputSize().getHeight(), dataParameter.isMirror(), dataParameter.isBokehFrontCamera(), dataParameter.getPictureInfo());
         } else if (parallelTaskData.isLiveShotTask()) {
-            composeMainSubPicture = Util.composeLiveShotPicture(jpegImageData, dataParameter.getOutputSize().getWidth(), dataParameter.getOutputSize().getHeight(), parallelTaskData.getMicroVideoData(), parallelTaskData.getCoverFrameTimestamp(), dataParameter.isHasDualWaterMark(), dataParameter.getTimeWaterMarkString(), dataOfTheRegionUnderWatermarks, coordinatesOfTheRegionUnderWatermarks);
+            composeMainSubPicture = Util.composeLiveShotPicture(jpegImageData, dataParameter.getOutputSize().getWidth(), dataParameter.getOutputSize().getHeight(), parallelTaskData.getMicroVideoData(), parallelTaskData.getCoverFrameTimestamp(), dataParameter.isHasDualWaterMark(), dataParameter.isHasFrontWaterMark(), dataParameter.getTimeWaterMarkString(), dataOfTheRegionUnderWatermarks, coordinatesOfTheRegionUnderWatermarks);
         } else {
             composeMainSubPicture = Util.composeMainSubPicture(jpegImageData, dataOfTheRegionUnderWatermarks, coordinatesOfTheRegionUnderWatermarks);
         }
@@ -399,6 +435,8 @@ public class ImageSaver implements SaverCallback, ParallelCallback, VideoClipSav
         addImage(jpegImageData, false, Util.getFileTitleFromPath(parallelTaskData.getSavePath()), null, System.currentTimeMillis(), null, location, i3, i2, null, i, false, false, true, false, true, str, pictureInfo, -1);
     }
 
+    /* JADX WARNING: Removed duplicated region for block: B:57:0x01d4  */
+    /* Code decompiled incorrectly, please refer to instructions dump. */
     private void insertSingleTask(ParallelTaskData parallelTaskData) {
         int i;
         int i2;
@@ -406,13 +444,15 @@ public class ImageSaver implements SaverCallback, ParallelCallback, VideoClipSav
         int i3;
         String str;
         int[] iArr;
-        ParallelTaskDataParameter parallelTaskDataParameter2;
         String str2;
+        ParallelTaskDataParameter parallelTaskDataParameter2;
+        String str3;
         Object obj;
+        boolean z;
         ParallelTaskData parallelTaskData2 = parallelTaskData;
         ParallelTaskDataParameter dataParameter = parallelTaskData.getDataParameter();
         int filterId = dataParameter.getFilterId();
-        boolean z = EffectController.getInstance().hasEffect() || filterId != FilterInfo.FILTER_ID_NONE;
+        boolean z2 = EffectController.getInstance().hasEffect() || filterId != FilterInfo.FILTER_ID_NONE;
         byte[] jpegImageData = parallelTaskData.getJpegImageData();
         int width = dataParameter.getPictureSize().getWidth();
         int height = dataParameter.getPictureSize().getHeight();
@@ -435,22 +475,48 @@ public class ImageSaver implements SaverCallback, ParallelCallback, VideoClipSav
         sb.append(dataParameter.getSuffix());
         String sb2 = sb.toString();
         byte[] bArr = null;
-        if (z) {
+        if (z2) {
             Object obj2 = this.mEffectProcessorLock;
             synchronized (obj2) {
                 try {
                     if (this.mEffectProcessor != null) {
+                        int width2 = dataParameter.getPreviewSize().getWidth();
+                        int height2 = dataParameter.getPreviewSize().getHeight();
+                        boolean isNeedThumbnail = parallelTaskData.isNeedThumbnail();
+                        Location location = dataParameter.getLocation();
+                        int shootOrientation = dataParameter.getShootOrientation();
+                        float shootRotation = dataParameter.getShootRotation();
+                        String algorithmName = dataParameter.getAlgorithmName();
+                        if (!dataParameter.isHasDualWaterMark()) {
+                            if (TextUtils.isEmpty(dataParameter.getTimeWaterMarkString())) {
+                                z = false;
+                                obj = obj2;
+                                str = sb2;
+                                i3 = orientation;
+                                parallelTaskDataParameter = dataParameter;
+                                DrawJPEGAttribute drawJPEGAttribute = getDrawJPEGAttribute(jpegImageData, width2, height2, filterId, isNeedThumbnail, i2, i, location, sb2, shootOrientation, orientation, shootRotation, algorithmName, z, dataParameter.getTimeWaterMarkString(), dataParameter.getFaceWaterMarkList(), false, dataParameter.getPictureInfo(), parallelTaskData.getCurrentModuleIndex(), parallelTaskData.getPreviewThumbnailHash());
+                                this.mEffectProcessor.processorJpegSync(drawJPEGAttribute, false);
+                                byte[] bArr2 = drawJPEGAttribute.mData;
+                                i2 = drawJPEGAttribute.mWidth;
+                                i = drawJPEGAttribute.mHeight;
+                                bArr = drawJPEGAttribute.mDataOfTheRegionUnderWatermarks;
+                                iArr = drawJPEGAttribute.mCoordinatesOfTheRegionUnderWatermarks;
+                                jpegImageData = bArr2;
+                            }
+                        }
+                        z = true;
                         obj = obj2;
                         str = sb2;
                         i3 = orientation;
                         parallelTaskDataParameter = dataParameter;
-                        DrawJPEGAttribute drawJPEGAttribute = getDrawJPEGAttribute(jpegImageData, dataParameter.getPreviewSize().getWidth(), dataParameter.getPreviewSize().getHeight(), filterId, parallelTaskData.isNeedThumbnail(), i2, i, dataParameter.getLocation(), sb2, dataParameter.getShootOrientation(), orientation, dataParameter.getShootRotation(), dataParameter.getAlgorithmName(), true, dataParameter.getTimeWaterMarkString(), dataParameter.getFaceWaterMarkList(), false, dataParameter.getPictureInfo(), parallelTaskData.getCurrentModuleIndex(), parallelTaskData.getPreviewThumbnailHash());
-                        this.mEffectProcessor.processorJpegSync(drawJPEGAttribute, false);
-                        jpegImageData = drawJPEGAttribute.mData;
-                        i2 = drawJPEGAttribute.mWidth;
-                        i = drawJPEGAttribute.mHeight;
-                        bArr = drawJPEGAttribute.mDataOfTheRegionUnderWatermarks;
-                        iArr = drawJPEGAttribute.mCoordinatesOfTheRegionUnderWatermarks;
+                        DrawJPEGAttribute drawJPEGAttribute2 = getDrawJPEGAttribute(jpegImageData, width2, height2, filterId, isNeedThumbnail, i2, i, location, sb2, shootOrientation, orientation, shootRotation, algorithmName, z, dataParameter.getTimeWaterMarkString(), dataParameter.getFaceWaterMarkList(), false, dataParameter.getPictureInfo(), parallelTaskData.getCurrentModuleIndex(), parallelTaskData.getPreviewThumbnailHash());
+                        this.mEffectProcessor.processorJpegSync(drawJPEGAttribute2, false);
+                        byte[] bArr22 = drawJPEGAttribute2.mData;
+                        i2 = drawJPEGAttribute2.mWidth;
+                        i = drawJPEGAttribute2.mHeight;
+                        bArr = drawJPEGAttribute2.mDataOfTheRegionUnderWatermarks;
+                        iArr = drawJPEGAttribute2.mCoordinatesOfTheRegionUnderWatermarks;
+                        jpegImageData = bArr22;
                     } else {
                         obj = obj2;
                         str = sb2;
@@ -475,42 +541,54 @@ public class ImageSaver implements SaverCallback, ParallelCallback, VideoClipSav
         if (!parallelTaskData.isLiveShotTask()) {
             byte[] composeMainSubPicture = Util.composeMainSubPicture(jpegImageData, bArr, iArr);
             if (composeMainSubPicture == null || composeMainSubPicture.length < jpegImageData.length) {
-                String str3 = TAG;
+                String str4 = TAG;
                 StringBuilder sb3 = new StringBuilder();
                 sb3.append("Failed to compose main sub photos: ");
-                str2 = str;
-                sb3.append(str2);
-                Log.e(str3, sb3.toString());
+                str3 = str;
+                sb3.append(str3);
+                Log.e(str4, sb3.toString());
+                parallelTaskDataParameter2 = parallelTaskDataParameter;
             } else {
                 jpegImageData = composeMainSubPicture;
                 str2 = str;
+                parallelTaskDataParameter2 = parallelTaskDataParameter;
+                if (parallelTaskData.getParallelType() != -2 || parallelTaskData.getParallelType() == -3) {
+                    ParallelTaskData parallelTaskData3 = parallelTaskData;
+                    parallelTaskData3.refillJpegData(jpegImageData);
+                    storeJpegData(parallelTaskData3, i4, i3);
+                }
+                addImage(jpegImageData, parallelTaskData.isNeedThumbnail(), str2, null, System.currentTimeMillis(), null, parallelTaskDataParameter2.getLocation(), i4, i5, null, i3, false, false, true, false, false, parallelTaskDataParameter2.getAlgorithmName(), parallelTaskDataParameter2.getPictureInfo(), parallelTaskData.getPreviewThumbnailHash());
+                return;
             }
-            parallelTaskDataParameter2 = parallelTaskDataParameter;
         } else {
-            str2 = str;
+            str3 = str;
             parallelTaskDataParameter2 = parallelTaskDataParameter;
-            byte[] composeLiveShotPicture = Util.composeLiveShotPicture(jpegImageData, width, height, parallelTaskData.getMicroVideoData(), parallelTaskData.getCoverFrameTimestamp(), parallelTaskDataParameter2.isHasDualWaterMark(), parallelTaskDataParameter2.getTimeWaterMarkString(), bArr, iArr);
+            byte[] composeLiveShotPicture = Util.composeLiveShotPicture(jpegImageData, width, height, parallelTaskData.getMicroVideoData(), parallelTaskData.getCoverFrameTimestamp(), parallelTaskDataParameter2.isHasDualWaterMark(), parallelTaskDataParameter2.isHasFrontWaterMark(), parallelTaskDataParameter2.getTimeWaterMarkString(), bArr, iArr);
             if (composeLiveShotPicture == null || composeLiveShotPicture.length < jpegImageData.length) {
-                String str4 = TAG;
+                String str5 = TAG;
                 StringBuilder sb4 = new StringBuilder();
                 sb4.append("Failed to compose LiveShot photo: ");
-                sb4.append(str2);
-                Log.e(str4, sb4.toString());
+                sb4.append(str3);
+                Log.e(str5, sb4.toString());
             } else {
                 StringBuilder sb5 = new StringBuilder();
                 sb5.append(parallelTaskDataParameter2.getPrefix());
-                sb5.append(str2);
+                sb5.append(str3);
                 str2 = sb5.toString();
                 jpegImageData = composeLiveShotPicture;
+                if (parallelTaskData.getParallelType() != -2) {
+                }
+                ParallelTaskData parallelTaskData32 = parallelTaskData;
+                parallelTaskData32.refillJpegData(jpegImageData);
+                storeJpegData(parallelTaskData32, i4, i3);
             }
         }
-        if (parallelTaskData.getParallelType() == -2 || parallelTaskData.getParallelType() == -3) {
-            ParallelTaskData parallelTaskData3 = parallelTaskData;
-            parallelTaskData3.refillJpegData(jpegImageData);
-            storeJpegData(parallelTaskData3, i4, i3);
-            return;
+        str2 = str3;
+        if (parallelTaskData.getParallelType() != -2) {
         }
-        addImage(jpegImageData, parallelTaskData.isNeedThumbnail(), str2, null, System.currentTimeMillis(), null, parallelTaskDataParameter2.getLocation(), i4, i5, null, i3, false, false, true, false, false, parallelTaskDataParameter2.getAlgorithmName(), parallelTaskDataParameter2.getPictureInfo(), parallelTaskData.getPreviewThumbnailHash());
+        ParallelTaskData parallelTaskData322 = parallelTaskData;
+        parallelTaskData322.refillJpegData(jpegImageData);
+        storeJpegData(parallelTaskData322, i4, i3);
     }
 
     private boolean isLastImageForThumbnail() {

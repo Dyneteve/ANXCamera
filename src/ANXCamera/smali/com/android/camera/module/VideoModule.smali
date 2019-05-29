@@ -705,15 +705,11 @@
     return v1
 
     :cond_3
-    invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemConfig()Lcom/android/camera/data/data/config/DataItemConfig;
+    invoke-virtual {p0}, Lcom/android/camera/module/VideoModule;->isUltraWideBackCamera()Z
 
-    move-result-object v0
+    move-result v0
 
-    const-string v2, "pref_camera_hsr_value_key"
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v0, v2, v3}, Lcom/android/camera/data/data/config/DataItemConfig;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/android/camera/CameraSettings;->getHSRValue(Z)Ljava/lang/String;
 
     move-result-object v0
 
@@ -1758,7 +1754,7 @@
     :goto_0
     if-eqz v0, :cond_2
 
-    invoke-static {}, Lcom/mi/config/b;->iF()Z
+    invoke-static {}, Lcom/mi/config/b;->iI()Z
 
     move-result v2
 
@@ -1769,7 +1765,7 @@
     move-result v0
 
     :cond_2
-    invoke-static {}, Lcom/mi/config/b;->gH()Z
+    invoke-static {}, Lcom/mi/config/b;->gK()Z
 
     move-result v2
 
@@ -4732,7 +4728,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/mi/config/b;->iF()Z
+    invoke-static {}, Lcom/mi/config/b;->iI()Z
 
     move-result v0
 
@@ -5000,7 +4996,7 @@
 
     nop
 
-    invoke-static {}, Lcom/mi/config/b;->hB()Z
+    invoke-static {}, Lcom/mi/config/b;->hE()Z
 
     move-result v3
 
@@ -5366,7 +5362,7 @@
     goto :goto_2
 
     :pswitch_13
-    invoke-static {}, Lcom/mi/config/b;->he()Z
+    invoke-static {}, Lcom/mi/config/b;->hh()Z
 
     move-result v2
 
@@ -5842,7 +5838,7 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    invoke-static {}, Lcom/mi/config/b;->he()Z
+    invoke-static {}, Lcom/mi/config/b;->hh()Z
 
     move-result v1
 
@@ -6461,7 +6457,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/mi/config/b;->hg()Z
+    invoke-static {}, Lcom/mi/config/b;->hj()Z
 
     move-result v0
 
@@ -7955,9 +7951,11 @@
 .method protected readVideoPreferences()V
     .locals 10
 
-    iget v0, p0, Lcom/android/camera/module/VideoModule;->mModuleIndex:I
+    iget v0, p0, Lcom/android/camera/module/VideoModule;->mActualCameraId:I
 
-    invoke-static {v0}, Lcom/android/camera/CameraSettings;->getVideoQuality(I)I
+    iget v1, p0, Lcom/android/camera/module/VideoModule;->mModuleIndex:I
+
+    invoke-static {v0, v1}, Lcom/android/camera/CameraSettings;->getVideoQuality(II)I
 
     move-result v0
 
@@ -9892,7 +9890,7 @@
 
     invoke-direct {p0}, Lcom/android/camera/module/VideoModule;->updateFrontMirror()V
 
-    invoke-static {}, Lcom/mi/config/b;->hI()Z
+    invoke-static {}, Lcom/mi/config/b;->hL()Z
 
     move-result v1
 

@@ -17,13 +17,13 @@
 
 
 # instance fields
-.field private final hu:J
+.field private final hv:J
 
-.field private hw:J
+.field private hx:J
 
 .field private maxSize:J
 
-.field private final pU:Ljava/util/Map;
+.field private final pV:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -49,9 +49,9 @@
 
     invoke-direct {v0, v1, v2, v3}, Ljava/util/LinkedHashMap;-><init>(IFZ)V
 
-    iput-object v0, p0, Lcom/bumptech/glide/util/f;->pU:Ljava/util/Map;
+    iput-object v0, p0, Lcom/bumptech/glide/util/f;->pV:Ljava/util/Map;
 
-    iput-wide p1, p0, Lcom/bumptech/glide/util/f;->hu:J
+    iput-wide p1, p0, Lcom/bumptech/glide/util/f;->hv:J
 
     iput-wide p1, p0, Lcom/bumptech/glide/util/f;->maxSize:J
 
@@ -82,7 +82,7 @@
     if-ltz v0, :cond_0
 
     :try_start_0
-    iget-wide v0, p0, Lcom/bumptech/glide/util/f;->hu:J
+    iget-wide v0, p0, Lcom/bumptech/glide/util/f;->hv:J
 
     long-to-float v0, v0
 
@@ -131,13 +131,13 @@
 
     :goto_0
     :try_start_0
-    iget-wide v0, p0, Lcom/bumptech/glide/util/f;->hw:J
+    iget-wide v0, p0, Lcom/bumptech/glide/util/f;->hx:J
 
     cmp-long v0, v0, p1
 
     if-lez v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/util/f;->pU:Ljava/util/Map;
+    iget-object v0, p0, Lcom/bumptech/glide/util/f;->pV:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
@@ -157,7 +157,7 @@
 
     move-result-object v2
 
-    iget-wide v3, p0, Lcom/bumptech/glide/util/f;->hw:J
+    iget-wide v3, p0, Lcom/bumptech/glide/util/f;->hx:J
 
     invoke-virtual {p0, v2}, Lcom/bumptech/glide/util/f;->p(Ljava/lang/Object;)I
 
@@ -167,7 +167,7 @@
 
     sub-long/2addr v3, v5
 
-    iput-wide v3, p0, Lcom/bumptech/glide/util/f;->hw:J
+    iput-wide v3, p0, Lcom/bumptech/glide/util/f;->hx:J
 
     invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
@@ -219,7 +219,7 @@
     monitor-enter p0
 
     :try_start_0
-    iget-wide v0, p0, Lcom/bumptech/glide/util/f;->hw:J
+    iget-wide v0, p0, Lcom/bumptech/glide/util/f;->hx:J
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -250,7 +250,7 @@
     monitor-enter p0
 
     :try_start_0
-    iget-object v0, p0, Lcom/bumptech/glide/util/f;->pU:Ljava/util/Map;
+    iget-object v0, p0, Lcom/bumptech/glide/util/f;->pV:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
@@ -288,7 +288,7 @@
     monitor-enter p0
 
     :try_start_0
-    iget-object v0, p0, Lcom/bumptech/glide/util/f;->pU:Ljava/util/Map;
+    iget-object v0, p0, Lcom/bumptech/glide/util/f;->pV:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -314,7 +314,7 @@
     monitor-enter p0
 
     :try_start_0
-    iget-object v0, p0, Lcom/bumptech/glide/util/f;->pU:Ljava/util/Map;
+    iget-object v0, p0, Lcom/bumptech/glide/util/f;->pV:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->size()I
 
@@ -431,14 +431,14 @@
     if-eqz p2, :cond_1
 
     :try_start_1
-    iget-wide v2, p0, Lcom/bumptech/glide/util/f;->hw:J
+    iget-wide v2, p0, Lcom/bumptech/glide/util/f;->hx:J
 
     add-long/2addr v2, v0
 
-    iput-wide v2, p0, Lcom/bumptech/glide/util/f;->hw:J
+    iput-wide v2, p0, Lcom/bumptech/glide/util/f;->hx:J
 
     :cond_1
-    iget-object v0, p0, Lcom/bumptech/glide/util/f;->pU:Ljava/util/Map;
+    iget-object v0, p0, Lcom/bumptech/glide/util/f;->pV:Ljava/util/Map;
 
     invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -446,7 +446,7 @@
 
     if-eqz v0, :cond_2
 
-    iget-wide v1, p0, Lcom/bumptech/glide/util/f;->hw:J
+    iget-wide v1, p0, Lcom/bumptech/glide/util/f;->hx:J
 
     invoke-virtual {p0, v0}, Lcom/bumptech/glide/util/f;->p(Ljava/lang/Object;)I
 
@@ -456,7 +456,7 @@
 
     sub-long/2addr v1, v3
 
-    iput-wide v1, p0, Lcom/bumptech/glide/util/f;->hw:J
+    iput-wide v1, p0, Lcom/bumptech/glide/util/f;->hx:J
 
     invoke-virtual {v0, p2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
@@ -501,7 +501,7 @@
     monitor-enter p0
 
     :try_start_0
-    iget-object v0, p0, Lcom/bumptech/glide/util/f;->pU:Ljava/util/Map;
+    iget-object v0, p0, Lcom/bumptech/glide/util/f;->pV:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -509,7 +509,7 @@
 
     if-eqz p1, :cond_0
 
-    iget-wide v0, p0, Lcom/bumptech/glide/util/f;->hw:J
+    iget-wide v0, p0, Lcom/bumptech/glide/util/f;->hx:J
 
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/util/f;->p(Ljava/lang/Object;)I
 
@@ -519,7 +519,7 @@
 
     sub-long/2addr v0, v2
 
-    iput-wide v0, p0, Lcom/bumptech/glide/util/f;->hw:J
+    iput-wide v0, p0, Lcom/bumptech/glide/util/f;->hx:J
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

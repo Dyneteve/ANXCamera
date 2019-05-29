@@ -35,10 +35,6 @@
 
 .field private mPreviewCallback:Lcom/android/camera2/Camera2Proxy$PreviewCallback;
 
-.field private mPreviewHeight:I
-
-.field private mPreviewWidth:I
-
 
 # direct methods
 .method private constructor <init>()V
@@ -75,22 +71,6 @@
     iget-object p0, p0, Lcom/android/zxing/PreviewDecodeManager;->mDecoders:Ljava/util/concurrent/ConcurrentHashMap;
 
     return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/zxing/PreviewDecodeManager;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/zxing/PreviewDecodeManager;->mPreviewWidth:I
-
-    return p0
-.end method
-
-.method static synthetic access$200(Lcom/android/zxing/PreviewDecodeManager;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/zxing/PreviewDecodeManager;->mPreviewHeight:I
-
-    return p0
 .end method
 
 .method public static getInstance()Lcom/android/zxing/PreviewDecodeManager;
@@ -419,83 +399,6 @@
     invoke-virtual {v0}, Lcom/android/zxing/QrDecoder;->resetScanResult()V
 
     :cond_0
-    return-void
-.end method
-
-.method public setPreviewSize(II)V
-    .locals 3
-
-    iget v0, p0, Lcom/android/zxing/PreviewDecodeManager;->mPreviewWidth:I
-
-    if-ne v0, p1, :cond_0
-
-    iget v0, p0, Lcom/android/zxing/PreviewDecodeManager;->mPreviewHeight:I
-
-    if-eq v0, p2, :cond_1
-
-    :cond_0
-    iput p1, p0, Lcom/android/zxing/PreviewDecodeManager;->mPreviewWidth:I
-
-    iput p2, p0, Lcom/android/zxing/PreviewDecodeManager;->mPreviewHeight:I
-
-    iget-object v0, p0, Lcom/android/zxing/PreviewDecodeManager;->mDecoders:Ljava/util/concurrent/ConcurrentHashMap;
-
-    invoke-virtual {v0}, Ljava/util/concurrent/ConcurrentHashMap;->entrySet()Ljava/util/Set;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/util/Map$Entry;
-
-    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/zxing/Decoder;
-
-    invoke-virtual {v1, p1, p2}, Lcom/android/zxing/Decoder;->updatePreviewSize(II)V
-
-    goto :goto_0
-
-    :cond_1
-    const-string v0, "PreviewDecodeManager"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "setPreviewSize: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string p1, " x "
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-static {v0, p1}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     return-void
 .end method
 

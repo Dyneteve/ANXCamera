@@ -2,6 +2,7 @@ package com.android.camera.db;
 
 import android.content.Context;
 import com.android.camera.CameraAppImpl;
+import com.android.camera.CameraApplicationDelegate;
 import com.android.camera.db.greendao.DaoMaster;
 import com.android.camera.db.greendao.DaoMaster.DevOpenHelper;
 import com.android.camera.db.greendao.DaoSession;
@@ -27,6 +28,9 @@ public class DbContainer {
     }
 
     public static DbContainer getInstance() {
+        if (dbContainer == null) {
+            init(CameraApplicationDelegate.getAndroidContext());
+        }
         return dbContainer;
     }
 

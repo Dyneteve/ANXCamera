@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private volatile fA:Z
+.field private volatile fB:Z
 
 
 # direct methods
@@ -34,7 +34,7 @@
 .method public eT()V
     .locals 2
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/util/a/c$b;->fA:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/util/a/c$b;->fB:Z
 
     if-nez v0, :cond_0
 
@@ -53,7 +53,7 @@
 .method public o(Z)V
     .locals 0
 
-    iput-boolean p1, p0, Lcom/bumptech/glide/util/a/c$b;->fA:Z
+    iput-boolean p1, p0, Lcom/bumptech/glide/util/a/c$b;->fB:Z
 
     return-void
 .end method

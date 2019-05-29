@@ -228,7 +228,7 @@
 
     if-nez v3, :cond_7
 
-    invoke-virtual {v2}, Lcom/mi/config/a;->gz()Z
+    invoke-virtual {v2}, Lcom/mi/config/a;->gA()Z
 
     move-result v3
 
@@ -249,7 +249,7 @@
     invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_7
-    invoke-virtual {v2}, Lcom/mi/config/a;->gA()Z
+    invoke-virtual {v2}, Lcom/mi/config/a;->gB()Z
 
     move-result v3
 
@@ -311,7 +311,7 @@
 
     new-instance v3, Lcom/android/camera/data/data/ComponentDataItem;
 
-    const v4, 0x7f0902ad
+    const v4, 0x7f090340
 
     const/16 v5, 0xb1
 
@@ -351,7 +351,7 @@
     :cond_b
     new-instance v2, Lcom/android/camera/data/data/ComponentDataItem;
 
-    const v3, 0x7f09025d
+    const v3, 0x7f09025c
 
     const/16 v4, 0xa7
 

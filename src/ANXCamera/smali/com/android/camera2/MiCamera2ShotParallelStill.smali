@@ -118,11 +118,11 @@
 
     if-eqz v0, :cond_2
 
-    sget-boolean v0, Lcom/mi/config/b;->rJ:Z
+    sget-boolean v0, Lcom/mi/config/b;->rK:Z
 
     if-nez v0, :cond_1
 
-    sget-boolean v0, Lcom/mi/config/b;->rL:Z
+    sget-boolean v0, Lcom/mi/config/b;->rM:Z
 
     if-eqz v0, :cond_2
 
@@ -130,7 +130,7 @@
     return v1
 
     :cond_2
-    invoke-static {}, Lcom/mi/config/b;->iG()Z
+    invoke-static {}, Lcom/mi/config/b;->iJ()Z
 
     move-result v0
 

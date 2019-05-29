@@ -38,6 +38,7 @@ public class MimojiEditGLSurfaceView extends GLSurfaceView implements Renderer {
     private long mFrameCountingStart;
     private Handler mHandler;
     private boolean mIsStopRender;
+    private boolean mNeedRenderBG;
     private boolean mSaveConfigThum;
 
     private class MyEGLConfigChooser implements EGLConfigChooser {
@@ -48,11 +49,11 @@ public class MimojiEditGLSurfaceView extends GLSurfaceView implements Renderer {
         private MyEGLConfigChooser() {
             int[] iArr = new int[13];
             iArr[0] = 12324;
-            iArr[1] = b.ij() ? 8 : 5;
+            iArr[1] = b.im() ? 8 : 5;
             iArr[2] = 12323;
-            iArr[3] = b.ij() ? 8 : 6;
+            iArr[3] = b.im() ? 8 : 6;
             iArr[4] = 12322;
-            iArr[5] = b.ij() ? 8 : 5;
+            iArr[5] = b.im() ? 8 : 5;
             iArr[6] = 12325;
             iArr[7] = 8;
             iArr[8] = 12321;
@@ -136,13 +137,14 @@ public class MimojiEditGLSurfaceView extends GLSurfaceView implements Renderer {
         this.mDeviceRotation = 90;
         this.mIsStopRender = false;
         this.mSaveConfigThum = false;
+        this.mNeedRenderBG = true;
         setEGLContextClientVersion(2);
         setEGLConfigChooser(this.mEglConfigChooser);
         setRenderer(this);
         setRenderMode(0);
         setPreserveEGLContextOnPause(true);
-        getHolder().setFormat(-3);
-        if (b.hC()) {
+        getHolder().setFormat(4);
+        if (b.hF()) {
             getHolder().setFixedSize(Util.LIMIT_SURFACE_WIDTH, (Util.sWindowHeight * Util.LIMIT_SURFACE_WIDTH) / Util.sWindowWidth);
         }
         setupAvatar();
@@ -169,15 +171,15 @@ public class MimojiEditGLSurfaceView extends GLSurfaceView implements Renderer {
     }
 
     public void onDrawFrame(GL10 gl10) {
+        GLES20.glClearColor(0.0823f, 0.0823f, 0.0823f, 1.0f);
+        GLES20.glEnable(2929);
+        GLES20.glClear(16640);
         if (!this.mIsStopRender) {
-            GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-            GLES20.glEnable(2929);
-            GLES20.glClear(16640);
             AvatarEngineManager.getInstance().queryAvatar().avatarRender(this.mDeviceRotation, getWidth(), getHeight(), 0, false, null);
             if (this.mSaveConfigThum) {
                 this.mSaveConfigThum = false;
                 byte[] bArr = new byte[160000];
-                this.mAvatar.renderThumb(200, 200, 0, 0, bArr, 200, 200, 800, BACKGROUND_COLOR);
+                AvatarEngineManager.getInstance().queryAvatar().renderThumb(244, 292, 21, 20, bArr, 200, 200, 800, BACKGROUND_COLOR, 1.0f);
                 Message obtainMessage = this.mHandler.obtainMessage();
                 obtainMessage.what = 4;
                 obtainMessage.obj = bArr;
@@ -196,6 +198,10 @@ public class MimojiEditGLSurfaceView extends GLSurfaceView implements Renderer {
         GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     }
 
+    public void setNeedRenderBG(boolean z) {
+        this.mNeedRenderBG = z;
+    }
+
     public void setSaveConfigThum(boolean z) {
         this.mSaveConfigThum = z;
     }
@@ -210,7 +216,7 @@ public class MimojiEditGLSurfaceView extends GLSurfaceView implements Renderer {
 
     public void setupAvatar() {
         this.mAvatar = AvatarEngineManager.getInstance().queryAvatar();
-        this.mAvatar.setRenderScene(false, 1.0f);
+        this.mAvatar.setRenderScene(false, 0.85f);
     }
 
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {

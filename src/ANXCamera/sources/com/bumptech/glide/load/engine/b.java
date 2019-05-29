@@ -6,17 +6,17 @@ import java.security.MessageDigest;
 
 /* compiled from: DataCacheKey */
 final class b implements c {
-    private final c eI;
-    private final c eN;
+    private final c eJ;
+    private final c eO;
 
     b(c cVar, c cVar2) {
-        this.eI = cVar;
-        this.eN = cVar2;
+        this.eJ = cVar;
+        this.eO = cVar2;
     }
 
     /* access modifiers changed from: 0000 */
     public c au() {
-        return this.eI;
+        return this.eJ;
     }
 
     public boolean equals(Object obj) {
@@ -25,28 +25,28 @@ final class b implements c {
             return false;
         }
         b bVar = (b) obj;
-        if (this.eI.equals(bVar.eI) && this.eN.equals(bVar.eN)) {
+        if (this.eJ.equals(bVar.eJ) && this.eO.equals(bVar.eO)) {
             z = true;
         }
         return z;
     }
 
     public int hashCode() {
-        return (31 * this.eI.hashCode()) + this.eN.hashCode();
+        return (31 * this.eJ.hashCode()) + this.eO.hashCode();
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("DataCacheKey{sourceKey=");
-        sb.append(this.eI);
+        sb.append(this.eJ);
         sb.append(", signature=");
-        sb.append(this.eN);
+        sb.append(this.eO);
         sb.append('}');
         return sb.toString();
     }
 
     public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
-        this.eI.updateDiskCacheKey(messageDigest);
-        this.eN.updateDiskCacheKey(messageDigest);
+        this.eJ.updateDiskCacheKey(messageDigest);
+        this.eO.updateDiskCacheKey(messageDigest);
     }
 }

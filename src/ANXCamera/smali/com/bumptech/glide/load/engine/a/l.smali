@@ -21,17 +21,17 @@
 
 .field private static final TAG:Ljava/lang/String; = "MemorySizeCalculator"
 
-.field private static final ig:I = 0x2
+.field private static final ii:I = 0x2
 
 
 # instance fields
 .field private final context:Landroid/content/Context;
 
-.field private final ii:I
-
 .field private final ij:I
 
 .field private final ik:I
+
+.field private final il:I
 
 
 # direct methods
@@ -46,7 +46,7 @@
 
     nop
 
-    iget-object v0, p1, Lcom/bumptech/glide/load/engine/a/l$a;->iq:Landroid/app/ActivityManager;
+    iget-object v0, p1, Lcom/bumptech/glide/load/engine/a/l$a;->ir:Landroid/app/ActivityManager;
 
     invoke-static {v0}, Lcom/bumptech/glide/load/engine/a/l;->a(Landroid/app/ActivityManager;)Z
 
@@ -54,35 +54,35 @@
 
     if-eqz v0, :cond_0
 
-    iget v0, p1, Lcom/bumptech/glide/load/engine/a/l$a;->iB:I
+    iget v0, p1, Lcom/bumptech/glide/load/engine/a/l$a;->iC:I
 
     div-int/lit8 v0, v0, 0x2
 
     goto :goto_0
 
     :cond_0
-    iget v0, p1, Lcom/bumptech/glide/load/engine/a/l$a;->iB:I
+    iget v0, p1, Lcom/bumptech/glide/load/engine/a/l$a;->iC:I
 
     :goto_0
-    iput v0, p0, Lcom/bumptech/glide/load/engine/a/l;->ik:I
+    iput v0, p0, Lcom/bumptech/glide/load/engine/a/l;->il:I
 
-    iget-object v0, p1, Lcom/bumptech/glide/load/engine/a/l$a;->iq:Landroid/app/ActivityManager;
+    iget-object v0, p1, Lcom/bumptech/glide/load/engine/a/l$a;->ir:Landroid/app/ActivityManager;
 
-    iget v1, p1, Lcom/bumptech/glide/load/engine/a/l$a;->iz:F
+    iget v1, p1, Lcom/bumptech/glide/load/engine/a/l$a;->iA:F
 
-    iget v2, p1, Lcom/bumptech/glide/load/engine/a/l$a;->iA:F
+    iget v2, p1, Lcom/bumptech/glide/load/engine/a/l$a;->iB:F
 
     invoke-static {v0, v1, v2}, Lcom/bumptech/glide/load/engine/a/l;->a(Landroid/app/ActivityManager;FF)I
 
     move-result v0
 
-    iget-object v1, p1, Lcom/bumptech/glide/load/engine/a/l$a;->ir:Lcom/bumptech/glide/load/engine/a/l$c;
+    iget-object v1, p1, Lcom/bumptech/glide/load/engine/a/l$a;->iu:Lcom/bumptech/glide/load/engine/a/l$c;
 
     invoke-interface {v1}, Lcom/bumptech/glide/load/engine/a/l$c;->bK()I
 
     move-result v1
 
-    iget-object v2, p1, Lcom/bumptech/glide/load/engine/a/l$a;->ir:Lcom/bumptech/glide/load/engine/a/l$c;
+    iget-object v2, p1, Lcom/bumptech/glide/load/engine/a/l$a;->iu:Lcom/bumptech/glide/load/engine/a/l$c;
 
     invoke-interface {v2}, Lcom/bumptech/glide/load/engine/a/l$c;->bL()I
 
@@ -94,7 +94,7 @@
 
     int-to-float v1, v1
 
-    iget v2, p1, Lcom/bumptech/glide/load/engine/a/l$a;->iv:F
+    iget v2, p1, Lcom/bumptech/glide/load/engine/a/l$a;->iz:F
 
     mul-float/2addr v2, v1
 
@@ -102,7 +102,7 @@
 
     move-result v2
 
-    iget v3, p1, Lcom/bumptech/glide/load/engine/a/l$a;->iu:F
+    iget v3, p1, Lcom/bumptech/glide/load/engine/a/l$a;->iv:F
 
     mul-float/2addr v1, v3
 
@@ -110,7 +110,7 @@
 
     move-result v1
 
-    iget v3, p0, Lcom/bumptech/glide/load/engine/a/l;->ik:I
+    iget v3, p0, Lcom/bumptech/glide/load/engine/a/l;->il:I
 
     sub-int v3, v0, v3
 
@@ -118,24 +118,24 @@
 
     if-gt v4, v3, :cond_1
 
-    iput v1, p0, Lcom/bumptech/glide/load/engine/a/l;->ij:I
+    iput v1, p0, Lcom/bumptech/glide/load/engine/a/l;->ik:I
 
-    iput v2, p0, Lcom/bumptech/glide/load/engine/a/l;->ii:I
+    iput v2, p0, Lcom/bumptech/glide/load/engine/a/l;->ij:I
 
     goto :goto_1
 
     :cond_1
     int-to-float v1, v3
 
-    iget v2, p1, Lcom/bumptech/glide/load/engine/a/l$a;->iv:F
+    iget v2, p1, Lcom/bumptech/glide/load/engine/a/l$a;->iz:F
 
-    iget v3, p1, Lcom/bumptech/glide/load/engine/a/l$a;->iu:F
+    iget v3, p1, Lcom/bumptech/glide/load/engine/a/l$a;->iv:F
 
     add-float/2addr v2, v3
 
     div-float/2addr v1, v2
 
-    iget v2, p1, Lcom/bumptech/glide/load/engine/a/l$a;->iu:F
+    iget v2, p1, Lcom/bumptech/glide/load/engine/a/l$a;->iv:F
 
     mul-float/2addr v2, v1
 
@@ -143,9 +143,9 @@
 
     move-result v2
 
-    iput v2, p0, Lcom/bumptech/glide/load/engine/a/l;->ij:I
+    iput v2, p0, Lcom/bumptech/glide/load/engine/a/l;->ik:I
 
-    iget v2, p1, Lcom/bumptech/glide/load/engine/a/l$a;->iv:F
+    iget v2, p1, Lcom/bumptech/glide/load/engine/a/l$a;->iz:F
 
     mul-float/2addr v1, v2
 
@@ -153,7 +153,7 @@
 
     move-result v1
 
-    iput v1, p0, Lcom/bumptech/glide/load/engine/a/l;->ii:I
+    iput v1, p0, Lcom/bumptech/glide/load/engine/a/l;->ij:I
 
     :goto_1
     const-string v1, "MemorySizeCalculator"
@@ -176,7 +176,7 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v3, p0, Lcom/bumptech/glide/load/engine/a/l;->ij:I
+    iget v3, p0, Lcom/bumptech/glide/load/engine/a/l;->ik:I
 
     invoke-direct {p0, v3}, Lcom/bumptech/glide/load/engine/a/l;->w(I)Ljava/lang/String;
 
@@ -188,7 +188,7 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v3, p0, Lcom/bumptech/glide/load/engine/a/l;->ii:I
+    iget v3, p0, Lcom/bumptech/glide/load/engine/a/l;->ij:I
 
     invoke-direct {p0, v3}, Lcom/bumptech/glide/load/engine/a/l;->w(I)Ljava/lang/String;
 
@@ -200,7 +200,7 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v3, p0, Lcom/bumptech/glide/load/engine/a/l;->ik:I
+    iget v3, p0, Lcom/bumptech/glide/load/engine/a/l;->il:I
 
     invoke-direct {p0, v3}, Lcom/bumptech/glide/load/engine/a/l;->w(I)Ljava/lang/String;
 
@@ -238,7 +238,7 @@
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v0, p1, Lcom/bumptech/glide/load/engine/a/l$a;->iq:Landroid/app/ActivityManager;
+    iget-object v0, p1, Lcom/bumptech/glide/load/engine/a/l$a;->ir:Landroid/app/ActivityManager;
 
     invoke-virtual {v0}, Landroid/app/ActivityManager;->getMemoryClass()I
 
@@ -250,7 +250,7 @@
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object p1, p1, Lcom/bumptech/glide/load/engine/a/l$a;->iq:Landroid/app/ActivityManager;
+    iget-object p1, p1, Lcom/bumptech/glide/load/engine/a/l$a;->ir:Landroid/app/ActivityManager;
 
     invoke-static {p1}, Lcom/bumptech/glide/load/engine/a/l;->a(Landroid/app/ActivityManager;)Z
 
@@ -344,7 +344,7 @@
 .method public bG()I
     .locals 1
 
-    iget v0, p0, Lcom/bumptech/glide/load/engine/a/l;->ij:I
+    iget v0, p0, Lcom/bumptech/glide/load/engine/a/l;->ik:I
 
     return v0
 .end method
@@ -352,7 +352,7 @@
 .method public bH()I
     .locals 1
 
-    iget v0, p0, Lcom/bumptech/glide/load/engine/a/l;->ii:I
+    iget v0, p0, Lcom/bumptech/glide/load/engine/a/l;->ij:I
 
     return v0
 .end method
@@ -360,7 +360,7 @@
 .method public bI()I
     .locals 1
 
-    iget v0, p0, Lcom/bumptech/glide/load/engine/a/l;->ik:I
+    iget v0, p0, Lcom/bumptech/glide/load/engine/a/l;->il:I
 
     return v0
 .end method

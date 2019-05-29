@@ -84,7 +84,7 @@
 
     invoke-super {p0, p1}, Lcom/android/camera/ui/HorizontalSlideView;->init(Landroid/content/Context;)V
 
-    const v0, 0x7f0b006b
+    const v0, 0x7f0b006d
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getColor(I)I
 
@@ -96,7 +96,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a00f0
+    const v1, 0x7f0a00d3
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -114,7 +114,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0a00f1
+    const v0, 0x7f0a00d4
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

@@ -132,6 +132,12 @@
 
     if-eqz p1, :cond_3
 
+    invoke-static {}, Lcom/android/camera/CameraSettings;->isSupportedOpticalZoom()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_3
+
     invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemGlobal()Lcom/android/camera/data/data/global/DataItemGlobal;
 
     move-result-object p1

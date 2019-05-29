@@ -4,4 +4,8 @@
         <item quantity="other">Фокусталды. %d бет табылды</item>
         <item quantity="one">Фокусталды. %d бет табылды</item>
     </plurals>
+    <plurals name="toast_burst_snap_finished_summary">
+        <item quantity="other">Сериялық түсірме аяқталды, %1$s фотосурет түсірілді</item>
+        <item quantity="one">Сериялық түсірме аяқталды, %1$s фотосурет түсірілді</item>
+    </plurals>
 </resources>

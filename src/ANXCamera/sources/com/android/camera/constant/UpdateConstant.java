@@ -12,7 +12,7 @@ public class UpdateConstant {
     @UpdateType
     public static final int[] FUN_TYPES_INIT = {1};
     @UpdateType
-    public static final int[] FUN_TYPES_ON_PREVIEW_SUCCESS = {24, 2, 29, 35, 13, 19, 47, 5, 9, 10, 14, 25, 31};
+    public static final int[] FUN_TYPES_ON_PREVIEW_SUCCESS = {24, 2, 29, 35, 13, 19, 47, 5, 9, 10, 14, 25, 31, 54};
     @UpdateType
     public static final int[] PANORAMA_ON_PREVIEW_SUCCESS = {32};
     @UpdateType
@@ -50,6 +50,7 @@ public class UpdateConstant {
     public static final int TYPE_MACRO_MODE = 52;
     public static final int TYPE_METERING_MODE = 29;
     public static final int TYPE_MFNR = 34;
+    public static final int TYPE_MIMOJI = 54;
     public static final int TYPE_MUTE = 21;
     public static final int TYPE_NORMAL_WIDE_LDC = 46;
     public static final int TYPE_OIS = 20;

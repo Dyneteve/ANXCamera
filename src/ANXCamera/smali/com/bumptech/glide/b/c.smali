@@ -4,9 +4,9 @@
 
 
 # static fields
-.field public static final cj:I = 0x0
+.field public static final ck:I = 0x0
 
-.field public static final ck:I = -0x1
+.field public static final cl:I = -0x1
 
 
 # instance fields
@@ -17,11 +17,11 @@
 
 .field bgIndex:I
 
-.field cl:I
+.field cm:I
 
-.field cm:Lcom/bumptech/glide/b/b;
+.field cn:Lcom/bumptech/glide/b/b;
 
-.field final cn:Ljava/util/List;
+.field final cp:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -65,13 +65,13 @@
 
     iput v0, p0, Lcom/bumptech/glide/b/c;->status:I
 
-    iput v0, p0, Lcom/bumptech/glide/b/c;->cl:I
+    iput v0, p0, Lcom/bumptech/glide/b/c;->cm:I
 
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/bumptech/glide/b/c;->cn:Ljava/util/List;
+    iput-object v0, p0, Lcom/bumptech/glide/b/c;->cp:Ljava/util/List;
 
     const/4 v0, -0x1
 
@@ -85,7 +85,7 @@
 .method public ab()I
     .locals 1
 
-    iget v0, p0, Lcom/bumptech/glide/b/c;->cl:I
+    iget v0, p0, Lcom/bumptech/glide/b/c;->cm:I
 
     return v0
 .end method

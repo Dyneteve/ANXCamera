@@ -43,7 +43,7 @@ public class CameraPreferenceActivity extends BasePreferenceActivity {
     }
 
     public void changeRequestOrientation() {
-        if (b.ih()) {
+        if (b.ik()) {
             if (CameraSettings.isFrontCamera()) {
                 setRequestedOrientation(7);
             } else {

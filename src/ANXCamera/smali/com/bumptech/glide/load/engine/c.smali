@@ -27,7 +27,7 @@
     .end annotation
 .end field
 
-.field private final eO:Lcom/bumptech/glide/load/a;
+.field private final eP:Lcom/bumptech/glide/load/a;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/a<",
@@ -36,7 +36,7 @@
     .end annotation
 .end field
 
-.field private final eP:Lcom/bumptech/glide/load/f;
+.field private final eQ:Lcom/bumptech/glide/load/f;
 
 
 # direct methods
@@ -54,11 +54,11 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/engine/c;->eO:Lcom/bumptech/glide/load/a;
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/c;->eP:Lcom/bumptech/glide/load/a;
 
     iput-object p2, p0, Lcom/bumptech/glide/load/engine/c;->data:Ljava/lang/Object;
 
-    iput-object p3, p0, Lcom/bumptech/glide/load/engine/c;->eP:Lcom/bumptech/glide/load/f;
+    iput-object p3, p0, Lcom/bumptech/glide/load/engine/c;->eQ:Lcom/bumptech/glide/load/f;
 
     return-void
 .end method
@@ -72,11 +72,11 @@
         .end annotation
     .end param
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/c;->eO:Lcom/bumptech/glide/load/a;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/c;->eP:Lcom/bumptech/glide/load/a;
 
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/c;->data:Ljava/lang/Object;
 
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/c;->eP:Lcom/bumptech/glide/load/f;
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/c;->eQ:Lcom/bumptech/glide/load/f;
 
     invoke-interface {v0, v1, p1, v2}, Lcom/bumptech/glide/load/a;->a(Ljava/lang/Object;Ljava/io/File;Lcom/bumptech/glide/load/f;)Z
 

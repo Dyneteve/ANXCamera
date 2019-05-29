@@ -28,7 +28,7 @@
 
 
 # instance fields
-.field private final eJ:Ljava/util/List;
+.field private final eK:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final kc:Landroid/support/v4/util/Pools$Pool;
+.field private final kd:Landroid/support/v4/util/Pools$Pool;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/support/v4/util/Pools$Pool<",
@@ -76,9 +76,9 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/model/p;->eJ:Ljava/util/List;
+    iput-object p1, p0, Lcom/bumptech/glide/load/model/p;->eK:Ljava/util/List;
 
-    iput-object p2, p0, Lcom/bumptech/glide/load/model/p;->kc:Landroid/support/v4/util/Pools$Pool;
+    iput-object p2, p0, Lcom/bumptech/glide/load/model/p;->kd:Landroid/support/v4/util/Pools$Pool;
 
     return-void
 .end method
@@ -107,7 +107,7 @@
 
     nop
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/p;->eJ:Ljava/util/List;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/p;->eK:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
 
@@ -126,7 +126,7 @@
     :goto_0
     if-ge v3, v0, :cond_1
 
-    iget-object v5, p0, Lcom/bumptech/glide/load/model/p;->eJ:Ljava/util/List;
+    iget-object v5, p0, Lcom/bumptech/glide/load/model/p;->eK:Ljava/util/List;
 
     invoke-interface {v5, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -146,9 +146,9 @@
 
     if-eqz v5, :cond_0
 
-    iget-object v4, v5, Lcom/bumptech/glide/load/model/m$a;->eI:Lcom/bumptech/glide/load/c;
+    iget-object v4, v5, Lcom/bumptech/glide/load/model/m$a;->eJ:Lcom/bumptech/glide/load/c;
 
-    iget-object v5, v5, Lcom/bumptech/glide/load/model/m$a;->jX:Lcom/bumptech/glide/load/a/d;
+    iget-object v5, v5, Lcom/bumptech/glide/load/model/m$a;->jY:Lcom/bumptech/glide/load/a/d;
 
     invoke-interface {v1, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -170,7 +170,7 @@
 
     new-instance p1, Lcom/bumptech/glide/load/model/p$a;
 
-    iget-object p2, p0, Lcom/bumptech/glide/load/model/p;->kc:Landroid/support/v4/util/Pools$Pool;
+    iget-object p2, p0, Lcom/bumptech/glide/load/model/p;->kd:Landroid/support/v4/util/Pools$Pool;
 
     invoke-direct {p1, v1, p2}, Lcom/bumptech/glide/load/model/p$a;-><init>(Ljava/util/List;Landroid/support/v4/util/Pools$Pool;)V
 
@@ -194,7 +194,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/p;->eJ:Ljava/util/List;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/p;->eK:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -243,7 +243,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/model/p;->eJ:Ljava/util/List;
+    iget-object v1, p0, Lcom/bumptech/glide/load/model/p;->eK:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->toArray()[Ljava/lang/Object;
 

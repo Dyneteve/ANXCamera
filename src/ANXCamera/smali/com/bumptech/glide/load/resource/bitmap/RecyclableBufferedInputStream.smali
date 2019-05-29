@@ -16,7 +16,7 @@
 
 .field private count:I
 
-.field private final ed:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
+.field private final ee:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
 
 .field private marklimit:I
 
@@ -63,7 +63,7 @@
 
     iput p1, p0, Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;->markpos:I
 
-    iput-object p2, p0, Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;->ed:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
+    iput-object p2, p0, Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;->ee:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
 
     const-class p1, [B
 
@@ -134,7 +134,7 @@
     iget v0, p0, Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;->marklimit:I
 
     :cond_1
-    iget-object v1, p0, Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;->ed:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
+    iget-object v1, p0, Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;->ee:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
 
     const-class v3, [B
 
@@ -152,7 +152,7 @@
 
     iput-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;->buf:[B
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;->ed:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
+    iget-object v1, p0, Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;->ee:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
 
     invoke-interface {v1, p2}, Lcom/bumptech/glide/load/engine/bitmap_recycle/b;->put(Ljava/lang/Object;)V
 
@@ -325,7 +325,7 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;->ed:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;->ee:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
 
     iget-object v2, p0, Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;->buf:[B
 
@@ -792,7 +792,7 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;->ed:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;->ee:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
 
     iget-object v1, p0, Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;->buf:[B
 

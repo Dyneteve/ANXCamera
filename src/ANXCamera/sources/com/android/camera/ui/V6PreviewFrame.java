@@ -23,7 +23,7 @@ public class V6PreviewFrame extends V6RelativeLayout {
 
     private boolean needReferenceLineMode() {
         int currentMode = DataRepository.dataItemGlobal().getCurrentMode();
-        return currentMode == 163 || currentMode == 167 || currentMode == 171 || currentMode == 173 || currentMode == 175 || currentMode == 165;
+        return currentMode == 163 || currentMode == 167 || currentMode == 171 || currentMode == 173 || currentMode == 175 || currentMode == 165 || currentMode == 177;
     }
 
     public void hidePreviewGrid() {

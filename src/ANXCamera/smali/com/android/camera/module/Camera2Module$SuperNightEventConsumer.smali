@@ -105,7 +105,7 @@
     goto :goto_0
 
     :cond_1
-    invoke-static {}, Lcom/android/camera/module/Camera2Module;->access$500()Ljava/lang/String;
+    invoke-static {}, Lcom/android/camera/module/Camera2Module;->access$400()Ljava/lang/String;
 
     move-result-object p1
 
@@ -115,9 +115,9 @@
 
     const/4 p1, 0x1
 
-    invoke-static {v0, p1}, Lcom/android/camera/module/Camera2Module;->access$602(Lcom/android/camera/module/Camera2Module;Z)Z
+    invoke-static {v0, p1}, Lcom/android/camera/module/Camera2Module;->access$502(Lcom/android/camera/module/Camera2Module;Z)Z
 
-    invoke-static {v0}, Lcom/android/camera/module/Camera2Module;->access$700(Lcom/android/camera/module/Camera2Module;)V
+    invoke-static {v0}, Lcom/android/camera/module/Camera2Module;->access$600(Lcom/android/camera/module/Camera2Module;)V
 
     const/4 p1, 0x0
 
@@ -142,7 +142,7 @@
     goto :goto_0
 
     :cond_2
-    invoke-static {}, Lcom/android/camera/module/Camera2Module;->access$500()Ljava/lang/String;
+    invoke-static {}, Lcom/android/camera/module/Camera2Module;->access$400()Ljava/lang/String;
 
     move-result-object p1
 
@@ -166,7 +166,7 @@
 
     const/16 v0, 0xb
 
-    const v1, 0x7f09022a
+    const v1, 0x7f090229
 
     const/4 v2, 0x4
 

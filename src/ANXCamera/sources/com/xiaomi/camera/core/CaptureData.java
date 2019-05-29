@@ -2,9 +2,11 @@ package com.xiaomi.camera.core;
 
 import android.media.Image;
 import com.android.camera.log.Log;
+import com.xiaomi.camera.core.ParallelDataZipper.DataListener;
 import com.xiaomi.protocol.ICustomCaptureResult;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class CaptureData {
     /* access modifiers changed from: private */
@@ -16,6 +18,8 @@ public class CaptureData {
     private CaptureDataListener mCaptureDataListener;
     private long mCaptureTimestamp;
     private boolean mCapturedByFrontCamera;
+    private DataListener mDataListener;
+    private boolean mIsAbandoned;
     private CaptureDataBean mMultiFrameProcessResult;
     private boolean mSaveInputImage;
     private int mStreamNum;
@@ -107,11 +111,12 @@ public class CaptureData {
         }
     }
 
-    public CaptureData(int i, int i2, int i3, long j) {
+    public CaptureData(int i, int i2, int i3, long j, boolean z) {
         this.mAlgoType = i;
         this.mStreamNum = i2;
         this.mBurstNum = i3;
         this.mCaptureTimestamp = j;
+        this.mIsAbandoned = z;
     }
 
     public int getAlgoType() {
@@ -134,12 +139,20 @@ public class CaptureData {
         return this.mCaptureTimestamp;
     }
 
+    public DataListener getDataListener() {
+        return this.mDataListener;
+    }
+
     public CaptureDataBean getMultiFrameProcessResult() {
         return this.mMultiFrameProcessResult;
     }
 
     public int getStreamNum() {
         return this.mStreamNum;
+    }
+
+    public boolean isAbandoned() {
+        return this.mIsAbandoned;
     }
 
     public boolean isCapturedByFrontCamera() {
@@ -163,6 +176,10 @@ public class CaptureData {
         this.mCapturedByFrontCamera = z;
     }
 
+    public void setDataListener(DataListener dataListener) {
+        this.mDataListener = dataListener;
+    }
+
     public void setMultiFrameProcessListener(CaptureDataListener captureDataListener) {
         this.mCaptureDataListener = captureDataListener;
     }
@@ -173,5 +190,9 @@ public class CaptureData {
 
     public void setSaveInputImage(boolean z) {
         this.mSaveInputImage = z;
+    }
+
+    public String toString() {
+        return String.format(Locale.ENGLISH, "CaptureData{mAlgoType=%d, mStreamNum=%d, mBurstNum=%d, mCaptureTimestamp=%d, mIsAbandoned=%b}", new Object[]{Integer.valueOf(this.mAlgoType), Integer.valueOf(this.mStreamNum), Integer.valueOf(this.mBurstNum), Long.valueOf(this.mCaptureTimestamp), Boolean.valueOf(this.mIsAbandoned)});
     }
 }

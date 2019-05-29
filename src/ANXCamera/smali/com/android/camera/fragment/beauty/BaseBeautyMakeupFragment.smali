@@ -12,15 +12,23 @@
 
 
 # static fields
+.field protected static final EXTRA_CLEAR:I = 0x2
+
+.field protected static final EXTRA_NULL:I = -0x1
+
+.field protected static final EXTRA_RESET:I = 0x1
+
 .field private static final TAG:Ljava/lang/String; = "BaseBeautyMakeup"
 
 
 # instance fields
 .field protected mClickListener:Landroid/widget/AdapterView$OnItemClickListener;
 
-.field private mHeaderRecyclerView:Landroid/widget/LinearLayout;
+.field protected mFooterElement:I
 
-.field private mHeaderView:Landroid/view/View;
+.field protected mHeaderElement:I
+
+.field private mHeaderRecyclerView:Landroid/widget/LinearLayout;
 
 .field protected mItemList:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -43,6 +51,8 @@
 .field protected mMakeupAdapter:Lcom/android/camera/fragment/beauty/MakeupSingleCheckAdapter;
 
 .field private mMakeupItemList:Landroid/support/v7/widget/RecyclerView;
+
+.field private mNeedScroll:Z
 
 .field protected mSelectedParam:I
 
@@ -84,15 +94,15 @@
     return-void
 .end method
 
-.method static synthetic access$200(Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;)J
-    .locals 2
+.method static synthetic access$200(Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;Landroid/view/View;)V
+    .locals 0
 
-    iget-wide v0, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mLastClickTime:J
+    invoke-direct {p0, p1}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->onExtraClick(Landroid/view/View;)V
 
-    return-wide v0
+    return-void
 .end method
 
-.method static synthetic access$202(Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;J)J
+.method static synthetic access$302(Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;J)J
     .locals 0
 
     iput-wide p1, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mLastClickTime:J
@@ -100,43 +110,258 @@
     return-wide p1
 .end method
 
-.method private initHeaderView()V
-    .locals 4
+.method private animateView(Landroid/view/View;)V
+    .locals 2
 
-    invoke-virtual {p0}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->getHeaderView()Landroid/view/View;
+    invoke-virtual {p1}, Landroid/view/View;->clearAnimation()V
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->setRotation(F)V
+
+    invoke-static {p1}, Landroid/support/v4/view/ViewCompat;->animate(Landroid/view/View;)Landroid/support/v4/view/ViewPropertyAnimatorCompat;
+
+    move-result-object p1
+
+    const/high16 v0, 0x43b40000    # 360.0f
+
+    invoke-virtual {p1, v0}, Landroid/support/v4/view/ViewPropertyAnimatorCompat;->rotation(F)Landroid/support/v4/view/ViewPropertyAnimatorCompat;
+
+    move-result-object p1
+
+    const-wide/16 v0, 0x1f4
+
+    invoke-virtual {p1, v0, v1}, Landroid/support/v4/view/ViewPropertyAnimatorCompat;->setDuration(J)Landroid/support/v4/view/ViewPropertyAnimatorCompat;
+
+    move-result-object p1
+
+    new-instance v0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment$3;
+
+    invoke-direct {v0, p0}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment$3;-><init>(Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;)V
+
+    invoke-virtual {p1, v0}, Landroid/support/v4/view/ViewPropertyAnimatorCompat;->setListener(Landroid/support/v4/view/ViewPropertyAnimatorListener;)Landroid/support/v4/view/ViewPropertyAnimatorCompat;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/support/v4/view/ViewPropertyAnimatorCompat;->start()V
+
+    return-void
+.end method
+
+.method private calcItemWidthAndNeedScroll()V
+    .locals 6
+
+    invoke-virtual {p0}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mHeaderView:Landroid/view/View;
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    iget-object v0, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mHeaderView:Landroid/view/View;
+    move-result-object v0
 
-    if-nez v0, :cond_0
+    iget v0, v0, Landroid/util/DisplayMetrics;->widthPixels:I
 
-    return-void
+    iput v0, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mTotalWidth:I
+
+    nop
+
+    nop
+
+    iget v0, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mHeaderElement:I
+
+    const v1, 0x7f0a00b6
+
+    const v2, 0x7f0a00c4
+
+    const/4 v3, -0x1
+
+    const/4 v4, 0x0
+
+    if-eq v0, v3, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    invoke-virtual {p0}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v5
+
+    add-int/2addr v0, v5
+
+    goto :goto_0
 
     :cond_0
-    new-instance v0, Landroid/widget/LinearLayout$LayoutParams;
+    move v0, v4
 
-    const/4 v1, -0x2
+    :goto_0
+    iget v5, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mFooterElement:I
 
-    const/4 v2, -0x1
+    if-eq v5, v3, :cond_1
 
-    invoke-direct {v0, v1, v2}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+    invoke-virtual {p0}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->getResources()Landroid/content/res/Resources;
 
-    iget-object v1, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mHeaderRecyclerView:Landroid/widget/LinearLayout;
+    move-result-object v3
 
-    iget-object v2, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mHeaderView:Landroid/view/View;
+    invoke-virtual {v3, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v2
+
+    invoke-virtual {p0}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    add-int v4, v2, v1
+
+    :cond_1
+    iget v1, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mTotalWidth:I
+
+    sub-int/2addr v1, v0
+
+    int-to-float v1, v1
+
+    const/high16 v2, 0x40900000    # 4.5f
+
+    div-float/2addr v1, v2
+
+    float-to-int v1, v1
+
+    iget v2, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mTotalWidth:I
+
+    sub-int/2addr v2, v0
+
+    sub-int/2addr v2, v4
+
+    iget-object v0, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mItemList:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    div-int/2addr v2, v0
+
+    invoke-static {v2, v1}, Ljava/lang/Math;->max(II)I
+
+    move-result v0
+
+    if-ne v0, v1, :cond_2
+
+    const/4 v1, 0x1
+
+    iput-boolean v1, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mNeedScroll:Z
+
+    :cond_2
+    iput v0, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mItemWidth:I
+
+    return-void
+.end method
+
+.method private initAndGetFooterView()Landroid/view/View;
+    .locals 5
+
+    iget v0, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mFooterElement:I
+
+    const/4 v1, -0x1
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v0, 0x0
+
+    return-object v0
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+
+    move-result-object v0
+
+    const v1, 0x7f040001
+
+    iget-object v2, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mMakeupItemList:Landroid/support/v7/widget/RecyclerView;
 
     const/4 v3, 0x0
 
-    invoke-virtual {v1, v2, v3}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;I)V
+    invoke-virtual {v0, v1, v2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    iget-object v1, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mHeaderView:Landroid/view/View;
+    move-result-object v0
 
-    invoke-virtual {v1, v0}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    const v1, 0x7f0d000e
 
-    iget-object v0, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mHeaderView:Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/camera/ui/ColorImageView;
+
+    const v2, 0x7f0d000f
+
+    invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/TextView;
+
+    invoke-virtual {p0}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    const v4, 0x7f0b005b
+
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getColor(I)I
+
+    move-result v3
+
+    invoke-virtual {v1, v3}, Lcom/android/camera/ui/ColorImageView;->setColor(I)V
+
+    iget v3, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mFooterElement:I
+
+    packed-switch v3, :pswitch_data_0
+
+    goto :goto_0
+
+    :pswitch_0
+    const v3, 0x7f020197
+
+    invoke-virtual {v1, v3}, Lcom/android/camera/ui/ColorImageView;->setImageResource(I)V
+
+    const v1, 0x7f090217
+
+    invoke-virtual {v2, v1}, Landroid/widget/TextView;->setText(I)V
+
+    goto :goto_0
+
+    :pswitch_1
+    const v3, 0x7f020198
+
+    invoke-virtual {v1, v3}, Lcom/android/camera/ui/ColorImageView;->setImageResource(I)V
+
+    const v1, 0x7f090216
+
+    invoke-virtual {v2, v1}, Landroid/widget/TextView;->setText(I)V
+
+    :goto_0
+    iget v1, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mFooterElement:I
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
     new-instance v1, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment$2;
 
@@ -144,7 +369,133 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
+    return-object v0
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
+.end method
+
+.method private initHeaderView()V
+    .locals 6
+
+    iget v0, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mHeaderElement:I
+
+    const/4 v1, -0x1
+
+    if-ne v0, v1, :cond_0
+
     return-void
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+
+    move-result-object v0
+
+    const v2, 0x7f040002
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v0, v2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v0
+
+    const v2, 0x7f0d000e
+
+    invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/camera/ui/ColorImageView;
+
+    const v3, 0x7f0d000f
+
+    invoke-virtual {v0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/widget/TextView;
+
+    invoke-virtual {p0}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v4
+
+    const v5, 0x7f0b005b
+
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getColor(I)I
+
+    move-result v4
+
+    invoke-virtual {v2, v4}, Lcom/android/camera/ui/ColorImageView;->setColor(I)V
+
+    iget v4, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mHeaderElement:I
+
+    const v5, 0x7f020198
+
+    packed-switch v4, :pswitch_data_0
+
+    goto :goto_0
+
+    :pswitch_0
+    invoke-virtual {v2, v5}, Lcom/android/camera/ui/ColorImageView;->setImageResource(I)V
+
+    const v2, 0x7f0901a8
+
+    invoke-virtual {v3, v2}, Landroid/widget/TextView;->setText(I)V
+
+    goto :goto_0
+
+    :pswitch_1
+    invoke-virtual {v2, v5}, Lcom/android/camera/ui/ColorImageView;->setImageResource(I)V
+
+    const v2, 0x7f090216
+
+    invoke-virtual {v3, v2}, Landroid/widget/TextView;->setText(I)V
+
+    :goto_0
+    new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
+
+    const/4 v3, -0x2
+
+    invoke-direct {v2, v3, v1}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+
+    iget-object v1, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mHeaderRecyclerView:Landroid/widget/LinearLayout;
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v1, v0, v3}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;I)V
+
+    invoke-virtual {v0, v2}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    iget v1, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mHeaderElement:I
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
+
+    new-instance v1, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment$4;
+
+    invoke-direct {v1, p0}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment$4;-><init>(Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;)V
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    return-void
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method
 
 .method private final initItems()Ljava/util/List;
@@ -208,6 +559,82 @@
 
     :cond_1
     return-void
+.end method
+
+.method private onExtraClick(Landroid/view/View;)V
+    .locals 4
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v0
+
+    iget-wide v2, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mLastClickTime:J
+
+    sub-long/2addr v0, v2
+
+    const-wide/16 v2, 0x3e8
+
+    cmp-long v0, v0, v2
+
+    if-gez v0, :cond_0
+
+    const-string p1, "BaseBeautyMakeup"
+
+    const-string v0, "onExtra: too quick!"
+
+    invoke-static {p1, v0}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mLastClickTime:J
+
+    invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Integer;
+
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v0
+
+    packed-switch v0, :pswitch_data_0
+
+    goto :goto_0
+
+    :pswitch_0
+    invoke-virtual {p0}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->onClearClick()V
+
+    goto :goto_0
+
+    :pswitch_1
+    const v0, 0x7f0d000e
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/widget/ImageView;
+
+    invoke-direct {p0, p1}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->animateView(Landroid/view/View;)V
+
+    invoke-virtual {p0}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->onResetClick()V
+
+    nop
+
+    :goto_0
+    return-void
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method
 
 .method private scrollIfNeed(I)Z
@@ -322,26 +749,6 @@
 
 
 # virtual methods
-.method protected customItemWidth()I
-    .locals 2
-
-    invoke-virtual {p0}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f0a0061
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v0
-
-    return v0
-.end method
-
 .method protected getAnimateView()Landroid/view/View;
     .locals 1
 
@@ -351,9 +758,6 @@
 .end method
 
 .method protected abstract getClassString()Ljava/lang/String;
-.end method
-
-.method protected abstract getHeaderView()Landroid/view/View;
 .end method
 
 .method protected getListItemMargin()I
@@ -371,7 +775,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a00d5
+    const v1, 0x7f0a00be
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -391,12 +795,15 @@
     .end annotation
 .end method
 
+.method protected abstract initExtraType()V
+.end method
+
 .method protected initOnItemClickListener()Landroid/widget/AdapterView$OnItemClickListener;
     .locals 1
 
-    new-instance v0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment$3;
+    new-instance v0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment$5;
 
-    invoke-direct {v0, p0}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment$3;-><init>(Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;)V
+    invoke-direct {v0, p0}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment$5;-><init>(Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;)V
 
     return-object v0
 .end method
@@ -423,8 +830,6 @@
     check-cast p1, Landroid/support/v7/widget/RecyclerView;
 
     iput-object p1, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mMakeupItemList:Landroid/support/v7/widget/RecyclerView;
-
-    invoke-direct {p0}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->initHeaderView()V
 
     new-instance p1, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment$MyLayoutManager;
 
@@ -464,37 +869,11 @@
 
     iput-object p1, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mItemList:Ljava/util/List;
 
-    invoke-virtual {p0}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->initExtraType()V
 
-    move-result-object p1
+    invoke-direct {p0}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->initHeaderView()V
 
-    const v1, 0x7f0a0061
-
-    invoke-virtual {p1, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result p1
-
-    iput p1, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mItemWidth:I
-
-    invoke-virtual {p0}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->getResources()Landroid/content/res/Resources;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
-
-    move-result-object p1
-
-    iget p1, p1, Landroid/util/DisplayMetrics;->widthPixels:I
-
-    iput p1, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mTotalWidth:I
-
-    iget-object p1, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mMakeupItemList:Landroid/support/v7/widget/RecyclerView;
-
-    invoke-virtual {p0, p1}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->setListPadding(Landroid/support/v7/widget/RecyclerView;)V
-
-    invoke-virtual {p0}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->getListItemMargin()I
-
-    move-result v4
+    invoke-direct {p0}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->calcItemWidthAndNeedScroll()V
 
     invoke-virtual {p0}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->isNeedScroll()Z
 
@@ -515,13 +894,11 @@
 
     iget-object v3, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mItemList:Ljava/util/List;
 
-    invoke-virtual {p0}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->isCustomWidth()Z
+    const/4 v4, 0x0
 
-    move-result v5
+    const/4 v5, 0x1
 
-    invoke-virtual {p0}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->customItemWidth()I
-
-    move-result v6
+    iget v6, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mItemWidth:I
 
     move-object v1, p1
 
@@ -549,11 +926,28 @@
 
     invoke-virtual {p1, v0}, Lcom/android/camera/fragment/beauty/MakeupSingleCheckAdapter;->setSelectedPosition(I)V
 
-    iget-object p1, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mMakeupItemList:Landroid/support/v7/widget/RecyclerView;
+    new-instance p1, Lcom/android/camera/fragment/RecyclerAdapterWrapper;
 
     iget-object v0, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mMakeupAdapter:Lcom/android/camera/fragment/beauty/MakeupSingleCheckAdapter;
 
-    invoke-virtual {p1, v0}, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$Adapter;)V
+    invoke-direct {p1, v0}, Lcom/android/camera/fragment/RecyclerAdapterWrapper;-><init>(Landroid/support/v7/widget/RecyclerView$Adapter;)V
+
+    invoke-direct {p0}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->initAndGetFooterView()Landroid/view/View;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    invoke-direct {p0}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->initAndGetFooterView()Landroid/view/View;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Lcom/android/camera/fragment/RecyclerAdapterWrapper;->addFooter(Landroid/view/View;)V
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mMakeupItemList:Landroid/support/v7/widget/RecyclerView;
+
+    invoke-virtual {v0, p1}, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$Adapter;)V
 
     new-instance p1, Lcom/android/camera/fragment/DefaultItemAnimator;
 
@@ -582,43 +976,18 @@
     return-void
 .end method
 
-.method protected isCustomWidth()Z
+.method protected isNeedScroll()Z
     .locals 1
 
-    const/4 v0, 0x0
+    iget-boolean v0, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mNeedScroll:Z
 
-    return v0
-.end method
-
-.method protected isNeedScroll()Z
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mItemList:Ljava/util/List;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mItemList:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    const/4 v1, 0x4
-
-    if-le v0, v1, :cond_0
-
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
     return v0
 .end method
 
 .method protected abstract onAdapterItemClick(Lcom/android/camera/data/data/TypeItem;)V
+.end method
+
+.method protected abstract onClearClick()V
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
@@ -630,7 +999,7 @@
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
-    const p3, 0x7f04000b
+    const p3, 0x7f04000c
 
     const/4 v0, 0x0
 
@@ -643,7 +1012,7 @@
     return-object p1
 .end method
 
-.method protected abstract onHeaderClick()V
+.method protected abstract onResetClick()V
 .end method
 
 .method protected onViewCreatedAndVisibleToUser(Z)V
@@ -689,6 +1058,61 @@
     return-void
 .end method
 
+.method protected selectFirstItem()V
+    .locals 3
+
+    const/4 v0, 0x0
+
+    iput v0, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mSelectedParam:I
+
+    iget-object v1, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mMakeupAdapter:Lcom/android/camera/fragment/beauty/MakeupSingleCheckAdapter;
+
+    iget v2, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mSelectedParam:I
+
+    invoke-virtual {v1, v2}, Lcom/android/camera/fragment/beauty/MakeupSingleCheckAdapter;->setSelectedPosition(I)V
+
+    iget-object v1, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mLayoutManager:Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment$MyLayoutManager;
+
+    iget v2, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mSelectedParam:I
+
+    invoke-virtual {v1, v2}, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment$MyLayoutManager;->scrollToPosition(I)V
+
+    invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
+
+    move-result-object v1
+
+    const/16 v2, 0xb4
+
+    invoke-virtual {v1, v2}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getAttachProtocol(I)Lcom/android/camera/protocol/ModeProtocol$BaseProtocol;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/camera/protocol/ModeProtocol$MakeupProtocol;
+
+    if-eqz v1, :cond_0
+
+    iget-object v2, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mItemList:Ljava/util/List;
+
+    invoke-interface {v2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/camera/data/data/TypeItem;
+
+    iget-object v0, v0, Lcom/android/camera/data/data/TypeItem;->mKeyOrType:Ljava/lang/String;
+
+    const/4 v2, 0x1
+
+    invoke-interface {v1, v0, v2}, Lcom/android/camera/protocol/ModeProtocol$MakeupProtocol;->onMakeupItemSelected(Ljava/lang/String;Z)V
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/camera/fragment/beauty/BaseBeautyMakeupFragment;->mMakeupAdapter:Lcom/android/camera/fragment/beauty/MakeupSingleCheckAdapter;
+
+    invoke-virtual {v0}, Lcom/android/camera/fragment/beauty/MakeupSingleCheckAdapter;->notifyDataSetChanged()V
+
+    return-void
+.end method
+
 .method protected setListPadding(Landroid/support/v7/widget/RecyclerView;)V
     .locals 4
 
@@ -701,7 +1125,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a00d3
+    const v1, 0x7f0a00bc
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -721,7 +1145,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a00d7
+    const v1, 0x7f0a00c0
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -731,7 +1155,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0a00d6
+    const v3, 0x7f0a00bf
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -755,7 +1179,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a00e7
+    const v1, 0x7f0a00cd
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -774,7 +1198,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a00e6
+    const v2, 0x7f0a00cc
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

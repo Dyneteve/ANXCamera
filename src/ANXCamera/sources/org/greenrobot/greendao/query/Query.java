@@ -4,14 +4,9 @@ import java.util.Date;
 import java.util.List;
 import org.greenrobot.greendao.AbstractDao;
 import org.greenrobot.greendao.DaoException;
-import org.greenrobot.greendao.annotation.apihint.Internal;
-import org.greenrobot.greendao.rx.RxQuery;
-import rx.schedulers.Schedulers;
 
 public class Query<T> extends AbstractQueryWithLimit<T> {
     private final QueryData<T> queryData;
-    private volatile RxQuery rxTxIo;
-    private volatile RxQuery rxTxPlain;
 
     private static final class QueryData<T2> extends AbstractQueryData<T2, Query<T2>> {
         private final int limitPosition;
@@ -42,22 +37,6 @@ public class Query<T> extends AbstractQueryWithLimit<T> {
 
     public static <T2> Query<T2> internalCreate(AbstractDao<T2, ?> abstractDao, String str, Object[] objArr) {
         return create(abstractDao, str, objArr, -1, -1);
-    }
-
-    @Internal
-    public RxQuery __InternalRx() {
-        if (this.rxTxIo == null) {
-            this.rxTxIo = new RxQuery(this, Schedulers.io());
-        }
-        return this.rxTxIo;
-    }
-
-    @Internal
-    public RxQuery __internalRxPlain() {
-        if (this.rxTxPlain == null) {
-            this.rxTxPlain = new RxQuery(this);
-        }
-        return this.rxTxPlain;
     }
 
     public Query<T> forCurrentThread() {

@@ -53,8 +53,8 @@
 
     :array_0
     .array-data 4
-        0x7f020194
-        0x7f020195
+        0x7f02019c
+        0x7f02019d
     .end array-data
 .end method
 
@@ -218,7 +218,7 @@
 
     if-eqz v0, :cond_0
 
-    const p1, 0x7f09024d
+    const p1, 0x7f09024c
 
     return p1
 
@@ -231,7 +231,7 @@
 
     if-eqz p1, :cond_1
 
-    const p1, 0x7f09024e
+    const p1, 0x7f09024d
 
     return p1
 
@@ -331,7 +331,7 @@
 
     const/4 v0, 0x0
 
-    const v1, 0x7f020194
+    const v1, 0x7f02019c
 
     invoke-direct {p2, v1, v1, v0, p3}, Lcom/android/camera/data/data/ComponentDataItem;-><init>(IIILjava/lang/String;)V
 
@@ -343,7 +343,7 @@
 
     const-string p3, "ON"
 
-    const v1, 0x7f020195
+    const v1, 0x7f02019d
 
     invoke-direct {p2, v1, v1, v0, p3}, Lcom/android/camera/data/data/ComponentDataItem;-><init>(IIILjava/lang/String;)V
 

@@ -1107,7 +1107,7 @@
 
     iget-object v2, p0, Lcom/android/camera/fragment/music/FragmentLiveMusicPager;->mPlayingImageView:Landroid/widget/ImageView;
 
-    const v3, 0x7f02011f
+    const v3, 0x7f020125
 
     invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
@@ -1183,7 +1183,7 @@
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
-    const p3, 0x7f040021
+    const p3, 0x7f040022
 
     const/4 v0, 0x0
 
@@ -1428,7 +1428,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/music/FragmentLiveMusicPager;->mPlayingImageView:Landroid/widget/ImageView;
 
-    const v0, 0x7f02011f
+    const v0, 0x7f020125
 
     invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 

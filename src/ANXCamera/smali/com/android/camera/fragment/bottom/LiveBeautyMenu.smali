@@ -75,7 +75,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f040003
+    const v5, 0x7f040004
 
     iget-object v6, p0, Lcom/android/camera/fragment/bottom/LiveBeautyMenu;->mContainerView:Landroid/widget/LinearLayout;
 
@@ -195,7 +195,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f09024b
+    const v1, 0x7f09024a
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -223,7 +223,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f09024c
+    const v1, 0x7f09024b
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

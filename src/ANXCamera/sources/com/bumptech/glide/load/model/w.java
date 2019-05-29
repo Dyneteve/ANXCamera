@@ -11,8 +11,8 @@ import java.util.Set;
 
 /* compiled from: UrlUriLoader */
 public class w<Data> implements m<Uri, Data> {
-    private static final Set<String> kr = Collections.unmodifiableSet(new HashSet(Arrays.asList(new String[]{"http", "https"})));
-    private final m<g, Data> kt;
+    private static final Set<String> ks = Collections.unmodifiableSet(new HashSet(Arrays.asList(new String[]{"http", "https"})));
+    private final m<g, Data> ku;
 
     /* compiled from: UrlUriLoader */
     public static class a implements n<Uri, InputStream> {
@@ -26,16 +26,16 @@ public class w<Data> implements m<Uri, Data> {
     }
 
     public w(m<g, Data> mVar) {
-        this.kt = mVar;
+        this.ku = mVar;
     }
 
     /* renamed from: a */
     public com.bumptech.glide.load.model.m.a<Data> b(@NonNull Uri uri, int i, int i2, @NonNull f fVar) {
-        return this.kt.b(new g(uri.toString()), i, i2, fVar);
+        return this.ku.b(new g(uri.toString()), i, i2, fVar);
     }
 
     /* renamed from: k */
     public boolean q(@NonNull Uri uri) {
-        return kr.contains(uri.getScheme());
+        return ks.contains(uri.getScheme());
     }
 }

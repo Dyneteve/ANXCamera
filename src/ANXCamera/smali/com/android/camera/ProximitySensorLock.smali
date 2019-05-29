@@ -308,7 +308,7 @@
 
     iget-object v1, p0, Lcom/android/camera/ProximitySensorLock;->mHintView:Landroid/view/View;
 
-    const v2, 0x7f0d010e
+    const v2, 0x7f0d010c
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -516,7 +516,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040052
+    const v1, 0x7f040054
 
     const/4 v2, 0x0
 
@@ -821,7 +821,7 @@
 .method public static supported()Z
     .locals 1
 
-    invoke-static {}, Lcom/mi/config/b;->ii()Z
+    invoke-static {}, Lcom/mi/config/b;->il()Z
 
     move-result v0
 

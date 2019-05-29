@@ -76,7 +76,7 @@ public class MiCamera2ShotGroup extends MiCamera2Shot<byte[]> {
         }
         CameraSize pictureSize = this.mMiCamera.getPictureSize();
         CameraSize previewSize = this.mMiCamera.getPreviewSize();
-        if (deviceOrientation % 180 != 0 || !b.ie()) {
+        if (deviceOrientation % 180 != 0 || !b.ih()) {
             this.mGroupShot.initialize(i, 10, pictureSize.getWidth(), pictureSize.getHeight(), previewSize.getWidth(), previewSize.getHeight());
             return;
         }

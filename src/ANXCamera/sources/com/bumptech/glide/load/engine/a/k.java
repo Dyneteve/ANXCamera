@@ -8,18 +8,16 @@ import com.bumptech.glide.load.engine.p;
 
 /* compiled from: MemoryCacheAdapter */
 public class k implements j {
-
-    /* renamed from: if reason: not valid java name */
-    private a f2if;
+    private a ig;
 
     public void a(@NonNull a aVar) {
-        this.f2if = aVar;
+        this.ig = aVar;
     }
 
     @Nullable
     public p<?> b(@NonNull c cVar, @Nullable p<?> pVar) {
         if (pVar != null) {
-            this.f2if.e(pVar);
+            this.ig.e(pVar);
         }
         return null;
     }

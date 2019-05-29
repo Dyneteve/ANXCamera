@@ -145,13 +145,13 @@
 
     invoke-static {p1, v0}, Lcom/android/camera2/compat/MiCameraCompat;->applyMfnrEnable(Landroid/hardware/camera2/CaptureRequest$Builder;Z)V
 
-    invoke-static {}, Lcom/mi/config/b;->iF()Z
+    invoke-static {}, Lcom/mi/config/b;->iI()Z
 
     move-result p2
 
     if-nez p2, :cond_0
 
-    sget-boolean p2, Lcom/mi/config/b;->rL:Z
+    sget-boolean p2, Lcom/mi/config/b;->rM:Z
 
     if-eqz p2, :cond_1
 
@@ -310,7 +310,7 @@
 .method private prepareClearShot(I)V
     .locals 0
 
-    invoke-static {}, Lcom/mi/config/b;->iF()Z
+    invoke-static {}, Lcom/mi/config/b;->iI()Z
 
     move-result p1
 
@@ -506,6 +506,28 @@
         0x0
         0x6
     .end array-data
+.end method
+
+.method private prepareSR()V
+    .locals 1
+
+    sget-boolean v0, Lcom/mi/config/b;->rK:Z
+
+    if-eqz v0, :cond_0
+
+    const/16 v0, 0x8
+
+    iput v0, p0, Lcom/android/camera2/MiCamera2ShotParallelBurst;->mSequenceNum:I
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x5
+
+    iput v0, p0, Lcom/android/camera2/MiCamera2ShotParallelBurst;->mSequenceNum:I
+
+    :goto_0
+    return-void
 .end method
 
 
@@ -709,13 +731,13 @@
 
     invoke-virtual {v0, v2}, Landroid/hardware/camera2/CaptureRequest$Builder;->addTarget(Landroid/view/Surface;)V
 
-    invoke-static {}, Lcom/mi/config/b;->iF()Z
+    invoke-static {}, Lcom/mi/config/b;->iI()Z
 
     move-result v1
 
     if-nez v1, :cond_4
 
-    sget-boolean v1, Lcom/mi/config/b;->rL:Z
+    sget-boolean v1, Lcom/mi/config/b;->rM:Z
 
     if-eqz v1, :cond_5
 
@@ -847,13 +869,13 @@
 
     if-eq v2, v6, :cond_a
 
-    invoke-static {}, Lcom/mi/config/b;->iF()Z
+    invoke-static {}, Lcom/mi/config/b;->iI()Z
 
     move-result v2
 
     if-nez v2, :cond_9
 
-    sget-boolean v2, Lcom/mi/config/b;->rL:Z
+    sget-boolean v2, Lcom/mi/config/b;->rM:Z
 
     if-nez v2, :cond_9
 
@@ -977,11 +999,11 @@
 
     move-result v2
 
-    const/4 v5, 0x5
-
     if-eqz v2, :cond_1
 
-    iput v5, p0, Lcom/android/camera2/MiCamera2ShotParallelBurst;->mAlgoType:I
+    const/4 v2, 0x5
+
+    iput v2, p0, Lcom/android/camera2/MiCamera2ShotParallelBurst;->mAlgoType:I
 
     invoke-direct {p0}, Lcom/android/camera2/MiCamera2ShotParallelBurst;->prepareGroupShot()V
 
@@ -994,7 +1016,7 @@
 
     iput v4, p0, Lcom/android/camera2/MiCamera2ShotParallelBurst;->mAlgoType:I
 
-    iput v5, p0, Lcom/android/camera2/MiCamera2ShotParallelBurst;->mSequenceNum:I
+    invoke-direct {p0}, Lcom/android/camera2/MiCamera2ShotParallelBurst;->prepareSR()V
 
     goto :goto_2
 
@@ -1027,7 +1049,7 @@
 
     invoke-static {v5, v6}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {}, Lcom/mi/config/b;->iH()Z
+    invoke-static {}, Lcom/mi/config/b;->iK()Z
 
     move-result v5
 

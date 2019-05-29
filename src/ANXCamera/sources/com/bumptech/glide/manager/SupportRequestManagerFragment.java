@@ -17,14 +17,14 @@ import java.util.Set;
 public class SupportRequestManagerFragment extends Fragment {
     private static final String TAG = "SupportRMFragment";
     @Nullable
-    private i aH;
-    private final a mZ;
-    private final m na;
-    private final Set<SupportRequestManagerFragment> nb;
+    private i aI;
+    private final a na;
+    private final m nb;
+    private final Set<SupportRequestManagerFragment> nc;
     @Nullable
-    private SupportRequestManagerFragment nr;
+    private SupportRequestManagerFragment ns;
     @Nullable
-    private Fragment ns;
+    private Fragment nt;
 
     private class a implements m {
         a() {
@@ -59,24 +59,24 @@ public class SupportRequestManagerFragment extends Fragment {
     @VisibleForTesting
     @SuppressLint({"ValidFragment"})
     public SupportRequestManagerFragment(@NonNull a aVar) {
-        this.na = new a();
-        this.nb = new HashSet();
-        this.mZ = aVar;
+        this.nb = new a();
+        this.nc = new HashSet();
+        this.na = aVar;
     }
 
     private void a(SupportRequestManagerFragment supportRequestManagerFragment) {
-        this.nb.add(supportRequestManagerFragment);
+        this.nc.add(supportRequestManagerFragment);
     }
 
     private void b(SupportRequestManagerFragment supportRequestManagerFragment) {
-        this.nb.remove(supportRequestManagerFragment);
+        this.nc.remove(supportRequestManagerFragment);
     }
 
     private void d(@NonNull FragmentActivity fragmentActivity) {
         dc();
-        this.nr = c.c(fragmentActivity).q().c(fragmentActivity);
-        if (!equals(this.nr)) {
-            this.nr.a(this);
+        this.ns = c.c(fragmentActivity).q().c(fragmentActivity);
+        if (!equals(this.ns)) {
+            this.ns.a(this);
         }
     }
 
@@ -95,57 +95,57 @@ public class SupportRequestManagerFragment extends Fragment {
     }
 
     private void dc() {
-        if (this.nr != null) {
-            this.nr.b(this);
-            this.nr = null;
+        if (this.ns != null) {
+            this.ns.b(this);
+            this.ns = null;
         }
     }
 
     @Nullable
     private Fragment df() {
         Fragment parentFragment = getParentFragment();
-        return parentFragment != null ? parentFragment : this.ns;
+        return parentFragment != null ? parentFragment : this.nt;
     }
 
     /* access modifiers changed from: 0000 */
     public void c(@Nullable Fragment fragment) {
-        this.ns = fragment;
+        this.nt = fragment;
         if (fragment != null && fragment.getActivity() != null) {
             d(fragment.getActivity());
         }
     }
 
     public void c(@Nullable i iVar) {
-        this.aH = iVar;
+        this.aI = iVar;
     }
 
     /* access modifiers changed from: 0000 */
     @NonNull
     public a cX() {
-        return this.mZ;
+        return this.na;
     }
 
     @Nullable
     public i cY() {
-        return this.aH;
+        return this.aI;
     }
 
     @NonNull
     public m cZ() {
-        return this.na;
+        return this.nb;
     }
 
     /* access modifiers changed from: 0000 */
     @NonNull
     public Set<SupportRequestManagerFragment> da() {
-        if (this.nr == null) {
+        if (this.ns == null) {
             return Collections.emptySet();
         }
-        if (equals(this.nr)) {
-            return Collections.unmodifiableSet(this.nb);
+        if (equals(this.ns)) {
+            return Collections.unmodifiableSet(this.nc);
         }
         HashSet hashSet = new HashSet();
-        for (SupportRequestManagerFragment supportRequestManagerFragment : this.nr.da()) {
+        for (SupportRequestManagerFragment supportRequestManagerFragment : this.ns.da()) {
             if (d(supportRequestManagerFragment.df())) {
                 hashSet.add(supportRequestManagerFragment);
             }
@@ -166,24 +166,24 @@ public class SupportRequestManagerFragment extends Fragment {
 
     public void onDestroy() {
         super.onDestroy();
-        this.mZ.onDestroy();
+        this.na.onDestroy();
         dc();
     }
 
     public void onDetach() {
         super.onDetach();
-        this.ns = null;
+        this.nt = null;
         dc();
     }
 
     public void onStart() {
         super.onStart();
-        this.mZ.onStart();
+        this.na.onStart();
     }
 
     public void onStop() {
         super.onStop();
-        this.mZ.onStop();
+        this.na.onStop();
     }
 
     public String toString() {

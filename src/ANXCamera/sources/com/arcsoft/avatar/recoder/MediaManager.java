@@ -264,30 +264,30 @@ public class MediaManager implements RecordingListener {
         a();
     }
 
-    public void initVideoEncoder() {
+    public void initVideoEncoder(String str) {
         CodecLog.e(a, "MediaManager initVideoEncoder in");
-        VideoEncoder videoEncoder = new VideoEncoder(this.k, this.b, this.c, this.p, this, EGL14.EGL_NO_CONTEXT, 10000000);
+        VideoEncoder videoEncoder = new VideoEncoder(this.k, this.b, this.c, this.p, this, EGL14.EGL_NO_CONTEXT, 10000000, str);
         this.i = videoEncoder;
         this.i.prepare(false);
         this.f = true;
         this.o++;
         a();
-        String str = a;
+        String str2 = a;
         StringBuilder sb = new StringBuilder();
         sb.append("MediaManager initVideoEncoder out mInitedEncoderCount = ");
         sb.append(this.o);
-        CodecLog.e(str, sb.toString());
+        CodecLog.e(str2, sb.toString());
     }
 
-    public void initVideoEncoderWithSharedContext(EGLContext eGLContext, int i2, boolean z) {
+    public void initVideoEncoderWithSharedContext(EGLContext eGLContext, int i2, boolean z, String str) {
         CodecLog.d(a, "MediaManager initVideoEncoderWithSharedContext in");
-        VideoEncoder videoEncoder = new VideoEncoder(this.k, this.b, this.c, this.p, this, eGLContext, i2);
+        VideoEncoder videoEncoder = new VideoEncoder(this.k, this.b, this.c, this.p, this, eGLContext, i2, str);
         this.i = videoEncoder;
-        String str = a;
+        String str2 = a;
         StringBuilder sb = new StringBuilder();
         sb.append("MediaManager initVideoEncoderWithSharedContext encoder type = ");
         sb.append(this.i.getEncoderType());
-        CodecLog.d(str, sb.toString());
+        CodecLog.d(str2, sb.toString());
         this.l = true;
         if (this.l) {
             if (this.i.getInputSurface() != null) {
@@ -305,11 +305,11 @@ public class MediaManager implements RecordingListener {
         this.i.setFrameQueue(this.r);
         this.o++;
         a();
-        String str2 = a;
+        String str3 = a;
         StringBuilder sb2 = new StringBuilder();
         sb2.append("MediaManager initVideoEncoderWithSharedContext out mInitedEncoderCount = ");
         sb2.append(this.o);
-        CodecLog.e(str2, sb2.toString());
+        CodecLog.e(str3, sb2.toString());
     }
 
     public void onRecordingListener(int i2, Object obj) {

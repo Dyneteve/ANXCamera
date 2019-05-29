@@ -20,9 +20,7 @@
 
 
 # static fields
-.field private static final hC:I = 0x8
-
-.field private static final hD:[Landroid/graphics/Bitmap$Config;
+.field private static final hD:I = 0x8
 
 .field private static final hE:[Landroid/graphics/Bitmap$Config;
 
@@ -32,11 +30,13 @@
 
 .field private static final hH:[Landroid/graphics/Bitmap$Config;
 
+.field private static final hI:[Landroid/graphics/Bitmap$Config;
+
 
 # instance fields
-.field private final hI:Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy$KeyPool;
+.field private final hJ:Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy$KeyPool;
 
-.field private final he:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
+.field private final hf:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/engine/bitmap_recycle/g<",
@@ -47,7 +47,7 @@
     .end annotation
 .end field
 
-.field private final hn:Ljava/util/Map;
+.field private final ho:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -106,11 +106,11 @@
     aput-object v4, v0, v3
 
     :cond_0
-    sput-object v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hD:[Landroid/graphics/Bitmap$Config;
-
-    sget-object v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hD:[Landroid/graphics/Bitmap$Config;
-
     sput-object v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hE:[Landroid/graphics/Bitmap$Config;
+
+    sget-object v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hE:[Landroid/graphics/Bitmap$Config;
+
+    sput-object v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hF:[Landroid/graphics/Bitmap$Config;
 
     new-array v0, v1, [Landroid/graphics/Bitmap$Config;
 
@@ -118,7 +118,7 @@
 
     aput-object v3, v0, v2
 
-    sput-object v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hF:[Landroid/graphics/Bitmap$Config;
+    sput-object v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hG:[Landroid/graphics/Bitmap$Config;
 
     new-array v0, v1, [Landroid/graphics/Bitmap$Config;
 
@@ -126,7 +126,7 @@
 
     aput-object v3, v0, v2
 
-    sput-object v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hG:[Landroid/graphics/Bitmap$Config;
+    sput-object v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hH:[Landroid/graphics/Bitmap$Config;
 
     new-array v0, v1, [Landroid/graphics/Bitmap$Config;
 
@@ -134,7 +134,7 @@
 
     aput-object v1, v0, v2
 
-    sput-object v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hH:[Landroid/graphics/Bitmap$Config;
+    sput-object v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hI:[Landroid/graphics/Bitmap$Config;
 
     return-void
 .end method
@@ -148,19 +148,19 @@
 
     invoke-direct {v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy$KeyPool;-><init>()V
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hI:Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy$KeyPool;
+    iput-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hJ:Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy$KeyPool;
 
     new-instance v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
 
     invoke-direct {v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/g;-><init>()V
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->he:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
+    iput-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hf:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
 
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hn:Ljava/util/Map;
+    iput-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->ho:Ljava/util/Map;
 
     return-void
 .end method
@@ -168,7 +168,7 @@
 .method private a(ILandroid/graphics/Bitmap$Config;)Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy$Key;
     .locals 8
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hI:Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy$KeyPool;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hJ:Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy$KeyPool;
 
     invoke-virtual {v0, p1, p2}, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy$KeyPool;->d(ILandroid/graphics/Bitmap$Config;)Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy$Key;
 
@@ -232,11 +232,11 @@
 
     :cond_1
     :goto_1
-    iget-object p1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hI:Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy$KeyPool;
+    iget-object p1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hJ:Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy$KeyPool;
 
     invoke-virtual {p1, v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy$KeyPool;->a(Lcom/bumptech/glide/load/engine/bitmap_recycle/l;)V
 
-    iget-object p1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hI:Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy$KeyPool;
+    iget-object p1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hJ:Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy$KeyPool;
 
     invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
 
@@ -387,7 +387,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hn:Ljava/util/Map;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->ho:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -401,7 +401,7 @@
 
     invoke-direct {v0}, Ljava/util/TreeMap;-><init>()V
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hn:Ljava/util/Map;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->ho:Ljava/util/Map;
 
     invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -426,12 +426,12 @@
 
     if-eqz v0, :cond_0
 
-    sget-object p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hE:[Landroid/graphics/Bitmap$Config;
+    sget-object p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hF:[Landroid/graphics/Bitmap$Config;
 
     return-object p0
 
     :cond_0
-    sget-object v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy$1;->hJ:[I
+    sget-object v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy$1;->hK:[I
 
     invoke-virtual {p0}, Landroid/graphics/Bitmap$Config;->ordinal()I
 
@@ -452,22 +452,22 @@
     return-object v0
 
     :pswitch_0
-    sget-object p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hH:[Landroid/graphics/Bitmap$Config;
+    sget-object p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hI:[Landroid/graphics/Bitmap$Config;
 
     return-object p0
 
     :pswitch_1
-    sget-object p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hG:[Landroid/graphics/Bitmap$Config;
+    sget-object p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hH:[Landroid/graphics/Bitmap$Config;
 
     return-object p0
 
     :pswitch_2
-    sget-object p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hF:[Landroid/graphics/Bitmap$Config;
+    sget-object p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hG:[Landroid/graphics/Bitmap$Config;
 
     return-object p0
 
     :pswitch_3
-    sget-object p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hD:[Landroid/graphics/Bitmap$Config;
+    sget-object p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hE:[Landroid/graphics/Bitmap$Config;
 
     return-object p0
 
@@ -497,7 +497,7 @@
 
     move-result-object p3
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->he:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hf:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
 
     invoke-virtual {v0, p3}, Lcom/bumptech/glide/load/engine/bitmap_recycle/g;->b(Lcom/bumptech/glide/load/engine/bitmap_recycle/l;)Ljava/lang/Object;
 
@@ -544,7 +544,7 @@
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->he:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hf:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
 
     invoke-virtual {v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/g;->removeLast()Ljava/lang/Object;
 
@@ -589,7 +589,7 @@
 
     move-result v0
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hI:Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy$KeyPool;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hJ:Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy$KeyPool;
 
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getConfig()Landroid/graphics/Bitmap$Config;
 
@@ -599,7 +599,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->he:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hf:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
 
     invoke-virtual {v1, v0, p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/g;->a(Lcom/bumptech/glide/load/engine/bitmap_recycle/l;Ljava/lang/Object;)V
 
@@ -691,7 +691,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->he:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hf:Lcom/bumptech/glide/load/engine/bitmap_recycle/g;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -699,7 +699,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hn:Ljava/util/Map;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->ho:Ljava/util/Map;
 
     invoke-interface {v1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
@@ -745,7 +745,7 @@
     goto :goto_0
 
     :cond_0
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->hn:Ljava/util/Map;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeConfigStrategy;->ho:Ljava/util/Map;
 
     invoke-interface {v1}, Ljava/util/Map;->isEmpty()Z
 

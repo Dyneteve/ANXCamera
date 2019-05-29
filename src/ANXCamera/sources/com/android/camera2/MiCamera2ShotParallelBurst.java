@@ -58,7 +58,7 @@ public class MiCamera2ShotParallelBurst extends MiCamera2ShotParallel<ParallelTa
             case 2:
                 MiCameraCompat.applySwMfnrEnable(builder, this.mShouldDoMFNR);
                 MiCameraCompat.applyMfnrEnable(builder, false);
-                if (b.iF() || b.rL) {
+                if (b.iI() || b.rM) {
                     builder.set(CaptureRequest.CONTROL_ENABLE_ZSL, Boolean.valueOf(true));
                     return;
                 }
@@ -100,7 +100,7 @@ public class MiCamera2ShotParallelBurst extends MiCamera2ShotParallel<ParallelTa
     }
 
     private void prepareClearShot(int i) {
-        if (b.iF()) {
+        if (b.iI()) {
             this.mSequenceNum = 10;
         } else {
             this.mSequenceNum = 5;
@@ -144,6 +144,14 @@ public class MiCamera2ShotParallelBurst extends MiCamera2ShotParallel<ParallelTa
         }
         this.mSequenceNum = 3;
         this.mHdrCheckerEvValue = new int[]{-6, 0, 6};
+    }
+
+    private void prepareSR() {
+        if (b.rK) {
+            this.mSequenceNum = 8;
+        } else {
+            this.mSequenceNum = 5;
+        }
     }
 
     /* access modifiers changed from: protected */
@@ -250,7 +258,7 @@ public class MiCamera2ShotParallelBurst extends MiCamera2ShotParallel<ParallelTa
             Size surfaceSize2 = SurfaceUtils.getSurfaceSize(surface2);
             Log.d(TAG, String.format(Locale.ENGLISH, "add qcfa surface %s to capture request, size is: %s", new Object[]{surface2, surfaceSize2}));
             createCaptureRequest.addTarget(surface2);
-            if (b.iF() || b.rL) {
+            if (b.iI() || b.rM) {
                 createCaptureRequest.addTarget(this.mMiCamera.getPreviewSurface());
             }
             configParallelSession(surfaceSize2);
@@ -260,7 +268,7 @@ public class MiCamera2ShotParallelBurst extends MiCamera2ShotParallel<ParallelTa
                 createCaptureRequest.addTarget(surface4);
             }
             this.mCapturedImageSize = this.mMiCamera.getPictureSize();
-            if (this.mMiCamera.getCapabilities().getOperatingMode() != 36865 && (b.iF() || b.rL || this.mMiCamera.getCapabilities().getOperatingMode() != 36867)) {
+            if (this.mMiCamera.getCapabilities().getOperatingMode() != 36865 && (b.iI() || b.rM || this.mMiCamera.getCapabilities().getOperatingMode() != 36867)) {
                 Surface previewSurface = this.mMiCamera.getPreviewSurface();
                 Log.d(TAG, String.format(Locale.ENGLISH, "add preview surface %s to capture request, size is: %s", new Object[]{previewSurface, SurfaceUtils.getSurfaceSize(previewSurface)}));
                 createCaptureRequest.addTarget(previewSurface);
@@ -285,7 +293,7 @@ public class MiCamera2ShotParallelBurst extends MiCamera2ShotParallel<ParallelTa
             prepareGroupShot();
         } else if (this.mShouldDoSR) {
             this.mAlgoType = 3;
-            this.mSequenceNum = 5;
+            prepareSR();
         } else {
             Integer num = (Integer) this.mPreviewCaptureResult.get(CaptureResult.SENSOR_SENSITIVITY);
             String str = TAG;
@@ -293,7 +301,7 @@ public class MiCamera2ShotParallelBurst extends MiCamera2ShotParallel<ParallelTa
             sb.append("prepare: iso = ");
             sb.append(num);
             Log.d(str, sb.toString());
-            if (b.iH()) {
+            if (b.iK()) {
                 this.mShouldDoMFNR = true;
             } else {
                 boolean z = num != null && num.intValue() >= 800;

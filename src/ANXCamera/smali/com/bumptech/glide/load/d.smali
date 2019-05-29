@@ -20,7 +20,7 @@
 
 
 # instance fields
-.field private final dH:Ljava/util/Collection;
+.field private final dI:Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Collection<",
@@ -57,7 +57,7 @@
 
     if-nez v0, :cond_0
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/d;->dH:Ljava/util/Collection;
+    iput-object p1, p0, Lcom/bumptech/glide/load/d;->dI:Ljava/util/Collection;
 
     return-void
 
@@ -98,7 +98,7 @@
 
     move-result-object p1
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/d;->dH:Ljava/util/Collection;
+    iput-object p1, p0, Lcom/bumptech/glide/load/d;->dI:Ljava/util/Collection;
 
     return-void
 
@@ -123,9 +123,9 @@
 
     check-cast p1, Lcom/bumptech/glide/load/d;
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/d;->dH:Ljava/util/Collection;
+    iget-object v0, p0, Lcom/bumptech/glide/load/d;->dI:Ljava/util/Collection;
 
-    iget-object p1, p1, Lcom/bumptech/glide/load/d;->dH:Ljava/util/Collection;
+    iget-object p1, p1, Lcom/bumptech/glide/load/d;->dI:Ljava/util/Collection;
 
     invoke-interface {v0, p1}, Ljava/util/Collection;->equals(Ljava/lang/Object;)Z
 
@@ -142,7 +142,7 @@
 .method public hashCode()I
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/d;->dH:Ljava/util/Collection;
+    iget-object v0, p0, Lcom/bumptech/glide/load/d;->dI:Ljava/util/Collection;
 
     invoke-interface {v0}, Ljava/util/Collection;->hashCode()I
 
@@ -177,7 +177,7 @@
 
     nop
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/d;->dH:Ljava/util/Collection;
+    iget-object v0, p0, Lcom/bumptech/glide/load/d;->dI:Ljava/util/Collection;
 
     invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
@@ -238,7 +238,7 @@
         .end annotation
     .end param
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/d;->dH:Ljava/util/Collection;
+    iget-object v0, p0, Lcom/bumptech/glide/load/d;->dI:Ljava/util/Collection;
 
     invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 

@@ -41,7 +41,7 @@
 
     iget-object v0, v0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$8;->this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
 
-    invoke-static {v0}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$700(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;)Lcom/arcsoft/avatar/RecordModule;
+    invoke-static {v0}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$800(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;)Lcom/arcsoft/avatar/RecordModule;
 
     move-result-object v0
 

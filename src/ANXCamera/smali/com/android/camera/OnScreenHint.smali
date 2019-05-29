@@ -21,7 +21,7 @@
 .method public static makeText(Landroid/app/Activity;Ljava/lang/CharSequence;)Lcom/android/camera/OnScreenHint;
     .locals 2
 
-    const v0, 0x7f0d00f7
+    const v0, 0x7f0d00f5
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -33,7 +33,7 @@
 
     invoke-direct {v0, p0}, Lcom/android/camera/OnScreenHint;-><init>(Landroid/view/ViewGroup;)V
 
-    const v1, 0x7f0d00f8
+    const v1, 0x7f0d00f6
 
     invoke-virtual {p0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -79,7 +79,7 @@
 
     iget-object v0, p0, Lcom/android/camera/OnScreenHint;->mHintView:Landroid/view/ViewGroup;
 
-    const v1, 0x7f0d00f8
+    const v1, 0x7f0d00f6
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 

@@ -25,9 +25,11 @@ import com.google.android.libraries.lens.lenslite.LensliteApi;
 import com.google.android.libraries.lens.lenslite.LensliteUiContainer;
 import com.google.android.libraries.lens.lenslite.LensliteUiController;
 import com.google.android.libraries.lens.lenslite.LensliteUiController.FocusType;
+import com.google.android.libraries.lens.lenslite.api.LinkImage;
 
 public class LensAgent {
     private static final String TAG = "LensAgent";
+    private volatile boolean mInitialized;
     private volatile boolean mIsResumed;
     private LensliteApi mLensliteApi;
 
@@ -160,73 +162,87 @@ public class LensAgent {
         sb.append("ms");
         Log.d(str, sb.toString());
         applyCustomStyle(activity.getApplicationContext(), viewGroup);
+        this.mInitialized = true;
     }
 
     public void onFocusChange(@FocusType int i, float f, float f2) {
-        String str = TAG;
-        StringBuilder sb = new StringBuilder();
-        sb.append("onFocusChange: type = ");
-        sb.append(i);
-        sb.append(", ");
-        sb.append(f);
-        sb.append("x");
-        sb.append(f2);
-        Log.d(str, sb.toString());
-        try {
-            this.mLensliteApi.getUiController().onFocusChange(i, new PointF(f, f2));
-        } catch (Exception e) {
-            Log.e(TAG, "onFocusChange: ", e);
+        if (this.mInitialized) {
+            String str = TAG;
+            StringBuilder sb = new StringBuilder();
+            sb.append("onFocusChange: type = ");
+            sb.append(i);
+            sb.append(", ");
+            sb.append(f);
+            sb.append("x");
+            sb.append(f2);
+            Log.d(str, sb.toString());
+            try {
+                this.mLensliteApi.getUiController().onFocusChange(i, new PointF(f, f2));
+            } catch (Exception e) {
+                Log.e(TAG, "onFocusChange: ", e);
+            }
         }
     }
 
     public void onNewImage(Image image, int i) {
-        if (this.mIsResumed) {
-            this.mLensliteApi.onNewImage(image, i);
-        } else {
-            Log.w(TAG, "onNewImage: lens api not resume...");
+        if (this.mInitialized) {
+            if (this.mIsResumed) {
+                this.mLensliteApi.onNewImage(LinkImage.create(image, i));
+            } else {
+                Log.w(TAG, "onNewImage: lens api not resume...");
+            }
         }
     }
 
     public void onPause() {
-        long currentTimeMillis = System.currentTimeMillis();
-        if (this.mIsResumed) {
-            this.mIsResumed = false;
-            this.mLensliteApi.onPause();
+        if (this.mInitialized) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (this.mIsResumed) {
+                this.mIsResumed = false;
+                this.mLensliteApi.onPause();
+            }
+            String str = TAG;
+            StringBuilder sb = new StringBuilder();
+            sb.append("LensliteApi onPause cost ");
+            sb.append(System.currentTimeMillis() - currentTimeMillis);
+            sb.append("ms");
+            Log.d(str, sb.toString());
         }
-        String str = TAG;
-        StringBuilder sb = new StringBuilder();
-        sb.append("LensliteApi onPause cost ");
-        sb.append(System.currentTimeMillis() - currentTimeMillis);
-        sb.append("ms");
-        Log.d(str, sb.toString());
     }
 
     public void onResume() {
-        long currentTimeMillis = System.currentTimeMillis();
-        if (!this.mIsResumed) {
-            this.mLensliteApi.onResume();
-            this.mIsResumed = true;
+        if (this.mInitialized) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (!this.mIsResumed) {
+                this.mLensliteApi.onResume();
+                this.mIsResumed = true;
+            }
+            String str = TAG;
+            StringBuilder sb = new StringBuilder();
+            sb.append("LensliteApi onResume cost ");
+            sb.append(System.currentTimeMillis() - currentTimeMillis);
+            sb.append("ms");
+            Log.d(str, sb.toString());
         }
-        String str = TAG;
-        StringBuilder sb = new StringBuilder();
-        sb.append("LensliteApi onResume cost ");
-        sb.append(System.currentTimeMillis() - currentTimeMillis);
-        sb.append("ms");
-        Log.d(str, sb.toString());
     }
 
     public void release() {
-        long currentTimeMillis = System.currentTimeMillis();
-        this.mLensliteApi.onStop();
-        String str = TAG;
-        StringBuilder sb = new StringBuilder();
-        sb.append("LensliteApi release cost ");
-        sb.append(System.currentTimeMillis() - currentTimeMillis);
-        sb.append("ms");
-        Log.d(str, sb.toString());
+        if (this.mInitialized) {
+            long currentTimeMillis = System.currentTimeMillis();
+            this.mLensliteApi.onStop();
+            String str = TAG;
+            StringBuilder sb = new StringBuilder();
+            sb.append("LensliteApi release cost ");
+            sb.append(System.currentTimeMillis() - currentTimeMillis);
+            sb.append("ms");
+            Log.d(str, sb.toString());
+            this.mInitialized = false;
+        }
     }
 
     public void showOrHideChip(boolean z) {
-        this.mLensliteApi.getUiController().setLensSuggestionsEnabled(z);
+        if (this.mInitialized) {
+            this.mLensliteApi.getUiController().setLensSuggestionsEnabled(z);
+        }
     }
 }

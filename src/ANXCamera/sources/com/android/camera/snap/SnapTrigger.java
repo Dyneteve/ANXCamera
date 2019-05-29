@@ -1,20 +1,15 @@
 package com.android.camera.snap;
 
-import android.app.Notification;
-import android.app.Notification.Builder;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.PowerManager;
 import android.os.Vibrator;
 import android.view.ViewConfiguration;
+import com.android.camera.GeneralUtils;
 import com.android.camera.ProximitySensorLock;
 import com.android.camera.R;
 import com.android.camera.Util;
-import com.android.camera.lib.compatibility.util.CompatibilityUtils;
 import com.android.camera.log.Log;
 import com.android.camera.snap.SnapCamera.SnapStatusListener;
 import com.android.camera.statistic.CameraStat;
@@ -103,19 +98,7 @@ public class SnapTrigger implements SnapStatusListener {
     }
 
     public static void notifyForDetail(Context context, Uri uri, String str, String str2, boolean z) {
-        try {
-            Intent intent = new Intent();
-            intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(uri, z ? "video/*" : "image/*");
-            Builder when = new Builder(context).setContentTitle(str).setContentText(str2).setContentIntent(PendingIntent.getActivity(context, 0, intent, 0)).setSmallIcon(17301569).setWhen(System.currentTimeMillis());
-            NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
-            CompatibilityUtils.addChannelForNotificationBuilder(notificationManager, STREET_SNAP_CHANNEL_ID, context.getResources().getString(R.string.camera_label), when);
-            Notification build = when.build();
-            build.flags |= 16;
-            build.extraNotification.setMessageCount(0);
-            notificationManager.notify(0, build);
-        } catch (NullPointerException e) {
-        }
+        GeneralUtils.notifyForDetail(context, uri, str, str2, z);
     }
 
     private void onDestroy() {

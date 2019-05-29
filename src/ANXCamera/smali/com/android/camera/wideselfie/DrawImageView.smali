@@ -79,7 +79,7 @@
 
     iget-object p2, p0, Lcom/android/camera/wideselfie/DrawImageView;->mBorderPaint:Landroid/graphics/Paint;
 
-    const v0, 0x7f0b0076
+    const v0, 0x7f0b0078
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getColor(I)I
 
@@ -99,7 +99,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0a015c
+    const v0, 0x7f0a013d
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimension(I)F
 

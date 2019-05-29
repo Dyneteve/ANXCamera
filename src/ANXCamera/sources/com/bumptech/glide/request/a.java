@@ -5,43 +5,43 @@ import android.support.annotation.Nullable;
 /* compiled from: ErrorRequestCoordinator */
 public final class a implements c, d {
     @Nullable
-    private final d nE;
-    private c nF;
+    private final d nF;
     private c nG;
+    private c nH;
 
     public a(@Nullable d dVar) {
-        this.nE = dVar;
+        this.nF = dVar;
     }
 
     private boolean dk() {
-        return this.nE == null || this.nE.d(this);
+        return this.nF == null || this.nF.d(this);
     }
 
     private boolean dl() {
-        return this.nE == null || this.nE.f(this);
+        return this.nF == null || this.nF.f(this);
     }
 
     private boolean dm() {
-        return this.nE == null || this.nE.e(this);
+        return this.nF == null || this.nF.e(this);
     }
 
     /* renamed from: do reason: not valid java name */
-    private boolean m2805do() {
-        return this.nE != null && this.nE.dn();
+    private boolean m2820do() {
+        return this.nF != null && this.nF.dn();
     }
 
     private boolean g(c cVar) {
-        return cVar.equals(this.nF) || (this.nF.isFailed() && cVar.equals(this.nG));
+        return cVar.equals(this.nG) || (this.nG.isFailed() && cVar.equals(this.nH));
     }
 
     public void a(c cVar, c cVar2) {
-        this.nF = cVar;
-        this.nG = cVar2;
+        this.nG = cVar;
+        this.nH = cVar2;
     }
 
     public void begin() {
-        if (!this.nF.isRunning()) {
-            this.nF.begin();
+        if (!this.nG.isRunning()) {
+            this.nG.begin();
         }
     }
 
@@ -51,16 +51,16 @@ public final class a implements c, d {
             return false;
         }
         a aVar = (a) cVar;
-        if (this.nF.c(aVar.nF) && this.nG.c(aVar.nG)) {
+        if (this.nG.c(aVar.nG) && this.nH.c(aVar.nH)) {
             z = true;
         }
         return z;
     }
 
     public void clear() {
-        this.nF.clear();
-        if (this.nG.isRunning()) {
-            this.nG.clear();
+        this.nG.clear();
+        if (this.nH.isRunning()) {
+            this.nH.clear();
         }
     }
 
@@ -69,11 +69,11 @@ public final class a implements c, d {
     }
 
     public boolean dj() {
-        return (this.nF.isFailed() ? this.nG : this.nF).dj();
+        return (this.nG.isFailed() ? this.nH : this.nG).dj();
     }
 
     public boolean dn() {
-        return m2805do() || dj();
+        return m2820do() || dj();
     }
 
     public boolean e(c cVar) {
@@ -85,54 +85,54 @@ public final class a implements c, d {
     }
 
     public void h(c cVar) {
-        if (this.nE != null) {
-            this.nE.h(this);
+        if (this.nF != null) {
+            this.nF.h(this);
         }
     }
 
     public void i(c cVar) {
-        if (!cVar.equals(this.nG)) {
-            if (!this.nG.isRunning()) {
-                this.nG.begin();
+        if (!cVar.equals(this.nH)) {
+            if (!this.nH.isRunning()) {
+                this.nH.begin();
             }
             return;
         }
-        if (this.nE != null) {
-            this.nE.i(this);
+        if (this.nF != null) {
+            this.nF.i(this);
         }
     }
 
     public boolean isCancelled() {
-        return (this.nF.isFailed() ? this.nG : this.nF).isCancelled();
+        return (this.nG.isFailed() ? this.nH : this.nG).isCancelled();
     }
 
     public boolean isComplete() {
-        return (this.nF.isFailed() ? this.nG : this.nF).isComplete();
+        return (this.nG.isFailed() ? this.nH : this.nG).isComplete();
     }
 
     public boolean isFailed() {
-        return this.nF.isFailed() && this.nG.isFailed();
+        return this.nG.isFailed() && this.nH.isFailed();
     }
 
     public boolean isPaused() {
-        return (this.nF.isFailed() ? this.nG : this.nF).isPaused();
+        return (this.nG.isFailed() ? this.nH : this.nG).isPaused();
     }
 
     public boolean isRunning() {
-        return (this.nF.isFailed() ? this.nG : this.nF).isRunning();
+        return (this.nG.isFailed() ? this.nH : this.nG).isRunning();
     }
 
     public void pause() {
-        if (!this.nF.isFailed()) {
-            this.nF.pause();
-        }
-        if (this.nG.isRunning()) {
+        if (!this.nG.isFailed()) {
             this.nG.pause();
+        }
+        if (this.nH.isRunning()) {
+            this.nH.pause();
         }
     }
 
     public void recycle() {
-        this.nF.recycle();
         this.nG.recycle();
+        this.nH.recycle();
     }
 }

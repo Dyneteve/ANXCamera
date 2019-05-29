@@ -8,13 +8,13 @@
 
 .field private mStatus:I
 
-.field private vL:Landroid/media/AudioTrack;
+.field private vQ:Landroid/media/AudioTrack;
 
-.field private vM:J
+.field private vR:J
 
-.field private vN:Ljava/lang/Thread;
+.field private vS:Ljava/lang/Thread;
 
-.field private vO:Lorg/a/a/b;
+.field private vT:Lorg/a/a/b;
 
 
 # direct methods
@@ -25,15 +25,15 @@
 
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lorg/a/a/a;->vL:Landroid/media/AudioTrack;
+    iput-object v0, p0, Lorg/a/a/a;->vQ:Landroid/media/AudioTrack;
 
     const-wide/16 v1, 0x0
 
-    iput-wide v1, p0, Lorg/a/a/a;->vM:J
+    iput-wide v1, p0, Lorg/a/a/a;->vR:J
 
-    iput-object v0, p0, Lorg/a/a/a;->vN:Ljava/lang/Thread;
+    iput-object v0, p0, Lorg/a/a/a;->vS:Ljava/lang/Thread;
 
-    iput-object v0, p0, Lorg/a/a/a;->vO:Lorg/a/a/b;
+    iput-object v0, p0, Lorg/a/a/a;->vT:Lorg/a/a/b;
 
     const/4 v0, 0x0
 
@@ -47,7 +47,7 @@
 .method static synthetic a(Lorg/a/a/a;)Landroid/media/AudioTrack;
     .locals 0
 
-    iget-object p0, p0, Lorg/a/a/a;->vL:Landroid/media/AudioTrack;
+    iget-object p0, p0, Lorg/a/a/a;->vQ:Landroid/media/AudioTrack;
 
     return-object p0
 .end method
@@ -71,19 +71,19 @@
 .method static synthetic d(Lorg/a/a/a;)Lorg/a/a/b;
     .locals 0
 
-    iget-object p0, p0, Lorg/a/a/a;->vO:Lorg/a/a/b;
+    iget-object p0, p0, Lorg/a/a/a;->vT:Lorg/a/a/b;
 
     return-object p0
 .end method
 
-.method private iM()V
+.method private iP()V
     .locals 8
 
-    invoke-direct {p0}, Lorg/a/a/a;->iN()V
+    invoke-direct {p0}, Lorg/a/a/a;->iQ()V
 
     new-instance v7, Landroid/media/AudioTrack;
 
-    iget-wide v0, p0, Lorg/a/a/a;->vM:J
+    iget-wide v0, p0, Lorg/a/a/a;->vR:J
 
     long-to-int v5, v0
 
@@ -101,23 +101,23 @@
 
     invoke-direct/range {v0 .. v6}, Landroid/media/AudioTrack;-><init>(IIIIII)V
 
-    iput-object v7, p0, Lorg/a/a/a;->vL:Landroid/media/AudioTrack;
+    iput-object v7, p0, Lorg/a/a/a;->vQ:Landroid/media/AudioTrack;
 
     return-void
 .end method
 
-.method private iN()V
+.method private iQ()V
     .locals 2
 
-    iget-object v0, p0, Lorg/a/a/a;->vL:Landroid/media/AudioTrack;
+    iget-object v0, p0, Lorg/a/a/a;->vQ:Landroid/media/AudioTrack;
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lorg/a/a/a;->vL:Landroid/media/AudioTrack;
+    iget-object v0, p0, Lorg/a/a/a;->vQ:Landroid/media/AudioTrack;
 
     invoke-virtual {v0}, Landroid/media/AudioTrack;->flush()V
 
-    iget-object v0, p0, Lorg/a/a/a;->vL:Landroid/media/AudioTrack;
+    iget-object v0, p0, Lorg/a/a/a;->vQ:Landroid/media/AudioTrack;
 
     invoke-virtual {v0}, Landroid/media/AudioTrack;->getPlayState()I
 
@@ -127,24 +127,24 @@
 
     if-ne v0, v1, :cond_0
 
-    iget-object v0, p0, Lorg/a/a/a;->vL:Landroid/media/AudioTrack;
+    iget-object v0, p0, Lorg/a/a/a;->vQ:Landroid/media/AudioTrack;
 
     invoke-virtual {v0}, Landroid/media/AudioTrack;->stop()V
 
     :cond_0
-    iget-object v0, p0, Lorg/a/a/a;->vL:Landroid/media/AudioTrack;
+    iget-object v0, p0, Lorg/a/a/a;->vQ:Landroid/media/AudioTrack;
 
     invoke-virtual {v0}, Landroid/media/AudioTrack;->release()V
 
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lorg/a/a/a;->vL:Landroid/media/AudioTrack;
+    iput-object v0, p0, Lorg/a/a/a;->vQ:Landroid/media/AudioTrack;
 
     :cond_1
     return-void
 .end method
 
-.method private iO()I
+.method private iR()I
     .locals 2
 
     iget v0, p0, Lorg/a/a/a;->mStatus:I
@@ -158,7 +158,7 @@
     return v0
 
     :cond_0
-    iget-object v0, p0, Lorg/a/a/a;->vO:Lorg/a/a/b;
+    iget-object v0, p0, Lorg/a/a/a;->vT:Lorg/a/a/b;
 
     if-nez v0, :cond_1
 
@@ -175,9 +175,9 @@
 
     invoke-direct {v0, v1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
-    iput-object v0, p0, Lorg/a/a/a;->vN:Ljava/lang/Thread;
+    iput-object v0, p0, Lorg/a/a/a;->vS:Ljava/lang/Thread;
 
-    iget-object v0, p0, Lorg/a/a/a;->vN:Ljava/lang/Thread;
+    iget-object v0, p0, Lorg/a/a/a;->vS:Ljava/lang/Thread;
 
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
@@ -191,7 +191,7 @@
 .method public a(Lorg/a/a/b;)Z
     .locals 6
 
-    iput-object p1, p0, Lorg/a/a/a;->vO:Lorg/a/a/b;
+    iput-object p1, p0, Lorg/a/a/a;->vT:Lorg/a/a/b;
 
     const p1, 0xac44
 
@@ -205,9 +205,9 @@
 
     int-to-long v0, p1
 
-    iput-wide v0, p0, Lorg/a/a/a;->vM:J
+    iput-wide v0, p0, Lorg/a/a/a;->vR:J
 
-    iget-wide v0, p0, Lorg/a/a/a;->vM:J
+    iget-wide v0, p0, Lorg/a/a/a;->vR:J
 
     const-wide/16 v2, 0x0
 
@@ -220,9 +220,9 @@
     return v0
 
     :cond_0
-    invoke-direct {p0}, Lorg/a/a/a;->iM()V
+    invoke-direct {p0}, Lorg/a/a/a;->iP()V
 
-    iget-object p1, p0, Lorg/a/a/a;->vL:Landroid/media/AudioTrack;
+    iget-object p1, p0, Lorg/a/a/a;->vQ:Landroid/media/AudioTrack;
 
     invoke-virtual {p1}, Landroid/media/AudioTrack;->getState()I
 
@@ -237,11 +237,11 @@
     :cond_1
     iput v1, p0, Lorg/a/a/a;->mStatus:I
 
-    iget-object p1, p0, Lorg/a/a/a;->vO:Lorg/a/a/b;
+    iget-object p1, p0, Lorg/a/a/a;->vT:Lorg/a/a/b;
 
     if-eqz p1, :cond_2
 
-    iget-object p1, p0, Lorg/a/a/a;->vO:Lorg/a/a/b;
+    iget-object p1, p0, Lorg/a/a/a;->vT:Lorg/a/a/b;
 
     iget-wide v2, p0, Lorg/a/a/a;->mHandle:J
 
@@ -253,7 +253,7 @@
     return v1
 .end method
 
-.method public iI()J
+.method public iL()J
     .locals 2
 
     iget-wide v0, p0, Lorg/a/a/a;->mHandle:J
@@ -261,21 +261,21 @@
     return-wide v0
 .end method
 
-.method public iJ()V
+.method public iM()V
     .locals 1
 
     const/4 v0, 0x0
 
     iput v0, p0, Lorg/a/a/a;->mStatus:I
 
-    invoke-virtual {p0}, Lorg/a/a/a;->iL()V
+    invoke-virtual {p0}, Lorg/a/a/a;->iO()V
 
-    invoke-direct {p0}, Lorg/a/a/a;->iN()V
+    invoke-direct {p0}, Lorg/a/a/a;->iQ()V
 
     return-void
 .end method
 
-.method public iK()V
+.method public iN()V
     .locals 2
 
     iget v0, p0, Lorg/a/a/a;->mStatus:I
@@ -291,35 +291,35 @@
 
     iput v0, p0, Lorg/a/a/a;->mStatus:I
 
-    invoke-direct {p0}, Lorg/a/a/a;->iO()I
+    invoke-direct {p0}, Lorg/a/a/a;->iR()I
 
     return-void
 .end method
 
-.method public iL()V
+.method public iO()V
     .locals 3
 
     const/4 v0, 0x4
 
     iput v0, p0, Lorg/a/a/a;->mStatus:I
 
-    iget-object v0, p0, Lorg/a/a/a;->vO:Lorg/a/a/b;
+    iget-object v0, p0, Lorg/a/a/a;->vT:Lorg/a/a/b;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lorg/a/a/a;->vO:Lorg/a/a/b;
+    iget-object v0, p0, Lorg/a/a/a;->vT:Lorg/a/a/b;
 
     iget-wide v1, p0, Lorg/a/a/a;->mHandle:J
 
     invoke-interface {v0, v1, v2}, Lorg/a/a/b;->stopAudio(J)V
 
     :cond_0
-    iget-object v0, p0, Lorg/a/a/a;->vN:Ljava/lang/Thread;
+    iget-object v0, p0, Lorg/a/a/a;->vS:Ljava/lang/Thread;
 
     if-eqz v0, :cond_1
 
     :try_start_0
-    iget-object v0, p0, Lorg/a/a/a;->vN:Ljava/lang/Thread;
+    iget-object v0, p0, Lorg/a/a/a;->vS:Ljava/lang/Thread;
 
     invoke-virtual {v0}, Ljava/lang/Thread;->join()V
     :try_end_0
@@ -334,7 +334,7 @@
     :goto_0
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lorg/a/a/a;->vN:Ljava/lang/Thread;
+    iput-object v0, p0, Lorg/a/a/a;->vS:Ljava/lang/Thread;
 
     return-void
 .end method

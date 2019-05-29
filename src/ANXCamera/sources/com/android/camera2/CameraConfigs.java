@@ -5,7 +5,6 @@ import android.location.Location;
 import android.util.Range;
 import com.android.camera.CameraSize;
 import com.android.camera.Util;
-import com.android.camera.constant.EyeLightConstant;
 import com.android.camera.fragment.beauty.BeautyValues;
 import com.android.camera.log.Log;
 import java.util.ArrayDeque;
@@ -25,6 +24,8 @@ public class CameraConfigs {
     private boolean mAWBLocked;
     private boolean mAiSceneDetectEnabled;
     private int mAiSceneDetectPeriod;
+    private int mAlgorithmPreviewFormat = 35;
+    private CameraSize mAlgorithmPreviewSize;
     private int mAntiBanding = -1;
     private int mAutoZoomMode;
     private float mAutoZoomScaleOffset;
@@ -40,7 +41,7 @@ public class CameraConfigs {
     private int mExposureCompensationIndex;
     private int mExposureMeteringMode = -1;
     private long mExposureTime;
-    private int mEyeLightType = Integer.parseInt(EyeLightConstant.OFF);
+    private int mEyeLightType = Integer.parseInt("-1");
     private String mFNumber;
     private boolean mFaceAgeAnalyzeEnabled;
     private boolean mFaceDetectionEnabled;
@@ -73,7 +74,6 @@ public class CameraConfigs {
     private int mPhotoMaxImages = 2;
     private CameraSize mPhotoSize;
     private int mPortraitLightingPattern;
-    private int mPreviewFormat = 35;
     private Range<Integer> mPreviewFpsRange;
     private int mPreviewMaxImages = 1;
     private CameraSize mPreviewSize;
@@ -81,7 +81,7 @@ public class CameraConfigs {
     private boolean mRearBokehEnabled;
     private boolean mRecordingHintEnabled;
     private int mSaturationLevel = -1;
-    private int mSceneMode;
+    private int mSceneMode = -1;
     private int mSharpnessLevel = -1;
     private ArrayDeque<String> mShotPath = null;
     private ArrayDeque<String> mShotPathThumbnail = null;
@@ -118,6 +118,14 @@ public class CameraConfigs {
 
     public int getAiSceneDetectPeriod() {
         return this.mAiSceneDetectPeriod;
+    }
+
+    public int getAlgorithmPreviewFormat() {
+        return this.mAlgorithmPreviewFormat;
+    }
+
+    public CameraSize getAlgorithmPreviewSize() {
+        return this.mAlgorithmPreviewSize;
     }
 
     public int getAntiBanding() {
@@ -224,10 +232,6 @@ public class CameraConfigs {
         return this.mPortraitLightingPattern;
     }
 
-    public int getPreviewFormat() {
-        return this.mPreviewFormat;
-    }
-
     public Range<Integer> getPreviewFpsRange() {
         return this.mPreviewFpsRange;
     }
@@ -253,6 +257,9 @@ public class CameraConfigs {
     }
 
     public String getShotPath() {
+        if (this.mShotPath == null) {
+            return null;
+        }
         String str = (String) this.mShotPath.poll();
         String str2 = TAG;
         StringBuilder sb = new StringBuilder();
@@ -489,6 +496,22 @@ public class CameraConfigs {
             return false;
         }
         this.mAiSceneDetectPeriod = i;
+        return true;
+    }
+
+    public boolean setAlgorithmPreviewFormat(int i) {
+        if (this.mAlgorithmPreviewFormat == i) {
+            return false;
+        }
+        this.mAlgorithmPreviewFormat = i;
+        return true;
+    }
+
+    public boolean setAlgorithmPreviewSize(CameraSize cameraSize) {
+        if (Objects.equals(this.mAlgorithmPreviewSize, cameraSize)) {
+            return false;
+        }
+        this.mAlgorithmPreviewSize = cameraSize;
         return true;
     }
 
@@ -849,14 +872,6 @@ public class CameraConfigs {
             return false;
         }
         this.mPortraitLightingPattern = i;
-        return true;
-    }
-
-    public boolean setPreviewFormat(int i) {
-        if (this.mPreviewFormat == i) {
-            return false;
-        }
-        this.mPreviewFormat = i;
         return true;
     }
 

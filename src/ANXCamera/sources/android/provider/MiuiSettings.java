@@ -1107,7 +1107,7 @@ public class MiuiSettings {
 
         private static int getDefaultSaturation() {
             int defaultSaturation = 10;
-            if (FeatureParser.getBoolean(d.tQ, false)) {
+            if (FeatureParser.getBoolean(d.tV, false)) {
                 defaultSaturation = 11;
             }
             return FeatureParser.getInteger("display_ce", defaultSaturation);
@@ -1182,6 +1182,7 @@ public class MiuiSettings {
         public static final int DEFAULT_LOCAL_AUTO_BACKUP = 0;
         public static final int DEFAULT_PERMANENTLY_LOCK_SIM_CHANGE = 0;
         public static final int DEFAULT_VPN_ENABLE_PASSWORD = 0;
+        public static final String ENABLE_AUTO_SPEAKER = "enable_auto_speaker";
         public static final String ENABLE_MIKEY_MODE = "enable_mikey_mode";
         public static final String ENABLE_MIUI_IME_XIAOAI_VOICE = "enable_miui_ime_xiaoai_voice";
         public static final String ENABLE_MIUI_SECURITY_IME = "enable_miui_security_ime";
@@ -1194,10 +1195,15 @@ public class MiuiSettings {
         public static final String IS_SECOND_SPACE = "is_second_space";
         public static final String KEY_FIRST_ENTER_SECURITY_SPACE = "first_enter_security_space";
         public static final String KID_USER_ID = "kid_user_id";
+        public static final String LIGHT_TURN_ON = "light_turn_on";
+        public static final String LIGHT_TURN_ON_ENDTIME = "light_turn_on_endTime";
+        public static final String LIGHT_TURN_ON_STARTTIME = "light_turn_on_startTime";
         public static final String LOCAL_AUTO_BACKUP = "local_auto_backup";
         public static final String LOCK_SCREEN_SECURE_AFTER_TIMEOUT = "enable_lock_screen_secure_after_timeout";
         public static String MIUI_OPTIMIZATION = "miui_optimization";
         public static final String MOBILE_POLICY = "mobile_policy";
+        public static final String MUSIC_LIGHT_TURN_ON = "music_light_turn_on";
+        public static final String NOTIFICATION_LIGHT_TURN_ON = "notification_light_turn_on";
         public static final String OPEN_CROSS_USER_NOTIFICATION = "open_cross_user_notification";
         public static final String OPEN_SWITCH_USER_NOTIFICATION = "open_switch_user_notification";
         public static final String PACKAGE_ACCESSIBILITY_SERVICE_IGNORED = "package_accessibillity_service_ignored";
@@ -1332,7 +1338,7 @@ public class MiuiSettings {
         }
 
         private static void showConfirmDialog(Activity activity, OnClickListener listener) {
-            new Builder(activity).setCancelable(false).setIconAttribute(16843605).setTitle(285802669).setMessage(285802670).setPositiveButton(285802668, listener).setNegativeButton(285802667, listener).create().show();
+            new Builder(activity).setCancelable(false).setIconAttribute(16843605).setTitle(285802670).setMessage(285802671).setPositiveButton(285802669, listener).setNegativeButton(285802668, listener).create().show();
         }
 
         public static void showSetPasswordConfirmDialog(final Activity activity, final OnClickListener dialogClickListener, final String businessKey, final int setPasswordRequestCode) {
@@ -1362,7 +1368,7 @@ public class MiuiSettings {
                     }
                 }
             };
-            new Builder(act).setCancelable(false).setIconAttribute(16843605).setTitle(act.getString(285802671, new Object[]{businessName})).setMessage(act.getString(285802672, new Object[]{businessName})).setPositiveButton(285802673, listener).setNegativeButton(285802667, listener).create().show();
+            new Builder(act).setCancelable(false).setIconAttribute(16843605).setTitle(act.getString(285802672, new Object[]{businessName})).setMessage(act.getString(285802673, new Object[]{businessName})).setPositiveButton(285802674, listener).setNegativeButton(285802668, listener).create().show();
         }
 
         public static void enableUserExperienceProgram(ContentResolver cr, boolean allow) {

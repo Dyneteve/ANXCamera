@@ -56,7 +56,7 @@
     :cond_0
     iget-object v0, p0, Lcom/xiaomi/camera/core/PostProcessor$ImageAvailableListener;->this$0:Lcom/xiaomi/camera/core/PostProcessor;
 
-    invoke-static {v0}, Lcom/xiaomi/camera/core/PostProcessor;->access$400(Lcom/xiaomi/camera/core/PostProcessor;)Lcom/xiaomi/camera/core/ImageMemoryManager;
+    invoke-static {v0}, Lcom/xiaomi/camera/core/PostProcessor;->access$500(Lcom/xiaomi/camera/core/PostProcessor;)Lcom/xiaomi/camera/core/ImageMemoryManager;
 
     move-result-object v0
 
@@ -92,7 +92,7 @@
 
     iget-object v0, p0, Lcom/xiaomi/camera/core/PostProcessor$ImageAvailableListener;->this$0:Lcom/xiaomi/camera/core/PostProcessor;
 
-    invoke-static {v0}, Lcom/xiaomi/camera/core/PostProcessor;->access$400(Lcom/xiaomi/camera/core/PostProcessor;)Lcom/xiaomi/camera/core/ImageMemoryManager;
+    invoke-static {v0}, Lcom/xiaomi/camera/core/PostProcessor;->access$500(Lcom/xiaomi/camera/core/PostProcessor;)Lcom/xiaomi/camera/core/ImageMemoryManager;
 
     move-result-object v0
 

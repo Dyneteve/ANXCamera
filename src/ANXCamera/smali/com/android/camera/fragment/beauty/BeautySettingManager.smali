@@ -24,8 +24,6 @@
     .end annotation
 .end field
 
-.field private mCurrentBeautySetting:Lcom/android/camera/fragment/beauty/IBeautySettingBusiness;
-
 
 # direct methods
 .method static constructor <clinit>()V
@@ -118,17 +116,7 @@
 
     move-result-object p1
 
-    iput-object p1, p0, Lcom/android/camera/fragment/beauty/BeautySettingManager;->mCurrentBeautySetting:Lcom/android/camera/fragment/beauty/IBeautySettingBusiness;
-
-    iget-object p1, p0, Lcom/android/camera/fragment/beauty/BeautySettingManager;->mCurrentBeautySetting:Lcom/android/camera/fragment/beauty/IBeautySettingBusiness;
+    invoke-interface {p1}, Lcom/android/camera/fragment/beauty/IBeautySettingBusiness;->updateExtraTable()V
 
     return-object p1
-.end method
-
-.method public getCurrentBeautySettingBusiness()Lcom/android/camera/fragment/beauty/IBeautySettingBusiness;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/camera/fragment/beauty/BeautySettingManager;->mCurrentBeautySetting:Lcom/android/camera/fragment/beauty/IBeautySettingBusiness;
-
-    return-object v0
 .end method

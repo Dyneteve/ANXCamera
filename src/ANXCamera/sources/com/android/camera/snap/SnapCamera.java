@@ -284,7 +284,7 @@ public class SnapCamera implements OnErrorListener, OnInfoListener {
             cameraManager.openCamera(valueOf, this.mCameraStateCallback, this.mMainHandler);
             this.mCameraCapabilities = new CameraCapabilities(cameraManager.getCameraCharacteristics(valueOf), this.mCameraId);
             if (isCamcorder()) {
-                int preferVideoQuality = CameraSettings.getPreferVideoQuality(162);
+                int preferVideoQuality = CameraSettings.getPreferVideoQuality(this.mCameraId, 162);
                 if (CamcorderProfile.hasProfile(this.mCameraId, preferVideoQuality)) {
                     this.mProfile = CamcorderProfile.get(this.mCameraId, preferVideoQuality);
                 } else {
@@ -329,7 +329,7 @@ public class SnapCamera implements OnErrorListener, OnInfoListener {
     }
 
     private void initOrientationListener() {
-        this.mOrientationListener = new OrientationEventListener(this.mContext, b.iC() ? 2 : 3) {
+        this.mOrientationListener = new OrientationEventListener(this.mContext, b.iF() ? 2 : 3) {
             public void onOrientationChanged(int i) {
                 SnapCamera.this.mOrientation = Util.roundOrientation(i, SnapCamera.this.mOrientation);
             }

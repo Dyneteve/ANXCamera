@@ -166,7 +166,7 @@
 
     const-string v2, ""
 
-    const v3, 0x7f020134
+    const v3, 0x7f02013a
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/camera/sticker/LiveStickerInfo;-><init>(Ljava/lang/String;Ljava/lang/String;I)V
 
@@ -412,7 +412,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090235
+    const v2, 0x7f090234
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -613,7 +613,7 @@
 .method protected getLayoutResourceId()I
     .locals 1
 
-    const v0, 0x7f040026
+    const v0, 0x7f040027
 
     return v0
 .end method
@@ -627,7 +627,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0a011e
+    const v0, 0x7f0a0100
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

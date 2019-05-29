@@ -68,7 +68,7 @@
 
     const v1, 0x7f09017b
 
-    const v2, 0x7f0200e0
+    const v2, 0x7f0200e6
 
     invoke-direct {p2, v2, v2, v1, v0}, Lcom/android/camera/data/data/ComponentDataItem;-><init>(IIILjava/lang/String;)V
 
@@ -84,7 +84,7 @@
 
     aget-object v0, v0, v3
 
-    const v3, 0x7f0200df
+    const v3, 0x7f0200e5
 
     invoke-direct {p2, v2, v3, v1, v0}, Lcom/android/camera/data/data/ComponentDataItem;-><init>(IIILjava/lang/String;)V
 
@@ -100,7 +100,7 @@
 
     aget-object v0, v0, v1
 
-    const v1, 0x7f0200de
+    const v1, 0x7f0200e4
 
     const v3, 0x7f09017c
 

@@ -12,16 +12,16 @@ import java.util.HashMap;
 
 /* compiled from: BitmapPreFiller */
 public final class a {
-    private final d ak;
-    private final j al;
+    private final d al;
+    private final j am;
     private final Handler handler = new Handler(Looper.getMainLooper());
-    private final DecodeFormat ji;
-    private BitmapPreFillRunner jj;
+    private final DecodeFormat jj;
+    private BitmapPreFillRunner jk;
 
     public a(j jVar, d dVar, DecodeFormat decodeFormat) {
-        this.al = jVar;
-        this.ak = dVar;
-        this.ji = decodeFormat;
+        this.am = jVar;
+        this.al = dVar;
+        this.jj = decodeFormat;
     }
 
     private static int a(c cVar) {
@@ -29,26 +29,26 @@ public final class a {
     }
 
     public void b(com.bumptech.glide.load.engine.prefill.c.a... aVarArr) {
-        if (this.jj != null) {
-            this.jj.cancel();
+        if (this.jk != null) {
+            this.jk.cancel();
         }
         c[] cVarArr = new c[aVarArr.length];
         for (int i = 0; i < aVarArr.length; i++) {
             com.bumptech.glide.load.engine.prefill.c.a aVar = aVarArr[i];
             if (aVar.getConfig() == null) {
-                Config config = (this.ji == DecodeFormat.PREFER_ARGB_8888 || this.ji == DecodeFormat.PREFER_ARGB_8888_DISALLOW_HARDWARE) ? Config.ARGB_8888 : Config.RGB_565;
+                Config config = (this.jj == DecodeFormat.PREFER_ARGB_8888 || this.jj == DecodeFormat.PREFER_ARGB_8888_DISALLOW_HARDWARE) ? Config.ARGB_8888 : Config.RGB_565;
                 aVar.e(config);
             }
             cVarArr[i] = aVar.bW();
         }
-        this.jj = new BitmapPreFillRunner(this.ak, this.al, generateAllocationOrder(cVarArr));
-        this.handler.post(this.jj);
+        this.jk = new BitmapPreFillRunner(this.al, this.am, generateAllocationOrder(cVarArr));
+        this.handler.post(this.jk);
     }
 
     /* access modifiers changed from: 0000 */
     @VisibleForTesting
     public b generateAllocationOrder(c... cVarArr) {
-        long maxSize = (this.al.getMaxSize() - this.al.bF()) + this.ak.getMaxSize();
+        long maxSize = (this.am.getMaxSize() - this.am.bF()) + this.al.getMaxSize();
         int i = 0;
         for (c weight : cVarArr) {
             i += weight.getWeight();

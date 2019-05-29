@@ -62,14 +62,6 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/mimoji/EditLevelListAdapter$1;->this$0:Lcom/android/camera/fragment/mimoji/EditLevelListAdapter;
 
-    invoke-static {p1}, Lcom/android/camera/fragment/mimoji/EditLevelListAdapter;->access$100(Lcom/android/camera/fragment/mimoji/EditLevelListAdapter;)Lcom/android/camera/fragment/mimoji/ItfGvOnItemClickListener;
-
-    move-result-object p1
-
-    invoke-interface {p1}, Lcom/android/camera/fragment/mimoji/ItfGvOnItemClickListener;->notifyUIChanged()V
-
-    iget-object p1, p0, Lcom/android/camera/fragment/mimoji/EditLevelListAdapter$1;->this$0:Lcom/android/camera/fragment/mimoji/EditLevelListAdapter;
-
     iget-object p2, p0, Lcom/android/camera/fragment/mimoji/EditLevelListAdapter$1;->val$mimojiThumbnailAdapter:Lcom/android/camera/fragment/mimoji/MimojiThumbnailAdapter;
 
     iget p4, p0, Lcom/android/camera/fragment/mimoji/EditLevelListAdapter$1;->val$outerPosition:I

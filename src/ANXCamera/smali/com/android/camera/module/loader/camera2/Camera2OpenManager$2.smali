@@ -116,6 +116,16 @@
 
     iget-object p1, p0, Lcom/android/camera/module/loader/camera2/Camera2OpenManager$2;->this$0:Lcom/android/camera/module/loader/camera2/Camera2OpenManager;
 
+    invoke-static {p1}, Lcom/android/camera/module/loader/camera2/Camera2OpenManager;->access$500(Lcom/android/camera/module/loader/camera2/Camera2OpenManager;)Ljava/util/concurrent/atomic/AtomicInteger;
+
+    move-result-object p1
+
+    const/4 v0, -0x1
+
+    invoke-virtual {p1, v0}, Ljava/util/concurrent/atomic/AtomicInteger;->set(I)V
+
+    iget-object p1, p0, Lcom/android/camera/module/loader/camera2/Camera2OpenManager$2;->this$0:Lcom/android/camera/module/loader/camera2/Camera2OpenManager;
+
     invoke-static {p1}, Lcom/android/camera/module/loader/camera2/Camera2OpenManager;->access$300(Lcom/android/camera/module/loader/camera2/Camera2OpenManager;)Landroid/os/Handler;
 
     move-result-object p1

@@ -57,6 +57,17 @@
 
     sget-object v0, Lcom/android/camera/db/DbContainer;->dbContainer:Lcom/android/camera/db/DbContainer;
 
+    if-nez v0, :cond_0
+
+    invoke-static {}, Lcom/android/camera/CameraApplicationDelegate;->getAndroidContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/camera/db/DbContainer;->init(Landroid/content/Context;)V
+
+    :cond_0
+    sget-object v0, Lcom/android/camera/db/DbContainer;->dbContainer:Lcom/android/camera/db/DbContainer;
+
     return-object v0
 .end method
 

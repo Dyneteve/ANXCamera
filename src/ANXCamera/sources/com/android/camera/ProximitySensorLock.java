@@ -253,7 +253,7 @@ public class ProximitySensorLock implements SensorEventListener {
     }
 
     public static boolean supported() {
-        return b.ii();
+        return b.il();
     }
 
     public boolean active() {

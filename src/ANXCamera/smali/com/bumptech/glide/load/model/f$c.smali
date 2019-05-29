@@ -39,7 +39,7 @@
 
 .field private final file:Ljava/io/File;
 
-.field private final jE:Lcom/bumptech/glide/load/model/f$d;
+.field private final jF:Lcom/bumptech/glide/load/model/f$d;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/model/f$d<",
@@ -65,7 +65,7 @@
 
     iput-object p1, p0, Lcom/bumptech/glide/load/model/f$c;->file:Ljava/io/File;
 
-    iput-object p2, p0, Lcom/bumptech/glide/load/model/f$c;->jE:Lcom/bumptech/glide/load/model/f$d;
+    iput-object p2, p0, Lcom/bumptech/glide/load/model/f$c;->jF:Lcom/bumptech/glide/load/model/f$d;
 
     return-void
 .end method
@@ -92,7 +92,7 @@
     .end annotation
 
     :try_start_0
-    iget-object p1, p0, Lcom/bumptech/glide/load/model/f$c;->jE:Lcom/bumptech/glide/load/model/f$d;
+    iget-object p1, p0, Lcom/bumptech/glide/load/model/f$c;->jF:Lcom/bumptech/glide/load/model/f$d;
 
     iget-object v0, p0, Lcom/bumptech/glide/load/model/f$c;->file:Ljava/io/File;
 
@@ -150,7 +150,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/f$c;->jE:Lcom/bumptech/glide/load/model/f$d;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/f$c;->jF:Lcom/bumptech/glide/load/model/f$d;
 
     invoke-interface {v0}, Lcom/bumptech/glide/load/model/f$d;->aj()Ljava/lang/Class;
 
@@ -164,7 +164,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/load/DataSource;->dc:Lcom/bumptech/glide/load/DataSource;
+    sget-object v0, Lcom/bumptech/glide/load/DataSource;->dd:Lcom/bumptech/glide/load/DataSource;
 
     return-object v0
 .end method
@@ -183,7 +183,7 @@
     if-eqz v0, :cond_0
 
     :try_start_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/f$c;->jE:Lcom/bumptech/glide/load/model/f$d;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/f$c;->jF:Lcom/bumptech/glide/load/model/f$d;
 
     iget-object v1, p0, Lcom/bumptech/glide/load/model/f$c;->data:Ljava/lang/Object;
 

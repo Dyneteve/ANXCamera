@@ -64,7 +64,7 @@
     div-int/lit8 p2, p2, 0x3
 
     :goto_0
-    const/16 v1, 0x110
+    const/16 v1, 0x14a
 
     mul-int/2addr v1, p2
 

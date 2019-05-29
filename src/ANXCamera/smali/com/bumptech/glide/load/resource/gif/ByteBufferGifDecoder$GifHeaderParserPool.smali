@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final hT:Ljava/util/Queue;
+.field private final hU:Ljava/util/Queue;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Queue<",
@@ -41,7 +41,7 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/resource/gif/ByteBufferGifDecoder$GifHeaderParserPool;->hT:Ljava/util/Queue;
+    iput-object v0, p0, Lcom/bumptech/glide/load/resource/gif/ByteBufferGifDecoder$GifHeaderParserPool;->hU:Ljava/util/Queue;
 
     return-void
 .end method
@@ -56,7 +56,7 @@
     :try_start_0
     invoke-virtual {p1}, Lcom/bumptech/glide/b/d;->clear()V
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/gif/ByteBufferGifDecoder$GifHeaderParserPool;->hT:Ljava/util/Queue;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/gif/ByteBufferGifDecoder$GifHeaderParserPool;->hU:Ljava/util/Queue;
 
     invoke-interface {v0, p1}, Ljava/util/Queue;->offer(Ljava/lang/Object;)Z
     :try_end_0
@@ -80,7 +80,7 @@
     monitor-enter p0
 
     :try_start_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/gif/ByteBufferGifDecoder$GifHeaderParserPool;->hT:Ljava/util/Queue;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/gif/ByteBufferGifDecoder$GifHeaderParserPool;->hU:Ljava/util/Queue;
 
     invoke-interface {v0}, Ljava/util/Queue;->poll()Ljava/lang/Object;
 

@@ -18,14 +18,14 @@
 
 
 # instance fields
-.field final synthetic vR:Lorg/a/a/d;
+.field final synthetic vW:Lorg/a/a/d;
 
 
 # direct methods
 .method constructor <init>(Lorg/a/a/d;)V
     .locals 0
 
-    iput-object p1, p0, Lorg/a/a/d$1;->vR:Lorg/a/a/d;
+    iput-object p1, p0, Lorg/a/a/d$1;->vW:Lorg/a/a/d;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -37,7 +37,7 @@
 .method public run()V
     .locals 6
 
-    iget-object v0, p0, Lorg/a/a/d$1;->vR:Lorg/a/a/d;
+    iget-object v0, p0, Lorg/a/a/d$1;->vW:Lorg/a/a/d;
 
     iget v0, v0, Lorg/a/a/d;->bufferSizeInBytes:I
 
@@ -46,13 +46,13 @@
     nop
 
     :try_start_0
-    iget-object v1, p0, Lorg/a/a/d$1;->vR:Lorg/a/a/d;
+    iget-object v1, p0, Lorg/a/a/d$1;->vW:Lorg/a/a/d;
 
     iget-object v1, v1, Lorg/a/a/d;->audio:Landroid/media/AudioRecord;
 
     if-eqz v1, :cond_5
 
-    iget-object v1, p0, Lorg/a/a/d$1;->vR:Lorg/a/a/d;
+    iget-object v1, p0, Lorg/a/a/d$1;->vW:Lorg/a/a/d;
 
     iget-object v1, v1, Lorg/a/a/d;->audio:Landroid/media/AudioRecord;
 
@@ -67,23 +67,23 @@
     move v2, v1
 
     :goto_0
-    iget-object v3, p0, Lorg/a/a/d$1;->vR:Lorg/a/a/d;
+    iget-object v3, p0, Lorg/a/a/d$1;->vW:Lorg/a/a/d;
 
     iget-boolean v3, v3, Lorg/a/a/d;->isRecording:Z
 
     if-eqz v3, :cond_4
 
-    iget-object v3, p0, Lorg/a/a/d$1;->vR:Lorg/a/a/d;
+    iget-object v3, p0, Lorg/a/a/d$1;->vW:Lorg/a/a/d;
 
     iget-object v3, v3, Lorg/a/a/d;->audio:Landroid/media/AudioRecord;
 
     if-eqz v3, :cond_0
 
-    iget-object v2, p0, Lorg/a/a/d$1;->vR:Lorg/a/a/d;
+    iget-object v2, p0, Lorg/a/a/d$1;->vW:Lorg/a/a/d;
 
     iget-object v2, v2, Lorg/a/a/d;->audio:Landroid/media/AudioRecord;
 
-    iget-object v3, p0, Lorg/a/a/d$1;->vR:Lorg/a/a/d;
+    iget-object v3, p0, Lorg/a/a/d$1;->vW:Lorg/a/a/d;
 
     iget v3, v3, Lorg/a/a/d;->bufferSizeInBytes:I
 
@@ -117,7 +117,7 @@
     if-lez v2, :cond_2
 
     :try_start_1
-    iget-object v3, p0, Lorg/a/a/d$1;->vR:Lorg/a/a/d;
+    iget-object v3, p0, Lorg/a/a/d$1;->vW:Lorg/a/a/d;
 
     iget-boolean v3, v3, Lorg/a/a/d;->isRecording:Z
 
@@ -126,9 +126,9 @@
     goto :goto_0
 
     :cond_1
-    iget-object v3, p0, Lorg/a/a/d$1;->vR:Lorg/a/a/d;
+    iget-object v3, p0, Lorg/a/a/d$1;->vW:Lorg/a/a/d;
 
-    iget-object v3, v3, Lorg/a/a/d;->vQ:Lorg/a/a/c;
+    iget-object v3, v3, Lorg/a/a/d;->vV:Lorg/a/a/c;
 
     invoke-interface {v3, v0, v2}, Lorg/a/a/c;->addPCMData([BI)I
     :try_end_1
@@ -189,13 +189,13 @@
     move-exception v0
 
     :try_start_3
-    iget-object v1, p0, Lorg/a/a/d$1;->vR:Lorg/a/a/d;
+    iget-object v1, p0, Lorg/a/a/d$1;->vW:Lorg/a/a/d;
 
     iget-object v1, v1, Lorg/a/a/d;->audio:Landroid/media/AudioRecord;
 
     if-eqz v1, :cond_6
 
-    iget-object v1, p0, Lorg/a/a/d$1;->vR:Lorg/a/a/d;
+    iget-object v1, p0, Lorg/a/a/d$1;->vW:Lorg/a/a/d;
 
     iget-object v1, v1, Lorg/a/a/d;->audio:Landroid/media/AudioRecord;
 
@@ -210,7 +210,7 @@
     move-exception v1
 
     :goto_3
-    iget-object v1, p0, Lorg/a/a/d$1;->vR:Lorg/a/a/d;
+    iget-object v1, p0, Lorg/a/a/d$1;->vW:Lorg/a/a/d;
 
     const/4 v2, 0x0
 

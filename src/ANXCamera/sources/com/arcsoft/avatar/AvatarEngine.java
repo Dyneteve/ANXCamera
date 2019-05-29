@@ -52,9 +52,11 @@ public class AvatarEngine implements AvatarConfig {
 
     private native int nativeGetSupportConfigType(long j, int i, GetSupportConfigTypeCallback getSupportConfigTypeCallback);
 
-    private native int nativeInit(long j, String str, String str2, String str3);
+    private native int nativeInit(long j, String str, String str2);
 
     private native boolean nativeIsSupportSwitchGender(long j);
+
+    private native int nativeLoadColorValue(String str);
 
     private native int nativeLoadConfig(long j, String str);
 
@@ -70,7 +72,7 @@ public class AvatarEngine implements AvatarConfig {
 
     private native int nativeProcessWithInfo(long j, byte[] bArr, int i, int i2, int i3, int i4, boolean z, int i5, ASAvatarProcessInfo aSAvatarProcessInfo);
 
-    private native int nativeProcessWithInfoEx(long j, ASVLOFFSCREEN asvloffscreen, int i, boolean z, int i2, ASAvatarProcessInfo aSAvatarProcessInfo);
+    private native int nativeProcessWithInfoEx(long j, ASVLOFFSCREEN asvloffscreen, int i, boolean z, int i2, ASAvatarProcessInfo aSAvatarProcessInfo, boolean z2);
 
     private native int nativeReleaseRender(long j);
 
@@ -78,7 +80,7 @@ public class AvatarEngine implements AvatarConfig {
 
     private native int nativeRenderBackgroundWithTexture(long j, int i, int i2, boolean z);
 
-    private native int nativeRenderThumb(long j, int i, int i2, int i3, int i4, byte[] bArr, int i5, int i6, int i7, float[] fArr);
+    private native int nativeRenderThumb(long j, int i, int i2, int i3, int i4, byte[] bArr, int i5, int i6, int i7, float[] fArr, float f);
 
     private native int nativeRenderWithBackground(long j, ASVLOFFSCREEN asvloffscreen, int i, boolean z, int i2, int i3, int i4, int i5, boolean z2, int[] iArr, byte[] bArr);
 
@@ -121,8 +123,8 @@ public class AvatarEngine implements AvatarConfig {
         return nativeProcessWithInfo;
     }
 
-    public int avatarProcessWithInfoEx(ASVLOFFSCREEN asvloffscreen, int i, boolean z, int i2, ASAvatarProcessInfo aSAvatarProcessInfo) {
-        return nativeProcessWithInfoEx(this.e, asvloffscreen, i, z, i2, aSAvatarProcessInfo);
+    public int avatarProcessWithInfoEx(ASVLOFFSCREEN asvloffscreen, int i, boolean z, int i2, ASAvatarProcessInfo aSAvatarProcessInfo, boolean z2) {
+        return nativeProcessWithInfoEx(this.e, asvloffscreen, i, z, i2, aSAvatarProcessInfo, z2);
     }
 
     public synchronized int avatarProfile(String str, int i, int i2, int i3, byte[] bArr, int i4, boolean z, ASAvatarProfileResult aSAvatarProfileResult, ASAvatarProfileInfo aSAvatarProfileInfo, UpdateProgressCallback updateProgressCallback) {
@@ -233,20 +235,24 @@ public class AvatarEngine implements AvatarConfig {
         return arrayList;
     }
 
-    public synchronized void init(String str, String str2, String str3) {
+    public synchronized void init(String str, String str2) {
         d.a("init");
         this.e = nativeCreate();
-        int nativeInit = nativeInit(this.e, str, str2, str3);
-        String str4 = a;
+        int nativeInit = nativeInit(this.e, str, str2);
+        String str3 = a;
         StringBuilder sb = new StringBuilder();
         sb.append("init res = ");
         sb.append(nativeInit);
-        LOG.d(str4, sb.toString());
+        LOG.d(str3, sb.toString());
         d.a("performance", "init");
     }
 
     public synchronized boolean isSupportSwitchGender() {
         return nativeIsSupportSwitchGender(this.e);
+    }
+
+    public synchronized int loadColorValue(String str) {
+        return nativeLoadColorValue(str);
     }
 
     public synchronized void loadConfig(String str) {
@@ -303,11 +309,11 @@ public class AvatarEngine implements AvatarConfig {
         return nativeRenderBackgroundWithTexture(this.e, i, i2, z);
     }
 
-    public synchronized int renderThumb(int i, int i2, int i3, int i4, byte[] bArr, int i5, int i6, int i7, float[] fArr) {
+    public synchronized int renderThumb(int i, int i2, int i3, int i4, byte[] bArr, int i5, int i6, int i7, float[] fArr, float f) {
         int nativeRenderThumb;
         synchronized (this) {
             d.a("renderThumb");
-            nativeRenderThumb = nativeRenderThumb(this.e, i, i2, i3, i4, bArr, i5, i6, i7, fArr);
+            nativeRenderThumb = nativeRenderThumb(this.e, i, i2, i3, i4, bArr, i5, i6, i7, fArr, f);
             d.a("performance", "renderThumb");
         }
         return nativeRenderThumb;

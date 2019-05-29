@@ -7,14 +7,14 @@ import java.util.List;
 
 /* compiled from: ImageHeaderParserRegistry */
 public final class b {
-    private final List<ImageHeaderParser> eu = new ArrayList();
+    private final List<ImageHeaderParser> ev = new ArrayList();
 
     public synchronized void b(@NonNull ImageHeaderParser imageHeaderParser) {
-        this.eu.add(imageHeaderParser);
+        this.ev.add(imageHeaderParser);
     }
 
     @NonNull
     public synchronized List<ImageHeaderParser> di() {
-        return this.eu;
+        return this.ev;
     }
 }

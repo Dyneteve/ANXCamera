@@ -19,7 +19,7 @@
 
 
 # instance fields
-.field private if:Lcom/bumptech/glide/load/engine/a/j$a;
+.field private ig:Lcom/bumptech/glide/load/engine/a/j$a;
 
 
 # direct methods
@@ -52,13 +52,13 @@
         }
     .end annotation
 
-    iget-object p1, p0, Lcom/bumptech/glide/load/engine/a/i;->if:Lcom/bumptech/glide/load/engine/a/j$a;
+    iget-object p1, p0, Lcom/bumptech/glide/load/engine/a/i;->ig:Lcom/bumptech/glide/load/engine/a/j$a;
 
     if-eqz p1, :cond_0
 
     if-eqz p2, :cond_0
 
-    iget-object p1, p0, Lcom/bumptech/glide/load/engine/a/i;->if:Lcom/bumptech/glide/load/engine/a/j$a;
+    iget-object p1, p0, Lcom/bumptech/glide/load/engine/a/i;->ig:Lcom/bumptech/glide/load/engine/a/j$a;
 
     invoke-interface {p1, p2}, Lcom/bumptech/glide/load/engine/a/j$a;->e(Lcom/bumptech/glide/load/engine/p;)V
 
@@ -73,7 +73,7 @@
         .end annotation
     .end param
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/engine/a/i;->if:Lcom/bumptech/glide/load/engine/a/j$a;
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/a/i;->ig:Lcom/bumptech/glide/load/engine/a/j$a;
 
     return-void
 .end method

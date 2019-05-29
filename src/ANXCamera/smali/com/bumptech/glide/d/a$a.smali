@@ -33,7 +33,7 @@
     .end annotation
 .end field
 
-.field final eO:Lcom/bumptech/glide/load/a;
+.field final eP:Lcom/bumptech/glide/load/a;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/a<",
@@ -68,7 +68,7 @@
 
     iput-object p1, p0, Lcom/bumptech/glide/d/a$a;->dataClass:Ljava/lang/Class;
 
-    iput-object p2, p0, Lcom/bumptech/glide/d/a$a;->eO:Lcom/bumptech/glide/load/a;
+    iput-object p2, p0, Lcom/bumptech/glide/d/a$a;->eP:Lcom/bumptech/glide/load/a;
 
     return-void
 .end method

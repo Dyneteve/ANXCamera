@@ -388,7 +388,7 @@
 .method protected getLayoutResourceId()I
     .locals 1
 
-    const v0, 0x7f04005c
+    const v0, 0x7f04005e
 
     return v0
 .end method
@@ -426,7 +426,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/FragmentWideSelfie;->mViewRoot:Landroid/view/View;
 
-    const v0, 0x7f0d013a
+    const v0, 0x7f0d0138
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -438,7 +438,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/FragmentWideSelfie;->mViewRoot:Landroid/view/View;
 
-    const v0, 0x7f0d013b
+    const v0, 0x7f0d0139
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -450,7 +450,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/FragmentWideSelfie;->mViewRoot:Landroid/view/View;
 
-    const v0, 0x7f0d013c
+    const v0, 0x7f0d013a
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -474,7 +474,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/FragmentWideSelfie;->mViewRoot:Landroid/view/View;
 
-    const v0, 0x7f0d0139
+    const v0, 0x7f0d0137
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -486,7 +486,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/FragmentWideSelfie;->mViewRoot:Landroid/view/View;
 
-    const v0, 0x7f0d0138
+    const v0, 0x7f0d0136
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -498,7 +498,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/FragmentWideSelfie;->mViewRoot:Landroid/view/View;
 
-    const v0, 0x7f0d0137
+    const v0, 0x7f0d0135
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -510,7 +510,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/FragmentWideSelfie;->mViewRoot:Landroid/view/View;
 
-    const v0, 0x7f0d0136
+    const v0, 0x7f0d0134
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

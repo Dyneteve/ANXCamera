@@ -7,11 +7,11 @@ import java.io.InputStream;
 
 /* compiled from: ExifOrientationStream */
 public final class g extends FilterInputStream {
-    private static final int dQ = 2;
-    private static final byte[] dR = {-1, -31, 0, 28, 69, 120, 105, 102, 0, 0, 77, 77, 0, 0, 0, 0, 0, 8, 0, 1, 1, 18, 0, 2, 0, 0, 0, 1, 0};
-    private static final int dS = dR.length;
-    private static final int dT = (dS + 2);
-    private final byte dU;
+    private static final int dR = 2;
+    private static final byte[] dS = {-1, -31, 0, 28, 69, 120, 105, 102, 0, 0, 77, 77, 0, 0, 0, 0, 0, 8, 0, 1, 1, 18, 0, 2, 0, 0, 0, 1, 0};
+    private static final int dT = dS.length;
+    private static final int dU = (dT + 2);
+    private final byte dV;
     private int position;
 
     public g(InputStream inputStream, int i) {
@@ -22,7 +22,7 @@ public final class g extends FilterInputStream {
             sb.append(i);
             throw new IllegalArgumentException(sb.toString());
         }
-        this.dU = (byte) i;
+        this.dV = (byte) i;
     }
 
     public void mark(int i) {
@@ -34,7 +34,7 @@ public final class g extends FilterInputStream {
     }
 
     public int read() throws IOException {
-        int i = (this.position < 2 || this.position > dT) ? super.read() : this.position == dT ? this.dU : dR[this.position - 2] & -1;
+        int i = (this.position < 2 || this.position > dU) ? super.read() : this.position == dU ? this.dV : dS[this.position - 2] & -1;
         if (i != -1) {
             this.position++;
         }
@@ -43,16 +43,16 @@ public final class g extends FilterInputStream {
 
     public int read(@NonNull byte[] bArr, int i, int i2) throws IOException {
         int i3;
-        if (this.position > dT) {
+        if (this.position > dU) {
             i3 = super.read(bArr, i, i2);
-        } else if (this.position == dT) {
-            bArr[i] = this.dU;
+        } else if (this.position == dU) {
+            bArr[i] = this.dV;
             i3 = 1;
         } else if (this.position < 2) {
             i3 = super.read(bArr, i, 2 - this.position);
         } else {
-            int min = Math.min(dT - this.position, i2);
-            System.arraycopy(dR, this.position - 2, bArr, i, min);
+            int min = Math.min(dU - this.position, i2);
+            System.arraycopy(dS, this.position - 2, bArr, i, min);
             i3 = min;
         }
         if (i3 > 0) {

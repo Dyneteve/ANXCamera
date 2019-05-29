@@ -11,17 +11,17 @@ import java.nio.ByteBuffer;
 
 /* compiled from: ByteBufferBitmapDecoder */
 public class i implements g<ByteBuffer, Bitmap> {
-    private final n kD;
+    private final n kE;
 
     public i(n nVar) {
-        this.kD = nVar;
+        this.kE = nVar;
     }
 
     public p<Bitmap> a(@NonNull ByteBuffer byteBuffer, int i, int i2, @NonNull f fVar) throws IOException {
-        return this.kD.a(a.g(byteBuffer), i, i2, fVar);
+        return this.kE.a(a.g(byteBuffer), i, i2, fVar);
     }
 
     public boolean a(@NonNull ByteBuffer byteBuffer, @NonNull f fVar) {
-        return this.kD.c(byteBuffer);
+        return this.kE.c(byteBuffer);
     }
 }

@@ -30,7 +30,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const p1, 0x7f0d00f5
+    const p1, 0x7f0d00f3
 
     invoke-virtual {p2, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -40,7 +40,7 @@
 
     iput-object p1, p0, Lcom/android/camera/fragment/mimoji/MimojiThumbnailAdapter$ViewHolder;->imageView:Landroid/widget/ImageView;
 
-    const p1, 0x7f0d00f6
+    const p1, 0x7f0d00f4
 
     invoke-virtual {p2, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

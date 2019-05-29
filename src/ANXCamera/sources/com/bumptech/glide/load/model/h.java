@@ -7,12 +7,12 @@ import java.util.Map;
 /* compiled from: Headers */
 public interface h {
     @Deprecated
-    public static final h jL = new h() {
+    public static final h jM = new h() {
         public Map<String, String> getHeaders() {
             return Collections.emptyMap();
         }
     };
-    public static final h jM = new a().cf();
+    public static final h jN = new a().cf();
 
     Map<String, String> getHeaders();
 }

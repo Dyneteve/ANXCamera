@@ -13,12 +13,12 @@ import com.bumptech.glide.load.resource.b.e;
 
 /* compiled from: ResourceBitmapDecoder */
 public class t implements g<Uri, Bitmap> {
-    private final d ak;
-    private final e lH;
+    private final d al;
+    private final e lI;
 
     public t(e eVar, d dVar) {
-        this.lH = eVar;
-        this.ak = dVar;
+        this.lI = eVar;
+        this.al = dVar;
     }
 
     public boolean a(@NonNull Uri uri, @NonNull f fVar) {
@@ -28,10 +28,10 @@ public class t implements g<Uri, Bitmap> {
     @Nullable
     /* renamed from: b */
     public p<Bitmap> a(@NonNull Uri uri, int i, int i2, @NonNull f fVar) {
-        p b = this.lH.a(uri, i, i2, fVar);
+        p b = this.lI.a(uri, i, i2, fVar);
         if (b == null) {
             return null;
         }
-        return o.a(this.ak, (Drawable) b.get(), i, i2);
+        return o.a(this.al, (Drawable) b.get(), i, i2);
     }
 }

@@ -35,6 +35,7 @@ import com.android.camera.animation.type.AlphaOutOnSubscribe;
 import com.android.camera.animation.type.TranslateYOnSubscribe;
 import com.android.camera.constant.DurationConstant;
 import com.android.camera.data.DataRepository;
+import com.android.camera.fragment.mimoji.FragmentMimoji;
 import com.android.camera.fragment.top.FragmentTopAlert;
 import com.android.camera.protocol.ModeCoordinatorImpl;
 import com.android.camera.protocol.ModeProtocol.ActionProcessing;
@@ -295,7 +296,7 @@ public class FragmentBottomPopupTips extends BaseFragment implements OnClickList
     }
 
     private void reConfigBottomTipOfMimoji() {
-        if (this.mCurrentMode == 177) {
+        if (this.mCurrentMode == 177 && !DataRepository.dataItemLive().getMimojiStatusManager().IsInMimojiCreate()) {
             showTips(19, R.string.mimoji_tips, 2);
         }
     }
@@ -312,7 +313,7 @@ public class FragmentBottomPopupTips extends BaseFragment implements OnClickList
             i2 = (!CameraSettings.isUltraWideConfigOpen(this.mCurrentMode) || ((this.mCenterTipImage == null || this.mCenterTipImage.getVisibility() == 0) && !HybridZoomingSystem.IS_3_OR_MORE_SAT)) ? getResources().getDimensionPixelSize(R.dimen.tips_margin_bottom_normal) + ((((int) (((float) Util.sWindowWidth) / 0.75f)) - Util.sWindowWidth) / 2) : (getResources().getDimensionPixelSize(R.dimen.manually_indicator_layout_height) / 2) - (i / 2);
         } else if (manuallyAdjust != null && manuallyAdjust.visibleHeight() > 0) {
             i2 = manuallyAdjust.visibleHeight();
-        } else if (this.mCenterTipImage.getVisibility() == 0 && !HybridZoomingSystem.IS_3_OR_MORE_SAT) {
+        } else if (this.mCenterTipImage.getVisibility() == 0 && (!HybridZoomingSystem.IS_3_OR_MORE_SAT || !CameraSettings.isSupportedOpticalZoom())) {
             i2 = (miBeautyProtocol == null || !miBeautyProtocol.isBeautyPanelShow()) ? this.mTipImage.getHeight() : getResources().getDimensionPixelSize(R.dimen.beauty_fragment_height) + dimensionPixelSize;
         } else if (dualController != null && dualController.isZoomVisible()) {
             i2 = dualController.visibleHeight();
@@ -372,7 +373,7 @@ public class FragmentBottomPopupTips extends BaseFragment implements OnClickList
         }
     }
 
-    private void showMimoji() {
+    private void showMimojiPanel() {
         BottomMenuProtocol bottomMenuProtocol = (BottomMenuProtocol) ModeCoordinatorImpl.getInstance().getAttachProtocol(197);
         if (bottomMenuProtocol != null) {
             bottomMenuProtocol.onSwitchLiveActionMenu(166);
@@ -441,13 +442,14 @@ public class FragmentBottomPopupTips extends BaseFragment implements OnClickList
     /* JADX WARNING: type inference failed for: r4v5 */
     /* JADX WARNING: type inference failed for: r4v6 */
     /* JADX WARNING: type inference failed for: r4v7 */
-    /* JADX WARNING: Code restructure failed: missing block: B:39:0x00a5, code lost:
-        if (r1 != false) goto L_0x00a8;
+    /* JADX WARNING: type inference failed for: r4v8 */
+    /* JADX WARNING: Code restructure failed: missing block: B:48:0x00d2, code lost:
+        if (r1 != false) goto L_0x00d5;
      */
     /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r4v5
   assigns: []
   uses: []
-  mth insns count: 93
+  mth insns count: 107
     	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
     	at java.util.ArrayList.forEach(Unknown Source)
     	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
@@ -466,18 +468,18 @@ public class FragmentBottomPopupTips extends BaseFragment implements OnClickList
     	at jadx.api.JavaClass.decompile(JavaClass.java:62)
     	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
      */
-    /* JADX WARNING: Removed duplicated region for block: B:53:0x00ca  */
-    /* JADX WARNING: Removed duplicated region for block: B:54:0x00d9  */
-    /* JADX WARNING: Removed duplicated region for block: B:55:0x00f2  */
-    /* JADX WARNING: Removed duplicated region for block: B:56:0x0101  */
-    /* JADX WARNING: Removed duplicated region for block: B:57:0x0107  */
+    /* JADX WARNING: Removed duplicated region for block: B:62:0x00f7  */
+    /* JADX WARNING: Removed duplicated region for block: B:63:0x0106  */
+    /* JADX WARNING: Removed duplicated region for block: B:64:0x011f  */
+    /* JADX WARNING: Removed duplicated region for block: B:65:0x012e  */
+    /* JADX WARNING: Removed duplicated region for block: B:66:0x0134  */
     /* JADX WARNING: Unknown variable types count: 2 */
     /* Code decompiled incorrectly, please refer to instructions dump. */
     private void updateCenterTipImage(int i, int i2, List<Completable> list) {
         ? r4;
         boolean z;
-        int i3 = i != 174 ? i != 177 ? -1 : 34 : 18;
-        ? r42 = 2130837813;
+        int i3 = i != 174 ? (i == 177 && DataRepository.dataItemLive().getMimojiStatusManager().IsInPreviewSurface() && !CameraSettings.getMimojiPannelState()) ? 34 : -1 : 18;
+        ? r42 = 2130837819;
         char c = 1;
         if (i3 != -1) {
             if (i3 == 18) {
@@ -495,6 +497,11 @@ public class FragmentBottomPopupTips extends BaseFragment implements OnClickList
             } else if (i3 != 34) {
                 z = true;
                 r4 = 0;
+            } else {
+                String currentMimojiState = CameraSettings.getCurrentMimojiState();
+                if (!FragmentMimoji.ADD_STATE.equals(currentMimojiState) && !FragmentMimoji.CLOSE_STATE.equals(currentMimojiState)) {
+                    r42 = R.drawable.ic_live_sticker_on;
+                }
             }
             z = true;
             r4 = r42;
@@ -1239,7 +1246,7 @@ public class FragmentBottomPopupTips extends BaseFragment implements OnClickList
         this.mSpeedTipImage = (ViewGroup) view.findViewById(R.id.popup_speed_tip_image);
         this.mSpeedTipImage.setOnClickListener(this);
         LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.popup_center_tip_layout);
-        if (!HybridZoomingSystem.IS_3_OR_MORE_SAT) {
+        if (!HybridZoomingSystem.IS_3_OR_MORE_SAT || !CameraSettings.isSupportedOpticalZoom()) {
             ((FrameLayout.LayoutParams) linearLayout.getLayoutParams()).gravity = 81;
         } else {
             ((FrameLayout.LayoutParams) linearLayout.getLayoutParams()).gravity = 8388691;
@@ -1348,7 +1355,7 @@ public class FragmentBottomPopupTips extends BaseFragment implements OnClickList
      */
     /* JADX WARNING: Code restructure failed: missing block: B:28:0x009c, code lost:
         hideAllTipImage();
-        showMimoji();
+        showMimojiPanel();
      */
     /* JADX WARNING: Code restructure failed: missing block: B:29:0x00a3, code lost:
         hideAllTipImage();
@@ -1490,7 +1497,7 @@ public class FragmentBottomPopupTips extends BaseFragment implements OnClickList
             if (miBeautyProtocol == null || !miBeautyProtocol.isBeautyPanelShow()) {
                 if (!HybridZoomingSystem.IS_3_OR_MORE_SAT) {
                     showTips(13, R.string.ultra_wide_open_tip, 4);
-                } else if (CameraSettings.shouldShowUltraWideSatTip()) {
+                } else if (CameraSettings.shouldShowUltraWideSatTip(this.mCurrentMode)) {
                     showTips(13, R.string.ultra_wide_open_tip_sat, 2);
                 }
             }
@@ -1640,6 +1647,11 @@ public class FragmentBottomPopupTips extends BaseFragment implements OnClickList
             return;
         }
         showOrHideCloseImage(z);
+    }
+
+    public void showMimoji() {
+        hideAllTipImage();
+        showMimojiPanel();
     }
 
     public void showMimojiTip() {

@@ -51,7 +51,7 @@
 .end method
 
 .method private declared-synchronized destroyFrameBuffers()V
-    .locals 4
+    .locals 8
 
     monitor-enter p0
 
@@ -90,11 +90,71 @@
 
     invoke-static {v0, v1}, Lcom/android/camera/log/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    iget-object v0, p0, Lcom/android/camera/effect/renders/PipeRender;->mFrameBuffers:[I
+
+    if-eqz v0, :cond_1
+
+    move v0, v3
+
+    :goto_1
+    iget-object v1, p0, Lcom/android/camera/effect/renders/PipeRender;->mFrameBuffers:[I
+
+    array-length v1, v1
+
+    if-ge v0, v1, :cond_1
+
+    sget-object v1, Lcom/android/camera/effect/renders/PipeRender;->TAG:Ljava/lang/String;
+
+    sget-object v2, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
+
+    const-string v4, "delete fbo thread=%d id=%d"
+
+    const/4 v5, 0x2
+
+    new-array v5, v5, [Ljava/lang/Object;
+
+    invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/Thread;->getId()J
+
+    move-result-wide v6
+
+    invoke-static {v6, v7}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v6
+
+    aput-object v6, v5, v3
+
+    iget-object v6, p0, Lcom/android/camera/effect/renders/PipeRender;->mFrameBuffers:[I
+
+    aget v6, v6, v0
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    const/4 v7, 0x1
+
+    aput-object v6, v5, v7
+
+    invoke-static {v2, v4, v5}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_1
+
+    :cond_1
     iget-object v0, p0, Lcom/android/camera/effect/renders/PipeRender;->mFrameBufferTextures:[I
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/android/camera/effect/renders/PipeRender;->mFrameBufferTextures:[I
 
@@ -106,10 +166,10 @@
 
     iput-object v1, p0, Lcom/android/camera/effect/renders/PipeRender;->mFrameBufferTextures:[I
 
-    :cond_1
+    :cond_2
     iget-object v0, p0, Lcom/android/camera/effect/renders/PipeRender;->mFrameBuffers:[I
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     iget-object v0, p0, Lcom/android/camera/effect/renders/PipeRender;->mFrameBuffers:[I
 
@@ -123,7 +183,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :cond_2
+    :cond_3
     monitor-exit p0
 
     return-void
@@ -282,9 +342,11 @@
 
     sget-object v7, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
 
-    const-string v11, "fbo[%d]: %d %d"
+    const-string v11, "fbo[%d]: %d %d %d*%d thread=%d"
 
-    new-array v12, v5, [Ljava/lang/Object;
+    const/4 v12, 0x6
+
+    new-array v12, v12, [Ljava/lang/Object;
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -311,6 +373,36 @@
     move-result-object v13
 
     aput-object v13, v12, v10
+
+    invoke-static/range {p2 .. p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v13
+
+    aput-object v13, v12, v5
+
+    const/4 v13, 0x4
+
+    invoke-static/range {p3 .. p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v14
+
+    aput-object v14, v12, v13
+
+    const/4 v13, 0x5
+
+    invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Ljava/lang/Thread;->getId()J
+
+    move-result-wide v14
+
+    invoke-static {v14, v15}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v14
+
+    aput-object v14, v12, v13
 
     invoke-static {v7, v11, v12}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -402,13 +494,13 @@
 
     iget-object v2, v0, Lcom/android/camera/effect/renders/PipeRender;->mFrameBuffers:[I
 
-    if-eqz v2, :cond_b
+    if-eqz v2, :cond_c
 
     iget-object v2, v0, Lcom/android/camera/effect/renders/PipeRender;->mFrameBufferTextures:[I
 
     if-nez v2, :cond_0
 
-    goto/16 :goto_8
+    goto/16 :goto_9
 
     :cond_0
     nop
@@ -463,7 +555,7 @@
 
     const/16 v18, 0x0
 
-    goto :goto_1
+    goto :goto_2
 
     :pswitch_0
     move-object v6, v1
@@ -512,7 +604,7 @@
 
     move v6, v11
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_1
     move-object v6, v1
@@ -522,6 +614,14 @@
     nop
 
     nop
+
+    iget v7, v6, Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;->mBlockWidth:I
+
+    if-nez v7, :cond_2
+
+    iget v7, v6, Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;->mBlockHeight:I
+
+    if-nez v7, :cond_2
 
     iget-object v7, v6, Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;->mPictureSize:Landroid/util/Size;
 
@@ -535,6 +635,14 @@
 
     move-result v6
 
+    goto :goto_1
+
+    :cond_2
+    iget v7, v6, Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;->mBlockWidth:I
+
+    iget v6, v6, Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;->mBlockHeight:I
+
+    :goto_1
     nop
 
     nop
@@ -551,14 +659,14 @@
 
     const/16 v18, 0x1
 
-    :goto_1
-    if-eqz v9, :cond_a
+    :goto_2
+    if-eqz v9, :cond_b
 
-    if-nez v10, :cond_2
+    if-nez v10, :cond_3
 
-    goto/16 :goto_7
+    goto/16 :goto_8
 
-    :cond_2
+    :cond_3
     iget v15, v0, Lcom/android/camera/effect/renders/PipeRender;->mBufferWidth:I
 
     iget v14, v0, Lcom/android/camera/effect/renders/PipeRender;->mBufferHeight:I
@@ -569,7 +677,7 @@
 
     move-result-object v13
 
-    if-eqz v13, :cond_9
+    if-eqz v13, :cond_a
 
     invoke-interface {v13}, Ljava/util/List;->size()I
 
@@ -579,8 +687,8 @@
 
     const/4 v11, 0x0
 
-    :goto_2
-    if-ge v11, v12, :cond_9
+    :goto_3
+    if-ge v11, v12, :cond_a
 
     invoke-interface {v13, v11}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -592,19 +700,19 @@
 
     add-int/lit8 v4, v12, -0x1
 
-    if-ge v11, v4, :cond_3
+    if-ge v11, v4, :cond_4
 
     const/4 v4, 0x1
 
-    goto :goto_3
+    goto :goto_4
 
-    :cond_3
+    :cond_4
     nop
 
     const/4 v4, 0x0
 
-    :goto_3
-    if-eqz v4, :cond_4
+    :goto_4
+    if-eqz v4, :cond_5
 
     move/from16 v20, v12
 
@@ -614,19 +722,19 @@
 
     invoke-virtual {v0, v12, v15, v14}, Lcom/android/camera/effect/renders/PipeRender;->beginBindFrameBuffer(III)V
 
-    goto :goto_4
+    goto :goto_5
 
-    :cond_4
+    :cond_5
     move/from16 v20, v12
 
-    :goto_4
-    if-nez v11, :cond_6
+    :goto_5
+    if-nez v11, :cond_7
 
     const/16 v12, 0xb
 
-    if-eq v12, v2, :cond_5
+    if-eq v12, v2, :cond_6
 
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_6
 
     new-instance v3, Lcom/android/camera/effect/draw_mode/DrawIntTexAttribute;
 
@@ -662,9 +770,9 @@
 
     move/from16 v14, v23
 
-    goto :goto_5
+    goto :goto_6
 
-    :cond_5
+    :cond_6
     move/from16 v19, v11
 
     move/from16 v21, v12
@@ -681,9 +789,9 @@
 
     move/from16 v15, v24
 
-    goto :goto_5
+    goto :goto_6
 
-    :cond_6
+    :cond_7
     move/from16 v19, v11
 
     move-object/from16 v22, v13
@@ -702,7 +810,7 @@
 
     invoke-virtual {v5, v11, v15, v14}, Lcom/android/camera/effect/renders/Render;->setPreviousFrameBufferInfo(III)V
 
-    if-nez v4, :cond_7
+    if-nez v4, :cond_8
 
     iput v7, v3, Lcom/android/camera/effect/draw_mode/DrawIntTexAttribute;->mX:I
 
@@ -712,11 +820,11 @@
 
     iput v10, v3, Lcom/android/camera/effect/draw_mode/DrawIntTexAttribute;->mHeight:I
 
-    :cond_7
+    :cond_8
     invoke-virtual {v5, v3}, Lcom/android/camera/effect/renders/Render;->draw(Lcom/android/camera/effect/draw_mode/DrawAttribute;)Z
 
-    :goto_5
-    if-eqz v4, :cond_8
+    :goto_6
+    if-eqz v4, :cond_9
 
     new-instance v3, Lcom/android/camera/effect/draw_mode/DrawIntTexAttribute;
 
@@ -744,14 +852,14 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/camera/effect/renders/PipeRender;->endBindFrameBuffer()V
 
-    goto :goto_6
+    goto :goto_7
 
-    :cond_8
+    :cond_9
     move v5, v14
 
     move v4, v15
 
-    :goto_6
+    :goto_7
     add-int/lit8 v11, v19, 0x1
 
     move v15, v4
@@ -764,15 +872,15 @@
 
     move-object/from16 v13, v22
 
-    goto/16 :goto_2
+    goto/16 :goto_3
 
-    :cond_9
+    :cond_a
     const/4 v0, 0x1
 
     return v0
 
-    :cond_a
-    :goto_7
+    :cond_b
+    :goto_8
     const/4 v0, 0x1
 
     sget-object v1, Lcom/android/camera/effect/renders/PipeRender;->TAG:Ljava/lang/String;
@@ -807,8 +915,8 @@
 
     return v6
 
-    :cond_b
-    :goto_8
+    :cond_c
+    :goto_9
     const/4 v6, 0x0
 
     sget-object v0, Lcom/android/camera/effect/renders/PipeRender;->TAG:Ljava/lang/String;
@@ -818,6 +926,8 @@
     invoke-static {v0, v1}, Lcom/android/camera/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return v6
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x5

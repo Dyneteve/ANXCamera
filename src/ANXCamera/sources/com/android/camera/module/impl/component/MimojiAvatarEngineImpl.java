@@ -19,6 +19,7 @@ import android.util.Size;
 import android.widget.Toast;
 import com.android.camera.ActivityBase;
 import com.android.camera.CameraSettings;
+import com.android.camera.LocationManager;
 import com.android.camera.R;
 import com.android.camera.Thumbnail;
 import com.android.camera.Util;
@@ -55,6 +56,7 @@ import com.xiaomi.camera.core.ParallelTaskData;
 import com.xiaomi.camera.core.ParallelTaskDataParameter.Builder;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.util.concurrent.CountDownLatch;
 
 public class MimojiAvatarEngineImpl implements MimojiAvatarEngine {
     private static final int HANDLER_RECORDING_CURRENT_FILE_SIZE = 3;
@@ -76,35 +78,38 @@ public class MimojiAvatarEngineImpl implements MimojiAvatarEngine {
     private V6CameraGLSurfaceView mCameraView;
     private MediaResultCallback mCaptureCallback = new MediaResultCallback() {
         public void onCaptureResult(ByteBuffer byteBuffer) {
-            Bitmap bitmap;
-            byte[] bArr;
             Bitmap createBitmap = Bitmap.createBitmap(MimojiAvatarEngineImpl.this.mDrawSize.getWidth(), MimojiAvatarEngineImpl.this.mDrawSize.getHeight(), Config.ARGB_8888);
             createBitmap.copyPixelsFromBuffer(byteBuffer);
-            if (!MimojiAvatarEngineImpl.this.mIsFrontCamera) {
-                Matrix matrix = new Matrix();
+            Matrix matrix = new Matrix();
+            if (!MimojiAvatarEngineImpl.this.mIsFrontCamera || (MimojiAvatarEngineImpl.this.mIsFrontCamera && (MimojiAvatarEngineImpl.this.mDeviceRotation == 90 || MimojiAvatarEngineImpl.this.mDeviceRotation == 270))) {
                 matrix.postScale(1.0f, -1.0f);
-                bitmap = Bitmap.createBitmap(createBitmap, 0, 0, MimojiAvatarEngineImpl.this.mDrawSize.getWidth(), MimojiAvatarEngineImpl.this.mDrawSize.getHeight(), matrix, false);
-                bArr = Util.getBitmapData(bitmap);
-            } else {
-                bArr = Util.getBitmapData(createBitmap);
-                bitmap = null;
+            } else if (MimojiAvatarEngineImpl.this.mDeviceRotation % 180 == 0) {
+                matrix.postScale(-1.0f, 1.0f);
             }
-            int access$1900 = (!MimojiAvatarEngineImpl.this.mIsFrontCamera || MimojiAvatarEngineImpl.this.mDeviceRotation % 180 != 0) ? MimojiAvatarEngineImpl.this.mDeviceRotation : (MimojiAvatarEngineImpl.this.mDeviceRotation + 180) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT;
+            Bitmap createBitmap2 = Bitmap.createBitmap(createBitmap, 0, 0, MimojiAvatarEngineImpl.this.mDrawSize.getWidth(), MimojiAvatarEngineImpl.this.mDrawSize.getHeight(), matrix, false);
+            byte[] bitmapData = Util.getBitmapData(createBitmap2);
+            int access$2100 = (!MimojiAvatarEngineImpl.this.mIsFrontCamera || MimojiAvatarEngineImpl.this.mDeviceRotation % 180 != 0) ? MimojiAvatarEngineImpl.this.mDeviceRotation : (MimojiAvatarEngineImpl.this.mDeviceRotation + 180) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT;
             if (MimojiAvatarEngineImpl.this.mIsFrontCamera) {
-                bitmap = createBitmap;
+                createBitmap2 = createBitmap;
             }
-            Thumbnail createThumbnail = Thumbnail.createThumbnail(null, bitmap, access$1900, false);
+            Thumbnail createThumbnail = Thumbnail.createThumbnail(null, createBitmap2, access$2100, MimojiAvatarEngineImpl.this.mIsFrontCamera);
             createThumbnail.startWaitingForUri();
             MimojiAvatarEngineImpl.this.mActivityBase.getThumbnailUpdater().setThumbnail(createThumbnail, true, true);
             ParallelTaskData parallelTaskData = new ParallelTaskData(System.currentTimeMillis(), -4, null);
-            parallelTaskData.fillJpegData(bArr, 0);
-            parallelTaskData.fillParameter(new Builder(MimojiAvatarEngineImpl.this.mDrawSize, MimojiAvatarEngineImpl.this.mDrawSize, MimojiAvatarEngineImpl.this.mDrawSize).setHasDualWaterMark(CameraSettings.isDualCameraWaterMarkOpen()).setJpegRotation((Util.getJpegRotation(MimojiAvatarEngineImpl.this.mIsFrontCamera ? 1 : 0, MimojiAvatarEngineImpl.this.mDeviceRotation) + 270) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT).setJpegQuality(BaseModule.getJpegQuality(false)).setFilterId(FilterInfo.FILTER_ID_NONE).build());
+            parallelTaskData.fillJpegData(bitmapData, 0);
+            parallelTaskData.fillParameter(new Builder(MimojiAvatarEngineImpl.this.mDrawSize, MimojiAvatarEngineImpl.this.mDrawSize, MimojiAvatarEngineImpl.this.mDrawSize).setHasDualWaterMark(CameraSettings.isDualCameraWaterMarkOpen()).setJpegRotation((Util.getJpegRotation(MimojiAvatarEngineImpl.this.mIsFrontCamera ? 1 : 0, MimojiAvatarEngineImpl.this.mDeviceRotation) + 270) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT).setJpegQuality(BaseModule.getJpegQuality(false)).setFilterId(FilterInfo.FILTER_ID_NONE).setLocation(LocationManager.instance().getCurrentLocation()).build());
             MimojiAvatarEngineImpl.this.mActivityBase.getImageSaver().onParallelProcessFinish(parallelTaskData);
+            ((LiveModule) MimojiAvatarEngineImpl.this.mActivityBase.getCurrentModule()).turnOffFlashIfNeed();
         }
 
         public void onVideoResult() {
             Log.d(MimojiAvatarEngineImpl.TAG, "stop video record callback");
+            MimojiAvatarEngineImpl.this.mIsRecording = false;
+            MimojiAvatarEngineImpl.this.mIsRecordStopping = false;
             MimojiAvatarEngineImpl.this.mActivityBase.getImageSaver().addVideo(MimojiAvatarEngineImpl.this.mSaveVideoPath, MimojiAvatarEngineImpl.this.mContentValues, true);
+            if (MimojiAvatarEngineImpl.this.mGetThumCountDownLatch != null) {
+                MimojiAvatarEngineImpl.this.mGetThumCountDownLatch.countDown();
+            }
         }
     };
     /* access modifiers changed from: private */
@@ -120,15 +125,12 @@ public class MimojiAvatarEngineImpl implements MimojiAvatarEngine {
     public Size mDrawSize;
     private int mFaceDectectResult = 1;
     /* access modifiers changed from: private */
+    public CountDownLatch mGetThumCountDownLatch;
+    /* access modifiers changed from: private */
     public Handler mHandler = new Handler(Looper.getMainLooper()) {
         public void handleMessage(Message message) {
             super.handleMessage(message);
             switch (message.what) {
-                case 0:
-                    Toast.makeText(MimojiAvatarEngineImpl.this.mContext, (String) message.obj, 0).show();
-                    return;
-                default:
-                    return;
             }
         }
     };
@@ -136,7 +138,9 @@ public class MimojiAvatarEngineImpl implements MimojiAvatarEngine {
     /* access modifiers changed from: private */
     public boolean mIsFrontCamera;
     /* access modifiers changed from: private */
-    public boolean mIsRecording;
+    public boolean mIsRecordStopping = false;
+    /* access modifiers changed from: private */
+    public volatile boolean mIsRecording;
     private boolean mIsShutterButtonClick = false;
     /* access modifiers changed from: private */
     public boolean mIsStopRender = false;
@@ -144,10 +148,12 @@ public class MimojiAvatarEngineImpl implements MimojiAvatarEngine {
     private HandlerThread mLoadThread = new HandlerThread("LoadConfig");
     private MainContentProtocol mMainProtocol;
     private int mMaxVideoDurationInMs = DurationConstant.DURATION_VIDEO_RECORDING_FUN;
-    /* access modifiers changed from: private */
-    public MimojiEditor mMimojiEditor;
+    private MimojiEditor mMimojiEditor;
     /* access modifiers changed from: private */
     public MimojiStatusManager mMimojiStatusManager;
+    private boolean mNeedCapture = false;
+    /* access modifiers changed from: private */
+    public boolean mNeedShowNoFaceTips = false;
     private int mOrientation;
     /* access modifiers changed from: private */
     public int mPreviewHeight;
@@ -197,11 +203,13 @@ public class MimojiAvatarEngineImpl implements MimojiAvatarEngine {
         this.mCameraView = activityBase.getGLView();
         this.mContext = activityBase.getCameraAppImpl().getApplicationContext();
         this.mMainProtocol = (MainContentProtocol) ModeCoordinatorImpl.getInstance().getAttachProtocol(166);
+        this.mLoadThread.start();
+        this.mLoadHandler = new Handler(this.mLoadThread.getLooper());
         this.mMimojiStatusManager = DataRepository.dataItemLive().getMimojiStatusManager();
+        MimojiHelper.init(this.mContext);
     }
 
     private void animateCapture() {
-        this.mActivityBase.getCameraScreenNail().animateCapture(this.mOrientation);
         this.mActivityBase.playCameraSound(0);
     }
 
@@ -211,9 +219,13 @@ public class MimojiAvatarEngineImpl implements MimojiAvatarEngine {
 
     private void createAvatar(byte[] bArr, int i, int i2) {
         int avatarProfile;
+        if (this.mAvatarTemplatePath != AvatarEngineManager.PersonTemplatePath) {
+            this.mAvatarTemplatePath = AvatarEngineManager.PersonTemplatePath;
+            this.mAvatar.setTemplatePath(AvatarEngineManager.PersonTemplatePath);
+        }
         ASAvatarProfileResult aSAvatarProfileResult = new ASAvatarProfileResult();
         synchronized (this.mAvatarLock) {
-            avatarProfile = this.mAvatar.avatarProfile(AvatarEngineManager.PersonTemplatePath, i, i2, i * 4, bArr, 0, true, aSAvatarProfileResult, null, $$Lambda$MimojiAvatarEngineImpl$RJYDigwssyCC_737Br9t7yY1rs.INSTANCE);
+            avatarProfile = this.mAvatar.avatarProfile(AvatarEngineManager.PersonTemplatePath, i, i2, i * 4, bArr, 0, false, aSAvatarProfileResult, null, $$Lambda$MimojiAvatarEngineImpl$RJYDigwssyCC_737Br9t7yY1rs.INSTANCE);
         }
         String str = TAG;
         StringBuilder sb = new StringBuilder();
@@ -232,7 +244,7 @@ public class MimojiAvatarEngineImpl implements MimojiAvatarEngine {
             Log.d(str2, sb2.toString());
             this.mActivityBase.runOnUiThread(new Runnable() {
                 public void run() {
-                    ((LiveModule) MimojiAvatarEngineImpl.this.mActivityBase.getCurrentModule()).setDisableSingleTapUp(true);
+                    MimojiAvatarEngineImpl.this.setDisableSingleTapUp(true);
                     MimojiAvatarEngineImpl.this.onProfileFinish();
                 }
             });
@@ -265,16 +277,27 @@ public class MimojiAvatarEngineImpl implements MimojiAvatarEngine {
     }
 
     private void initResource() {
+        if (!FileUtils.hasDir(MimojiHelper.MIMOJI_DIR)) {
+            FileUtils.delDir(MimojiHelper.MIMOJI_DIR);
+        }
+        try {
+            Util.verifyAssetZip(this.mContext, "mimoji/data.zip", MimojiHelper.MIMOJI_DIR, 32768);
+        } catch (Exception e) {
+            Log.e(TAG, "verify asset zip failed...", e);
+        }
         this.mLoadHandler.post(new Runnable() {
             public void run() {
-                if (!FileUtils.hasDir(MimojiHelper.MIMOJI_DIR)) {
-                    FileUtils.delDir(MimojiHelper.MIMOJI_DIR);
-                }
+                long currentTimeMillis = System.currentTimeMillis();
                 try {
-                    Util.verifyAssetZip(MimojiAvatarEngineImpl.this.mContext, "mimoji/mimoji.zip", MimojiHelper.MIMOJI_DIR, 32768);
+                    Util.verifyAssetZip(MimojiAvatarEngineImpl.this.mContext, "mimoji/model.zip", MimojiHelper.MIMOJI_DIR, 32768);
                 } catch (Exception e) {
                     Log.e(MimojiAvatarEngineImpl.TAG, "verify asset zip failed...", e);
                 }
+                String access$100 = MimojiAvatarEngineImpl.TAG;
+                StringBuilder sb = new StringBuilder();
+                sb.append("init model spend time = ");
+                sb.append(System.currentTimeMillis() - currentTimeMillis);
+                Log.d(access$100, sb.toString());
             }
         });
     }
@@ -289,9 +312,9 @@ public class MimojiAvatarEngineImpl implements MimojiAvatarEngine {
         if (recordState != null) {
             recordState.onPostSavingFinish();
         }
-        BottomPopupTips bottomPopupTips = (BottomPopupTips) ModeCoordinatorImpl.getInstance().getAttachProtocol(175);
-        if (bottomPopupTips != null) {
-            bottomPopupTips.directlyHideTips();
+        TopAlert topAlert = (TopAlert) ModeCoordinatorImpl.getInstance().getAttachProtocol(172);
+        if (topAlert != null) {
+            topAlert.alertMimojiFaceDetect(false, -1);
         }
         this.mMainProtocol.mimojiEnd();
         this.mMimojiStatusManager.setMode(MimojiStatusManager.MIMOJI_EDIT_MID);
@@ -299,18 +322,19 @@ public class MimojiAvatarEngineImpl implements MimojiAvatarEngine {
         if (mimojiEditor != null) {
             mimojiEditor.startMimojiEdit();
         }
-        this.mCameraView.queueEvent(new Runnable() {
-            public void run() {
-                Log.d(MimojiAvatarEngineImpl.TAG, "releaseRender 1");
-                if (MimojiAvatarEngineImpl.this.mAvatar != null) {
-                    MimojiAvatarEngineImpl.this.mAvatar.releaseRender();
-                }
-                MimojiAvatarEngineImpl.this.mIsStopRender = true;
-            }
-        });
+        releaseRender();
     }
 
     private void release() {
+        Log.d(TAG, "avatar release");
+        if (this.mGetThumCountDownLatch != null) {
+            try {
+                this.mGetThumCountDownLatch.await();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        this.mMimojiStatusManager.setAvatarInited(false);
         this.mCameraView.queueEvent(new Runnable() {
             public void run() {
                 if (MimojiAvatarEngineImpl.this.mAvatar != null) {
@@ -334,25 +358,35 @@ public class MimojiAvatarEngineImpl implements MimojiAvatarEngine {
     }
 
     private void resetConfig() {
+        if (this.mActivityBase.startFromKeyguard()) {
+            this.mMimojiStatusManager.setMode(MimojiStatusManager.MIMOJI_PREVIEW);
+        }
         int mode = this.mMimojiStatusManager.getMode();
         if (mode == MimojiStatusManager.MIMOJI_PREVIEW) {
             this.mLoadHandler.postDelayed(new Runnable() {
                 public void run() {
                     synchronized (MimojiAvatarEngineImpl.this.mAvatarLock) {
                         if (MimojiAvatarEngineImpl.this.mMimojiStatusManager.mCurrentMimojiInfo != null) {
-                            MimojiAvatarEngineImpl.this.mAvatar.loadConfig(MimojiAvatarEngineImpl.this.mMimojiStatusManager.mCurrentMimojiInfo.mConfigPath);
                             MimojiAvatarEngineImpl.this.mShowAvatar = true;
+                            MimojiAvatarEngineImpl.this.mAvatarTemplatePath = MimojiAvatarEngineImpl.this.mMimojiStatusManager.mCurrentMimojiInfo.mAvatarTemplatePath;
+                            MimojiAvatarEngineImpl.this.mAvatar.setTemplatePath(MimojiAvatarEngineImpl.this.mMimojiStatusManager.mCurrentMimojiInfo.mAvatarTemplatePath);
+                            String str = MimojiAvatarEngineImpl.this.mMimojiStatusManager.mCurrentMimojiInfo.mConfigPath;
+                            if (!AvatarEngineManager.isPrefabModel(str)) {
+                                MimojiAvatarEngineImpl.this.mAvatar.loadConfig(str);
+                            }
                         }
                     }
                 }
             }, 10);
         } else if (mode == MimojiStatusManager.MIMOJI_EDIT_MID || mode == MimojiStatusManager.MIMOJI_EIDT) {
-            this.mAvatar.loadConfig(mode == MimojiStatusManager.MIMOJI_EDIT_MID ? AvatarEngineManager.TempOriginalConfigPath : AvatarEngineManager.TempEditConfigPath);
+            this.mAvatar.setTemplatePath(AvatarEngineManager.PersonTemplatePath);
+            this.mAvatarTemplatePath = AvatarEngineManager.PersonTemplatePath;
             MimojiEditor mimojiEditor = (MimojiEditor) ModeCoordinatorImpl.getInstance().getAttachProtocol(224);
             if (mimojiEditor != null) {
                 mimojiEditor.resetConfig();
             }
         } else if (mode == MimojiStatusManager.MIMOJI_NONE) {
+            this.mAvatar.setTemplatePath(this.mAvatarTemplatePath);
             this.mMimojiStatusManager.setMode(MimojiStatusManager.MIMOJI_PREVIEW);
         }
     }
@@ -369,74 +403,96 @@ public class MimojiAvatarEngineImpl implements MimojiAvatarEngine {
         }
     }
 
-    public void backToPreview(boolean z) {
+    public void backToPreview(boolean z, boolean z2) {
         this.mMimojiStatusManager.setMode(MimojiStatusManager.MIMOJI_PREVIEW);
-        this.mShowAvatar = z;
+        if (this.mMimojiStatusManager.mCurrentMimojiInfo != null) {
+            this.mShowAvatar = true;
+        }
         this.mIsStopRender = false;
-        ((TopAlert) ModeCoordinatorImpl.getInstance().getAttachProtocol(172)).showOrHideMimojiCreateTitle(false);
-        ((BottomPopupTips) ModeCoordinatorImpl.getInstance().getAttachProtocol(175)).reInitTipImage();
+        TopAlert topAlert = (TopAlert) ModeCoordinatorImpl.getInstance().getAttachProtocol(172);
+        BottomPopupTips bottomPopupTips = (BottomPopupTips) ModeCoordinatorImpl.getInstance().getAttachProtocol(175);
+        bottomPopupTips.reInitTipImage();
+        if (z2 && !CameraSettings.getMimojiPannelState()) {
+            bottomPopupTips.showMimoji();
+        }
+        topAlert.alertMimojiFaceDetect(false, -1);
+        topAlert.enableMenuItem(true, 225, 193);
         this.mAvatar.setRenderScene(true, 1.0f);
-        ((LiveModule) this.mActivityBase.getCurrentModule()).setDisableSingleTapUp(false);
+        setDisableSingleTapUp(false);
     }
 
     public void initAvatarEngine(int i, int i2, int i3, int i4, boolean z) {
-        int i5 = i3;
-        int i6 = i4;
-        boolean z2 = z;
         String str = TAG;
         StringBuilder sb = new StringBuilder();
         sb.append("initAvatarEngine with parameters : displayOrientation = ");
-        int i7 = i;
-        sb.append(i7);
+        sb.append(i);
         sb.append(", width = ");
-        sb.append(i5);
+        sb.append(i3);
         sb.append(", height = ");
-        sb.append(i6);
+        sb.append(i4);
         sb.append(", isFrontCamera = ");
-        sb.append(z2);
+        sb.append(z);
         Log.d(str, sb.toString());
-        this.mShowAvatar = false;
-        this.mPreviewWidth = i5;
-        this.mPreviewHeight = i6;
-        this.mIsFrontCamera = z2;
+        this.mPreviewWidth = i3;
+        this.mPreviewHeight = i4;
+        this.mIsFrontCamera = z;
         this.mOrientation = i2;
-        if (this.mLoadHandler == null) {
-            this.mLoadThread.start();
-            this.mLoadHandler = new Handler(this.mLoadThread.getLooper());
-        }
-        synchronized (this.mAvatarLock) {
-            this.mAvatar = AvatarEngineManager.getInstance().queryAvatar();
-            this.mAvatar.init(AvatarEngineManager.TRACK_DATA, AvatarEngineManager.FACE_MODEL, AvatarEngineManager.PersonTemplatePath);
-            this.mAvatar.setRenderScene(true, 1.0f);
-            this.mAvatar.createOutlineEngine(AvatarEngineManager.TRACK_DATA);
-            this.mAvatar.setTemplatePath(AvatarEngineManager.PersonTemplatePath);
-            this.mRecordModule = new RecordModule(this.mContext, this.mCaptureCallback);
-            this.mRecordModule.init(i7, i5, i6, this.mAvatar, z2);
-            Rect displayRect = Util.getDisplayRect(this.mContext);
-            this.mRecordModule.setDrawScope(0, Util.sWindowHeight - displayRect.bottom, displayRect.right, displayRect.bottom - displayRect.top);
-            this.mDrawSize = new Size(displayRect.right, displayRect.bottom - displayRect.top);
-        }
-        resetConfig();
-        MimojiHelper.init(this.mContext);
         initResource();
-        this.mMimojiStatusManager.setAvatarInited(true);
+        synchronized (this.mAvatarLock) {
+            Log.d(TAG, "avatar start init");
+            if (!this.mMimojiStatusManager.IsAvatarInited()) {
+                Log.d(TAG, "avatar need really init");
+                this.mAvatar = AvatarEngineManager.getInstance().queryAvatar();
+                this.mAvatar.init(AvatarEngineManager.TRACK_DATA, AvatarEngineManager.FACE_MODEL);
+                this.mAvatar.setRenderScene(true, 1.0f);
+                this.mAvatar.createOutlineEngine(AvatarEngineManager.TRACK_DATA);
+                this.mMimojiStatusManager.setAvatarInited(true);
+                resetConfig();
+                this.mRecordModule = new RecordModule(this.mContext, this.mCaptureCallback);
+                this.mRecordModule.init(i, i3, i4, this.mAvatar, z);
+            } else {
+                this.mRecordModule.setmImageOrientation(i);
+                this.mRecordModule.setMirror(z);
+                this.mRecordModule.setPreviewSize(i3, i4);
+            }
+            Rect previewRect = Util.getPreviewRect(this.mContext);
+            this.mRecordModule.setDrawScope(0, Util.sWindowHeight - previewRect.bottom, previewRect.right, previewRect.bottom - previewRect.top);
+            this.mDrawSize = new Size(previewRect.right, previewRect.bottom - previewRect.top);
+        }
     }
 
     public boolean isOnCreateMimoji() {
         return this.mMimojiStatusManager.IsInMimojiCreate();
     }
 
+    public boolean isRecordStopping() {
+        return this.mIsRecordStopping;
+    }
+
     public boolean isRecording() {
+        String str = TAG;
+        StringBuilder sb = new StringBuilder();
+        sb.append("Recording = ");
+        sb.append(this.mIsRecording);
+        Log.d(str, sb.toString());
         return this.mIsRecording;
     }
 
     public void onCaptureImage() {
-        this.mRecordModule.capture();
+        if (this.mRecordModule != null) {
+            this.mNeedCapture = true;
+        }
     }
 
     public boolean onCreateCapture() {
         if (this.mFaceDectectResult != 0 || !this.mIsFaceDetectSuccess) {
             return false;
+        }
+        Module currentModule = this.mActivityBase.getCurrentModule();
+        if (currentModule instanceof LiveModule) {
+            LiveModule liveModule = (LiveModule) currentModule;
+            CameraSettings.setFaceBeautyLevel(0);
+            liveModule.updatePreferenceInWorkThread(13);
         }
         ((ActionProcessing) ModeCoordinatorImpl.getInstance().getAttachProtocol(162)).showOrHideMimojiProgress(true);
         BottomPopupTips bottomPopupTips = (BottomPopupTips) ModeCoordinatorImpl.getInstance().getAttachProtocol(175);
@@ -456,10 +512,18 @@ public class MimojiAvatarEngineImpl implements MimojiAvatarEngine {
         }
     }
 
-    public void onDrawFrame() {
+    public void onDrawFrame(int i, int i2, boolean z) {
         if (this.mRecordModule != null && !this.mIsStopRender) {
-            Rect displayRect = Util.getDisplayRect(this.mContext);
-            GLES20.glViewport(0, Util.sWindowHeight - displayRect.bottom, displayRect.right, displayRect.bottom - displayRect.top);
+            Rect previewRect = Util.getPreviewRect(this.mContext);
+            if (z) {
+                GLES20.glViewport(0, 0, i, i2);
+            } else {
+                GLES20.glViewport(0, Util.sWindowHeight - previewRect.bottom, previewRect.right, previewRect.bottom - previewRect.top);
+                if (this.mNeedCapture) {
+                    this.mRecordModule.capture();
+                    this.mNeedCapture = false;
+                }
+            }
             GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
             GLES20.glClear(16384);
             this.mRecordModule.startRender(90, this.mIsFrontCamera, this.mDeviceRotation, 0, false, this.mTextureId, null, this.mShowAvatar);
@@ -472,49 +536,50 @@ public class MimojiAvatarEngineImpl implements MimojiAvatarEngine {
         this.mMimojiStatusManager.setMode(MimojiStatusManager.MIMOJI_CREATE);
         this.mMainProtocol.mimojiStart();
         ((RecordState) ModeCoordinatorImpl.getInstance().getAttachProtocol(212)).prepareCreateMimoji();
+        BottomPopupTips bottomPopupTips = (BottomPopupTips) ModeCoordinatorImpl.getInstance().getAttachProtocol(175);
+        if (bottomPopupTips != null) {
+            bottomPopupTips.showTips(19, R.string.mimoji_create_tips, 2);
+        }
     }
 
     public void onMimojiSelect(final MimojiInfo mimojiInfo) {
-        if (mimojiInfo == null) {
+        if (mimojiInfo == null || this.mAvatar == null) {
             this.mShowAvatar = false;
-        } else {
-            this.mLoadHandler.post(new Runnable() {
-                public void run() {
-                    MimojiAvatarEngineImpl.this.mShowAvatar = true;
-                    MimojiAvatarEngineImpl.this.mMimojiStatusManager.mCurrentMimojiInfo = mimojiInfo;
-                    String str = mimojiInfo.mAvatarTemplatePath;
-                    String str2 = mimojiInfo.mConfigPath;
-                    String access$100 = MimojiAvatarEngineImpl.TAG;
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("change mimoji with path = ");
-                    sb.append(str);
-                    sb.append(", and config = ");
-                    sb.append(str2);
-                    Log.d(access$100, sb.toString());
+            this.mMimojiStatusManager.mCurrentMimojiInfo = null;
+            return;
+        }
+        this.mLoadHandler.post(new Runnable() {
+            public void run() {
+                MimojiAvatarEngineImpl.this.mShowAvatar = true;
+                MimojiAvatarEngineImpl.this.mMimojiStatusManager.mCurrentMimojiInfo = mimojiInfo;
+                String str = mimojiInfo.mAvatarTemplatePath;
+                String str2 = mimojiInfo.mConfigPath;
+                String access$100 = MimojiAvatarEngineImpl.TAG;
+                StringBuilder sb = new StringBuilder();
+                sb.append("change mimoji with path = ");
+                sb.append(str);
+                sb.append(", and config = ");
+                sb.append(str2);
+                Log.d(access$100, sb.toString());
+                synchronized (MimojiAvatarEngineImpl.this.mAvatarLock) {
                     if (!MimojiAvatarEngineImpl.this.mAvatarTemplatePath.equals(str)) {
                         MimojiAvatarEngineImpl.this.mAvatar.setTemplatePath(str);
                         MimojiAvatarEngineImpl.this.mAvatarTemplatePath = str;
                     }
-                    if (!str2.isEmpty()) {
+                    if (!str2.isEmpty() && !AvatarEngineManager.isPrefabModel(str2)) {
                         MimojiAvatarEngineImpl.this.mAvatar.loadConfig(str2);
                     }
                 }
-            });
-        }
+            }
+        });
     }
 
     public void onPreviewFrame(Image image) {
-        final int checkOutlineInfo;
         boolean startProcess;
         if (this.mMimojiStatusManager.IsAvatarInited() && this.mAvatar != null) {
-            long currentTimeMillis = System.currentTimeMillis();
+            System.currentTimeMillis();
             ASVLOFFSCREEN buildNV21SingleBuffer = AsvloffscreenUtil.buildNV21SingleBuffer(image);
-            String str = TAG;
-            StringBuilder sb = new StringBuilder();
-            sb.append("buildNV21SingleBuffer spend time  = ");
-            sb.append(System.currentTimeMillis() - currentTimeMillis);
-            Log.d(str, sb.toString());
-            long currentTimeMillis2 = System.currentTimeMillis();
+            long currentTimeMillis = System.currentTimeMillis();
             if (this.mRecordModule != null) {
                 if (this.mMimojiStatusManager.IsInMimojiEditMid() || this.mMimojiStatusManager.IsInMimojiEdit()) {
                     if (this.mMimojiEditor == null) {
@@ -523,31 +588,28 @@ public class MimojiAvatarEngineImpl implements MimojiAvatarEngine {
                     if (this.mMimojiEditor != null) {
                         ASAvatarProcessInfo aSAvatarProcessInfo = new ASAvatarProcessInfo();
                         synchronized (this.mAvatarLock) {
-                            this.mAvatar.avatarProcessWithInfoEx(buildNV21SingleBuffer, 90, this.mIsFrontCamera, this.mOrientation, aSAvatarProcessInfo);
-                            checkOutlineInfo = this.mAvatar.checkOutlineInfo(aSAvatarProcessInfo);
+                            this.mAvatar.avatarProcessWithInfoEx(buildNV21SingleBuffer, 90, this.mIsFrontCamera, this.mOrientation, aSAvatarProcessInfo, true);
                         }
-                        if (this.mMimojiStatusManager.IsInMimojiEditMid()) {
-                            this.mActivityBase.runOnUiThread(new Runnable() {
-                                public void run() {
-                                    MimojiEditor access$2000 = MimojiAvatarEngineImpl.this.mMimojiEditor;
-                                    boolean z = true;
-                                    if (checkOutlineInfo != 1) {
-                                        z = false;
-                                    }
-                                    access$2000.showOrHideTips(z);
-                                }
-                            });
-                        }
-                        String str2 = TAG;
-                        StringBuilder sb2 = new StringBuilder();
-                        sb2.append("avatar edit process time = ");
-                        sb2.append(System.currentTimeMillis() - currentTimeMillis2);
-                        Log.d(str2, sb2.toString());
+                        String str = TAG;
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("avatar edit process time = ");
+                        sb.append(System.currentTimeMillis() - currentTimeMillis);
+                        Log.d(str, sb.toString());
                         this.mMimojiEditor.requestRender();
                     }
                 } else {
                     synchronized (this.mAvatarLock) {
                         startProcess = this.mRecordModule.startProcess(buildNV21SingleBuffer, MimojiHelper.getOutlineOrientation(this.mOrientation, this.mDeviceRotation, this.mIsFrontCamera), this.mShowAvatar);
+                    }
+                    boolean z = startProcess && this.mShowAvatar;
+                    this.mNeedShowNoFaceTips = z;
+                    final TopAlert topAlert = (TopAlert) ModeCoordinatorImpl.getInstance().getAttachProtocol(172);
+                    if (topAlert != null && !this.mMimojiStatusManager.IsInMimojiCreate()) {
+                        this.mActivityBase.runOnUiThread(new Runnable() {
+                            public void run() {
+                                topAlert.alertMimojiFaceDetect(MimojiAvatarEngineImpl.this.mNeedShowNoFaceTips, R.string.mimoji_check_no_face);
+                            }
+                        });
                     }
                     Module currentModule = this.mActivityBase.getCurrentModule();
                     if (currentModule instanceof LiveModule) {
@@ -558,58 +620,57 @@ public class MimojiAvatarEngineImpl implements MimojiAvatarEngine {
                     this.mCameraView.requestRender();
                 }
             }
-            String str3 = TAG;
-            StringBuilder sb3 = new StringBuilder();
-            sb3.append("process frame spend time  = ");
-            sb3.append(System.currentTimeMillis() - currentTimeMillis2);
-            Log.d(str3, sb3.toString());
             if (this.mMimojiStatusManager.IsInMimojiCreate()) {
                 this.mShowAvatar = false;
                 synchronized (this.mAvatarLock) {
                     this.mFaceDectectResult = this.mAvatar.outlineProcessEx(buildNV21SingleBuffer, MimojiHelper.getOutlineOrientation(this.mOrientation, this.mDeviceRotation, this.mIsFrontCamera));
                 }
-                String str4 = TAG;
-                StringBuilder sb4 = new StringBuilder();
-                sb4.append("mimoji check result = ");
-                sb4.append(this.mFaceDectectResult);
-                Log.d(str4, sb4.toString());
                 if (this.mMainProtocol != null) {
                     this.mMainProtocol.mimojiFaceDetect(this.mFaceDectectResult);
                 }
             }
             if (this.mIsShutterButtonClick) {
                 this.mIsShutterButtonClick = false;
-                Bitmap horizMirrorBitmap = BitmapUtils.horizMirrorBitmap(BitmapUtils.rotateBitmap(BitmapUtils.rawByteArray2RGBABitmap(buildNV21SingleBuffer.getYData(), image.getWidth(), image.getHeight()), -90));
-                int width = horizMirrorBitmap.getWidth();
-                int height = horizMirrorBitmap.getHeight();
-                ByteBuffer order = ByteBuffer.allocate(horizMirrorBitmap.getRowBytes() * horizMirrorBitmap.getHeight()).order(ByteOrder.nativeOrder());
-                horizMirrorBitmap.copyPixelsToBuffer(order);
+                Bitmap rotateBitmap = BitmapUtils.rotateBitmap(BitmapUtils.rawByteArray2RGBABitmap(buildNV21SingleBuffer.getYData(), image.getWidth(), image.getHeight(), image.getPlanes()[0].getRowStride()), this.mIsFrontCamera ? -90 : 90);
+                int width = rotateBitmap.getWidth();
+                int height = rotateBitmap.getHeight();
+                ByteBuffer order = ByteBuffer.allocate(rotateBitmap.getRowBytes() * rotateBitmap.getHeight()).order(ByteOrder.nativeOrder());
+                rotateBitmap.copyPixelsToBuffer(order);
                 createAvatar(order.array(), width, height);
             }
         }
     }
 
-    public void onRecordStart(final ContentValues contentValues) {
+    public void onRecordStart(ContentValues contentValues) {
         Log.d(TAG, "start record...");
-        this.mCameraView.queueEvent(new Runnable() {
-            public void run() {
-                if (MimojiAvatarEngineImpl.this.mRecordModule != null) {
-                    MimojiAvatarEngineImpl.this.mIsRecording = true;
-                    MimojiAvatarEngineImpl.this.mContentValues = contentValues;
-                    MimojiAvatarEngineImpl.this.mSaveVideoPath = contentValues.getAsString("_data");
-                    MimojiAvatarEngineImpl.this.mRecordModule.startRecording(MimojiAvatarEngineImpl.this.mSaveVideoPath, MimojiAvatarEngineImpl.this.mRecordingListener, MimojiAvatarEngineImpl.this.mCurrentScreenOrientation, MimojiAvatarEngineImpl.this.mPreviewWidth, MimojiAvatarEngineImpl.this.mPreviewHeight, 10000000);
+        if (!this.mIsRecording) {
+            this.mIsRecording = true;
+            this.mIsRecordStopping = false;
+            this.mContentValues = contentValues;
+            this.mSaveVideoPath = contentValues.getAsString("_data");
+            this.mCameraView.queueEvent(new Runnable() {
+                public void run() {
+                    if (MimojiAvatarEngineImpl.this.mRecordModule != null) {
+                        MimojiAvatarEngineImpl.this.mRecordModule.startRecording(MimojiAvatarEngineImpl.this.mSaveVideoPath, MimojiAvatarEngineImpl.this.mRecordingListener, MimojiAvatarEngineImpl.this.mCurrentScreenOrientation, MimojiAvatarEngineImpl.this.mPreviewWidth, MimojiAvatarEngineImpl.this.mPreviewHeight, 10000000, CameraSettings.getVideoEncoder() == 5 ? "video/hevc" : "video/avc");
+                    }
                 }
-            }
-        });
-        updateRecordingTime();
+            });
+            updateRecordingTime();
+        }
     }
 
-    public void onRecordStop() {
+    public void onRecordStop(boolean z) {
         Log.d(TAG, "stop record...");
+        this.mIsRecordStopping = true;
+        if (z) {
+            this.mGetThumCountDownLatch = new CountDownLatch(1);
+        }
+        if (this.mCountDownTimer != null) {
+            this.mCountDownTimer.cancel();
+        }
         this.mCameraView.queueEvent(new Runnable() {
             public void run() {
                 if (MimojiAvatarEngineImpl.this.mRecordModule != null) {
-                    MimojiAvatarEngineImpl.this.mIsRecording = false;
                     new Thread(new Runnable() {
                         public void run() {
                             MimojiAvatarEngineImpl.this.mRecordModule.stopRecording();
@@ -630,13 +691,21 @@ public class MimojiAvatarEngineImpl implements MimojiAvatarEngine {
     public void releaseRender() {
         this.mCameraView.queueEvent(new Runnable() {
             public void run() {
-                MimojiAvatarEngineImpl.this.mAvatar.releaseRender();
+                Log.d(MimojiAvatarEngineImpl.TAG, "releaseRender....");
+                if (MimojiAvatarEngineImpl.this.mAvatar != null) {
+                    MimojiAvatarEngineImpl.this.mAvatar.releaseRender();
+                }
+                MimojiAvatarEngineImpl.this.mIsStopRender = true;
             }
         });
     }
 
     public void setDetectSuccess(boolean z) {
         this.mIsFaceDetectSuccess = z;
+    }
+
+    public void setDisableSingleTapUp(boolean z) {
+        ((LiveModule) this.mActivityBase.getCurrentModule()).setDisableSingleTapUp(z);
     }
 
     public void unRegisterProtocol() {
@@ -649,7 +718,7 @@ public class MimojiAvatarEngineImpl implements MimojiAvatarEngine {
         if (this.mCountDownTimer != null) {
             this.mCountDownTimer.cancel();
         }
-        AnonymousClass7 r1 = new CountDownTimer((long) this.mMaxVideoDurationInMs, 1000) {
+        AnonymousClass7 r1 = new CountDownTimer(START_OFFSET_MS + ((long) this.mMaxVideoDurationInMs), 1000) {
             public void onFinish() {
                 ((LiveModule) MimojiAvatarEngineImpl.this.mActivityBase.getCurrentModule()).stopVideoRecording(true, false);
             }

@@ -12,20 +12,20 @@ import java.io.File;
 
 /* compiled from: BitmapDrawableEncoder */
 public class b implements h<BitmapDrawable> {
-    private final d ak;
-    private final h<Bitmap> fy;
+    private final d al;
+    private final h<Bitmap> fz;
 
     public b(d dVar, h<Bitmap> hVar) {
-        this.ak = dVar;
-        this.fy = hVar;
+        this.al = dVar;
+        this.fz = hVar;
     }
 
     public boolean a(@NonNull p<BitmapDrawable> pVar, @NonNull File file, @NonNull f fVar) {
-        return this.fy.a(new f(((BitmapDrawable) pVar.get()).getBitmap(), this.ak), file, fVar);
+        return this.fz.a(new f(((BitmapDrawable) pVar.get()).getBitmap(), this.al), file, fVar);
     }
 
     @NonNull
     public EncodeStrategy b(@NonNull f fVar) {
-        return this.fy.b(fVar);
+        return this.fz.b(fVar);
     }
 }

@@ -10,7 +10,7 @@ import com.bumptech.glide.util.i;
 
 /* compiled from: TransitionOptions */
 public abstract class j<CHILD extends j<CHILD, TranscodeType>, TranscodeType> implements Cloneable {
-    private g<? super TranscodeType> bP = e.eF();
+    private g<? super TranscodeType> bQ = e.eF();
 
     private CHILD P() {
         return this;
@@ -32,12 +32,12 @@ public abstract class j<CHILD extends j<CHILD, TranscodeType>, TranscodeType> im
 
     /* access modifiers changed from: 0000 */
     public final g<? super TranscodeType> O() {
-        return this.bP;
+        return this.bQ;
     }
 
     @NonNull
     public final CHILD b(@NonNull g<? super TranscodeType> gVar) {
-        this.bP = (g) i.checkNotNull(gVar);
+        this.bQ = (g) i.checkNotNull(gVar);
         return P();
     }
 

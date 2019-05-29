@@ -25,6 +25,7 @@ public class LightingAnimateDrawable extends Drawable {
     private ValueAnimator mAlphaAnimator;
     /* access modifiers changed from: private */
     public boolean mAnimateFocusDoing = false;
+    private float mCircleHeightRatio = 1.0f;
     private float mCircleRatio = 1.0f;
     private ValueAnimator mExitAnimator;
     private ValueAnimator mFocusingAnimator;
@@ -289,6 +290,10 @@ public class LightingAnimateDrawable extends Drawable {
     public void setAlpha(int i) {
     }
 
+    public void setCircleHeightRatio(float f) {
+        this.mCircleHeightRatio = f;
+    }
+
     public void setCircleRatio(float f) {
         this.mCircleRatio = f;
     }
@@ -303,6 +308,8 @@ public class LightingAnimateDrawable extends Drawable {
         this.mMiddleX = f / 2.0f;
         this.mMiddleVerticalY = (((f * 1.33f) / 2.0f) * 0.8f) + ((float) Util.dpToPixel(24.0f));
         this.mMiddleHorizontalY = (((float) Math.min(this.mWidth, this.mHeight)) * 1.33f) / 2.0f;
+        this.mMiddleVerticalY *= this.mCircleHeightRatio;
+        this.mMiddleHorizontalY *= this.mCircleHeightRatio;
         int uiStyle = DataRepository.dataItemRunning().getUiStyle();
         if (Util.isLongRatioScreen && uiStyle == 3) {
             this.mMiddleVerticalY += (float) this.mTopMargin;

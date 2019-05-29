@@ -14,11 +14,11 @@ import java.util.List;
 
 /* compiled from: ResourceDrawableDecoder */
 public class e implements g<Uri, Drawable> {
-    private static final int lY = 2;
-    private static final int lZ = 0;
-    private static final int ma = 1;
+    private static final int lZ = 2;
+    private static final int ma = 0;
     private static final int mb = 1;
-    private static final int mc = 0;
+    private static final int mc = 1;
+    private static final int md = 0;
     private final Context context;
 
     public e(Context context2) {

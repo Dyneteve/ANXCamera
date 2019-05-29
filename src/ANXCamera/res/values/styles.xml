@@ -11,6 +11,14 @@
         <item name="android:navigationBarColor">@android:color/transparent</item>
     </style>
     <style name="ThemeCameraSettings" parent="@android:style/Theme.Material.Light" />
+    <style name="LensDirtyDetectDialogFragment" parent="@style/DialogFragmentFullScreen">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+    <style name="TTMusicDialogFragment" parent="@style/DialogFragmentFullScreen">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
     <style name="OnScreenHintTextAppearance">
         <item name="android:textSize">16.0sp</item>
         <item name="android:textStyle">normal</item>
@@ -199,16 +207,6 @@
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowFullscreen">true</item>
         <item name="android:backgroundDimEnabled">true</item>
-    </style>
-    <style name="LensDirtyDetectDialogFragment" parent="@style/DialogFragmentFullScreen">
-        <item name="android:windowIsFloating">false</item>
-        <item name="android:navigationBarColor">@android:color/transparent</item>
-        <item name="miui:windowActionBar">false</item>
-    </style>
-    <style name="TTMusicDialogFragment" parent="@style/DialogFragmentFullScreen">
-        <item name="android:windowIsFloating">false</item>
-        <item name="android:navigationBarColor">@android:color/transparent</item>
-        <item name="miui:windowActionBar">false</item>
     </style>
     <style name="ChipsGoogleLens">
         <item name="android:textSize">@dimen/chips_text_size</item>

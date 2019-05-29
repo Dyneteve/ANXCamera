@@ -347,6 +347,83 @@
     return-object p1
 .end method
 
+.method public static rawByteArray2RGBABitmap([BIII)Landroid/graphics/Bitmap;
+    .locals 8
+
+    nop
+
+    const/4 v0, 0x0
+
+    :try_start_0
+    new-instance v7, Landroid/graphics/YuvImage;
+
+    const/16 v3, 0x11
+
+    const/4 v6, 0x0
+
+    move-object v1, v7
+
+    move-object v2, p0
+
+    move v4, p3
+
+    move v5, p2
+
+    invoke-direct/range {v1 .. v6}, Landroid/graphics/YuvImage;-><init>([BIII[I)V
+
+    nop
+
+    new-instance p0, Ljava/io/ByteArrayOutputStream;
+
+    invoke-direct {p0}, Ljava/io/ByteArrayOutputStream;-><init>()V
+
+    new-instance p3, Landroid/graphics/Rect;
+
+    const/4 v1, 0x0
+
+    invoke-direct {p3, v1, v1, p1, p2}, Landroid/graphics/Rect;-><init>(IIII)V
+
+    const/16 p1, 0x64
+
+    invoke-virtual {v7, p3, p1, p0}, Landroid/graphics/YuvImage;->compressToJpeg(Landroid/graphics/Rect;ILjava/io/OutputStream;)Z
+
+    invoke-virtual {p0}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
+
+    move-result-object p1
+
+    invoke-static {p1, v1}, Lcom/android/camera/fragment/mimoji/BitmapUtils;->createBitmapFromStream([BI)Landroid/graphics/Bitmap;
+
+    move-result-object p1
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+
+    :try_start_1
+    invoke-virtual {p0}, Ljava/io/ByteArrayOutputStream;->close()V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception p0
+
+    goto :goto_1
+
+    :goto_0
+    goto :goto_2
+
+    :catch_1
+    move-exception p0
+
+    move-object p1, v0
+
+    :goto_1
+    invoke-virtual {p0}, Ljava/lang/Exception;->printStackTrace()V
+
+    :goto_2
+    return-object p1
+.end method
+
 .method public static rotateBitmap(Landroid/graphics/Bitmap;I)Landroid/graphics/Bitmap;
     .locals 9
 

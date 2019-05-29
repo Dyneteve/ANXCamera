@@ -20,14 +20,14 @@ import java.util.Set;
 public class k extends Fragment {
     private static final String TAG = "RMFragment";
     @Nullable
-    private i aH;
-    private final a mZ;
-    private final m na;
-    private final Set<k> nb;
+    private i aI;
+    private final a na;
+    private final m nb;
+    private final Set<k> nc;
     @Nullable
-    private k nc;
+    private k nd;
     @Nullable
-    private Fragment nd;
+    private Fragment ne;
 
     /* compiled from: RequestManagerFragment */
     private class a implements m {
@@ -63,25 +63,25 @@ public class k extends Fragment {
     @VisibleForTesting
     @SuppressLint({"ValidFragment"})
     k(@NonNull a aVar) {
-        this.na = new a();
-        this.nb = new HashSet();
-        this.mZ = aVar;
+        this.nb = new a();
+        this.nc = new HashSet();
+        this.na = aVar;
     }
 
     private void a(k kVar) {
-        this.nb.add(kVar);
+        this.nc.add(kVar);
     }
 
     private void b(@NonNull Activity activity) {
         dc();
-        this.nc = c.c(activity).q().e(activity);
-        if (!equals(this.nc)) {
-            this.nc.a(this);
+        this.nd = c.c(activity).q().e(activity);
+        if (!equals(this.nd)) {
+            this.nd.a(this);
         }
     }
 
     private void b(k kVar) {
-        this.nb.remove(kVar);
+        this.nc.remove(kVar);
     }
 
     @TargetApi(17)
@@ -103,56 +103,56 @@ public class k extends Fragment {
     @TargetApi(17)
     private Fragment db() {
         Fragment parentFragment = VERSION.SDK_INT >= 17 ? getParentFragment() : null;
-        return parentFragment != null ? parentFragment : this.nd;
+        return parentFragment != null ? parentFragment : this.ne;
     }
 
     private void dc() {
-        if (this.nc != null) {
-            this.nc.b(this);
-            this.nc = null;
+        if (this.nd != null) {
+            this.nd.b(this);
+            this.nd = null;
         }
     }
 
     /* access modifiers changed from: 0000 */
     public void b(@Nullable Fragment fragment) {
-        this.nd = fragment;
+        this.ne = fragment;
         if (fragment != null && fragment.getActivity() != null) {
             b(fragment.getActivity());
         }
     }
 
     public void c(@Nullable i iVar) {
-        this.aH = iVar;
+        this.aI = iVar;
     }
 
     /* access modifiers changed from: 0000 */
     @NonNull
     public a cX() {
-        return this.mZ;
+        return this.na;
     }
 
     @Nullable
     public i cY() {
-        return this.aH;
+        return this.aI;
     }
 
     @NonNull
     public m cZ() {
-        return this.na;
+        return this.nb;
     }
 
     /* access modifiers changed from: 0000 */
     @TargetApi(17)
     @NonNull
     public Set<k> da() {
-        if (equals(this.nc)) {
-            return Collections.unmodifiableSet(this.nb);
+        if (equals(this.nd)) {
+            return Collections.unmodifiableSet(this.nc);
         }
-        if (this.nc == null || VERSION.SDK_INT < 17) {
+        if (this.nd == null || VERSION.SDK_INT < 17) {
             return Collections.emptySet();
         }
         HashSet hashSet = new HashSet();
-        for (k kVar : this.nc.da()) {
+        for (k kVar : this.nd.da()) {
             if (c(kVar.getParentFragment())) {
                 hashSet.add(kVar);
             }
@@ -173,7 +173,7 @@ public class k extends Fragment {
 
     public void onDestroy() {
         super.onDestroy();
-        this.mZ.onDestroy();
+        this.na.onDestroy();
         dc();
     }
 
@@ -184,12 +184,12 @@ public class k extends Fragment {
 
     public void onStart() {
         super.onStart();
-        this.mZ.onStart();
+        this.na.onStart();
     }
 
     public void onStop() {
         super.onStop();
-        this.mZ.onStop();
+        this.na.onStop();
     }
 
     public String toString() {

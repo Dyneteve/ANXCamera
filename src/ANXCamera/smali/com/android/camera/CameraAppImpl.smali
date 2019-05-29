@@ -155,6 +155,33 @@
     sput-object v0, Lcom/android/camera/CameraAppImpl;->sApplicationDelegate:Lcom/android/camera/CameraApplicationDelegate;
 
     :cond_0
+    invoke-static {p0}, Lcom/android/camera/db/DbContainer;->init(Landroid/content/Context;)V
+
+    invoke-static {}, Lcom/android/camera/CameraSettings;->isSupportParallelProcess()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-static {}, Lcom/android/camera/db/DbRepository;->dbItemSaveTask()Lcom/android/camera/db/item/DbItemSaveTask;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/camera/db/item/DbItemSaveTask;->markAllDepartedTask()V
+
+    invoke-static {}, Lcom/android/camera/CameraSettings;->isCameraParallelProcessEnable()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-static {}, Lcom/android/camera/parallel/AlgoConnector;->getInstance()Lcom/android/camera/parallel/AlgoConnector;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Lcom/android/camera/parallel/AlgoConnector;->startService(Landroid/content/Context;)V
+
+    :cond_1
     invoke-static {}, Lcom/android/camera/CrashHandler;->getInstance()Lcom/android/camera/CrashHandler;
 
     move-result-object v0

@@ -38,9 +38,9 @@
 
 .field private static final TAG:Ljava/lang/String; = "VideoDecoder"
 
-.field public static final lR:J = -0x1L
+.field public static final lS:J = -0x1L
 
-.field public static final lS:Lcom/bumptech/glide/load/e;
+.field public static final lT:Lcom/bumptech/glide/load/e;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/e<",
@@ -50,7 +50,7 @@
     .end annotation
 .end field
 
-.field public static final lT:Lcom/bumptech/glide/load/e;
+.field public static final lU:Lcom/bumptech/glide/load/e;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/e<",
@@ -60,13 +60,13 @@
     .end annotation
 .end field
 
-.field private static final lU:Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$MediaMetadataRetrieverFactory;
+.field private static final lV:Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$MediaMetadataRetrieverFactory;
 
 
 # instance fields
-.field private final ak:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
+.field private final al:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
-.field private final lV:Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$MediaMetadataRetrieverInitializer;
+.field private final lW:Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$MediaMetadataRetrieverInitializer;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$MediaMetadataRetrieverInitializer<",
@@ -75,7 +75,7 @@
     .end annotation
 .end field
 
-.field private final lW:Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$MediaMetadataRetrieverFactory;
+.field private final lX:Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$MediaMetadataRetrieverFactory;
 
 
 # direct methods
@@ -98,7 +98,7 @@
 
     move-result-object v0
 
-    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder;->lS:Lcom/bumptech/glide/load/e;
+    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder;->lT:Lcom/bumptech/glide/load/e;
 
     const-string v0, "com.bumptech.glide.load.resource.bitmap.VideoBitmapDecode.FrameOption"
 
@@ -116,13 +116,13 @@
 
     move-result-object v0
 
-    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder;->lT:Lcom/bumptech/glide/load/e;
+    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder;->lU:Lcom/bumptech/glide/load/e;
 
     new-instance v0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$MediaMetadataRetrieverFactory;
 
     invoke-direct {v0}, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$MediaMetadataRetrieverFactory;-><init>()V
 
-    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder;->lU:Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$MediaMetadataRetrieverFactory;
+    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder;->lV:Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$MediaMetadataRetrieverFactory;
 
     return-void
 .end method
@@ -138,7 +138,7 @@
         }
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder;->lU:Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$MediaMetadataRetrieverFactory;
+    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder;->lV:Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$MediaMetadataRetrieverFactory;
 
     invoke-direct {p0, p1, p2, v0}, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder;-><init>(Lcom/bumptech/glide/load/engine/bitmap_recycle/d;Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$MediaMetadataRetrieverInitializer;Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$MediaMetadataRetrieverFactory;)V
 
@@ -163,11 +163,11 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder;->ak:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
+    iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder;->al:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
-    iput-object p2, p0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder;->lV:Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$MediaMetadataRetrieverInitializer;
+    iput-object p2, p0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder;->lW:Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$MediaMetadataRetrieverInitializer;
 
-    iput-object p3, p0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder;->lW:Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$MediaMetadataRetrieverFactory;
+    iput-object p3, p0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder;->lX:Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$MediaMetadataRetrieverFactory;
 
     return-void
 .end method
@@ -201,7 +201,7 @@
 
     if-eq p5, v0, :cond_0
 
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;->lg:Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;
+    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;->lh:Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;
 
     if-eq p6, v0, :cond_0
 
@@ -426,7 +426,7 @@
         }
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder;->lS:Lcom/bumptech/glide/load/e;
+    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder;->lT:Lcom/bumptech/glide/load/e;
 
     invoke-virtual {p4, v0}, Lcom/bumptech/glide/load/f;->a(Lcom/bumptech/glide/load/e;)Ljava/lang/Object;
 
@@ -475,7 +475,7 @@
 
     :cond_1
     :goto_0
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder;->lT:Lcom/bumptech/glide/load/e;
+    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder;->lU:Lcom/bumptech/glide/load/e;
 
     invoke-virtual {p4, v0}, Lcom/bumptech/glide/load/f;->a(Lcom/bumptech/glide/load/e;)Ljava/lang/Object;
 
@@ -492,7 +492,7 @@
     move-result-object v0
 
     :cond_2
-    sget-object v1, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;->li:Lcom/bumptech/glide/load/e;
+    sget-object v1, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;->lj:Lcom/bumptech/glide/load/e;
 
     invoke-virtual {p4, v1}, Lcom/bumptech/glide/load/f;->a(Lcom/bumptech/glide/load/e;)Ljava/lang/Object;
 
@@ -502,19 +502,19 @@
 
     if-nez p4, :cond_3
 
-    sget-object p4, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;->lh:Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;
+    sget-object p4, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;->li:Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;
 
     :cond_3
     move-object v7, p4
 
-    iget-object p4, p0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder;->lW:Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$MediaMetadataRetrieverFactory;
+    iget-object p4, p0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder;->lX:Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$MediaMetadataRetrieverFactory;
 
     invoke-virtual {p4}, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$MediaMetadataRetrieverFactory;->cB()Landroid/media/MediaMetadataRetriever;
 
     move-result-object p4
 
     :try_start_0
-    iget-object v1, p0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder;->lV:Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$MediaMetadataRetrieverInitializer;
+    iget-object v1, p0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder;->lW:Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$MediaMetadataRetrieverInitializer;
 
     invoke-interface {v1, p4, p1}, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder$MediaMetadataRetrieverInitializer;->a(Landroid/media/MediaMetadataRetriever;Ljava/lang/Object;)V
 
@@ -541,7 +541,7 @@
 
     nop
 
-    iget-object p2, p0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder;->ak:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
+    iget-object p2, p0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder;->al:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
     invoke-static {p1, p2}, Lcom/bumptech/glide/load/resource/bitmap/f;->a(Landroid/graphics/Bitmap;Lcom/bumptech/glide/load/engine/bitmap_recycle/d;)Lcom/bumptech/glide/load/resource/bitmap/f;
 

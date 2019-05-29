@@ -107,13 +107,13 @@
 .method private generateBeautyLevelItem(Z)Lcom/android/camera/data/data/ComponentDataItem;
     .locals 4
 
-    invoke-static {}, Lcom/mi/config/b;->iw()Z
+    invoke-static {}, Lcom/mi/config/b;->iz()Z
 
     move-result p1
 
-    const v0, 0x7f0200d0
+    const v0, 0x7f0200d6
 
-    const v1, 0x7f0200cf
+    const v1, 0x7f0200d5
 
     if-eqz p1, :cond_0
 
@@ -155,14 +155,14 @@
     goto :goto_0
 
     :cond_0
-    const v1, 0x7f09023c
+    const v1, 0x7f09023b
 
     :goto_0
     const-string v2, "6"
 
-    const v3, 0x7f0200cf
+    const v3, 0x7f0200d5
 
-    const v4, 0x7f0200d0
+    const v4, 0x7f0200d6
 
     invoke-direct {v0, v3, v4, v1, v2}, Lcom/android/camera/data/data/ComponentDataItem;-><init>(IIILjava/lang/String;)V
 
@@ -176,9 +176,9 @@
 
     const-string v1, "7"
 
-    const v2, 0x7f020153
+    const v2, 0x7f02015a
 
-    const v3, 0x7f020154
+    const v3, 0x7f02015b
 
     const v4, 0x7f09006e
 
@@ -194,11 +194,11 @@
 
     const-string v1, "5"
 
-    const v2, 0x7f0200cf
+    const v2, 0x7f0200d5
 
-    const v3, 0x7f0200d0
+    const v3, 0x7f0200d6
 
-    const v4, 0x7f090236
+    const v4, 0x7f090235
 
     invoke-direct {v0, v2, v3, v4, v1}, Lcom/android/camera/data/data/ComponentDataItem;-><init>(IIILjava/lang/String;)V
 
@@ -208,13 +208,13 @@
 .method private generateModelItem()Lcom/android/camera/data/data/ComponentDataItem;
     .locals 5
 
-    invoke-static {}, Lcom/mi/config/b;->iw()Z
+    invoke-static {}, Lcom/mi/config/b;->iz()Z
 
     move-result v0
 
-    const v1, 0x7f0200d0
+    const v1, 0x7f0200d6
 
-    const v2, 0x7f0200cf
+    const v2, 0x7f0200d5
 
     if-eqz v0, :cond_1
 
@@ -259,9 +259,9 @@
 
     const-string v0, "2"
 
-    const v1, 0x7f0200cf
+    const v1, 0x7f0200d5
 
-    const v2, 0x7f0200d0
+    const v2, 0x7f0200d6
 
     const v3, 0x7f0901d7
 
@@ -653,7 +653,7 @@
 
     packed-switch p1, :pswitch_data_0
 
-    const p1, 0x7f020175
+    const p1, 0x7f02017c
 
     return p1
 
@@ -662,12 +662,12 @@
 
     if-eqz p1, :cond_0
 
-    const p1, 0x7f0200d0
+    const p1, 0x7f0200d6
 
     goto :goto_0
 
     :cond_0
-    const p1, 0x7f0200cf
+    const p1, 0x7f0200d5
 
     :goto_0
     return p1
@@ -677,12 +677,12 @@
 
     if-eqz p1, :cond_1
 
-    const p1, 0x7f0200d4
+    const p1, 0x7f0200da
 
     goto :goto_1
 
     :cond_1
-    const p1, 0x7f0200d3
+    const p1, 0x7f0200d9
 
     :goto_1
     return p1
@@ -769,7 +769,7 @@
 
     iget p1, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mShineEntry:I
 
-    const v0, 0x7f020175
+    const v0, 0x7f02017c
 
     packed-switch p1, :pswitch_data_0
 
@@ -780,12 +780,12 @@
 
     if-eqz p1, :cond_0
 
-    const p1, 0x7f020154
+    const p1, 0x7f02015b
 
     goto :goto_0
 
     :cond_0
-    const p1, 0x7f020153
+    const p1, 0x7f02015a
 
     :goto_0
     return p1
@@ -795,12 +795,12 @@
 
     if-eqz p1, :cond_1
 
-    const p1, 0x7f0200d0
+    const p1, 0x7f0200d6
 
     goto :goto_1
 
     :cond_1
-    const p1, 0x7f0200cf
+    const p1, 0x7f0200d5
 
     :goto_1
     return p1
@@ -810,7 +810,7 @@
 
     if-eqz p1, :cond_2
 
-    const v0, 0x7f020176
+    const v0, 0x7f02017d
 
     nop
 
@@ -907,16 +907,16 @@
     return v0
 .end method
 
-.method public reInit(IILcom/android/camera2/CameraCapabilities;)V
-    .locals 5
+.method public reInit()V
+    .locals 1
 
     iget-object v0, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mItems:Ljava/util/List;
 
     if-nez v0, :cond_0
 
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance v0, Ljava/util/concurrent/CopyOnWriteArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mItems:Ljava/util/List;
 
@@ -928,6 +928,14 @@
     invoke-interface {v0}, Ljava/util/List;->clear()V
 
     :goto_0
+    return-void
+.end method
+
+.method public reInit(IILcom/android/camera2/CameraCapabilities;)V
+    .locals 5
+
+    invoke-virtual {p0}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->reInit()V
+
     invoke-virtual {p3}, Lcom/android/camera2/CameraCapabilities;->getBeautyVersion()I
 
     move-result v0
@@ -940,23 +948,23 @@
 
     const/4 v2, 0x1
 
-    if-gez v0, :cond_2
+    if-gez v0, :cond_1
 
-    invoke-static {}, Lcom/mi/config/b;->iw()Z
+    invoke-static {}, Lcom/mi/config/b;->iz()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     iput v1, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mBeautyVersion:I
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_1
+    :cond_0
     iput v2, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mBeautyVersion:I
 
-    :cond_2
-    :goto_1
+    :cond_1
+    :goto_0
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mShineEntry:I
@@ -984,7 +992,7 @@
     packed-switch p1, :pswitch_data_0
 
     :pswitch_0
-    goto/16 :goto_11
+    goto/16 :goto_10
 
     :pswitch_1
     iput v4, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mShineEntry:I
@@ -993,30 +1001,100 @@
 
     move-result p1
 
-    if-nez p1, :cond_4
+    if-nez p1, :cond_3
 
     iput-boolean v2, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mSupportBeautyLevel:Z
 
     iget-object p1, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mItems:Ljava/util/List;
 
-    if-ne p2, v2, :cond_3
+    if-ne p2, v2, :cond_2
 
-    goto :goto_2
+    goto :goto_1
 
-    :cond_3
+    :cond_2
     move v2, v0
 
-    :goto_2
+    :goto_1
     invoke-direct {p0, v2}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->generateBeautyLevelItem(Z)Lcom/android/camera/data/data/ComponentDataItem;
 
     move-result-object p2
 
     invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_11
+    goto/16 :goto_10
+
+    :cond_3
+    iput-boolean v2, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mSupportSmoothLevel:Z
+
+    iget-object p1, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mItems:Ljava/util/List;
+
+    if-ne p2, v2, :cond_4
+
+    goto :goto_2
 
     :cond_4
-    iput-boolean v2, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mSupportSmoothLevel:Z
+    move v2, v0
+
+    :goto_2
+    invoke-direct {p0, v2}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->generateSmoothLevelItem(Z)Lcom/android/camera/data/data/ComponentDataItem;
+
+    move-result-object p2
+
+    invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_10
+
+    :pswitch_2
+    iput v4, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mShineEntry:I
+
+    const-string p1, "10"
+
+    iput-object p1, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mDefaultType:Ljava/lang/String;
+
+    iget-object p1, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mItems:Ljava/util/List;
+
+    new-instance p2, Lcom/android/camera/data/data/ComponentDataItem;
+
+    const p3, 0x7f0200d5
+
+    const v1, 0x7f0200d6
+
+    const v2, 0x7f0901d7
+
+    const-string v3, "11"
+
+    invoke-direct {p2, p3, v1, v2, v3}, Lcom/android/camera/data/data/ComponentDataItem;-><init>(IIILjava/lang/String;)V
+
+    invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object p1, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mItems:Ljava/util/List;
+
+    new-instance p2, Lcom/android/camera/data/data/ComponentDataItem;
+
+    const p3, 0x7f02015a
+
+    const v1, 0x7f02015b
+
+    const v2, 0x7f09006e
+
+    const-string v3, "10"
+
+    invoke-direct {p2, p3, v1, v2, v3}, Lcom/android/camera/data/data/ComponentDataItem;-><init>(IIILjava/lang/String;)V
+
+    invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_10
+
+    :pswitch_3
+    iput v4, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mShineEntry:I
+
+    invoke-virtual {p0}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->isSmoothDependBeautyVersion()Z
+
+    move-result p1
+
+    if-nez p1, :cond_6
+
+    iput-boolean v2, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mSupportBeautyLevel:Z
 
     iget-object p1, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mItems:Ljava/util/List;
 
@@ -1028,100 +1106,34 @@
     move v2, v0
 
     :goto_3
-    invoke-direct {p0, v2}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->generateSmoothLevelItem(Z)Lcom/android/camera/data/data/ComponentDataItem;
-
-    move-result-object p2
-
-    invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_11
-
-    :pswitch_2
-    iput v4, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mShineEntry:I
-
-    iget-object p1, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mItems:Ljava/util/List;
-
-    new-instance p2, Lcom/android/camera/data/data/ComponentDataItem;
-
-    const p3, 0x7f020153
-
-    const v1, 0x7f020154
-
-    const v2, 0x7f09006e
-
-    const-string v3, "10"
-
-    invoke-direct {p2, p3, v1, v2, v3}, Lcom/android/camera/data/data/ComponentDataItem;-><init>(IIILjava/lang/String;)V
-
-    invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    iget-object p1, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mItems:Ljava/util/List;
-
-    new-instance p2, Lcom/android/camera/data/data/ComponentDataItem;
-
-    const p3, 0x7f0200cf
-
-    const v1, 0x7f0200d0
-
-    const v2, 0x7f0901d7
-
-    const-string v3, "11"
-
-    invoke-direct {p2, p3, v1, v2, v3}, Lcom/android/camera/data/data/ComponentDataItem;-><init>(IIILjava/lang/String;)V
-
-    invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_11
-
-    :pswitch_3
-    iput v4, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mShineEntry:I
-
-    invoke-virtual {p0}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->isSmoothDependBeautyVersion()Z
-
-    move-result p1
-
-    if-nez p1, :cond_7
-
-    iput-boolean v2, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mSupportBeautyLevel:Z
-
-    iget-object p1, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mItems:Ljava/util/List;
-
-    if-ne p2, v2, :cond_6
-
-    goto :goto_4
-
-    :cond_6
-    move v2, v0
-
-    :goto_4
     invoke-direct {p0, v2}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->generateBeautyLevelItem(Z)Lcom/android/camera/data/data/ComponentDataItem;
 
     move-result-object p2
 
     invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_6
+    goto :goto_5
 
-    :cond_7
+    :cond_6
     iput-boolean v2, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mSupportSmoothLevel:Z
 
     iget-object p1, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mItems:Ljava/util/List;
 
-    if-ne p2, v2, :cond_8
+    if-ne p2, v2, :cond_7
 
-    goto :goto_5
+    goto :goto_4
 
-    :cond_8
+    :cond_7
     move v2, v0
 
-    :goto_5
+    :goto_4
     invoke-direct {p0, v2}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->generateSmoothLevelItem(Z)Lcom/android/camera/data/data/ComponentDataItem;
 
     move-result-object p2
 
     invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    :goto_6
+    :goto_5
     iget-object p1, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mItems:Ljava/util/List;
 
     invoke-direct {p0}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->generateFilterItem()Lcom/android/camera/data/data/ComponentDataItem;
@@ -1130,7 +1142,7 @@
 
     invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_11
+    goto/16 :goto_10
 
     :pswitch_4
     iput v3, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mShineEntry:I
@@ -1143,48 +1155,48 @@
 
     invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_11
+    goto/16 :goto_10
 
     :pswitch_5
     invoke-static {}, Lcom/android/camera/CameraSettings;->isUltraPixelRear48MPOn()Z
 
     move-result p1
 
-    if-nez p1, :cond_c
+    if-nez p1, :cond_b
 
     invoke-virtual {p0}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->isSmoothDependBeautyVersion()Z
 
     move-result p1
 
-    if-nez p1, :cond_a
+    if-nez p1, :cond_9
 
     iput-boolean v2, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mSupportBeautyLevel:Z
 
     iget-object p1, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mItems:Ljava/util/List;
 
-    if-ne p2, v2, :cond_9
+    if-ne p2, v2, :cond_8
 
     move v1, v2
 
-    goto :goto_7
+    goto :goto_6
 
-    :cond_9
+    :cond_8
     move v1, v0
 
-    :goto_7
+    :goto_6
     invoke-direct {p0, v1}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->generateBeautyLevelItem(Z)Lcom/android/camera/data/data/ComponentDataItem;
 
     move-result-object v1
 
     invoke-interface {p1, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_8
+    goto :goto_7
 
-    :cond_a
+    :cond_9
     iput-boolean v2, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mSupportSmoothLevel:Z
 
-    :goto_8
-    if-nez p2, :cond_b
+    :goto_7
+    if-nez p2, :cond_a
 
     iput v2, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mShineEntry:I
 
@@ -1200,7 +1212,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_e
+    if-eqz p1, :cond_d
 
     iput-boolean v2, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mSupportBeautyBody:Z
 
@@ -1212,20 +1224,20 @@
 
     invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_9
+    goto :goto_8
 
-    :cond_b
+    :cond_a
     iput v4, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mShineEntry:I
 
     invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemFeature()Lcom/mi/config/a;
 
     move-result-object p1
 
-    invoke-virtual {p1}, Lcom/mi/config/a;->gE()Z
+    invoke-virtual {p1}, Lcom/mi/config/a;->gF()Z
 
     move-result p1
 
-    if-nez p1, :cond_e
+    if-nez p1, :cond_d
 
     iput-boolean v2, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mSupportBeautyModel:Z
 
@@ -1245,13 +1257,13 @@
 
     move-result p1
 
-    if-eqz p1, :cond_e
+    if-eqz p1, :cond_d
 
     invoke-virtual {p3}, Lcom/android/camera2/CameraCapabilities;->isSupportBeautyMakeup()Z
 
     move-result p1
 
-    if-eqz p1, :cond_e
+    if-eqz p1, :cond_d
 
     iput-boolean v2, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mSupportBeautyMakeUp:Z
 
@@ -1263,20 +1275,20 @@
 
     invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_9
+    goto :goto_8
 
-    :cond_c
-    if-nez p2, :cond_d
+    :cond_b
+    if-nez p2, :cond_c
 
     iput v3, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mShineEntry:I
 
-    goto :goto_9
+    goto :goto_8
 
-    :cond_d
+    :cond_c
     iput v4, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mShineEntry:I
 
-    :cond_e
-    :goto_9
+    :cond_d
+    :goto_8
     iget-object p1, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mItems:Ljava/util/List;
 
     invoke-direct {p0}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->generateFilterItem()Lcom/android/camera/data/data/ComponentDataItem;
@@ -1285,14 +1297,14 @@
 
     invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_11
+    goto/16 :goto_10
 
     :pswitch_6
     invoke-virtual {p3}, Lcom/android/camera2/CameraCapabilities;->isSupportVideoBeauty()Z
 
     move-result p1
 
-    if-eqz p1, :cond_1c
+    if-eqz p1, :cond_1b
 
     iput v1, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mShineEntry:I
 
@@ -1300,59 +1312,59 @@
 
     move-result p1
 
-    if-nez p1, :cond_10
+    if-nez p1, :cond_f
 
     iput-boolean v2, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mSupportBeautyLevel:Z
 
     iget-object p1, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mItems:Ljava/util/List;
 
-    if-ne p2, v2, :cond_f
+    if-ne p2, v2, :cond_e
 
-    goto :goto_a
+    goto :goto_9
 
-    :cond_f
+    :cond_e
     move v2, v0
 
-    :goto_a
+    :goto_9
     invoke-direct {p0, v2}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->generateBeautyLevelItem(Z)Lcom/android/camera/data/data/ComponentDataItem;
 
     move-result-object p2
 
     invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_11
+    goto/16 :goto_10
 
-    :cond_10
+    :cond_f
     iput-boolean v2, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mSupportSmoothLevel:Z
 
     iget-object p1, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mItems:Ljava/util/List;
 
-    if-ne p2, v2, :cond_11
+    if-ne p2, v2, :cond_10
 
-    goto :goto_b
+    goto :goto_a
 
-    :cond_11
+    :cond_10
     move v2, v0
 
-    :goto_b
+    :goto_a
     invoke-direct {p0, v2}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->generateSmoothLevelItem(Z)Lcom/android/camera/data/data/ComponentDataItem;
 
     move-result-object p2
 
     invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_11
+    goto/16 :goto_10
 
     :pswitch_7
     invoke-virtual {p3}, Lcom/android/camera2/CameraCapabilities;->isSupportVideoBeauty()Z
 
     move-result p1
 
-    if-eqz p1, :cond_1b
+    if-eqz p1, :cond_1a
 
     iput v4, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mShineEntry:I
 
-    if-nez p2, :cond_16
+    if-nez p2, :cond_15
 
     const-string p1, "7"
 
@@ -1362,22 +1374,22 @@
 
     move-result p1
 
-    if-nez p1, :cond_13
+    if-nez p1, :cond_12
 
     iput-boolean v2, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mSupportBeautyLevel:Z
 
     iget-object p1, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mItems:Ljava/util/List;
 
-    if-ne p2, v2, :cond_12
+    if-ne p2, v2, :cond_11
 
     move p2, v2
 
-    goto :goto_c
+    goto :goto_b
 
-    :cond_12
+    :cond_11
     move p2, v0
 
-    :goto_c
+    :goto_b
     invoke-direct {p0, p2}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->generateBeautyLevelItem(Z)Lcom/android/camera/data/data/ComponentDataItem;
 
     move-result-object p2
@@ -1392,7 +1404,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_1a
+    if-eqz p1, :cond_19
 
     iput-boolean v2, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mSupportBeautyBody:Z
 
@@ -1404,9 +1416,9 @@
 
     invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_10
+    goto :goto_f
 
-    :cond_13
+    :cond_12
     iput-boolean v2, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mSupportSmoothLevel:Z
 
     invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemFeature()Lcom/mi/config/a;
@@ -1417,7 +1429,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_14
+    if-eqz p1, :cond_13
 
     iput-boolean v2, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mSupportBeautyBody:Z
 
@@ -1429,75 +1441,75 @@
 
     invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_10
+    goto :goto_f
 
-    :cond_14
+    :cond_13
     iget-object p1, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mItems:Ljava/util/List;
 
-    if-ne p2, v2, :cond_15
+    if-ne p2, v2, :cond_14
 
-    goto :goto_d
+    goto :goto_c
 
-    :cond_15
+    :cond_14
     move v2, v0
 
-    :goto_d
+    :goto_c
     invoke-direct {p0, v2}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->generateSmoothLevelItem(Z)Lcom/android/camera/data/data/ComponentDataItem;
 
     move-result-object p2
 
     invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_10
+    goto :goto_f
 
-    :cond_16
+    :cond_15
     invoke-virtual {p0}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->isSmoothDependBeautyVersion()Z
 
     move-result p1
 
-    if-nez p1, :cond_18
+    if-nez p1, :cond_17
 
     iput-boolean v2, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mSupportBeautyLevel:Z
 
     iget-object p1, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mItems:Ljava/util/List;
 
-    if-ne p2, v2, :cond_17
+    if-ne p2, v2, :cond_16
 
-    goto :goto_e
+    goto :goto_d
 
-    :cond_17
+    :cond_16
     move v2, v0
 
-    :goto_e
+    :goto_d
     invoke-direct {p0, v2}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->generateBeautyLevelItem(Z)Lcom/android/camera/data/data/ComponentDataItem;
 
     move-result-object p2
 
     invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_10
+    goto :goto_f
 
-    :cond_18
+    :cond_17
     iput-boolean v2, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mSupportSmoothLevel:Z
 
     iget-object p1, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mItems:Ljava/util/List;
 
-    if-ne p2, v2, :cond_19
+    if-ne p2, v2, :cond_18
 
-    goto :goto_f
+    goto :goto_e
 
-    :cond_19
+    :cond_18
     move v2, v0
 
-    :goto_f
+    :goto_e
     invoke-direct {p0, v2}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->generateSmoothLevelItem(Z)Lcom/android/camera/data/data/ComponentDataItem;
 
     move-result-object p2
 
     invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    :cond_1a
-    :goto_10
+    :cond_19
+    :goto_f
     iget-object p1, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mItems:Ljava/util/List;
 
     invoke-direct {p0}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->generateFilterItem()Lcom/android/camera/data/data/ComponentDataItem;
@@ -1506,9 +1518,9 @@
 
     invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_11
+    goto :goto_10
 
-    :cond_1b
+    :cond_1a
     iput v3, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mShineEntry:I
 
     iget-object p1, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mItems:Ljava/util/List;
@@ -1521,11 +1533,11 @@
 
     nop
 
-    :cond_1c
-    :goto_11
+    :cond_1b
+    :goto_10
     iget-object p1, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mDefaultType:Ljava/lang/String;
 
-    if-nez p1, :cond_1d
+    if-nez p1, :cond_1c
 
     iget-object p1, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mItems:Ljava/util/List;
 
@@ -1533,7 +1545,7 @@
 
     move-result p1
 
-    if-nez p1, :cond_1d
+    if-nez p1, :cond_1c
 
     iget-object p1, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mItems:Ljava/util/List;
 
@@ -1547,7 +1559,7 @@
 
     iput-object p1, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mDefaultType:Ljava/lang/String;
 
-    :cond_1d
+    :cond_1c
     iget-object p1, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mDefaultType:Ljava/lang/String;
 
     iput-object p1, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mCurrentType:Ljava/lang/String;
@@ -1575,34 +1587,6 @@
         :pswitch_4
         :pswitch_1
     .end packed-switch
-.end method
-
-.method public reInit(Ljava/lang/String;)V
-    .locals 0
-    .param p1    # Ljava/lang/String;
-        .annotation build Lcom/android/camera/data/data/runing/ComponentRunningShine$ShineType;
-        .end annotation
-    .end param
-
-    iget-object p1, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mItems:Ljava/util/List;
-
-    if-nez p1, :cond_0
-
-    new-instance p1, Ljava/util/ArrayList;
-
-    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object p1, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mItems:Ljava/util/List;
-
-    goto :goto_0
-
-    :cond_0
-    iget-object p1, p0, Lcom/android/camera/data/data/runing/ComponentRunningShine;->mItems:Ljava/util/List;
-
-    invoke-interface {p1}, Ljava/util/List;->clear()V
-
-    :goto_0
-    return-void
 .end method
 
 .method public setClosed(Z)V

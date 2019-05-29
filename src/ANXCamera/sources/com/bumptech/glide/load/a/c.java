@@ -8,7 +8,7 @@ import java.io.OutputStream;
 
 /* compiled from: BufferedOutputStream */
 public final class c extends OutputStream {
-    private b ap;
+    private b aq;
     private byte[] buffer;
     private int index;
     @NonNull
@@ -21,7 +21,7 @@ public final class c extends OutputStream {
     @VisibleForTesting
     c(@NonNull OutputStream outputStream, b bVar, int i) {
         this.out = outputStream;
-        this.ap = bVar;
+        this.aq = bVar;
         this.buffer = (byte[]) bVar.a(i, byte[].class);
     }
 
@@ -40,7 +40,7 @@ public final class c extends OutputStream {
 
     private void release() {
         if (this.buffer != null) {
-            this.ap.put(this.buffer);
+            this.aq.put(this.buffer);
             this.buffer = null;
         }
     }

@@ -114,15 +114,7 @@
     return-void
 .end method
 
-.method static synthetic access$100(Lcom/android/camera/fragment/beauty/MakeupSingleCheckAdapter;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/camera/fragment/beauty/MakeupSingleCheckAdapter;->mItemHorizontalMargin:I
-
-    return p0
-.end method
-
-.method static synthetic access$200(Lcom/android/camera/fragment/beauty/MakeupSingleCheckAdapter;)Z
+.method static synthetic access$100(Lcom/android/camera/fragment/beauty/MakeupSingleCheckAdapter;)Z
     .locals 0
 
     iget-boolean p0, p0, Lcom/android/camera/fragment/beauty/MakeupSingleCheckAdapter;->mIsCustomWidth:Z
@@ -130,7 +122,7 @@
     return p0
 .end method
 
-.method static synthetic access$300(Lcom/android/camera/fragment/beauty/MakeupSingleCheckAdapter;)I
+.method static synthetic access$200(Lcom/android/camera/fragment/beauty/MakeupSingleCheckAdapter;)I
     .locals 0
 
     iget p0, p0, Lcom/android/camera/fragment/beauty/MakeupSingleCheckAdapter;->mItemWidth:I
@@ -138,7 +130,7 @@
     return p0
 .end method
 
-.method static synthetic access$400(Lcom/android/camera/fragment/beauty/MakeupSingleCheckAdapter;)Landroid/content/Context;
+.method static synthetic access$300(Lcom/android/camera/fragment/beauty/MakeupSingleCheckAdapter;)Landroid/content/Context;
     .locals 0
 
     iget-object p0, p0, Lcom/android/camera/fragment/beauty/MakeupSingleCheckAdapter;->mContext:Landroid/content/Context;
@@ -146,7 +138,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$500(Lcom/android/camera/fragment/beauty/MakeupSingleCheckAdapter;)I
+.method static synthetic access$400(Lcom/android/camera/fragment/beauty/MakeupSingleCheckAdapter;)I
     .locals 0
 
     iget p0, p0, Lcom/android/camera/fragment/beauty/MakeupSingleCheckAdapter;->mSelectedItem:I
@@ -154,7 +146,7 @@
     return p0
 .end method
 
-.method static synthetic access$502(Lcom/android/camera/fragment/beauty/MakeupSingleCheckAdapter;I)I
+.method static synthetic access$402(Lcom/android/camera/fragment/beauty/MakeupSingleCheckAdapter;I)I
     .locals 0
 
     iput p1, p0, Lcom/android/camera/fragment/beauty/MakeupSingleCheckAdapter;->mSelectedItem:I
@@ -162,7 +154,7 @@
     return p1
 .end method
 
-.method static synthetic access$600(Lcom/android/camera/fragment/beauty/MakeupSingleCheckAdapter;)I
+.method static synthetic access$500(Lcom/android/camera/fragment/beauty/MakeupSingleCheckAdapter;)I
     .locals 0
 
     iget p0, p0, Lcom/android/camera/fragment/beauty/MakeupSingleCheckAdapter;->mPreSelectedItem:I
@@ -170,7 +162,7 @@
     return p0
 .end method
 
-.method static synthetic access$602(Lcom/android/camera/fragment/beauty/MakeupSingleCheckAdapter;I)I
+.method static synthetic access$502(Lcom/android/camera/fragment/beauty/MakeupSingleCheckAdapter;I)I
     .locals 0
 
     iput p1, p0, Lcom/android/camera/fragment/beauty/MakeupSingleCheckAdapter;->mPreSelectedItem:I
@@ -178,7 +170,7 @@
     return p1
 .end method
 
-.method static synthetic access$700(Lcom/android/camera/fragment/beauty/MakeupSingleCheckAdapter;)Landroid/support/v7/widget/RecyclerView;
+.method static synthetic access$600(Lcom/android/camera/fragment/beauty/MakeupSingleCheckAdapter;)Landroid/support/v7/widget/RecyclerView;
     .locals 0
 
     iget-object p0, p0, Lcom/android/camera/fragment/beauty/MakeupSingleCheckAdapter;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
@@ -266,7 +258,7 @@
 
     move-result-object p2
 
-    const v0, 0x7f040047
+    const v0, 0x7f040048
 
     const/4 v1, 0x0
 

@@ -7,12 +7,12 @@ import java.security.MessageDigest;
 
 /* compiled from: Option */
 public final class e<T> {
-    private static final a<Object> dI = new a<Object>() {
+    private static final a<Object> dJ = new a<Object>() {
         public void a(@NonNull byte[] bArr, @NonNull Object obj, @NonNull MessageDigest messageDigest) {
         }
     };
-    private final a<T> dJ;
-    private volatile byte[] dK;
+    private final a<T> dK;
+    private volatile byte[] dL;
     private final T defaultValue;
     private final String key;
 
@@ -24,7 +24,7 @@ public final class e<T> {
     private e(@NonNull String str, @Nullable T t, @NonNull a<T> aVar) {
         this.key = i.H(str);
         this.defaultValue = t;
-        this.dJ = (a) i.checkNotNull(aVar);
+        this.dK = (a) i.checkNotNull(aVar);
     }
 
     @NonNull
@@ -44,15 +44,15 @@ public final class e<T> {
 
     @NonNull
     private byte[] ah() {
-        if (this.dK == null) {
-            this.dK = this.key.getBytes(c.dG);
+        if (this.dL == null) {
+            this.dL = this.key.getBytes(c.dH);
         }
-        return this.dK;
+        return this.dL;
     }
 
     @NonNull
     private static <T> a<T> ai() {
-        return dI;
+        return dJ;
     }
 
     @NonNull
@@ -61,7 +61,7 @@ public final class e<T> {
     }
 
     public void a(@NonNull T t, @NonNull MessageDigest messageDigest) {
-        this.dJ.a(ah(), t, messageDigest);
+        this.dK.a(ah(), t, messageDigest);
     }
 
     public boolean equals(Object obj) {

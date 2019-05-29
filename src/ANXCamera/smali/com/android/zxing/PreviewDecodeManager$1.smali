@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onPreviewFrame(Landroid/media/Image;Lcom/android/camera2/Camera2Proxy;I)V
-    .locals 3
+    .locals 1
 
     iget-object p2, p0, Lcom/android/zxing/PreviewDecodeManager$1;->this$0:Lcom/android/zxing/PreviewDecodeManager;
 
@@ -70,19 +70,7 @@
 
     check-cast v0, Lcom/android/zxing/Decoder;
 
-    iget-object v1, p0, Lcom/android/zxing/PreviewDecodeManager$1;->this$0:Lcom/android/zxing/PreviewDecodeManager;
-
-    invoke-static {v1}, Lcom/android/zxing/PreviewDecodeManager;->access$100(Lcom/android/zxing/PreviewDecodeManager;)I
-
-    move-result v1
-
-    iget-object v2, p0, Lcom/android/zxing/PreviewDecodeManager$1;->this$0:Lcom/android/zxing/PreviewDecodeManager;
-
-    invoke-static {v2}, Lcom/android/zxing/PreviewDecodeManager;->access$200(Lcom/android/zxing/PreviewDecodeManager;)I
-
-    move-result v2
-
-    invoke-virtual {v0, p1, v1, v2, p3}, Lcom/android/zxing/Decoder;->onPreviewFrame(Landroid/media/Image;III)V
+    invoke-virtual {v0, p1, p3}, Lcom/android/zxing/Decoder;->onPreviewFrame(Landroid/media/Image;I)V
 
     goto :goto_0
 

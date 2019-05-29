@@ -24,6 +24,7 @@ import android.view.ViewGroup;
 import android.view.ViewGroup.MarginLayoutParams;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.android.camera.HybridZoomingSystem;
 import com.android.camera.R;
 import com.android.camera.Util;
 import com.android.camera.animation.type.AlphaInOnSubscribe;
@@ -141,15 +142,15 @@ public class FragmentMainContent extends BaseFragment implements AutoZoomViewPro
                     public void run() {
                         if (z) {
                             int tipsResIdFace = MimojiHelper.getTipsResIdFace(i);
-                            BottomPopupTips bottomPopupTips = (BottomPopupTips) ModeCoordinatorImpl.getInstance().getAttachProtocol(175);
-                            if (bottomPopupTips != null && tipsResIdFace > 0) {
-                                bottomPopupTips.showTips(19, tipsResIdFace, 1);
+                            TopAlert topAlert = (TopAlert) ModeCoordinatorImpl.getInstance().getAttachProtocol(172);
+                            if (topAlert != null && tipsResIdFace > 0) {
+                                topAlert.alertMimojiFaceDetect(true, tipsResIdFace);
                             }
                             return;
                         }
-                        TopAlert topAlert = (TopAlert) ModeCoordinatorImpl.getInstance().getAttachProtocol(172);
-                        if (topAlert != null) {
-                            topAlert.alertLightingHint(FragmentMainContent.this.lastFaceResult);
+                        TopAlert topAlert2 = (TopAlert) ModeCoordinatorImpl.getInstance().getAttachProtocol(172);
+                        if (topAlert2 != null) {
+                            topAlert2.alertLightingHint(FragmentMainContent.this.lastFaceResult);
                         }
                         VerticalProtocol verticalProtocol = (VerticalProtocol) ModeCoordinatorImpl.getInstance().getAttachProtocol(198);
                         if (verticalProtocol != null) {
@@ -169,6 +170,10 @@ public class FragmentMainContent extends BaseFragment implements AutoZoomViewPro
                                     BottomPopupTips bottomPopupTips = (BottomPopupTips) ModeCoordinatorImpl.getInstance().getAttachProtocol(175);
                                     if (bottomPopupTips != null) {
                                         bottomPopupTips.showTips(19, R.string.mimoji_check_normal, 2);
+                                    }
+                                    TopAlert topAlert = (TopAlert) ModeCoordinatorImpl.getInstance().getAttachProtocol(172);
+                                    if (topAlert != null) {
+                                        topAlert.alertMimojiFaceDetect(false, -1);
                                     }
                                 }
                             }
@@ -326,7 +331,8 @@ public class FragmentMainContent extends BaseFragment implements AutoZoomViewPro
         this.mObjectView = (ObjectView) this.mPreviewPanel.findViewById(R.id.object_view);
         this.mAfRegionsView = (AfRegionsView) this.mPreviewPanel.findViewById(R.id.afregions_view);
         this.mMimojiLightingView = (LightingView) this.mPreviewPanel.findChildrenById(R.id.mimoji_lighting_view);
-        this.mMimojiLightingView.setCircleRatio(1.2f);
+        this.mMimojiLightingView.setCircleRatio(1.18f);
+        this.mMimojiLightingView.setCircleHeightRatio(1.14f);
         this.mLightingView.setRotation(this.mDegree);
         adjustViewHeight();
         this.mCoverParent.getLayoutParams().height = Util.sWindowHeight - Util.getBottomHeight(getResources());
@@ -502,9 +508,9 @@ public class FragmentMainContent extends BaseFragment implements AutoZoomViewPro
         this.mMimojiLightingView.post(new Runnable() {
             public void run() {
                 int tipsResId = MimojiHelper.getTipsResId(i);
-                BottomPopupTips bottomPopupTips = (BottomPopupTips) ModeCoordinatorImpl.getInstance().getAttachProtocol(175);
-                if (bottomPopupTips != null && tipsResId > 0) {
-                    bottomPopupTips.showTips(19, tipsResId, 1);
+                TopAlert topAlert = (TopAlert) ModeCoordinatorImpl.getInstance().getAttachProtocol(172);
+                if (topAlert != null && tipsResId != -1) {
+                    topAlert.alertMimojiFaceDetect(true, tipsResId);
                 }
             }
         });
@@ -720,7 +726,7 @@ public class FragmentMainContent extends BaseFragment implements AutoZoomViewPro
         modeCoordinator.attachProtocol(166, this);
         modeCoordinator.attachProtocol(214, this);
         registerBackStack(modeCoordinator, this);
-        if (!b.isSupportedOpticalZoom()) {
+        if (!b.isSupportedOpticalZoom() && !HybridZoomingSystem.IS_3_OR_MORE_SAT) {
             modeCoordinator.attachProtocol(184, this);
         }
     }
@@ -916,7 +922,7 @@ public class FragmentMainContent extends BaseFragment implements AutoZoomViewPro
         modeCoordinator.detachProtocol(166, this);
         unRegisterBackStack(modeCoordinator, this);
         modeCoordinator.detachProtocol(214, this);
-        if (!b.isSupportedOpticalZoom()) {
+        if (!b.isSupportedOpticalZoom() && !HybridZoomingSystem.IS_3_OR_MORE_SAT) {
             modeCoordinator.detachProtocol(184, this);
         }
     }

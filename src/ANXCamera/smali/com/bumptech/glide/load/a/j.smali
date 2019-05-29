@@ -32,19 +32,19 @@
 
 .field private static final TAG:Ljava/lang/String; = "HttpUrlFetcher"
 
-.field private static final dV:I = 0x5
+.field private static final dW:I = 0x5
 
-.field private static final dW:I = -0x1
+.field private static final dX:I = -0x1
 
 
 # instance fields
-.field private final dX:Lcom/bumptech/glide/load/model/g;
+.field private final dY:Lcom/bumptech/glide/load/model/g;
 
-.field private final dY:Lcom/bumptech/glide/load/a/j$b;
+.field private final dZ:Lcom/bumptech/glide/load/a/j$b;
 
-.field private dZ:Ljava/io/InputStream;
+.field private ea:Ljava/io/InputStream;
 
-.field private volatile ea:Z
+.field private volatile eb:Z
 
 .field private final timeout:I
 
@@ -81,11 +81,11 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/a/j;->dX:Lcom/bumptech/glide/load/model/g;
+    iput-object p1, p0, Lcom/bumptech/glide/load/a/j;->dY:Lcom/bumptech/glide/load/model/g;
 
     iput p2, p0, Lcom/bumptech/glide/load/a/j;->timeout:I
 
-    iput-object p3, p0, Lcom/bumptech/glide/load/a/j;->dY:Lcom/bumptech/glide/load/a/j$b;
+    iput-object p3, p0, Lcom/bumptech/glide/load/a/j;->dZ:Lcom/bumptech/glide/load/a/j$b;
 
     return-void
 .end method
@@ -122,7 +122,7 @@
 
     move-result-object p1
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/a/j;->dZ:Ljava/io/InputStream;
+    iput-object p1, p0, Lcom/bumptech/glide/load/a/j;->ea:Ljava/io/InputStream;
 
     goto :goto_0
 
@@ -164,10 +164,10 @@
 
     move-result-object p1
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/a/j;->dZ:Ljava/io/InputStream;
+    iput-object p1, p0, Lcom/bumptech/glide/load/a/j;->ea:Ljava/io/InputStream;
 
     :goto_0
-    iget-object p1, p0, Lcom/bumptech/glide/load/a/j;->dZ:Ljava/io/InputStream;
+    iget-object p1, p0, Lcom/bumptech/glide/load/a/j;->ea:Ljava/io/InputStream;
 
     return-object p1
 .end method
@@ -238,7 +238,7 @@
     nop
 
     :goto_1
-    iget-object p3, p0, Lcom/bumptech/glide/load/a/j;->dY:Lcom/bumptech/glide/load/a/j$b;
+    iget-object p3, p0, Lcom/bumptech/glide/load/a/j;->dZ:Lcom/bumptech/glide/load/a/j$b;
 
     invoke-interface {p3, p1}, Lcom/bumptech/glide/load/a/j$b;->c(Ljava/net/URL;)Ljava/net/HttpURLConnection;
 
@@ -324,9 +324,9 @@
 
     move-result-object p3
 
-    iput-object p3, p0, Lcom/bumptech/glide/load/a/j;->dZ:Ljava/io/InputStream;
+    iput-object p3, p0, Lcom/bumptech/glide/load/a/j;->ea:Ljava/io/InputStream;
 
-    iget-boolean p3, p0, Lcom/bumptech/glide/load/a/j;->ea:Z
+    iget-boolean p3, p0, Lcom/bumptech/glide/load/a/j;->eb:Z
 
     if-eqz p3, :cond_3
 
@@ -503,7 +503,7 @@
     const/4 p1, 0x2
 
     :try_start_0
-    iget-object v2, p0, Lcom/bumptech/glide/load/a/j;->dX:Lcom/bumptech/glide/load/model/g;
+    iget-object v2, p0, Lcom/bumptech/glide/load/a/j;->dY:Lcom/bumptech/glide/load/model/g;
 
     invoke-virtual {v2}, Lcom/bumptech/glide/load/model/g;->toURL()Ljava/net/URL;
 
@@ -513,7 +513,7 @@
 
     const/4 v4, 0x0
 
-    iget-object v5, p0, Lcom/bumptech/glide/load/a/j;->dX:Lcom/bumptech/glide/load/model/g;
+    iget-object v5, p0, Lcom/bumptech/glide/load/a/j;->dY:Lcom/bumptech/glide/load/model/g;
 
     invoke-virtual {v5}, Lcom/bumptech/glide/load/model/g;->getHeaders()Ljava/util/Map;
 
@@ -667,7 +667,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/load/DataSource;->dd:Lcom/bumptech/glide/load/DataSource;
+    sget-object v0, Lcom/bumptech/glide/load/DataSource;->de:Lcom/bumptech/glide/load/DataSource;
 
     return-object v0
 .end method
@@ -677,7 +677,7 @@
 
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/load/a/j;->ea:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/load/a/j;->eb:Z
 
     return-void
 .end method
@@ -685,12 +685,12 @@
 .method public cleanup()V
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/a/j;->dZ:Ljava/io/InputStream;
+    iget-object v0, p0, Lcom/bumptech/glide/load/a/j;->ea:Ljava/io/InputStream;
 
     if-eqz v0, :cond_0
 
     :try_start_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/a/j;->dZ:Ljava/io/InputStream;
+    iget-object v0, p0, Lcom/bumptech/glide/load/a/j;->ea:Ljava/io/InputStream;
 
     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
     :try_end_0

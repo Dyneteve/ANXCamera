@@ -89,10 +89,10 @@
 
     :array_0
     .array-data 4
-        0x0
-        0x0
-        0x0
-        0x0
+        0x3de0ded3    # 0.1098f
+        0x3df0d845    # 0.1176f
+        0x3e0068dc    # 0.1254f
+        0x3f800000    # 1.0f
     .end array-data
 .end method
 
@@ -244,7 +244,7 @@
 .end method
 
 .method private doInit(Ljava/lang/String;)V
-    .locals 4
+    .locals 3
 
     sget-object v0, Lcom/android/camera/fragment/mimoji/MimojiThumbnailRenderThread;->TAG:Ljava/lang/String;
 
@@ -268,9 +268,7 @@
 
     sget-object v2, Lcom/android/camera/fragment/mimoji/AvatarEngineManager;->FACE_MODEL:Ljava/lang/String;
 
-    sget-object v3, Lcom/android/camera/fragment/mimoji/AvatarEngineManager;->PersonTemplatePath:Ljava/lang/String;
-
-    invoke-virtual {v0, v1, v2, v3}, Lcom/arcsoft/avatar/AvatarEngine;->init(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, v2}, Lcom/arcsoft/avatar/AvatarEngine;->init(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/camera/fragment/mimoji/MimojiThumbnailRenderThread;->mAvatar:Lcom/arcsoft/avatar/AvatarEngine;
@@ -734,21 +732,40 @@
 .end method
 
 .method private release()V
-    .locals 1
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/camera/fragment/mimoji/MimojiThumbnailRenderThread;->mEGLWrapper:Lcom/android/camera/fragment/mimoji/EGLWrapper;
+    iget-object v0, p0, Lcom/android/camera/fragment/mimoji/MimojiThumbnailRenderThread;->mAvatar:Lcom/arcsoft/avatar/AvatarEngine;
+
+    const/4 v1, 0x0
 
     if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/camera/fragment/mimoji/MimojiThumbnailRenderThread;->mAvatar:Lcom/arcsoft/avatar/AvatarEngine;
+
+    invoke-virtual {v0}, Lcom/arcsoft/avatar/AvatarEngine;->releaseRender()V
+
+    iget-object v0, p0, Lcom/android/camera/fragment/mimoji/MimojiThumbnailRenderThread;->mAvatar:Lcom/arcsoft/avatar/AvatarEngine;
+
+    invoke-virtual {v0}, Lcom/arcsoft/avatar/AvatarEngine;->unInit()V
+
+    iget-object v0, p0, Lcom/android/camera/fragment/mimoji/MimojiThumbnailRenderThread;->mAvatar:Lcom/arcsoft/avatar/AvatarEngine;
+
+    invoke-virtual {v0}, Lcom/arcsoft/avatar/AvatarEngine;->destroy()V
+
+    iput-object v1, p0, Lcom/android/camera/fragment/mimoji/MimojiThumbnailRenderThread;->mAvatar:Lcom/arcsoft/avatar/AvatarEngine;
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/camera/fragment/mimoji/MimojiThumbnailRenderThread;->mEGLWrapper:Lcom/android/camera/fragment/mimoji/EGLWrapper;
+
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/camera/fragment/mimoji/MimojiThumbnailRenderThread;->mEGLWrapper:Lcom/android/camera/fragment/mimoji/EGLWrapper;
 
     invoke-virtual {v0}, Lcom/android/camera/fragment/mimoji/EGLWrapper;->release()V
 
-    const/4 v0, 0x0
+    iput-object v1, p0, Lcom/android/camera/fragment/mimoji/MimojiThumbnailRenderThread;->mEGLWrapper:Lcom/android/camera/fragment/mimoji/EGLWrapper;
 
-    iput-object v0, p0, Lcom/android/camera/fragment/mimoji/MimojiThumbnailRenderThread;->mEGLWrapper:Lcom/android/camera/fragment/mimoji/EGLWrapper;
-
-    :cond_0
+    :cond_1
     return-void
 .end method
 
@@ -762,6 +779,20 @@
             ">;)V"
         }
     .end annotation
+
+    iget-object v0, p0, Lcom/android/camera/fragment/mimoji/MimojiThumbnailRenderThread;->mConfigInfoThumUtils:Lcom/android/camera/fragment/mimoji/ConfigInfoThumUtils;
+
+    iget-object v1, p0, Lcom/android/camera/fragment/mimoji/MimojiThumbnailRenderThread;->mAvatar:Lcom/arcsoft/avatar/AvatarEngine;
+
+    invoke-static {}, Lcom/android/camera/fragment/mimoji/AvatarEngineManager;->getInstance()Lcom/android/camera/fragment/mimoji/AvatarEngineManager;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/camera/fragment/mimoji/AvatarEngineManager;->getASAvatarConfigValue()Lcom/arcsoft/avatar/AvatarConfig$ASAvatarConfigValue;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/camera/fragment/mimoji/ConfigInfoThumUtils;->reset(Lcom/arcsoft/avatar/AvatarEngine;Lcom/arcsoft/avatar/AvatarConfig$ASAvatarConfigValue;)V
 
     const/4 v0, 0x0
 

@@ -24,14 +24,14 @@ import java.util.List;
 
 public abstract class ViewTarget<T extends View, Z> extends b<Z> {
     private static final String TAG = "ViewTarget";
-    private static boolean pl;
+    private static boolean pm;
     @Nullable
-    private static Integer pm;
-    private final SizeDeterminer pn;
+    private static Integer pn;
+    private final SizeDeterminer po;
     @Nullable
-    private OnAttachStateChangeListener po;
-    private boolean pp;
+    private OnAttachStateChangeListener pp;
     private boolean pq;
+    private boolean pr;
     protected final T view;
 
     @VisibleForTesting
@@ -39,18 +39,18 @@ public abstract class ViewTarget<T extends View, Z> extends b<Z> {
         @Nullable
         @VisibleForTesting
         static Integer maxDisplayLength;
-        private static final int ps = 0;
-        private final List<m> gv = new ArrayList();
-        boolean pt;
+        private static final int pt = 0;
+        private final List<m> gw = new ArrayList();
+        boolean pu;
         @Nullable
-        private a pu;
+        private a pv;
         private final View view;
 
         private static final class a implements OnPreDrawListener {
-            private final WeakReference<SizeDeterminer> pv;
+            private final WeakReference<SizeDeterminer> pw;
 
             a(@NonNull SizeDeterminer sizeDeterminer) {
-                this.pv = new WeakReference<>(sizeDeterminer);
+                this.pw = new WeakReference<>(sizeDeterminer);
             }
 
             public boolean onPreDraw() {
@@ -61,7 +61,7 @@ public abstract class ViewTarget<T extends View, Z> extends b<Z> {
                     sb.append(this);
                     Log.v(str, sb.toString());
                 }
-                SizeDeterminer sizeDeterminer = (SizeDeterminer) this.pv.get();
+                SizeDeterminer sizeDeterminer = (SizeDeterminer) this.pw.get();
                 if (sizeDeterminer != null) {
                     sizeDeterminer.ez();
                 }
@@ -82,7 +82,7 @@ public abstract class ViewTarget<T extends View, Z> extends b<Z> {
             if (i4 > 0) {
                 return i4;
             }
-            if (this.pt && this.view.isLayoutRequested()) {
+            if (this.pu && this.view.isLayoutRequested()) {
                 return 0;
             }
             int i5 = i - i3;
@@ -121,7 +121,7 @@ public abstract class ViewTarget<T extends View, Z> extends b<Z> {
         }
 
         private void q(int i, int i2) {
-            Iterator it = new ArrayList(this.gv).iterator();
+            Iterator it = new ArrayList(this.gw).iterator();
             while (it.hasNext()) {
                 ((m) it.next()).p(i, i2);
             }
@@ -139,34 +139,34 @@ public abstract class ViewTarget<T extends View, Z> extends b<Z> {
                 mVar.p(eC, eB);
                 return;
             }
-            if (!this.gv.contains(mVar)) {
-                this.gv.add(mVar);
+            if (!this.gw.contains(mVar)) {
+                this.gw.add(mVar);
             }
-            if (this.pu == null) {
+            if (this.pv == null) {
                 ViewTreeObserver viewTreeObserver = this.view.getViewTreeObserver();
-                this.pu = new a(this);
-                viewTreeObserver.addOnPreDrawListener(this.pu);
+                this.pv = new a(this);
+                viewTreeObserver.addOnPreDrawListener(this.pv);
             }
         }
 
         /* access modifiers changed from: 0000 */
         public void b(@NonNull m mVar) {
-            this.gv.remove(mVar);
+            this.gw.remove(mVar);
         }
 
         /* access modifiers changed from: 0000 */
         public void eA() {
             ViewTreeObserver viewTreeObserver = this.view.getViewTreeObserver();
             if (viewTreeObserver.isAlive()) {
-                viewTreeObserver.removeOnPreDrawListener(this.pu);
+                viewTreeObserver.removeOnPreDrawListener(this.pv);
             }
-            this.pu = null;
-            this.gv.clear();
+            this.pv = null;
+            this.gw.clear();
         }
 
         /* access modifiers changed from: 0000 */
         public void ez() {
-            if (!this.gv.isEmpty()) {
+            if (!this.gw.isEmpty()) {
                 int eC = eC();
                 int eB = eB();
                 if (r(eC, eB)) {
@@ -179,7 +179,7 @@ public abstract class ViewTarget<T extends View, Z> extends b<Z> {
 
     public ViewTarget(@NonNull T t) {
         this.view = (View) i.checkNotNull(t);
-        this.pn = new SizeDeterminer(t);
+        this.po = new SizeDeterminer(t);
     }
 
     @Deprecated
@@ -191,55 +191,55 @@ public abstract class ViewTarget<T extends View, Z> extends b<Z> {
     }
 
     public static void U(int i) {
-        if (pm != null || pl) {
+        if (pn != null || pm) {
             throw new IllegalArgumentException("You cannot set the tag id more than once or change the tag id after the first request has been made");
         }
-        pm = Integer.valueOf(i);
+        pn = Integer.valueOf(i);
     }
 
     private void ex() {
-        if (this.po != null && !this.pq) {
-            this.view.addOnAttachStateChangeListener(this.po);
-            this.pq = true;
+        if (this.pp != null && !this.pr) {
+            this.view.addOnAttachStateChangeListener(this.pp);
+            this.pr = true;
         }
     }
 
     private void ey() {
-        if (this.po != null && this.pq) {
-            this.view.removeOnAttachStateChangeListener(this.po);
-            this.pq = false;
+        if (this.pp != null && this.pr) {
+            this.view.removeOnAttachStateChangeListener(this.pp);
+            this.pr = false;
         }
     }
 
     @Nullable
     private Object getTag() {
-        return pm == null ? this.view.getTag() : this.view.getTag(pm.intValue());
+        return pn == null ? this.view.getTag() : this.view.getTag(pn.intValue());
     }
 
     private void setTag(@Nullable Object obj) {
-        if (pm == null) {
-            pl = true;
+        if (pn == null) {
+            pm = true;
             this.view.setTag(obj);
             return;
         }
-        this.view.setTag(pm.intValue(), obj);
+        this.view.setTag(pn.intValue(), obj);
     }
 
     @CallSuper
     public void a(@NonNull m mVar) {
-        this.pn.a(mVar);
+        this.po.a(mVar);
     }
 
     @CallSuper
     public void b(@NonNull m mVar) {
-        this.pn.b(mVar);
+        this.po.b(mVar);
     }
 
     @CallSuper
     public void d(@Nullable Drawable drawable) {
         super.d(drawable);
-        this.pn.eA();
-        if (!this.pp) {
+        this.po.eA();
+        if (!this.pq) {
             ey();
         }
     }
@@ -264,10 +264,10 @@ public abstract class ViewTarget<T extends View, Z> extends b<Z> {
 
     @NonNull
     public final ViewTarget<T, Z> et() {
-        if (this.po != null) {
+        if (this.pp != null) {
             return this;
         }
-        this.po = new OnAttachStateChangeListener() {
+        this.pp = new OnAttachStateChangeListener() {
             public void onViewAttachedToWindow(View view) {
                 ViewTarget.this.eu();
             }
@@ -292,15 +292,15 @@ public abstract class ViewTarget<T extends View, Z> extends b<Z> {
     public void ev() {
         c dp = dp();
         if (dp != null && !dp.isCancelled() && !dp.isPaused()) {
-            this.pp = true;
+            this.pq = true;
             dp.pause();
-            this.pp = false;
+            this.pq = false;
         }
     }
 
     @NonNull
     public final ViewTarget<T, Z> ew() {
-        this.pn.pt = true;
+        this.po.pu = true;
         return this;
     }
 

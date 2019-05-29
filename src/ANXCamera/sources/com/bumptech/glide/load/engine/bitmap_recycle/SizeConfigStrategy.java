@@ -16,35 +16,35 @@ import java.util.TreeMap;
 
 @RequiresApi(19)
 public class SizeConfigStrategy implements k {
-    private static final int hC = 8;
-    private static final Config[] hD;
-    private static final Config[] hE = hD;
-    private static final Config[] hF = {Config.RGB_565};
-    private static final Config[] hG = {Config.ARGB_4444};
-    private static final Config[] hH = {Config.ALPHA_8};
-    private final KeyPool hI = new KeyPool();
-    private final g<Key, Bitmap> he = new g<>();
-    private final Map<Config, NavigableMap<Integer, Integer>> hn = new HashMap();
+    private static final int hD = 8;
+    private static final Config[] hE;
+    private static final Config[] hF = hE;
+    private static final Config[] hG = {Config.RGB_565};
+    private static final Config[] hH = {Config.ARGB_4444};
+    private static final Config[] hI = {Config.ALPHA_8};
+    private final KeyPool hJ = new KeyPool();
+    private final g<Key, Bitmap> hf = new g<>();
+    private final Map<Config, NavigableMap<Integer, Integer>> ho = new HashMap();
 
     /* renamed from: com.bumptech.glide.load.engine.bitmap_recycle.SizeConfigStrategy$1 reason: invalid class name */
     static /* synthetic */ class AnonymousClass1 {
-        static final /* synthetic */ int[] hJ = new int[Config.values().length];
+        static final /* synthetic */ int[] hK = new int[Config.values().length];
 
         static {
             try {
-                hJ[Config.ARGB_8888.ordinal()] = 1;
+                hK[Config.ARGB_8888.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                hJ[Config.RGB_565.ordinal()] = 2;
+                hK[Config.RGB_565.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                hJ[Config.ARGB_4444.ordinal()] = 3;
+                hK[Config.ARGB_4444.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
             try {
-                hJ[Config.ALPHA_8.ordinal()] = 4;
+                hK[Config.ALPHA_8.ordinal()] = 4;
             } catch (NoSuchFieldError e4) {
             }
         }
@@ -53,11 +53,11 @@ public class SizeConfigStrategy implements k {
     @VisibleForTesting
     static final class Key implements l {
         private Config config;
-        private final KeyPool hK;
+        private final KeyPool hL;
         int size;
 
         public Key(KeyPool keyPool) {
-            this.hK = keyPool;
+            this.hL = keyPool;
         }
 
         @VisibleForTesting
@@ -67,7 +67,7 @@ public class SizeConfigStrategy implements k {
         }
 
         public void bm() {
-            this.hK.a(this);
+            this.hL.a(this);
         }
 
         public void c(int i, Config config2) {
@@ -120,11 +120,11 @@ public class SizeConfigStrategy implements k {
             configArr = (Config[]) Arrays.copyOf(configArr, configArr.length + 1);
             configArr[configArr.length - 1] = Config.RGBA_F16;
         }
-        hD = configArr;
+        hE = configArr;
     }
 
     private Key a(int i, Config config) {
-        Key d = this.hI.d(i, config);
+        Key d = this.hJ.d(i, config);
         Config[] d2 = d(config);
         int length = d2.length;
         int i2 = 0;
@@ -143,8 +143,8 @@ public class SizeConfigStrategy implements k {
                         return d;
                     }
                 }
-                this.hI.a(d);
-                return this.hI.d(num.intValue(), config2);
+                this.hJ.a(d);
+                return this.hJ.d(num.intValue(), config2);
             }
         }
         return d;
@@ -180,28 +180,28 @@ public class SizeConfigStrategy implements k {
     }
 
     private NavigableMap<Integer, Integer> c(Config config) {
-        NavigableMap<Integer, Integer> navigableMap = (NavigableMap) this.hn.get(config);
+        NavigableMap<Integer, Integer> navigableMap = (NavigableMap) this.ho.get(config);
         if (navigableMap != null) {
             return navigableMap;
         }
         TreeMap treeMap = new TreeMap();
-        this.hn.put(config, treeMap);
+        this.ho.put(config, treeMap);
         return treeMap;
     }
 
     private static Config[] d(Config config) {
         if (VERSION.SDK_INT >= 26 && Config.RGBA_F16.equals(config)) {
-            return hE;
+            return hF;
         }
-        switch (AnonymousClass1.hJ[config.ordinal()]) {
+        switch (AnonymousClass1.hK[config.ordinal()]) {
             case 1:
-                return hD;
+                return hE;
             case 2:
-                return hF;
-            case 3:
                 return hG;
-            case 4:
+            case 3:
                 return hH;
+            case 4:
+                return hI;
             default:
                 return new Config[]{config};
         }
@@ -210,7 +210,7 @@ public class SizeConfigStrategy implements k {
     @Nullable
     public Bitmap b(int i, int i2, Config config) {
         Key a = a(k.i(i, i2, config), config);
-        Bitmap bitmap = (Bitmap) this.he.b(a);
+        Bitmap bitmap = (Bitmap) this.hf.b(a);
         if (bitmap != null) {
             a(Integer.valueOf(a.size), bitmap);
             bitmap.reconfigure(i, i2, bitmap.getConfig() != null ? bitmap.getConfig() : Config.ARGB_8888);
@@ -220,7 +220,7 @@ public class SizeConfigStrategy implements k {
 
     @Nullable
     public Bitmap bl() {
-        Bitmap bitmap = (Bitmap) this.he.removeLast();
+        Bitmap bitmap = (Bitmap) this.hf.removeLast();
         if (bitmap != null) {
             a(Integer.valueOf(k.p(bitmap)), bitmap);
         }
@@ -232,8 +232,8 @@ public class SizeConfigStrategy implements k {
     }
 
     public void d(Bitmap bitmap) {
-        Key d = this.hI.d(k.p(bitmap), bitmap.getConfig());
-        this.he.a(d, bitmap);
+        Key d = this.hJ.d(k.p(bitmap), bitmap.getConfig());
+        this.hf.a(d, bitmap);
         NavigableMap c = c(bitmap.getConfig());
         Integer num = (Integer) c.get(Integer.valueOf(d.size));
         Integer valueOf = Integer.valueOf(d.size);
@@ -255,15 +255,15 @@ public class SizeConfigStrategy implements k {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("SizeConfigStrategy{groupedMap=");
-        sb.append(this.he);
+        sb.append(this.hf);
         sb.append(", sortedSizes=(");
-        for (Entry entry : this.hn.entrySet()) {
+        for (Entry entry : this.ho.entrySet()) {
             sb.append(entry.getKey());
             sb.append('[');
             sb.append(entry.getValue());
             sb.append("], ");
         }
-        if (!this.hn.isEmpty()) {
+        if (!this.ho.isEmpty()) {
             sb.replace(sb.length() - 2, sb.length(), "");
         }
         sb.append(")}");

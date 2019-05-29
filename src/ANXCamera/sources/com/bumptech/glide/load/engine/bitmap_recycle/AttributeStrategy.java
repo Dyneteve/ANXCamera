@@ -6,22 +6,22 @@ import android.support.annotation.VisibleForTesting;
 import com.bumptech.glide.util.k;
 
 class AttributeStrategy implements k {
-    private final KeyPool hd = new KeyPool();
-    private final g<Key, Bitmap> he = new g<>();
+    private final KeyPool he = new KeyPool();
+    private final g<Key, Bitmap> hf = new g<>();
 
     @VisibleForTesting
     static class Key implements l {
         private Config config;
         private int height;
-        private final KeyPool hf;
+        private final KeyPool hg;
         private int width;
 
         public Key(KeyPool keyPool) {
-            this.hf = keyPool;
+            this.hg = keyPool;
         }
 
         public void bm() {
-            this.hf.a(this);
+            this.hg.a(this);
         }
 
         public void e(int i, int i2, Config config2) {
@@ -89,11 +89,11 @@ class AttributeStrategy implements k {
     }
 
     public Bitmap b(int i, int i2, Config config) {
-        return (Bitmap) this.he.b(this.hd.f(i, i2, config));
+        return (Bitmap) this.hf.b(this.he.f(i, i2, config));
     }
 
     public Bitmap bl() {
-        return (Bitmap) this.he.removeLast();
+        return (Bitmap) this.hf.removeLast();
     }
 
     public String c(int i, int i2, Config config) {
@@ -101,7 +101,7 @@ class AttributeStrategy implements k {
     }
 
     public void d(Bitmap bitmap) {
-        this.he.a(this.hd.f(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig()), bitmap);
+        this.hf.a(this.he.f(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig()), bitmap);
     }
 
     public String e(Bitmap bitmap) {
@@ -115,7 +115,7 @@ class AttributeStrategy implements k {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("AttributeStrategy:\n  ");
-        sb.append(this.he);
+        sb.append(this.hf);
         return sb.toString();
     }
 }

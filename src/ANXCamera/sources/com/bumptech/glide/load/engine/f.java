@@ -14,10 +14,10 @@ import java.util.List;
 public class f<DataType, ResourceType, Transcode> {
     private static final String TAG = "DecodePath";
     private final Class<DataType> dataClass;
-    private final List<? extends g<DataType, ResourceType>> fO;
-    private final e<ResourceType, Transcode> fP;
-    private final Pool<List<Throwable>> fQ;
-    private final String fR;
+    private final List<? extends g<DataType, ResourceType>> fP;
+    private final e<ResourceType, Transcode> fQ;
+    private final Pool<List<Throwable>> fR;
+    private final String fS;
 
     /* compiled from: DecodePath */
     interface a<ResourceType> {
@@ -27,9 +27,9 @@ public class f<DataType, ResourceType, Transcode> {
 
     public f(Class<DataType> cls, Class<ResourceType> cls2, Class<Transcode> cls3, List<? extends g<DataType, ResourceType>> list, e<ResourceType, Transcode> eVar, Pool<List<Throwable>> pool) {
         this.dataClass = cls;
-        this.fO = list;
-        this.fP = eVar;
-        this.fQ = pool;
+        this.fP = list;
+        this.fQ = eVar;
+        this.fR = pool;
         StringBuilder sb = new StringBuilder();
         sb.append("Failed DecodePath{");
         sb.append(cls.getSimpleName());
@@ -38,27 +38,27 @@ public class f<DataType, ResourceType, Transcode> {
         sb.append("->");
         sb.append(cls3.getSimpleName());
         sb.append("}");
-        this.fR = sb.toString();
+        this.fS = sb.toString();
     }
 
     @NonNull
     private p<ResourceType> a(com.bumptech.glide.load.a.e<DataType> eVar, int i, int i2, @NonNull com.bumptech.glide.load.f fVar) throws GlideException {
-        List list = (List) i.checkNotNull(this.fQ.acquire());
+        List list = (List) i.checkNotNull(this.fR.acquire());
         try {
             p<ResourceType> a2 = a(eVar, i, i2, fVar, list);
             return a2;
         } finally {
-            this.fQ.release(list);
+            this.fR.release(list);
         }
     }
 
     @NonNull
     private p<ResourceType> a(com.bumptech.glide.load.a.e<DataType> eVar, int i, int i2, @NonNull com.bumptech.glide.load.f fVar, List<Throwable> list) throws GlideException {
         p<ResourceType> pVar;
-        int size = this.fO.size();
+        int size = this.fP.size();
         p<ResourceType> pVar2 = null;
         for (int i3 = 0; i3 < size; i3++) {
-            g gVar = (g) this.fO.get(i3);
+            g gVar = (g) this.fP.get(i3);
             try {
                 if (gVar.a(eVar.am(), fVar)) {
                     pVar2 = gVar.a(eVar.am(), i, i2, fVar);
@@ -80,11 +80,11 @@ public class f<DataType, ResourceType, Transcode> {
         if (pVar != null) {
             return pVar;
         }
-        throw new GlideException(this.fR, (List<Throwable>) new ArrayList<Throwable>(list));
+        throw new GlideException(this.fS, (List<Throwable>) new ArrayList<Throwable>(list));
     }
 
     public p<Transcode> a(com.bumptech.glide.load.a.e<DataType> eVar, int i, int i2, @NonNull com.bumptech.glide.load.f fVar, a<ResourceType> aVar) throws GlideException {
-        return this.fP.a(aVar.c(a(eVar, i, i2, fVar)), fVar);
+        return this.fQ.a(aVar.c(a(eVar, i, i2, fVar)), fVar);
     }
 
     public String toString() {
@@ -92,9 +92,9 @@ public class f<DataType, ResourceType, Transcode> {
         sb.append("DecodePath{ dataClass=");
         sb.append(this.dataClass);
         sb.append(", decoders=");
-        sb.append(this.fO);
-        sb.append(", transcoder=");
         sb.append(this.fP);
+        sb.append(", transcoder=");
+        sb.append(this.fQ);
         sb.append('}');
         return sb.toString();
     }

@@ -81,7 +81,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0c0014
+    const v2, 0x7f0c0016
 
     invoke-direct {v0, v1, v2}, Landroid/text/style/TextAppearanceSpan;-><init>(Landroid/content/Context;I)V
 
@@ -93,7 +93,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0c0015
+    const v2, 0x7f0c0017
 
     invoke-direct {v0, v1, v2}, Landroid/text/style/TextAppearanceSpan;-><init>(Landroid/content/Context;I)V
 
@@ -105,7 +105,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0c0013
+    const v2, 0x7f0c0015
 
     invoke-direct {v0, v1, v2}, Landroid/text/style/TextAppearanceSpan;-><init>(Landroid/content/Context;I)V
 
@@ -157,7 +157,7 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v0, 0x7f0d013d
+    const v0, 0x7f0d013b
 
     invoke-virtual {p0, v0}, Lcom/android/camera/ui/zoom/ZoomRatioView;->findViewById(I)Landroid/view/View;
 
@@ -167,7 +167,7 @@
 
     iput-object v0, p0, Lcom/android/camera/ui/zoom/ZoomRatioView;->mZoomRatioIcon:Landroid/widget/ImageView;
 
-    const v0, 0x7f0d013e
+    const v0, 0x7f0d013c
 
     invoke-virtual {p0, v0}, Lcom/android/camera/ui/zoom/ZoomRatioView;->findViewById(I)Landroid/view/View;
 

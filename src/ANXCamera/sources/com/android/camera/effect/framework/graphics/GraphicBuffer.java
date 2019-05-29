@@ -16,10 +16,18 @@ public class GraphicBuffer {
         return this.mFboId;
     }
 
+    public int getFrameBufferTexId() {
+        return ShaderNativeUtil.getGraphicBufferFboTexId();
+    }
+
     public void initBuffer(int i, int i2) {
         this.mFboId = ShaderNativeUtil.setupGraphicBuffer(i, i2);
         this.mWidth = i;
         this.mHeight = i2;
+    }
+
+    public void initBuffer(int i, int i2, int i3) {
+        this.mFboId = ShaderNativeUtil.setupGraphicBufferWithChannels(i, i2, i3);
     }
 
     public void readBuffer(int i, int i2, int i3) {

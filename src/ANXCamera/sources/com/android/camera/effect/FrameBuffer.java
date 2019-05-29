@@ -22,7 +22,7 @@ public class FrameBuffer {
         GLES20.glFramebufferTexture2D(36160, 36064, 3553, this.mTexture.getId(), 0);
         GLES20.glBindFramebuffer(36160, i3);
         this.mGLCanvas = gLCanvas;
-        Log.v(TAG, String.format(Locale.ENGLISH, "init@2: fbo=%d tex=%d", new Object[]{Integer.valueOf(getId()), Integer.valueOf(this.mTexture.getId())}));
+        Log.v(TAG, String.format(Locale.ENGLISH, "init@2: fbo=%d tex=%d %d*%d thread=%d", new Object[]{Integer.valueOf(getId()), Integer.valueOf(this.mTexture.getId()), Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(Thread.currentThread().getId())}));
     }
 
     public FrameBuffer(GLCanvas gLCanvas, RGBTexture rGBTexture, int i) {
@@ -50,13 +50,17 @@ public class FrameBuffer {
         GLES20.glBindFramebuffer(36160, i);
         this.mTexture = rawTexture;
         this.mGLCanvas = gLCanvas;
-        Log.v(TAG, String.format(Locale.ENGLISH, "init@1: fbo=%d tex=%d", new Object[]{Integer.valueOf(getId()), Integer.valueOf(this.mTexture.getId())}));
+        Log.v(TAG, String.format(Locale.ENGLISH, "init@1: fbo=%d tex=%d %d*%d thread=%d", new Object[]{Integer.valueOf(getId()), Integer.valueOf(this.mTexture.getId()), Integer.valueOf(rawTexture.getWidth()), Integer.valueOf(rawTexture.getHeight()), Long.valueOf(Thread.currentThread().getId())}));
+    }
+
+    public void delete() {
+        GLES20.glDeleteFramebuffers(1, this.mFrameBufferID, 0);
     }
 
     /* access modifiers changed from: protected */
     public void finalize() {
         if (this.mGLCanvas != null) {
-            Log.d(TAG, String.format(Locale.ENGLISH, "delete framebuffer thread=%d id=%d", new Object[]{Long.valueOf(Thread.currentThread().getId()), Integer.valueOf(getId())}));
+            Log.d(TAG, String.format(Locale.ENGLISH, "delete fbo thread=%d id=%d", new Object[]{Long.valueOf(Thread.currentThread().getId()), Integer.valueOf(getId())}));
             this.mGLCanvas.deleteFrameBuffer(getId());
         }
     }

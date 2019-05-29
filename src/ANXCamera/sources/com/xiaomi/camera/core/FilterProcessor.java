@@ -6,7 +6,7 @@ import android.util.Size;
 import com.android.camera.effect.EffectController;
 import com.android.camera.effect.FilterInfo;
 import com.android.camera.effect.draw_mode.DrawYuvAttribute;
-import com.android.camera.effect.renders.DualWatermarkParam;
+import com.android.camera.effect.renders.DeviceWatermarkParam;
 import com.android.camera.effect.renders.SnapshotRender;
 import com.android.camera.log.Log;
 
@@ -23,18 +23,18 @@ public class FilterProcessor {
 
     private boolean isWatermarkEnabled(ParallelTaskData parallelTaskData) {
         ParallelTaskDataParameter dataParameter = parallelTaskData.getDataParameter();
-        return dataParameter.isHasDualWaterMark() || dataParameter.getTimeWaterMarkString() != null || dataParameter.isAgeGenderAndMagicMirrorWater();
+        return dataParameter.isHasDualWaterMark() || dataParameter.isHasFrontWaterMark() || dataParameter.getTimeWaterMarkString() != null || dataParameter.isAgeGenderAndMagicMirrorWater();
     }
 
     private void prepareEffectProcessor(ParallelTaskDataParameter parallelTaskDataParameter) {
         int filterId = parallelTaskDataParameter.getFilterId();
         Size pictureSize = parallelTaskDataParameter.getPictureSize();
-        DualWatermarkParam dualWatermarkParam = parallelTaskDataParameter.getDualWatermarkParam();
+        DeviceWatermarkParam deviceWatermarkParam = parallelTaskDataParameter.getDeviceWatermarkParam();
         if (this.mYuvSnapshotRender == null || !this.mRenderSize.equals(pictureSize)) {
             init(pictureSize);
         }
         Log.d(TAG, String.format("prepareEffectProcessor: %x", new Object[]{Integer.valueOf(filterId)}));
-        this.mYuvSnapshotRender.prepareEffectRender(dualWatermarkParam, filterId);
+        this.mYuvSnapshotRender.prepareEffectRender(deviceWatermarkParam, filterId);
     }
 
     private void releaseEffectProcessor() {

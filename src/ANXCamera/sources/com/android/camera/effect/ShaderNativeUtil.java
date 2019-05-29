@@ -26,9 +26,11 @@ public class ShaderNativeUtil {
         return decompressJpeg(bArr, i);
     }
 
-    public static native void genWaterMarkRange(int i, int i2, int i3, int i4);
+    public static native void genWaterMarkRange(int i, int i2, int i3, int i4, int i5);
 
     public static native void getCenterSquareImage(int i, int i2);
+
+    public static native int getGraphicBufferFboTexId();
 
     public static native byte[] getJpegFromMemImage(int i, int i2, int i3, int i4, int i5);
 
@@ -42,7 +44,7 @@ public class ShaderNativeUtil {
         return getJpegPicture(i, i2, i3, i4, i5);
     }
 
-    public static native byte[] getWaterMarkRange(int i);
+    public static native byte[] getWaterMarkRange(int i, int i2);
 
     private static native int[] initJpegTexture(byte[] bArr, int i, int i2);
 
@@ -54,7 +56,7 @@ public class ShaderNativeUtil {
         return initJpegTexture(bArr, i, i2);
     }
 
-    public static native void mergeWaterMarkRange(int i, int i2, int i3, int i4, int i5, int i6);
+    public static native void mergeWaterMarkRange(int i, int i2, int i3, int i4, int i5, int i6, int i7);
 
     public static native void mergeYUV(int i, int i2, int i3, int i4);
 
@@ -71,6 +73,8 @@ public class ShaderNativeUtil {
     public static native int resizeGraphicBuffer(int i, int i2);
 
     public static native int setupGraphicBuffer(int i, int i2);
+
+    public static native int setupGraphicBufferWithChannels(int i, int i2, int i3);
 
     public static native void texChannelUV(int i, int i2, int i3);
 

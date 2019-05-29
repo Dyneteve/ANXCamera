@@ -354,7 +354,7 @@ public class SensorStateManager {
     }
 
     public SensorStateManager(Context context, Looper looper) {
-        this.mSensorManager = (SensorManager) context.getSystemService("sensor");
+        this.mSensorManager = (SensorManager) context.getApplicationContext().getSystemService("sensor");
         this.mLinearAccelerometer = this.mSensorManager.getDefaultSensor(10);
         this.mGyroscope = this.mSensorManager.getDefaultSensor(4);
         this.mOrientationSensor = this.mSensorManager.getDefaultSensor(3);
@@ -639,7 +639,7 @@ public class SensorStateManager {
     }
 
     public void setRotationIndicatorEnabled(boolean z) {
-        if (b.hZ() && canDetectOrientation() && this.mRotationFlagEnabled != z) {
+        if (b.ic() && canDetectOrientation() && this.mRotationFlagEnabled != z) {
             this.mRotationFlagEnabled = z;
             int i = 4;
             if (!this.mRotationFlagEnabled) {

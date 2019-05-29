@@ -40,7 +40,7 @@ public class e implements m<Uri, InputStream> {
     }
 
     private boolean c(f fVar) {
-        Long l = (Long) fVar.a(VideoDecoder.lS);
+        Long l = (Long) fVar.a(VideoDecoder.lT);
         return l != null && l.longValue() == -1;
     }
 

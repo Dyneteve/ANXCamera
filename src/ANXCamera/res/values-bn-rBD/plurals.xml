@@ -4,4 +4,8 @@
         <item quantity="other">ফোকাস করা আছে।%d মুখ চেনা গিয়েছে</item>
         <item quantity="one">ফোকাস করা আছে।%d মুখ চেনা গিয়েছে</item>
     </plurals>
+    <plurals name="toast_burst_snap_finished_summary">
+        <item quantity="other">বাস্ট শট নেওয়া হয়েছে, %1$sটি ফটো তোলা হয়েছে</item>
+        <item quantity="one">বাস্ট শট নেওয়া হয়েছে, %1$sটি ফটো তোলা হয়েছে</item>
+    </plurals>
 </resources>

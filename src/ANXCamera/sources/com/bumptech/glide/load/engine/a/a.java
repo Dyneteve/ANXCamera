@@ -11,8 +11,8 @@ public interface a {
     /* compiled from: DiskCache */
     /* renamed from: com.bumptech.glide.load.engine.a.a$a reason: collision with other inner class name */
     public interface C0003a {
-        public static final String ag = "image_manager_disk_cache";
-        public static final int hO = 262144000;
+        public static final String ah = "image_manager_disk_cache";
+        public static final int hP = 262144000;
 
         @Nullable
         a bz();

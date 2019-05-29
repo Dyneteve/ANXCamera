@@ -4,7 +4,7 @@
 
 
 # static fields
-.field private static volatile lX:Z
+.field private static volatile lY:Z
 
 
 # direct methods
@@ -13,7 +13,7 @@
 
     const/4 v0, 0x1
 
-    sput-boolean v0, Lcom/bumptech/glide/load/resource/b/a;->lX:Z
+    sput-boolean v0, Lcom/bumptech/glide/load/resource/b/a;->lY:Z
 
     return-void
 .end method
@@ -72,7 +72,7 @@
     .end param
 
     :try_start_0
-    sget-boolean v0, Lcom/bumptech/glide/load/resource/b/a;->lX:Z
+    sget-boolean v0, Lcom/bumptech/glide/load/resource/b/a;->lY:Z
 
     if-eqz v0, :cond_1
 
@@ -122,7 +122,7 @@
 
     const/4 p0, 0x0
 
-    sput-boolean p0, Lcom/bumptech/glide/load/resource/b/a;->lX:Z
+    sput-boolean p0, Lcom/bumptech/glide/load/resource/b/a;->lY:Z
 
     :cond_1
     nop

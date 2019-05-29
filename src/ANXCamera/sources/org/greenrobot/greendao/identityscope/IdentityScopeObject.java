@@ -19,16 +19,14 @@ public class IdentityScopeObject<K, T> implements IdentityScope<K, T> {
     }
 
     public boolean detach(K k, T t) {
-        boolean z;
         this.lock.lock();
         try {
             if (get(k) != t || t == null) {
-                z = false;
-            } else {
-                remove(k);
-                z = true;
+                this.lock.unlock();
+                return false;
             }
-            return z;
+            remove(k);
+            return true;
         } finally {
             this.lock.unlock();
         }

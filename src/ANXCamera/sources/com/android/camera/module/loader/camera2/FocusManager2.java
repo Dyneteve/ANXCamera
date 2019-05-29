@@ -264,7 +264,7 @@ public class FocusManager2 extends FocusManagerAbstract {
     /* access modifiers changed from: private */
     public void capture() {
         if (this.mListener.onWaitingFocusFinished()) {
-            if (b.hc()) {
+            if (b.hf()) {
                 setFocusState(0);
                 this.mCancelAutoFocusIfMove = false;
             }
@@ -410,6 +410,9 @@ public class FocusManager2 extends FocusManagerAbstract {
             if (z) {
                 if (this.mState != 2) {
                     setFocusState(1);
+                    this.mHandler.removeMessages(0);
+                    this.mHandler.removeMessages(1);
+                    this.mHandler.sendEmptyMessageDelayed(1, 5000);
                 }
                 Log.v(TAG, "Camera KPI: CAF start");
                 this.mCafStartTime = System.currentTimeMillis();
@@ -430,6 +433,8 @@ public class FocusManager2 extends FocusManagerAbstract {
                     setFocusState(4);
                     setLastFocusState(4);
                 }
+                this.mHandler.removeMessages(0);
+                this.mHandler.removeMessages(1);
                 if (z3 && mainContentProtocol != null) {
                     mainContentProtocol.showIndicator(2, z2 ? 2 : 3);
                 }
@@ -735,7 +740,7 @@ public class FocusManager2 extends FocusManagerAbstract {
                     } else {
                         focusFaceArea();
                     }
-                } else if (z && this.mCameraFocusArea != null && !b.hc()) {
+                } else if (z && this.mCameraFocusArea != null && !b.hf()) {
                     this.mKeepFocusUIState = true;
                     startFocus(this.mLastFocusFrom);
                     this.mKeepFocusUIState = false;
@@ -743,7 +748,7 @@ public class FocusManager2 extends FocusManagerAbstract {
                 z2 = true;
             }
             if (!z2 && z && equals) {
-                if (!b.hP()) {
+                if (!b.hS()) {
                     requestAutoFocus();
                 } else if (this.mState == 1) {
                     cancelFocus();
@@ -786,7 +791,7 @@ public class FocusManager2 extends FocusManagerAbstract {
     }
 
     public void resetAfterCapture(boolean z) {
-        if (b.hc()) {
+        if (b.hf()) {
             resetTouchFocus(7);
         } else if (!z) {
         } else {

@@ -46,7 +46,7 @@
 .method private c(Lcom/bumptech/glide/load/f;)Z
     .locals 4
 
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder;->lS:Lcom/bumptech/glide/load/e;
+    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder;->lT:Lcom/bumptech/glide/load/e;
 
     invoke-virtual {p1, v0}, Lcom/bumptech/glide/load/f;->a(Lcom/bumptech/glide/load/e;)Ljava/lang/Object;
 

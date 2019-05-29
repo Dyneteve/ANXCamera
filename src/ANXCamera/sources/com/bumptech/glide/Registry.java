@@ -22,21 +22,21 @@ import java.util.Collections;
 import java.util.List;
 
 public class Registry {
-    public static final String ba = "Gif";
-    public static final String bb = "Bitmap";
-    public static final String bc = "BitmapDrawable";
-    private static final String bd = "legacy_prepend_all";
-    private static final String be = "legacy_append";
-    private final o bf = new o(this.bo);
-    private final a bg = new a();
-    private final e bh = new e();
-    private final f bi = new f();
-    private final com.bumptech.glide.load.a.f bj = new com.bumptech.glide.load.a.f();
-    private final com.bumptech.glide.load.resource.d.f bk = new com.bumptech.glide.load.resource.d.f();
-    private final b bl = new b();
-    private final d bm = new d();
-    private final c bn = new c();
-    private final Pool<List<Throwable>> bo = com.bumptech.glide.util.a.a.eP();
+    public static final String bb = "Gif";
+    public static final String bc = "Bitmap";
+    public static final String bd = "BitmapDrawable";
+    private static final String be = "legacy_prepend_all";
+    private static final String bf = "legacy_append";
+    private final o bg = new o(this.bp);
+    private final a bh = new a();
+    private final e bi = new e();
+    private final f bj = new f();
+    private final com.bumptech.glide.load.a.f bk = new com.bumptech.glide.load.a.f();
+    private final com.bumptech.glide.load.resource.d.f bl = new com.bumptech.glide.load.resource.d.f();
+    private final b bm = new b();
+    private final d bn = new d();
+    private final c bo = new c();
+    private final Pool<List<Throwable>> bp = com.bumptech.glide.util.a.a.eP();
 
     public static class MissingComponentException extends RuntimeException {
         public MissingComponentException(@NonNull String str) {
@@ -88,15 +88,15 @@ public class Registry {
     }
 
     public Registry() {
-        b(Arrays.asList(new String[]{ba, bb, bc}));
+        b(Arrays.asList(new String[]{bb, bc, bd}));
     }
 
     @NonNull
     private <Data, TResource, Transcode> List<com.bumptech.glide.load.engine.f<Data, TResource, Transcode>> b(@NonNull Class<Data> cls, @NonNull Class<TResource> cls2, @NonNull Class<Transcode> cls3) {
         ArrayList arrayList = new ArrayList();
-        for (Class cls4 : this.bh.i(cls, cls2)) {
-            for (Class cls5 : this.bk.f(cls4, cls3)) {
-                com.bumptech.glide.load.engine.f fVar = new com.bumptech.glide.load.engine.f(cls, cls4, cls5, this.bh.h(cls, cls4), this.bk.e(cls4, cls5), this.bo);
+        for (Class cls4 : this.bi.i(cls, cls2)) {
+            for (Class cls5 : this.bl.f(cls4, cls3)) {
+                com.bumptech.glide.load.engine.f fVar = new com.bumptech.glide.load.engine.f(cls, cls4, cls5, this.bi.h(cls, cls4), this.bl.e(cls4, cls5), this.bp);
                 arrayList.add(fVar);
             }
         }
@@ -105,13 +105,13 @@ public class Registry {
 
     @NonNull
     public Registry a(@NonNull ImageHeaderParser imageHeaderParser) {
-        this.bl.b(imageHeaderParser);
+        this.bm.b(imageHeaderParser);
         return this;
     }
 
     @NonNull
     public Registry a(@NonNull com.bumptech.glide.load.a.e.a<?> aVar) {
-        this.bj.b(aVar);
+        this.bk.b(aVar);
         return this;
     }
 
@@ -129,32 +129,32 @@ public class Registry {
 
     @NonNull
     public <Data, TResource> Registry a(@NonNull Class<Data> cls, @NonNull Class<TResource> cls2, @NonNull g<Data, TResource> gVar) {
-        a(be, cls, cls2, gVar);
+        a(bf, cls, cls2, gVar);
         return this;
     }
 
     @NonNull
     public <Model, Data> Registry a(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull n<Model, Data> nVar) {
-        this.bf.d(cls, cls2, nVar);
+        this.bg.d(cls, cls2, nVar);
         return this;
     }
 
     @NonNull
     public <TResource, Transcode> Registry a(@NonNull Class<TResource> cls, @NonNull Class<Transcode> cls2, @NonNull com.bumptech.glide.load.resource.d.e<TResource, Transcode> eVar) {
-        this.bk.b(cls, cls2, eVar);
+        this.bl.b(cls, cls2, eVar);
         return this;
     }
 
     @NonNull
     public <Data, TResource> Registry a(@NonNull String str, @NonNull Class<Data> cls, @NonNull Class<TResource> cls2, @NonNull g<Data, TResource> gVar) {
-        this.bh.a(str, gVar, cls, cls2);
+        this.bi.a(str, gVar, cls, cls2);
         return this;
     }
 
     @Nullable
     public <Data, TResource, Transcode> com.bumptech.glide.load.engine.n<Data, TResource, Transcode> a(@NonNull Class<Data> cls, @NonNull Class<TResource> cls2, @NonNull Class<Transcode> cls3) {
-        com.bumptech.glide.load.engine.n<Data, TResource, Transcode> d = this.bn.d(cls, cls2, cls3);
-        if (this.bn.a(d)) {
+        com.bumptech.glide.load.engine.n<Data, TResource, Transcode> d = this.bo.d(cls, cls2, cls3);
+        if (this.bo.a(d)) {
             return null;
         }
         if (d == null) {
@@ -162,59 +162,59 @@ public class Registry {
             if (b.isEmpty()) {
                 d = null;
             } else {
-                d = new com.bumptech.glide.load.engine.n<>(cls, cls2, cls3, b, this.bo);
+                d = new com.bumptech.glide.load.engine.n<>(cls, cls2, cls3, b, this.bp);
             }
-            this.bn.a(cls, cls2, cls3, d);
+            this.bo.a(cls, cls2, cls3, d);
         }
         return d;
     }
 
     public boolean a(@NonNull p<?> pVar) {
-        return this.bi.n(pVar.bf()) != null;
+        return this.bj.n(pVar.bf()) != null;
     }
 
     @NonNull
     public <Data> Registry b(@NonNull Class<Data> cls, @NonNull com.bumptech.glide.load.a<Data> aVar) {
-        this.bg.d(cls, aVar);
+        this.bh.d(cls, aVar);
         return this;
     }
 
     @NonNull
     public <TResource> Registry b(@NonNull Class<TResource> cls, @NonNull h<TResource> hVar) {
-        this.bi.d(cls, hVar);
+        this.bj.d(cls, hVar);
         return this;
     }
 
     @NonNull
     public <Data, TResource> Registry b(@NonNull Class<Data> cls, @NonNull Class<TResource> cls2, @NonNull g<Data, TResource> gVar) {
-        b(bd, cls, cls2, gVar);
+        b(be, cls, cls2, gVar);
         return this;
     }
 
     @NonNull
     public <Model, Data> Registry b(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull n<Model, Data> nVar) {
-        this.bf.e(cls, cls2, nVar);
+        this.bg.e(cls, cls2, nVar);
         return this;
     }
 
     @NonNull
     public <Data, TResource> Registry b(@NonNull String str, @NonNull Class<Data> cls, @NonNull Class<TResource> cls2, @NonNull g<Data, TResource> gVar) {
-        this.bh.b(str, gVar, cls, cls2);
+        this.bi.b(str, gVar, cls, cls2);
         return this;
     }
 
     @NonNull
     public final Registry b(@NonNull List<String> list) {
         ArrayList arrayList = new ArrayList(list);
-        arrayList.add(0, bd);
-        arrayList.add(be);
-        this.bh.e(arrayList);
+        arrayList.add(0, be);
+        arrayList.add(bf);
+        this.bi.e(arrayList);
         return this;
     }
 
     @NonNull
     public <X> h<X> b(@NonNull p<X> pVar) throws NoResultEncoderAvailableException {
-        h<X> n = this.bi.n(pVar.bf());
+        h<X> n = this.bj.n(pVar.bf());
         if (n != null) {
             return n;
         }
@@ -223,42 +223,42 @@ public class Registry {
 
     @NonNull
     public <Data> Registry c(@NonNull Class<Data> cls, @NonNull com.bumptech.glide.load.a<Data> aVar) {
-        this.bg.e(cls, aVar);
+        this.bh.e(cls, aVar);
         return this;
     }
 
     @NonNull
     public <TResource> Registry c(@NonNull Class<TResource> cls, @NonNull h<TResource> hVar) {
-        this.bi.e(cls, hVar);
+        this.bj.e(cls, hVar);
         return this;
     }
 
     @NonNull
     public <Model, Data> Registry c(@NonNull Class<Model> cls, @NonNull Class<Data> cls2, @NonNull n<? extends Model, ? extends Data> nVar) {
-        this.bf.f(cls, cls2, nVar);
+        this.bg.f(cls, cls2, nVar);
         return this;
     }
 
     @NonNull
     public <Model, TResource, Transcode> List<Class<?>> c(@NonNull Class<Model> cls, @NonNull Class<TResource> cls2, @NonNull Class<Transcode> cls3) {
-        List<Class<?>> g = this.bm.g(cls, cls2);
+        List<Class<?>> g = this.bn.g(cls, cls2);
         if (g == null) {
             g = new ArrayList<>();
-            for (Class i : this.bf.h(cls)) {
-                for (Class cls4 : this.bh.i(i, cls2)) {
-                    if (!this.bk.f(cls4, cls3).isEmpty() && !g.contains(cls4)) {
+            for (Class i : this.bg.h(cls)) {
+                for (Class cls4 : this.bi.i(i, cls2)) {
+                    if (!this.bl.f(cls4, cls3).isEmpty() && !g.contains(cls4)) {
                         g.add(cls4);
                     }
                 }
             }
-            this.bm.a(cls, cls2, Collections.unmodifiableList(g));
+            this.bn.a(cls, cls2, Collections.unmodifiableList(g));
         }
         return g;
     }
 
     @NonNull
     public <X> com.bumptech.glide.load.a<X> d(@NonNull X x) throws NoSourceEncoderAvailableException {
-        com.bumptech.glide.load.a<X> m = this.bg.m(x.getClass());
+        com.bumptech.glide.load.a<X> m = this.bh.m(x.getClass());
         if (m != null) {
             return m;
         }
@@ -267,12 +267,12 @@ public class Registry {
 
     @NonNull
     public <X> com.bumptech.glide.load.a.e<X> e(@NonNull X x) {
-        return this.bj.l(x);
+        return this.bk.l(x);
     }
 
     @NonNull
     public <Model> List<m<Model, ?>> f(@NonNull Model model) {
-        List<m<Model, ?>> f = this.bf.f(model);
+        List<m<Model, ?>> f = this.bg.f(model);
         if (!f.isEmpty()) {
             return f;
         }
@@ -281,7 +281,7 @@ public class Registry {
 
     @NonNull
     public List<ImageHeaderParser> w() {
-        List<ImageHeaderParser> di = this.bl.di();
+        List<ImageHeaderParser> di = this.bm.di();
         if (!di.isEmpty()) {
             return di;
         }

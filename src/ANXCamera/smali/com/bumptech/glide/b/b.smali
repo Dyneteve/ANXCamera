@@ -12,17 +12,17 @@
 
 
 # static fields
-.field static final cd:I = 0x0
+.field static final ce:I = 0x0
 
-.field static final ce:I = 0x1
+.field static final cf:I = 0x1
 
-.field static final cf:I = 0x2
+.field static final cg:I = 0x2
 
-.field static final cg:I = 0x3
+.field static final ci:I = 0x3
 
 
 # instance fields
-.field ci:I
+.field cj:I
 
 .field delay:I
 

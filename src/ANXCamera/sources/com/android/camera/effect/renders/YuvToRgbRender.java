@@ -66,13 +66,26 @@ public class YuvToRgbRender extends ShaderRender {
             DrawYuvAttribute drawYuvAttribute = (DrawYuvAttribute) drawAttribute;
             if (drawYuvAttribute.mYuvImage != null) {
                 genMiYuvTextures(drawYuvAttribute);
-            } else {
+                Log.e(TAG, "yuv image not available !!!");
+            } else if (drawYuvAttribute.mBlockWidth == 0 && drawYuvAttribute.mBlockHeight == 0) {
                 genYUVTextures(drawYuvAttribute);
+            } else {
+                genBlockYUVTextures(drawYuvAttribute);
             }
-            drawTexture(this.mYuvTextureIds, 0.0f, 0.0f, (float) drawYuvAttribute.mPictureSize.getWidth(), (float) drawYuvAttribute.mPictureSize.getHeight());
+            if (drawYuvAttribute.mBlockWidth == 0 && drawYuvAttribute.mBlockHeight == 0) {
+                drawTexture(this.mYuvTextureIds, 0.0f, 0.0f, (float) drawYuvAttribute.mPictureSize.getWidth(), (float) drawYuvAttribute.mPictureSize.getHeight());
+            } else {
+                drawTexture(this.mYuvTextureIds, 0.0f, 0.0f, (float) drawYuvAttribute.mBlockWidth, (float) drawYuvAttribute.mBlockHeight);
+            }
             Log.d(TAG, String.format(Locale.ENGLISH, "draw: size=%s time=%d", new Object[]{drawYuvAttribute.mPictureSize, Long.valueOf(System.currentTimeMillis() - currentTimeMillis)}));
         }
         return true;
+    }
+
+    public void genBlockYUVTextures(DrawYuvAttribute drawYuvAttribute) {
+        drawYuvAttribute.mImage.getWidth();
+        drawYuvAttribute.mImage.getHeight();
+        ShaderUtil.loadYuvImageTextures(drawYuvAttribute.mBlockWidth, drawYuvAttribute.mBlockHeight, drawYuvAttribute.mOffsetY, drawYuvAttribute.mOffsetUV, this.mYuvTextureIds);
     }
 
     public void genMiYuvTextures(DrawYuvAttribute drawYuvAttribute) {

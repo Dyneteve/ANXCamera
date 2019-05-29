@@ -295,6 +295,10 @@
 
     iput-object v1, p0, Lcom/android/camera/SensorStateManager;->mGameRotationSensorListener:Landroid/hardware/SensorEventListener;
 
+    invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object p1
+
     const-string v1, "sensor"
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -1624,7 +1628,7 @@
 .method public setRotationIndicatorEnabled(Z)V
     .locals 1
 
-    invoke-static {}, Lcom/mi/config/b;->hZ()Z
+    invoke-static {}, Lcom/mi/config/b;->ic()Z
 
     move-result v0
 

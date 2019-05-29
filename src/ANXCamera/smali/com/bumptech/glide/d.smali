@@ -4,26 +4,28 @@
 
 
 # instance fields
-.field private aA:Lcom/bumptech/glide/manager/l$a;
+.field private aA:Lcom/bumptech/glide/request/f;
+
+.field private aB:Lcom/bumptech/glide/manager/l$a;
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 .end field
 
-.field private aB:Lcom/bumptech/glide/load/engine/b/a;
+.field private aC:Lcom/bumptech/glide/load/engine/b/a;
 
-.field private aC:Z
+.field private aD:Z
 
-.field private aj:Lcom/bumptech/glide/load/engine/Engine;
+.field private ak:Lcom/bumptech/glide/load/engine/Engine;
 
-.field private ak:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
+.field private al:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
-.field private al:Lcom/bumptech/glide/load/engine/a/j;
+.field private am:Lcom/bumptech/glide/load/engine/a/j;
 
-.field private ap:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
+.field private aq:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
 
-.field private ar:Lcom/bumptech/glide/manager/d;
+.field private as:Lcom/bumptech/glide/manager/d;
 
-.field private final au:Ljava/util/Map;
+.field private final av:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -35,15 +37,13 @@
     .end annotation
 .end field
 
-.field private av:Lcom/bumptech/glide/load/engine/b/a;
-
 .field private aw:Lcom/bumptech/glide/load/engine/b/a;
 
-.field private ax:Lcom/bumptech/glide/load/engine/a/a$a;
+.field private ax:Lcom/bumptech/glide/load/engine/b/a;
 
-.field private ay:Lcom/bumptech/glide/load/engine/a/l;
+.field private ay:Lcom/bumptech/glide/load/engine/a/a$a;
 
-.field private az:Lcom/bumptech/glide/request/f;
+.field private az:Lcom/bumptech/glide/load/engine/a/l;
 
 .field private logLevel:I
 
@@ -58,7 +58,7 @@
 
     invoke-direct {v0}, Landroid/support/v4/util/ArrayMap;-><init>()V
 
-    iput-object v0, p0, Lcom/bumptech/glide/d;->au:Ljava/util/Map;
+    iput-object v0, p0, Lcom/bumptech/glide/d;->av:Ljava/util/Map;
 
     const/4 v0, 0x4
 
@@ -68,7 +68,7 @@
 
     invoke-direct {v0}, Lcom/bumptech/glide/request/f;-><init>()V
 
-    iput-object v0, p0, Lcom/bumptech/glide/d;->az:Lcom/bumptech/glide/request/f;
+    iput-object v0, p0, Lcom/bumptech/glide/d;->aA:Lcom/bumptech/glide/request/f;
 
     return-void
 .end method
@@ -78,7 +78,7 @@
 .method a(Lcom/bumptech/glide/load/engine/Engine;)Lcom/bumptech/glide/d;
     .locals 0
 
-    iput-object p1, p0, Lcom/bumptech/glide/d;->aj:Lcom/bumptech/glide/load/engine/Engine;
+    iput-object p1, p0, Lcom/bumptech/glide/d;->ak:Lcom/bumptech/glide/load/engine/Engine;
 
     return-object p0
 .end method
@@ -92,7 +92,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iput-object p1, p0, Lcom/bumptech/glide/d;->ax:Lcom/bumptech/glide/load/engine/a/a$a;
+    iput-object p1, p0, Lcom/bumptech/glide/d;->ay:Lcom/bumptech/glide/load/engine/a/a$a;
 
     return-object p0
 .end method
@@ -106,7 +106,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iput-object p1, p0, Lcom/bumptech/glide/d;->al:Lcom/bumptech/glide/load/engine/a/j;
+    iput-object p1, p0, Lcom/bumptech/glide/d;->am:Lcom/bumptech/glide/load/engine/a/j;
 
     return-object p0
 .end method
@@ -140,7 +140,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iput-object p1, p0, Lcom/bumptech/glide/d;->ay:Lcom/bumptech/glide/load/engine/a/l;
+    iput-object p1, p0, Lcom/bumptech/glide/d;->az:Lcom/bumptech/glide/load/engine/a/l;
 
     return-object p0
 .end method
@@ -170,7 +170,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iput-object p1, p0, Lcom/bumptech/glide/d;->ap:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
+    iput-object p1, p0, Lcom/bumptech/glide/d;->aq:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
 
     return-object p0
 .end method
@@ -184,7 +184,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iput-object p1, p0, Lcom/bumptech/glide/d;->ak:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
+    iput-object p1, p0, Lcom/bumptech/glide/d;->al:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
     return-object p0
 .end method
@@ -198,7 +198,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iput-object p1, p0, Lcom/bumptech/glide/d;->ar:Lcom/bumptech/glide/manager/d;
+    iput-object p1, p0, Lcom/bumptech/glide/d;->as:Lcom/bumptech/glide/manager/d;
 
     return-object p0
 .end method
@@ -212,7 +212,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iput-object p1, p0, Lcom/bumptech/glide/d;->az:Lcom/bumptech/glide/request/f;
+    iput-object p1, p0, Lcom/bumptech/glide/d;->aA:Lcom/bumptech/glide/request/f;
 
     return-object p0
 .end method
@@ -243,7 +243,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/d;->au:Ljava/util/Map;
+    iget-object v0, p0, Lcom/bumptech/glide/d;->av:Ljava/util/Map;
 
     invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -257,7 +257,7 @@
         .end annotation
     .end param
 
-    iput-object p1, p0, Lcom/bumptech/glide/d;->aA:Lcom/bumptech/glide/manager/l$a;
+    iput-object p1, p0, Lcom/bumptech/glide/d;->aB:Lcom/bumptech/glide/manager/l$a;
 
     return-void
 .end method
@@ -271,7 +271,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iput-object p1, p0, Lcom/bumptech/glide/d;->av:Lcom/bumptech/glide/load/engine/b/a;
+    iput-object p1, p0, Lcom/bumptech/glide/d;->aw:Lcom/bumptech/glide/load/engine/b/a;
 
     return-object p0
 .end method
@@ -285,7 +285,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iput-object p1, p0, Lcom/bumptech/glide/d;->aw:Lcom/bumptech/glide/load/engine/b/a;
+    iput-object p1, p0, Lcom/bumptech/glide/d;->ax:Lcom/bumptech/glide/load/engine/b/a;
 
     return-object p0
 .end method
@@ -295,7 +295,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iput-boolean p1, p0, Lcom/bumptech/glide/d;->aC:Z
+    iput-boolean p1, p0, Lcom/bumptech/glide/d;->aD:Z
 
     return-object p0
 .end method
@@ -309,7 +309,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iput-object p1, p0, Lcom/bumptech/glide/d;->aB:Lcom/bumptech/glide/load/engine/b/a;
+    iput-object p1, p0, Lcom/bumptech/glide/d;->aC:Lcom/bumptech/glide/load/engine/b/a;
 
     return-object p0
 .end method
@@ -350,7 +350,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iget-object v2, p0, Lcom/bumptech/glide/d;->av:Lcom/bumptech/glide/load/engine/b/a;
+    iget-object v2, p0, Lcom/bumptech/glide/d;->aw:Lcom/bumptech/glide/load/engine/b/a;
 
     if-nez v2, :cond_0
 
@@ -358,10 +358,10 @@
 
     move-result-object v2
 
-    iput-object v2, p0, Lcom/bumptech/glide/d;->av:Lcom/bumptech/glide/load/engine/b/a;
+    iput-object v2, p0, Lcom/bumptech/glide/d;->aw:Lcom/bumptech/glide/load/engine/b/a;
 
     :cond_0
-    iget-object v2, p0, Lcom/bumptech/glide/d;->aw:Lcom/bumptech/glide/load/engine/b/a;
+    iget-object v2, p0, Lcom/bumptech/glide/d;->ax:Lcom/bumptech/glide/load/engine/b/a;
 
     if-nez v2, :cond_1
 
@@ -369,10 +369,10 @@
 
     move-result-object v2
 
-    iput-object v2, p0, Lcom/bumptech/glide/d;->aw:Lcom/bumptech/glide/load/engine/b/a;
+    iput-object v2, p0, Lcom/bumptech/glide/d;->ax:Lcom/bumptech/glide/load/engine/b/a;
 
     :cond_1
-    iget-object v2, p0, Lcom/bumptech/glide/d;->aB:Lcom/bumptech/glide/load/engine/b/a;
+    iget-object v2, p0, Lcom/bumptech/glide/d;->aC:Lcom/bumptech/glide/load/engine/b/a;
 
     if-nez v2, :cond_2
 
@@ -380,10 +380,10 @@
 
     move-result-object v2
 
-    iput-object v2, p0, Lcom/bumptech/glide/d;->aB:Lcom/bumptech/glide/load/engine/b/a;
+    iput-object v2, p0, Lcom/bumptech/glide/d;->aC:Lcom/bumptech/glide/load/engine/b/a;
 
     :cond_2
-    iget-object v2, p0, Lcom/bumptech/glide/d;->ay:Lcom/bumptech/glide/load/engine/a/l;
+    iget-object v2, p0, Lcom/bumptech/glide/d;->az:Lcom/bumptech/glide/load/engine/a/l;
 
     if-nez v2, :cond_3
 
@@ -395,10 +395,10 @@
 
     move-result-object v2
 
-    iput-object v2, p0, Lcom/bumptech/glide/d;->ay:Lcom/bumptech/glide/load/engine/a/l;
+    iput-object v2, p0, Lcom/bumptech/glide/d;->az:Lcom/bumptech/glide/load/engine/a/l;
 
     :cond_3
-    iget-object v2, p0, Lcom/bumptech/glide/d;->ar:Lcom/bumptech/glide/manager/d;
+    iget-object v2, p0, Lcom/bumptech/glide/d;->as:Lcom/bumptech/glide/manager/d;
 
     if-nez v2, :cond_4
 
@@ -406,14 +406,14 @@
 
     invoke-direct {v2}, Lcom/bumptech/glide/manager/f;-><init>()V
 
-    iput-object v2, p0, Lcom/bumptech/glide/d;->ar:Lcom/bumptech/glide/manager/d;
+    iput-object v2, p0, Lcom/bumptech/glide/d;->as:Lcom/bumptech/glide/manager/d;
 
     :cond_4
-    iget-object v2, p0, Lcom/bumptech/glide/d;->ak:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
+    iget-object v2, p0, Lcom/bumptech/glide/d;->al:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
     if-nez v2, :cond_6
 
-    iget-object v2, p0, Lcom/bumptech/glide/d;->ay:Lcom/bumptech/glide/load/engine/a/l;
+    iget-object v2, p0, Lcom/bumptech/glide/d;->az:Lcom/bumptech/glide/load/engine/a/l;
 
     invoke-virtual {v2}, Lcom/bumptech/glide/load/engine/a/l;->bH()I
 
@@ -427,7 +427,7 @@
 
     invoke-direct {v3, v4, v5}, Lcom/bumptech/glide/load/engine/bitmap_recycle/j;-><init>(J)V
 
-    iput-object v3, p0, Lcom/bumptech/glide/d;->ak:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
+    iput-object v3, p0, Lcom/bumptech/glide/d;->al:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
     goto :goto_0
 
@@ -436,17 +436,17 @@
 
     invoke-direct {v2}, Lcom/bumptech/glide/load/engine/bitmap_recycle/e;-><init>()V
 
-    iput-object v2, p0, Lcom/bumptech/glide/d;->ak:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
+    iput-object v2, p0, Lcom/bumptech/glide/d;->al:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
     :cond_6
     :goto_0
-    iget-object v2, p0, Lcom/bumptech/glide/d;->ap:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
+    iget-object v2, p0, Lcom/bumptech/glide/d;->aq:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
 
     if-nez v2, :cond_7
 
     new-instance v2, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;
 
-    iget-object v3, p0, Lcom/bumptech/glide/d;->ay:Lcom/bumptech/glide/load/engine/a/l;
+    iget-object v3, p0, Lcom/bumptech/glide/d;->az:Lcom/bumptech/glide/load/engine/a/l;
 
     invoke-virtual {v3}, Lcom/bumptech/glide/load/engine/a/l;->bI()I
 
@@ -454,16 +454,16 @@
 
     invoke-direct {v2, v3}, Lcom/bumptech/glide/load/engine/bitmap_recycle/i;-><init>(I)V
 
-    iput-object v2, p0, Lcom/bumptech/glide/d;->ap:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
+    iput-object v2, p0, Lcom/bumptech/glide/d;->aq:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
 
     :cond_7
-    iget-object v2, p0, Lcom/bumptech/glide/d;->al:Lcom/bumptech/glide/load/engine/a/j;
+    iget-object v2, p0, Lcom/bumptech/glide/d;->am:Lcom/bumptech/glide/load/engine/a/j;
 
     if-nez v2, :cond_8
 
     new-instance v2, Lcom/bumptech/glide/load/engine/a/i;
 
-    iget-object v3, p0, Lcom/bumptech/glide/d;->ay:Lcom/bumptech/glide/load/engine/a/l;
+    iget-object v3, p0, Lcom/bumptech/glide/d;->az:Lcom/bumptech/glide/load/engine/a/l;
 
     invoke-virtual {v3}, Lcom/bumptech/glide/load/engine/a/l;->bG()I
 
@@ -473,10 +473,10 @@
 
     invoke-direct {v2, v3, v4}, Lcom/bumptech/glide/load/engine/a/i;-><init>(J)V
 
-    iput-object v2, p0, Lcom/bumptech/glide/d;->al:Lcom/bumptech/glide/load/engine/a/j;
+    iput-object v2, p0, Lcom/bumptech/glide/d;->am:Lcom/bumptech/glide/load/engine/a/j;
 
     :cond_8
-    iget-object v2, p0, Lcom/bumptech/glide/d;->ax:Lcom/bumptech/glide/load/engine/a/a$a;
+    iget-object v2, p0, Lcom/bumptech/glide/d;->ay:Lcom/bumptech/glide/load/engine/a/a$a;
 
     if-nez v2, :cond_9
 
@@ -484,22 +484,22 @@
 
     invoke-direct {v2, p1}, Lcom/bumptech/glide/load/engine/a/h;-><init>(Landroid/content/Context;)V
 
-    iput-object v2, p0, Lcom/bumptech/glide/d;->ax:Lcom/bumptech/glide/load/engine/a/a$a;
+    iput-object v2, p0, Lcom/bumptech/glide/d;->ay:Lcom/bumptech/glide/load/engine/a/a$a;
 
     :cond_9
-    iget-object v2, p0, Lcom/bumptech/glide/d;->aj:Lcom/bumptech/glide/load/engine/Engine;
+    iget-object v2, p0, Lcom/bumptech/glide/d;->ak:Lcom/bumptech/glide/load/engine/Engine;
 
     if-nez v2, :cond_a
 
     new-instance v2, Lcom/bumptech/glide/load/engine/Engine;
 
-    iget-object v4, p0, Lcom/bumptech/glide/d;->al:Lcom/bumptech/glide/load/engine/a/j;
+    iget-object v4, p0, Lcom/bumptech/glide/d;->am:Lcom/bumptech/glide/load/engine/a/j;
 
-    iget-object v5, p0, Lcom/bumptech/glide/d;->ax:Lcom/bumptech/glide/load/engine/a/a$a;
+    iget-object v5, p0, Lcom/bumptech/glide/d;->ay:Lcom/bumptech/glide/load/engine/a/a$a;
 
-    iget-object v6, p0, Lcom/bumptech/glide/d;->aw:Lcom/bumptech/glide/load/engine/b/a;
+    iget-object v6, p0, Lcom/bumptech/glide/d;->ax:Lcom/bumptech/glide/load/engine/b/a;
 
-    iget-object v7, p0, Lcom/bumptech/glide/d;->av:Lcom/bumptech/glide/load/engine/b/a;
+    iget-object v7, p0, Lcom/bumptech/glide/d;->aw:Lcom/bumptech/glide/load/engine/b/a;
 
     invoke-static {}, Lcom/bumptech/glide/load/engine/b/a;->bP()Lcom/bumptech/glide/load/engine/b/a;
 
@@ -509,42 +509,42 @@
 
     move-result-object v9
 
-    iget-boolean v10, p0, Lcom/bumptech/glide/d;->aC:Z
+    iget-boolean v10, p0, Lcom/bumptech/glide/d;->aD:Z
 
     move-object v3, v2
 
     invoke-direct/range {v3 .. v10}, Lcom/bumptech/glide/load/engine/Engine;-><init>(Lcom/bumptech/glide/load/engine/a/j;Lcom/bumptech/glide/load/engine/a/a$a;Lcom/bumptech/glide/load/engine/b/a;Lcom/bumptech/glide/load/engine/b/a;Lcom/bumptech/glide/load/engine/b/a;Lcom/bumptech/glide/load/engine/b/a;Z)V
 
-    iput-object v2, p0, Lcom/bumptech/glide/d;->aj:Lcom/bumptech/glide/load/engine/Engine;
+    iput-object v2, p0, Lcom/bumptech/glide/d;->ak:Lcom/bumptech/glide/load/engine/Engine;
 
     :cond_a
     new-instance v6, Lcom/bumptech/glide/manager/l;
 
-    iget-object v2, p0, Lcom/bumptech/glide/d;->aA:Lcom/bumptech/glide/manager/l$a;
+    iget-object v2, p0, Lcom/bumptech/glide/d;->aB:Lcom/bumptech/glide/manager/l$a;
 
     invoke-direct {v6, v2}, Lcom/bumptech/glide/manager/l;-><init>(Lcom/bumptech/glide/manager/l$a;)V
 
     new-instance v11, Lcom/bumptech/glide/c;
 
-    iget-object v2, p0, Lcom/bumptech/glide/d;->aj:Lcom/bumptech/glide/load/engine/Engine;
+    iget-object v2, p0, Lcom/bumptech/glide/d;->ak:Lcom/bumptech/glide/load/engine/Engine;
 
-    iget-object v3, p0, Lcom/bumptech/glide/d;->al:Lcom/bumptech/glide/load/engine/a/j;
+    iget-object v3, p0, Lcom/bumptech/glide/d;->am:Lcom/bumptech/glide/load/engine/a/j;
 
-    iget-object v4, p0, Lcom/bumptech/glide/d;->ak:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
+    iget-object v4, p0, Lcom/bumptech/glide/d;->al:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
-    iget-object v5, p0, Lcom/bumptech/glide/d;->ap:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
+    iget-object v5, p0, Lcom/bumptech/glide/d;->aq:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
 
-    iget-object v7, p0, Lcom/bumptech/glide/d;->ar:Lcom/bumptech/glide/manager/d;
+    iget-object v7, p0, Lcom/bumptech/glide/d;->as:Lcom/bumptech/glide/manager/d;
 
     iget v8, p0, Lcom/bumptech/glide/d;->logLevel:I
 
-    iget-object v9, p0, Lcom/bumptech/glide/d;->az:Lcom/bumptech/glide/request/f;
+    iget-object v9, p0, Lcom/bumptech/glide/d;->aA:Lcom/bumptech/glide/request/f;
 
     invoke-virtual {v9}, Lcom/bumptech/glide/request/f;->dL()Lcom/bumptech/glide/request/f;
 
     move-result-object v9
 
-    iget-object v10, p0, Lcom/bumptech/glide/d;->au:Ljava/util/Map;
+    iget-object v10, p0, Lcom/bumptech/glide/d;->av:Ljava/util/Map;
 
     move-object v0, v11
 

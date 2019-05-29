@@ -74,7 +74,7 @@ public class ParallelUtil {
             sb2.append(insert.toString());
             Log.i(str3, sb2.toString());
         } catch (Exception e) {
-            Log.e(TAG, "Error! insert to parallel provider failed!!!");
+            Log.e(TAG, "Error! insert to parallel provider failed!!!", e);
         }
     }
 

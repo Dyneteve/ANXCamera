@@ -254,6 +254,16 @@
     return-void
 .end method
 
+.method public setCircleHeightRatio(F)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/camera/ui/LightingView;->mLightingAnimateDrawable:Lcom/android/camera/ui/drawable/lighting/LightingAnimateDrawable;
+
+    invoke-virtual {v0, p1}, Lcom/android/camera/ui/drawable/lighting/LightingAnimateDrawable;->setCircleHeightRatio(F)V
+
+    return-void
+.end method
+
 .method public setCircleRatio(F)V
     .locals 1
 

@@ -7,9 +7,9 @@
 
 
 # static fields
-.field private static final bY:B = 0xdt
+.field private static final bZ:B = 0xdt
 
-.field private static final bZ:B = 0xat
+.field private static final ca:B = 0xat
 
 
 # instance fields

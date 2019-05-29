@@ -102,7 +102,7 @@
 
     invoke-super {p0}, Lcom/android/camera/fragment/BaseFragment;->onPause()V
 
-    const/4 v0, 0x4
+    const/4 v0, 0x5
 
     invoke-virtual {p0, v0}, Lcom/android/camera/fragment/live/FragmentLiveBase;->onBackEvent(I)Z
 
@@ -122,10 +122,24 @@
 
     invoke-super {p0, p1, p2, p3}, Lcom/android/camera/fragment/BaseFragment;->provideAnimateElement(ILjava/util/List;I)V
 
+    const/4 p1, 0x3
+
+    if-eq p3, p1, :cond_0
+
+    const/4 p1, 0x5
+
+    invoke-virtual {p0, p1}, Lcom/android/camera/fragment/live/FragmentLiveBase;->onBackEvent(I)Z
+
+    goto :goto_0
+
+    :cond_0
     const/4 p1, 0x4
 
     invoke-virtual {p0, p1}, Lcom/android/camera/fragment/live/FragmentLiveBase;->onBackEvent(I)Z
 
+    nop
+
+    :goto_0
     return-void
 .end method
 

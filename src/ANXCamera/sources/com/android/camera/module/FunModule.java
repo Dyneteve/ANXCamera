@@ -173,7 +173,7 @@ public class FunModule extends VideoBase implements FilterProtocol, StickerProto
     }
 
     private boolean isEisOn() {
-        return isBackCamera() && DataRepository.dataItemFeature().isSupportShortVideoBeautyBody() && CameraSettings.isMovieSolidOn();
+        return isBackCamera() && DataRepository.dataItemFeature().gI() && CameraSettings.isMovieSolidOn();
     }
 
     private boolean isSupportShortVideoBeautyBody() {
@@ -358,6 +358,7 @@ public class FunModule extends VideoBase implements FilterProtocol, StickerProto
                 case 43:
                 case 46:
                 case 50:
+                case 54:
                     break;
                 case 12:
                     setEvValue();
@@ -409,7 +410,7 @@ public class FunModule extends VideoBase implements FilterProtocol, StickerProto
 
     /* access modifiers changed from: protected */
     public int getOperatingMode() {
-        if (isSupportShortVideoBeautyBody()) {
+        if (isEisOn()) {
             return 32772;
         }
         if (CameraSettings.isVideoBokehOn() && isFrontCamera()) {

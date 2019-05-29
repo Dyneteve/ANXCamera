@@ -28,11 +28,11 @@
 .method public a(ZLcom/bumptech/glide/load/DataSource;Lcom/bumptech/glide/load/EncodeStrategy;)Z
     .locals 0
 
-    sget-object p1, Lcom/bumptech/glide/load/DataSource;->df:Lcom/bumptech/glide/load/DataSource;
+    sget-object p1, Lcom/bumptech/glide/load/DataSource;->dg:Lcom/bumptech/glide/load/DataSource;
 
     if-eq p2, p1, :cond_0
 
-    sget-object p1, Lcom/bumptech/glide/load/DataSource;->dg:Lcom/bumptech/glide/load/DataSource;
+    sget-object p1, Lcom/bumptech/glide/load/DataSource;->dh:Lcom/bumptech/glide/load/DataSource;
 
     if-eq p2, p1, :cond_0
 

@@ -9,13 +9,13 @@ import java.util.Map.Entry;
 
 /* compiled from: LruCache */
 public class f<T, Y> {
-    private final long hu;
-    private long hw;
+    private final long hv;
+    private long hx;
     private long maxSize;
-    private final Map<T, Y> pU = new LinkedHashMap(100, 0.75f, true);
+    private final Map<T, Y> pV = new LinkedHashMap(100, 0.75f, true);
 
     public f(long j) {
-        this.hu = j;
+        this.hv = j;
         this.maxSize = j;
     }
 
@@ -25,7 +25,7 @@ public class f<T, Y> {
 
     public synchronized void b(float f) {
         if (f >= 0.0f) {
-            this.maxSize = (long) Math.round(((float) this.hu) * f);
+            this.maxSize = (long) Math.round(((float) this.hv) * f);
             br();
         } else {
             throw new IllegalArgumentException("Multiplier must be >= 0");
@@ -34,11 +34,11 @@ public class f<T, Y> {
 
     /* access modifiers changed from: protected */
     public synchronized void b(long j) {
-        while (this.hw > j) {
-            Iterator it = this.pU.entrySet().iterator();
+        while (this.hx > j) {
+            Iterator it = this.pV.entrySet().iterator();
             Entry entry = (Entry) it.next();
             Object value = entry.getValue();
-            this.hw -= (long) p(value);
+            this.hx -= (long) p(value);
             Object key = entry.getKey();
             it.remove();
             b(key, value);
@@ -50,21 +50,21 @@ public class f<T, Y> {
     }
 
     public synchronized long bF() {
-        return this.hw;
+        return this.hx;
     }
 
     public synchronized boolean contains(@NonNull T t) {
-        return this.pU.containsKey(t);
+        return this.pV.containsKey(t);
     }
 
     @Nullable
     public synchronized Y get(@NonNull T t) {
-        return this.pU.get(t);
+        return this.pV.get(t);
     }
 
     /* access modifiers changed from: protected */
     public synchronized int getCount() {
-        return this.pU.size();
+        return this.pV.size();
     }
 
     public synchronized long getMaxSize() {
@@ -88,11 +88,11 @@ public class f<T, Y> {
             return null;
         }
         if (y != null) {
-            this.hw += p;
+            this.hx += p;
         }
-        Y put = this.pU.put(t, y);
+        Y put = this.pV.put(t, y);
         if (put != null) {
-            this.hw -= (long) p(put);
+            this.hx -= (long) p(put);
             if (!put.equals(y)) {
                 b(t, put);
             }
@@ -104,9 +104,9 @@ public class f<T, Y> {
     @Nullable
     public synchronized Y remove(@NonNull T t) {
         Y remove;
-        remove = this.pU.remove(t);
+        remove = this.pV.remove(t);
         if (remove != null) {
-            this.hw -= (long) p(remove);
+            this.hx -= (long) p(remove);
         }
         return remove;
     }

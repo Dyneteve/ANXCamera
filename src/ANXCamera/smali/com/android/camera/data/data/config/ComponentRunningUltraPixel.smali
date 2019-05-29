@@ -154,11 +154,11 @@
     goto :goto_2
 
     :pswitch_0
-    const p1, 0x7f02013d
+    const p1, 0x7f020143
 
     iput p1, p0, Lcom/android/camera/data/data/config/ComponentRunningUltraPixel;->mMenuDrawable:I
 
-    const p1, 0x7f090259
+    const p1, 0x7f090258
 
     invoke-virtual {v0, p1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -166,7 +166,7 @@
 
     iput-object p1, p0, Lcom/android/camera/data/data/config/ComponentRunningUltraPixel;->mOpenTipString:Ljava/lang/String;
 
-    const p1, 0x7f09025a
+    const p1, 0x7f090259
 
     invoke-virtual {v0, p1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -185,7 +185,7 @@
     goto :goto_2
 
     :pswitch_1
-    const p1, 0x7f02013c
+    const p1, 0x7f020142
 
     iput p1, p0, Lcom/android/camera/data/data/config/ComponentRunningUltraPixel;->mMenuDrawable:I
 
@@ -432,7 +432,7 @@
 
     const v2, 0x7f09026a
 
-    const v3, 0x7f02013d
+    const v3, 0x7f020143
 
     if-eq p1, v0, :cond_6
 
@@ -521,9 +521,9 @@
 
     const-string p3, "OFF"
 
-    const v0, 0x7f020179
+    const v0, 0x7f020180
 
-    const v1, 0x7f020178
+    const v1, 0x7f02017f
 
     invoke-direct {p2, v1, v0, v2, p3}, Lcom/android/camera/data/data/ComponentDataItem;-><init>(IIILjava/lang/String;)V
 
@@ -552,7 +552,7 @@
 
     move-result-object p1
 
-    invoke-virtual {p1}, Lcom/mi/config/a;->gz()Z
+    invoke-virtual {p1}, Lcom/mi/config/a;->gA()Z
 
     move-result p1
 
@@ -637,7 +637,7 @@
 
     const v0, 0x7f09027f
 
-    const v1, 0x7f02013c
+    const v1, 0x7f020142
 
     invoke-direct {p2, v1, v1, v0, p3}, Lcom/android/camera/data/data/ComponentDataItem;-><init>(IIILjava/lang/String;)V
 

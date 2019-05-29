@@ -20,49 +20,49 @@
 # static fields
 .field private static final TAG:Ljava/lang/String; = "DfltImageHeaderParser"
 
-.field private static final kF:I = 0x474946
+.field private static final kG:I = 0x474946
 
-.field private static final kG:I = -0x76afb1b9
+.field private static final kH:I = -0x76afb1b9
 
-.field static final kH:I = 0xffd8
+.field static final kI:I = 0xffd8
 
-.field private static final kI:I = 0x4d4d
+.field private static final kJ:I = 0x4d4d
 
-.field private static final kJ:I = 0x4949
+.field private static final kK:I = 0x4949
 
-.field private static final kK:Ljava/lang/String; = "Exif\u0000\u0000"
+.field private static final kL:Ljava/lang/String; = "Exif\u0000\u0000"
 
-.field static final kL:[B
+.field static final kM:[B
 
-.field private static final kM:I = 0xda
+.field private static final kN:I = 0xda
 
-.field private static final kN:I = 0xd9
+.field private static final kO:I = 0xd9
 
-.field static final kO:I = 0xff
+.field static final kP:I = 0xff
 
-.field static final kP:I = 0xe1
+.field static final kQ:I = 0xe1
 
-.field private static final kQ:I = 0x112
+.field private static final kR:I = 0x112
 
-.field private static final kR:[I
+.field private static final kS:[I
 
-.field private static final kS:I = 0x52494646
+.field private static final kT:I = 0x52494646
 
-.field private static final kT:I = 0x57454250
+.field private static final kU:I = 0x57454250
 
-.field private static final kU:I = 0x56503800
+.field private static final kV:I = 0x56503800
 
-.field private static final kV:I = -0x100
+.field private static final kW:I = -0x100
 
-.field private static final kW:I = 0xff
+.field private static final kX:I = 0xff
 
-.field private static final kX:I = 0x58
+.field private static final kY:I = 0x58
 
-.field private static final kY:I = 0x4c
+.field private static final kZ:I = 0x4c
 
-.field private static final kZ:I = 0x10
+.field private static final la:I = 0x10
 
-.field private static final la:I = 0x8
+.field private static final lb:I = 0x8
 
 
 # direct methods
@@ -81,7 +81,7 @@
 
     move-result-object v0
 
-    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/m;->kL:[B
+    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/m;->kM:[B
 
     const/16 v0, 0xd
 
@@ -89,7 +89,7 @@
 
     fill-array-data v0, :array_0
 
-    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/m;->kR:[I
+    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/m;->kS:[I
 
     return-void
 
@@ -337,7 +337,7 @@
     invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_6
-    sget-object v8, Lcom/bumptech/glide/load/resource/bitmap/m;->kR:[I
+    sget-object v8, Lcom/bumptech/glide/load/resource/bitmap/m;->kS:[I
 
     aget v8, v8, v6
 
@@ -725,7 +725,7 @@
 
     if-ne v0, v1, :cond_0
 
-    sget-object p1, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dw:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
+    sget-object p1, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dx:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
 
     return-object p1
 
@@ -762,12 +762,12 @@
 
     if-lt p1, v0, :cond_1
 
-    sget-object p1, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dy:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
+    sget-object p1, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dz:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
 
     goto :goto_0
 
     :cond_1
-    sget-object p1, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dz:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
+    sget-object p1, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dA:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
 
     :goto_0
     return-object p1
@@ -779,7 +779,7 @@
 
     if-ne v2, v4, :cond_3
 
-    sget-object p1, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dv:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
+    sget-object p1, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dw:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
 
     return-object p1
 
@@ -788,7 +788,7 @@
 
     if-eq v0, v2, :cond_4
 
-    sget-object p1, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dC:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
+    sget-object p1, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dD:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
 
     return-object p1
 
@@ -819,7 +819,7 @@
 
     if-eq v0, v2, :cond_5
 
-    sget-object p1, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dC:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
+    sget-object p1, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dD:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
 
     return-object p1
 
@@ -848,7 +848,7 @@
 
     if-eq v1, v2, :cond_6
 
-    sget-object p1, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dC:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
+    sget-object p1, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dD:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
 
     return-object p1
 
@@ -869,12 +869,12 @@
 
     if-eqz p1, :cond_7
 
-    sget-object p1, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dA:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
+    sget-object p1, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dB:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
 
     goto :goto_1
 
     :cond_7
-    sget-object p1, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dB:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
+    sget-object p1, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dC:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
 
     :goto_1
     return-object p1
@@ -894,18 +894,18 @@
 
     if-eqz p1, :cond_9
 
-    sget-object p1, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dA:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
+    sget-object p1, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dB:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
 
     goto :goto_2
 
     :cond_9
-    sget-object p1, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dB:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
+    sget-object p1, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dC:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
 
     :goto_2
     return-object p1
 
     :cond_a
-    sget-object p1, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dB:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
+    sget-object p1, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dC:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
 
     return-object p1
 .end method
@@ -917,7 +917,7 @@
 
     if-eqz p1, :cond_0
 
-    sget-object v1, Lcom/bumptech/glide/load/resource/bitmap/m;->kL:[B
+    sget-object v1, Lcom/bumptech/glide/load/resource/bitmap/m;->kM:[B
 
     array-length v1, v1
 
@@ -938,7 +938,7 @@
     move v1, v0
 
     :goto_1
-    sget-object v2, Lcom/bumptech/glide/load/resource/bitmap/m;->kL:[B
+    sget-object v2, Lcom/bumptech/glide/load/resource/bitmap/m;->kM:[B
 
     array-length v2, v2
 
@@ -946,7 +946,7 @@
 
     aget-byte v2, p1, v1
 
-    sget-object v3, Lcom/bumptech/glide/load/resource/bitmap/m;->kL:[B
+    sget-object v3, Lcom/bumptech/glide/load/resource/bitmap/m;->kM:[B
 
     aget-byte v3, v3, v1
 

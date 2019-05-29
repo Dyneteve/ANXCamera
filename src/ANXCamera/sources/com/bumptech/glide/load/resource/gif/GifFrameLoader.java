@@ -23,45 +23,45 @@ import java.util.ArrayList;
 import java.util.List;
 
 class GifFrameLoader {
-    final i aH;
-    private final d ak;
+    final i aI;
+    private final d al;
     private final List<a> callbacks;
-    private com.bumptech.glide.load.i<Bitmap> gV;
+    private com.bumptech.glide.load.i<Bitmap> gW;
     private final Handler handler;
     private boolean isRunning;
-    private final com.bumptech.glide.b.a mq;
-    private boolean mr;
-    private boolean ms;
-    private h<Bitmap> mt;
-    private DelayTarget mu;
-    private boolean mv;
-    private DelayTarget mw;
-    private Bitmap mx;
-    private DelayTarget my;
     @Nullable
-    private OnEveryFrameListener mz;
+    private OnEveryFrameListener mA;
+    private final com.bumptech.glide.b.a mr;
+    private boolean ms;
+    private boolean mt;
+    private h<Bitmap> mu;
+    private DelayTarget mv;
+    private boolean mw;
+    private DelayTarget mx;
+    private Bitmap my;
+    private DelayTarget mz;
 
     @VisibleForTesting
     static class DelayTarget extends l<Bitmap> {
         private final Handler handler;
         final int index;
-        private final long mA;
-        private Bitmap mB;
+        private final long mB;
+        private Bitmap mC;
 
         DelayTarget(Handler handler2, int i, long j) {
             this.handler = handler2;
             this.index = i;
-            this.mA = j;
+            this.mB = j;
         }
 
         public void a(@NonNull Bitmap bitmap, @Nullable f<? super Bitmap> fVar) {
-            this.mB = bitmap;
-            this.handler.sendMessageAtTime(this.handler.obtainMessage(1, this), this.mA);
+            this.mC = bitmap;
+            this.handler.sendMessageAtTime(this.handler.obtainMessage(1, this), this.mB);
         }
 
         /* access modifiers changed from: 0000 */
         public Bitmap cU() {
-            return this.mB;
+            return this.mC;
         }
     }
 
@@ -75,8 +75,8 @@ class GifFrameLoader {
     }
 
     private class b implements Callback {
-        static final int mC = 1;
-        static final int mD = 2;
+        static final int mD = 1;
+        static final int mE = 2;
 
         b() {
         }
@@ -87,7 +87,7 @@ class GifFrameLoader {
                 return true;
             }
             if (message.what == 2) {
-                GifFrameLoader.this.aH.d((n<?>) (DelayTarget) message.obj);
+                GifFrameLoader.this.aI.d((n<?>) (DelayTarget) message.obj);
             }
             return false;
         }
@@ -99,46 +99,46 @@ class GifFrameLoader {
 
     GifFrameLoader(d dVar, i iVar, com.bumptech.glide.b.a aVar, Handler handler2, h<Bitmap> hVar, com.bumptech.glide.load.i<Bitmap> iVar2, Bitmap bitmap) {
         this.callbacks = new ArrayList();
-        this.aH = iVar;
+        this.aI = iVar;
         if (handler2 == null) {
             handler2 = new Handler(Looper.getMainLooper(), new b());
         }
-        this.ak = dVar;
+        this.al = dVar;
         this.handler = handler2;
-        this.mt = hVar;
-        this.mq = aVar;
+        this.mu = hVar;
+        this.mr = aVar;
         a(iVar2, bitmap);
     }
 
     private static h<Bitmap> a(i iVar, int i, int i2) {
-        return iVar.H().b(com.bumptech.glide.request.f.a(g.fT).k(true).m(true).o(i, i2));
+        return iVar.H().b(com.bumptech.glide.request.f.a(g.fU).k(true).m(true).o(i, i2));
     }
 
     private void cQ() {
-        if (this.isRunning && !this.mr) {
-            if (this.ms) {
-                com.bumptech.glide.util.i.a(this.my == null, "Pending target must be null when starting from the first frame");
-                this.mq.W();
-                this.ms = false;
+        if (this.isRunning && !this.ms) {
+            if (this.mt) {
+                com.bumptech.glide.util.i.a(this.mz == null, "Pending target must be null when starting from the first frame");
+                this.mr.W();
+                this.mt = false;
             }
-            if (this.my != null) {
-                DelayTarget delayTarget = this.my;
-                this.my = null;
+            if (this.mz != null) {
+                DelayTarget delayTarget = this.mz;
+                this.mz = null;
                 onFrameReady(delayTarget);
                 return;
             }
-            this.mr = true;
-            long uptimeMillis = SystemClock.uptimeMillis() + ((long) this.mq.U());
-            this.mq.advance();
-            this.mw = new DelayTarget(this.handler, this.mq.V(), uptimeMillis);
-            this.mt.b(com.bumptech.glide.request.f.j(cT())).load(this.mq).b(this.mw);
+            this.ms = true;
+            long uptimeMillis = SystemClock.uptimeMillis() + ((long) this.mr.U());
+            this.mr.advance();
+            this.mx = new DelayTarget(this.handler, this.mr.V(), uptimeMillis);
+            this.mu.b(com.bumptech.glide.request.f.j(cT())).load(this.mr).b(this.mx);
         }
     }
 
     private void cR() {
-        if (this.mx != null) {
-            this.ak.d(this.mx);
-            this.mx = null;
+        if (this.my != null) {
+            this.al.d(this.my);
+            this.my = null;
         }
     }
 
@@ -153,7 +153,7 @@ class GifFrameLoader {
     private void start() {
         if (!this.isRunning) {
             this.isRunning = true;
-            this.mv = false;
+            this.mw = false;
             cQ();
         }
     }
@@ -164,14 +164,14 @@ class GifFrameLoader {
 
     /* access modifiers changed from: 0000 */
     public void a(com.bumptech.glide.load.i<Bitmap> iVar, Bitmap bitmap) {
-        this.gV = (com.bumptech.glide.load.i) com.bumptech.glide.util.i.checkNotNull(iVar);
-        this.mx = (Bitmap) com.bumptech.glide.util.i.checkNotNull(bitmap);
-        this.mt = this.mt.b(new com.bumptech.glide.request.f().b(iVar));
+        this.gW = (com.bumptech.glide.load.i) com.bumptech.glide.util.i.checkNotNull(iVar);
+        this.my = (Bitmap) com.bumptech.glide.util.i.checkNotNull(bitmap);
+        this.mu = this.mu.b(new com.bumptech.glide.request.f().b(iVar));
     }
 
     /* access modifiers changed from: 0000 */
     public void a(a aVar) {
-        if (this.mv) {
+        if (this.mw) {
             throw new IllegalStateException("Cannot subscribe to a cleared frame loader");
         } else if (!this.callbacks.contains(aVar)) {
             boolean isEmpty = this.callbacks.isEmpty();
@@ -194,26 +194,26 @@ class GifFrameLoader {
 
     /* access modifiers changed from: 0000 */
     public Bitmap cG() {
-        return this.mx;
+        return this.my;
     }
 
     /* access modifiers changed from: 0000 */
     public com.bumptech.glide.load.i<Bitmap> cH() {
-        return this.gV;
+        return this.gW;
     }
 
     /* access modifiers changed from: 0000 */
     public Bitmap cP() {
-        return this.mu != null ? this.mu.cU() : this.mx;
+        return this.mv != null ? this.mv.cU() : this.my;
     }
 
     /* access modifiers changed from: 0000 */
     public void cS() {
         com.bumptech.glide.util.i.a(!this.isRunning, "Can't restart a running animation");
-        this.ms = true;
-        if (this.my != null) {
-            this.aH.d((n<?>) this.my);
-            this.my = null;
+        this.mt = true;
+        if (this.mz != null) {
+            this.aI.d((n<?>) this.mz);
+            this.mz = null;
         }
     }
 
@@ -222,38 +222,38 @@ class GifFrameLoader {
         this.callbacks.clear();
         cR();
         stop();
-        if (this.mu != null) {
-            this.aH.d((n<?>) this.mu);
-            this.mu = null;
+        if (this.mv != null) {
+            this.aI.d((n<?>) this.mv);
+            this.mv = null;
         }
-        if (this.mw != null) {
-            this.aH.d((n<?>) this.mw);
-            this.mw = null;
+        if (this.mx != null) {
+            this.aI.d((n<?>) this.mx);
+            this.mx = null;
         }
-        if (this.my != null) {
-            this.aH.d((n<?>) this.my);
-            this.my = null;
+        if (this.mz != null) {
+            this.aI.d((n<?>) this.mz);
+            this.mz = null;
         }
-        this.mq.clear();
-        this.mv = true;
+        this.mr.clear();
+        this.mw = true;
     }
 
     /* access modifiers changed from: 0000 */
     public ByteBuffer getBuffer() {
-        return this.mq.getData().asReadOnlyBuffer();
+        return this.mr.getData().asReadOnlyBuffer();
     }
 
     /* access modifiers changed from: 0000 */
     public int getCurrentIndex() {
-        if (this.mu != null) {
-            return this.mu.index;
+        if (this.mv != null) {
+            return this.mv.index;
         }
         return -1;
     }
 
     /* access modifiers changed from: 0000 */
     public int getFrameCount() {
-        return this.mq.getFrameCount();
+        return this.mr.getFrameCount();
     }
 
     /* access modifiers changed from: 0000 */
@@ -263,12 +263,12 @@ class GifFrameLoader {
 
     /* access modifiers changed from: 0000 */
     public int getLoopCount() {
-        return this.mq.Y();
+        return this.mr.Y();
     }
 
     /* access modifiers changed from: 0000 */
     public int getSize() {
-        return this.mq.Z() + getFrameSize();
+        return this.mr.Z() + getFrameSize();
     }
 
     /* access modifiers changed from: 0000 */
@@ -279,19 +279,19 @@ class GifFrameLoader {
     /* access modifiers changed from: 0000 */
     @VisibleForTesting
     public void onFrameReady(DelayTarget delayTarget) {
-        if (this.mz != null) {
-            this.mz.cO();
+        if (this.mA != null) {
+            this.mA.cO();
         }
-        this.mr = false;
-        if (this.mv) {
+        this.ms = false;
+        if (this.mw) {
             this.handler.obtainMessage(2, delayTarget).sendToTarget();
         } else if (!this.isRunning) {
-            this.my = delayTarget;
+            this.mz = delayTarget;
         } else {
             if (delayTarget.cU() != null) {
                 cR();
-                DelayTarget delayTarget2 = this.mu;
-                this.mu = delayTarget;
+                DelayTarget delayTarget2 = this.mv;
+                this.mv = delayTarget;
                 for (int size = this.callbacks.size() - 1; size >= 0; size--) {
                     ((a) this.callbacks.get(size)).cO();
                 }
@@ -306,6 +306,6 @@ class GifFrameLoader {
     /* access modifiers changed from: 0000 */
     @VisibleForTesting
     public void setOnEveryFrameReadyListener(@Nullable OnEveryFrameListener onEveryFrameListener) {
-        this.mz = onEveryFrameListener;
+        this.mA = onEveryFrameListener;
     }
 }

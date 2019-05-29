@@ -13,6 +13,8 @@ import com.android.camera.effect.draw_mode.DrawBlurTexAttribute;
 import com.android.camera.effect.draw_mode.DrawExtTexAttribute;
 import com.android.camera.log.Log;
 import com.android.camera.module.ModuleManager;
+import com.android.camera.protocol.ModeCoordinatorImpl;
+import com.android.camera.protocol.ModeProtocol.MimojiAvatarEngine;
 import com.android.camera.statistic.ScenarioTrackUtil;
 import com.android.gallery3d.ui.BitmapTexture;
 import com.android.gallery3d.ui.GLCanvas;
@@ -54,7 +56,6 @@ public class CameraScreenNail extends SurfaceTextureScreenNail {
     private AtomicBoolean mFrameAvailableNotified = new AtomicBoolean(false);
     private int mFrameNumber = 0;
     private Bitmap mLastFrameGaussianBitmap;
-    private final Object mLock = new Object();
     private SwitchAnimManager mModuleAnimManager = new SwitchAnimManager();
     private NailListener mNailListener;
     private int mReadPixelsNum = 0;
@@ -90,6 +91,20 @@ public class CameraScreenNail extends SurfaceTextureScreenNail {
         addRequestListener(requestRenderListener);
     }
 
+    private void copyMimojiPreviewTexture(GLCanvas gLCanvas, RawTexture rawTexture, FrameBuffer frameBuffer) {
+        int width = rawTexture.getWidth();
+        int height = rawTexture.getHeight();
+        gLCanvas.beginBindFrameBuffer(frameBuffer);
+        gLCanvas.getState().pushState();
+        gLCanvas.getState().translate(((float) width) / 2.0f, ((float) height) / 2.0f);
+        gLCanvas.getState().scale(1.0f, -1.0f, 1.0f);
+        gLCanvas.getState().translate(((float) (-width)) / 2.0f, ((float) (-height)) / 2.0f);
+        DrawBasicTexAttribute drawBasicTexAttribute = new DrawBasicTexAttribute(rawTexture, 0, 0, width, height);
+        gLCanvas.draw(drawBasicTexAttribute);
+        gLCanvas.getState().popState();
+        gLCanvas.endBindFrameBuffer();
+    }
+
     private void copyPreviewTexture(GLCanvas gLCanvas, RawTexture rawTexture, FrameBuffer frameBuffer) {
         int width = rawTexture.getWidth();
         int height = rawTexture.getHeight();
@@ -97,6 +112,20 @@ public class CameraScreenNail extends SurfaceTextureScreenNail {
         updateTransformMatrix(this.mTextureTransformMatrix);
         if (frameBuffer == null) {
             frameBuffer = new FrameBuffer(gLCanvas, rawTexture, 0);
+        }
+        if (ModuleManager.getActiveModuleIndex() == 177 && rawTexture == this.mCaptureAnimTexture) {
+            MimojiAvatarEngine mimojiAvatarEngine = (MimojiAvatarEngine) ModeCoordinatorImpl.getInstance().getAttachProtocol(217);
+            RawTexture rawTexture2 = new RawTexture(width, height, true);
+            if (mimojiAvatarEngine != null) {
+                FrameBuffer frameBuffer2 = new FrameBuffer(gLCanvas, rawTexture2, 0);
+                gLCanvas.beginBindFrameBuffer(frameBuffer2);
+                mimojiAvatarEngine.onDrawFrame(width, height, true);
+                gLCanvas.endBindFrameBuffer();
+                copyMimojiPreviewTexture(gLCanvas, rawTexture2, frameBuffer);
+                frameBuffer2.delete();
+            }
+            rawTexture2.recycle();
+            return;
         }
         gLCanvas.beginBindFrameBuffer(frameBuffer);
         DrawExtTexAttribute drawExtTexAttribute = new DrawExtTexAttribute(this.mExtTexture, this.mTextureTransformMatrix, 0, 0, width, height);
@@ -682,8 +711,8 @@ public class CameraScreenNail extends SurfaceTextureScreenNail {
     public void setPreviewFrameLayoutSize(int i, int i2) {
         synchronized (this.mLock) {
             Log.d(TAG, String.format(Locale.ENGLISH, "setPreviewFrameLayoutSize: %dx%d", new Object[]{Integer.valueOf(i), Integer.valueOf(i2)}));
-            this.mSurfaceWidth = !b.hC() ? i : 720;
-            if (b.hC()) {
+            this.mSurfaceWidth = !b.hF() ? i : 720;
+            if (b.hF()) {
                 i2 = (Util.LIMIT_SURFACE_WIDTH * i2) / i;
             }
             this.mSurfaceHeight = i2;

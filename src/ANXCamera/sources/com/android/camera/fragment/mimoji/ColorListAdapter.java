@@ -60,9 +60,9 @@ public class ColorListAdapter extends Adapter<ViewHolder> {
             public void onClick(View view) {
                 String str = FragmentMimojiEdit.TAG;
                 StringBuilder sb = new StringBuilder();
-                sb.append("点击的子color:");
+                sb.append("click item color:");
                 sb.append(aSAvatarConfigInfo.configType);
-                sb.append(" 子ID:");
+                sb.append(" item ID:");
                 sb.append(aSAvatarConfigInfo.configID);
                 Log.i(str, sb.toString());
                 AvatarEngineManager.getInstance().setInnerConfigSelectIndex(aSAvatarConfigInfo.configType, (float) aSAvatarConfigInfo.configID);

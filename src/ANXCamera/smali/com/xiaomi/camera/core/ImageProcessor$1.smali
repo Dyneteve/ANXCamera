@@ -69,9 +69,9 @@
 
     iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast p1, Lcom/xiaomi/camera/core/CaptureData$CaptureDataBean;
+    check-cast p1, Ljava/util/List;
 
-    invoke-virtual {v0, p1}, Lcom/xiaomi/camera/core/ImageProcessor;->processImage(Lcom/xiaomi/camera/core/CaptureData$CaptureDataBean;)V
+    invoke-virtual {v0, p1}, Lcom/xiaomi/camera/core/ImageProcessor;->processImage(Ljava/util/List;)V
 
     nop
 

@@ -77,7 +77,10 @@ public abstract class BasePreferenceActivity extends PreferenceActivity implemen
         Log.d(TAG, "filterByConfig:");
         Preference findPreference = this.mPreferenceGroup.findPreference(CameraSettings.KEY_CATEGORY_DEVICE_SETTING);
         Preference findPreference2 = this.mPreferenceGroup.findPreference(CameraSettings.KEY_CATEGORY_CAPTURE_SETTING);
-        if (this.mFromWhere == 161 || this.mFromWhere == 174 || this.mFromWhere == 169 || this.mFromWhere == 168 || this.mFromWhere == 172 || this.mFromWhere == 170) {
+        if (this.mFromWhere == 177) {
+            removeFromGroup(findPreference2, "pref_camera_focus_shoot_key");
+        }
+        if (this.mFromWhere == 161 || this.mFromWhere == 174 || this.mFromWhere == 169 || this.mFromWhere == 168 || this.mFromWhere == 172 || this.mFromWhere == 170 || this.mFromWhere == 177) {
             removeFromGroup(findPreference, CameraSettings.KEY_FRONT_MIRROR);
             removeFromGroup(findPreference2, CameraSettings.KEY_FRONT_MIRROR);
             return;
@@ -93,7 +96,7 @@ public abstract class BasePreferenceActivity extends PreferenceActivity implemen
         } else {
             removeFromGroup(findPreference, CameraSettings.KEY_FRONT_MIRROR);
         }
-        if (b.iF() && this.mFromWhere == 162) {
+        if (b.iI() && this.mFromWhere == 162) {
             removeFromGroup(findPreference, CameraSettings.KEY_FRONT_MIRROR);
         }
     }
@@ -118,57 +121,60 @@ public abstract class BasePreferenceActivity extends PreferenceActivity implemen
         } else {
             removePreference(this.mPreferenceGroup, CameraSettings.KEY_VIDEO_NEW_SLOW_MOTION);
         }
+        if (!CameraSettings.isH265EncoderSupport()) {
+            removeFromGroup(this.mPreferenceGroup, CameraSettings.KEY_VIDEO_ENCODER);
+        }
     }
 
     private void filterByDeviceID() {
         DataRepository.dataItemFeature();
-        if (!b.he()) {
+        if (!b.hh()) {
             removePreference(this.mPreferenceGroup, CameraSettings.KEY_VIDEO_HIGH_FRAME_RATE);
         }
         removePreference(this.mPreferenceGroup, CameraSettings.KEY_LONG_PRESS_SHUTTER);
-        if (!b.gH()) {
+        if (!b.gK()) {
             removePreference(this.mPreferenceGroup, CameraSettings.KEY_MOVIE_SOLID);
         }
-        if (!b.gS()) {
+        if (!b.gV()) {
             removePreference(this.mPreferenceGroup, "pref_watermark_key");
         }
         if (!CameraSettings.isSupportedDualCameraWaterMark()) {
             removePreference(this.mPreferenceGroup, "pref_dualcamera_watermark");
         }
-        if (!b.gL()) {
+        if (!b.gO()) {
             removePreference(this.mPreferenceGroup, CameraSettings.KEY_CAMERA_SOUND);
         }
-        if (!b.gQ()) {
+        if (!b.gT()) {
             removePreference(this.mPreferenceGroup, CameraSettings.KEY_RECORD_LOCATION);
         }
-        if (b.isPad() || (b.qx && CameraSettings.isFrontCamera())) {
+        if (b.isPad() || (b.qy && CameraSettings.isFrontCamera())) {
             removePreference(this.mPreferenceGroup, "pref_camera_picturesize_key");
         }
         if (!Storage.hasSecondaryStorage()) {
             removePreference(this.mPreferenceGroup, CameraSettings.KEY_PRIORITY_STORAGE);
         }
-        if (!b.hf()) {
+        if (!b.hi()) {
             removePreference(this.mPreferenceGroup, CameraSettings.KEY_AUTO_CHROMA_FLASH);
         }
-        if (!b.gN()) {
+        if (!b.gQ()) {
             removePreference(this.mPreferenceGroup, CameraSettings.KEY_LONG_PRESS_SHUTTER_FEATURE);
         }
-        if (!b.hg()) {
+        if (!b.hj()) {
             removePreference(this.mPreferenceGroup, CameraSettings.KEY_CAPTURE_WHEN_STABLE);
         }
-        if (!b.ho()) {
+        if (!b.hr()) {
             removePreference(this.mPreferenceGroup, CameraSettings.KEY_CAMERA_ASD_NIGHT);
         }
-        if (!b.hM()) {
+        if (!b.hP()) {
             removePreference(this.mPreferenceGroup, CameraSettings.KEY_CAMERA_SNAP);
         }
-        if (!b.id()) {
+        if (!b.ig()) {
             removePreference(this.mPreferenceGroup, CameraSettings.KEY_CAMERA_GROUPSHOT_PRIMITIVE);
         }
         if (!CameraSettings.isSupportedPortrait()) {
             removePreference(this.mPreferenceGroup, CameraSettings.KEY_CAMERA_PORTRAIT_WITH_FACEBEAUTY);
         }
-        if (!b.isSupportedOpticalZoom() && !DataRepository.dataItemFeature().gA()) {
+        if (!b.isSupportedOpticalZoom() && !DataRepository.dataItemFeature().gB()) {
             removePreference(this.mPreferenceGroup, CameraSettings.KEY_CAMERA_DUAL_ENABLE);
         }
         if (!b.isSupportedOpticalZoom()) {
@@ -183,7 +189,7 @@ public abstract class BasePreferenceActivity extends PreferenceActivity implemen
         if (!CameraSettings.isSupportQuickShot()) {
             removePreference(this.mPreferenceGroup, CameraSettings.KEY_CAMERA_QUICK_SHOT_ENABLE);
         }
-        if (b.hx()) {
+        if (b.hA()) {
             removePreference(this.mPreferenceGroup, CameraSettings.KEY_FACE_DETECTION);
             removePreference(this.mPreferenceGroup, CameraSettings.KEY_CAMERA_FACE_DETECTION_AUTO_HIDDEN);
             removePreference(this.mPreferenceGroup, CameraSettings.KEY_CAMERA_PARALLEL_PROCESS_ENABLE);
@@ -200,13 +206,13 @@ public abstract class BasePreferenceActivity extends PreferenceActivity implemen
         if (!ProximitySensorLock.supported()) {
             removePreference(this.mPreferenceGroup, CameraSettings.KEY_CAMERA_PROXIMITY_LOCK);
         }
-        if (!b.ip()) {
+        if (!b.is()) {
             removePreference(this.mPreferenceGroup, CameraSettings.KEY_FINGERPRINT_CAPTURE);
         }
         if (!CameraSettings.shouldNormalWideLDCBeVisibleInMode(this.mFromWhere) || CameraSettings.isUltraWideConfigOpen(this.mFromWhere) || CameraSettings.isUltraPixelOn() || CameraSettings.isMacroModeEnabled(this.mFromWhere)) {
             removePreference(this.mPreferenceGroup, CameraSettings.KEY_NORMAL_WIDE_LDC);
         }
-        if (!CameraSettings.shouldUltraWideLDCBeVisibleInMode(this.mFromWhere) || ((HybridZoomingSystem.IS_2_SAT && !CameraSettings.isUltraWideConfigOpen(this.mFromWhere)) || ((HybridZoomingSystem.IS_3_OR_MORE_SAT && !CameraSettings.isUltraWideConfigOpen(this.mFromWhere) && this.mFromWhere == 167) || (!CameraSettings.isSupportedOpticalZoom() && !CameraSettings.isUltraWideConfigOpen(this.mFromWhere))))) {
+        if (!CameraSettings.shouldUltraWideLDCBeVisibleInMode(this.mFromWhere) || ((HybridZoomingSystem.IS_2_SAT && !CameraSettings.isUltraWideConfigOpen(this.mFromWhere)) || ((HybridZoomingSystem.IS_3_OR_MORE_SAT && !CameraSettings.isUltraWideConfigOpen(this.mFromWhere) && this.mFromWhere == 167) || (!CameraSettings.isSupportedOpticalZoom() && !HybridZoomingSystem.IS_3_OR_MORE_SAT && !CameraSettings.isUltraWideConfigOpen(this.mFromWhere))))) {
             removePreference(this.mPreferenceGroup, CameraSettings.KEY_ULTRA_WIDE_LDC);
         }
         if (!CameraSettings.shouldUltraWideVideoLDCBeVisibleInMode(this.mFromWhere) || !CameraSettings.isUltraWideConfigOpen(this.mFromWhere)) {
@@ -216,7 +222,7 @@ public abstract class BasePreferenceActivity extends PreferenceActivity implemen
     }
 
     private void filterByFrom() {
-        if (this.mFromWhere == 163 || this.mFromWhere == 165 || this.mFromWhere == 166 || this.mFromWhere == 176 || this.mFromWhere == 167 || this.mFromWhere == 173 || this.mFromWhere == 175 || this.mFromWhere == 171) {
+        if (this.mFromWhere == 163 || this.mFromWhere == 165 || this.mFromWhere == 166 || this.mFromWhere == 176 || this.mFromWhere == 167 || this.mFromWhere == 173 || this.mFromWhere == 175 || this.mFromWhere == 171 || this.mFromWhere == 177) {
             removePreference(this.mPreferenceGroup, CameraSettings.KEY_VOLUME_VIDEO_FUNCTION);
             removePreference(this.mPreferenceGroup, CameraSettings.KEY_VOLUME_LIVE_FUNCTION);
             removePreference(this.mPreferenceGroup, CameraSettings.KEY_CATEGORY_CAMCORDER_SETTING);
@@ -240,6 +246,7 @@ public abstract class BasePreferenceActivity extends PreferenceActivity implemen
 
     private void filterByPreference() {
         PreviewListPreference previewListPreference = (PreviewListPreference) this.mPreferenceGroup.findPreference(CameraSettings.KEY_VIDEO_QUALITY);
+        boolean z = false;
         if (previewListPreference != null) {
             ArrayList supportedVideoQuality = CameraSettings.getSupportedVideoQuality(this.mFromWhere);
             filterUnsupportedOptions(this.mPreferenceGroup, previewListPreference, supportedVideoQuality);
@@ -260,8 +267,8 @@ public abstract class BasePreferenceActivity extends PreferenceActivity implemen
         if (previewListPreference3 != null) {
             filterUnsupportedOptions(this.mPreferenceGroup, previewListPreference3, CameraSettings.getSupportedHfrSettings(CameraSettings.getCameraId(this.mFromWhere)));
         }
-        String videoSpeed = DataRepository.dataItemRunning().getVideoSpeed();
-        if ((b.qS && !"normal".equals(videoSpeed)) || b.iD() || CameraSettings.isMacroModeEnabled(DataRepository.dataItemGlobal().getCurrentMode())) {
+        DataRepository.dataItemRunning().getVideoSpeed();
+        if (b.iG() || CameraSettings.isMacroModeEnabled(DataRepository.dataItemGlobal().getCurrentMode())) {
             removePreference(this.mPreferenceGroup, CameraSettings.KEY_MOVIE_SOLID);
         }
         if (!Util.isLabOptionsVisible()) {
@@ -277,8 +284,10 @@ public abstract class BasePreferenceActivity extends PreferenceActivity implemen
             removePreference(this.mPreferenceGroup, CameraSettings.KEY_CAMERA_QUICK_SHOT_ENABLE);
             removePreference(this.mPreferenceGroup, CameraSettings.KEY_LIVE_STICKER_INTERNAL);
         }
-        boolean isDualCameraWaterMarkOpen = CameraSettings.isDualCameraWaterMarkOpen();
-        if (!DataRepository.dataItemFeature().fQ() || !isDualCameraWaterMarkOpen) {
+        if (CameraSettings.isDualCameraWaterMarkOpen() || CameraSettings.isFrontCameraWaterMarkOpen()) {
+            z = true;
+        }
+        if (!DataRepository.dataItemFeature().fQ() || !z) {
             removeFromGroup(this.mPreferenceGroup, "user_define_watermark");
         }
         if (b.fY()) {
@@ -473,20 +482,6 @@ public abstract class BasePreferenceActivity extends PreferenceActivity implemen
     private void updateConflictPreference(Preference preference) {
         CheckBoxPreference checkBoxPreference = (CheckBoxPreference) this.mPreferenceGroup.findPreference(CameraSettings.KEY_MOVIE_SOLID);
         PreviewListPreference previewListPreference = (PreviewListPreference) this.mPreferenceGroup.findPreference(CameraSettings.KEY_VIDEO_QUALITY);
-        if (b.qS && CameraSettings.isFrontCamera() && CameraSettings.isMovieSolidOn() && 6 <= CameraSettings.getPreferVideoQuality(this.mFromWhere)) {
-            if (preference == null || !CameraSettings.KEY_MOVIE_SOLID.equals(preference.getKey())) {
-                Editor edit = this.mPreferences.edit();
-                edit.putBoolean(CameraSettings.KEY_MOVIE_SOLID, false);
-                edit.apply();
-                checkBoxPreference.setChecked(false);
-            } else {
-                String string = getString(CameraSettings.getDefaultPreferenceId(R.string.pref_video_quality_default));
-                Editor edit2 = this.mPreferences.edit();
-                edit2.putString(CameraSettings.KEY_VIDEO_QUALITY, string);
-                edit2.apply();
-                previewListPreference.setValue(string);
-            }
-        }
         boolean isAutoZoomEnabled = CameraSettings.isAutoZoomEnabled(this.mFromWhere);
         if (this.mFromWhere == 162) {
             if (checkBoxPreference != null) {
@@ -539,7 +534,7 @@ public abstract class BasePreferenceActivity extends PreferenceActivity implemen
             previewListPreference3.setDefaultValue(string2);
             previewListPreference3.setValue(string2);
         }
-        if (previewListPreference4 != null && b.hM()) {
+        if (previewListPreference4 != null && b.hP()) {
             String string3 = getString(R.string.pref_camera_snap_default);
             previewListPreference4.setDefaultValue(string3);
             previewListPreference4.setValue(string3);
@@ -569,6 +564,11 @@ public abstract class BasePreferenceActivity extends PreferenceActivity implemen
             previewListPreference5.setDefaultValue(string6);
             previewListPreference5.setValue(string7);
         }
+        CheckBoxPreference checkBoxPreference2 = (CheckBoxPreference) this.mPreferenceGroup.findPreference("pref_dualcamera_watermark");
+        if (checkBoxPreference2 != null) {
+            checkBoxPreference2.setDefaultValue(Boolean.valueOf(b.r(getResources().getBoolean(R.bool.pref_device_watermark_default))));
+            checkBoxPreference2.setChecked(b.r(getResources().getBoolean(R.bool.pref_device_watermark_default)));
+        }
     }
 
     private void updatePreferences(PreferenceGroup preferenceGroup, SharedPreferences sharedPreferences) {
@@ -580,7 +580,7 @@ public abstract class BasePreferenceActivity extends PreferenceActivity implemen
                     PreviewListPreference previewListPreference = (PreviewListPreference) preference;
                     if ("pref_camera_picturesize_key".equals(previewListPreference.getKey())) {
                         previewListPreference.setValue(DataRepository.dataItemConfig().getComponentConfigRatio().getComponentValue(this.mFromWhere));
-                    } else if (!b.iF() || !CameraSettings.KEY_FRONT_MIRROR.equals(previewListPreference.getKey()) || sharedPreferences.getString(CameraSettings.KEY_FRONT_MIRROR, null) != null) {
+                    } else if (!b.iI() || !CameraSettings.KEY_FRONT_MIRROR.equals(previewListPreference.getKey()) || sharedPreferences.getString(CameraSettings.KEY_FRONT_MIRROR, null) != null) {
                         previewListPreference.setValue(getFilterValue(previewListPreference, sharedPreferences));
                     } else {
                         String string = getString(R.string.pref_front_mirror_entryvalue_off);

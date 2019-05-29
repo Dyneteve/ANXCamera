@@ -256,7 +256,7 @@
     .param p1, "outConfig"    # Landroid/content/res/Configuration;
     .param p2, "userHandle"    # I
 
-    .line 5878
+    .line 5914
     const-string/jumbo v0, "ui_mode_scale"
 
     const/4 v1, 0x1
@@ -265,13 +265,13 @@
 
     move-result v0
 
-    .line 5879
+    .line 5915
     .local v0, "scaleMode":I
     const/16 v2, 0xf
 
     and-int/2addr v0, v2
 
-    .line 5881
+    .line 5917
     const/16 v3, 0xc
 
     if-eq v0, v3, :cond_20
@@ -297,20 +297,20 @@
 
     nop
 
-    .line 5886
+    .line 5922
     .local v1, "isLargeUiMode":Z
     :cond_20
     :goto_20
     if-eqz v1, :cond_28
 
-    .line 5887
+    .line 5923
     invoke-static {v0}, Landroid/content/res/MiuiConfiguration;->getFontScale(I)F
 
     move-result v2
 
     iput v2, p1, Landroid/content/res/Configuration;->fontScale:F
 
-    .line 5889
+    .line 5925
     :cond_28
     return-void
 .end method

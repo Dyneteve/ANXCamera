@@ -118,6 +118,8 @@
 
 .field public static final TYPE_MFNR:I = 0x22
 
+.field public static final TYPE_MIMOJI:I = 0x36
+
 .field public static final TYPE_MUTE:I = 0x15
 
 .field public static final TYPE_NORMAL_WIDE_LDC:I = 0x2e
@@ -182,7 +184,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .locals 6
 
     const/4 v0, 0x2
 
@@ -220,27 +222,25 @@
 
     const/16 v3, 0xe
 
-    new-array v3, v3, [I
+    new-array v5, v3, [I
 
-    fill-array-data v3, :array_3
+    fill-array-data v5, :array_3
 
-    sput-object v3, Lcom/android/camera/constant/UpdateConstant;->VIDEO_TYPES_ON_PREVIEW_SUCCESS:[I
+    sput-object v5, Lcom/android/camera/constant/UpdateConstant;->VIDEO_TYPES_ON_PREVIEW_SUCCESS:[I
 
-    const/4 v3, 0x5
+    const/4 v5, 0x5
 
-    new-array v3, v3, [I
+    new-array v5, v5, [I
 
-    fill-array-data v3, :array_4
+    fill-array-data v5, :array_4
 
-    sput-object v3, Lcom/android/camera/constant/UpdateConstant;->VIDEO_TYPES_RECORD:[I
+    sput-object v5, Lcom/android/camera/constant/UpdateConstant;->VIDEO_TYPES_RECORD:[I
 
-    new-array v3, v2, [I
+    new-array v5, v2, [I
 
-    aput v2, v3, v4
+    aput v2, v5, v4
 
-    sput-object v3, Lcom/android/camera/constant/UpdateConstant;->FUN_TYPES_INIT:[I
-
-    const/16 v3, 0xd
+    sput-object v5, Lcom/android/camera/constant/UpdateConstant;->FUN_TYPES_INIT:[I
 
     new-array v3, v3, [I
 
@@ -373,6 +373,7 @@
         0xe
         0x19
         0x1f
+        0x36
     .end array-data
 
     :array_6

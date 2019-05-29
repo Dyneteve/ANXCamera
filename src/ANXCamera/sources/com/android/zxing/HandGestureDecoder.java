@@ -111,7 +111,7 @@ public class HandGestureDecoder extends Decoder {
                     if (!HandGestureDecoder.this.mTipVisible && HandGestureDecoder.this.mTipShowInterval <= 0) {
                         DataRepository.dataItemRunning().setHandGestureRunning(true);
                         TopAlert topAlert = (TopAlert) ModeCoordinatorImpl.getInstance().getAttachProtocol(172);
-                        if (topAlert != null) {
+                        if (topAlert != null && !topAlert.isExtraMenuShowing()) {
                             topAlert.reInitAlert(true);
                         }
                         HandGestureDecoder.this.mTipVisible = true;
@@ -208,9 +208,9 @@ public class HandGestureDecoder extends Decoder {
         return super.needPreviewFrame() && CameraSettings.isHandGestureOpen();
     }
 
-    public void onPreviewFrame(Image image, int i, int i2, int i3) {
+    public void onPreviewFrame(Image image, int i) {
         if (needPreviewFrame() && this.mDecodeFlowableEmitter != null) {
-            this.mDecodeFlowableEmitter.onNext(new PreviewImage(image, i3));
+            this.mDecodeFlowableEmitter.onNext(new PreviewImage(image, i));
         }
     }
 

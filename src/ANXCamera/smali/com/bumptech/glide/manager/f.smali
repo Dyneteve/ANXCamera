@@ -9,7 +9,7 @@
 # static fields
 .field private static final TAG:Ljava/lang/String; = "ConnectivityMonitor"
 
-.field private static final mW:Ljava/lang/String; = "android.permission.ACCESS_NETWORK_STATE"
+.field private static final mZ:Ljava/lang/String; = "android.permission.ACCESS_NETWORK_STATE"
 
 
 # direct methods

@@ -14,28 +14,28 @@ import java.util.Map.Entry;
 /* compiled from: LazyHeaders */
 public final class j implements h {
     private final Map<String, List<i>> headers;
-    private volatile Map<String, String> jN;
+    private volatile Map<String, String> jO;
 
     /* compiled from: LazyHeaders */
     public static final class a {
-        private static final String jO = "User-Agent";
-        private static final String jP = getSanitizedUserAgent();
-        private static final Map<String, List<i>> jQ;
-        private Map<String, List<i>> headers = jQ;
-        private boolean jR = true;
+        private static final String jP = "User-Agent";
+        private static final String jQ = getSanitizedUserAgent();
+        private static final Map<String, List<i>> jR;
+        private Map<String, List<i>> headers = jR;
         private boolean jS = true;
+        private boolean jT = true;
 
         static {
             HashMap hashMap = new HashMap(2);
-            if (!TextUtils.isEmpty(jP)) {
-                hashMap.put("User-Agent", Collections.singletonList(new b(jP)));
+            if (!TextUtils.isEmpty(jQ)) {
+                hashMap.put("User-Agent", Collections.singletonList(new b(jQ)));
             }
-            jQ = Collections.unmodifiableMap(hashMap);
+            jR = Collections.unmodifiableMap(hashMap);
         }
 
         private void ce() {
-            if (this.jR) {
-                this.jR = false;
+            if (this.jS) {
+                this.jS = false;
                 this.headers = cg();
             }
         }
@@ -78,7 +78,7 @@ public final class j implements h {
         }
 
         public a a(String str, i iVar) {
-            if (this.jS && "User-Agent".equalsIgnoreCase(str)) {
+            if (this.jT && "User-Agent".equalsIgnoreCase(str)) {
                 return b(str, iVar);
             }
             ce();
@@ -95,14 +95,14 @@ public final class j implements h {
                 z.clear();
                 z.add(iVar);
             }
-            if (this.jS && "User-Agent".equalsIgnoreCase(str)) {
-                this.jS = false;
+            if (this.jT && "User-Agent".equalsIgnoreCase(str)) {
+                this.jT = false;
             }
             return this;
         }
 
         public j cf() {
-            this.jR = true;
+            this.jS = true;
             return new j(this.headers);
         }
 
@@ -187,14 +187,14 @@ public final class j implements h {
     }
 
     public Map<String, String> getHeaders() {
-        if (this.jN == null) {
+        if (this.jO == null) {
             synchronized (this) {
-                if (this.jN == null) {
-                    this.jN = Collections.unmodifiableMap(cd());
+                if (this.jO == null) {
+                    this.jO = Collections.unmodifiableMap(cd());
                 }
             }
         }
-        return this.jN;
+        return this.jO;
     }
 
     public int hashCode() {

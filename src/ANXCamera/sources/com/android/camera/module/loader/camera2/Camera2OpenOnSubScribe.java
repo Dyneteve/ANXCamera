@@ -28,7 +28,16 @@ public class Camera2OpenOnSubScribe implements SurfaceCreatedCallback, Observer<
             SnapTrigger.destroy();
         }
         DataItemGlobal dataItemGlobal = DataRepository.dataItemGlobal();
-        Camera2OpenManager.getInstance().openCamera(dataItemGlobal.getCurrentCameraId(), dataItemGlobal.getCurrentMode(), this, false);
+        int currentCameraId = dataItemGlobal.getCurrentCameraId();
+        int currentMode = dataItemGlobal.getCurrentMode();
+        String str = TAG;
+        StringBuilder sb = new StringBuilder();
+        sb.append("openCamera: pendingOpenId = ");
+        sb.append(currentCameraId);
+        sb.append(", pendingOpenModule = ");
+        sb.append(currentMode);
+        Log.d(str, sb.toString());
+        Camera2OpenManager.getInstance().openCamera(currentCameraId, currentMode, this, false);
     }
 
     private void submitResult(Camera2Result camera2Result) {
@@ -60,7 +69,7 @@ public class Camera2OpenOnSubScribe implements SurfaceCreatedCallback, Observer<
     public void onNext(Camera2Result camera2Result) {
         String str = TAG;
         StringBuilder sb = new StringBuilder();
-        sb.append("onNext: mSurfaceStateListener = ");
+        sb.append("onNext: hasSurface = ");
         sb.append(this.mSurfaceStateListener.hasSurface());
         Log.d(str, sb.toString());
         this.mCamera2Result = camera2Result;

@@ -11,7 +11,8 @@ public abstract class Decoder {
     static int DECODE_MAX_COUNT = 15;
     public static final String TAG = "Decoder";
     Disposable mDecodeDisposable;
-    FlowableEmitter<PreviewImage> mDecodeFlowableEmitter;
+    /* access modifiers changed from: 0000 */
+    public FlowableEmitter<PreviewImage> mDecodeFlowableEmitter;
     volatile boolean mDecoding;
     AtomicInteger mDecodingCount = new AtomicInteger(0);
     boolean mEnable = false;
@@ -37,7 +38,7 @@ public abstract class Decoder {
         return true;
     }
 
-    public abstract void onPreviewFrame(Image image, int i, int i2, int i3);
+    public abstract void onPreviewFrame(Image image, int i);
 
     public void quit() {
         this.mEnable = false;
@@ -57,8 +58,5 @@ public abstract class Decoder {
             this.mDecodeDisposable.dispose();
         }
         this.mDecoding = false;
-    }
-
-    public void updatePreviewSize(int i, int i2) {
     }
 }

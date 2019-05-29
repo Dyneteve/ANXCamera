@@ -6,6 +6,7 @@ import com.android.camera.effect.draw_mode.DrawAttribute;
 import com.android.camera.effect.draw_mode.DrawBasicTexAttribute;
 import com.android.camera.effect.draw_mode.DrawExtTexAttribute;
 import com.android.camera.effect.draw_mode.DrawIntTexAttribute;
+import com.android.camera.log.Log;
 import com.android.gallery3d.ui.GLCanvas;
 import com.android.gallery3d.ui.RawTexture;
 import com.android.gallery3d.ui.Utils;
@@ -68,6 +69,7 @@ public final class PipeRenderPair extends RenderGroup {
         frameBuffer = null;
         if (frameBuffer == null) {
             frameBuffer = new FrameBuffer(this.mGLCanvas, i, i2, this.mParentFrameBufferId);
+            Log.i("Counter", String.format("FrameBuffer alloc size %d*%d id %d", new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(frameBuffer.getId())}));
             if (this.mFrameBuffers.size() > 5) {
                 this.mFrameBuffers.remove(this.mFrameBuffers.size() - 1);
             }
@@ -139,7 +141,7 @@ public final class PipeRenderPair extends RenderGroup {
                 endBindFrameBuffer();
             }
             if (EffectController.getInstance().isMainFrameDisplay()) {
-                if (!b.hz() || !EffectController.getInstance().isBackGroundBlur()) {
+                if (!b.hC() || !EffectController.getInstance().isBackGroundBlur()) {
                     this.mSecondRender.draw(this.mBasicTextureAttr.init((this.mUseMiddleBuffer ? this.mMiddleFrameBuffer : this.mFrameBuffer).getTexture(), drawExtTexAttribute.mX, drawExtTexAttribute.mY, drawExtTexAttribute.mWidth, drawExtTexAttribute.mHeight));
                 } else {
                     copyBlurTexture(drawExtTexAttribute);

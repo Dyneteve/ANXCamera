@@ -30,13 +30,13 @@
 
 
 # static fields
-.field private static final jw:Ljava/lang/String; = "data:image"
+.field private static final jx:Ljava/lang/String; = "data:image"
 
-.field private static final jx:Ljava/lang/String; = ";base64"
+.field private static final jy:Ljava/lang/String; = ";base64"
 
 
 # instance fields
-.field private final jy:Lcom/bumptech/glide/load/model/e$a;
+.field private final jz:Lcom/bumptech/glide/load/model/e$a;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/model/e$a<",
@@ -59,7 +59,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/model/e;->jy:Lcom/bumptech/glide/load/model/e$a;
+    iput-object p1, p0, Lcom/bumptech/glide/load/model/e;->jz:Lcom/bumptech/glide/load/model/e$a;
 
     return-void
 .end method
@@ -98,7 +98,7 @@
 
     move-result-object p1
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/e;->jy:Lcom/bumptech/glide/load/model/e$a;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/e;->jz:Lcom/bumptech/glide/load/model/e$a;
 
     invoke-direct {p4, p1, v0}, Lcom/bumptech/glide/load/model/e$b;-><init>(Ljava/lang/String;Lcom/bumptech/glide/load/model/e$a;)V
 

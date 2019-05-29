@@ -78,7 +78,6 @@ public class FragmentTopAlert extends BaseFragment {
     private TextView mLiveMusiHintText;
     private ImageView mLiveMusicClose;
     private LinearLayout mLiveMusicHintLayout;
-    private TextView mMimojiCreateTitle;
     /* access modifiers changed from: private */
     public TextView mPermanentTip;
     /* access modifiers changed from: private */
@@ -241,10 +240,10 @@ public class FragmentTopAlert extends BaseFragment {
         }
         int id = currentCamera2Device.getId();
         if (decimal == 1.0f) {
-            if (id == Camera2DataContainer.getInstance().getMainBackCameraId() || id == Camera2DataContainer.getInstance().getSATCameraId() || id == Camera2DataContainer.getInstance().getBokehCameraId() || id == Camera2DataContainer.getInstance().getFrontCameraId() || id == Camera2DataContainer.getInstance().getBokehFrontCameraId()) {
+            if (id == Camera2DataContainer.getInstance().getMainBackCameraId() || id == Camera2DataContainer.getInstance().getSATCameraId() || id == Camera2DataContainer.getInstance().getBokehCameraId() || id == Camera2DataContainer.getInstance().getUltraWideBokehCameraId() || id == Camera2DataContainer.getInstance().getFrontCameraId() || id == Camera2DataContainer.getInstance().getBokehFrontCameraId()) {
                 return null;
             }
-            if (((HybridZoomingSystem.IS_2_SAT || !CameraSettings.isSupportedOpticalZoom()) && id == Camera2DataContainer.getInstance().getUltraWideCameraId()) || this.mCurrentMode == 167) {
+            if (((HybridZoomingSystem.IS_2_SAT || !CameraSettings.isSupportedOpticalZoom()) && id == Camera2DataContainer.getInstance().getUltraWideCameraId()) || this.mCurrentMode == 167 || this.mCurrentMode == 166) {
                 return null;
             }
         }
@@ -476,7 +475,7 @@ public class FragmentTopAlert extends BaseFragment {
             }
             if (this.mAlertImageType != i2) {
                 this.mAlertImageType = i2;
-                if (CameraSettings.isFrontCamera() && b.ik()) {
+                if (CameraSettings.isFrontCamera() && b.in()) {
                     z = false;
                 }
                 this.mToastTipFlashHDR.setImageResource(z ? R.drawable.ic_alert_flash_torch : R.drawable.ic_alert_flash);
@@ -542,6 +541,17 @@ public class FragmentTopAlert extends BaseFragment {
         }
     }
 
+    public void alertMimojiFaceDetect(boolean z, int i) {
+        if (z) {
+            this.mToastAiSwitchTip.setText(i);
+            this.mToastAiSwitchTip.setVisibility(0);
+            addViewToToastLayout(this.mToastAiSwitchTip);
+        } else if (this.mToastAiSwitchTip.getVisibility() != 8) {
+            this.mTopTipLayout.removeCallbacks(this.mViewHideRunnable);
+            removeViewToToastLayout(this.mToastAiSwitchTip);
+        }
+    }
+
     public void alertMoonSelector(String str, String str2, int i, boolean z) {
         alertAiSceneSelector(str, str2, i, i == 0 ? $$Lambda$FragmentTopAlert$XNMEcQFO7bMMo3Q5uQLIGAKRGw.INSTANCE : null, z);
     }
@@ -599,7 +609,7 @@ public class FragmentTopAlert extends BaseFragment {
                 FragmentTopAlert.lambda$alertSwitchHint$3(FragmentTopAlert.this);
             }
         }, 300);
-        this.mTopTipLayout.removeCallbacks(this.mViewHideRunnable);
+        this.mHandler.removeCallbacks(this.mViewHideRunnable);
         this.mHandler.postDelayed(this.mViewHideRunnable, HINT_DELAY_TIME);
     }
 
@@ -661,7 +671,7 @@ public class FragmentTopAlert extends BaseFragment {
         }
     }
 
-    public void clear() {
+    public void clear(boolean z) {
         clearAlertStatus();
         this.mAlertImageType = -1;
         int childCount = this.mToastTopTipLayout.getChildCount();
@@ -670,6 +680,9 @@ public class FragmentTopAlert extends BaseFragment {
             View childAt = this.mToastTopTipLayout.getChildAt(i);
             Object tag = childAt.getTag();
             if (tag == null || !(tag == null || !(tag instanceof Integer) || ((Integer) tag).intValue() == 2)) {
+                arrayList.add(childAt);
+            }
+            if (z) {
                 arrayList.add(childAt);
             }
         }
@@ -724,10 +737,7 @@ public class FragmentTopAlert extends BaseFragment {
         if (Util.isNotchDevice) {
             setViewMargin(this.mAlertRecordingText, Util.sStatusBarHeight);
         }
-        this.mMimojiCreateTitle = (TextView) view.findViewById(R.id.alert_mimoji_on_create);
-        setViewMargin(this.mMimojiCreateTitle, Util.isNotchDevice ? Util.sStatusBarHeight : getResources().getDimensionPixelSize(R.dimen.top_control_panel_extra_margin_top));
         ViewCompat.setAlpha(this.mAlertRecordingText, 0.0f);
-        ViewCompat.setAlpha(this.mMimojiCreateTitle, 0.0f);
         if (sPendingRecordingTimeState != 0) {
             setRecordingTimeState(sPendingRecordingTimeState);
             setPendingRecordingState(0);
@@ -778,11 +788,9 @@ public class FragmentTopAlert extends BaseFragment {
     }
 
     public void provideAnimateElement(int i, List<Completable> list, int i2) {
+        int i3 = this.mCurrentMode;
         super.provideAnimateElement(i, list, i2);
-        if (162 != i) {
-            hideSwitchHint();
-        }
-        clear();
+        clear(i3 != i);
         setShow(true);
     }
 
@@ -845,14 +853,6 @@ public class FragmentTopAlert extends BaseFragment {
 
     public void setShow(boolean z) {
         this.mShow = z;
-    }
-
-    public void showOrHideMimojiCreateTitle(boolean z) {
-        if (z) {
-            Completable.create(new AlphaInOnSubscribe(this.mMimojiCreateTitle)).subscribe();
-        } else {
-            Completable.create(new AlphaOutOnSubscribe(this.mMimojiCreateTitle)).subscribe();
-        }
     }
 
     public void updateMusicHint() {

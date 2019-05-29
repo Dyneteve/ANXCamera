@@ -29,106 +29,106 @@ import java.net.URL;
 
 /* compiled from: RequestBuilder */
 public class h<TranscodeType> implements g<h<TranscodeType>>, Cloneable {
-    protected static final f bp = new f().b(g.fU).c(Priority.LOW).m(true);
-    private final i aH;
-    private final c ah;
-    private final e an;
-    private final f az;
+    protected static final f bq = new f().b(g.fV).c(Priority.LOW).m(true);
+    private final f aA;
+    private final i aI;
+    private final c ai;
+    private final e ao;
     private boolean bA;
-    private final Class<TranscodeType> bq;
+    private boolean bB;
+    private final Class<TranscodeType> br;
     @NonNull
-    protected f br;
+    protected f bs;
     @NonNull
-    private j<?, ? super TranscodeType> bs;
+    private j<?, ? super TranscodeType> bt;
     @Nullable
-    private Object bt;
+    private Object bu;
     @Nullable
-    private e<TranscodeType> bu;
-    @Nullable
-    private h<TranscodeType> bv;
+    private e<TranscodeType> bv;
     @Nullable
     private h<TranscodeType> bw;
     @Nullable
-    private Float bx;
-    private boolean by;
+    private h<TranscodeType> bx;
+    @Nullable
+    private Float by;
     private boolean bz;
     private final Context context;
 
     /* compiled from: RequestBuilder */
     /* renamed from: com.bumptech.glide.h$2 reason: invalid class name */
     static /* synthetic */ class AnonymousClass2 {
-        static final /* synthetic */ int[] bD = new int[ScaleType.values().length];
+        static final /* synthetic */ int[] bE = new int[ScaleType.values().length];
 
         static {
-            bE = new int[Priority.values().length];
+            bF = new int[Priority.values().length];
             try {
-                bE[Priority.LOW.ordinal()] = 1;
+                bF[Priority.LOW.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                bE[Priority.NORMAL.ordinal()] = 2;
+                bF[Priority.NORMAL.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                bE[Priority.HIGH.ordinal()] = 3;
+                bF[Priority.HIGH.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
             try {
-                bE[Priority.IMMEDIATE.ordinal()] = 4;
+                bF[Priority.IMMEDIATE.ordinal()] = 4;
             } catch (NoSuchFieldError e4) {
             }
             try {
-                bD[ScaleType.CENTER_CROP.ordinal()] = 1;
+                bE[ScaleType.CENTER_CROP.ordinal()] = 1;
             } catch (NoSuchFieldError e5) {
             }
             try {
-                bD[ScaleType.CENTER_INSIDE.ordinal()] = 2;
+                bE[ScaleType.CENTER_INSIDE.ordinal()] = 2;
             } catch (NoSuchFieldError e6) {
             }
             try {
-                bD[ScaleType.FIT_CENTER.ordinal()] = 3;
+                bE[ScaleType.FIT_CENTER.ordinal()] = 3;
             } catch (NoSuchFieldError e7) {
             }
             try {
-                bD[ScaleType.FIT_START.ordinal()] = 4;
+                bE[ScaleType.FIT_START.ordinal()] = 4;
             } catch (NoSuchFieldError e8) {
             }
             try {
-                bD[ScaleType.FIT_END.ordinal()] = 5;
+                bE[ScaleType.FIT_END.ordinal()] = 5;
             } catch (NoSuchFieldError e9) {
             }
             try {
-                bD[ScaleType.FIT_XY.ordinal()] = 6;
+                bE[ScaleType.FIT_XY.ordinal()] = 6;
             } catch (NoSuchFieldError e10) {
             }
             try {
-                bD[ScaleType.CENTER.ordinal()] = 7;
+                bE[ScaleType.CENTER.ordinal()] = 7;
             } catch (NoSuchFieldError e11) {
             }
             try {
-                bD[ScaleType.MATRIX.ordinal()] = 8;
+                bE[ScaleType.MATRIX.ordinal()] = 8;
             } catch (NoSuchFieldError e12) {
             }
         }
     }
 
     protected h(c cVar, i iVar, Class<TranscodeType> cls, Context context2) {
-        this.by = true;
-        this.ah = cVar;
-        this.aH = iVar;
-        this.bq = cls;
-        this.az = iVar.s();
+        this.bz = true;
+        this.ai = cVar;
+        this.aI = iVar;
+        this.br = cls;
+        this.aA = iVar.s();
         this.context = context2;
-        this.bs = iVar.a(cls);
-        this.br = this.az;
-        this.an = cVar.n();
+        this.bt = iVar.a(cls);
+        this.bs = this.aA;
+        this.ao = cVar.n();
     }
 
     protected h(Class<TranscodeType> cls, h<?> hVar) {
-        this(hVar.ah, hVar.aH, cls, hVar.context);
-        this.bt = hVar.bt;
-        this.bz = hVar.bz;
-        this.br = hVar.br;
+        this(hVar.ai, hVar.aI, cls, hVar.context);
+        this.bu = hVar.bu;
+        this.bA = hVar.bA;
+        this.bs = hVar.bs;
     }
 
     @NonNull
@@ -144,7 +144,7 @@ public class h<TranscodeType> implements g<h<TranscodeType>>, Cloneable {
             default:
                 StringBuilder sb = new StringBuilder();
                 sb.append("unknown priority: ");
-                sb.append(this.br.ay());
+                sb.append(this.bs.ay());
                 throw new IllegalArgumentException(sb.toString());
         }
     }
@@ -161,7 +161,7 @@ public class h<TranscodeType> implements g<h<TranscodeType>>, Cloneable {
     private c a(n<TranscodeType> nVar, @Nullable e<TranscodeType> eVar, @Nullable d dVar, j<?, ? super TranscodeType> jVar, Priority priority, int i, int i2, f fVar) {
         a aVar;
         ? r3;
-        if (this.bw != null) {
+        if (this.bx != null) {
             ? aVar2 = new a(dVar);
             aVar = aVar2;
             r3 = aVar2;
@@ -173,9 +173,9 @@ public class h<TranscodeType> implements g<h<TranscodeType>>, Cloneable {
         if (aVar == 0) {
             return b;
         }
-        int eb = this.bw.br.eb();
-        int ed = this.bw.br.ed();
-        if (k.s(i, i2) && !this.bw.br.ec()) {
+        int eb = this.bx.bs.eb();
+        int ed = this.bx.bs.ed();
+        if (k.s(i, i2) && !this.bx.bs.ec()) {
             eb = fVar.eb();
             ed = fVar.ed();
         }
@@ -184,29 +184,29 @@ public class h<TranscodeType> implements g<h<TranscodeType>>, Cloneable {
         n<TranscodeType> nVar2 = nVar;
         e<TranscodeType> eVar2 = eVar;
         d dVar2 = aVar;
-        aVar.a(b, this.bw.a(nVar2, eVar2, dVar2, this.bw.bs, this.bw.br.ay(), i3, i4, this.bw.br));
+        aVar.a(b, this.bx.a(nVar2, eVar2, dVar2, this.bx.bt, this.bx.bs.ay(), i3, i4, this.bx.bs));
         return aVar;
     }
 
     private c a(n<TranscodeType> nVar, e<TranscodeType> eVar, f fVar, d dVar, j<?, ? super TranscodeType> jVar, Priority priority, int i, int i2) {
         Context context2 = this.context;
-        e eVar2 = this.an;
-        Object obj = this.bt;
-        Class<TranscodeType> cls = this.bq;
-        return SingleRequest.a(context2, eVar2, obj, cls, fVar, i, i2, priority, nVar, eVar, this.bu, dVar, this.an.u(), jVar.O());
+        e eVar2 = this.ao;
+        Object obj = this.bu;
+        Class<TranscodeType> cls = this.br;
+        return SingleRequest.a(context2, eVar2, obj, cls, fVar, i, i2, priority, nVar, eVar, this.bv, dVar, this.ao.u(), jVar.O());
     }
 
     private <Y extends n<TranscodeType>> Y a(@NonNull Y y, @Nullable e<TranscodeType> eVar, @NonNull f fVar) {
         k.eL();
         i.checkNotNull(y);
-        if (this.bz) {
+        if (this.bA) {
             f dM = fVar.dM();
             c b = b(y, eVar, dM);
             c dp = y.dp();
             if (!b.c(dp) || a(dM, dp)) {
-                this.aH.d((n<?>) y);
+                this.aI.d((n<?>) y);
                 y.j(b);
-                this.aH.a(y, b);
+                this.aI.a(y, b);
                 return y;
             }
             b.recycle();
@@ -225,13 +225,13 @@ public class h<TranscodeType> implements g<h<TranscodeType>>, Cloneable {
     private c b(n<TranscodeType> nVar, e<TranscodeType> eVar, @Nullable d dVar, j<?, ? super TranscodeType> jVar, Priority priority, int i, int i2, f fVar) {
         d dVar2 = dVar;
         Priority priority2 = priority;
-        if (this.bv != null) {
-            if (!this.bA) {
-                j<?, ? super TranscodeType> jVar2 = this.bv.by ? jVar : this.bv.bs;
-                Priority ay = this.bv.br.ea() ? this.bv.br.ay() : a(priority2);
-                int eb = this.bv.br.eb();
-                int ed = this.bv.br.ed();
-                if (k.s(i, i2) && !this.bv.br.ec()) {
+        if (this.bw != null) {
+            if (!this.bB) {
+                j<?, ? super TranscodeType> jVar2 = this.bw.bz ? jVar : this.bw.bt;
+                Priority ay = this.bw.bs.ea() ? this.bw.bs.ay() : a(priority2);
+                int eb = this.bw.bs.eb();
+                int ed = this.bw.bs.ed();
+                if (k.s(i, i2) && !this.bw.bs.ec()) {
                     eb = fVar.eb();
                     ed = fVar.ed();
                 }
@@ -239,15 +239,15 @@ public class h<TranscodeType> implements g<h<TranscodeType>>, Cloneable {
                 int i4 = ed;
                 com.bumptech.glide.request.h hVar = new com.bumptech.glide.request.h(dVar2);
                 c a = a(nVar, eVar, fVar, (d) hVar, jVar, priority2, i, i2);
-                this.bA = true;
+                this.bB = true;
                 com.bumptech.glide.request.h hVar2 = hVar;
-                c a2 = this.bv.a(nVar, eVar, (d) hVar, jVar2, ay, i3, i4, this.bv.br);
-                this.bA = false;
+                c a2 = this.bw.a(nVar, eVar, (d) hVar, jVar2, ay, i3, i4, this.bw.bs);
+                this.bB = false;
                 hVar2.a(a, a2);
                 return hVar2;
             }
             throw new IllegalStateException("You cannot use a request as both the main request and a thumbnail, consider using clone() on the request(s) passed to thumbnail()");
-        } else if (this.bx == null) {
+        } else if (this.by == null) {
             return a(nVar, eVar, fVar, dVar2, jVar, priority2, i, i2);
         } else {
             com.bumptech.glide.request.h hVar3 = new com.bumptech.glide.request.h(dVar2);
@@ -256,19 +256,19 @@ public class h<TranscodeType> implements g<h<TranscodeType>>, Cloneable {
             j<?, ? super TranscodeType> jVar3 = jVar;
             int i5 = i;
             int i6 = i2;
-            hVar3.a(a(nVar, eVar2, fVar, (d) hVar4, jVar3, priority2, i5, i6), a(nVar, eVar2, fVar.clone().h(this.bx.floatValue()), (d) hVar4, jVar3, a(priority2), i5, i6));
+            hVar3.a(a(nVar, eVar2, fVar, (d) hVar4, jVar3, priority2, i5, i6), a(nVar, eVar2, fVar.clone().h(this.by.floatValue()), (d) hVar4, jVar3, a(priority2), i5, i6));
             return hVar3;
         }
     }
 
     private c b(n<TranscodeType> nVar, @Nullable e<TranscodeType> eVar, f fVar) {
-        return a(nVar, eVar, (d) null, this.bs, fVar.ay(), fVar.eb(), fVar.ed(), fVar);
+        return a(nVar, eVar, (d) null, this.bt, fVar.ay(), fVar.eb(), fVar.ed(), fVar);
     }
 
     @NonNull
     private h<TranscodeType> h(@Nullable Object obj) {
-        this.bt = obj;
-        this.bz = true;
+        this.bu = obj;
+        this.bA = true;
         return this;
     }
 
@@ -281,7 +281,7 @@ public class h<TranscodeType> implements g<h<TranscodeType>>, Cloneable {
     @CheckResult
     @NonNull
     public h<File> B() {
-        return new h(File.class, this).b(bp);
+        return new h(File.class, this).b(bq);
     }
 
     @CheckResult
@@ -290,28 +290,28 @@ public class h<TranscodeType> implements g<h<TranscodeType>>, Cloneable {
         if (f < 0.0f || f > 1.0f) {
             throw new IllegalArgumentException("sizeMultiplier must be between 0 and 1");
         }
-        this.bx = Float.valueOf(f);
+        this.by = Float.valueOf(f);
         return this;
     }
 
     @NonNull
     public h<TranscodeType> a(@Nullable h<TranscodeType> hVar) {
-        this.bw = hVar;
+        this.bx = hVar;
         return this;
     }
 
     @CheckResult
     @NonNull
     public h<TranscodeType> a(@NonNull j<?, ? super TranscodeType> jVar) {
-        this.bs = (j) i.checkNotNull(jVar);
-        this.by = false;
+        this.bt = (j) i.checkNotNull(jVar);
+        this.bz = false;
         return this;
     }
 
     @CheckResult
     @NonNull
     public h<TranscodeType> a(@Nullable e<TranscodeType> eVar) {
-        this.bu = eVar;
+        this.bv = eVar;
         return this;
     }
 
@@ -335,9 +335,9 @@ public class h<TranscodeType> implements g<h<TranscodeType>>, Cloneable {
     public ViewTarget<ImageView, TranscodeType> a(@NonNull ImageView imageView) {
         k.eL();
         i.checkNotNull(imageView);
-        f fVar = this.br;
+        f fVar = this.bs;
         if (!fVar.dz() && fVar.dy() && imageView.getScaleType() != null) {
-            switch (AnonymousClass2.bD[imageView.getScaleType().ordinal()]) {
+            switch (AnonymousClass2.bE[imageView.getScaleType().ordinal()]) {
                 case 1:
                     fVar = fVar.clone().dB();
                     break;
@@ -354,7 +354,7 @@ public class h<TranscodeType> implements g<h<TranscodeType>>, Cloneable {
                     break;
             }
         }
-        return (ViewTarget) a(this.an.a(imageView, this.bq), null, fVar);
+        return (ViewTarget) a(this.ao.a(imageView, this.br), null, fVar);
     }
 
     /* access modifiers changed from: 0000 */
@@ -367,14 +367,14 @@ public class h<TranscodeType> implements g<h<TranscodeType>>, Cloneable {
     @NonNull
     /* renamed from: b */
     public h<TranscodeType> a(@Nullable Bitmap bitmap) {
-        return h(bitmap).b(f.a(g.fT));
+        return h(bitmap).b(f.a(g.fU));
     }
 
     @CheckResult
     @NonNull
     /* renamed from: b */
     public h<TranscodeType> a(@Nullable Drawable drawable) {
-        return h(drawable).b(f.a(g.fT));
+        return h(drawable).b(f.a(g.fU));
     }
 
     @CheckResult
@@ -387,7 +387,7 @@ public class h<TranscodeType> implements g<h<TranscodeType>>, Cloneable {
     @CheckResult
     @NonNull
     public h<TranscodeType> b(@Nullable h<TranscodeType> hVar) {
-        this.bv = hVar;
+        this.bw = hVar;
         return this;
     }
 
@@ -395,7 +395,7 @@ public class h<TranscodeType> implements g<h<TranscodeType>>, Cloneable {
     @NonNull
     public h<TranscodeType> b(@NonNull f fVar) {
         i.checkNotNull(fVar);
-        this.br = x().g(fVar);
+        this.bs = x().g(fVar);
         return this;
     }
 
@@ -425,10 +425,10 @@ public class h<TranscodeType> implements g<h<TranscodeType>>, Cloneable {
     /* renamed from: b */
     public h<TranscodeType> a(@Nullable byte[] bArr) {
         h<TranscodeType> h = h(bArr);
-        if (!h.br.dP()) {
-            h = h.b(f.a(g.fT));
+        if (!h.bs.dP()) {
+            h = h.b(f.a(g.fU));
         }
-        return !h.br.dQ() ? h.b(f.i(true)) : h;
+        return !h.bs.dQ() ? h.b(f.i(true)) : h;
     }
 
     @NonNull
@@ -456,9 +456,9 @@ public class h<TranscodeType> implements g<h<TranscodeType>>, Cloneable {
 
     @NonNull
     public b<TranscodeType> g(int i, int i2) {
-        final RequestFutureTarget requestFutureTarget = new RequestFutureTarget(this.an.t(), i, i2);
+        final RequestFutureTarget requestFutureTarget = new RequestFutureTarget(this.ao.t(), i, i2);
         if (k.eO()) {
-            this.an.t().post(new Runnable() {
+            this.ao.t().post(new Runnable() {
                 public void run() {
                     if (!requestFutureTarget.isCancelled()) {
                         h.this.a(requestFutureTarget, (e<TranscodeType>) requestFutureTarget);
@@ -473,7 +473,7 @@ public class h<TranscodeType> implements g<h<TranscodeType>>, Cloneable {
 
     @NonNull
     public n<TranscodeType> h(int i, int i2) {
-        return b((Y) com.bumptech.glide.request.target.k.b(this.aH, i, i2));
+        return b((Y) com.bumptech.glide.request.target.k.b(this.aI, i, i2));
     }
 
     @Deprecated
@@ -492,7 +492,7 @@ public class h<TranscodeType> implements g<h<TranscodeType>>, Cloneable {
     /* access modifiers changed from: protected */
     @NonNull
     public f x() {
-        return this.az == this.br ? this.br.clone() : this.br;
+        return this.aA == this.bs ? this.bs.clone() : this.bs;
     }
 
     @CheckResult
@@ -500,8 +500,8 @@ public class h<TranscodeType> implements g<h<TranscodeType>>, Cloneable {
     public h<TranscodeType> clone() {
         try {
             h<TranscodeType> hVar = (h) super.clone();
-            hVar.br = hVar.br.clone();
             hVar.bs = hVar.bs.clone();
+            hVar.bt = hVar.bt.clone();
             return hVar;
         } catch (CloneNotSupportedException e) {
             throw new RuntimeException(e);

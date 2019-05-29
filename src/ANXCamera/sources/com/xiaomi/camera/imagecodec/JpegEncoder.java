@@ -319,7 +319,7 @@ public class JpegEncoder {
                 declaredField.setAccessible(true);
                 return declaredField.getInt(cameraCaptureSession);
             } catch (ClassNotFoundException | IllegalAccessException | NoSuchFieldException e) {
-                Log.w(TAG, "getSessionId: failed! ", e);
+                Log.w(TAG, "getSessionId: failed!", e);
             }
         }
         return -1;
@@ -707,9 +707,9 @@ public class JpegEncoder {
             if (!reprocessData.isImageFromPool()) {
                 Image yuvImage = reprocessData.getYuvImage();
                 ImageFormat imageQueueKey = ImagePool.getInstance().toImageQueueKey(yuvImage);
-                if (ImagePool.getInstance().isImageQueueFull(imageQueueKey, 0)) {
+                if (ImagePool.getInstance().isImageQueueFull(imageQueueKey, 2)) {
                     Log.w(TAG, "doReprocess: wait image pool>>");
-                    ImagePool.getInstance().waitIfImageQueueFull(imageQueueKey, 0, 0);
+                    ImagePool.getInstance().waitIfImageQueueFull(imageQueueKey, 2, 0);
                     Log.w(TAG, "doReprocess: wait image pool<<");
                 }
                 long timestamp = yuvImage.getTimestamp();

@@ -15,17 +15,17 @@ import java.util.WeakHashMap;
 /* compiled from: RequestTracker */
 public class n {
     private static final String TAG = "RequestTracker";
-    private final Set<c> no = Collections.newSetFromMap(new WeakHashMap());
-    private final List<c> np = new ArrayList();
-    private boolean nq;
+    private final Set<c> np = Collections.newSetFromMap(new WeakHashMap());
+    private final List<c> nq = new ArrayList();
+    private boolean nr;
 
     private boolean a(@Nullable c cVar, boolean z) {
         boolean z2 = true;
         if (cVar == null) {
             return true;
         }
-        boolean remove = this.no.remove(cVar);
-        if (!this.np.remove(cVar) && !remove) {
+        boolean remove = this.np.remove(cVar);
+        if (!this.nq.remove(cVar) && !remove) {
             z2 = false;
         }
         if (z2) {
@@ -38,51 +38,51 @@ public class n {
     }
 
     public void C() {
-        this.nq = true;
-        for (c cVar : k.c(this.no)) {
+        this.nr = true;
+        for (c cVar : k.c(this.np)) {
             if (cVar.isRunning()) {
                 cVar.pause();
-                this.np.add(cVar);
+                this.nq.add(cVar);
             }
         }
     }
 
     public void D() {
-        this.nq = true;
-        for (c cVar : k.c(this.no)) {
+        this.nr = true;
+        for (c cVar : k.c(this.np)) {
             if (cVar.isRunning() || cVar.isComplete()) {
                 cVar.pause();
-                this.np.add(cVar);
+                this.nq.add(cVar);
             }
         }
     }
 
     public void F() {
-        this.nq = false;
-        for (c cVar : k.c(this.no)) {
+        this.nr = false;
+        for (c cVar : k.c(this.np)) {
             if (!cVar.isComplete() && !cVar.isCancelled() && !cVar.isRunning()) {
                 cVar.begin();
             }
         }
-        this.np.clear();
+        this.nq.clear();
     }
 
     public void a(@NonNull c cVar) {
-        this.no.add(cVar);
-        if (!this.nq) {
+        this.np.add(cVar);
+        if (!this.nr) {
             cVar.begin();
             return;
         }
         if (Log.isLoggable(TAG, 2)) {
             Log.v(TAG, "Paused, delaying request");
         }
-        this.np.add(cVar);
+        this.nq.add(cVar);
     }
 
     /* access modifiers changed from: 0000 */
     @VisibleForTesting
     public void addRequest(c cVar) {
-        this.no.add(cVar);
+        this.np.add(cVar);
     }
 
     public boolean b(@Nullable c cVar) {
@@ -90,36 +90,36 @@ public class n {
     }
 
     public void dd() {
-        for (c a : k.c(this.no)) {
+        for (c a : k.c(this.np)) {
             a(a, false);
         }
-        this.np.clear();
+        this.nq.clear();
     }
 
     public void de() {
-        for (c cVar : k.c(this.no)) {
+        for (c cVar : k.c(this.np)) {
             if (!cVar.isComplete() && !cVar.isCancelled()) {
                 cVar.pause();
-                if (!this.nq) {
+                if (!this.nr) {
                     cVar.begin();
                 } else {
-                    this.np.add(cVar);
+                    this.nq.add(cVar);
                 }
             }
         }
     }
 
     public boolean isPaused() {
-        return this.nq;
+        return this.nr;
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(super.toString());
         sb.append("{numRequests=");
-        sb.append(this.no.size());
+        sb.append(this.np.size());
         sb.append(", isPaused=");
-        sb.append(this.nq);
+        sb.append(this.nr);
         sb.append("}");
         return sb.toString();
     }

@@ -229,7 +229,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/mimoji/ColorListAdapter;->mContext:Landroid/content/Context;
 
-    const p2, 0x7f040043
+    const p2, 0x7f040044
 
     const/4 v0, 0x0
 

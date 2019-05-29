@@ -53,7 +53,7 @@
 
     check-cast v0, Lcom/android/camera/protocol/ModeProtocol$MimojiAvatarEngine;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     iget-object v1, p0, Lcom/android/camera/fragment/FragmentMainContent$2;->this$0:Lcom/android/camera/fragment/FragmentMainContent;
 
@@ -69,7 +69,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
 
@@ -87,20 +87,41 @@
 
     const/16 v1, 0x13
 
-    const v2, 0x7f0902b0
+    const v2, 0x7f090343
 
     const/4 v3, 0x2
 
     invoke-interface {v0, v1, v2, v3}, Lcom/android/camera/protocol/ModeProtocol$BottomPopupTips;->showTips(III)V
 
     :cond_0
+    invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
+
+    move-result-object v0
+
+    const/16 v1, 0xac
+
+    invoke-virtual {v0, v1}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getAttachProtocol(I)Lcom/android/camera/protocol/ModeProtocol$BaseProtocol;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/camera/protocol/ModeProtocol$TopAlert;
+
+    if-eqz v0, :cond_1
+
+    const/4 v1, 0x0
+
+    const/4 v2, -0x1
+
+    invoke-interface {v0, v1, v2}, Lcom/android/camera/protocol/ModeProtocol$TopAlert;->alertMimojiFaceDetect(ZI)V
+
+    :cond_1
     iget-object v0, p0, Lcom/android/camera/fragment/FragmentMainContent$2;->this$0:Lcom/android/camera/fragment/FragmentMainContent;
 
     invoke-static {v0}, Lcom/android/camera/fragment/FragmentMainContent;->access$100(Lcom/android/camera/fragment/FragmentMainContent;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/android/camera/fragment/FragmentMainContent$2;->val$currentLightingView:Lcom/android/camera/ui/LightingView;
 
@@ -108,7 +129,7 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     iget-object v0, p0, Lcom/android/camera/fragment/FragmentMainContent$2;->val$currentLightingView:Lcom/android/camera/ui/LightingView;
 
     invoke-virtual {v0}, Lcom/android/camera/ui/LightingView;->triggerAnimateFocusing()V

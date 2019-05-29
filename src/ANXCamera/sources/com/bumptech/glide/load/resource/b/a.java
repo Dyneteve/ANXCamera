@@ -13,7 +13,7 @@ import android.support.v7.view.ContextThemeWrapper;
 
 /* compiled from: DrawableDecoderCompat */
 public final class a {
-    private static volatile boolean lX = true;
+    private static volatile boolean lY = true;
 
     private a() {
     }
@@ -28,11 +28,11 @@ public final class a {
 
     private static Drawable a(Context context, Context context2, @DrawableRes int i, @Nullable Theme theme) {
         try {
-            if (lX) {
+            if (lY) {
                 return b(context2, i, theme);
             }
         } catch (NoClassDefFoundError e) {
-            lX = false;
+            lY = false;
         } catch (IllegalStateException e2) {
             if (!context.getPackageName().equals(context2.getPackageName())) {
                 return ContextCompat.getDrawable(context2, i);

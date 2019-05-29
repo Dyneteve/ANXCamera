@@ -38,6 +38,10 @@
 
 .field private mCapturedByFrontCamera:Z
 
+.field private mDataListener:Lcom/xiaomi/camera/core/ParallelDataZipper$DataListener;
+
+.field private mIsAbandoned:Z
+
 .field private mMultiFrameProcessResult:Lcom/xiaomi/camera/core/CaptureData$CaptureDataBean;
 
 .field private mSaveInputImage:Z
@@ -60,7 +64,7 @@
     return-void
 .end method
 
-.method public constructor <init>(IIIJ)V
+.method public constructor <init>(IIIJZ)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -82,6 +86,8 @@
     iput p3, p0, Lcom/xiaomi/camera/core/CaptureData;->mBurstNum:I
 
     iput-wide p4, p0, Lcom/xiaomi/camera/core/CaptureData;->mCaptureTimestamp:J
+
+    iput-boolean p6, p0, Lcom/xiaomi/camera/core/CaptureData;->mIsAbandoned:Z
 
     return-void
 .end method
@@ -144,6 +150,14 @@
     return-wide v0
 .end method
 
+.method public getDataListener()Lcom/xiaomi/camera/core/ParallelDataZipper$DataListener;
+    .locals 1
+
+    iget-object v0, p0, Lcom/xiaomi/camera/core/CaptureData;->mDataListener:Lcom/xiaomi/camera/core/ParallelDataZipper$DataListener;
+
+    return-object v0
+.end method
+
 .method public getMultiFrameProcessResult()Lcom/xiaomi/camera/core/CaptureData$CaptureDataBean;
     .locals 1
 
@@ -156,6 +170,14 @@
     .locals 1
 
     iget v0, p0, Lcom/xiaomi/camera/core/CaptureData;->mStreamNum:I
+
+    return v0
+.end method
+
+.method public isAbandoned()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/xiaomi/camera/core/CaptureData;->mIsAbandoned:Z
 
     return v0
 .end method
@@ -220,6 +242,14 @@
     return-void
 .end method
 
+.method public setDataListener(Lcom/xiaomi/camera/core/ParallelDataZipper$DataListener;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/xiaomi/camera/core/CaptureData;->mDataListener:Lcom/xiaomi/camera/core/ParallelDataZipper$DataListener;
+
+    return-void
+.end method
+
 .method public setMultiFrameProcessListener(Lcom/xiaomi/camera/core/CaptureDataListener;)V
     .locals 0
 
@@ -242,4 +272,72 @@
     iput-boolean p1, p0, Lcom/xiaomi/camera/core/CaptureData;->mSaveInputImage:Z
 
     return-void
+.end method
+
+.method public toString()Ljava/lang/String;
+    .locals 5
+
+    sget-object v0, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
+
+    const-string v1, "CaptureData{mAlgoType=%d, mStreamNum=%d, mBurstNum=%d, mCaptureTimestamp=%d, mIsAbandoned=%b}"
+
+    const/4 v2, 0x5
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    iget v3, p0, Lcom/xiaomi/camera/core/CaptureData;->mAlgoType:I
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    const/4 v4, 0x0
+
+    aput-object v3, v2, v4
+
+    iget v3, p0, Lcom/xiaomi/camera/core/CaptureData;->mStreamNum:I
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    const/4 v4, 0x1
+
+    aput-object v3, v2, v4
+
+    iget v3, p0, Lcom/xiaomi/camera/core/CaptureData;->mBurstNum:I
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    const/4 v4, 0x2
+
+    aput-object v3, v2, v4
+
+    iget-wide v3, p0, Lcom/xiaomi/camera/core/CaptureData;->mCaptureTimestamp:J
+
+    invoke-static {v3, v4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v3
+
+    const/4 v4, 0x3
+
+    aput-object v3, v2, v4
+
+    iget-boolean v3, p0, Lcom/xiaomi/camera/core/CaptureData;->mIsAbandoned:Z
+
+    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v3
+
+    const/4 v4, 0x4
+
+    aput-object v3, v2, v4
+
+    invoke-static {v0, v1, v2}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method

@@ -153,11 +153,11 @@
     :catch_0
     move-exception p0
 
-    sget-object p0, Lcom/xiaomi/camera/parallelservice/util/ParallelUtil;->TAG:Ljava/lang/String;
+    sget-object p1, Lcom/xiaomi/camera/parallelservice/util/ParallelUtil;->TAG:Ljava/lang/String;
 
-    const-string p1, "Error! insert to parallel provider failed!!!"
+    const-string p2, "Error! insert to parallel provider failed!!!"
 
-    invoke-static {p0, p1}, Lcom/android/camera/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, p2, p0}, Lcom/android/camera/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     return-void

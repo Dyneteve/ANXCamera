@@ -8,7 +8,7 @@
 
 
 # instance fields
-.field private final no:Ljava/util/Set;
+.field private final np:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set<",
@@ -18,7 +18,7 @@
     .end annotation
 .end field
 
-.field private final np:Ljava/util/List;
+.field private final nq:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private nq:Z
+.field private nr:Z
 
 
 # direct methods
@@ -45,13 +45,13 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/bumptech/glide/manager/n;->no:Ljava/util/Set;
+    iput-object v0, p0, Lcom/bumptech/glide/manager/n;->np:Ljava/util/Set;
 
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/bumptech/glide/manager/n;->np:Ljava/util/List;
+    iput-object v0, p0, Lcom/bumptech/glide/manager/n;->nq:Ljava/util/List;
 
     return-void
 .end method
@@ -70,13 +70,13 @@
     return v0
 
     :cond_0
-    iget-object v1, p0, Lcom/bumptech/glide/manager/n;->no:Ljava/util/Set;
+    iget-object v1, p0, Lcom/bumptech/glide/manager/n;->np:Ljava/util/Set;
 
     invoke-interface {v1, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
     move-result v1
 
-    iget-object v2, p0, Lcom/bumptech/glide/manager/n;->np:Ljava/util/List;
+    iget-object v2, p0, Lcom/bumptech/glide/manager/n;->nq:Ljava/util/List;
 
     invoke-interface {v2, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
@@ -114,9 +114,9 @@
 
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/manager/n;->nq:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/manager/n;->nr:Z
 
-    iget-object v0, p0, Lcom/bumptech/glide/manager/n;->no:Ljava/util/Set;
+    iget-object v0, p0, Lcom/bumptech/glide/manager/n;->np:Ljava/util/Set;
 
     invoke-static {v0}, Lcom/bumptech/glide/util/k;->c(Ljava/util/Collection;)Ljava/util/List;
 
@@ -147,7 +147,7 @@
 
     invoke-interface {v1}, Lcom/bumptech/glide/request/c;->pause()V
 
-    iget-object v2, p0, Lcom/bumptech/glide/manager/n;->np:Ljava/util/List;
+    iget-object v2, p0, Lcom/bumptech/glide/manager/n;->nq:Ljava/util/List;
 
     invoke-interface {v2, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -163,9 +163,9 @@
 
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/manager/n;->nq:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/manager/n;->nr:Z
 
-    iget-object v0, p0, Lcom/bumptech/glide/manager/n;->no:Ljava/util/Set;
+    iget-object v0, p0, Lcom/bumptech/glide/manager/n;->np:Ljava/util/Set;
 
     invoke-static {v0}, Lcom/bumptech/glide/util/k;->c(Ljava/util/Collection;)Ljava/util/List;
 
@@ -203,7 +203,7 @@
     :cond_0
     invoke-interface {v1}, Lcom/bumptech/glide/request/c;->pause()V
 
-    iget-object v2, p0, Lcom/bumptech/glide/manager/n;->np:Ljava/util/List;
+    iget-object v2, p0, Lcom/bumptech/glide/manager/n;->nq:Ljava/util/List;
 
     invoke-interface {v2, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -219,9 +219,9 @@
 
     const/4 v0, 0x0
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/manager/n;->nq:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/manager/n;->nr:Z
 
-    iget-object v0, p0, Lcom/bumptech/glide/manager/n;->no:Ljava/util/Set;
+    iget-object v0, p0, Lcom/bumptech/glide/manager/n;->np:Ljava/util/Set;
 
     invoke-static {v0}, Lcom/bumptech/glide/util/k;->c(Ljava/util/Collection;)Ljava/util/List;
 
@@ -268,7 +268,7 @@
     goto :goto_0
 
     :cond_1
-    iget-object v0, p0, Lcom/bumptech/glide/manager/n;->np:Ljava/util/List;
+    iget-object v0, p0, Lcom/bumptech/glide/manager/n;->nq:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->clear()V
 
@@ -282,11 +282,11 @@
         .end annotation
     .end param
 
-    iget-object v0, p0, Lcom/bumptech/glide/manager/n;->no:Ljava/util/Set;
+    iget-object v0, p0, Lcom/bumptech/glide/manager/n;->np:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/manager/n;->nq:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/manager/n;->nr:Z
 
     if-nez v0, :cond_0
 
@@ -312,7 +312,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
-    iget-object v0, p0, Lcom/bumptech/glide/manager/n;->np:Ljava/util/List;
+    iget-object v0, p0, Lcom/bumptech/glide/manager/n;->nq:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -325,7 +325,7 @@
     .annotation build Landroid/support/annotation/VisibleForTesting;
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/manager/n;->no:Ljava/util/Set;
+    iget-object v0, p0, Lcom/bumptech/glide/manager/n;->np:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
@@ -351,7 +351,7 @@
 .method public dd()V
     .locals 3
 
-    iget-object v0, p0, Lcom/bumptech/glide/manager/n;->no:Ljava/util/Set;
+    iget-object v0, p0, Lcom/bumptech/glide/manager/n;->np:Ljava/util/Set;
 
     invoke-static {v0}, Lcom/bumptech/glide/util/k;->c(Ljava/util/Collection;)Ljava/util/List;
 
@@ -381,7 +381,7 @@
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/bumptech/glide/manager/n;->np:Ljava/util/List;
+    iget-object v0, p0, Lcom/bumptech/glide/manager/n;->nq:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->clear()V
 
@@ -391,7 +391,7 @@
 .method public de()V
     .locals 3
 
-    iget-object v0, p0, Lcom/bumptech/glide/manager/n;->no:Ljava/util/Set;
+    iget-object v0, p0, Lcom/bumptech/glide/manager/n;->np:Ljava/util/Set;
 
     invoke-static {v0}, Lcom/bumptech/glide/util/k;->c(Ljava/util/Collection;)Ljava/util/List;
 
@@ -428,7 +428,7 @@
 
     invoke-interface {v1}, Lcom/bumptech/glide/request/c;->pause()V
 
-    iget-boolean v2, p0, Lcom/bumptech/glide/manager/n;->nq:Z
+    iget-boolean v2, p0, Lcom/bumptech/glide/manager/n;->nr:Z
 
     if-nez v2, :cond_0
 
@@ -437,7 +437,7 @@
     goto :goto_1
 
     :cond_0
-    iget-object v2, p0, Lcom/bumptech/glide/manager/n;->np:Ljava/util/List;
+    iget-object v2, p0, Lcom/bumptech/glide/manager/n;->nq:Ljava/util/List;
 
     invoke-interface {v2, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -452,7 +452,7 @@
 .method public isPaused()Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/manager/n;->nq:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/manager/n;->nr:Z
 
     return v0
 .end method
@@ -474,7 +474,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/bumptech/glide/manager/n;->no:Ljava/util/Set;
+    iget-object v1, p0, Lcom/bumptech/glide/manager/n;->np:Ljava/util/Set;
 
     invoke-interface {v1}, Ljava/util/Set;->size()I
 
@@ -486,7 +486,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-boolean v1, p0, Lcom/bumptech/glide/manager/n;->nq:Z
+    iget-boolean v1, p0, Lcom/bumptech/glide/manager/n;->nr:Z
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 

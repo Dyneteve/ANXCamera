@@ -12,7 +12,7 @@ import java.util.List;
 public final class a {
     private static final int DEFAULT_POOL_SIZE = 20;
     private static final String TAG = "FactoryPools";
-    private static final d<Object> qg = new d<Object>() {
+    private static final d<Object> qh = new d<Object>() {
         public void reset(@NonNull Object obj) {
         }
     };
@@ -25,20 +25,20 @@ public final class a {
 
     /* compiled from: FactoryPools */
     private static final class b<T> implements Pool<T> {
-        private final Pool<T> fd;
-        private final C0011a<T> qh;
-        private final d<T> qi;
+        private final Pool<T> fe;
+        private final C0011a<T> qi;
+        private final d<T> qj;
 
         b(@NonNull Pool<T> pool, @NonNull C0011a<T> aVar, @NonNull d<T> dVar) {
-            this.fd = pool;
-            this.qh = aVar;
-            this.qi = dVar;
+            this.fe = pool;
+            this.qi = aVar;
+            this.qj = dVar;
         }
 
         public T acquire() {
-            T acquire = this.fd.acquire();
+            T acquire = this.fe.acquire();
             if (acquire == null) {
-                acquire = this.qh.create();
+                acquire = this.qi.create();
                 if (Log.isLoggable(a.TAG, 2)) {
                     String str = a.TAG;
                     StringBuilder sb = new StringBuilder();
@@ -57,8 +57,8 @@ public final class a {
             if (t instanceof c) {
                 ((c) t).aQ().o(true);
             }
-            this.qi.reset(t);
-            return this.fd.release(t);
+            this.qj.reset(t);
+            return this.fe.release(t);
         }
     }
 
@@ -119,6 +119,6 @@ public final class a {
 
     @NonNull
     private static <T> d<T> eQ() {
-        return qg;
+        return qh;
     }
 }

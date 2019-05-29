@@ -98,7 +98,7 @@
 
     move-result-object v4
 
-    const v6, 0x7f040003
+    const v6, 0x7f040004
 
     iget-object v7, p0, Lcom/android/camera/fragment/bottom/BackBeautyMenu;->mContainerView:Landroid/widget/LinearLayout;
 
@@ -269,7 +269,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f09023c
+    const v1, 0x7f09023b
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

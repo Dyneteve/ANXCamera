@@ -35,7 +35,7 @@
     .end annotation
 .end field
 
-.field final eR:Ljava/lang/Class;
+.field final eS:Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/Class<",
@@ -44,7 +44,7 @@
     .end annotation
 .end field
 
-.field final kz:Lcom/bumptech/glide/load/g;
+.field final kA:Lcom/bumptech/glide/load/g;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/g<",
@@ -81,9 +81,9 @@
 
     iput-object p1, p0, Lcom/bumptech/glide/d/e$a;->dataClass:Ljava/lang/Class;
 
-    iput-object p2, p0, Lcom/bumptech/glide/d/e$a;->eR:Ljava/lang/Class;
+    iput-object p2, p0, Lcom/bumptech/glide/d/e$a;->eS:Ljava/lang/Class;
 
-    iput-object p3, p0, Lcom/bumptech/glide/d/e$a;->kz:Lcom/bumptech/glide/load/g;
+    iput-object p3, p0, Lcom/bumptech/glide/d/e$a;->kA:Lcom/bumptech/glide/load/g;
 
     return-void
 .end method
@@ -118,7 +118,7 @@
 
     if-eqz p1, :cond_0
 
-    iget-object p1, p0, Lcom/bumptech/glide/d/e$a;->eR:Ljava/lang/Class;
+    iget-object p1, p0, Lcom/bumptech/glide/d/e$a;->eS:Ljava/lang/Class;
 
     invoke-virtual {p2, p1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 

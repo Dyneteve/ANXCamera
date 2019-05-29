@@ -180,7 +180,7 @@ public class ComponentConfigHdr extends ComponentData {
                 this.mAutoSupported = true;
                 this.mItems.add(new ComponentDataItem(getConfigHDRAutoRes(), getConfigHDRAutoRes(), R.string.pref_camera_hdr_entry_auto, "auto"));
             }
-            if (b.qw || !b.hd()) {
+            if (b.qx || !b.hg()) {
                 this.mItems.add(new ComponentDataItem(getConfigHDRNormalRes(), getConfigHDRNormalRes(), R.string.pref_simple_hdr_entry_on, "normal"));
             } else {
                 if (!b.IS_MI2A) {

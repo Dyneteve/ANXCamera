@@ -790,7 +790,7 @@ public class CameraStatUtil {
         String[] strArr2;
         HashMap hashMap = new HashMap();
         hashMap.put(CameraStat.PARAM_CAMERA_ID, str);
-        if (b.iw()) {
+        if (b.iz()) {
             int i2 = 0;
             for (String str2 : BeautyConstant.BEAUTY_CATEGORY_LEVEL) {
                 String str3 = (String) sBeautyTypeToName.get(str2);
@@ -1323,7 +1323,8 @@ public class CameraStatUtil {
         hashMap.put(CameraStat.PARAM_PICTURE_RATIO, CameraSettings.getPictureSizeRatioString());
         hashMap.put(CameraStat.PARAM_QUALITY, CameraSettings.getJpegQuality(z));
         hashMap.put(CameraStat.PARAM_TIME_WATERMARK, CameraSettings.isTimeWaterMarkOpen() ? "on" : "off");
-        hashMap.put(CameraStat.PARAM_DUAL_WATERMARK, CameraSettings.isDualCameraWaterMarkOpen() ? "on" : "off");
+        boolean z4 = CameraSettings.isDualCameraWaterMarkOpen() || CameraSettings.isFrontCameraWaterMarkOpen();
+        hashMap.put(CameraStat.PARAM_DEVICE_WATERMARK, z4 ? "on" : "off");
         String str2 = CameraStat.PARAM_LOCATION;
         String str3 = z3 ? CameraStat.LOCATION_WITH : CameraSettings.isRecordLocation() ? CameraStat.LOCATION_WITHOUT : CameraStat.LOCATION_CLOSED;
         hashMap.put(str2, str3);

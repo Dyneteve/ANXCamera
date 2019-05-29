@@ -19,9 +19,9 @@
 
 .field public static final STATUS_OPEN_ERROR:I = 0x2
 
-.field public static final cb:I = 0x3
+.field public static final cc:I = 0x3
 
-.field public static final cc:I
+.field public static final cd:I
 
 
 # virtual methods

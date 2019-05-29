@@ -12,14 +12,14 @@ import java.util.List;
 /* compiled from: LoadPath */
 public class n<Data, ResourceType, Transcode> {
     private final Class<Data> dataClass;
-    private final Pool<List<Throwable>> fQ;
-    private final String fR;
-    private final List<? extends f<Data, ResourceType, Transcode>> gO;
+    private final Pool<List<Throwable>> fR;
+    private final String fS;
+    private final List<? extends f<Data, ResourceType, Transcode>> gP;
 
     public n(Class<Data> cls, Class<ResourceType> cls2, Class<Transcode> cls3, List<f<Data, ResourceType, Transcode>> list, Pool<List<Throwable>> pool) {
         this.dataClass = cls;
-        this.fQ = pool;
-        this.gO = (List) i.b(list);
+        this.fR = pool;
+        this.gP = (List) i.b(list);
         StringBuilder sb = new StringBuilder();
         sb.append("Failed LoadPath{");
         sb.append(cls.getSimpleName());
@@ -28,17 +28,17 @@ public class n<Data, ResourceType, Transcode> {
         sb.append("->");
         sb.append(cls3.getSimpleName());
         sb.append("}");
-        this.fR = sb.toString();
+        this.fS = sb.toString();
     }
 
     private p<Transcode> a(e<Data> eVar, @NonNull f fVar, int i, int i2, a<ResourceType> aVar, List<Throwable> list) throws GlideException {
         p<Transcode> pVar;
         List<Throwable> list2 = list;
-        int size = this.gO.size();
+        int size = this.gP.size();
         p<Transcode> pVar2 = null;
         for (int i3 = 0; i3 < size; i3++) {
             try {
-                pVar2 = ((f) this.gO.get(i3)).a(eVar, i, i2, fVar, aVar);
+                pVar2 = ((f) this.gP.get(i3)).a(eVar, i, i2, fVar, aVar);
             } catch (GlideException e) {
                 list2.add(e);
             }
@@ -49,16 +49,16 @@ public class n<Data, ResourceType, Transcode> {
         if (pVar != null) {
             return pVar;
         }
-        throw new GlideException(this.fR, (List<Throwable>) new ArrayList<Throwable>(list2));
+        throw new GlideException(this.fS, (List<Throwable>) new ArrayList<Throwable>(list2));
     }
 
     public p<Transcode> a(e<Data> eVar, @NonNull f fVar, int i, int i2, a<ResourceType> aVar) throws GlideException {
-        List list = (List) i.checkNotNull(this.fQ.acquire());
+        List list = (List) i.checkNotNull(this.fR.acquire());
         try {
             p<Transcode> a = a(eVar, fVar, i, i2, aVar, list);
             return a;
         } finally {
-            this.fQ.release(list);
+            this.fR.release(list);
         }
     }
 
@@ -69,7 +69,7 @@ public class n<Data, ResourceType, Transcode> {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("LoadPath{decodePaths=");
-        sb.append(Arrays.toString(this.gO.toArray()));
+        sb.append(Arrays.toString(this.gP.toArray()));
         sb.append('}');
         return sb.toString();
     }

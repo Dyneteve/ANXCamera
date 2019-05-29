@@ -31,17 +31,6 @@
 .method public abstract getBeautyActionMenuType()I
 .end method
 
-.method public abstract getMenuData()Landroid/util/SparseArray;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Landroid/util/SparseArray<",
-            "Lcom/android/camera/fragment/beauty/MenuItem;",
-            ">;"
-        }
-    .end annotation
-.end method
-
 .method public abstract onBottomMenuAnimate(II)V
 .end method
 

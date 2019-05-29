@@ -133,6 +133,47 @@ public class ShaderUtil {
         return 0;
     }
 
+    public static void loadYuvImageTextures(int i, int i2, int i3, int i4, int[] iArr) {
+        int i5 = 0;
+        if (iArr == null || iArr.length < 2) {
+            String str = TAG;
+            StringBuilder sb = new StringBuilder();
+            sb.append("invalid output texture size ");
+            if (iArr != null) {
+                i5 = iArr.length;
+            }
+            sb.append(i5);
+            Log.e(str, sb.toString());
+            return;
+        }
+        if (iArr[0] == -1) {
+            GLES20.glGenTextures(1, iArr, 0);
+            GLES20.glActiveTexture(33984);
+            GLES20.glBindTexture(3553, iArr[0]);
+        } else {
+            GLES20.glActiveTexture(33984);
+            GLES20.glBindTexture(3553, iArr[0]);
+        }
+        ShaderNativeUtil.texChannelY(i, i2, i3);
+        GLES20.glTexParameterf(3553, 10240, 9729.0f);
+        GLES20.glTexParameterf(3553, 10241, 9729.0f);
+        GLES20.glTexParameterf(3553, 10242, 33071.0f);
+        GLES20.glTexParameterf(3553, 10243, 33071.0f);
+        if (iArr[1] == -1) {
+            GLES20.glGenTextures(1, iArr, 1);
+            GLES20.glActiveTexture(33985);
+            GLES20.glBindTexture(3553, iArr[1]);
+        } else {
+            GLES20.glActiveTexture(33985);
+            GLES20.glBindTexture(3553, iArr[1]);
+        }
+        ShaderNativeUtil.texChannelUV(i >> 1, i2 >> 1, i4);
+        GLES20.glTexParameterf(3553, 10240, 9729.0f);
+        GLES20.glTexParameterf(3553, 10241, 9729.0f);
+        GLES20.glTexParameterf(3553, 10242, 33071.0f);
+        GLES20.glTexParameterf(3553, 10243, 33071.0f);
+    }
+
     public static void loadYuvToTextures(Buffer buffer, Buffer buffer2, int i, int i2, int[] iArr) {
         int i3;
         float f;

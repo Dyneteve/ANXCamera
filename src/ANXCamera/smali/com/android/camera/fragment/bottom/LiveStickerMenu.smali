@@ -79,7 +79,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f040003
+    const v5, 0x7f040004
 
     iget-object v6, p0, Lcom/android/camera/fragment/bottom/LiveStickerMenu;->mContainerView:Landroid/widget/LinearLayout;
 
@@ -207,7 +207,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f09022d
+    const v3, 0x7f09022c
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

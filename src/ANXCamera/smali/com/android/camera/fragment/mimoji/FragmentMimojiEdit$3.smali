@@ -3,12 +3,12 @@
 .source "FragmentMimojiEdit.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
+.implements Lcom/android/camera/fragment/mimoji/ItfGvOnItemClickListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;->showAlertDialog()V
+    value = Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;->initMimojiEdit(Landroid/view/View;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,14 +34,31 @@
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 0
+.method public notifyUIChanged()V
+    .locals 2
 
-    iget-object p1, p0, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit$3;->this$0:Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;
+    iget-object v0, p0, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit$3;->this$0:Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;
 
-    const/4 p2, 0x0
+    const/4 v1, 0x1
 
-    invoke-static {p1, p2, p2}, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;->access$200(Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;ZZ)V
+    invoke-static {v0, v1}, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;->access$202(Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;Z)Z
 
+    iget-object v0, p0, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit$3;->this$0:Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;
+
+    invoke-static {v0}, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;->access$300(Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;)I
+
+    move-result v0
+
+    const/16 v1, 0x69
+
+    if-ne v0, v1, :cond_0
+
+    iget-object v0, p0, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit$3;->this$0:Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;
+
+    const/4 v1, 0x3
+
+    invoke-virtual {v0, v1}, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;->updateTitleState(I)V
+
+    :cond_0
     return-void
 .end method

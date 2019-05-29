@@ -18,9 +18,9 @@
 
 
 # instance fields
-.field final eS:Lcom/bumptech/glide/load/engine/DecodeJob$d;
+.field final eT:Lcom/bumptech/glide/load/engine/DecodeJob$d;
 
-.field final fd:Landroid/support/v4/util/Pools$Pool;
+.field final fe:Landroid/support/v4/util/Pools$Pool;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/support/v4/util/Pools$Pool<",
@@ -30,7 +30,7 @@
     .end annotation
 .end field
 
-.field private gh:I
+.field private gi:I
 
 
 # direct methods
@@ -49,9 +49,9 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;->fd:Landroid/support/v4/util/Pools$Pool;
+    iput-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;->fe:Landroid/support/v4/util/Pools$Pool;
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;->eS:Lcom/bumptech/glide/load/engine/DecodeJob$d;
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;->eT:Lcom/bumptech/glide/load/engine/DecodeJob$d;
 
     return-void
 .end method
@@ -91,7 +91,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;->fd:Landroid/support/v4/util/Pools$Pool;
+    iget-object v1, v0, Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;->fe:Landroid/support/v4/util/Pools$Pool;
 
     invoke-interface {v1}, Landroid/support/v4/util/Pools$Pool;->acquire()Ljava/lang/Object;
 
@@ -107,11 +107,11 @@
 
     check-cast v2, Lcom/bumptech/glide/load/engine/DecodeJob;
 
-    iget v1, v0, Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;->gh:I
+    iget v1, v0, Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;->gi:I
 
     add-int/lit8 v3, v1, 0x1
 
-    iput v3, v0, Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;->gh:I
+    iput v3, v0, Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;->gi:I
 
     move-object/from16 v3, p1
 

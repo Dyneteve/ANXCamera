@@ -14,19 +14,19 @@ import com.bumptech.glide.util.i;
 public class j extends l<Bitmap> {
     private final Context context;
     private final int notificationId;
-    private final String pg;
-    private final Notification ph;
+    private final String ph;
+    private final Notification pi;
     private final RemoteViews remoteViews;
     private final int viewId;
 
     public j(Context context2, int i, int i2, int i3, RemoteViews remoteViews2, Notification notification, int i4, String str) {
         super(i, i2);
         this.context = (Context) i.a(context2, "Context must not be null!");
-        this.ph = (Notification) i.a(notification, "Notification object can not be null!");
+        this.pi = (Notification) i.a(notification, "Notification object can not be null!");
         this.remoteViews = (RemoteViews) i.a(remoteViews2, "RemoteViews object can not be null!");
         this.viewId = i3;
         this.notificationId = i4;
-        this.pg = str;
+        this.ph = str;
     }
 
     public j(Context context2, int i, RemoteViews remoteViews2, Notification notification, int i2) {
@@ -38,7 +38,7 @@ public class j extends l<Bitmap> {
     }
 
     private void update() {
-        ((NotificationManager) i.checkNotNull((NotificationManager) this.context.getSystemService("notification"))).notify(this.pg, this.notificationId, this.ph);
+        ((NotificationManager) i.checkNotNull((NotificationManager) this.context.getSystemService("notification"))).notify(this.ph, this.notificationId, this.pi);
     }
 
     public void a(@NonNull Bitmap bitmap, @Nullable f<? super Bitmap> fVar) {

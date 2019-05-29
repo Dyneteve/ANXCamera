@@ -3,6 +3,8 @@ package com.android.camera.fragment.beauty;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.view.ViewCompat;
+import android.support.v4.view.ViewPropertyAnimatorListenerAdapter;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.Recycler;
@@ -14,25 +16,33 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
+import android.widget.TextView;
 import com.android.camera.R;
 import com.android.camera.ToastUtils;
 import com.android.camera.Util;
 import com.android.camera.data.data.TypeItem;
 import com.android.camera.data.data.runing.ComponentRunningShine.ShineType;
 import com.android.camera.fragment.DefaultItemAnimator;
+import com.android.camera.fragment.RecyclerAdapterWrapper;
 import com.android.camera.log.Log;
 import com.android.camera.protocol.ModeCoordinatorImpl;
 import com.android.camera.protocol.ModeProtocol.MakeupProtocol;
 import com.android.camera.protocol.ModeProtocol.MiBeautyProtocol;
+import com.android.camera.ui.ColorImageView;
 import java.util.List;
 
 public abstract class BaseBeautyMakeupFragment extends BaseBeautyFragment {
+    protected static final int EXTRA_CLEAR = 2;
+    protected static final int EXTRA_NULL = -1;
+    protected static final int EXTRA_RESET = 1;
     private static final String TAG = "BaseBeautyMakeup";
     protected OnItemClickListener mClickListener;
+    protected int mFooterElement;
+    protected int mHeaderElement;
     private LinearLayout mHeaderRecyclerView;
-    private View mHeaderView;
     protected List<TypeItem> mItemList;
     private int mItemWidth;
     /* access modifiers changed from: private */
@@ -41,6 +51,7 @@ public abstract class BaseBeautyMakeupFragment extends BaseBeautyFragment {
     protected MyLayoutManager mLayoutManager;
     protected MakeupSingleCheckAdapter mMakeupAdapter;
     private RecyclerView mMakeupItemList;
+    private boolean mNeedScroll;
     protected int mSelectedParam = 0;
     private int mTotalWidth;
 
@@ -76,20 +87,82 @@ public abstract class BaseBeautyMakeupFragment extends BaseBeautyFragment {
         }
     }
 
+    private void animateView(View view) {
+        view.clearAnimation();
+        view.setRotation(0.0f);
+        ViewCompat.animate(view).rotation(360.0f).setDuration(500).setListener(new ViewPropertyAnimatorListenerAdapter() {
+            public void onAnimationEnd(View view) {
+                super.onAnimationEnd(view);
+                view.setRotation(0.0f);
+            }
+        }).start();
+    }
+
+    private void calcItemWidthAndNeedScroll() {
+        this.mTotalWidth = getResources().getDisplayMetrics().widthPixels;
+        int i = 0;
+        int dimensionPixelSize = this.mHeaderElement != -1 ? getResources().getDimensionPixelSize(R.dimen.beauty_header_width) + getResources().getDimensionPixelSize(R.dimen.beauty_divider_stroke) : 0;
+        if (this.mFooterElement != -1) {
+            i = getResources().getDimensionPixelSize(R.dimen.beauty_header_width) + getResources().getDimensionPixelSize(R.dimen.beauty_divider_stroke);
+        }
+        int i2 = (int) (((float) (this.mTotalWidth - dimensionPixelSize)) / 4.5f);
+        int max = Math.max(((this.mTotalWidth - dimensionPixelSize) - i) / this.mItemList.size(), i2);
+        if (max == i2) {
+            this.mNeedScroll = true;
+        }
+        this.mItemWidth = max;
+    }
+
+    private View initAndGetFooterView() {
+        if (this.mFooterElement == -1) {
+            return null;
+        }
+        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.beauty_footer_layout, this.mMakeupItemList, false);
+        ColorImageView colorImageView = (ColorImageView) inflate.findViewById(R.id.makeup_item_icon);
+        TextView textView = (TextView) inflate.findViewById(R.id.makeup_item_name);
+        colorImageView.setColor(getResources().getColor(R.color.beautycamera_beauty_advanced_item_backgroud_normal));
+        switch (this.mFooterElement) {
+            case 1:
+                colorImageView.setImageResource(R.drawable.icon_beauty_reset);
+                textView.setText(R.string.beauty_reset);
+                break;
+            case 2:
+                colorImageView.setImageResource(R.drawable.icon_beauty_clear);
+                textView.setText(R.string.beauty_clear);
+                break;
+        }
+        inflate.setTag(Integer.valueOf(this.mFooterElement));
+        inflate.setOnClickListener(new OnClickListener() {
+            public void onClick(View view) {
+                BaseBeautyMakeupFragment.this.onExtraClick(view);
+            }
+        });
+        return inflate;
+    }
+
     private void initHeaderView() {
-        this.mHeaderView = getHeaderView();
-        if (this.mHeaderView != null) {
+        if (this.mHeaderElement != -1) {
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.beauty_header_layout, null);
+            ColorImageView colorImageView = (ColorImageView) inflate.findViewById(R.id.makeup_item_icon);
+            TextView textView = (TextView) inflate.findViewById(R.id.makeup_item_name);
+            colorImageView.setColor(getResources().getColor(R.color.beautycamera_beauty_advanced_item_backgroud_normal));
+            switch (this.mHeaderElement) {
+                case 1:
+                    colorImageView.setImageResource(R.drawable.icon_beauty_reset);
+                    textView.setText(R.string.beauty_reset);
+                    break;
+                case 2:
+                    colorImageView.setImageResource(R.drawable.icon_beauty_reset);
+                    textView.setText(R.string.face_beauty_close);
+                    break;
+            }
             LayoutParams layoutParams = new LayoutParams(-2, -1);
-            this.mHeaderRecyclerView.addView(this.mHeaderView, 0);
-            this.mHeaderView.setLayoutParams(layoutParams);
-            this.mHeaderView.setOnClickListener(new OnClickListener() {
+            this.mHeaderRecyclerView.addView(inflate, 0);
+            inflate.setLayoutParams(layoutParams);
+            inflate.setTag(Integer.valueOf(this.mHeaderElement));
+            inflate.setOnClickListener(new OnClickListener() {
                 public void onClick(View view) {
-                    if (System.currentTimeMillis() - BaseBeautyMakeupFragment.this.mLastClickTime < 1000) {
-                        Log.d(BaseBeautyMakeupFragment.TAG, "onHeaderClick: too quick!");
-                        return;
-                    }
-                    BaseBeautyMakeupFragment.this.mLastClickTime = System.currentTimeMillis();
-                    BaseBeautyMakeupFragment.this.onHeaderClick();
+                    BaseBeautyMakeupFragment.this.onExtraClick(view);
                 }
             });
         }
@@ -114,6 +187,24 @@ public abstract class BaseBeautyMakeupFragment extends BaseBeautyFragment {
     }
 
     /* access modifiers changed from: private */
+    public void onExtraClick(View view) {
+        if (System.currentTimeMillis() - this.mLastClickTime < 1000) {
+            Log.d(TAG, "onExtra: too quick!");
+            return;
+        }
+        this.mLastClickTime = System.currentTimeMillis();
+        switch (((Integer) view.getTag()).intValue()) {
+            case 1:
+                animateView((ImageView) view.findViewById(R.id.makeup_item_icon));
+                onResetClick();
+                break;
+            case 2:
+                onClearClick();
+                break;
+        }
+    }
+
+    /* access modifiers changed from: private */
     public boolean scrollIfNeed(int i) {
         int i2 = (i == this.mLayoutManager.findFirstVisibleItemPosition() || i == this.mLayoutManager.findFirstCompletelyVisibleItemPosition()) ? Math.max(0, i - 1) : (i == this.mLayoutManager.findLastVisibleItemPosition() || i == this.mLayoutManager.findLastCompletelyVisibleItemPosition()) ? Math.min(i + 1, this.mLayoutManager.getItemCount() - 1) : i;
         if (i2 == i) {
@@ -128,18 +219,11 @@ public abstract class BaseBeautyMakeupFragment extends BaseBeautyFragment {
     }
 
     /* access modifiers changed from: protected */
-    public int customItemWidth() {
-        return getContext().getResources().getDimensionPixelSize(R.dimen.beautycamera_makeup_item_width);
-    }
-
-    /* access modifiers changed from: protected */
     public View getAnimateView() {
         return this.mHeaderRecyclerView;
     }
 
     public abstract String getClassString();
-
-    public abstract View getHeaderView();
 
     /* access modifiers changed from: protected */
     public int getListItemMargin() {
@@ -151,6 +235,8 @@ public abstract class BaseBeautyMakeupFragment extends BaseBeautyFragment {
 
     @ShineType
     public abstract String getShineType();
+
+    public abstract void initExtraType();
 
     /* access modifiers changed from: protected */
     public OnItemClickListener initOnItemClickListener() {
@@ -170,21 +256,19 @@ public abstract class BaseBeautyMakeupFragment extends BaseBeautyFragment {
     public void initView(View view) {
         this.mHeaderRecyclerView = (LinearLayout) view.findViewById(R.id.header_recyclerView);
         this.mMakeupItemList = (RecyclerView) view.findViewById(R.id.makeup_item_list);
-        initHeaderView();
         this.mLayoutManager = new MyLayoutManager(getActivity());
         this.mLayoutManager.setOrientation(0);
         this.mLayoutManager.setScrollEnabled(true);
         this.mMakeupItemList.setLayoutManager(this.mLayoutManager);
         this.mMakeupItemList.setFocusable(false);
         this.mItemList = initItems();
-        this.mItemWidth = getResources().getDimensionPixelSize(R.dimen.beautycamera_makeup_item_width);
-        this.mTotalWidth = getResources().getDisplayMetrics().widthPixels;
-        setListPadding(this.mMakeupItemList);
-        int listItemMargin = getListItemMargin();
+        initExtraType();
+        initHeaderView();
+        calcItemWidthAndNeedScroll();
         if (!isNeedScroll()) {
             this.mLayoutManager.setScrollEnabled(false);
         }
-        MakeupSingleCheckAdapter makeupSingleCheckAdapter = new MakeupSingleCheckAdapter(getActivity(), this.mItemList, listItemMargin, isCustomWidth(), customItemWidth());
+        MakeupSingleCheckAdapter makeupSingleCheckAdapter = new MakeupSingleCheckAdapter(getActivity(), this.mItemList, 0, true, this.mItemWidth);
         this.mMakeupAdapter = makeupSingleCheckAdapter;
         this.mClickListener = initOnItemClickListener();
         this.mMakeupAdapter.setOnItemClickListener(new OnItemClickListener() {
@@ -197,7 +281,11 @@ public abstract class BaseBeautyMakeupFragment extends BaseBeautyFragment {
             }
         });
         this.mMakeupAdapter.setSelectedPosition(this.mSelectedParam);
-        this.mMakeupItemList.setAdapter(this.mMakeupAdapter);
+        RecyclerAdapterWrapper recyclerAdapterWrapper = new RecyclerAdapterWrapper(this.mMakeupAdapter);
+        if (initAndGetFooterView() != null) {
+            recyclerAdapterWrapper.addFooter(initAndGetFooterView());
+        }
+        this.mMakeupItemList.setAdapter(recyclerAdapterWrapper);
         DefaultItemAnimator defaultItemAnimator = new DefaultItemAnimator();
         defaultItemAnimator.setChangeDuration(150);
         defaultItemAnimator.setMoveDuration(150);
@@ -208,16 +296,13 @@ public abstract class BaseBeautyMakeupFragment extends BaseBeautyFragment {
     }
 
     /* access modifiers changed from: protected */
-    public boolean isCustomWidth() {
-        return false;
-    }
-
-    /* access modifiers changed from: protected */
     public boolean isNeedScroll() {
-        return this.mItemList != null && this.mItemList.size() > 4;
+        return this.mNeedScroll;
     }
 
     public abstract void onAdapterItemClick(TypeItem typeItem);
+
+    public abstract void onClearClick();
 
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, Bundle bundle) {
@@ -226,7 +311,7 @@ public abstract class BaseBeautyMakeupFragment extends BaseBeautyFragment {
         return inflate;
     }
 
-    public abstract void onHeaderClick();
+    public abstract void onResetClick();
 
     /* access modifiers changed from: protected */
     public void onViewCreatedAndVisibleToUser(boolean z) {
@@ -238,6 +323,18 @@ public abstract class BaseBeautyMakeupFragment extends BaseBeautyFragment {
                 makeupProtocol.onMakeupItemSelected(typeItem.mKeyOrType, false);
             }
         }
+    }
+
+    /* access modifiers changed from: protected */
+    public void selectFirstItem() {
+        this.mSelectedParam = 0;
+        this.mMakeupAdapter.setSelectedPosition(this.mSelectedParam);
+        this.mLayoutManager.scrollToPosition(this.mSelectedParam);
+        MakeupProtocol makeupProtocol = (MakeupProtocol) ModeCoordinatorImpl.getInstance().getAttachProtocol(180);
+        if (makeupProtocol != null) {
+            makeupProtocol.onMakeupItemSelected(((TypeItem) this.mItemList.get(0)).mKeyOrType, true);
+        }
+        this.mMakeupAdapter.notifyDataSetChanged();
     }
 
     /* access modifiers changed from: protected */

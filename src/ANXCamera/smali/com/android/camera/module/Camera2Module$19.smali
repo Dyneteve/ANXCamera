@@ -3,7 +3,7 @@
 .source "Camera2Module.java"
 
 # interfaces
-.implements Lio/reactivex/functions/Consumer;
+.implements Lio/reactivex/FlowableOnSubscribe;
 
 
 # annotations
@@ -19,8 +19,8 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Lio/reactivex/functions/Consumer<",
-        "Ljava/lang/Integer;",
+        "Lio/reactivex/FlowableOnSubscribe<",
+        "Landroid/hardware/camera2/CaptureResult;",
         ">;"
     }
 .end annotation
@@ -43,31 +43,26 @@
 
 
 # virtual methods
-.method public accept(Ljava/lang/Integer;)V
+.method public subscribe(Lio/reactivex/FlowableEmitter;)V
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lio/reactivex/FlowableEmitter<",
+            "Landroid/hardware/camera2/CaptureResult;",
+            ">;)V"
+        }
+    .end annotation
 
-    iget-object v0, p0, Lcom/android/camera/module/Camera2Module$19;->this$0:Lcom/android/camera/module/Camera2Module;
-
-    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
-
-    move-result p1
-
-    invoke-static {v0, p1}, Lcom/android/camera/module/Camera2Module;->access$4500(Lcom/android/camera/module/Camera2Module;I)V
-
-    return-void
-.end method
-
-.method public bridge synthetic accept(Ljava/lang/Object;)V
-    .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
-    check-cast p1, Ljava/lang/Integer;
+    iget-object v0, p0, Lcom/android/camera/module/Camera2Module$19;->this$0:Lcom/android/camera/module/Camera2Module;
 
-    invoke-virtual {p0, p1}, Lcom/android/camera/module/Camera2Module$19;->accept(Ljava/lang/Integer;)V
+    invoke-static {v0, p1}, Lcom/android/camera/module/Camera2Module;->access$4302(Lcom/android/camera/module/Camera2Module;Lio/reactivex/FlowableEmitter;)Lio/reactivex/FlowableEmitter;
 
     return-void
 .end method

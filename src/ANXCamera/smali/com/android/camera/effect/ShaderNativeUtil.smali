@@ -67,10 +67,13 @@
     return-object p0
 .end method
 
-.method public static native genWaterMarkRange(IIII)V
+.method public static native genWaterMarkRange(IIIII)V
 .end method
 
 .method public static native getCenterSquareImage(II)V
+.end method
+
+.method public static native getGraphicBufferFboTexId()I
 .end method
 
 .method public static native getJpegFromMemImage(IIIII)[B
@@ -101,7 +104,7 @@
     return-object p0
 .end method
 
-.method public static native getWaterMarkRange(I)[B
+.method public static native getWaterMarkRange(II)[B
 .end method
 
 .method private static native initJpegTexture([BII)[I
@@ -129,7 +132,7 @@
     return-object p0
 .end method
 
-.method public static native mergeWaterMarkRange(IIIIII)V
+.method public static native mergeWaterMarkRange(IIIIIII)V
 .end method
 
 .method public static native mergeYUV(IIII)V
@@ -154,6 +157,9 @@
 .end method
 
 .method public static native setupGraphicBuffer(II)I
+.end method
+
+.method public static native setupGraphicBufferWithChannels(III)I
 .end method
 
 .method public static native texChannelUV(III)V

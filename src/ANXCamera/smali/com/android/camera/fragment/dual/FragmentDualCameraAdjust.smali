@@ -178,7 +178,7 @@
 .method private adjustViewBackground(Landroid/view/View;I)V
     .locals 0
 
-    const p2, 0x7f0b0049
+    const p2, 0x7f0b004b
 
     invoke-virtual {p1, p2}, Landroid/view/View;->setBackgroundResource(I)V
 
@@ -350,9 +350,14 @@
 
     :cond_0
     :goto_0
-    move v0, v3
+    move p0, v3
 
-    goto/16 :goto_12
+    move v0, p0
+
+    :goto_1
+    move v3, v1
+
+    goto/16 :goto_13
 
     :cond_1
     invoke-static {p0}, Lcom/android/camera/CameraSettings;->isMacroModeEnabled(I)Z
@@ -391,10 +396,10 @@
 
     nop
 
-    :goto_1
+    :goto_2
     move p0, v2
 
-    goto :goto_2
+    goto :goto_3
 
     :cond_4
     invoke-static {p0}, Lcom/android/camera/CameraSettings;->isMacroModeEnabled(I)Z
@@ -413,44 +418,40 @@
 
     move p0, v3
 
-    goto :goto_2
+    goto :goto_3
 
     :cond_5
-    goto :goto_1
+    goto :goto_2
 
-    :goto_2
+    :goto_3
     if-ne p0, v2, :cond_6
 
     move v0, v3
 
-    goto :goto_3
+    goto :goto_4
 
     :cond_6
     nop
 
     move v0, v1
 
-    :goto_3
+    :goto_4
     if-ne p0, v2, :cond_7
 
-    goto :goto_4
+    goto :goto_5
 
     :cond_7
     move v3, v1
 
-    :goto_4
+    :goto_5
     nop
 
-    :goto_5
+    :goto_6
     move v2, p0
 
-    move v5, v3
+    move p0, v3
 
-    move v3, v0
-
-    move v0, v5
-
-    goto/16 :goto_12
+    goto :goto_1
 
     :cond_8
     const/16 v0, 0xae
@@ -463,10 +464,10 @@
 
     nop
 
-    :goto_6
+    :goto_7
     move p0, v2
 
-    goto :goto_7
+    goto :goto_8
 
     :cond_9
     invoke-static {p0}, Lcom/android/camera/CameraSettings;->isMacroModeEnabled(I)Z
@@ -485,33 +486,33 @@
 
     move p0, v3
 
-    goto :goto_7
+    goto :goto_8
 
     :cond_a
-    goto :goto_6
+    goto :goto_7
 
-    :goto_7
+    :goto_8
     if-ne p0, v2, :cond_b
 
     move v0, v3
 
-    goto :goto_8
+    goto :goto_9
 
     :cond_b
     nop
 
     move v0, v1
 
-    :goto_8
+    :goto_9
     if-ne p0, v2, :cond_c
 
-    goto :goto_9
+    goto :goto_a
 
     :cond_c
     move v3, v1
 
-    :goto_9
-    goto :goto_5
+    :goto_a
+    goto :goto_6
 
     :cond_d
     const/16 v0, 0xa2
@@ -524,10 +525,10 @@
 
     nop
 
-    :goto_a
+    :goto_b
     move p0, v2
 
-    goto :goto_b
+    goto :goto_c
 
     :cond_e
     invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
@@ -550,7 +551,7 @@
 
     if-eqz v0, :cond_f
 
-    goto :goto_a
+    goto :goto_b
 
     :cond_f
     invoke-static {p0}, Lcom/android/camera/CameraSettings;->isMacroModeEnabled(I)Z
@@ -569,33 +570,33 @@
 
     move p0, v3
 
-    goto :goto_b
+    goto :goto_c
 
     :cond_10
-    goto :goto_a
+    goto :goto_b
 
-    :goto_b
+    :goto_c
     if-ne p0, v2, :cond_11
 
     move v0, v3
 
-    goto :goto_c
+    goto :goto_d
 
     :cond_11
     nop
 
     move v0, v1
 
-    :goto_c
+    :goto_d
     if-ne p0, v2, :cond_12
 
-    goto :goto_d
+    goto :goto_e
 
     :cond_12
     move v3, v1
 
-    :goto_d
-    goto :goto_5
+    :goto_e
+    goto :goto_6
 
     :cond_13
     const/16 v0, 0xa3
@@ -614,16 +615,22 @@
 
     if-nez p0, :cond_14
 
+    invoke-static {}, Lcom/android/camera/CameraSettings;->isUltraPixelRear48MPOn()Z
+
+    move-result p0
+
+    if-nez p0, :cond_14
+
     nop
 
     move v2, v3
 
-    goto :goto_e
+    goto :goto_f
 
     :cond_14
     nop
 
-    :goto_e
+    :goto_f
     sget-boolean p0, Lcom/android/camera/HybridZoomingSystem;->IS_2_SAT:Z
 
     sget-boolean v0, Lcom/android/camera/HybridZoomingSystem;->IS_2_SAT:Z
@@ -632,12 +639,14 @@
 
     nop
 
-    :goto_f
-    move v1, v3
+    :goto_10
+    move v5, v0
 
-    move v3, p0
+    move v0, p0
 
-    goto :goto_12
+    move p0, v5
+
+    goto :goto_13
 
     :cond_15
     const/16 v0, 0xa5
@@ -660,19 +669,19 @@
 
     move v2, v3
 
-    goto :goto_10
+    goto :goto_11
 
     :cond_16
     nop
 
-    :goto_10
+    :goto_11
     sget-boolean p0, Lcom/android/camera/HybridZoomingSystem;->IS_2_SAT:Z
 
     sget-boolean v0, Lcom/android/camera/HybridZoomingSystem;->IS_2_SAT:Z
 
     nop
 
-    goto :goto_f
+    goto :goto_10
 
     :cond_17
     const/16 v0, 0xad
@@ -689,13 +698,13 @@
 
     nop
 
-    move v0, v3
+    move p0, v3
 
-    move v1, v0
+    move v0, p0
 
-    move v2, v1
+    move v2, v0
 
-    goto :goto_12
+    goto :goto_13
 
     :cond_18
     const/16 v0, 0xa6
@@ -716,12 +725,12 @@
 
     move v2, v3
 
-    goto :goto_11
+    goto :goto_12
 
     :cond_19
     nop
 
-    :goto_11
+    :goto_12
     nop
 
     nop
@@ -730,12 +739,26 @@
 
     goto/16 :goto_0
 
-    :goto_12
-    new-instance p0, Lcom/android/camera/ui/zoom/ZoomRatioToggleView$ViewSpec;
+    :goto_13
+    invoke-static {}, Lcom/android/camera/CameraSettings;->isSupportedOpticalZoom()Z
 
-    invoke-direct {p0, v2, v3, v0, v1}, Lcom/android/camera/ui/zoom/ZoomRatioToggleView$ViewSpec;-><init>(IZZZ)V
+    move-result v4
 
-    return-object p0
+    if-eqz v4, :cond_1a
+
+    move v1, v3
+
+    goto :goto_14
+
+    :cond_1a
+    nop
+
+    :goto_14
+    new-instance v3, Lcom/android/camera/ui/zoom/ZoomRatioToggleView$ViewSpec;
+
+    invoke-direct {v3, v2, v0, p0, v1}, Lcom/android/camera/ui/zoom/ZoomRatioToggleView$ViewSpec;-><init>(IZZZ)V
+
+    return-object v3
 .end method
 
 .method private initSlideZoomView(Lcom/android/camera/data/data/ComponentData;)V
@@ -1056,7 +1079,7 @@
 
     invoke-static {v0, v1}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_1
+    goto/16 :goto_1
 
     :cond_5
     sget-boolean v0, Lcom/android/camera/HybridZoomingSystem;->IS_3_OR_MORE_SAT:Z
@@ -1106,6 +1129,66 @@
     goto :goto_1
 
     :cond_6
+    sget-boolean v0, Lcom/android/camera/HybridZoomingSystem;->IS_3_OR_MORE_SAT:Z
+
+    if-eqz v0, :cond_8
+
+    invoke-static {}, Lcom/android/camera/CameraSettings;->isSupportedOpticalZoom()Z
+
+    move-result v0
+
+    if-nez v0, :cond_8
+
+    iget v0, p0, Lcom/android/camera/fragment/dual/FragmentDualCameraAdjust;->mCurrentMode:I
+
+    const/16 v1, 0xa3
+
+    if-eq v0, v1, :cond_7
+
+    iget v0, p0, Lcom/android/camera/fragment/dual/FragmentDualCameraAdjust;->mCurrentMode:I
+
+    const/16 v1, 0xa5
+
+    if-ne v0, v1, :cond_8
+
+    :cond_7
+    iget v0, p0, Lcom/android/camera/fragment/dual/FragmentDualCameraAdjust;->mCurrentMode:I
+
+    const-string v1, "1.0"
+
+    invoke-static {v0, v1}, Lcom/android/camera/HybridZoomingSystem;->getZoomRatioHistory(ILjava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/camera/fragment/dual/FragmentDualCameraAdjust;->mZoomRatio:F
+
+    const-string v0, "FragmentDualCameraAdjust"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "initiateZoomRatio(): fake-sat-zoom: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v2, p0, Lcom/android/camera/fragment/dual/FragmentDualCameraAdjust;->mZoomRatio:F
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+
+    :cond_8
     sget v0, Lcom/android/camera/HybridZoomingSystem;->FLOAT_ZOOM_RATIO_WIDE:F
 
     iput v0, p0, Lcom/android/camera/fragment/dual/FragmentDualCameraAdjust;->mZoomRatio:F
@@ -1527,7 +1610,7 @@
 .method protected getLayoutResourceId()I
     .locals 1
 
-    const v0, 0x7f040019
+    const v0, 0x7f04001a
 
     return v0
 .end method
@@ -1988,7 +2071,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a00c6
+    const v3, 0x7f0a0172
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3083,13 +3166,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
+    sget-boolean v0, Lcom/android/camera/HybridZoomingSystem;->IS_3_OR_MORE_SAT:Z
+
+    if-eqz v0, :cond_1
+
+    :cond_0
     const/16 v0, 0xb8
 
     invoke-interface {p1, v0, p0}, Lcom/android/camera/protocol/ModeProtocol$ModeCoordinator;->attachProtocol(ILcom/android/camera/protocol/ModeProtocol$BaseProtocol;)V
 
-    :cond_0
+    :cond_1
     return-void
 .end method
 
@@ -3282,13 +3370,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
+    sget-boolean v0, Lcom/android/camera/HybridZoomingSystem;->IS_3_OR_MORE_SAT:Z
+
+    if-eqz v0, :cond_1
+
+    :cond_0
     const/16 v0, 0xb8
 
     invoke-interface {p1, v0, p0}, Lcom/android/camera/protocol/ModeProtocol$ModeCoordinator;->detachProtocol(ILcom/android/camera/protocol/ModeProtocol$BaseProtocol;)V
 
-    :cond_0
+    :cond_1
     return-void
 .end method
 

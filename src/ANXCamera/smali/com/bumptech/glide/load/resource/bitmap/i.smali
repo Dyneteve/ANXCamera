@@ -19,7 +19,7 @@
 
 
 # instance fields
-.field private final kD:Lcom/bumptech/glide/load/resource/bitmap/n;
+.field private final kE:Lcom/bumptech/glide/load/resource/bitmap/n;
 
 
 # direct methods
@@ -28,7 +28,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/i;->kD:Lcom/bumptech/glide/load/resource/bitmap/n;
+    iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/i;->kE:Lcom/bumptech/glide/load/resource/bitmap/n;
 
     return-void
 .end method
@@ -93,7 +93,7 @@
 
     move-result-object p1
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/i;->kD:Lcom/bumptech/glide/load/resource/bitmap/n;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/i;->kE:Lcom/bumptech/glide/load/resource/bitmap/n;
 
     invoke-virtual {v0, p1, p2, p3, p4}, Lcom/bumptech/glide/load/resource/bitmap/n;->a(Ljava/io/InputStream;IILcom/bumptech/glide/load/f;)Lcom/bumptech/glide/load/engine/p;
 
@@ -138,7 +138,7 @@
         .end annotation
     .end param
 
-    iget-object p2, p0, Lcom/bumptech/glide/load/resource/bitmap/i;->kD:Lcom/bumptech/glide/load/resource/bitmap/n;
+    iget-object p2, p0, Lcom/bumptech/glide/load/resource/bitmap/i;->kE:Lcom/bumptech/glide/load/resource/bitmap/n;
 
     invoke-virtual {p2, p1}, Lcom/bumptech/glide/load/resource/bitmap/n;->c(Ljava/nio/ByteBuffer;)Z
 

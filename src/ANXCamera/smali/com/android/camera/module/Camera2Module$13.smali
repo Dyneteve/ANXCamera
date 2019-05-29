@@ -39,11 +39,11 @@
 
     iget-object v0, p0, Lcom/android/camera/module/Camera2Module$13;->this$0:Lcom/android/camera/module/Camera2Module;
 
-    invoke-static {v0, p1}, Lcom/android/camera/module/Camera2Module;->access$3902(Lcom/android/camera/module/Camera2Module;I)I
+    invoke-static {v0, p1}, Lcom/android/camera/module/Camera2Module;->access$3802(Lcom/android/camera/module/Camera2Module;I)I
 
     iget-object p1, p0, Lcom/android/camera/module/Camera2Module$13;->this$0:Lcom/android/camera/module/Camera2Module;
 
-    invoke-static {p1}, Lcom/android/camera/module/Camera2Module;->access$3900(Lcom/android/camera/module/Camera2Module;)I
+    invoke-static {p1}, Lcom/android/camera/module/Camera2Module;->access$3800(Lcom/android/camera/module/Camera2Module;)I
 
     move-result p1
 

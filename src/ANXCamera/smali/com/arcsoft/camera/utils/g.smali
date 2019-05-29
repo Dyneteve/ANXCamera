@@ -17,7 +17,7 @@
 
 .field public static final a:Ljava/lang/String;
 
-.field private static final af:[Ljava/lang/String;
+.field private static final ag:[Ljava/lang/String;
 
 .field public static final b:Landroid/net/Uri;
 
@@ -69,11 +69,11 @@
 
 .field private final ac:Ljava/lang/String;
 
-.field private final ad:[Ljava/lang/String;
+.field private final ad:Ljava/lang/String;
 
 .field private final ae:[Ljava/lang/String;
 
-.field private final z:Ljava/lang/String;
+.field private final af:[Ljava/lang/String;
 
 
 # direct methods
@@ -218,7 +218,7 @@
 
     aput-object v1, v0, v2
 
-    sput-object v0, Lcom/arcsoft/camera/utils/g;->af:[Ljava/lang/String;
+    sput-object v0, Lcom/arcsoft/camera/utils/g;->ag:[Ljava/lang/String;
 
     return-void
 .end method
@@ -246,11 +246,11 @@
 
     const-string v1, "video/3gpp"
 
-    iput-object v1, v0, Lcom/arcsoft/camera/utils/g;->z:Ljava/lang/String;
+    iput-object v1, v0, Lcom/arcsoft/camera/utils/g;->ac:Ljava/lang/String;
 
     const-string v1, "video/mp4"
 
-    iput-object v1, v0, Lcom/arcsoft/camera/utils/g;->ac:Ljava/lang/String;
+    iput-object v1, v0, Lcom/arcsoft/camera/utils/g;->ad:Ljava/lang/String;
 
     const-string v2, "_id"
 
@@ -288,7 +288,7 @@
 
     move-result-object v1
 
-    iput-object v1, v0, Lcom/arcsoft/camera/utils/g;->ad:[Ljava/lang/String;
+    iput-object v1, v0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
 
     const-string v2, "_id"
 
@@ -324,7 +324,7 @@
 
     move-result-object v1
 
-    iput-object v1, v0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
+    iput-object v1, v0, Lcom/arcsoft/camera/utils/g;->af:[Ljava/lang/String;
 
     move-object/from16 v1, p1
 
@@ -374,7 +374,7 @@
 
     sget-object v1, Lcom/arcsoft/camera/utils/g;->b:Landroid/net/Uri;
 
-    sget-object v2, Lcom/arcsoft/camera/utils/g;->af:[Ljava/lang/String;
+    sget-object v2, Lcom/arcsoft/camera/utils/g;->ag:[Ljava/lang/String;
 
     const-string v5, "_id DESC"
 
@@ -478,7 +478,7 @@
 
     if-eqz p2, :cond_1
 
-    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ad:[Ljava/lang/String;
+    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
 
     const-string v1, "_id"
 
@@ -504,7 +504,7 @@
 
     invoke-static {v0, p2}, Lcom/arcsoft/camera/utils/g$b;->a(Lcom/arcsoft/camera/utils/g$b;Landroid/net/Uri;)Landroid/net/Uri;
 
-    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ad:[Ljava/lang/String;
+    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
 
     const-string v1, "bucket_id"
 
@@ -520,7 +520,7 @@
 
     invoke-static {v0, v1, v2}, Lcom/arcsoft/camera/utils/g$b;->b(Lcom/arcsoft/camera/utils/g$b;J)J
 
-    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ad:[Ljava/lang/String;
+    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
 
     const-string v1, "bucket_display_name"
 
@@ -534,7 +534,7 @@
 
     invoke-static {v0, p2}, Lcom/arcsoft/camera/utils/g$b;->a(Lcom/arcsoft/camera/utils/g$b;Ljava/lang/String;)Ljava/lang/String;
 
-    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ad:[Ljava/lang/String;
+    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
 
     const-string v1, "_data"
 
@@ -548,7 +548,7 @@
 
     invoke-static {v0, p2}, Lcom/arcsoft/camera/utils/g$b;->b(Lcom/arcsoft/camera/utils/g$b;Ljava/lang/String;)Ljava/lang/String;
 
-    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ad:[Ljava/lang/String;
+    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
 
     const-string v1, "_display_name"
 
@@ -562,7 +562,7 @@
 
     invoke-static {v0, p2}, Lcom/arcsoft/camera/utils/g$b;->c(Lcom/arcsoft/camera/utils/g$b;Ljava/lang/String;)Ljava/lang/String;
 
-    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ad:[Ljava/lang/String;
+    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
 
     const-string v1, "width"
 
@@ -576,7 +576,7 @@
 
     invoke-static {v0, p2}, Lcom/arcsoft/camera/utils/g$b;->a(Lcom/arcsoft/camera/utils/g$b;I)I
 
-    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ad:[Ljava/lang/String;
+    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
 
     const-string v1, "height"
 
@@ -590,7 +590,7 @@
 
     invoke-static {v0, p2}, Lcom/arcsoft/camera/utils/g$b;->b(Lcom/arcsoft/camera/utils/g$b;I)I
 
-    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ad:[Ljava/lang/String;
+    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
 
     const-string v1, "_size"
 
@@ -604,7 +604,7 @@
 
     invoke-static {v0, v1, v2}, Lcom/arcsoft/camera/utils/g$b;->c(Lcom/arcsoft/camera/utils/g$b;J)J
 
-    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ad:[Ljava/lang/String;
+    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
 
     const-string v1, "mime_type"
 
@@ -618,7 +618,7 @@
 
     invoke-static {v0, p2}, Lcom/arcsoft/camera/utils/g$b;->d(Lcom/arcsoft/camera/utils/g$b;Ljava/lang/String;)Ljava/lang/String;
 
-    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ad:[Ljava/lang/String;
+    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
 
     const-string v1, "datetaken"
 
@@ -632,7 +632,7 @@
 
     invoke-static {v0, p2}, Lcom/arcsoft/camera/utils/g$b;->e(Lcom/arcsoft/camera/utils/g$b;Ljava/lang/String;)Ljava/lang/String;
 
-    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ad:[Ljava/lang/String;
+    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
 
     const-string v1, "date_modified"
 
@@ -646,7 +646,7 @@
 
     invoke-static {v0, p2}, Lcom/arcsoft/camera/utils/g$b;->f(Lcom/arcsoft/camera/utils/g$b;Ljava/lang/String;)Ljava/lang/String;
 
-    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ad:[Ljava/lang/String;
+    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
 
     const-string v1, "date_added"
 
@@ -660,7 +660,7 @@
 
     invoke-static {v0, p2}, Lcom/arcsoft/camera/utils/g$b;->g(Lcom/arcsoft/camera/utils/g$b;Ljava/lang/String;)Ljava/lang/String;
 
-    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ad:[Ljava/lang/String;
+    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
 
     const-string v1, "latitude"
 
@@ -674,7 +674,7 @@
 
     invoke-static {v0, v1, v2}, Lcom/arcsoft/camera/utils/g$b;->a(Lcom/arcsoft/camera/utils/g$b;D)D
 
-    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ad:[Ljava/lang/String;
+    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
 
     const-string v1, "longitude"
 
@@ -688,7 +688,7 @@
 
     invoke-static {v0, v1, v2}, Lcom/arcsoft/camera/utils/g$b;->b(Lcom/arcsoft/camera/utils/g$b;D)D
 
-    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ad:[Ljava/lang/String;
+    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
 
     const-string v1, "duration"
 
@@ -702,7 +702,7 @@
 
     invoke-static {v0, v1, v2}, Lcom/arcsoft/camera/utils/g$b;->d(Lcom/arcsoft/camera/utils/g$b;J)J
 
-    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ad:[Ljava/lang/String;
+    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
 
     const-string v1, "resolution"
 
@@ -719,7 +719,7 @@
     goto/16 :goto_0
 
     :cond_1
-    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
+    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->af:[Ljava/lang/String;
 
     const-string v1, "_id"
 
@@ -745,7 +745,7 @@
 
     invoke-static {v0, p2}, Lcom/arcsoft/camera/utils/g$b;->a(Lcom/arcsoft/camera/utils/g$b;Landroid/net/Uri;)Landroid/net/Uri;
 
-    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
+    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->af:[Ljava/lang/String;
 
     const-string v1, "bucket_id"
 
@@ -761,7 +761,7 @@
 
     invoke-static {v0, v1, v2}, Lcom/arcsoft/camera/utils/g$b;->b(Lcom/arcsoft/camera/utils/g$b;J)J
 
-    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
+    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->af:[Ljava/lang/String;
 
     const-string v1, "bucket_display_name"
 
@@ -775,7 +775,7 @@
 
     invoke-static {v0, p2}, Lcom/arcsoft/camera/utils/g$b;->a(Lcom/arcsoft/camera/utils/g$b;Ljava/lang/String;)Ljava/lang/String;
 
-    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
+    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->af:[Ljava/lang/String;
 
     const-string v1, "_data"
 
@@ -789,7 +789,7 @@
 
     invoke-static {v0, p2}, Lcom/arcsoft/camera/utils/g$b;->b(Lcom/arcsoft/camera/utils/g$b;Ljava/lang/String;)Ljava/lang/String;
 
-    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
+    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->af:[Ljava/lang/String;
 
     const-string v1, "_display_name"
 
@@ -803,7 +803,7 @@
 
     invoke-static {v0, p2}, Lcom/arcsoft/camera/utils/g$b;->c(Lcom/arcsoft/camera/utils/g$b;Ljava/lang/String;)Ljava/lang/String;
 
-    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
+    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->af:[Ljava/lang/String;
 
     const-string v1, "width"
 
@@ -817,7 +817,7 @@
 
     invoke-static {v0, p2}, Lcom/arcsoft/camera/utils/g$b;->a(Lcom/arcsoft/camera/utils/g$b;I)I
 
-    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
+    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->af:[Ljava/lang/String;
 
     const-string v1, "height"
 
@@ -831,7 +831,7 @@
 
     invoke-static {v0, p2}, Lcom/arcsoft/camera/utils/g$b;->b(Lcom/arcsoft/camera/utils/g$b;I)I
 
-    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
+    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->af:[Ljava/lang/String;
 
     const-string v1, "_size"
 
@@ -845,7 +845,7 @@
 
     invoke-static {v0, v1, v2}, Lcom/arcsoft/camera/utils/g$b;->c(Lcom/arcsoft/camera/utils/g$b;J)J
 
-    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
+    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->af:[Ljava/lang/String;
 
     const-string v1, "mime_type"
 
@@ -859,7 +859,7 @@
 
     invoke-static {v0, p2}, Lcom/arcsoft/camera/utils/g$b;->d(Lcom/arcsoft/camera/utils/g$b;Ljava/lang/String;)Ljava/lang/String;
 
-    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
+    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->af:[Ljava/lang/String;
 
     const-string v1, "datetaken"
 
@@ -873,7 +873,7 @@
 
     invoke-static {v0, p2}, Lcom/arcsoft/camera/utils/g$b;->e(Lcom/arcsoft/camera/utils/g$b;Ljava/lang/String;)Ljava/lang/String;
 
-    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
+    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->af:[Ljava/lang/String;
 
     const-string v1, "date_modified"
 
@@ -887,7 +887,7 @@
 
     invoke-static {v0, p2}, Lcom/arcsoft/camera/utils/g$b;->f(Lcom/arcsoft/camera/utils/g$b;Ljava/lang/String;)Ljava/lang/String;
 
-    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
+    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->af:[Ljava/lang/String;
 
     const-string v1, "date_added"
 
@@ -901,7 +901,7 @@
 
     invoke-static {v0, p2}, Lcom/arcsoft/camera/utils/g$b;->g(Lcom/arcsoft/camera/utils/g$b;Ljava/lang/String;)Ljava/lang/String;
 
-    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
+    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->af:[Ljava/lang/String;
 
     const-string v1, "latitude"
 
@@ -915,7 +915,7 @@
 
     invoke-static {v0, v1, v2}, Lcom/arcsoft/camera/utils/g$b;->a(Lcom/arcsoft/camera/utils/g$b;D)D
 
-    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
+    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->af:[Ljava/lang/String;
 
     const-string v1, "longitude"
 
@@ -929,7 +929,7 @@
 
     invoke-static {v0, v1, v2}, Lcom/arcsoft/camera/utils/g$b;->b(Lcom/arcsoft/camera/utils/g$b;D)D
 
-    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
+    iget-object p2, p0, Lcom/arcsoft/camera/utils/g;->af:[Ljava/lang/String;
 
     const-string v1, "orientation"
 
@@ -1568,7 +1568,7 @@
 
     sget-object v4, Landroid/provider/MediaStore$Video$Media;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
-    iget-object v5, p0, Lcom/arcsoft/camera/utils/g;->ad:[Ljava/lang/String;
+    iget-object v5, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
 
     invoke-virtual/range {v3 .. v8}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
@@ -1589,7 +1589,7 @@
 
     sget-object v1, Landroid/provider/MediaStore$Images$Media;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
-    iget-object v2, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
+    iget-object v2, p0, Lcom/arcsoft/camera/utils/g;->af:[Ljava/lang/String;
 
     invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
@@ -1751,7 +1751,7 @@
 
     sget-object v5, Landroid/provider/MediaStore$Video$Media;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
-    iget-object v6, p0, Lcom/arcsoft/camera/utils/g;->ad:[Ljava/lang/String;
+    iget-object v6, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
 
     invoke-virtual/range {v4 .. v9}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
@@ -1772,7 +1772,7 @@
 
     sget-object v3, Landroid/provider/MediaStore$Images$Media;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
-    iget-object v4, p0, Lcom/arcsoft/camera/utils/g;->ae:[Ljava/lang/String;
+    iget-object v4, p0, Lcom/arcsoft/camera/utils/g;->af:[Ljava/lang/String;
 
     invoke-virtual/range {v2 .. v7}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 

@@ -216,7 +216,7 @@
 
     if-nez v1, :cond_3
 
-    invoke-static {}, Lcom/mi/config/b;->ie()Z
+    invoke-static {}, Lcom/mi/config/b;->ih()Z
 
     move-result v1
 

@@ -30,7 +30,7 @@ import java.util.List;
 public class g {
     private static g W = null;
     public static final String a = e(t);
-    private static final String[] af = {"max(_id) as newId", "_data", "_size", "datetaken", a.e, "bucket_id", "mime_type", "date_modified", "media_type", "resolution", "tags", "width", "height", "orientation", "duration"};
+    private static final String[] ag = {"max(_id) as newId", "_data", "_size", "datetaken", a.e, "bucket_id", "mime_type", "date_modified", "media_type", "resolution", "tags", "width", "height", "orientation", "duration"};
     public static final Uri b = Files.getContentUri("external");
     public static final int c = 1;
     public static final int d = 3;
@@ -54,10 +54,10 @@ public class g {
     private ContentResolver Z = null;
     private final String aa = "image/jpeg";
     private final String ab = "image/gif";
-    private final String ac = "video/mp4";
-    private final String[] ad = {"_id", "bucket_id", "bucket_display_name", "_data", "_display_name", "width", "height", "_size", "mime_type", "datetaken", "date_modified", "date_added", "latitude", "longitude", "duration", "resolution"};
-    private final String[] ae = {"_id", "bucket_id", "bucket_display_name", "_data", "_display_name", "width", "height", "_size", "mime_type", "datetaken", "date_modified", "date_added", "latitude", "longitude", "orientation"};
-    private final String z = "video/3gpp";
+    private final String ac = "video/3gpp";
+    private final String ad = "video/mp4";
+    private final String[] ae = {"_id", "bucket_id", "bucket_display_name", "_data", "_display_name", "width", "height", "_size", "mime_type", "datetaken", "date_modified", "date_added", "latitude", "longitude", "duration", "resolution"};
+    private final String[] af = {"_id", "bucket_id", "bucket_display_name", "_data", "_display_name", "width", "height", "_size", "mime_type", "datetaken", "date_modified", "date_added", "latitude", "longitude", "orientation"};
 
     /* compiled from: MediaManager */
     private static final class a {
@@ -151,7 +151,7 @@ public class g {
 
     public static Cursor a(ContentResolver contentResolver) {
         String[] strArr = {String.valueOf(1), String.valueOf(3), a};
-        return contentResolver.query(b, af, "(media_type=? or media_type=?) and bucket_id=? ", strArr, "_id DESC");
+        return contentResolver.query(b, ag, "(media_type=? or media_type=?) and bucket_id=? ", strArr, "_id DESC");
     }
 
     private static Uri a(Cursor cursor) {
@@ -169,33 +169,15 @@ public class g {
         return W;
     }
 
-    private b b(Cursor cursor, boolean z2) {
+    private b b(Cursor cursor, boolean z) {
         if (cursor == null || cursor.getCount() <= 0) {
             return null;
         }
         b bVar = new b();
-        bVar.a = z2;
-        if (z2) {
-            bVar.c = cursor.getLong(e.b(this.ad, "_id"));
-            bVar.b = ContentUris.withAppendedId(Video.Media.EXTERNAL_CONTENT_URI, bVar.c);
-            bVar.d = (long) cursor.getInt(e.b(this.ad, "bucket_id"));
-            bVar.e = cursor.getString(e.b(this.ad, "bucket_display_name"));
-            bVar.f = cursor.getString(e.b(this.ad, "_data"));
-            bVar.g = cursor.getString(e.b(this.ad, "_display_name"));
-            bVar.h = cursor.getInt(e.b(this.ad, "width"));
-            bVar.i = cursor.getInt(e.b(this.ad, "height"));
-            bVar.j = cursor.getLong(e.b(this.ad, "_size"));
-            bVar.k = cursor.getString(e.b(this.ad, "mime_type"));
-            bVar.l = cursor.getString(e.b(this.ad, "datetaken"));
-            bVar.m = cursor.getString(e.b(this.ad, "date_modified"));
-            bVar.n = cursor.getString(e.b(this.ad, "date_added"));
-            bVar.o = cursor.getDouble(e.b(this.ad, "latitude"));
-            bVar.p = cursor.getDouble(e.b(this.ad, "longitude"));
-            bVar.r = cursor.getLong(e.b(this.ad, "duration"));
-            bVar.s = cursor.getString(e.b(this.ad, "resolution"));
-        } else {
+        bVar.a = z;
+        if (z) {
             bVar.c = cursor.getLong(e.b(this.ae, "_id"));
-            bVar.b = ContentUris.withAppendedId(Media.EXTERNAL_CONTENT_URI, bVar.c);
+            bVar.b = ContentUris.withAppendedId(Video.Media.EXTERNAL_CONTENT_URI, bVar.c);
             bVar.d = (long) cursor.getInt(e.b(this.ae, "bucket_id"));
             bVar.e = cursor.getString(e.b(this.ae, "bucket_display_name"));
             bVar.f = cursor.getString(e.b(this.ae, "_data"));
@@ -209,7 +191,25 @@ public class g {
             bVar.n = cursor.getString(e.b(this.ae, "date_added"));
             bVar.o = cursor.getDouble(e.b(this.ae, "latitude"));
             bVar.p = cursor.getDouble(e.b(this.ae, "longitude"));
-            bVar.q = cursor.getInt(e.b(this.ae, "orientation"));
+            bVar.r = cursor.getLong(e.b(this.ae, "duration"));
+            bVar.s = cursor.getString(e.b(this.ae, "resolution"));
+        } else {
+            bVar.c = cursor.getLong(e.b(this.af, "_id"));
+            bVar.b = ContentUris.withAppendedId(Media.EXTERNAL_CONTENT_URI, bVar.c);
+            bVar.d = (long) cursor.getInt(e.b(this.af, "bucket_id"));
+            bVar.e = cursor.getString(e.b(this.af, "bucket_display_name"));
+            bVar.f = cursor.getString(e.b(this.af, "_data"));
+            bVar.g = cursor.getString(e.b(this.af, "_display_name"));
+            bVar.h = cursor.getInt(e.b(this.af, "width"));
+            bVar.i = cursor.getInt(e.b(this.af, "height"));
+            bVar.j = cursor.getLong(e.b(this.af, "_size"));
+            bVar.k = cursor.getString(e.b(this.af, "mime_type"));
+            bVar.l = cursor.getString(e.b(this.af, "datetaken"));
+            bVar.m = cursor.getString(e.b(this.af, "date_modified"));
+            bVar.n = cursor.getString(e.b(this.af, "date_added"));
+            bVar.o = cursor.getDouble(e.b(this.af, "latitude"));
+            bVar.p = cursor.getDouble(e.b(this.af, "longitude"));
+            bVar.q = cursor.getInt(e.b(this.af, "orientation"));
         }
         return bVar;
     }
@@ -317,7 +317,7 @@ public class g {
         return str;
     }
 
-    public List<b> a(String str, boolean z2) {
+    public List<b> a(String str, boolean z) {
         Cursor cursor;
         if (str == null) {
             return Collections.emptyList();
@@ -329,19 +329,19 @@ public class g {
         if (-1 != lastIndexOf) {
             str = str.substring(lastIndexOf + 1);
         }
-        if (z2) {
+        if (z) {
             String[] strArr = {str};
-            cursor = this.Z.query(Video.Media.EXTERNAL_CONTENT_URI, this.ad, "bucket_display_name=?", strArr, "_id ASC");
+            cursor = this.Z.query(Video.Media.EXTERNAL_CONTENT_URI, this.ae, "bucket_display_name=?", strArr, "_id ASC");
         } else {
             String[] strArr2 = {str};
-            cursor = this.Z.query(Media.EXTERNAL_CONTENT_URI, this.ae, "bucket_display_name=?", strArr2, "_id ASC");
+            cursor = this.Z.query(Media.EXTERNAL_CONTENT_URI, this.af, "bucket_display_name=?", strArr2, "_id ASC");
         }
         ArrayList arrayList = null;
         if (cursor != null && cursor.getCount() > 0) {
             arrayList = new ArrayList();
             cursor.moveToFirst();
             while (!cursor.isAfterLast()) {
-                arrayList.add(b(cursor, z2));
+                arrayList.add(b(cursor, z));
                 cursor.moveToNext();
             }
         }
@@ -380,10 +380,10 @@ public class g {
         boolean isVideoFile = a.isVideoFile(str);
         if (isVideoFile) {
             String[] strArr = {str};
-            cursor = this.Z.query(Video.Media.EXTERNAL_CONTENT_URI, this.ad, "_data=?", strArr, "_id DESC");
+            cursor = this.Z.query(Video.Media.EXTERNAL_CONTENT_URI, this.ae, "_data=?", strArr, "_id DESC");
         } else {
             String[] strArr2 = {str};
-            cursor = this.Z.query(Media.EXTERNAL_CONTENT_URI, this.ae, "_data=?", strArr2, "_id DESC");
+            cursor = this.Z.query(Media.EXTERNAL_CONTENT_URI, this.af, "_data=?", strArr2, "_id DESC");
         }
         if (cursor != null && cursor.getCount() > 0) {
             cursor.moveToFirst();

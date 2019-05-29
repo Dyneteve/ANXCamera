@@ -26,7 +26,7 @@
 
 
 # instance fields
-.field final fP:Lcom/bumptech/glide/load/resource/d/e;
+.field final fQ:Lcom/bumptech/glide/load/resource/d/e;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/resource/d/e<",
@@ -35,7 +35,7 @@
     .end annotation
 .end field
 
-.field private final mN:Ljava/lang/Class;
+.field private final mO:Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/Class<",
@@ -44,7 +44,7 @@
     .end annotation
 .end field
 
-.field private final mO:Ljava/lang/Class;
+.field private final mP:Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/Class<",
@@ -83,11 +83,11 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/resource/d/f$a;->mN:Ljava/lang/Class;
+    iput-object p1, p0, Lcom/bumptech/glide/load/resource/d/f$a;->mO:Ljava/lang/Class;
 
-    iput-object p2, p0, Lcom/bumptech/glide/load/resource/d/f$a;->mO:Ljava/lang/Class;
+    iput-object p2, p0, Lcom/bumptech/glide/load/resource/d/f$a;->mP:Ljava/lang/Class;
 
-    iput-object p3, p0, Lcom/bumptech/glide/load/resource/d/f$a;->fP:Lcom/bumptech/glide/load/resource/d/e;
+    iput-object p3, p0, Lcom/bumptech/glide/load/resource/d/f$a;->fQ:Lcom/bumptech/glide/load/resource/d/e;
 
     return-void
 .end method
@@ -114,7 +114,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/d/f$a;->mN:Ljava/lang/Class;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/d/f$a;->mO:Ljava/lang/Class;
 
     invoke-virtual {v0, p1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
@@ -122,7 +122,7 @@
 
     if-eqz p1, :cond_0
 
-    iget-object p1, p0, Lcom/bumptech/glide/load/resource/d/f$a;->mO:Ljava/lang/Class;
+    iget-object p1, p0, Lcom/bumptech/glide/load/resource/d/f$a;->mP:Ljava/lang/Class;
 
     invoke-virtual {p2, p1}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 

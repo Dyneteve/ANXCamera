@@ -14,17 +14,17 @@ import java.io.InputStream;
 
 /* compiled from: HttpGlideUrlLoader */
 public class b implements m<g, InputStream> {
-    public static final e<Integer> kw = e.a("com.bumptech.glide.load.model.stream.HttpGlideUrlLoader.Timeout", Integer.valueOf(2500));
+    public static final e<Integer> kx = e.a("com.bumptech.glide.load.model.stream.HttpGlideUrlLoader.Timeout", Integer.valueOf(2500));
     @Nullable
-    private final ModelCache<g, g> kv;
+    private final ModelCache<g, g> kw;
 
     /* compiled from: HttpGlideUrlLoader */
     public static class a implements n<g, InputStream> {
-        private final ModelCache<g, g> kv = new ModelCache<>(500);
+        private final ModelCache<g, g> kw = new ModelCache<>(500);
 
         @NonNull
         public m<g, InputStream> a(q qVar) {
-            return new b(this.kv);
+            return new b(this.kw);
         }
 
         public void bX() {
@@ -36,20 +36,20 @@ public class b implements m<g, InputStream> {
     }
 
     public b(@Nullable ModelCache<g, g> modelCache) {
-        this.kv = modelCache;
+        this.kw = modelCache;
     }
 
     /* renamed from: a */
     public com.bumptech.glide.load.model.m.a<InputStream> b(@NonNull g gVar, int i, int i2, @NonNull f fVar) {
-        if (this.kv != null) {
-            g gVar2 = (g) this.kv.c(gVar, 0, 0);
+        if (this.kw != null) {
+            g gVar2 = (g) this.kw.c(gVar, 0, 0);
             if (gVar2 == null) {
-                this.kv.a(gVar, 0, 0, gVar);
+                this.kw.a(gVar, 0, 0, gVar);
             } else {
                 gVar = gVar2;
             }
         }
-        return new com.bumptech.glide.load.model.m.a<>(gVar, new j(gVar, ((Integer) fVar.a(kw)).intValue()));
+        return new com.bumptech.glide.load.model.m.a<>(gVar, new j(gVar, ((Integer) fVar.a(kx)).intValue()));
     }
 
     /* renamed from: a */

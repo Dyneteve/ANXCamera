@@ -59,7 +59,7 @@
 .method private getConfigHDRAutoRes()I
     .locals 1
 
-    const v0, 0x7f02014c
+    const v0, 0x7f020153
 
     return v0
 .end method
@@ -67,7 +67,7 @@
 .method private getConfigHDRLiveRes()I
     .locals 1
 
-    const v0, 0x7f02014d
+    const v0, 0x7f020154
 
     return v0
 .end method
@@ -75,7 +75,7 @@
 .method private getConfigHDRNormalRes()I
     .locals 1
 
-    const v0, 0x7f02014e
+    const v0, 0x7f020155
 
     return v0
 .end method
@@ -83,7 +83,7 @@
 .method private getConfigHDROffRes()I
     .locals 1
 
-    const v0, 0x7f02014f
+    const v0, 0x7f020156
 
     return v0
 .end method
@@ -655,11 +655,11 @@
     invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_3
-    sget-boolean p1, Lcom/mi/config/b;->qw:Z
+    sget-boolean p1, Lcom/mi/config/b;->qx:Z
 
     if-nez p1, :cond_6
 
-    invoke-static {}, Lcom/mi/config/b;->hd()Z
+    invoke-static {}, Lcom/mi/config/b;->hg()Z
 
     move-result p1
 

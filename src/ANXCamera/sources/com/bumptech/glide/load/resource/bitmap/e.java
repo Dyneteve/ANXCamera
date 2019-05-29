@@ -20,22 +20,22 @@ import java.io.OutputStream;
 /* compiled from: BitmapEncoder */
 public class e implements h<Bitmap> {
     private static final String TAG = "BitmapEncoder";
-    public static final com.bumptech.glide.load.e<Integer> kB = com.bumptech.glide.load.e.a("com.bumptech.glide.load.resource.bitmap.BitmapEncoder.CompressionQuality", Integer.valueOf(90));
-    public static final com.bumptech.glide.load.e<CompressFormat> kC = com.bumptech.glide.load.e.q("com.bumptech.glide.load.resource.bitmap.BitmapEncoder.CompressionFormat");
+    public static final com.bumptech.glide.load.e<Integer> kC = com.bumptech.glide.load.e.a("com.bumptech.glide.load.resource.bitmap.BitmapEncoder.CompressionQuality", Integer.valueOf(90));
+    public static final com.bumptech.glide.load.e<CompressFormat> kD = com.bumptech.glide.load.e.q("com.bumptech.glide.load.resource.bitmap.BitmapEncoder.CompressionFormat");
     @Nullable
-    private final b ap;
+    private final b aq;
 
     @Deprecated
     public e() {
-        this.ap = null;
+        this.aq = null;
     }
 
     public e(@NonNull b bVar) {
-        this.ap = bVar;
+        this.aq = bVar;
     }
 
     private CompressFormat a(Bitmap bitmap, f fVar) {
-        CompressFormat compressFormat = (CompressFormat) fVar.a(kC);
+        CompressFormat compressFormat = (CompressFormat) fVar.a(kD);
         return compressFormat != null ? compressFormat : bitmap.hasAlpha() ? CompressFormat.PNG : CompressFormat.JPEG;
     }
 
@@ -50,13 +50,13 @@ public class e implements h<Bitmap> {
         com.bumptech.glide.util.a.b.a("encode: [%dx%d] %s", Integer.valueOf(bitmap.getWidth()), Integer.valueOf(bitmap.getHeight()), a);
         try {
             long eK = com.bumptech.glide.util.e.eK();
-            int intValue = ((Integer) fVar.a(kB)).intValue();
+            int intValue = ((Integer) fVar.a(kC)).intValue();
             boolean z = false;
             OutputStream outputStream = null;
             try {
                 FileOutputStream fileOutputStream = new FileOutputStream(file);
                 try {
-                    outputStream = this.ap != null ? new c(fileOutputStream, this.ap) : fileOutputStream;
+                    outputStream = this.aq != null ? new c(fileOutputStream, this.aq) : fileOutputStream;
                     bitmap.compress(a, intValue, outputStream);
                     outputStream.close();
                     z = true;
@@ -114,7 +114,7 @@ public class e implements h<Bitmap> {
                 sb.append(" in ");
                 sb.append(com.bumptech.glide.util.e.f(eK));
                 sb.append(", options format: ");
-                sb.append(fVar.a(kC));
+                sb.append(fVar.a(kD));
                 sb.append(", hasAlpha: ");
                 sb.append(bitmap.hasAlpha());
                 Log.v(str, sb.toString());

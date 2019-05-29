@@ -120,7 +120,7 @@
 
     if-ne v1, v0, :cond_0
 
-    invoke-static {}, Lcom/mi/config/b;->hK()Z
+    invoke-static {}, Lcom/mi/config/b;->hN()Z
 
     move-result v0
 

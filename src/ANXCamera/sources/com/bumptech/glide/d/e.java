@@ -9,36 +9,36 @@ import java.util.Map;
 
 /* compiled from: ResourceDecoderRegistry */
 public class e {
-    private final List<String> nC = new ArrayList();
-    private final Map<String, List<a<?, ?>>> nD = new HashMap();
+    private final List<String> nD = new ArrayList();
+    private final Map<String, List<a<?, ?>>> nE = new HashMap();
 
     /* compiled from: ResourceDecoderRegistry */
     private static class a<T, R> {
         private final Class<T> dataClass;
-        final Class<R> eR;
-        final g<T, R> kz;
+        final Class<R> eS;
+        final g<T, R> kA;
 
         public a(@NonNull Class<T> cls, @NonNull Class<R> cls2, g<T, R> gVar) {
             this.dataClass = cls;
-            this.eR = cls2;
-            this.kz = gVar;
+            this.eS = cls2;
+            this.kA = gVar;
         }
 
         public boolean d(@NonNull Class<?> cls, @NonNull Class<?> cls2) {
-            return this.dataClass.isAssignableFrom(cls) && cls2.isAssignableFrom(this.eR);
+            return this.dataClass.isAssignableFrom(cls) && cls2.isAssignableFrom(this.eS);
         }
     }
 
     @NonNull
     private synchronized List<a<?, ?>> E(@NonNull String str) {
         List<a<?, ?>> list;
-        if (!this.nC.contains(str)) {
-            this.nC.add(str);
+        if (!this.nD.contains(str)) {
+            this.nD.add(str);
         }
-        list = (List) this.nD.get(str);
+        list = (List) this.nE.get(str);
         if (list == null) {
             list = new ArrayList<>();
-            this.nD.put(str, list);
+            this.nE.put(str, list);
         }
         return list;
     }
@@ -52,12 +52,12 @@ public class e {
     }
 
     public synchronized void e(@NonNull List<String> list) {
-        ArrayList<String> arrayList = new ArrayList<>(this.nC);
-        this.nC.clear();
-        this.nC.addAll(list);
+        ArrayList<String> arrayList = new ArrayList<>(this.nD);
+        this.nD.clear();
+        this.nD.addAll(list);
         for (String str : arrayList) {
             if (!list.contains(str)) {
-                this.nC.add(str);
+                this.nD.add(str);
             }
         }
     }
@@ -66,12 +66,12 @@ public class e {
     public synchronized <T, R> List<g<T, R>> h(@NonNull Class<T> cls, @NonNull Class<R> cls2) {
         ArrayList arrayList;
         arrayList = new ArrayList();
-        for (String str : this.nC) {
-            List<a> list = (List) this.nD.get(str);
+        for (String str : this.nD) {
+            List<a> list = (List) this.nE.get(str);
             if (list != null) {
                 for (a aVar : list) {
                     if (aVar.d(cls, cls2)) {
-                        arrayList.add(aVar.kz);
+                        arrayList.add(aVar.kA);
                     }
                 }
             }
@@ -83,12 +83,12 @@ public class e {
     public synchronized <T, R> List<Class<R>> i(@NonNull Class<T> cls, @NonNull Class<R> cls2) {
         ArrayList arrayList;
         arrayList = new ArrayList();
-        for (String str : this.nC) {
-            List<a> list = (List) this.nD.get(str);
+        for (String str : this.nD) {
+            List<a> list = (List) this.nE.get(str);
             if (list != null) {
                 for (a aVar : list) {
-                    if (aVar.d(cls, cls2) && !arrayList.contains(aVar.eR)) {
-                        arrayList.add(aVar.eR);
+                    if (aVar.d(cls, cls2) && !arrayList.contains(aVar.eS)) {
+                        arrayList.add(aVar.eS);
                     }
                 }
             }

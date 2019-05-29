@@ -5,17 +5,14 @@ import android.support.annotation.WorkerThread;
 import android.support.v4.util.Pair;
 import com.android.camera.CameraAppImpl;
 import com.android.camera.CameraScreenNail;
-import com.android.camera.CameraSettings;
 import com.android.camera.HybridZoomingSystem;
 import com.android.camera.ThermalDetector;
 import com.android.camera.data.DataRepository;
 import com.android.camera.data.data.global.DataItemGlobal;
-import com.android.camera.db.DbRepository;
 import com.android.camera.log.Log;
 import com.android.camera.module.Module;
 import com.android.camera.module.loader.StartControl;
 import com.android.camera.network.util.NetworkUtils;
-import com.android.camera.parallel.AlgoConnector;
 import com.ss.android.ttve.common.TEDefine;
 import io.reactivex.CompletableEmitter;
 import io.reactivex.CompletableOnSubscribe;
@@ -113,12 +110,6 @@ public class CompletablePreFixCamera2Setup implements CompletableOnSubscribe, Ob
             Pair parseIntent = dataItemGlobal.parseIntent(this.mIntent, Boolean.valueOf(this.isFromVoiceControl), this.mStartFromKeyguard, true, true);
             int intValue = ((Integer) parseIntent.first).intValue();
             int intValue2 = ((Integer) parseIntent.second).intValue();
-            if (CameraSettings.isSupportParallelProcess()) {
-                DbRepository.dbItemSaveTask().markAllDepartedTask();
-                if (CameraSettings.isCameraParallelProcessEnable()) {
-                    AlgoConnector.getInstance().startService(CameraAppImpl.getAndroidContext());
-                }
-            }
             ThermalDetector.getInstance().onCreate(CameraAppImpl.getAndroidContext());
             if (DataRepository.dataItemFeature().fO()) {
                 NetworkUtils.tryRequestTTSticker();
@@ -130,6 +121,13 @@ public class CompletablePreFixCamera2Setup implements CompletableOnSubscribe, Ob
             i = dataItemGlobal.getCurrentCameraId();
             i2 = dataItemGlobal.getCurrentMode();
         }
+        String str3 = TAG;
+        StringBuilder sb3 = new StringBuilder();
+        sb3.append("openCamera: pendingOpenId = ");
+        sb3.append(i);
+        sb3.append(", pendingOpenModule = ");
+        sb3.append(i2);
+        Log.d(str3, sb3.toString());
         Camera2OpenManager.getInstance().openCamera(i, i2, this, DataRepository.dataItemFeature().gh());
     }
 }

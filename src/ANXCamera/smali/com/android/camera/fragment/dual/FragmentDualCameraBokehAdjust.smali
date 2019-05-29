@@ -181,7 +181,7 @@
 .method private adjustViewBackground(Landroid/view/View;I)V
     .locals 0
 
-    const p2, 0x7f0b0049
+    const p2, 0x7f0b004b
 
     invoke-virtual {p1, p2}, Landroid/view/View;->setBackgroundResource(I)V
 
@@ -339,6 +339,16 @@
 
     if-nez v0, :cond_7
 
+    invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemGlobal()Lcom/android/camera/data/data/global/DataItemGlobal;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/camera/data/data/global/DataItemGlobal;->isNormalIntent()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_9
+
     new-instance v0, Lcom/android/camera/animation/type/TranslateYAlphaInOnSubscribe;
 
     iget-object v3, p0, Lcom/android/camera/fragment/dual/FragmentDualCameraBokehAdjust;->mImageIndicator:Landroid/widget/ImageView;
@@ -414,6 +424,7 @@
 
     invoke-virtual {v0}, Lio/reactivex/Completable;->subscribe()Lio/reactivex/disposables/Disposable;
 
+    :cond_9
     :goto_4
     invoke-direct {p0, v1}, Lcom/android/camera/fragment/dual/FragmentDualCameraBokehAdjust;->notifyTipsMargin(I)V
 
@@ -429,11 +440,11 @@
 
     check-cast v0, Lcom/android/camera/protocol/ModeProtocol$BottomPopupTips;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_a
 
     invoke-interface {v0}, Lcom/android/camera/protocol/ModeProtocol$BottomPopupTips;->reInitTipImage()V
 
-    :cond_9
+    :cond_a
     return-void
 .end method
 
@@ -903,7 +914,7 @@
 .method protected getLayoutResourceId()I
     .locals 1
 
-    const v0, 0x7f04001a
+    const v0, 0x7f04001b
 
     return v0
 .end method
@@ -1108,7 +1119,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0a0097
+    const v0, 0x7f0a0133
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1122,7 +1133,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0c0014
+    const v1, 0x7f0c0016
 
     invoke-direct {p1, v0, v1}, Landroid/text/style/TextAppearanceSpan;-><init>(Landroid/content/Context;I)V
 
@@ -1134,7 +1145,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0c0015
+    const v1, 0x7f0c0017
 
     invoke-direct {p1, v0, v1}, Landroid/text/style/TextAppearanceSpan;-><init>(Landroid/content/Context;I)V
 
@@ -1264,7 +1275,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a00c6
+    const v2, 0x7f0a0172
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

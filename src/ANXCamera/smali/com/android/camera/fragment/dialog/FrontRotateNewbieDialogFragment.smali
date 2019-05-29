@@ -104,7 +104,7 @@
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
-    const p3, 0x7f040040
+    const p3, 0x7f040041
 
     const/4 v0, 0x0
 
@@ -114,7 +114,7 @@
 
     invoke-virtual {p0, p1}, Lcom/android/camera/fragment/dialog/FrontRotateNewbieDialogFragment;->initViewOnTouchListener(Landroid/view/View;)V
 
-    const p2, 0x7f0d00eb
+    const p2, 0x7f0d00ea
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

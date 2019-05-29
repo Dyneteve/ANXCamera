@@ -8,44 +8,44 @@ public abstract class c {
 
     /* compiled from: StateVerifier */
     private static class a extends c {
-        private volatile RuntimeException ql;
+        private volatile RuntimeException qm;
 
         a() {
             super();
         }
 
         public void eT() {
-            if (this.ql != null) {
-                throw new IllegalStateException("Already released", this.ql);
+            if (this.qm != null) {
+                throw new IllegalStateException("Already released", this.qm);
             }
         }
 
         /* access modifiers changed from: 0000 */
         public void o(boolean z) {
             if (z) {
-                this.ql = new RuntimeException("Released");
+                this.qm = new RuntimeException("Released");
             } else {
-                this.ql = null;
+                this.qm = null;
             }
         }
     }
 
     /* compiled from: StateVerifier */
     private static class b extends c {
-        private volatile boolean fA;
+        private volatile boolean fB;
 
         b() {
             super();
         }
 
         public void eT() {
-            if (this.fA) {
+            if (this.fB) {
                 throw new IllegalStateException("Already released");
             }
         }
 
         public void o(boolean z) {
-            this.fA = z;
+            this.fB = z;
         }
     }
 

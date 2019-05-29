@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 1
+    .locals 2
 
     iget-object p1, p0, Lcom/android/camera/fragment/mimoji/FragmentMimoji$2;->this$0:Lcom/android/camera/fragment/mimoji/FragmentMimoji;
 
@@ -43,9 +43,11 @@
 
     move-result-object p1
 
-    const/4 v0, -0x2
+    const/4 v0, 0x0
 
-    invoke-virtual {p1, v0, v0}, Lcom/android/camera/fragment/mimoji/BubbleEditMimojiPresenter;->processBubbleAni(II)V
+    const/4 v1, -0x2
+
+    invoke-virtual {p1, v1, v1, v0}, Lcom/android/camera/fragment/mimoji/BubbleEditMimojiPresenter;->processBubbleAni(IILandroid/view/View;)V
 
     const-string p1, "close_state"
 
@@ -57,25 +59,23 @@
 
     move-result-object p1
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {p1, v0}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {p1, v1}, Landroid/view/View;->setVisibility(I)V
 
     invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
 
     move-result-object p1
 
-    const/16 v0, 0xd9
+    const/16 v1, 0xd9
 
-    invoke-virtual {p1, v0}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getAttachProtocol(I)Lcom/android/camera/protocol/ModeProtocol$BaseProtocol;
+    invoke-virtual {p1, v1}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getAttachProtocol(I)Lcom/android/camera/protocol/ModeProtocol$BaseProtocol;
 
     move-result-object p1
 
     check-cast p1, Lcom/android/camera/protocol/ModeProtocol$MimojiAvatarEngine;
 
     if-eqz p1, :cond_0
-
-    const/4 v0, 0x0
 
     invoke-interface {p1, v0}, Lcom/android/camera/protocol/ModeProtocol$MimojiAvatarEngine;->onMimojiSelect(Lcom/android/camera/fragment/mimoji/MimojiInfo;)V
 

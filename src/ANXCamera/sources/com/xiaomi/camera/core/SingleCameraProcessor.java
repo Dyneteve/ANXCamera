@@ -150,6 +150,11 @@ public class SingleCameraProcessor extends ImageProcessor {
 
     /* access modifiers changed from: 0000 */
     public boolean isIdle() {
+        String str = TAG;
+        StringBuilder sb = new StringBuilder();
+        sb.append("isIdle: ");
+        sb.append(this.mNeedProcessNormalImageSize.get());
+        Log.d(str, sb.toString());
         boolean z = false;
         if (this.mIsBokehMode) {
             if (this.mNeedProcessNormalImageSize.get() == 0 && this.mNeedProcessRawImageSize.get() == 0 && this.mNeedProcessDepthImageSize.get() == 0) {
@@ -164,15 +169,21 @@ public class SingleCameraProcessor extends ImageProcessor {
     }
 
     /* access modifiers changed from: 0000 */
-    public void processImage(CaptureDataBean captureDataBean) {
+    public void processImage(List<CaptureDataBean> list) {
+        if (list == null || list.size() == 0) {
+            Log.w(TAG, "processImage: dataBeans is empty!");
+            return;
+        }
         this.mNeedProcessNormalImageSize.getAndIncrement();
         if (this.mIsBokehMode) {
             this.mNeedProcessRawImageSize.getAndIncrement();
             this.mNeedProcessDepthImageSize.getAndIncrement();
         }
-        ICustomCaptureResult result = captureDataBean.getResult();
-        Image mainImage = captureDataBean.getMainImage();
-        PerformanceTracker.trackAlgorithmProcess("[ORIGINAL]", 0);
-        processCaptureResult(result, mainImage);
+        for (CaptureDataBean captureDataBean : list) {
+            ICustomCaptureResult result = captureDataBean.getResult();
+            Image mainImage = captureDataBean.getMainImage();
+            PerformanceTracker.trackAlgorithmProcess("[ORIGINAL]", 0);
+            processCaptureResult(result, mainImage);
+        }
     }
 }

@@ -4,12 +4,12 @@
 
 
 # static fields
-.field public static final jL:Lcom/bumptech/glide/load/model/h;
+.field public static final jM:Lcom/bumptech/glide/load/model/h;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field
 
-.field public static final jM:Lcom/bumptech/glide/load/model/h;
+.field public static final jN:Lcom/bumptech/glide/load/model/h;
 
 
 # direct methods
@@ -20,7 +20,7 @@
 
     invoke-direct {v0}, Lcom/bumptech/glide/load/model/h$1;-><init>()V
 
-    sput-object v0, Lcom/bumptech/glide/load/model/h;->jL:Lcom/bumptech/glide/load/model/h;
+    sput-object v0, Lcom/bumptech/glide/load/model/h;->jM:Lcom/bumptech/glide/load/model/h;
 
     new-instance v0, Lcom/bumptech/glide/load/model/j$a;
 
@@ -30,7 +30,7 @@
 
     move-result-object v0
 
-    sput-object v0, Lcom/bumptech/glide/load/model/h;->jM:Lcom/bumptech/glide/load/model/h;
+    sput-object v0, Lcom/bumptech/glide/load/model/h;->jN:Lcom/bumptech/glide/load/model/h;
 
     return-void
 .end method

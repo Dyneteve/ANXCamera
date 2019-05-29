@@ -7,30 +7,30 @@
 
 
 # static fields
-.field private static final jF:Ljava/lang/String; = "@#&=*+-_.,:!?()/~\'%;$"
+.field private static final jG:Ljava/lang/String; = "@#&=*+-_.,:!?()/~\'%;$"
 
 
 # instance fields
 .field private hashCode:I
 
-.field private final jG:Lcom/bumptech/glide/load/model/h;
+.field private final jH:Lcom/bumptech/glide/load/model/h;
 
-.field private final jH:Ljava/lang/String;
+.field private final jI:Ljava/lang/String;
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 .end field
 
-.field private jI:Ljava/lang/String;
+.field private jJ:Ljava/lang/String;
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 .end field
 
-.field private jJ:Ljava/net/URL;
+.field private jK:Ljava/net/URL;
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 .end field
 
-.field private volatile jK:[B
+.field private volatile jL:[B
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 .end field
@@ -45,7 +45,7 @@
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1
 
-    sget-object v0, Lcom/bumptech/glide/load/model/h;->jM:Lcom/bumptech/glide/load/model/h;
+    sget-object v0, Lcom/bumptech/glide/load/model/h;->jN:Lcom/bumptech/glide/load/model/h;
 
     invoke-direct {p0, p1, v0}, Lcom/bumptech/glide/load/model/g;-><init>(Ljava/lang/String;Lcom/bumptech/glide/load/model/h;)V
 
@@ -65,7 +65,7 @@
 
     move-result-object p1
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/model/g;->jH:Ljava/lang/String;
+    iput-object p1, p0, Lcom/bumptech/glide/load/model/g;->jI:Ljava/lang/String;
 
     invoke-static {p2}, Lcom/bumptech/glide/util/i;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -73,7 +73,7 @@
 
     check-cast p1, Lcom/bumptech/glide/load/model/h;
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/model/g;->jG:Lcom/bumptech/glide/load/model/h;
+    iput-object p1, p0, Lcom/bumptech/glide/load/model/g;->jH:Lcom/bumptech/glide/load/model/h;
 
     return-void
 .end method
@@ -81,7 +81,7 @@
 .method public constructor <init>(Ljava/net/URL;)V
     .locals 1
 
-    sget-object v0, Lcom/bumptech/glide/load/model/h;->jM:Lcom/bumptech/glide/load/model/h;
+    sget-object v0, Lcom/bumptech/glide/load/model/h;->jN:Lcom/bumptech/glide/load/model/h;
 
     invoke-direct {p0, p1, v0}, Lcom/bumptech/glide/load/model/g;-><init>(Ljava/net/URL;Lcom/bumptech/glide/load/model/h;)V
 
@@ -103,7 +103,7 @@
 
     const/4 p1, 0x0
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/model/g;->jH:Ljava/lang/String;
+    iput-object p1, p0, Lcom/bumptech/glide/load/model/g;->jI:Ljava/lang/String;
 
     invoke-static {p2}, Lcom/bumptech/glide/util/i;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -111,7 +111,7 @@
 
     check-cast p1, Lcom/bumptech/glide/load/model/h;
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/model/g;->jG:Lcom/bumptech/glide/load/model/h;
+    iput-object p1, p0, Lcom/bumptech/glide/load/model/g;->jH:Lcom/bumptech/glide/load/model/h;
 
     return-void
 .end method
@@ -124,7 +124,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/g;->jJ:Ljava/net/URL;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/g;->jK:Ljava/net/URL;
 
     if-nez v0, :cond_0
 
@@ -136,10 +136,10 @@
 
     invoke-direct {v0, v1}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/model/g;->jJ:Ljava/net/URL;
+    iput-object v0, p0, Lcom/bumptech/glide/load/model/g;->jK:Ljava/net/URL;
 
     :cond_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/g;->jJ:Ljava/net/URL;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/g;->jK:Ljava/net/URL;
 
     return-object v0
 .end method
@@ -147,7 +147,7 @@
 .method private ca()Ljava/lang/String;
     .locals 2
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/g;->jI:Ljava/lang/String;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/g;->jJ:Ljava/lang/String;
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -155,7 +155,7 @@
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/g;->jH:Ljava/lang/String;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/g;->jI:Ljava/lang/String;
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -182,10 +182,10 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/model/g;->jI:Ljava/lang/String;
+    iput-object v0, p0, Lcom/bumptech/glide/load/model/g;->jJ:Ljava/lang/String;
 
     :cond_1
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/g;->jI:Ljava/lang/String;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/g;->jJ:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -193,7 +193,7 @@
 .method private cb()[B
     .locals 2
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/g;->jK:[B
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/g;->jL:[B
 
     if-nez v0, :cond_0
 
@@ -201,16 +201,16 @@
 
     move-result-object v0
 
-    sget-object v1, Lcom/bumptech/glide/load/model/g;->dG:Ljava/nio/charset/Charset;
+    sget-object v1, Lcom/bumptech/glide/load/model/g;->dH:Ljava/nio/charset/Charset;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/model/g;->jK:[B
+    iput-object v0, p0, Lcom/bumptech/glide/load/model/g;->jL:[B
 
     :cond_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/g;->jK:[B
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/g;->jL:[B
 
     return-object v0
 .end method
@@ -252,9 +252,9 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/g;->jG:Lcom/bumptech/glide/load/model/h;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/g;->jH:Lcom/bumptech/glide/load/model/h;
 
-    iget-object p1, p1, Lcom/bumptech/glide/load/model/g;->jG:Lcom/bumptech/glide/load/model/h;
+    iget-object p1, p1, Lcom/bumptech/glide/load/model/g;->jH:Lcom/bumptech/glide/load/model/h;
 
     invoke-virtual {v0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
@@ -276,11 +276,11 @@
 .method public getCacheKey()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/g;->jH:Ljava/lang/String;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/g;->jI:Ljava/lang/String;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/g;->jH:Ljava/lang/String;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/g;->jI:Ljava/lang/String;
 
     goto :goto_0
 
@@ -313,7 +313,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/g;->jG:Lcom/bumptech/glide/load/model/h;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/g;->jH:Lcom/bumptech/glide/load/model/h;
 
     invoke-interface {v0}, Lcom/bumptech/glide/load/model/h;->getHeaders()Ljava/util/Map;
 
@@ -345,7 +345,7 @@
 
     mul-int/2addr v0, v1
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/model/g;->jG:Lcom/bumptech/glide/load/model/h;
+    iget-object v1, p0, Lcom/bumptech/glide/load/model/g;->jH:Lcom/bumptech/glide/load/model/h;
 
     invoke-virtual {v1}, Ljava/lang/Object;->hashCode()I
 

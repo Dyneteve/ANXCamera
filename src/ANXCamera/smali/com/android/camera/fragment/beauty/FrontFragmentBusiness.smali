@@ -60,7 +60,7 @@
     invoke-interface {v0}, Ljava/util/List;->clear()V
 
     :goto_0
-    invoke-static {}, Lcom/mi/config/b;->iw()Z
+    invoke-static {}, Lcom/mi/config/b;->iz()Z
 
     move-result v0
 

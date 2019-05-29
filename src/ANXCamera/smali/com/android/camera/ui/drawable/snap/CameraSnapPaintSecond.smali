@@ -145,7 +145,13 @@
 
     sub-float/2addr v3, v0
 
-    const/high16 v4, 0x41700000    # 15.0f
+    const/high16 v4, 0x40a00000    # 5.0f
+
+    invoke-static {v4}, Lcom/android/camera/Util;->dpToPixel(F)I
+
+    move-result v4
+
+    int-to-float v4, v4
 
     add-float v9, v3, v4
 

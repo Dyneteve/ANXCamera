@@ -18,10 +18,6 @@
     .end annotation
 .end field
 
-.field private volatile rxTxIo:Lorg/greenrobot/greendao/rx/RxTransaction;
-
-.field private volatile rxTxPlain:Lorg/greenrobot/greendao/rx/RxTransaction;
-
 
 # direct methods
 .method public constructor <init>(Lorg/greenrobot/greendao/database/Database;)V
@@ -519,52 +515,6 @@
     invoke-interface {v0}, Lorg/greenrobot/greendao/database/Database;->endTransaction()V
 
     throw p1
-.end method
-
-.method public rxTx()Lorg/greenrobot/greendao/rx/RxTransaction;
-    .locals 2
-    .annotation build Lorg/greenrobot/greendao/annotation/apihint/Experimental;
-    .end annotation
-
-    iget-object v0, p0, Lorg/greenrobot/greendao/AbstractDaoSession;->rxTxIo:Lorg/greenrobot/greendao/rx/RxTransaction;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Lorg/greenrobot/greendao/rx/RxTransaction;
-
-    invoke-static {}, Lrx/schedulers/Schedulers;->io()Lrx/Scheduler;
-
-    move-result-object v1
-
-    invoke-direct {v0, p0, v1}, Lorg/greenrobot/greendao/rx/RxTransaction;-><init>(Lorg/greenrobot/greendao/AbstractDaoSession;Lrx/Scheduler;)V
-
-    iput-object v0, p0, Lorg/greenrobot/greendao/AbstractDaoSession;->rxTxIo:Lorg/greenrobot/greendao/rx/RxTransaction;
-
-    :cond_0
-    iget-object v0, p0, Lorg/greenrobot/greendao/AbstractDaoSession;->rxTxIo:Lorg/greenrobot/greendao/rx/RxTransaction;
-
-    return-object v0
-.end method
-
-.method public rxTxPlain()Lorg/greenrobot/greendao/rx/RxTransaction;
-    .locals 1
-    .annotation build Lorg/greenrobot/greendao/annotation/apihint/Experimental;
-    .end annotation
-
-    iget-object v0, p0, Lorg/greenrobot/greendao/AbstractDaoSession;->rxTxPlain:Lorg/greenrobot/greendao/rx/RxTransaction;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Lorg/greenrobot/greendao/rx/RxTransaction;
-
-    invoke-direct {v0, p0}, Lorg/greenrobot/greendao/rx/RxTransaction;-><init>(Lorg/greenrobot/greendao/AbstractDaoSession;)V
-
-    iput-object v0, p0, Lorg/greenrobot/greendao/AbstractDaoSession;->rxTxPlain:Lorg/greenrobot/greendao/rx/RxTransaction;
-
-    :cond_0
-    iget-object v0, p0, Lorg/greenrobot/greendao/AbstractDaoSession;->rxTxPlain:Lorg/greenrobot/greendao/rx/RxTransaction;
-
-    return-object v0
 .end method
 
 .method public startAsyncSession()Lorg/greenrobot/greendao/async/AsyncSession;

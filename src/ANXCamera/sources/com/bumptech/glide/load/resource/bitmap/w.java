@@ -28,13 +28,13 @@ import java.util.concurrent.locks.ReentrantLock;
 /* compiled from: TransformationUtils */
 public final class w {
     private static final String TAG = "TransformationUtils";
-    public static final int lK = 6;
-    private static final Paint lL = new Paint(6);
-    private static final int lM = 7;
-    private static final Paint lN = new Paint(7);
+    public static final int lL = 6;
+    private static final Paint lM = new Paint(6);
+    private static final int lN = 7;
     private static final Paint lO = new Paint(7);
-    private static final Set<String> lP = new HashSet(Arrays.asList(new String[]{"XT1085", "XT1092", "XT1093", "XT1094", "XT1095", "XT1096", "XT1097", "XT1098", "XT1031", "XT1028", "XT937C", "XT1032", "XT1008", "XT1033", "XT1035", "XT1034", "XT939G", "XT1039", "XT1040", "XT1042", "XT1045", "XT1063", "XT1064", "XT1068", "XT1069", "XT1072", "XT1077", "XT1078", "XT1079"}));
-    private static final Lock lQ = (lP.contains(Build.MODEL) ? new ReentrantLock() : new a());
+    private static final Paint lP = new Paint(7);
+    private static final Set<String> lQ = new HashSet(Arrays.asList(new String[]{"XT1085", "XT1092", "XT1093", "XT1094", "XT1095", "XT1096", "XT1097", "XT1098", "XT1031", "XT1028", "XT937C", "XT1032", "XT1008", "XT1033", "XT1035", "XT1034", "XT939G", "XT1039", "XT1040", "XT1042", "XT1045", "XT1063", "XT1064", "XT1068", "XT1069", "XT1072", "XT1077", "XT1078", "XT1079"}));
+    private static final Lock lR = (lQ.contains(Build.MODEL) ? new ReentrantLock() : new a());
 
     /* compiled from: TransformationUtils */
     private static final class a implements Lock {
@@ -65,7 +65,7 @@ public final class w {
     }
 
     static {
-        lO.setXfermode(new PorterDuffXfermode(Mode.SRC_IN));
+        lP.setXfermode(new PorterDuffXfermode(Mode.SRC_IN));
     }
 
     private w() {
@@ -167,13 +167,13 @@ public final class w {
     }
 
     private static void a(@NonNull Bitmap bitmap, @NonNull Bitmap bitmap2, Matrix matrix) {
-        lQ.lock();
+        lR.lock();
         try {
             Canvas canvas = new Canvas(bitmap2);
-            canvas.drawBitmap(bitmap, matrix, lL);
+            canvas.drawBitmap(bitmap, matrix, lM);
             a(canvas);
         } finally {
-            lQ.unlock();
+            lR.unlock();
         }
     }
 
@@ -203,20 +203,20 @@ public final class w {
         paint.setAntiAlias(true);
         paint.setShader(bitmapShader);
         RectF rectF = new RectF(0.0f, 0.0f, (float) b2.getWidth(), (float) b2.getHeight());
-        lQ.lock();
+        lR.lock();
         try {
             Canvas canvas = new Canvas(b2);
             canvas.drawColor(0, Mode.CLEAR);
             float f = (float) i;
             canvas.drawRoundRect(rectF, f, f, paint);
             a(canvas);
-            lQ.unlock();
+            lR.unlock();
             if (!b.equals(bitmap)) {
                 dVar.d(b);
             }
             return b2;
         } catch (Throwable th) {
-            lQ.unlock();
+            lR.unlock();
             throw th;
         }
     }
@@ -287,7 +287,7 @@ public final class w {
     }
 
     public static Lock cA() {
-        return lQ;
+        return lR;
     }
 
     /* JADX INFO: finally extract failed */
@@ -306,19 +306,19 @@ public final class w {
         Bitmap b = b(dVar, bitmap);
         Bitmap b2 = dVar.b(min, min, l(bitmap));
         b2.setHasAlpha(true);
-        lQ.lock();
+        lR.lock();
         try {
             Canvas canvas = new Canvas(b2);
-            canvas.drawCircle(f2, f2, f2, lN);
-            canvas.drawBitmap(b, null, rectF, lO);
+            canvas.drawCircle(f2, f2, f2, lO);
+            canvas.drawBitmap(b, null, rectF, lP);
             a(canvas);
-            lQ.unlock();
+            lR.unlock();
             if (!b.equals(bitmap)) {
                 dVar.d(b);
             }
             return b2;
         } catch (Throwable th) {
-            lQ.unlock();
+            lR.unlock();
             throw th;
         }
     }

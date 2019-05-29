@@ -8,14 +8,14 @@ import java.util.Map;
 
 /* compiled from: Jobs */
 final class m {
-    private final Map<c, EngineJob<?>> gM = new HashMap();
     private final Map<c, EngineJob<?>> gN = new HashMap();
+    private final Map<c, EngineJob<?>> gO = new HashMap();
 
     m() {
     }
 
     private Map<c, EngineJob<?>> g(boolean z) {
-        return z ? this.gN : this.gM;
+        return z ? this.gO : this.gN;
     }
 
     /* access modifiers changed from: 0000 */
@@ -39,6 +39,6 @@ final class m {
     /* access modifiers changed from: 0000 */
     @VisibleForTesting
     public Map<c, EngineJob<?>> getAll() {
-        return Collections.unmodifiableMap(this.gM);
+        return Collections.unmodifiableMap(this.gN);
     }
 }

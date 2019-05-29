@@ -2925,13 +2925,13 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
                             } else {
                                 View shadowingView = holder.mShadowingHolder.itemView;
                                 hresult = hresult2;
-                                int left = view.getLeft();
+                                int hresult3 = view.getLeft();
                                 vresult = vresult2;
-                                int vresult3 = view.getTop();
+                                int top = view.getTop();
                                 count = count2;
-                                if (left != shadowingView.getLeft() || vresult3 != shadowingView.getTop()) {
+                                if (hresult3 != shadowingView.getLeft() || top != shadowingView.getTop()) {
                                     View view2 = view;
-                                    shadowingView.layout(left, vresult3, shadowingView.getWidth() + left, vresult3 + shadowingView.getHeight());
+                                    shadowingView.layout(hresult3, top, shadowingView.getWidth() + hresult3, top + shadowingView.getHeight());
                                 }
                             }
                             i2++;
@@ -2940,8 +2940,8 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
                             count2 = count;
                         }
                     }
-                    int hresult3 = hresult2;
-                    int vresult4 = vresult2;
+                    int hresult4 = hresult2;
+                    int vresult3 = vresult2;
                     RecyclerView.this.onExitLayoutOrScroll();
                     RecyclerView.this.resumeRequestLayout(false);
                     if (smoothScroller != null && !smoothScroller.isPendingInitialRun() && smoothScroller.isRunning()) {
@@ -2955,8 +2955,8 @@ public class RecyclerView extends ViewGroup implements ScrollingView, NestedScro
                             smoothScroller.onAnimation(dx - overscrollX, dy - overscrollY);
                         }
                     }
-                    hresult2 = hresult3;
-                    vresult2 = vresult4;
+                    hresult2 = hresult4;
+                    vresult2 = vresult3;
                 }
                 if (!RecyclerView.this.mItemDecorations.isEmpty()) {
                     RecyclerView.this.invalidate();

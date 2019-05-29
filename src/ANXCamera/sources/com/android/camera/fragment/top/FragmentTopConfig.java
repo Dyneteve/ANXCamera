@@ -27,7 +27,6 @@ import com.android.camera.ToastUtils;
 import com.android.camera.Util;
 import com.android.camera.animation.type.AlphaInOnSubscribe;
 import com.android.camera.animation.type.AlphaOutOnSubscribe;
-import com.android.camera.constant.EyeLightConstant;
 import com.android.camera.data.DataRepository;
 import com.android.camera.data.data.ComponentData;
 import com.android.camera.data.data.config.ComponentConfigFlash;
@@ -388,7 +387,7 @@ public class FragmentTopConfig extends BaseFragment implements OnClickListener, 
         if (CameraSettings.isUltraPixelOn()) {
             alertTopHint(0, DataRepository.dataItemRunning().getComponentUltraPixel().getUltraPixelOpenTip());
         }
-        if (!EyeLightConstant.OFF.equals(CameraSettings.getEyeLightType())) {
+        if (!"-1".equals(CameraSettings.getEyeLightType())) {
             alertTopHint(0, (int) R.string.eye_light);
         }
     }
@@ -695,6 +694,13 @@ public class FragmentTopConfig extends BaseFragment implements OnClickListener, 
         }
     }
 
+    public void alertMimojiFaceDetect(boolean z, int i) {
+        FragmentTopAlert topAlert = getTopAlert();
+        if (topAlert != null && topAlert.isShow()) {
+            topAlert.alertMimojiFaceDetect(z, i);
+        }
+    }
+
     public void alertMoonModeSelector(int i, boolean z) {
         FragmentTopAlert topAlert = getTopAlert();
         if (topAlert != null && topAlert.isShow()) {
@@ -822,7 +828,7 @@ public class FragmentTopConfig extends BaseFragment implements OnClickListener, 
     public void hideAlert() {
         FragmentTopAlert topAlert = getTopAlert();
         if (topAlert != null) {
-            topAlert.clear();
+            topAlert.clear(true);
             topAlert.setShow(false);
         }
     }
@@ -1124,121 +1130,127 @@ public class FragmentTopConfig extends BaseFragment implements OnClickListener, 
         onBackEvent(4);
      */
     /* JADX WARNING: Code restructure failed: missing block: B:24:0x0047, code lost:
-        if (r4 == false) goto L_0x004e;
+        if (r4 == false) goto L_0x0065;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:25:0x0049, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:26:0x0055, code lost:
+        if (com.android.camera.data.DataRepository.dataItemLive().getMimojiStatusManager().IsInPreviewSurface() != false) goto L_0x0060;
+     */
+    /* JADX WARNING: Code restructure failed: missing block: B:27:0x0057, code lost:
+        enableMenuItem(true, 225, 193);
+     */
+    /* JADX WARNING: Code restructure failed: missing block: B:28:0x0060, code lost:
         r12.mDisabledFunctionMenu.clear();
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:26:0x004e, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:29:0x0065, code lost:
         r1 = getTopAlert();
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:27:0x0052, code lost:
-        if (r1 == null) goto L_0x0057;
+    /* JADX WARNING: Code restructure failed: missing block: B:30:0x0069, code lost:
+        if (r1 == null) goto L_0x006e;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:28:0x0054, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:31:0x006b, code lost:
         r1.provideAnimateElement(r13, r14, r15);
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:29:0x0057, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:32:0x006e, code lost:
         r15 = com.android.camera.data.DataRepository.dataItemConfig();
         r1 = com.android.camera.data.DataRepository.dataItemGlobal().getCurrentCameraId();
         r4 = com.android.camera.module.loader.camera2.Camera2DataContainer.getInstance().getCapabilitiesByBogusCameraId(r1, r12.mCurrentMode);
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:30:0x006d, code lost:
-        if (r4 != null) goto L_0x0070;
+    /* JADX WARNING: Code restructure failed: missing block: B:33:0x0084, code lost:
+        if (r4 != null) goto L_0x0087;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:31:0x006f, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:34:0x0086, code lost:
         return;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:33:0x0076, code lost:
-        if (r12.mTopConfigMenu.getVisibility() == 0) goto L_0x007d;
+    /* JADX WARNING: Code restructure failed: missing block: B:36:0x008d, code lost:
+        if (r12.mTopConfigMenu.getVisibility() == 0) goto L_0x0094;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:34:0x0078, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:37:0x008f, code lost:
         com.android.camera.animation.type.AlphaInOnSubscribe.directSetResult(r12.mTopConfigMenu);
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:35:0x007d, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:38:0x0094, code lost:
         r12.mSupportedConfigs = com.android.camera.data.data.config.SupportedConfigFactory.getSupportedTopConfigs(r12.mCurrentMode, r1, r4, com.android.camera.data.DataRepository.dataItemGlobal().isNormalIntent());
         r1 = 0;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:37:0x0094, code lost:
-        if (r1 >= r12.mConfigViews.size()) goto L_0x0128;
+    /* JADX WARNING: Code restructure failed: missing block: B:40:0x00ab, code lost:
+        if (r1 >= r12.mConfigViews.size()) goto L_0x013f;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:38:0x0096, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:41:0x00ad, code lost:
         r10 = (android.widget.ImageView) r12.mConfigViews.get(r1);
         r10.setEnabled(true);
         r11 = r12.mSupportedConfigs.getConfigItem(r1);
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:39:0x00a8, code lost:
-        if (r14 == null) goto L_0x00ac;
+    /* JADX WARNING: Code restructure failed: missing block: B:42:0x00bf, code lost:
+        if (r14 == null) goto L_0x00c3;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:40:0x00aa, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:43:0x00c1, code lost:
         r9 = true;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:41:0x00ac, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:44:0x00c3, code lost:
         r9 = false;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:42:0x00ad, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:45:0x00c4, code lost:
         r4 = setTopImageResource(r11, r10, r13, r15, r9);
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:43:0x00b6, code lost:
-        if (r4 == false) goto L_0x00cd;
+    /* JADX WARNING: Code restructure failed: missing block: B:46:0x00cd, code lost:
+        if (r4 == false) goto L_0x00e4;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:45:0x00c0, code lost:
-        if (r12.mDisabledFunctionMenu.indexOfKey(r11.configItem) < 0) goto L_0x00cd;
+    /* JADX WARNING: Code restructure failed: missing block: B:48:0x00d7, code lost:
+        if (r12.mDisabledFunctionMenu.indexOfKey(r11.configItem) < 0) goto L_0x00e4;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:47:0x00ca, code lost:
-        if (r12.mDisabledFunctionMenu.get(r11.configItem) == false) goto L_0x00cd;
+    /* JADX WARNING: Code restructure failed: missing block: B:50:0x00e1, code lost:
+        if (r12.mDisabledFunctionMenu.get(r11.configItem) == false) goto L_0x00e4;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:48:0x00cd, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:51:0x00e4, code lost:
         r5 = (com.android.camera.data.data.config.TopConfigItem) r10.getTag();
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:49:0x00d3, code lost:
-        if (r5 == null) goto L_0x00df;
+    /* JADX WARNING: Code restructure failed: missing block: B:52:0x00ea, code lost:
+        if (r5 == null) goto L_0x00f6;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:51:0x00d9, code lost:
-        if (r5.configItem != r11.configItem) goto L_0x00df;
+    /* JADX WARNING: Code restructure failed: missing block: B:54:0x00f0, code lost:
+        if (r5.configItem != r11.configItem) goto L_0x00f6;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:52:0x00db, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:55:0x00f2, code lost:
         r10.setTag(r11);
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:53:0x00df, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:56:0x00f6, code lost:
         r10.setTag(r11);
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:54:0x00e2, code lost:
-        if (r14 != null) goto L_0x00ee;
+    /* JADX WARNING: Code restructure failed: missing block: B:57:0x00f9, code lost:
+        if (r14 != null) goto L_0x0105;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:55:0x00e4, code lost:
-        if (r4 == false) goto L_0x00ea;
+    /* JADX WARNING: Code restructure failed: missing block: B:58:0x00fb, code lost:
+        if (r4 == false) goto L_0x0101;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:56:0x00e6, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:59:0x00fd, code lost:
         com.android.camera.animation.type.AlphaInOnSubscribe.directSetResult(r10);
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:57:0x00ea, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:60:0x0101, code lost:
         com.android.camera.animation.type.AlphaOutOnSubscribe.directSetResult(r10);
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:59:0x00f0, code lost:
-        if (r4 == false) goto L_0x0107;
+    /* JADX WARNING: Code restructure failed: missing block: B:62:0x0107, code lost:
+        if (r4 == false) goto L_0x011e;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:60:0x00f2, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:63:0x0109, code lost:
         r4 = new com.android.camera.animation.type.AlphaInOnSubscribe(r10);
         r4.setStartDelayTime(150).setDurationTime(150);
         r14.add(io.reactivex.Completable.create(r4));
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:62:0x0109, code lost:
-        if (r0 == 165) goto L_0x0121;
-     */
-    /* JADX WARNING: Code restructure failed: missing block: B:64:0x010d, code lost:
-        if (r12.mCurrentMode != 165) goto L_0x0110;
-     */
-    /* JADX WARNING: Code restructure failed: missing block: B:65:0x0110, code lost:
-        r14.add(io.reactivex.Completable.create(new com.android.camera.animation.type.AlphaOutOnSubscribe(r10).setDurationTime(150)));
-     */
-    /* JADX WARNING: Code restructure failed: missing block: B:66:0x0121, code lost:
-        com.android.camera.animation.type.AlphaOutOnSubscribe.directSetResult(r10);
+    /* JADX WARNING: Code restructure failed: missing block: B:65:0x0120, code lost:
+        if (r0 == 165) goto L_0x0138;
      */
     /* JADX WARNING: Code restructure failed: missing block: B:67:0x0124, code lost:
+        if (r12.mCurrentMode != 165) goto L_0x0127;
+     */
+    /* JADX WARNING: Code restructure failed: missing block: B:68:0x0127, code lost:
+        r14.add(io.reactivex.Completable.create(new com.android.camera.animation.type.AlphaOutOnSubscribe(r10).setDurationTime(150)));
+     */
+    /* JADX WARNING: Code restructure failed: missing block: B:69:0x0138, code lost:
+        com.android.camera.animation.type.AlphaOutOnSubscribe.directSetResult(r10);
+     */
+    /* JADX WARNING: Code restructure failed: missing block: B:70:0x013b, code lost:
         r1 = r1 + 1;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:68:0x0128, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:71:0x013f, code lost:
         return;
      */
     /* Code decompiled incorrectly, please refer to instructions dump. */
@@ -1365,13 +1377,6 @@ public class FragmentTopConfig extends BaseFragment implements OnClickListener, 
 
     public void showConfigMenu() {
         Completable.create(new AlphaInOnSubscribe(this.mTopConfigMenu)).subscribe();
-    }
-
-    public void showOrHideMimojiCreateTitle(boolean z) {
-        FragmentTopAlert topAlert = getTopAlert();
-        if (topAlert != null) {
-            topAlert.showOrHideMimojiCreateTitle(z);
-        }
     }
 
     public void startLiveShotAnimation() {

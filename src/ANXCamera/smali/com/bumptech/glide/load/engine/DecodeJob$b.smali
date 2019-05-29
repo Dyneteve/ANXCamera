@@ -31,14 +31,14 @@
 # instance fields
 .field private final dataSource:Lcom/bumptech/glide/load/DataSource;
 
-.field final synthetic fx:Lcom/bumptech/glide/load/engine/DecodeJob;
+.field final synthetic fy:Lcom/bumptech/glide/load/engine/DecodeJob;
 
 
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/load/engine/DecodeJob;Lcom/bumptech/glide/load/DataSource;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/engine/DecodeJob$b;->fx:Lcom/bumptech/glide/load/engine/DecodeJob;
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/DecodeJob$b;->fy:Lcom/bumptech/glide/load/engine/DecodeJob;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -68,7 +68,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/DecodeJob$b;->fx:Lcom/bumptech/glide/load/engine/DecodeJob;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/DecodeJob$b;->fy:Lcom/bumptech/glide/load/engine/DecodeJob;
 
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/DecodeJob$b;->dataSource:Lcom/bumptech/glide/load/DataSource;
 

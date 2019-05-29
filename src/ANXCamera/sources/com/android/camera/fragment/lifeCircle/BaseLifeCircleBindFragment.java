@@ -16,7 +16,7 @@ public class BaseLifeCircleBindFragment extends Fragment {
         this.mLifecycle = baseFragmentLifecycle;
     }
 
-    public BaseFragmentLifecycle getLifecycle() {
+    public BaseFragmentLifecycle getFragmentLifecycle() {
         return this.mLifecycle;
     }
 

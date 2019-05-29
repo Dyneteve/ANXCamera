@@ -215,7 +215,7 @@ public class MimojiHelper {
             case 4:
                 return R.string.mimoji_check_face_too_far;
             case 5:
-                return R.string.mimoji_detect_tips;
+                return R.string.mimoji_detect_no_face_failed;
             default:
                 return -1;
         }

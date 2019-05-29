@@ -79,7 +79,7 @@ public class ManuallyValueChangeImpl implements ManuallyValueChanged {
         if (!CameraSettings.getMappingFocusMode(Integer.valueOf(str).intValue()).equals(CameraSettings.getMappingFocusMode(Integer.valueOf(str2).intValue()))) {
             CameraSettings.setFocusModeSwitching(true);
             boolean equals = str2.equals(componentManuallyFocus.getDefaultValue(167));
-            if (b.hA()) {
+            if (b.hD()) {
                 TopAlert topAlert = (TopAlert) ModeCoordinatorImpl.getInstance().getAttachProtocol(172);
                 if (equals) {
                     topAlert.removeConfigItem(199);

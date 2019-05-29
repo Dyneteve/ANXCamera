@@ -37,7 +37,9 @@
     .end annotation
 .end field
 
-.field private final jA:Lcom/bumptech/glide/load/model/e$a;
+.field private final jA:Ljava/lang/String;
+
+.field private final jB:Lcom/bumptech/glide/load/model/e$a;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/model/e$a<",
@@ -45,8 +47,6 @@
         }
     .end annotation
 .end field
-
-.field private final jz:Ljava/lang/String;
 
 
 # direct methods
@@ -63,9 +63,9 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/model/e$b;->jz:Ljava/lang/String;
+    iput-object p1, p0, Lcom/bumptech/glide/load/model/e$b;->jA:Ljava/lang/String;
 
-    iput-object p2, p0, Lcom/bumptech/glide/load/model/e$b;->jA:Lcom/bumptech/glide/load/model/e$a;
+    iput-object p2, p0, Lcom/bumptech/glide/load/model/e$b;->jB:Lcom/bumptech/glide/load/model/e$a;
 
     return-void
 .end method
@@ -92,9 +92,9 @@
     .end annotation
 
     :try_start_0
-    iget-object p1, p0, Lcom/bumptech/glide/load/model/e$b;->jA:Lcom/bumptech/glide/load/model/e$a;
+    iget-object p1, p0, Lcom/bumptech/glide/load/model/e$b;->jB:Lcom/bumptech/glide/load/model/e$a;
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/e$b;->jz:Ljava/lang/String;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/e$b;->jA:Ljava/lang/String;
 
     invoke-interface {p1, v0}, Lcom/bumptech/glide/load/model/e$a;->x(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -132,7 +132,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/e$b;->jA:Lcom/bumptech/glide/load/model/e$a;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/e$b;->jB:Lcom/bumptech/glide/load/model/e$a;
 
     invoke-interface {v0}, Lcom/bumptech/glide/load/model/e$a;->aj()Ljava/lang/Class;
 
@@ -146,7 +146,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/load/DataSource;->dc:Lcom/bumptech/glide/load/DataSource;
+    sget-object v0, Lcom/bumptech/glide/load/DataSource;->dd:Lcom/bumptech/glide/load/DataSource;
 
     return-object v0
 .end method
@@ -161,7 +161,7 @@
     .locals 2
 
     :try_start_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/e$b;->jA:Lcom/bumptech/glide/load/model/e$a;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/e$b;->jB:Lcom/bumptech/glide/load/model/e$a;
 
     iget-object v1, p0, Lcom/bumptech/glide/load/model/e$b;->data:Ljava/lang/Object;
 

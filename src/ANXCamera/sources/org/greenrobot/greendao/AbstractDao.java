@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
-import org.greenrobot.greendao.annotation.apihint.Experimental;
 import org.greenrobot.greendao.database.Database;
 import org.greenrobot.greendao.database.DatabaseStatement;
 import org.greenrobot.greendao.identityscope.IdentityScope;
@@ -19,8 +18,6 @@ import org.greenrobot.greendao.internal.FastCursor;
 import org.greenrobot.greendao.internal.TableStatements;
 import org.greenrobot.greendao.query.Query;
 import org.greenrobot.greendao.query.QueryBuilder;
-import org.greenrobot.greendao.rx.RxDao;
-import rx.schedulers.Schedulers;
 
 public abstract class AbstractDao<T, K> {
     protected final DaoConfig config;
@@ -29,8 +26,6 @@ public abstract class AbstractDao<T, K> {
     protected final IdentityScopeLong<T> identityScopeLong;
     protected final boolean isStandardSQLite;
     protected final int pkOrdinal;
-    private volatile RxDao<T, K> rxDao;
-    private volatile RxDao<T, K> rxDaoPlain;
     protected final AbstractDaoSession session;
     protected final TableStatements statements;
 
@@ -209,7 +204,11 @@ public abstract class AbstractDao<T, K> {
     private CursorWindow moveToNextUnlocked(Cursor cursor) {
         this.identityScope.unlock();
         try {
-            return cursor.moveToNext() ? ((CrossProcessCursor) cursor).getWindow() : null;
+            if (cursor.moveToNext()) {
+                return ((CrossProcessCursor) cursor).getWindow();
+            }
+            this.identityScope.lock();
+            return null;
         } finally {
             this.identityScope.lock();
         }
@@ -625,22 +624,6 @@ public abstract class AbstractDao<T, K> {
         } finally {
             rawQuery.close();
         }
-    }
-
-    @Experimental
-    public RxDao<T, K> rx() {
-        if (this.rxDao == null) {
-            this.rxDao = new RxDao<>(this, Schedulers.io());
-        }
-        return this.rxDao;
-    }
-
-    @Experimental
-    public RxDao<T, K> rxPlain() {
-        if (this.rxDaoPlain == null) {
-            this.rxDaoPlain = new RxDao<>(this);
-        }
-        return this.rxDaoPlain;
     }
 
     public void save(T t) {

@@ -15,16 +15,23 @@ import android.widget.RelativeLayout.LayoutParams;
 import com.android.camera.R;
 
 public class BubbleEditMimojiPresenter {
-    private static final int DELETE_PROCESS = 102;
-    private static final int EDIT_PROCESS = 101;
     private static final int INVISIBLE_STATE = -1;
-    private static final int RESET_STATE = -2;
+    public static final int RESET_STATE = -2;
     private static final String TAG = "BubbleEditMimojiPresenter";
     private static final int VISIBLE_STATE = 1;
     BubblePop bubblePop1;
-    BubblePop bubblePop2;
+    /* access modifiers changed from: private */
+    public int downMove;
+    /* access modifiers changed from: private */
+    public double leftMove;
     Context mContext;
-    public int[] mLocationSelect = new int[3];
+    private int mHashCodeBubble = -1;
+    public int[] mShowBubbleState = new int[3];
+    public View mTargetView;
+    /* access modifiers changed from: private */
+    public double rightMove;
+    /* access modifiers changed from: private */
+    public int topMove;
 
     class BubblePop {
         public static final int DELETE_PROCESS = 102;
@@ -37,8 +44,7 @@ public class BubbleEditMimojiPresenter {
         /* access modifiers changed from: private */
         public LayoutParams layoutParamsEdit;
         Context mContext;
-        /* access modifiers changed from: private */
-        public int mHashCode;
+        private int mHashCode;
         ImageView mIvDeleteFisrt;
         ImageView mIvEditFirst;
         public int[] mLocationSelect = new int[3];
@@ -58,8 +64,10 @@ public class BubbleEditMimojiPresenter {
             this.mIvEditFirst.setOnClickListener(onClickListener);
             this.mLocationSelect[0] = -1;
             this.mLocationSelect[1] = -1;
-            this.layoutParamsEdit = new LayoutParams(80, 80);
-            this.layoutParamsDelete = new LayoutParams(80, 80);
+            int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(R.dimen.mimoji_edit_bubble_width);
+            int dimensionPixelSize2 = this.mContext.getResources().getDimensionPixelSize(R.dimen.mimoji_edit_bubble_height);
+            this.layoutParamsEdit = new LayoutParams(dimensionPixelSize, dimensionPixelSize2);
+            this.layoutParamsDelete = new LayoutParams(dimensionPixelSize, dimensionPixelSize2);
         }
 
         public int getProcessState() {
@@ -68,49 +76,54 @@ public class BubbleEditMimojiPresenter {
 
         public void hideBubbleAni() {
             if (this.mIvDeleteFisrt != null && this.mIvEditFirst != null) {
+                String str = BubbleEditMimojiPresenter.TAG;
+                StringBuilder sb = new StringBuilder();
+                sb.append(this.mHashCode);
+                sb.append("  onAnimationEnd:  x");
+                sb.append(this.layoutParamsEdit.leftMargin);
+                sb.append("  y:");
+                sb.append(this.layoutParamsEdit.topMargin);
+                Log.i(str, sb.toString());
                 this.processState = 104;
-                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.mIvEditFirst, View.SCALE_X, new float[]{1.0f, 0.2f});
-                ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.mIvEditFirst, View.SCALE_Y, new float[]{1.0f, 0.2f});
+                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.mIvEditFirst, View.SCALE_X, new float[]{1.0f, 0.0f});
+                ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.mIvEditFirst, View.SCALE_Y, new float[]{1.0f, 0.0f});
                 ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.mIvEditFirst, View.ALPHA, new float[]{1.0f, 0.0f});
-                ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.mIvEditFirst, "translationX", new float[]{0.0f, 25.0f});
-                ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.mIvEditFirst, "translationY", new float[]{0.0f, 85.0f});
+                ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.mIvEditFirst, "translationX", new float[]{0.0f, (float) BubbleEditMimojiPresenter.this.rightMove});
+                ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.mIvEditFirst, "translationY", new float[]{0.0f, (float) BubbleEditMimojiPresenter.this.downMove});
                 AnimatorSet animatorSet = new AnimatorSet();
                 animatorSet.playTogether(new Animator[]{ofFloat, ofFloat2, ofFloat3, ofFloat4, ofFloat5});
-                animatorSet.setDuration(150);
-                animatorSet.setInterpolator(new DecelerateInterpolator());
+                animatorSet.setDuration(120);
                 animatorSet.addListener(new AnimatorListenerAdapter() {
                     public void onAnimationEnd(Animator animator) {
                         super.onAnimationEnd(animator);
+                        BubblePop.this.layoutParamsEdit.setMargins(BubblePop.this.mLocationSelect[0], BubblePop.this.mLocationSelect[1] + BubbleEditMimojiPresenter.this.downMove + BubbleEditMimojiPresenter.this.topMove, 0, 0);
                         BubblePop.this.mIvEditFirst.setVisibility(4);
                     }
 
                     public void onAnimationStart(Animator animator) {
                         super.onAnimationStart(animator);
+                        BubblePop.this.layoutParamsEdit.leftMargin = (int) (((double) BubblePop.this.mLocationSelect[0]) + BubbleEditMimojiPresenter.this.leftMove);
+                        BubblePop.this.layoutParamsEdit.topMargin = BubblePop.this.mLocationSelect[1] + BubbleEditMimojiPresenter.this.topMove;
+                        BubblePop.this.mIvEditFirst.setVisibility(0);
                     }
                 });
                 AnimatorSet animatorSet2 = new AnimatorSet();
-                animatorSet2.playTogether(new Animator[]{ObjectAnimator.ofFloat(this.mIvDeleteFisrt, View.SCALE_X, new float[]{1.0f, 0.0f}), ObjectAnimator.ofFloat(this.mIvDeleteFisrt, View.SCALE_Y, new float[]{1.0f, 0.0f}), ObjectAnimator.ofFloat(this.mIvDeleteFisrt, View.ALPHA, new float[]{1.0f, 0.0f}), ObjectAnimator.ofFloat(this.mIvDeleteFisrt, "translationX", new float[]{0.0f, -25.0f}), ObjectAnimator.ofFloat(this.mIvDeleteFisrt, "translationY", new float[]{0.0f, 85.0f})});
-                animatorSet2.setDuration(150);
+                animatorSet2.playTogether(new Animator[]{ObjectAnimator.ofFloat(this.mIvDeleteFisrt, View.SCALE_X, new float[]{1.0f, 0.0f}), ObjectAnimator.ofFloat(this.mIvDeleteFisrt, View.SCALE_Y, new float[]{1.0f, 0.0f}), ObjectAnimator.ofFloat(this.mIvDeleteFisrt, View.ALPHA, new float[]{1.0f, 0.0f}), ObjectAnimator.ofFloat(this.mIvDeleteFisrt, "translationX", new float[]{0.0f, (float) BubbleEditMimojiPresenter.this.leftMove}), ObjectAnimator.ofFloat(this.mIvDeleteFisrt, "translationY", new float[]{0.0f, (float) BubbleEditMimojiPresenter.this.downMove})});
+                animatorSet2.setDuration(120);
                 animatorSet2.addListener(new AnimatorListenerAdapter() {
                     public void onAnimationEnd(Animator animator) {
                         super.onAnimationEnd(animator);
-                        BubblePop.this.layoutParamsEdit.leftMargin = BubblePop.this.mLocationSelect[0];
-                        BubblePop.this.layoutParamsEdit.topMargin = BubblePop.this.mLocationSelect[1];
+                        BubblePop.this.layoutParamsDelete.setMargins(BubblePop.this.mLocationSelect[0], BubblePop.this.mLocationSelect[1] + BubbleEditMimojiPresenter.this.downMove + BubbleEditMimojiPresenter.this.topMove, 0, 0);
                         BubblePop.this.mIvDeleteFisrt.setVisibility(4);
-                        BubblePop.this.mLocationSelect[2] = -1;
                         BubblePop.this.mLocationSelect[0] = -1;
                         BubblePop.this.mLocationSelect[1] = -1;
-                        String str = BubbleEditMimojiPresenter.TAG;
-                        StringBuilder sb = new StringBuilder();
-                        sb.append("HASH CODE");
-                        sb.append(BubblePop.this.mHashCode);
-                        sb.append("hide ani end:");
-                        sb.append(BubblePop.this.mLocationSelect[2]);
-                        Log.i(str, sb.toString());
+                        BubblePop.this.mLocationSelect[2] = -1;
                     }
 
                     public void onAnimationStart(Animator animator) {
                         super.onAnimationStart(animator);
+                        BubblePop.this.layoutParamsDelete.leftMargin = (int) (((double) BubblePop.this.mLocationSelect[0]) + BubbleEditMimojiPresenter.this.rightMove);
+                        BubblePop.this.layoutParamsDelete.topMargin = BubblePop.this.mLocationSelect[1] + BubbleEditMimojiPresenter.this.topMove;
                     }
                 });
                 animatorSet.start();
@@ -125,93 +138,67 @@ public class BubbleEditMimojiPresenter {
                 this.mRootView.addView(this.mIvDeleteFisrt);
                 this.hasAddView = true;
             }
-            String str = BubbleEditMimojiPresenter.TAG;
-            StringBuilder sb = new StringBuilder();
-            sb.append("HASH CODE");
-            sb.append(this.mHashCode);
-            sb.append("init x：");
-            sb.append(this.mLocationSelect[0]);
-            sb.append("---");
-            sb.append(i2);
-            sb.append("init y：");
-            sb.append(this.mLocationSelect[1]);
-            sb.append("---");
-            sb.append(i);
-            Log.i(str, sb.toString());
             if (this.mLocationSelect[2] > 0) {
                 hideBubbleAni();
-            } else {
-                showBubbleAni(i2, i);
+                return;
             }
+            BubbleEditMimojiPresenter.this.setmHashCodeBubble(this.mHashCode);
+            showBubbleAni(i, i2);
         }
 
         public void showBubbleAni(int i, int i2) {
-            int i3 = i;
-            int i4 = i2;
+            final int i3 = i;
+            final int i4 = i2;
             this.processState = 103;
             this.mLocationSelect[0] = i3;
             this.mLocationSelect[1] = i4;
-            String str = BubbleEditMimojiPresenter.TAG;
-            StringBuilder sb = new StringBuilder();
-            sb.append("HASH CODE");
-            sb.append(this.mHashCode);
-            sb.append("show111x=");
-            sb.append(this.mLocationSelect[0]);
-            sb.append("show111y=");
-            sb.append(this.mLocationSelect[1]);
-            Log.i(str, sb.toString());
-            this.layoutParamsEdit.topMargin = i4;
-            this.layoutParamsEdit.leftMargin = i3;
-            this.mIvEditFirst.setLayoutParams(this.layoutParamsEdit);
-            this.mIvEditFirst.setLeft(i3);
-            this.layoutParamsDelete.topMargin = i4;
-            this.layoutParamsDelete.leftMargin = i3;
-            this.mIvDeleteFisrt.setLayoutParams(this.layoutParamsDelete);
-            this.mIvEditFirst.setVisibility(0);
-            this.mIvDeleteFisrt.setVisibility(0);
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.mIvEditFirst, View.SCALE_X, new float[]{0.0f, 1.0f});
             ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.mIvEditFirst, View.SCALE_Y, new float[]{0.0f, 1.0f});
             ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.mIvEditFirst, View.ALPHA, new float[]{0.0f, 1.0f});
-            ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.mIvEditFirst, "translationX", new float[]{0.0f, -25.0f});
-            ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.mIvEditFirst, "translationY", new float[]{0.0f, -85.0f});
+            ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.mIvEditFirst, "translationX", new float[]{0.0f, (float) BubbleEditMimojiPresenter.this.leftMove});
+            ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.mIvEditFirst, "translationY", new float[]{0.0f, (float) BubbleEditMimojiPresenter.this.topMove});
             AnimatorSet animatorSet = new AnimatorSet();
             animatorSet.playTogether(new Animator[]{ofFloat, ofFloat2, ofFloat3, ofFloat4, ofFloat5});
-            animatorSet.setDuration(300);
+            animatorSet.setDuration(200);
             animatorSet.setInterpolator(new DecelerateInterpolator());
             animatorSet.addListener(new AnimatorListenerAdapter() {
                 public void onAnimationEnd(Animator animator) {
                     super.onAnimationEnd(animator);
+                    BubblePop.this.layoutParamsEdit.leftMargin = (int) (((double) BubblePop.this.mLocationSelect[0]) + BubbleEditMimojiPresenter.this.leftMove);
+                    BubblePop.this.layoutParamsEdit.topMargin = BubblePop.this.mLocationSelect[1] + BubbleEditMimojiPresenter.this.topMove;
                     BubblePop.this.mIvEditFirst.setVisibility(0);
                 }
 
                 public void onAnimationStart(Animator animator) {
                     super.onAnimationStart(animator);
-                    BubblePop.this.layoutParamsEdit.leftMargin = BubblePop.this.mLocationSelect[0] - 25;
-                    BubblePop.this.layoutParamsEdit.topMargin = BubblePop.this.mLocationSelect[1] - 85;
+                    BubblePop.this.layoutParamsEdit.topMargin = i4;
+                    BubblePop.this.layoutParamsEdit.leftMargin = i3;
+                    BubblePop.this.mIvEditFirst.setLayoutParams(BubblePop.this.layoutParamsEdit);
                     BubblePop.this.mIvEditFirst.setVisibility(0);
                 }
             });
             AnimatorSet animatorSet2 = new AnimatorSet();
-            animatorSet2.playTogether(new Animator[]{ObjectAnimator.ofFloat(this.mIvDeleteFisrt, View.SCALE_X, new float[]{0.0f, 1.0f}), ObjectAnimator.ofFloat(this.mIvDeleteFisrt, View.SCALE_Y, new float[]{0.0f, 1.0f}), ObjectAnimator.ofFloat(this.mIvDeleteFisrt, View.ALPHA, new float[]{0.0f, 1.0f}), ObjectAnimator.ofFloat(this.mIvDeleteFisrt, "translationX", new float[]{0.0f, 25.0f}), ObjectAnimator.ofFloat(this.mIvDeleteFisrt, "translationY", new float[]{0.0f, -85.0f})});
-            animatorSet2.setDuration(300);
+            animatorSet2.playTogether(new Animator[]{ObjectAnimator.ofFloat(this.mIvDeleteFisrt, View.SCALE_X, new float[]{0.0f, 1.0f}), ObjectAnimator.ofFloat(this.mIvDeleteFisrt, View.SCALE_Y, new float[]{0.0f, 1.0f}), ObjectAnimator.ofFloat(this.mIvDeleteFisrt, View.ALPHA, new float[]{0.0f, 1.0f}), ObjectAnimator.ofFloat(this.mIvDeleteFisrt, "translationX", new float[]{0.0f, (float) BubbleEditMimojiPresenter.this.rightMove}), ObjectAnimator.ofFloat(this.mIvDeleteFisrt, "translationY", new float[]{0.0f, (float) BubbleEditMimojiPresenter.this.topMove})});
+            animatorSet2.setDuration(200);
             animatorSet2.addListener(new AnimatorListenerAdapter() {
                 public void onAnimationEnd(Animator animator) {
                     super.onAnimationEnd(animator);
+                    BubblePop.this.layoutParamsDelete.leftMargin = (int) (((double) BubblePop.this.mLocationSelect[0]) + BubbleEditMimojiPresenter.this.rightMove);
+                    BubblePop.this.layoutParamsDelete.topMargin = BubblePop.this.mLocationSelect[1] + BubbleEditMimojiPresenter.this.topMove;
                     BubblePop.this.mLocationSelect[2] = 1;
                     BubblePop.this.mIvDeleteFisrt.setVisibility(0);
-                    String str = BubbleEditMimojiPresenter.TAG;
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("HASH CODE--");
-                    sb.append(BubblePop.this.mHashCode);
-                    sb.append(" start ani end:");
-                    sb.append(BubblePop.this.mLocationSelect[2]);
-                    Log.i(str, sb.toString());
                 }
 
                 public void onAnimationStart(Animator animator) {
                     super.onAnimationStart(animator);
-                    BubblePop.this.layoutParamsDelete.leftMargin = BubblePop.this.mLocationSelect[0] + 25;
-                    BubblePop.this.layoutParamsDelete.topMargin = BubblePop.this.mLocationSelect[1] - 85;
+                    BubblePop.this.layoutParamsDelete.topMargin = i4;
+                    BubblePop.this.layoutParamsDelete.leftMargin = i3;
+                    String str = BubbleEditMimojiPresenter.TAG;
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("showBubbleAni:");
+                    sb.append(i4);
+                    Log.i(str, sb.toString());
+                    BubblePop.this.mIvDeleteFisrt.setLayoutParams(BubblePop.this.layoutParamsDelete);
                     BubblePop.this.mIvDeleteFisrt.setVisibility(0);
                 }
             });
@@ -223,31 +210,47 @@ public class BubbleEditMimojiPresenter {
     BubbleEditMimojiPresenter(Context context, OnClickListener onClickListener, RelativeLayout relativeLayout) {
         this.mContext = context;
         this.bubblePop1 = new BubblePop(this.mContext, onClickListener, relativeLayout);
-        this.bubblePop2 = new BubblePop(this.mContext, onClickListener, relativeLayout);
+        String str = TAG;
+        StringBuilder sb = new StringBuilder();
+        sb.append("bubblePop1 hashCode:");
+        sb.append(this.bubblePop1.hashCode());
+        Log.i(str, sb.toString());
     }
 
-    public void processBubbleAni(int i, int i2) {
+    public void processBubbleAni(int i, int i2, View view) {
         if (-2 == i && -2 == i2) {
-            if (this.bubblePop2.getProcessState() == 103) {
-                this.bubblePop2.processBubbleAni(i2, i, this.bubblePop2.hashCode());
-            }
             if (this.bubblePop1.getProcessState() == 103) {
-                this.bubblePop1.processBubbleAni(i2, i, this.bubblePop2.hashCode());
+                this.bubblePop1.processBubbleAni(i, i2, this.bubblePop1.hashCode());
             }
             return;
         }
-        if (this.bubblePop1.mLocationSelect[0] == i && this.bubblePop1.mLocationSelect[1] == i2) {
-            this.bubblePop1.processBubbleAni(i2, i, this.bubblePop1.hashCode());
-        } else if (this.bubblePop2.mLocationSelect[0] == i && this.bubblePop2.mLocationSelect[1] == i2) {
-            this.bubblePop2.processBubbleAni(i2, i, this.bubblePop1.hashCode());
-        } else if (this.bubblePop1.mLocationSelect[0] == -1 && this.bubblePop1.mLocationSelect[1] == -1) {
-            this.bubblePop1.processBubbleAni(i2, i, this.bubblePop1.hashCode());
-            if (this.bubblePop2.getProcessState() == 103) {
-                this.bubblePop2.processBubbleAni(i2, i, this.bubblePop2.hashCode());
-            }
-        } else {
-            this.bubblePop1.processBubbleAni(i2, i, this.bubblePop1.hashCode());
-            this.bubblePop2.processBubbleAni(i2, i, this.bubblePop2.hashCode());
-        }
+        this.mTargetView = view;
+        int height = this.mTargetView.getHeight();
+        int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(R.dimen.mimoji_edit_bubble_width);
+        this.rightMove = ((double) dimensionPixelSize) * 0.75d;
+        this.leftMove = -this.rightMove;
+        this.topMove = ((-height) / 2) - dimensionPixelSize;
+        this.downMove = dimensionPixelSize / 2;
+        String str = TAG;
+        StringBuilder sb = new StringBuilder();
+        sb.append("calculate vector leftMove:");
+        sb.append(this.leftMove);
+        sb.append(" rightMove:");
+        sb.append(this.rightMove);
+        sb.append("  topMove:");
+        sb.append(this.topMove);
+        sb.append("  downMove:");
+        sb.append(this.downMove);
+        Log.i(str, sb.toString());
+        this.bubblePop1.processBubbleAni(i, i2, this.bubblePop1.hashCode());
+    }
+
+    public void setmHashCodeBubble(int i) {
+        this.mHashCodeBubble = i;
+        String str = TAG;
+        StringBuilder sb = new StringBuilder();
+        sb.append("在show的BubbleHashCode:");
+        sb.append(i);
+        Log.i(str, sb.toString());
     }
 }

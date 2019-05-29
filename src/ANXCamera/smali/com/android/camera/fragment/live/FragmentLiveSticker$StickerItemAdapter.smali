@@ -71,7 +71,7 @@
 
     invoke-direct {v0}, Lcom/bumptech/glide/request/f;-><init>()V
 
-    const v1, 0x7f020137
+    const v1, 0x7f02013d
 
     invoke-virtual {v0, v1}, Lcom/bumptech/glide/request/f;->N(I)Lcom/bumptech/glide/request/f;
 
@@ -255,7 +255,7 @@
 
     iget-object p2, p0, Lcom/android/camera/fragment/live/FragmentLiveSticker$StickerItemAdapter;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v0, 0x7f040027
+    const v0, 0x7f040028
 
     const/4 v1, 0x0
 

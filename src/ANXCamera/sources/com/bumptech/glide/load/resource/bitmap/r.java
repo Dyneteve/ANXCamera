@@ -10,40 +10,40 @@ import java.io.File;
 
 /* compiled from: HardwareConfigState */
 final class r {
-    private static final File lA = new File("/proc/self/fd");
-    private static final int lB = 50;
-    private static final int lC = 700;
-    private static volatile r lF = null;
-    private static final int lz = 128;
-    private volatile int lD;
-    private volatile boolean lE = true;
+    private static final int lA = 128;
+    private static final File lB = new File("/proc/self/fd");
+    private static final int lC = 50;
+    private static final int lD = 700;
+    private static volatile r lG;
+    private volatile int lE;
+    private volatile boolean lF = true;
 
     private r() {
     }
 
     static r cv() {
-        if (lF == null) {
+        if (lG == null) {
             synchronized (r.class) {
-                if (lF == null) {
-                    lF = new r();
+                if (lG == null) {
+                    lG = new r();
                 }
             }
         }
-        return lF;
+        return lG;
     }
 
     private synchronized boolean cw() {
-        int i = this.lD + 1;
-        this.lD = i;
+        int i = this.lE + 1;
+        this.lE = i;
         if (i >= 50) {
             boolean z = false;
-            this.lD = 0;
-            int length = lA.list().length;
+            this.lE = 0;
+            int length = lB.list().length;
             if (length < 700) {
                 z = true;
             }
-            this.lE = z;
-            if (!this.lE && Log.isLoggable("Downsampler", 5)) {
+            this.lF = z;
+            if (!this.lF && Log.isLoggable("Downsampler", 5)) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("Excluding HARDWARE bitmap config because we're over the file descriptor limit, file descriptors ");
                 sb.append(length);
@@ -52,7 +52,7 @@ final class r {
                 Log.w("Downsampler", sb.toString());
             }
         }
-        return this.lE;
+        return this.lF;
     }
 
     /* access modifiers changed from: 0000 */

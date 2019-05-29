@@ -38,7 +38,7 @@ import miui.view.animation.QuinticEaseOutInterpolator;
 
 public class BeautyEyeLightFragment extends BaseBeautyFragment implements OnClickListener {
     private static final String DEFAULT_TYPE = "1";
-    private static List<EyeLightItem> EYE_LIGHT_TYPE_LIST = Arrays.asList(new EyeLightItem[]{new EyeLightItem(EyeLightConstant.OFF, EyeLightConstant.getDrawable(EyeLightConstant.OFF), EyeLightConstant.getString(EyeLightConstant.OFF)), new EyeLightItem("1", EyeLightConstant.getDrawable("1"), EyeLightConstant.getString("1")), new EyeLightItem("4", EyeLightConstant.getDrawable("4"), EyeLightConstant.getString("4")), new EyeLightItem("0", EyeLightConstant.getDrawable("0"), EyeLightConstant.getString("0")), new EyeLightItem("5", EyeLightConstant.getDrawable("5"), EyeLightConstant.getString("5")), new EyeLightItem("6", EyeLightConstant.getDrawable("6"), EyeLightConstant.getString("6")), new EyeLightItem("3", EyeLightConstant.getDrawable("3"), EyeLightConstant.getString("3")), new EyeLightItem("2", EyeLightConstant.getDrawable("2"), EyeLightConstant.getString("2"))});
+    private static List<EyeLightItem> EYE_LIGHT_TYPE_LIST = Arrays.asList(new EyeLightItem[]{new EyeLightItem("-1", EyeLightConstant.getDrawable("-1"), EyeLightConstant.getString("-1")), new EyeLightItem("1", EyeLightConstant.getDrawable("1"), EyeLightConstant.getString("1")), new EyeLightItem("4", EyeLightConstant.getDrawable("4"), EyeLightConstant.getString("4")), new EyeLightItem("0", EyeLightConstant.getDrawable("0"), EyeLightConstant.getString("0")), new EyeLightItem("5", EyeLightConstant.getDrawable("5"), EyeLightConstant.getString("5")), new EyeLightItem("6", EyeLightConstant.getDrawable("6"), EyeLightConstant.getString("6")), new EyeLightItem("3", EyeLightConstant.getDrawable("3"), EyeLightConstant.getString("3")), new EyeLightItem("2", EyeLightConstant.getDrawable("2"), EyeLightConstant.getString("2"))});
     private static final String TAG = BeautyEyeLightFragment.class.getSimpleName();
     private EyeLightSingleCheckAdapter mAdapter;
     private int mBackButtonWidth;
@@ -50,7 +50,7 @@ public class BeautyEyeLightFragment extends BaseBeautyFragment implements OnClic
     private int mTotalWidth;
 
     private void eyeLightMutexGroup(String str, ConfigChanges configChanges) {
-        if (configChanges != null && !EyeLightConstant.OFF.equals(str)) {
+        if (configChanges != null && !"-1".equals(str)) {
             TopAlert topAlert = (TopAlert) ModeCoordinatorImpl.getInstance().getAttachProtocol(172);
             if (topAlert != null && DataRepository.dataItemRunning().isSwitchOn("pref_camera_groupshot_mode_key")) {
                 configChanges.onConfigChanged(235);
@@ -109,7 +109,7 @@ public class BeautyEyeLightFragment extends BaseBeautyFragment implements OnClic
 
     private void reSelectItem() {
         String eyeLightType = CameraSettings.getEyeLightType();
-        if (EyeLightConstant.OFF.equals(eyeLightType)) {
+        if ("-1".equals(eyeLightType)) {
             eyeLightType = "1";
         }
         int i = 0;
@@ -154,7 +154,7 @@ public class BeautyEyeLightFragment extends BaseBeautyFragment implements OnClic
     }
 
     public void closeEyeLight() {
-        String str = EyeLightConstant.OFF;
+        String str = "-1";
         int i = 0;
         while (true) {
             if (i >= EYE_LIGHT_TYPE_LIST.size()) {

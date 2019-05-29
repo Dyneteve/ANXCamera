@@ -4,4 +4,8 @@
         <item quantity="other">Fokus qilindi. %d ta yuz aniqlandi</item>
         <item quantity="one">Fokus qilindi. %d ta yuz aniqlandi</item>
     </plurals>
+    <plurals name="toast_burst_snap_finished_summary">
+        <item quantity="other">Seriya rasmi tayyor, %1$s ta rasm olindi</item>
+        <item quantity="one">Seriya rasmi tayyor, %1$s ta rasm olindi</item>
+    </plurals>
 </resources>

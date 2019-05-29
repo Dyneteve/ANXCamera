@@ -25,9 +25,9 @@
 
 
 # instance fields
-.field private final ed:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
+.field private final ee:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
 
-.field private final kD:Lcom/bumptech/glide/load/resource/bitmap/n;
+.field private final kE:Lcom/bumptech/glide/load/resource/bitmap/n;
 
 
 # direct methods
@@ -36,9 +36,9 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/v;->kD:Lcom/bumptech/glide/load/resource/bitmap/n;
+    iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/v;->kE:Lcom/bumptech/glide/load/resource/bitmap/n;
 
-    iput-object p2, p0, Lcom/bumptech/glide/load/resource/bitmap/v;->ed:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
+    iput-object p2, p0, Lcom/bumptech/glide/load/resource/bitmap/v;->ee:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
 
     return-void
 .end method
@@ -87,7 +87,7 @@
     :cond_0
     new-instance v0, Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/resource/bitmap/v;->ed:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
+    iget-object v1, p0, Lcom/bumptech/glide/load/resource/bitmap/v;->ee:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
 
     invoke-direct {v0, p1, v1}, Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;-><init>(Ljava/io/InputStream;Lcom/bumptech/glide/load/engine/bitmap_recycle/b;)V
 
@@ -113,7 +113,7 @@
     invoke-direct {v7, p1, v1}, Lcom/bumptech/glide/load/resource/bitmap/v$a;-><init>(Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;Lcom/bumptech/glide/util/c;)V
 
     :try_start_0
-    iget-object v2, p0, Lcom/bumptech/glide/load/resource/bitmap/v;->kD:Lcom/bumptech/glide/load/resource/bitmap/n;
+    iget-object v2, p0, Lcom/bumptech/glide/load/resource/bitmap/v;->kE:Lcom/bumptech/glide/load/resource/bitmap/n;
 
     move v4, p2
 
@@ -185,7 +185,7 @@
         .end annotation
     .end param
 
-    iget-object p2, p0, Lcom/bumptech/glide/load/resource/bitmap/v;->kD:Lcom/bumptech/glide/load/resource/bitmap/n;
+    iget-object p2, p0, Lcom/bumptech/glide/load/resource/bitmap/v;->kE:Lcom/bumptech/glide/load/resource/bitmap/n;
 
     invoke-virtual {p2, p1}, Lcom/bumptech/glide/load/resource/bitmap/n;->e(Ljava/io/InputStream;)Z
 

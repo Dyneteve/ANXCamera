@@ -43,7 +43,7 @@
 .method protected getLayoutId()I
     .locals 1
 
-    const v0, 0x7f040037
+    const v0, 0x7f040038
 
     return v0
 .end method

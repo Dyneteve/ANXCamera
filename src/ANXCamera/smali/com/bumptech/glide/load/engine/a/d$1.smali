@@ -18,14 +18,14 @@
 
 
 # instance fields
-.field final synthetic hW:Ljava/lang/String;
+.field final synthetic hX:Ljava/lang/String;
 
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/engine/a/d$1;->hW:Ljava/lang/String;
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/a/d$1;->hX:Ljava/lang/String;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -39,7 +39,7 @@
 
     new-instance v0, Ljava/io/File;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/a/d$1;->hW:Ljava/lang/String;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/a/d$1;->hX:Ljava/lang/String;
 
     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 

@@ -6,9 +6,9 @@
 # static fields
 .field private static final TAG:Ljava/lang/String; = "GlideRuntimeCompat"
 
-.field private static final iY:Ljava/lang/String; = "cpu[0-9]+"
+.field private static final iZ:Ljava/lang/String; = "cpu[0-9]+"
 
-.field private static final iZ:Ljava/lang/String; = "/sys/devices/system/cpu/"
+.field private static final ja:Ljava/lang/String; = "/sys/devices/system/cpu/"
 
 
 # direct methods

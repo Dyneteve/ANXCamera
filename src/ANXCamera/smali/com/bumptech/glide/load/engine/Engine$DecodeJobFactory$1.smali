@@ -27,14 +27,14 @@
 
 
 # instance fields
-.field final synthetic gi:Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;
+.field final synthetic gj:Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;
 
 
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory$1;->gi:Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory$1;->gj:Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -55,13 +55,13 @@
 
     new-instance v0, Lcom/bumptech/glide/load/engine/DecodeJob;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory$1;->gi:Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory$1;->gj:Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;
 
-    iget-object v1, v1, Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;->eS:Lcom/bumptech/glide/load/engine/DecodeJob$d;
+    iget-object v1, v1, Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;->eT:Lcom/bumptech/glide/load/engine/DecodeJob$d;
 
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory$1;->gi:Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory$1;->gj:Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;
 
-    iget-object v2, v2, Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;->fd:Landroid/support/v4/util/Pools$Pool;
+    iget-object v2, v2, Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;->fe:Landroid/support/v4/util/Pools$Pool;
 
     invoke-direct {v0, v1, v2}, Lcom/bumptech/glide/load/engine/DecodeJob;-><init>(Lcom/bumptech/glide/load/engine/DecodeJob$d;Landroid/support/v4/util/Pools$Pool;)V
 

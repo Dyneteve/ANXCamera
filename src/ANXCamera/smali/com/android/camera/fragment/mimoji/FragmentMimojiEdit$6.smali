@@ -3,12 +3,12 @@
 .source "FragmentMimojiEdit.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;->showRecaptureDialog()V
+    value = Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;->showAlertDialog(I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,48 +34,8 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 3
-
-    new-instance v0, Landroid/app/AlertDialog$Builder;
-
-    iget-object v1, p0, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit$6;->this$0:Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;
-
-    invoke-virtual {v1}, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
-
-    const v1, 0x7f0902c2
-
-    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
-
-    const v1, 0x7f0902c3
-
-    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
-
-    new-instance v1, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit$6$1;
-
-    invoke-direct {v1, p0}, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit$6$1;-><init>(Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit$6;)V
-
-    const v2, 0x7f0901b6
-
-    invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-
-    new-instance v1, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit$6$2;
-
-    invoke-direct {v1, p0}, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit$6$2;-><init>(Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit$6;)V
-
-    const v2, 0x7f0901b7
-
-    invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-
-    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
+.method public onClick(Landroid/content/DialogInterface;I)V
+    .locals 0
 
     return-void
 .end method

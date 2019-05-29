@@ -41,7 +41,7 @@
 
 
 # virtual methods
-.method public getLifecycle()Lcom/android/camera/fragment/lifeCircle/BaseFragmentLifecycle;
+.method public getFragmentLifecycle()Lcom/android/camera/fragment/lifeCircle/BaseFragmentLifecycle;
     .locals 1
 
     iget-object v0, p0, Lcom/android/camera/fragment/lifeCircle/BaseLifeCircleBindFragment;->mLifecycle:Lcom/android/camera/fragment/lifeCircle/BaseFragmentLifecycle;

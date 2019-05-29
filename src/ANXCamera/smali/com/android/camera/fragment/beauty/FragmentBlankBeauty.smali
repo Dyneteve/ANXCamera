@@ -34,7 +34,7 @@
 .method protected getLayoutResourceId()I
     .locals 1
 
-    const v0, 0x7f04000d
+    const v0, 0x7f04000e
 
     return v0
 .end method

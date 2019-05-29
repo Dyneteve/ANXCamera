@@ -10,14 +10,14 @@
 # instance fields
 .field private isRunning:Z
 
-.field private final nE:Lcom/bumptech/glide/request/d;
+.field private final nF:Lcom/bumptech/glide/request/d;
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 .end field
 
-.field private oW:Lcom/bumptech/glide/request/c;
-
 .field private oX:Lcom/bumptech/glide/request/c;
+
+.field private oY:Lcom/bumptech/glide/request/c;
 
 
 # direct methods
@@ -42,7 +42,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/request/h;->nE:Lcom/bumptech/glide/request/d;
+    iput-object p1, p0, Lcom/bumptech/glide/request/h;->nF:Lcom/bumptech/glide/request/d;
 
     return-void
 .end method
@@ -50,11 +50,11 @@
 .method private dk()Z
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->nE:Lcom/bumptech/glide/request/d;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->nF:Lcom/bumptech/glide/request/d;
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->nE:Lcom/bumptech/glide/request/d;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->nF:Lcom/bumptech/glide/request/d;
 
     invoke-interface {v0, p0}, Lcom/bumptech/glide/request/d;->d(Lcom/bumptech/glide/request/c;)Z
 
@@ -80,11 +80,11 @@
 .method private dl()Z
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->nE:Lcom/bumptech/glide/request/d;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->nF:Lcom/bumptech/glide/request/d;
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->nE:Lcom/bumptech/glide/request/d;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->nF:Lcom/bumptech/glide/request/d;
 
     invoke-interface {v0, p0}, Lcom/bumptech/glide/request/d;->f(Lcom/bumptech/glide/request/c;)Z
 
@@ -110,11 +110,11 @@
 .method private dm()Z
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->nE:Lcom/bumptech/glide/request/d;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->nF:Lcom/bumptech/glide/request/d;
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->nE:Lcom/bumptech/glide/request/d;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->nF:Lcom/bumptech/glide/request/d;
 
     invoke-interface {v0, p0}, Lcom/bumptech/glide/request/d;->e(Lcom/bumptech/glide/request/c;)Z
 
@@ -140,11 +140,11 @@
 .method private do()Z
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->nE:Lcom/bumptech/glide/request/d;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->nF:Lcom/bumptech/glide/request/d;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->nE:Lcom/bumptech/glide/request/d;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->nF:Lcom/bumptech/glide/request/d;
 
     invoke-interface {v0}, Lcom/bumptech/glide/request/d;->dn()Z
 
@@ -168,9 +168,9 @@
 .method public a(Lcom/bumptech/glide/request/c;Lcom/bumptech/glide/request/c;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/bumptech/glide/request/h;->oW:Lcom/bumptech/glide/request/c;
+    iput-object p1, p0, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
 
-    iput-object p2, p0, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
+    iput-object p2, p0, Lcom/bumptech/glide/request/h;->oY:Lcom/bumptech/glide/request/c;
 
     return-void
 .end method
@@ -182,7 +182,7 @@
 
     iput-boolean v0, p0, Lcom/bumptech/glide/request/h;->isRunning:Z
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oW:Lcom/bumptech/glide/request/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
 
     invoke-interface {v0}, Lcom/bumptech/glide/request/c;->isComplete()Z
 
@@ -190,7 +190,7 @@
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oY:Lcom/bumptech/glide/request/c;
 
     invoke-interface {v0}, Lcom/bumptech/glide/request/c;->isRunning()Z
 
@@ -198,7 +198,7 @@
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oY:Lcom/bumptech/glide/request/c;
 
     invoke-interface {v0}, Lcom/bumptech/glide/request/c;->begin()V
 
@@ -207,7 +207,7 @@
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oW:Lcom/bumptech/glide/request/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
 
     invoke-interface {v0}, Lcom/bumptech/glide/request/c;->isRunning()Z
 
@@ -215,7 +215,7 @@
 
     if-nez v0, :cond_1
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oW:Lcom/bumptech/glide/request/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
 
     invoke-interface {v0}, Lcom/bumptech/glide/request/c;->begin()V
 
@@ -234,20 +234,20 @@
 
     check-cast p1, Lcom/bumptech/glide/request/h;
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oW:Lcom/bumptech/glide/request/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
 
     if-nez v0, :cond_0
 
-    iget-object v0, p1, Lcom/bumptech/glide/request/h;->oW:Lcom/bumptech/glide/request/c;
+    iget-object v0, p1, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
 
     if-nez v0, :cond_2
 
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oW:Lcom/bumptech/glide/request/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
 
-    iget-object v2, p1, Lcom/bumptech/glide/request/h;->oW:Lcom/bumptech/glide/request/c;
+    iget-object v2, p1, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
 
     invoke-interface {v0, v2}, Lcom/bumptech/glide/request/c;->c(Lcom/bumptech/glide/request/c;)Z
 
@@ -256,20 +256,20 @@
     if-eqz v0, :cond_2
 
     :goto_0
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oY:Lcom/bumptech/glide/request/c;
 
     if-nez v0, :cond_1
 
-    iget-object p1, p1, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
+    iget-object p1, p1, Lcom/bumptech/glide/request/h;->oY:Lcom/bumptech/glide/request/c;
 
     if-nez p1, :cond_2
 
     goto :goto_1
 
     :cond_1
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oY:Lcom/bumptech/glide/request/c;
 
-    iget-object p1, p1, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
+    iget-object p1, p1, Lcom/bumptech/glide/request/h;->oY:Lcom/bumptech/glide/request/c;
 
     invoke-interface {v0, p1}, Lcom/bumptech/glide/request/c;->c(Lcom/bumptech/glide/request/c;)Z
 
@@ -296,11 +296,11 @@
 
     iput-boolean v0, p0, Lcom/bumptech/glide/request/h;->isRunning:Z
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oY:Lcom/bumptech/glide/request/c;
 
     invoke-interface {v0}, Lcom/bumptech/glide/request/c;->clear()V
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oW:Lcom/bumptech/glide/request/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
 
     invoke-interface {v0}, Lcom/bumptech/glide/request/c;->clear()V
 
@@ -316,7 +316,7 @@
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oW:Lcom/bumptech/glide/request/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
 
     invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
@@ -324,7 +324,7 @@
 
     if-nez p1, :cond_0
 
-    iget-object p1, p0, Lcom/bumptech/glide/request/h;->oW:Lcom/bumptech/glide/request/c;
+    iget-object p1, p0, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
 
     invoke-interface {p1}, Lcom/bumptech/glide/request/c;->dj()Z
 
@@ -347,7 +347,7 @@
 .method public dj()Z
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oW:Lcom/bumptech/glide/request/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
 
     invoke-interface {v0}, Lcom/bumptech/glide/request/c;->dj()Z
 
@@ -355,7 +355,7 @@
 
     if-nez v0, :cond_1
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oY:Lcom/bumptech/glide/request/c;
 
     invoke-interface {v0}, Lcom/bumptech/glide/request/c;->dj()Z
 
@@ -417,7 +417,7 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oW:Lcom/bumptech/glide/request/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
 
     invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
@@ -451,7 +451,7 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oW:Lcom/bumptech/glide/request/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
 
     invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
@@ -473,7 +473,7 @@
 .method public h(Lcom/bumptech/glide/request/c;)V
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oY:Lcom/bumptech/glide/request/c;
 
     invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
@@ -484,16 +484,16 @@
     return-void
 
     :cond_0
-    iget-object p1, p0, Lcom/bumptech/glide/request/h;->nE:Lcom/bumptech/glide/request/d;
+    iget-object p1, p0, Lcom/bumptech/glide/request/h;->nF:Lcom/bumptech/glide/request/d;
 
     if-eqz p1, :cond_1
 
-    iget-object p1, p0, Lcom/bumptech/glide/request/h;->nE:Lcom/bumptech/glide/request/d;
+    iget-object p1, p0, Lcom/bumptech/glide/request/h;->nF:Lcom/bumptech/glide/request/d;
 
     invoke-interface {p1, p0}, Lcom/bumptech/glide/request/d;->h(Lcom/bumptech/glide/request/c;)V
 
     :cond_1
-    iget-object p1, p0, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
+    iget-object p1, p0, Lcom/bumptech/glide/request/h;->oY:Lcom/bumptech/glide/request/c;
 
     invoke-interface {p1}, Lcom/bumptech/glide/request/c;->isComplete()Z
 
@@ -501,7 +501,7 @@
 
     if-nez p1, :cond_2
 
-    iget-object p1, p0, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
+    iget-object p1, p0, Lcom/bumptech/glide/request/h;->oY:Lcom/bumptech/glide/request/c;
 
     invoke-interface {p1}, Lcom/bumptech/glide/request/c;->clear()V
 
@@ -512,7 +512,7 @@
 .method public i(Lcom/bumptech/glide/request/c;)V
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oW:Lcom/bumptech/glide/request/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
 
     invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
@@ -523,11 +523,11 @@
     return-void
 
     :cond_0
-    iget-object p1, p0, Lcom/bumptech/glide/request/h;->nE:Lcom/bumptech/glide/request/d;
+    iget-object p1, p0, Lcom/bumptech/glide/request/h;->nF:Lcom/bumptech/glide/request/d;
 
     if-eqz p1, :cond_1
 
-    iget-object p1, p0, Lcom/bumptech/glide/request/h;->nE:Lcom/bumptech/glide/request/d;
+    iget-object p1, p0, Lcom/bumptech/glide/request/h;->nF:Lcom/bumptech/glide/request/d;
 
     invoke-interface {p1, p0}, Lcom/bumptech/glide/request/d;->i(Lcom/bumptech/glide/request/c;)V
 
@@ -538,7 +538,7 @@
 .method public isCancelled()Z
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oW:Lcom/bumptech/glide/request/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
 
     invoke-interface {v0}, Lcom/bumptech/glide/request/c;->isCancelled()Z
 
@@ -550,7 +550,7 @@
 .method public isComplete()Z
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oW:Lcom/bumptech/glide/request/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
 
     invoke-interface {v0}, Lcom/bumptech/glide/request/c;->isComplete()Z
 
@@ -558,7 +558,7 @@
 
     if-nez v0, :cond_1
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oY:Lcom/bumptech/glide/request/c;
 
     invoke-interface {v0}, Lcom/bumptech/glide/request/c;->isComplete()Z
 
@@ -584,7 +584,7 @@
 .method public isFailed()Z
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oW:Lcom/bumptech/glide/request/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
 
     invoke-interface {v0}, Lcom/bumptech/glide/request/c;->isFailed()Z
 
@@ -596,7 +596,7 @@
 .method public isPaused()Z
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oW:Lcom/bumptech/glide/request/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
 
     invoke-interface {v0}, Lcom/bumptech/glide/request/c;->isPaused()Z
 
@@ -608,7 +608,7 @@
 .method public isRunning()Z
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oW:Lcom/bumptech/glide/request/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
 
     invoke-interface {v0}, Lcom/bumptech/glide/request/c;->isRunning()Z
 
@@ -624,11 +624,11 @@
 
     iput-boolean v0, p0, Lcom/bumptech/glide/request/h;->isRunning:Z
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oW:Lcom/bumptech/glide/request/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
 
     invoke-interface {v0}, Lcom/bumptech/glide/request/c;->pause()V
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oY:Lcom/bumptech/glide/request/c;
 
     invoke-interface {v0}, Lcom/bumptech/glide/request/c;->pause()V
 
@@ -638,11 +638,11 @@
 .method public recycle()V
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oW:Lcom/bumptech/glide/request/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
 
     invoke-interface {v0}, Lcom/bumptech/glide/request/c;->recycle()V
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oX:Lcom/bumptech/glide/request/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/h;->oY:Lcom/bumptech/glide/request/c;
 
     invoke-interface {v0}, Lcom/bumptech/glide/request/c;->recycle()V
 

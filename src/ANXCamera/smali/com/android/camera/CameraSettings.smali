@@ -84,6 +84,8 @@
 
 .field public static final KEY_BEAUTIFY_EYEBROW_DYE_RATIO:Ljava/lang/String; = "pref_beautify_eyebrow_dye_ratio_key"
 
+.field public static final KEY_BEAUTIFY_HAIRLINE_RATIO:Ljava/lang/String; = "pref_beautify_hairline_ratio_key"
+
 .field public static final KEY_BEAUTIFY_JELLY_LIPS_RATIO:Ljava/lang/String; = "pref_beautify_jelly_lips_ratio_key"
 
 .field public static final KEY_BEAUTIFY_LEVEL_CAPTURE:Ljava/lang/String; = "pref_beautify_level_key_capture"
@@ -352,6 +354,10 @@
 
 .field public static final KEY_MIMOJI_INDEX:Ljava/lang/String; = "pref_mimoji_index"
 
+.field public static final KEY_MIMOJI_OPERATE:Ljava/lang/String; = "pref_mimoji_operate"
+
+.field public static final KEY_MIMOJI_PANNEL_STATE:Ljava/lang/String; = "pref_mimoji_pannel_state"
+
 .field public static final KEY_MOVIE_SOLID:Ljava/lang/String; = "pref_camera_movie_solid_key"
 
 .field public static final KEY_NORMAL_WIDE_LDC:Ljava/lang/String; = "pref_camera_normal_wide_ldc_key"
@@ -586,7 +592,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a001e
+    const v2, 0x7f0a000e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -602,7 +608,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0050
+    const v2, 0x7f0a0162
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -618,7 +624,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0051
+    const v2, 0x7f0a0163
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -752,7 +758,7 @@
 
     invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-static {}, Lcom/mi/config/b;->id()Z
+    invoke-static {}, Lcom/mi/config/b;->ig()Z
 
     move-result v1
 
@@ -783,11 +789,11 @@
 
     :array_0
     .array-data 4
+        0x7f09022e
         0x7f09022f
         0x7f090230
         0x7f090231
         0x7f090232
-        0x7f090233
     .end array-data
 .end method
 
@@ -802,7 +808,7 @@
 .method public static addExtraHeight(Landroid/content/Context;I)I
     .locals 3
 
-    sget-boolean v0, Lcom/mi/config/b;->rz:Z
+    sget-boolean v0, Lcom/mi/config/b;->rA:Z
 
     if-nez v0, :cond_0
 
@@ -1351,7 +1357,7 @@
 .method public static get4kProfile()I
     .locals 1
 
-    invoke-static {}, Lcom/mi/config/b;->hh()Z
+    invoke-static {}, Lcom/mi/config/b;->hk()Z
 
     move-result v0
 
@@ -1469,7 +1475,7 @@
     return-object v0
 
     :cond_0
-    invoke-static {}, Lcom/mi/config/b;->gZ()Z
+    invoke-static {}, Lcom/mi/config/b;->hc()Z
 
     move-result v0
 
@@ -1898,7 +1904,7 @@
 
     const-string v1, "pref_mimoji_index"
 
-    const-string v2, "add_state"
+    const-string v2, "close_state"
 
     invoke-virtual {v0, v1, v2}, Lcom/android/camera/data/data/extra/DataItemLive;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -1946,7 +1952,7 @@
 
     const-string v1, "pref_custom_watermark"
 
-    const v2, 0x7f0902e7
+    const v2, 0x7f090382
 
     invoke-static {v2}, Lcom/android/camera/CameraSettings;->getString(I)Ljava/lang/String;
 
@@ -1968,7 +1974,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0902e8
+    const v0, 0x7f090383
 
     invoke-static {v0}, Lcom/android/camera/CameraSettings;->getString(I)Ljava/lang/String;
 
@@ -1977,7 +1983,7 @@
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f0902e7
+    const v0, 0x7f090382
 
     invoke-static {v0}, Lcom/android/camera/CameraSettings;->getString(I)Ljava/lang/String;
 
@@ -2023,11 +2029,11 @@
     goto :goto_0
 
     :cond_0
-    sget-boolean v0, Lcom/mi/config/b;->qQ:Z
+    sget-boolean v0, Lcom/mi/config/b;->qR:Z
 
     if-nez v0, :cond_1
 
-    sget-boolean v0, Lcom/mi/config/b;->qR:Z
+    sget-boolean v0, Lcom/mi/config/b;->qS:Z
 
     if-eqz v0, :cond_4
 
@@ -2048,7 +2054,7 @@
     return p0
 
     :cond_3
-    invoke-static {}, Lcom/mi/config/b;->hr()Z
+    invoke-static {}, Lcom/mi/config/b;->hu()Z
 
     move-result v0
 
@@ -2072,7 +2078,7 @@
 .method public static getDefaultWatermarkStr()Ljava/lang/String;
     .locals 1
 
-    const v0, 0x7f0902e7
+    const v0, 0x7f090382
 
     invoke-static {v0}, Lcom/android/camera/CameraSettings;->getString(I)Ljava/lang/String;
 
@@ -2084,7 +2090,7 @@
 .method public static final getDualCameraWaterMarkFilePathVendor()Ljava/lang/String;
     .locals 2
 
-    sget-boolean v0, Lcom/mi/config/b;->rw:Z
+    sget-boolean v0, Lcom/mi/config/b;->rx:Z
 
     if-eqz v0, :cond_0
 
@@ -2246,7 +2252,7 @@
 .method public static getFaceBeautifyLevel()Ljava/lang/String;
     .locals 3
 
-    invoke-static {}, Lcom/mi/config/b;->gO()Z
+    invoke-static {}, Lcom/mi/config/b;->gR()Z
 
     move-result v0
 
@@ -2431,6 +2437,32 @@
     move-result v0
 
     return v0
+.end method
+
+.method public static getHSRValue(Z)Ljava/lang/String;
+    .locals 2
+
+    if-eqz p0, :cond_0
+
+    const-string p0, "pref_camera_hsr_value_key_u"
+
+    goto :goto_0
+
+    :cond_0
+    const-string p0, "pref_camera_hsr_value_key"
+
+    :goto_0
+    invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemConfig()Lcom/android/camera/data/data/config/DataItemConfig;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, p0, v1}, Lcom/android/camera/data/data/config/DataItemConfig;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static getHfrSetting()Ljava/lang/String;
@@ -2760,6 +2792,24 @@
     return v0
 .end method
 
+.method public static getMimojiPannelState()Z
+    .locals 3
+
+    invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemLive()Lcom/android/camera/data/data/extra/DataItemLive;
+
+    move-result-object v0
+
+    const-string v1, "pref_mimoji_pannel_state"
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/camera/data/data/extra/DataItemLive;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public static getMiuiSettingsKeyForStreetSnap(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
 
@@ -3054,7 +3104,7 @@
     return v0
 .end method
 
-.method public static getPreferVideoQuality(I)I
+.method public static getPreferVideoQuality(II)I
     .locals 7
 
     nop
@@ -3083,7 +3133,7 @@
 
     const/4 v2, 0x1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_6
 
     invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemConfig()Lcom/android/camera/data/data/config/DataItemConfig;
 
@@ -3103,6 +3153,38 @@
 
     nop
 
+    invoke-static {p1}, Lcom/android/camera/CameraSettings;->isUltraWideConfigOpen(I)Z
+
+    move-result v4
+
+    const/4 v5, 0x0
+
+    if-nez v4, :cond_1
+
+    invoke-static {}, Lcom/android/camera/module/loader/camera2/Camera2DataContainer;->getInstance()Lcom/android/camera/module/loader/camera2/Camera2DataContainer;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/camera/module/loader/camera2/Camera2DataContainer;->getUltraWideCameraId()I
+
+    move-result v4
+
+    if-ne p0, v4, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    move p0, v5
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    nop
+
+    move p0, v2
+
+    :goto_1
     invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemConfig()Lcom/android/camera/data/data/config/DataItemConfig;
 
     move-result-object v4
@@ -3111,15 +3193,13 @@
 
     move-result-object v4
 
-    const/4 v5, 0x0
-
-    if-lez v3, :cond_1
-
     const/4 v6, 0x0
 
-    invoke-virtual {v1, v6, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    if-lez v3, :cond_4
 
-    move-result-object v6
+    invoke-virtual {v1, v5, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v5
 
     add-int/2addr v3, v2
 
@@ -3131,80 +3211,81 @@
 
     const/16 v3, 0x870
 
-    invoke-static {v2, v3, p0}, Lcom/android/camera/CameraSettings;->isSupportFpsRange(III)Z
+    invoke-static {v2, v3, p1}, Lcom/android/camera/CameraSettings;->isSupportFpsRange(III)Z
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_3
 
     const/16 v2, 0x780
 
     const/16 v3, 0x438
 
-    invoke-static {v2, v3, p0}, Lcom/android/camera/CameraSettings;->isSupportFpsRange(III)Z
+    invoke-static {v2, v3, p1}, Lcom/android/camera/CameraSettings;->isSupportFpsRange(III)Z
 
-    move-result p0
+    move-result p1
 
-    if-nez p0, :cond_0
+    if-nez p1, :cond_3
 
-    const-string p0, "CameraSettings"
+    const-string p1, "CameraSettings"
 
     const-string v1, "getPreferVideoQuality: do not support 60fps"
 
-    invoke-static {p0, v1}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, v1}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string p0, "pref_video_quality_key"
+    if-nez p0, :cond_2
 
-    invoke-interface {v4, p0, v6}, Lcom/android/camera/data/provider/DataProvider$ProviderEditor;->putString(Ljava/lang/String;Ljava/lang/String;)Lcom/android/camera/data/provider/DataProvider$ProviderEditor;
+    const-string p1, "pref_video_quality_key"
 
-    goto :goto_0
-
-    :cond_0
-    move-object v5, v1
-
-    goto :goto_0
-
-    :cond_1
-    move-object v6, v1
-
-    :goto_0
-    const-string p0, "pref_camera_hsr_value_key"
-
-    invoke-interface {v4, p0, v5}, Lcom/android/camera/data/provider/DataProvider$ProviderEditor;->putString(Ljava/lang/String;Ljava/lang/String;)Lcom/android/camera/data/provider/DataProvider$ProviderEditor;
+    invoke-interface {v4, p1, v5}, Lcom/android/camera/data/provider/DataProvider$ProviderEditor;->putString(Ljava/lang/String;Ljava/lang/String;)Lcom/android/camera/data/provider/DataProvider$ProviderEditor;
 
     invoke-interface {v4}, Lcom/android/camera/data/provider/DataProvider$ProviderEditor;->apply()V
 
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :cond_2
+    goto :goto_2
+
+    :cond_3
+    move-object v6, v1
+
+    goto :goto_2
+
+    :cond_4
+    move-object v5, v1
+
+    :goto_2
+    invoke-static {p0, v6}, Lcom/android/camera/CameraSettings;->setHSRValue(ZLjava/lang/String;)V
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 
-    if-nez p0, :cond_2
+    if-nez p0, :cond_5
 
     const p0, 0x7f0e0003
 
-    invoke-static {v6, p0}, Lcom/android/camera/Util;->isStringValueContained(Ljava/lang/Object;I)Z
+    invoke-static {v5, p0}, Lcom/android/camera/Util;->isStringValueContained(Ljava/lang/Object;I)Z
 
     move-result p0
 
-    if-nez p0, :cond_2
+    if-nez p0, :cond_5
 
     const-string p0, "CameraSettings"
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "reset invalid video quality "
+    const-string v1, "reset invalid video quality "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-static {p0, v1}, Lcom/android/camera/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Lcom/android/camera/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     nop
 
@@ -3216,44 +3297,40 @@
 
     move-result-object p0
 
-    const-string v1, "pref_video_quality_key"
+    const-string p1, "pref_video_quality_key"
 
-    invoke-interface {p0, v1, v0}, Lcom/android/camera/data/provider/DataProvider$ProviderEditor;->putString(Ljava/lang/String;Ljava/lang/String;)Lcom/android/camera/data/provider/DataProvider$ProviderEditor;
+    invoke-interface {p0, p1, v0}, Lcom/android/camera/data/provider/DataProvider$ProviderEditor;->putString(Ljava/lang/String;Ljava/lang/String;)Lcom/android/camera/data/provider/DataProvider$ProviderEditor;
 
     invoke-interface {p0}, Lcom/android/camera/data/provider/DataProvider$ProviderEditor;->apply()V
 
-    goto :goto_1
+    goto :goto_3
 
-    :cond_2
-    move-object v0, v6
+    :cond_5
+    move-object v0, v5
 
-    :goto_1
+    :goto_3
     invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result p0
 
-    goto :goto_2
+    goto :goto_4
 
-    :cond_3
-    invoke-static {}, Lcom/android/camera/CameraSettings;->getCameraId()I
-
-    move-result p0
-
+    :cond_6
     invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v1
+    move-result p1
 
-    invoke-static {p0, v1}, Landroid/media/CamcorderProfile;->hasProfile(II)Z
+    invoke-static {p0, p1}, Landroid/media/CamcorderProfile;->hasProfile(II)Z
 
     move-result p0
 
-    if-nez p0, :cond_4
+    if-nez p0, :cond_7
 
     invoke-static {v2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    :cond_4
+    :cond_7
     invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemConfig()Lcom/android/camera/data/data/config/DataItemConfig;
 
     move-result-object p0
@@ -3262,9 +3339,9 @@
 
     move-result-object p0
 
-    const-string v1, "pref_video_quality_key"
+    const-string p1, "pref_video_quality_key"
 
-    invoke-interface {p0, v1, v0}, Lcom/android/camera/data/provider/DataProvider$ProviderEditor;->putString(Ljava/lang/String;Ljava/lang/String;)Lcom/android/camera/data/provider/DataProvider$ProviderEditor;
+    invoke-interface {p0, p1, v0}, Lcom/android/camera/data/provider/DataProvider$ProviderEditor;->putString(Ljava/lang/String;Ljava/lang/String;)Lcom/android/camera/data/provider/DataProvider$ProviderEditor;
 
     invoke-interface {p0}, Lcom/android/camera/data/provider/DataProvider$ProviderEditor;->apply()V
 
@@ -3272,7 +3349,7 @@
 
     move-result p0
 
-    :goto_2
+    :goto_4
     return p0
 .end method
 
@@ -4029,7 +4106,7 @@
 
     nop
 
-    invoke-static {}, Lcom/mi/config/b;->hh()Z
+    invoke-static {}, Lcom/mi/config/b;->hk()Z
 
     move-result v4
 
@@ -4266,7 +4343,7 @@
 .method public static getSystemEdgeMode(Landroid/content/Context;)I
     .locals 4
 
-    invoke-static {}, Lcom/mi/config/b;->hK()Z
+    invoke-static {}, Lcom/mi/config/b;->hN()Z
 
     move-result v0
 
@@ -4421,7 +4498,7 @@
 
     div-double/2addr v3, v5
 
-    invoke-static {}, Lcom/mi/config/b;->hI()Z
+    invoke-static {}, Lcom/mi/config/b;->hL()Z
 
     move-result v0
 
@@ -4572,7 +4649,7 @@
     return v0
 .end method
 
-.method public static getVideoQuality(I)I
+.method public static getVideoQuality(II)I
     .locals 2
 
     invoke-static {}, Lcom/android/camera/CameraSettings;->isStereoModeOn()Z
@@ -4590,11 +4667,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_5
 
     const/4 v0, 0x0
 
-    invoke-static {p0, v0}, Lcom/android/camera/CameraSettings;->isFaceBeautyOn(ILcom/android/camera/fragment/beauty/BeautyValues;)Z
+    invoke-static {p1, v0}, Lcom/android/camera/CameraSettings;->isFaceBeautyOn(ILcom/android/camera/fragment/beauty/BeautyValues;)Z
 
     move-result v0
 
@@ -4603,34 +4680,37 @@
     goto :goto_0
 
     :cond_1
-    invoke-static {p0}, Lcom/android/camera/CameraSettings;->isAutoZoomEnabled(I)Z
+    invoke-static {p1}, Lcom/android/camera/CameraSettings;->isAutoZoomEnabled(I)Z
 
-    move-result p0
+    move-result v0
 
-    if-eqz p0, :cond_2
+    if-eqz v0, :cond_2
 
     return v1
 
     :cond_2
-    invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemGlobal()Lcom/android/camera/data/data/global/DataItemGlobal;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Lcom/android/camera/data/data/global/DataItemGlobal;->getCurrentMode()I
-
-    move-result p0
-
-    invoke-static {p0}, Lcom/android/camera/CameraSettings;->getPreferVideoQuality(I)I
+    invoke-static {p0, p1}, Lcom/android/camera/CameraSettings;->getPreferVideoQuality(II)I
 
     move-result v0
 
-    invoke-static {p0}, Lcom/android/camera/CameraSettings;->isUltraWideConfigOpen(I)Z
+    invoke-static {p1}, Lcom/android/camera/CameraSettings;->isUltraWideConfigOpen(I)Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-nez v1, :cond_3
 
-    invoke-static {p0}, Lcom/android/camera/CameraSettings;->getMaxSupportedVideoQuality(I)I
+    invoke-static {}, Lcom/android/camera/module/loader/camera2/Camera2DataContainer;->getInstance()Lcom/android/camera/module/loader/camera2/Camera2DataContainer;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/camera/module/loader/camera2/Camera2DataContainer;->getUltraWideCameraId()I
+
+    move-result v1
+
+    if-ne p0, v1, :cond_4
+
+    :cond_3
+    invoke-static {p1}, Lcom/android/camera/CameraSettings;->getMaxSupportedVideoQuality(I)I
 
     move-result p0
 
@@ -4638,10 +4718,10 @@
 
     move-result v0
 
-    :cond_3
+    :cond_4
     return v0
 
-    :cond_4
+    :cond_5
     :goto_0
     const/4 p0, 0x5
 
@@ -4922,7 +5002,7 @@
 
     move-result p1
 
-    if-nez p1, :cond_9
+    if-nez p1, :cond_b
 
     invoke-virtual {v1}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->isClosed()Z
 
@@ -4930,7 +5010,7 @@
 
     if-eqz p1, :cond_1
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_1
     invoke-virtual {v1}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->getBeautyVersion()I
@@ -5027,11 +5107,38 @@
     invoke-static {p0}, Lcom/android/camera/CameraSettings;->initBeautyComponentBody(Lcom/android/camera/fragment/beauty/BeautyValues;)V
 
     :cond_8
-    return-void
+    invoke-virtual {v1}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->isSmoothDependBeautyVersion()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_a
+
+    invoke-virtual {p0}, Lcom/android/camera/fragment/beauty/BeautyValues;->isFaceBeautyOnWithOutSlim()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_9
+
+    const-string p1, "i:3"
+
+    iput-object p1, p0, Lcom/android/camera/fragment/beauty/BeautyValues;->mBeautyLevel:Ljava/lang/String;
+
+    goto :goto_1
 
     :cond_9
+    const-string p1, "i:0"
+
+    iput-object p1, p0, Lcom/android/camera/fragment/beauty/BeautyValues;->mBeautyLevel:Ljava/lang/String;
+
+    :cond_a
     :goto_1
     return-void
+
+    :cond_b
+    :goto_2
+    return-void
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -5044,7 +5151,7 @@
 .method public static is4KHigherVideoQuality(I)Z
     .locals 3
 
-    invoke-static {}, Lcom/mi/config/b;->hh()Z
+    invoke-static {}, Lcom/mi/config/b;->hk()Z
 
     move-result v0
 
@@ -5181,7 +5288,7 @@
 .method public static isAsdMotionEnable()Z
     .locals 3
 
-    invoke-static {}, Lcom/mi/config/b;->hm()Z
+    invoke-static {}, Lcom/mi/config/b;->hp()Z
 
     move-result v0
 
@@ -5227,7 +5334,7 @@
 .method public static isAsdNightEnable()Z
     .locals 3
 
-    invoke-static {}, Lcom/mi/config/b;->ho()Z
+    invoke-static {}, Lcom/mi/config/b;->hr()Z
 
     move-result v0
 
@@ -5273,7 +5380,7 @@
 .method public static isAsdPopupEnable()Z
     .locals 1
 
-    invoke-static {}, Lcom/mi/config/b;->hj()Z
+    invoke-static {}, Lcom/mi/config/b;->hm()Z
 
     move-result v0
 
@@ -5832,7 +5939,7 @@
 .method public static isBurstShootingEnable()Z
     .locals 4
 
-    invoke-static {}, Lcom/mi/config/b;->gN()Z
+    invoke-static {}, Lcom/mi/config/b;->gQ()Z
 
     move-result v0
 
@@ -6064,7 +6171,7 @@
 .method public static isCameraSoundOpen()Z
     .locals 3
 
-    invoke-static {}, Lcom/mi/config/b;->gL()Z
+    invoke-static {}, Lcom/mi/config/b;->gO()Z
 
     move-result v0
 
@@ -6331,7 +6438,7 @@
 .method public static isDualCameraHintShown()Z
     .locals 6
 
-    sget-boolean v0, Lcom/mi/config/b;->rf:Z
+    sget-boolean v0, Lcom/mi/config/b;->rg:Z
 
     const/4 v1, 0x1
 
@@ -6434,6 +6541,10 @@
 
     move-result v2
 
+    invoke-static {v2}, Lcom/mi/config/b;->r(Z)Z
+
+    move-result v2
+
     invoke-virtual {v0, v1, v2}, Lcom/android/camera/data/data/global/DataItemGlobal;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v0
@@ -6449,7 +6560,7 @@
 .method public static isEdgePhotoEnable()Z
     .locals 1
 
-    invoke-static {}, Lcom/mi/config/b;->hK()Z
+    invoke-static {}, Lcom/mi/config/b;->hN()Z
 
     move-result v0
 
@@ -6534,7 +6645,7 @@
 
     move-result-object v0
 
-    invoke-static {}, Lcom/mi/config/b;->iz()Z
+    invoke-static {}, Lcom/mi/config/b;->iC()Z
 
     move-result v5
 
@@ -6758,6 +6869,53 @@
     return v1
 .end method
 
+.method public static isFrontCameraWaterMarkOpen()Z
+    .locals 3
+
+    invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemFeature()Lcom/mi/config/a;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/mi/config/a;->gJ()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Lcom/android/camera/CameraSettings;->isFrontCamera()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemGlobal()Lcom/android/camera/data/data/global/DataItemGlobal;
+
+    move-result-object v0
+
+    const-string v1, "pref_dualcamera_watermark"
+
+    const v2, 0x7f0f0015
+
+    invoke-static {v2}, Lcom/android/camera/CameraSettings;->getBool(I)Z
+
+    move-result v2
+
+    invoke-static {v2}, Lcom/mi/config/b;->r(Z)Z
+
+    move-result v2
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/camera/data/data/global/DataItemGlobal;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method public static isFrontMirror()Z
     .locals 3
 
@@ -6767,7 +6925,7 @@
 
     const-string v1, "pref_front_mirror_key"
 
-    invoke-static {}, Lcom/mi/config/b;->iF()Z
+    invoke-static {}, Lcom/mi/config/b;->iI()Z
 
     move-result v2
 
@@ -6897,6 +7055,55 @@
     move-result v0
 
     return v0
+.end method
+
+.method public static isH265EncoderSupport()Z
+    .locals 5
+
+    invoke-static {}, Landroid/media/MediaCodecList;->getCodecCount()I
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    move v2, v1
+
+    :goto_0
+    if-ge v2, v0, :cond_1
+
+    invoke-static {v2}, Landroid/media/MediaCodecList;->getCodecInfoAt(I)Landroid/media/MediaCodecInfo;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/media/MediaCodecInfo;->isEncoder()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    invoke-virtual {v3}, Landroid/media/MediaCodecInfo;->getName()Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string v4, "hevc"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v0, 0x1
+
+    return v0
+
+    :cond_0
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    return v1
 .end method
 
 .method public static isHandGestureOpen()Z
@@ -7184,7 +7391,7 @@
 .method public static isMovieSolidOn()Z
     .locals 3
 
-    invoke-static {}, Lcom/mi/config/b;->gH()Z
+    invoke-static {}, Lcom/mi/config/b;->gK()Z
 
     move-result v0
 
@@ -7580,7 +7787,7 @@
 .method public static isPopupTipBeautyIntroEnable()Z
     .locals 3
 
-    invoke-static {}, Lcom/mi/config/b;->iu()Z
+    invoke-static {}, Lcom/mi/config/b;->ix()Z
 
     move-result v0
 
@@ -7641,7 +7848,7 @@
 .method public static isPressDownCapture()Z
     .locals 5
 
-    invoke-static {}, Lcom/mi/config/b;->hs()Z
+    invoke-static {}, Lcom/mi/config/b;->hv()Z
 
     move-result v0
 
@@ -7728,7 +7935,7 @@
 .method public static isRecordLocation()Z
     .locals 3
 
-    invoke-static {}, Lcom/mi/config/b;->gQ()Z
+    invoke-static {}, Lcom/mi/config/b;->gT()Z
 
     move-result v0
 
@@ -7835,7 +8042,7 @@
 
     if-eqz p0, :cond_0
 
-    invoke-static {}, Lcom/mi/config/b;->hG()Z
+    invoke-static {}, Lcom/mi/config/b;->hJ()Z
 
     move-result p0
 
@@ -8119,7 +8326,7 @@
 
     if-eqz v0, :cond_0
 
-    sget-boolean v0, Lcom/mi/config/b;->rM:Z
+    sget-boolean v0, Lcom/mi/config/b;->rN:Z
 
     if-nez v0, :cond_0
 
@@ -8141,7 +8348,7 @@
 .method public static isSupportedDualCameraWaterMark()Z
     .locals 1
 
-    invoke-static {}, Lcom/mi/config/b;->iA()Z
+    invoke-static {}, Lcom/mi/config/b;->iD()Z
 
     move-result v0
 
@@ -8151,7 +8358,7 @@
 .method public static isSupportedMetadata()Z
     .locals 1
 
-    invoke-static {}, Lcom/mi/config/b;->hk()Z
+    invoke-static {}, Lcom/mi/config/b;->hn()Z
 
     move-result v0
 
@@ -8215,7 +8422,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/mi/config/a;->gA()Z
+    invoke-virtual {v0}, Lcom/mi/config/a;->gB()Z
 
     move-result v0
 
@@ -8753,7 +8960,7 @@
     return v0
 .end method
 
-.method public static isVideoCaptureVisible(I)Z
+.method public static isVideoCaptureVisible()Z
     .locals 2
 
     invoke-static {}, Lcom/mi/config/b;->isMTKPlatform()Z
@@ -8766,16 +8973,16 @@
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_2
 
     :cond_0
     invoke-static {}, Lcom/android/camera/CameraSettings;->isVideoBokehOn()Z
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_2
 
-    invoke-static {}, Lcom/mi/config/b;->hW()Z
+    invoke-static {}, Lcom/mi/config/b;->hZ()Z
 
     move-result v0
 
@@ -8795,7 +9002,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_2
 
     const-string v0, "hfr"
 
@@ -8811,42 +9018,18 @@
 
     move-result v0
 
-    if-nez v0, :cond_4
-
-    :cond_1
-    invoke-static {}, Lcom/mi/config/b;->hh()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    sget-boolean v0, Lcom/mi/config/b;->qO:Z
-
     if-nez v0, :cond_2
 
-    sget-boolean v0, Lcom/mi/config/b;->qQ:Z
-
-    if-eqz v0, :cond_3
-
-    :cond_2
-    invoke-static {p0}, Lcom/android/camera/CameraSettings;->getVideoQuality(I)I
-
-    move-result p0
-
-    const/4 v0, 0x6
-
-    if-gt p0, v0, :cond_4
-
-    :cond_3
-    const/4 p0, 0x1
+    :cond_1
+    const/4 v0, 0x1
 
     goto :goto_0
 
-    :cond_4
-    const/4 p0, 0x0
+    :cond_2
+    const/4 v0, 0x0
 
     :goto_0
-    return p0
+    return v0
 .end method
 
 .method public static isZoomByCameraSwitchingSupported()Z
@@ -8931,7 +9114,7 @@
 .method public static readEdgePhotoSetting(Landroid/content/Context;)V
     .locals 2
 
-    invoke-static {}, Lcom/mi/config/b;->hK()Z
+    invoke-static {}, Lcom/mi/config/b;->hN()Z
 
     move-result v0
 
@@ -9832,6 +10015,36 @@
     return-void
 .end method
 
+.method public static setHSRValue(ZLjava/lang/String;)V
+    .locals 1
+
+    if-eqz p0, :cond_0
+
+    const-string p0, "pref_camera_hsr_value_key_u"
+
+    goto :goto_0
+
+    :cond_0
+    const-string p0, "pref_camera_hsr_value_key"
+
+    :goto_0
+    invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemConfig()Lcom/android/camera/data/data/config/DataItemConfig;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/camera/data/data/config/DataItemConfig;->editor()Lcom/android/camera/data/provider/DataProvider$ProviderEditor;
+
+    move-result-object v0
+
+    invoke-interface {v0, p0, p1}, Lcom/android/camera/data/provider/DataProvider$ProviderEditor;->putString(Ljava/lang/String;Ljava/lang/String;)Lcom/android/camera/data/provider/DataProvider$ProviderEditor;
+
+    move-result-object p0
+
+    invoke-interface {p0}, Lcom/android/camera/data/provider/DataProvider$ProviderEditor;->apply()V
+
+    return-void
+.end method
+
 .method public static setHandGestureStatus(Z)V
     .locals 3
 
@@ -10061,6 +10274,28 @@
     const-string v1, "pref_localwords_version"
 
     invoke-interface {v0, v1, p0}, Lcom/android/camera/data/provider/DataProvider$ProviderEditor;->putInt(Ljava/lang/String;I)Lcom/android/camera/data/provider/DataProvider$ProviderEditor;
+
+    move-result-object p0
+
+    invoke-interface {p0}, Lcom/android/camera/data/provider/DataProvider$ProviderEditor;->apply()V
+
+    return-void
+.end method
+
+.method public static setMimojiPannelState(Z)V
+    .locals 2
+
+    invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemLive()Lcom/android/camera/data/data/extra/DataItemLive;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/camera/data/data/extra/DataItemLive;->editor()Lcom/android/camera/data/provider/DataProvider$ProviderEditor;
+
+    move-result-object v0
+
+    const-string v1, "pref_mimoji_pannel_state"
+
+    invoke-interface {v0, v1, p0}, Lcom/android/camera/data/provider/DataProvider$ProviderEditor;->putBoolean(Ljava/lang/String;Z)Lcom/android/camera/data/provider/DataProvider$ProviderEditor;
 
     move-result-object p0
 
@@ -10485,18 +10720,34 @@
     return v0
 .end method
 
-.method public static shouldShowUltraWideSatTip()Z
-    .locals 4
+.method public static shouldShowUltraWideSatTip(I)Z
+    .locals 3
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "pref_camera_first_ultra_wide_sat_use_hint_shown_key_"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {p0}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
 
     invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemGlobal()Lcom/android/camera/data/data/global/DataItemGlobal;
 
     move-result-object v0
 
-    const-string v1, "pref_camera_first_ultra_wide_sat_use_hint_shown_key"
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/camera/data/data/global/DataItemGlobal;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {v0, p0, v1}, Lcom/android/camera/data/data/global/DataItemGlobal;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v0
 
@@ -10510,15 +10761,13 @@
 
     move-result-object v1
 
-    const-string v2, "pref_camera_first_ultra_wide_sat_use_hint_shown_key"
+    const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    invoke-interface {v1, p0, v2}, Lcom/android/camera/data/provider/DataProvider$ProviderEditor;->putBoolean(Ljava/lang/String;Z)Lcom/android/camera/data/provider/DataProvider$ProviderEditor;
 
-    invoke-interface {v1, v2, v3}, Lcom/android/camera/data/provider/DataProvider$ProviderEditor;->putBoolean(Ljava/lang/String;Z)Lcom/android/camera/data/provider/DataProvider$ProviderEditor;
+    move-result-object p0
 
-    move-result-object v1
-
-    invoke-interface {v1}, Lcom/android/camera/data/provider/DataProvider$ProviderEditor;->apply()V
+    invoke-interface {p0}, Lcom/android/camera/data/provider/DataProvider$ProviderEditor;->apply()V
 
     :cond_0
     return v0

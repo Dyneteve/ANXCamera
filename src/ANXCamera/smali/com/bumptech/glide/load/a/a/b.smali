@@ -4,9 +4,9 @@
 
 
 # static fields
-.field private static final el:I = 0x200
+.field private static final em:I = 0x200
 
-.field private static final em:I = 0x180
+.field private static final en:I = 0x180
 
 
 # direct methods

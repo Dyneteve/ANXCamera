@@ -137,7 +137,7 @@
 
     invoke-virtual {v1, v0}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-    const v0, 0x7f0d00ee
+    const v0, 0x7f0d00ed
 
     invoke-virtual {p1, v0}, Lcom/android/camera/fragment/CommonRecyclerViewHolder;->getView(I)Landroid/view/View;
 
@@ -175,7 +175,7 @@
 
     invoke-virtual {v0, v1, v1, v1, p2}, Landroid/widget/TextView;->setShadowLayer(FFFI)V
 
-    const p2, 0x7f020011
+    const p2, 0x7f020017
 
     invoke-virtual {v0, p2}, Landroid/widget/TextView;->setBackgroundResource(I)V
 
@@ -291,7 +291,7 @@
 
     move-result-object p2
 
-    const v0, 0x7f040041
+    const v0, 0x7f040042
 
     const/4 v1, 0x0
 

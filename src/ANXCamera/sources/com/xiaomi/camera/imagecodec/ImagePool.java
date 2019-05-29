@@ -188,7 +188,7 @@ public class ImagePool {
                     sb.append(" qSize: ");
                     sb.append(changeImageQueueSizeLocked);
                     Log.d(str, sb.toString());
-                    this.mQueueSizeLock.notifyAll();
+                    this.mQueueSizeLock.notify();
                 } catch (Throwable th) {
                     throw th;
                 }
@@ -250,7 +250,7 @@ public class ImagePool {
                         sb.append(" qSize: ");
                         sb.append(changeImageQueueSizeLocked);
                         Log.d(str, sb.toString());
-                        this.mQueueSizeLock.notifyAll();
+                        this.mQueueSizeLock.notify();
                     } else {
                         String str2 = TAG;
                         StringBuilder sb2 = new StringBuilder();

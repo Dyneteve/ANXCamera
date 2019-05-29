@@ -20,7 +20,7 @@
 
 
 # instance fields
-.field private final ak:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
+.field private final al:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
 .field private final bitmap:Landroid/graphics/Bitmap;
 
@@ -57,7 +57,7 @@
 
     check-cast p1, Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/f;->ak:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
+    iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/f;->al:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
     return-void
 .end method
@@ -157,7 +157,7 @@
 .method public recycle()V
     .locals 2
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/f;->ak:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/f;->al:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
     iget-object v1, p0, Lcom/bumptech/glide/load/resource/bitmap/f;->bitmap:Landroid/graphics/Bitmap;
 

@@ -13,63 +13,63 @@ import java.util.Map;
 
 /* compiled from: GlideUrl */
 public class g implements c {
-    private static final String jF = "@#&=*+-_.,:!?()/~'%;$";
+    private static final String jG = "@#&=*+-_.,:!?()/~'%;$";
     private int hashCode;
-    private final h jG;
+    private final h jH;
     @Nullable
-    private final String jH;
+    private final String jI;
     @Nullable
-    private String jI;
+    private String jJ;
     @Nullable
-    private URL jJ;
+    private URL jK;
     @Nullable
-    private volatile byte[] jK;
+    private volatile byte[] jL;
     @Nullable
     private final URL url;
 
     public g(String str) {
-        this(str, h.jM);
+        this(str, h.jN);
     }
 
     public g(String str, h hVar) {
         this.url = null;
-        this.jH = i.H(str);
-        this.jG = (h) i.checkNotNull(hVar);
+        this.jI = i.H(str);
+        this.jH = (h) i.checkNotNull(hVar);
     }
 
     public g(URL url2) {
-        this(url2, h.jM);
+        this(url2, h.jN);
     }
 
     public g(URL url2, h hVar) {
         this.url = (URL) i.checkNotNull(url2);
-        this.jH = null;
-        this.jG = (h) i.checkNotNull(hVar);
+        this.jI = null;
+        this.jH = (h) i.checkNotNull(hVar);
     }
 
     private URL bY() throws MalformedURLException {
-        if (this.jJ == null) {
-            this.jJ = new URL(ca());
+        if (this.jK == null) {
+            this.jK = new URL(ca());
+        }
+        return this.jK;
+    }
+
+    private String ca() {
+        if (TextUtils.isEmpty(this.jJ)) {
+            String str = this.jI;
+            if (TextUtils.isEmpty(str)) {
+                str = ((URL) i.checkNotNull(this.url)).toString();
+            }
+            this.jJ = Uri.encode(str, jG);
         }
         return this.jJ;
     }
 
-    private String ca() {
-        if (TextUtils.isEmpty(this.jI)) {
-            String str = this.jH;
-            if (TextUtils.isEmpty(str)) {
-                str = ((URL) i.checkNotNull(this.url)).toString();
-            }
-            this.jI = Uri.encode(str, jF);
-        }
-        return this.jI;
-    }
-
     private byte[] cb() {
-        if (this.jK == null) {
-            this.jK = getCacheKey().getBytes(dG);
+        if (this.jL == null) {
+            this.jL = getCacheKey().getBytes(dH);
         }
-        return this.jK;
+        return this.jL;
     }
 
     public String bZ() {
@@ -82,24 +82,24 @@ public class g implements c {
             return false;
         }
         g gVar = (g) obj;
-        if (getCacheKey().equals(gVar.getCacheKey()) && this.jG.equals(gVar.jG)) {
+        if (getCacheKey().equals(gVar.getCacheKey()) && this.jH.equals(gVar.jH)) {
             z = true;
         }
         return z;
     }
 
     public String getCacheKey() {
-        return this.jH != null ? this.jH : ((URL) i.checkNotNull(this.url)).toString();
+        return this.jI != null ? this.jI : ((URL) i.checkNotNull(this.url)).toString();
     }
 
     public Map<String, String> getHeaders() {
-        return this.jG.getHeaders();
+        return this.jH.getHeaders();
     }
 
     public int hashCode() {
         if (this.hashCode == 0) {
             this.hashCode = getCacheKey().hashCode();
-            this.hashCode = (31 * this.hashCode) + this.jG.hashCode();
+            this.hashCode = (31 * this.hashCode) + this.jH.hashCode();
         }
         return this.hashCode;
     }

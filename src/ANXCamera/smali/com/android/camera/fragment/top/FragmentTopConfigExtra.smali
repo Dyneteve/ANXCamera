@@ -585,7 +585,7 @@
     :cond_0
     iget-object p1, p0, Lcom/android/camera/fragment/top/FragmentTopConfigExtra;->mBackgroundView:Landroid/view/View;
 
-    const v0, 0x7f0b0048
+    const v0, 0x7f0b004a
 
     invoke-virtual {p1, v0}, Landroid/view/View;->setBackgroundResource(I)V
 
@@ -832,7 +832,7 @@
 .method protected getLayoutResourceId()I
     .locals 1
 
-    const v0, 0x7f04003b
+    const v0, 0x7f04003c
 
     return v0
 .end method
@@ -840,7 +840,7 @@
 .method protected initView(Landroid/view/View;)V
     .locals 5
 
-    const v0, 0x7f0d00e1
+    const v0, 0x7f0d00e0
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -848,7 +848,7 @@
 
     iput-object v0, p0, Lcom/android/camera/fragment/top/FragmentTopConfigExtra;->mBackgroundView:Landroid/view/View;
 
-    const v0, 0x7f0d00e2
+    const v0, 0x7f0d00e1
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -954,7 +954,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0075
+    const v3, 0x7f0a006a
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -976,7 +976,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a014a
+    const v3, 0x7f0a017c
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

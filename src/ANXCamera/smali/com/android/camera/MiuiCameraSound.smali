@@ -149,7 +149,7 @@
 
     invoke-direct {v1}, Landroid/media/AudioAttributes$Builder;-><init>()V
 
-    invoke-static {}, Lcom/mi/config/b;->gL()Z
+    invoke-static {}, Lcom/mi/config/b;->gO()Z
 
     move-result v2
 
@@ -559,7 +559,7 @@
 .method private playSound(IFI)V
     .locals 2
 
-    invoke-static {}, Lcom/mi/config/b;->gL()Z
+    invoke-static {}, Lcom/mi/config/b;->gO()Z
 
     move-result v0
 

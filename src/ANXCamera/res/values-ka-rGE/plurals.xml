@@ -4,4 +4,8 @@
         <item quantity="other">ფოკუსირებულია. %d სახეები გამოვლინდა</item>
         <item quantity="one">ფოკუსირებულია. %d სახე გამოვლინდა</item>
     </plurals>
+    <plurals name="toast_burst_snap_finished_summary">
+        <item quantity="other">მოხდა სწრაფი გადაღება, გადაღებულია %1$s ფოტო</item>
+        <item quantity="one">მოხდა სწრაფი გადაღება, გადაღებულია %1$s ფოტო</item>
+    </plurals>
 </resources>

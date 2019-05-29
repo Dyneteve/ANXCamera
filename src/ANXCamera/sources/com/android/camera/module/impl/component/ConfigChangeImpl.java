@@ -18,7 +18,6 @@ import com.android.camera.R;
 import com.android.camera.ThermalDetector;
 import com.android.camera.ToastUtils;
 import com.android.camera.constant.BeautyConstant;
-import com.android.camera.constant.EyeLightConstant;
 import com.android.camera.data.DataRepository;
 import com.android.camera.data.data.ComponentData;
 import com.android.camera.data.data.config.ComponentConfigAi;
@@ -498,9 +497,6 @@ public class ConfigChangeImpl implements ConfigChanges {
                     }
                     if (dualController != null) {
                         dualController.hideZoomButton();
-                        if (topAlert != null) {
-                            topAlert.alertUpdateValue(2);
-                        }
                     }
                 } else {
                     if (miBeautyProtocol != null) {
@@ -718,6 +714,12 @@ public class ConfigChangeImpl implements ConfigChanges {
         ComponentConfigBeauty componentConfigBeauty = DataRepository.dataItemConfig().getComponentConfigBeauty();
         if (!componentConfigBeauty.isEmpty() && componentConfigBeauty.isClosed(currentMode) != z) {
             componentConfigBeauty.setClosed(z, currentMode);
+            if (z) {
+                MiBeautyProtocol miBeautyProtocol = (MiBeautyProtocol) ModeCoordinatorImpl.getInstance().getAttachProtocol(194);
+                if (miBeautyProtocol != null && miBeautyProtocol.isBeautyPanelShow()) {
+                    miBeautyProtocol.dismiss(2);
+                }
+            }
             OnFaceBeautyChangedProtocol onFaceBeautyChangedProtocol = (OnFaceBeautyChangedProtocol) ModeCoordinatorImpl.getInstance().getAttachProtocol(199);
             if (onFaceBeautyChangedProtocol != null) {
                 onFaceBeautyChangedProtocol.onBeautyChanged(true);
@@ -739,7 +741,7 @@ public class ConfigChangeImpl implements ConfigChanges {
             if (z) {
                 MiBeautyProtocol miBeautyProtocol = (MiBeautyProtocol) ModeCoordinatorImpl.getInstance().getAttachProtocol(194);
                 if (miBeautyProtocol != null && miBeautyProtocol.isBeautyPanelShow()) {
-                    miBeautyProtocol.dismiss();
+                    miBeautyProtocol.dismiss(2);
                 }
             }
         }
@@ -774,8 +776,8 @@ public class ConfigChangeImpl implements ConfigChanges {
 
     private void updateEyeLight(boolean z) {
         if (z) {
-            CameraSettings.setEyeLight(EyeLightConstant.OFF);
-            setEyeLight(EyeLightConstant.OFF);
+            CameraSettings.setEyeLight("-1");
+            setEyeLight("-1");
             MiBeautyProtocol miBeautyProtocol = (MiBeautyProtocol) ModeCoordinatorImpl.getInstance().getAttachProtocol(194);
             boolean z2 = false;
             if (miBeautyProtocol != null) {
@@ -804,7 +806,11 @@ public class ConfigChangeImpl implements ConfigChanges {
                 ToastUtils.showToast((Context) this.mActivity, (int) R.string.close_back_flash_toast);
             }
         }
-        baseModule.updatePreferenceInWorkThread(10);
+        if (!baseModule.isDoingAction() || "0".equals(str)) {
+            baseModule.updatePreferenceInWorkThread(10);
+        } else {
+            baseModule.updatePreferenceTrampoline(10);
+        }
         TopAlert topAlert = (TopAlert) ModeCoordinatorImpl.getInstance().getAttachProtocol(172);
         if (topAlert != null) {
             topAlert.updateConfigItem(193);
@@ -1399,17 +1405,22 @@ public class ConfigChangeImpl implements ConfigChanges {
             BaseModule baseModule = getBaseModule();
             if (baseModule == null || !baseModule.isFrameAvailable() || baseModule.isSelectingCapturedResult()) {
                 Log.w(TAG, "onThermalNotification current module is null ready");
-            } else if (!DataRepository.dataItemConfig().getComponentFlash().isEmpty()) {
-                String str = "";
-                if (ThermalDetector.thermalConstrained(i)) {
-                    Log.w(TAG, "thermalConstrained");
-                    str = "0";
-                } else if (baseModule.isThermalThreshold() && ((i == 2 && CameraSettings.isFrontCamera()) || i == 3)) {
-                    Log.w(TAG, "recording time is up to thermal threshold");
-                    str = "0";
-                }
-                updateFlashModeAndRefreshUI(baseModule, str);
+                return;
             }
+            ComponentConfigFlash componentFlash = DataRepository.dataItemConfig().getComponentFlash();
+            if (componentFlash.isEmpty() || !componentFlash.isHardwareSupported()) {
+                Log.w(TAG, "onThermalNotification don't support hardware flash");
+                return;
+            }
+            String str = "";
+            if (ThermalDetector.thermalConstrained(i)) {
+                Log.w(TAG, "thermalConstrained");
+                str = "0";
+            } else if (baseModule.isThermalThreshold() && ((i == 2 && CameraSettings.isFrontCamera()) || i == 3)) {
+                Log.w(TAG, "recording time is up to thermal threshold");
+                str = "0";
+            }
+            updateFlashModeAndRefreshUI(baseModule, str);
         }
     }
 
@@ -1424,7 +1435,7 @@ public class ConfigChangeImpl implements ConfigChanges {
     }
 
     public void reCheckFrontBokenTip() {
-        if (DataRepository.dataItemFeature().gD() && ((TopAlert) ModeCoordinatorImpl.getInstance().getAttachProtocol(172)) != null && "on".equals(DataRepository.dataItemConfig().getComponentBokeh().getComponentValue(getBaseModule().getModuleIndex()))) {
+        if (DataRepository.dataItemFeature().gE() && ((TopAlert) ModeCoordinatorImpl.getInstance().getAttachProtocol(172)) != null && "on".equals(DataRepository.dataItemConfig().getComponentBokeh().getComponentValue(getBaseModule().getModuleIndex()))) {
             updateTipMessage(4, R.string.bokeh_use_hint, 2);
         }
     }
@@ -1760,12 +1771,16 @@ public class ConfigChangeImpl implements ConfigChanges {
                     }
                 }
                 ((BottomMenuProtocol) ModeCoordinatorImpl.getInstance().getAttachProtocol(197)).expandShineBottomMenu(DataRepository.dataItemRunning().getComponentRunningShine());
-                BaseDelegate baseDelegate = (BaseDelegate) ModeCoordinatorImpl.getInstance().getAttachProtocol(160);
-                if (baseDelegate != null) {
-                    baseDelegate.delegateEvent(2);
+                if (miBeautyProtocol != null) {
+                    miBeautyProtocol.show();
+                } else {
+                    BaseDelegate baseDelegate = (BaseDelegate) ModeCoordinatorImpl.getInstance().getAttachProtocol(160);
+                    if (baseDelegate != null) {
+                        baseDelegate.delegateEvent(2);
+                    }
                 }
             } else {
-                miBeautyProtocol.dismiss();
+                miBeautyProtocol.dismiss(2);
             }
             return;
         } else {

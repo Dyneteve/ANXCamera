@@ -284,17 +284,17 @@
     goto :goto_0
 
     :pswitch_0
-    const p1, 0x7f090208
+    const p1, 0x7f090206
 
     goto :goto_0
 
     :pswitch_1
-    const p1, 0x7f090209
+    const p1, 0x7f090207
 
     goto :goto_0
 
     :pswitch_2
-    const p1, 0x7f09020a
+    const p1, 0x7f090208
 
     nop
 
@@ -384,7 +384,7 @@
 .method protected getLayoutResourceId()I
     .locals 1
 
-    const v0, 0x7f04003f
+    const v0, 0x7f040040
 
     return v0
 .end method
@@ -392,7 +392,7 @@
 .method protected initView(Landroid/view/View;)V
     .locals 1
 
-    const v0, 0x7f0d00e4
+    const v0, 0x7f0d00e3
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -404,7 +404,7 @@
 
     invoke-direct {p0, v0}, Lcom/android/camera/fragment/FragmentVertical;->adjustViewHeight(Landroid/view/View;)V
 
-    const v0, 0x7f0d00e5
+    const v0, 0x7f0d00e4
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -414,7 +414,7 @@
 
     iput-object v0, p0, Lcom/android/camera/fragment/FragmentVertical;->mLeftAlertStatus:Landroid/widget/TextView;
 
-    const v0, 0x7f0d00e6
+    const v0, 0x7f0d00e5
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -424,7 +424,7 @@
 
     iput-object v0, p0, Lcom/android/camera/fragment/FragmentVertical;->mLeftLightingPattern:Landroid/widget/TextView;
 
-    const v0, 0x7f0d00e7
+    const v0, 0x7f0d00e6
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -434,7 +434,7 @@
 
     iput-object v0, p0, Lcom/android/camera/fragment/FragmentVertical;->mRightAlertStatus:Landroid/widget/TextView;
 
-    const v0, 0x7f0d00e8
+    const v0, 0x7f0d00e7
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -743,56 +743,56 @@
     goto :goto_2
 
     :pswitch_9
-    const p1, 0x7f090213
-
-    iput p1, p0, Lcom/android/camera/fragment/FragmentVertical;->stringLightingRes:I
-
-    goto :goto_2
-
-    :pswitch_a
-    const p1, 0x7f090210
-
-    iput p1, p0, Lcom/android/camera/fragment/FragmentVertical;->stringLightingRes:I
-
-    goto :goto_2
-
-    :pswitch_b
     const p1, 0x7f090211
 
     iput p1, p0, Lcom/android/camera/fragment/FragmentVertical;->stringLightingRes:I
 
     goto :goto_2
 
-    :pswitch_c
-    const p1, 0x7f090212
-
-    iput p1, p0, Lcom/android/camera/fragment/FragmentVertical;->stringLightingRes:I
-
-    goto :goto_2
-
-    :pswitch_d
-    const p1, 0x7f09020f
-
-    iput p1, p0, Lcom/android/camera/fragment/FragmentVertical;->stringLightingRes:I
-
-    goto :goto_2
-
-    :pswitch_e
+    :pswitch_a
     const p1, 0x7f09020e
 
     iput p1, p0, Lcom/android/camera/fragment/FragmentVertical;->stringLightingRes:I
 
     goto :goto_2
 
-    :pswitch_f
+    :pswitch_b
+    const p1, 0x7f09020f
+
+    iput p1, p0, Lcom/android/camera/fragment/FragmentVertical;->stringLightingRes:I
+
+    goto :goto_2
+
+    :pswitch_c
+    const p1, 0x7f090210
+
+    iput p1, p0, Lcom/android/camera/fragment/FragmentVertical;->stringLightingRes:I
+
+    goto :goto_2
+
+    :pswitch_d
     const p1, 0x7f09020d
 
     iput p1, p0, Lcom/android/camera/fragment/FragmentVertical;->stringLightingRes:I
 
     goto :goto_2
 
-    :pswitch_10
+    :pswitch_e
     const p1, 0x7f09020c
+
+    iput p1, p0, Lcom/android/camera/fragment/FragmentVertical;->stringLightingRes:I
+
+    goto :goto_2
+
+    :pswitch_f
+    const p1, 0x7f09020b
+
+    iput p1, p0, Lcom/android/camera/fragment/FragmentVertical;->stringLightingRes:I
+
+    goto :goto_2
+
+    :pswitch_10
+    const p1, 0x7f09020a
 
     iput p1, p0, Lcom/android/camera/fragment/FragmentVertical;->stringLightingRes:I
 

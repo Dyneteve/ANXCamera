@@ -329,10 +329,10 @@ final class BitMatrixParser {
                         int j = 0;
                         while (j < dataRegionSizeColumns) {
                             int symbolSizeColumns2 = symbolSizeColumns;
-                            int readColumnOffset = ((dataRegionSizeColumns + 2) * dataRegionColumn) + 1 + j;
+                            int symbolSizeColumns3 = ((dataRegionSizeColumns + 2) * dataRegionColumn) + 1 + j;
                             int dataRegionSizeRows2 = dataRegionSizeRows;
-                            if (bitMatrix.get(readColumnOffset, readRowOffset)) {
-                                int i2 = readColumnOffset;
+                            if (bitMatrix.get(symbolSizeColumns3, readRowOffset)) {
+                                int i2 = symbolSizeColumns3;
                                 bitMatrixWithoutAlignment.set(dataRegionColumnOffset + j, writeRowOffset);
                             }
                             j++;

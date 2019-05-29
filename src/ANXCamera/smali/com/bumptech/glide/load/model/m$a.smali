@@ -24,9 +24,9 @@
 
 
 # instance fields
-.field public final eI:Lcom/bumptech/glide/load/c;
+.field public final eJ:Lcom/bumptech/glide/load/c;
 
-.field public final jW:Ljava/util/List;
+.field public final jX:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -36,7 +36,7 @@
     .end annotation
 .end field
 
-.field public final jX:Lcom/bumptech/glide/load/a/d;
+.field public final jY:Lcom/bumptech/glide/load/a/d;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/a/d<",
@@ -109,7 +109,7 @@
 
     check-cast p1, Lcom/bumptech/glide/load/c;
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/model/m$a;->eI:Lcom/bumptech/glide/load/c;
+    iput-object p1, p0, Lcom/bumptech/glide/load/model/m$a;->eJ:Lcom/bumptech/glide/load/c;
 
     invoke-static {p2}, Lcom/bumptech/glide/util/i;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -117,7 +117,7 @@
 
     check-cast p1, Ljava/util/List;
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/model/m$a;->jW:Ljava/util/List;
+    iput-object p1, p0, Lcom/bumptech/glide/load/model/m$a;->jX:Ljava/util/List;
 
     invoke-static {p3}, Lcom/bumptech/glide/util/i;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -125,7 +125,7 @@
 
     check-cast p1, Lcom/bumptech/glide/load/a/d;
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/model/m$a;->jX:Lcom/bumptech/glide/load/a/d;
+    iput-object p1, p0, Lcom/bumptech/glide/load/model/m$a;->jY:Lcom/bumptech/glide/load/a/d;
 
     return-void
 .end method

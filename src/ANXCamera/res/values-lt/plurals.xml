@@ -6,4 +6,10 @@
         <item quantity="few">Sufokusuota. Aptikti %d veidai</item>
         <item quantity="many">Sufokusuota. Aptikta %d veidų</item>
     </plurals>
+    <plurals name="toast_burst_snap_finished_summary">
+        <item quantity="other">Serijinis fotografavimas atliktas, įamžinta %1$s kadrų</item>
+        <item quantity="one">Serijinis fotografavimas atliktas, įamžintas %1$s kadras</item>
+        <item quantity="few">Serijinis fotografavimas atliktas, įamžinti %1$s kadrai</item>
+        <item quantity="many">Serijinis fotografavimas atliktas, įamžinta %1$s kadro</item>
+    </plurals>
 </resources>

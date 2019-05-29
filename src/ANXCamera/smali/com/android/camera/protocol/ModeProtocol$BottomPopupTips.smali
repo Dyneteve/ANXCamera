@@ -163,6 +163,9 @@
 .method public abstract showCloseTip(IZ)V
 .end method
 
+.method public abstract showMimoji()V
+.end method
+
 .method public abstract showMimojiTip()V
 .end method
 

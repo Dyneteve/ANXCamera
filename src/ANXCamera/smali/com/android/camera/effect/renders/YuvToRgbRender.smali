@@ -187,54 +187,19 @@
 
 # virtual methods
 .method public draw(Lcom/android/camera/effect/draw_mode/DrawAttribute;)Z
-    .locals 12
+    .locals 11
 
     invoke-virtual {p1}, Lcom/android/camera/effect/draw_mode/DrawAttribute;->getTarget()I
 
-    move-result v0
+    move-result v1
 
-    invoke-virtual {p0, v0}, Lcom/android/camera/effect/renders/YuvToRgbRender;->isAttriSupported(I)Z
+    invoke-virtual {p0, v1}, Lcom/android/camera/effect/renders/YuvToRgbRender;->isAttriSupported(I)Z
 
-    move-result v0
+    move-result v1
 
-    const/4 v1, 0x0
+    const/4 v6, 0x0
 
-    if-nez v0, :cond_0
-
-    sget-object v0, Lcom/android/camera/effect/renders/YuvToRgbRender;->TAG:Ljava/lang/String;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "unsupported target "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1}, Lcom/android/camera/effect/draw_mode/DrawAttribute;->getTarget()I
-
-    move-result p1
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-static {v0, p1}, Lcom/android/camera/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v1
-
-    :cond_0
-    invoke-virtual {p1}, Lcom/android/camera/effect/draw_mode/DrawAttribute;->getTarget()I
-
-    move-result v0
-
-    const/16 v2, 0xb
-
-    const/4 v3, 0x1
-
-    if-eq v0, v2, :cond_1
+    if-nez v1, :cond_0
 
     sget-object v0, Lcom/android/camera/effect/renders/YuvToRgbRender;->TAG:Ljava/lang/String;
 
@@ -248,99 +213,211 @@
 
     invoke-virtual {p1}, Lcom/android/camera/effect/draw_mode/DrawAttribute;->getTarget()I
 
-    move-result p1
+    move-result v2
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-static {v0, p1}, Lcom/android/camera/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/android/camera/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_1
+    return v6
+
+    :cond_0
+    invoke-virtual {p1}, Lcom/android/camera/effect/draw_mode/DrawAttribute;->getTarget()I
+
+    move-result v1
+
+    const/16 v2, 0xb
+
+    const/4 v7, 0x1
+
+    if-eq v1, v2, :cond_1
+
+    sget-object v0, Lcom/android/camera/effect/renders/YuvToRgbRender;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "unsupported target "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Lcom/android/camera/effect/draw_mode/DrawAttribute;->getTarget()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/camera/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_2
 
     :cond_1
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v4
+    move-result-wide v8
 
-    check-cast p1, Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;
+    move-object v10, p1
 
-    iget-object v0, p1, Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;->mYuvImage:Lcom/android/camera/effect/MiYuvImage;
+    check-cast v10, Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;
 
-    if-eqz v0, :cond_2
+    iget-object v1, v10, Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;->mYuvImage:Lcom/android/camera/effect/MiYuvImage;
 
-    invoke-virtual {p0, p1}, Lcom/android/camera/effect/renders/YuvToRgbRender;->genMiYuvTextures(Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;)V
+    if-eqz v1, :cond_2
+
+    invoke-virtual {p0, v10}, Lcom/android/camera/effect/renders/YuvToRgbRender;->genMiYuvTextures(Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;)V
+
+    sget-object v1, Lcom/android/camera/effect/renders/YuvToRgbRender;->TAG:Ljava/lang/String;
+
+    const-string v2, "yuv image not available !!!"
+
+    invoke-static {v1, v2}, Lcom/android/camera/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
     :cond_2
-    invoke-virtual {p0, p1}, Lcom/android/camera/effect/renders/YuvToRgbRender;->genYUVTextures(Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;)V
+    iget v1, v10, Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;->mBlockWidth:I
+
+    if-nez v1, :cond_3
+
+    iget v1, v10, Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;->mBlockHeight:I
+
+    if-nez v1, :cond_3
+
+    invoke-virtual {p0, v10}, Lcom/android/camera/effect/renders/YuvToRgbRender;->genYUVTextures(Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;)V
+
+    goto :goto_0
+
+    :cond_3
+    invoke-virtual {p0, v10}, Lcom/android/camera/effect/renders/YuvToRgbRender;->genBlockYUVTextures(Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;)V
 
     :goto_0
-    iget-object v7, p0, Lcom/android/camera/effect/renders/YuvToRgbRender;->mYuvTextureIds:[I
+    iget v1, v10, Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;->mBlockWidth:I
 
-    const/4 v8, 0x0
+    if-nez v1, :cond_4
 
-    const/4 v9, 0x0
+    iget v1, v10, Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;->mBlockHeight:I
 
-    iget-object v0, p1, Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;->mPictureSize:Landroid/util/Size;
+    if-nez v1, :cond_4
 
-    invoke-virtual {v0}, Landroid/util/Size;->getWidth()I
+    iget-object v1, p0, Lcom/android/camera/effect/renders/YuvToRgbRender;->mYuvTextureIds:[I
 
-    move-result v0
+    const/4 v2, 0x0
 
-    int-to-float v10, v0
+    const/4 v3, 0x0
 
-    iget-object v0, p1, Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;->mPictureSize:Landroid/util/Size;
+    iget-object v4, v10, Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;->mPictureSize:Landroid/util/Size;
 
-    invoke-virtual {v0}, Landroid/util/Size;->getHeight()I
+    invoke-virtual {v4}, Landroid/util/Size;->getWidth()I
 
-    move-result v0
+    move-result v4
 
-    int-to-float v11, v0
+    int-to-float v4, v4
 
-    move-object v6, p0
+    iget-object v5, v10, Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;->mPictureSize:Landroid/util/Size;
 
-    invoke-direct/range {v6 .. v11}, Lcom/android/camera/effect/renders/YuvToRgbRender;->drawTexture([IFFFF)V
+    invoke-virtual {v5}, Landroid/util/Size;->getHeight()I
 
+    move-result v5
+
+    int-to-float v5, v5
+
+    move-object v0, p0
+
+    invoke-direct/range {v0 .. v5}, Lcom/android/camera/effect/renders/YuvToRgbRender;->drawTexture([IFFFF)V
+
+    goto :goto_1
+
+    :cond_4
+    iget-object v1, p0, Lcom/android/camera/effect/renders/YuvToRgbRender;->mYuvTextureIds:[I
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
+
+    iget v4, v10, Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;->mBlockWidth:I
+
+    int-to-float v4, v4
+
+    iget v5, v10, Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;->mBlockHeight:I
+
+    int-to-float v5, v5
+
+    move-object v0, p0
+
+    invoke-direct/range {v0 .. v5}, Lcom/android/camera/effect/renders/YuvToRgbRender;->drawTexture([IFFFF)V
+
+    :goto_1
     sget-object v0, Lcom/android/camera/effect/renders/YuvToRgbRender;->TAG:Ljava/lang/String;
 
-    sget-object v2, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
+    sget-object v1, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
 
-    const-string v6, "draw: size=%s time=%d"
+    const-string v2, "draw: size=%s time=%d"
 
-    const/4 v7, 0x2
+    const/4 v3, 0x2
 
-    new-array v7, v7, [Ljava/lang/Object;
+    new-array v3, v3, [Ljava/lang/Object;
 
-    iget-object p1, p1, Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;->mPictureSize:Landroid/util/Size;
+    iget-object v4, v10, Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;->mPictureSize:Landroid/util/Size;
 
-    aput-object p1, v7, v1
+    aput-object v4, v3, v6
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v8
+    move-result-wide v4
 
-    sub-long/2addr v8, v4
+    sub-long/2addr v4, v8
 
-    invoke-static {v8, v9}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object p1
+    move-result-object v4
 
-    aput-object p1, v7, v3
+    aput-object v4, v3, v7
 
-    invoke-static {v2, v6, v7}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-static {v0, p1}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     nop
 
-    :goto_1
-    return v3
+    :goto_2
+    return v7
+.end method
+
+.method public genBlockYUVTextures(Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;)V
+    .locals 4
+
+    iget-object v0, p1, Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;->mImage:Landroid/media/Image;
+
+    invoke-virtual {v0}, Landroid/media/Image;->getWidth()I
+
+    iget-object v0, p1, Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;->mImage:Landroid/media/Image;
+
+    invoke-virtual {v0}, Landroid/media/Image;->getHeight()I
+
+    iget v0, p1, Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;->mBlockWidth:I
+
+    iget v1, p1, Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;->mBlockHeight:I
+
+    iget v2, p1, Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;->mOffsetY:I
+
+    iget p1, p1, Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;->mOffsetUV:I
+
+    iget-object v3, p0, Lcom/android/camera/effect/renders/YuvToRgbRender;->mYuvTextureIds:[I
+
+    invoke-static {v0, v1, v2, p1, v3}, Lcom/android/camera/effect/ShaderUtil;->loadYuvImageTextures(IIII[I)V
+
+    return-void
 .end method
 
 .method public genMiYuvTextures(Lcom/android/camera/effect/draw_mode/DrawYuvAttribute;)V

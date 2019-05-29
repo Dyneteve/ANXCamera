@@ -161,42 +161,42 @@
     return v2
 
     :pswitch_7
-    const p0, 0x7f020103
+    const p0, 0x7f020109
 
     return p0
 
     :pswitch_8
-    const p0, 0x7f0200f9
-
-    return p0
-
-    :pswitch_9
-    const p0, 0x7f0200fe
-
-    return p0
-
-    :pswitch_a
-    const p0, 0x7f020101
-
-    return p0
-
-    :pswitch_b
-    const p0, 0x7f020102
-
-    return p0
-
-    :pswitch_c
-    const p0, 0x7f0200fd
-
-    return p0
-
-    :pswitch_d
     const p0, 0x7f0200ff
 
     return p0
 
+    :pswitch_9
+    const p0, 0x7f020104
+
+    return p0
+
+    :pswitch_a
+    const p0, 0x7f020107
+
+    return p0
+
+    :pswitch_b
+    const p0, 0x7f020108
+
+    return p0
+
+    :pswitch_c
+    const p0, 0x7f020103
+
+    return p0
+
+    :pswitch_d
+    const p0, 0x7f020105
+
+    return p0
+
     :pswitch_e
-    const p0, 0x7f020100
+    const p0, 0x7f020106
 
     return p0
 
@@ -355,42 +355,42 @@
     return v2
 
     :pswitch_7
-    const p0, 0x7f090224
-
-    return p0
-
-    :pswitch_8
-    const p0, 0x7f090226
-
-    return p0
-
-    :pswitch_9
-    const p0, 0x7f090222
-
-    return p0
-
-    :pswitch_a
     const p0, 0x7f090223
 
     return p0
 
-    :pswitch_b
-    const p0, 0x7f090221
-
-    return p0
-
-    :pswitch_c
+    :pswitch_8
     const p0, 0x7f090225
 
     return p0
 
-    :pswitch_d
+    :pswitch_9
+    const p0, 0x7f090221
+
+    return p0
+
+    :pswitch_a
+    const p0, 0x7f090222
+
+    return p0
+
+    :pswitch_b
     const p0, 0x7f090220
 
     return p0
 
-    :pswitch_e
+    :pswitch_c
+    const p0, 0x7f090224
+
+    return p0
+
+    :pswitch_d
     const p0, 0x7f09021f
+
+    return p0
+
+    :pswitch_e
+    const p0, 0x7f09021e
 
     return p0
 

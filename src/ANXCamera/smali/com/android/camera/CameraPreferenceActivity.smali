@@ -114,7 +114,7 @@
 .method public changeRequestOrientation()V
     .locals 1
 
-    invoke-static {}, Lcom/mi/config/b;->ih()Z
+    invoke-static {}, Lcom/mi/config/b;->ik()Z
 
     move-result v0
 

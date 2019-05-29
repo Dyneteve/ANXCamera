@@ -41,6 +41,9 @@
 .method public abstract isDbLockedByCurrentThread()Z
 .end method
 
+.method public abstract isOpen()Z
+.end method
+
 .method public abstract rawQuery(Ljava/lang/String;[Ljava/lang/String;)Landroid/database/Cursor;
 .end method
 

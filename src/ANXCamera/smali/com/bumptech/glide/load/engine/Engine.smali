@@ -22,27 +22,27 @@
 # static fields
 .field private static final TAG:Ljava/lang/String; = "Engine"
 
-.field private static final fX:I = 0x96
+.field private static final fY:I = 0x96
 
-.field private static final fY:Z
+.field private static final fZ:Z
 
 
 # instance fields
-.field private final fZ:Lcom/bumptech/glide/load/engine/m;
+.field private final ga:Lcom/bumptech/glide/load/engine/m;
 
-.field private final ga:Lcom/bumptech/glide/load/engine/j;
+.field private final gb:Lcom/bumptech/glide/load/engine/j;
 
-.field private final gb:Lcom/bumptech/glide/load/engine/a/j;
+.field private final gc:Lcom/bumptech/glide/load/engine/a/j;
 
-.field private final gc:Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;
+.field private final gd:Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;
 
-.field private final gd:Lcom/bumptech/glide/load/engine/s;
+.field private final ge:Lcom/bumptech/glide/load/engine/s;
 
-.field private final ge:Lcom/bumptech/glide/load/engine/Engine$a;
+.field private final gf:Lcom/bumptech/glide/load/engine/Engine$a;
 
-.field private final gf:Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;
+.field private final gg:Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;
 
-.field private final gg:Lcom/bumptech/glide/load/engine/ActiveResources;
+.field private final gh:Lcom/bumptech/glide/load/engine/ActiveResources;
 
 
 # direct methods
@@ -57,7 +57,7 @@
 
     move-result v0
 
-    sput-boolean v0, Lcom/bumptech/glide/load/engine/Engine;->fY:Z
+    sput-boolean v0, Lcom/bumptech/glide/load/engine/Engine;->fZ:Z
 
     return-void
 .end method
@@ -73,7 +73,7 @@
 
     invoke-direct {v6}, Ljava/lang/Object;-><init>()V
 
-    iput-object v7, v6, Lcom/bumptech/glide/load/engine/Engine;->gb:Lcom/bumptech/glide/load/engine/a/j;
+    iput-object v7, v6, Lcom/bumptech/glide/load/engine/Engine;->gc:Lcom/bumptech/glide/load/engine/a/j;
 
     new-instance v0, Lcom/bumptech/glide/load/engine/Engine$a;
 
@@ -81,7 +81,7 @@
 
     invoke-direct {v0, v1}, Lcom/bumptech/glide/load/engine/Engine$a;-><init>(Lcom/bumptech/glide/load/engine/a/a$a;)V
 
-    iput-object v0, v6, Lcom/bumptech/glide/load/engine/Engine;->ge:Lcom/bumptech/glide/load/engine/Engine$a;
+    iput-object v0, v6, Lcom/bumptech/glide/load/engine/Engine;->gf:Lcom/bumptech/glide/load/engine/Engine$a;
 
     if-nez p9, :cond_0
 
@@ -97,7 +97,7 @@
     move-object/from16 v0, p9
 
     :goto_0
-    iput-object v0, v6, Lcom/bumptech/glide/load/engine/Engine;->gg:Lcom/bumptech/glide/load/engine/ActiveResources;
+    iput-object v0, v6, Lcom/bumptech/glide/load/engine/Engine;->gh:Lcom/bumptech/glide/load/engine/ActiveResources;
 
     invoke-virtual {v0, v6}, Lcom/bumptech/glide/load/engine/ActiveResources;->a(Lcom/bumptech/glide/load/engine/k$a;)V
 
@@ -113,7 +113,7 @@
     move-object/from16 v0, p8
 
     :goto_1
-    iput-object v0, v6, Lcom/bumptech/glide/load/engine/Engine;->ga:Lcom/bumptech/glide/load/engine/j;
+    iput-object v0, v6, Lcom/bumptech/glide/load/engine/Engine;->gb:Lcom/bumptech/glide/load/engine/j;
 
     if-nez p7, :cond_2
 
@@ -127,7 +127,7 @@
     move-object/from16 v0, p7
 
     :goto_2
-    iput-object v0, v6, Lcom/bumptech/glide/load/engine/Engine;->fZ:Lcom/bumptech/glide/load/engine/m;
+    iput-object v0, v6, Lcom/bumptech/glide/load/engine/Engine;->ga:Lcom/bumptech/glide/load/engine/m;
 
     if-nez p10, :cond_3
 
@@ -153,13 +153,13 @@
     move-object/from16 v0, p10
 
     :goto_3
-    iput-object v0, v6, Lcom/bumptech/glide/load/engine/Engine;->gc:Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;
+    iput-object v0, v6, Lcom/bumptech/glide/load/engine/Engine;->gd:Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;
 
     if-nez p11, :cond_4
 
     new-instance v0, Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;
 
-    iget-object v1, v6, Lcom/bumptech/glide/load/engine/Engine;->ge:Lcom/bumptech/glide/load/engine/Engine$a;
+    iget-object v1, v6, Lcom/bumptech/glide/load/engine/Engine;->gf:Lcom/bumptech/glide/load/engine/Engine$a;
 
     invoke-direct {v0, v1}, Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;-><init>(Lcom/bumptech/glide/load/engine/DecodeJob$d;)V
 
@@ -169,7 +169,7 @@
     move-object/from16 v0, p11
 
     :goto_4
-    iput-object v0, v6, Lcom/bumptech/glide/load/engine/Engine;->gf:Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;
+    iput-object v0, v6, Lcom/bumptech/glide/load/engine/Engine;->gg:Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;
 
     if-nez p12, :cond_5
 
@@ -183,7 +183,7 @@
     move-object/from16 v0, p12
 
     :goto_5
-    iput-object v0, v6, Lcom/bumptech/glide/load/engine/Engine;->gd:Lcom/bumptech/glide/load/engine/s;
+    iput-object v0, v6, Lcom/bumptech/glide/load/engine/Engine;->ge:Lcom/bumptech/glide/load/engine/s;
 
     invoke-interface {v7, v6}, Lcom/bumptech/glide/load/engine/a/j;->a(Lcom/bumptech/glide/load/engine/a/j$a;)V
 
@@ -248,7 +248,7 @@
     return-object p1
 
     :cond_0
-    iget-object p2, p0, Lcom/bumptech/glide/load/engine/Engine;->gg:Lcom/bumptech/glide/load/engine/ActiveResources;
+    iget-object p2, p0, Lcom/bumptech/glide/load/engine/Engine;->gh:Lcom/bumptech/glide/load/engine/ActiveResources;
 
     invoke-virtual {p2, p1}, Lcom/bumptech/glide/load/engine/ActiveResources;->b(Lcom/bumptech/glide/load/c;)Lcom/bumptech/glide/load/engine/k;
 
@@ -325,7 +325,7 @@
 
     invoke-virtual {p2}, Lcom/bumptech/glide/load/engine/k;->acquire()V
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine;->gg:Lcom/bumptech/glide/load/engine/ActiveResources;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine;->gh:Lcom/bumptech/glide/load/engine/ActiveResources;
 
     invoke-virtual {v0, p1, p2}, Lcom/bumptech/glide/load/engine/ActiveResources;->a(Lcom/bumptech/glide/load/c;Lcom/bumptech/glide/load/engine/k;)V
 
@@ -345,7 +345,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine;->gb:Lcom/bumptech/glide/load/engine/a/j;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine;->gc:Lcom/bumptech/glide/load/engine/a/j;
 
     invoke-interface {v0, p1}, Lcom/bumptech/glide/load/engine/a/j;->g(Lcom/bumptech/glide/load/c;)Lcom/bumptech/glide/load/engine/p;
 
@@ -419,7 +419,7 @@
 
     invoke-static {}, Lcom/bumptech/glide/util/k;->eL()V
 
-    sget-boolean v1, Lcom/bumptech/glide/load/engine/Engine;->fY:Z
+    sget-boolean v1, Lcom/bumptech/glide/load/engine/Engine;->fZ:Z
 
     if-eqz v1, :cond_0
 
@@ -438,7 +438,7 @@
     goto :goto_0
 
     :goto_1
-    iget-object v10, v0, Lcom/bumptech/glide/load/engine/Engine;->ga:Lcom/bumptech/glide/load/engine/j;
+    iget-object v10, v0, Lcom/bumptech/glide/load/engine/Engine;->gb:Lcom/bumptech/glide/load/engine/j;
 
     move-object/from16 v11, p2
 
@@ -468,11 +468,11 @@
 
     if-eqz v1, :cond_2
 
-    sget-object v0, Lcom/bumptech/glide/load/DataSource;->dg:Lcom/bumptech/glide/load/DataSource;
+    sget-object v0, Lcom/bumptech/glide/load/DataSource;->dh:Lcom/bumptech/glide/load/DataSource;
 
     invoke-interface {v7, v1, v0}, Lcom/bumptech/glide/request/g;->c(Lcom/bumptech/glide/load/engine/p;Lcom/bumptech/glide/load/DataSource;)V
 
-    sget-boolean v0, Lcom/bumptech/glide/load/engine/Engine;->fY:Z
+    sget-boolean v0, Lcom/bumptech/glide/load/engine/Engine;->fZ:Z
 
     if-eqz v0, :cond_1
 
@@ -490,11 +490,11 @@
 
     if-eqz v1, :cond_4
 
-    sget-object v0, Lcom/bumptech/glide/load/DataSource;->dg:Lcom/bumptech/glide/load/DataSource;
+    sget-object v0, Lcom/bumptech/glide/load/DataSource;->dh:Lcom/bumptech/glide/load/DataSource;
 
     invoke-interface {v7, v1, v0}, Lcom/bumptech/glide/request/g;->c(Lcom/bumptech/glide/load/engine/p;Lcom/bumptech/glide/load/DataSource;)V
 
-    sget-boolean v0, Lcom/bumptech/glide/load/engine/Engine;->fY:Z
+    sget-boolean v0, Lcom/bumptech/glide/load/engine/Engine;->fZ:Z
 
     if-eqz v0, :cond_3
 
@@ -506,7 +506,7 @@
     return-object v2
 
     :cond_4
-    iget-object v1, v0, Lcom/bumptech/glide/load/engine/Engine;->fZ:Lcom/bumptech/glide/load/engine/m;
+    iget-object v1, v0, Lcom/bumptech/glide/load/engine/Engine;->ga:Lcom/bumptech/glide/load/engine/m;
 
     move/from16 v15, p17
 
@@ -518,7 +518,7 @@
 
     invoke-virtual {v1, v7}, Lcom/bumptech/glide/load/engine/EngineJob;->a(Lcom/bumptech/glide/request/g;)V
 
-    sget-boolean v0, Lcom/bumptech/glide/load/engine/Engine;->fY:Z
+    sget-boolean v0, Lcom/bumptech/glide/load/engine/Engine;->fZ:Z
 
     if-eqz v0, :cond_5
 
@@ -534,7 +534,7 @@
     return-object v0
 
     :cond_6
-    iget-object v1, v0, Lcom/bumptech/glide/load/engine/Engine;->gc:Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;
+    iget-object v1, v0, Lcom/bumptech/glide/load/engine/Engine;->gd:Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;
 
     move-object v2, v10
 
@@ -548,7 +548,7 @@
 
     move-result-object v1
 
-    iget-object v11, v0, Lcom/bumptech/glide/load/engine/Engine;->gf:Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;
+    iget-object v11, v0, Lcom/bumptech/glide/load/engine/Engine;->gg:Lcom/bumptech/glide/load/engine/Engine$DecodeJobFactory;
 
     move-object/from16 v12, p1
 
@@ -586,7 +586,7 @@
 
     move-result-object v2
 
-    iget-object v0, v0, Lcom/bumptech/glide/load/engine/Engine;->fZ:Lcom/bumptech/glide/load/engine/m;
+    iget-object v0, v0, Lcom/bumptech/glide/load/engine/Engine;->ga:Lcom/bumptech/glide/load/engine/m;
 
     invoke-virtual {v0, v10, v1}, Lcom/bumptech/glide/load/engine/m;->a(Lcom/bumptech/glide/load/c;Lcom/bumptech/glide/load/engine/EngineJob;)V
 
@@ -594,7 +594,7 @@
 
     invoke-virtual {v1, v2}, Lcom/bumptech/glide/load/engine/EngineJob;->c(Lcom/bumptech/glide/load/engine/DecodeJob;)V
 
-    sget-boolean v0, Lcom/bumptech/glide/load/engine/Engine;->fY:Z
+    sget-boolean v0, Lcom/bumptech/glide/load/engine/Engine;->fZ:Z
 
     if-eqz v0, :cond_7
 
@@ -624,7 +624,7 @@
 
     invoke-static {}, Lcom/bumptech/glide/util/k;->eL()V
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine;->fZ:Lcom/bumptech/glide/load/engine/m;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine;->ga:Lcom/bumptech/glide/load/engine/m;
 
     invoke-virtual {v0, p2, p1}, Lcom/bumptech/glide/load/engine/m;->b(Lcom/bumptech/glide/load/c;Lcom/bumptech/glide/load/engine/EngineJob;)V
 
@@ -656,12 +656,12 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine;->gg:Lcom/bumptech/glide/load/engine/ActiveResources;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine;->gh:Lcom/bumptech/glide/load/engine/ActiveResources;
 
     invoke-virtual {v0, p2, p3}, Lcom/bumptech/glide/load/engine/ActiveResources;->a(Lcom/bumptech/glide/load/c;Lcom/bumptech/glide/load/engine/k;)V
 
     :cond_0
-    iget-object p3, p0, Lcom/bumptech/glide/load/engine/Engine;->fZ:Lcom/bumptech/glide/load/engine/m;
+    iget-object p3, p0, Lcom/bumptech/glide/load/engine/Engine;->ga:Lcom/bumptech/glide/load/engine/m;
 
     invoke-virtual {p3, p2, p1}, Lcom/bumptech/glide/load/engine/m;->b(Lcom/bumptech/glide/load/c;Lcom/bumptech/glide/load/engine/EngineJob;)V
 
@@ -681,7 +681,7 @@
 
     invoke-static {}, Lcom/bumptech/glide/util/k;->eL()V
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine;->gg:Lcom/bumptech/glide/load/engine/ActiveResources;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine;->gh:Lcom/bumptech/glide/load/engine/ActiveResources;
 
     invoke-virtual {v0, p1}, Lcom/bumptech/glide/load/engine/ActiveResources;->a(Lcom/bumptech/glide/load/c;)V
 
@@ -691,14 +691,14 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine;->gb:Lcom/bumptech/glide/load/engine/a/j;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine;->gc:Lcom/bumptech/glide/load/engine/a/j;
 
     invoke-interface {v0, p1, p2}, Lcom/bumptech/glide/load/engine/a/j;->b(Lcom/bumptech/glide/load/c;Lcom/bumptech/glide/load/engine/p;)Lcom/bumptech/glide/load/engine/p;
 
     goto :goto_0
 
     :cond_0
-    iget-object p1, p0, Lcom/bumptech/glide/load/engine/Engine;->gd:Lcom/bumptech/glide/load/engine/s;
+    iget-object p1, p0, Lcom/bumptech/glide/load/engine/Engine;->ge:Lcom/bumptech/glide/load/engine/s;
 
     invoke-virtual {p1, p2}, Lcom/bumptech/glide/load/engine/s;->h(Lcom/bumptech/glide/load/engine/p;)V
 
@@ -754,7 +754,7 @@
 
     invoke-static {}, Lcom/bumptech/glide/util/k;->eL()V
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine;->gd:Lcom/bumptech/glide/load/engine/s;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine;->ge:Lcom/bumptech/glide/load/engine/s;
 
     invoke-virtual {v0, p1}, Lcom/bumptech/glide/load/engine/s;->h(Lcom/bumptech/glide/load/engine/p;)V
 
@@ -764,7 +764,7 @@
 .method public p()V
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine;->ge:Lcom/bumptech/glide/load/engine/Engine$a;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine;->gf:Lcom/bumptech/glide/load/engine/Engine$a;
 
     invoke-virtual {v0}, Lcom/bumptech/glide/load/engine/Engine$a;->aw()Lcom/bumptech/glide/load/engine/a/a;
 
@@ -780,15 +780,15 @@
     .annotation build Landroid/support/annotation/VisibleForTesting;
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine;->gc:Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine;->gd:Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;
 
     invoke-virtual {v0}, Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;->shutdown()V
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine;->ge:Lcom/bumptech/glide/load/engine/Engine$a;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine;->gf:Lcom/bumptech/glide/load/engine/Engine$a;
 
     invoke-virtual {v0}, Lcom/bumptech/glide/load/engine/Engine$a;->clearDiskCacheIfCreated()V
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine;->gg:Lcom/bumptech/glide/load/engine/ActiveResources;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine;->gh:Lcom/bumptech/glide/load/engine/ActiveResources;
 
     invoke-virtual {v0}, Lcom/bumptech/glide/load/engine/ActiveResources;->shutdown()V
 

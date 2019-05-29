@@ -14,36 +14,36 @@ import java.util.List;
 /* compiled from: SourceGenerator */
 class t implements a<Object>, d.a, d {
     private static final String TAG = "SourceGenerator";
-    private final e<?> eF;
-    private final d.a eG;
-    private volatile m.a<?> eL;
-    private int gY;
-    private a gZ;
-    private Object ha;
-    private b hb;
+    private final e<?> eG;
+    private final d.a eH;
+    private volatile m.a<?> eM;
+    private int gZ;
+    private a ha;
+    private Object hb;
+    private b hc;
 
     t(e<?> eVar, d.a aVar) {
-        this.eF = eVar;
-        this.eG = aVar;
+        this.eG = eVar;
+        this.eH = aVar;
     }
 
     private boolean at() {
-        return this.gY < this.eF.aF().size();
+        return this.gZ < this.eG.aF().size();
     }
 
     /* JADX INFO: finally extract failed */
     private void m(Object obj) {
         long eK = e.eK();
         try {
-            com.bumptech.glide.load.a d = this.eF.d(obj);
-            c cVar = new c(d, obj, this.eF.az());
-            this.hb = new b(this.eL.eI, this.eF.aA());
-            this.eF.aw().a(this.hb, cVar);
+            com.bumptech.glide.load.a d = this.eG.d(obj);
+            c cVar = new c(d, obj, this.eG.az());
+            this.hc = new b(this.eM.eJ, this.eG.aA());
+            this.eG.aw().a(this.hc, cVar);
             if (Log.isLoggable(TAG, 2)) {
                 String str = TAG;
                 StringBuilder sb = new StringBuilder();
                 sb.append("Finished encoding source to cache, key: ");
-                sb.append(this.hb);
+                sb.append(this.hc);
                 sb.append(", data: ");
                 sb.append(obj);
                 sb.append(", encoder: ");
@@ -52,41 +52,41 @@ class t implements a<Object>, d.a, d {
                 sb.append(e.f(eK));
                 Log.v(str, sb.toString());
             }
-            this.eL.jX.cleanup();
-            this.gZ = new a(Collections.singletonList(this.eL.eI), this.eF, this);
+            this.eM.jY.cleanup();
+            this.ha = new a(Collections.singletonList(this.eM.eJ), this.eG, this);
         } catch (Throwable th) {
-            this.eL.jX.cleanup();
+            this.eM.jY.cleanup();
             throw th;
         }
     }
 
     public void a(c cVar, Exception exc, d<?> dVar, DataSource dataSource) {
-        this.eG.a(cVar, exc, dVar, this.eL.jX.ak());
+        this.eH.a(cVar, exc, dVar, this.eM.jY.ak());
     }
 
     public void a(c cVar, Object obj, d<?> dVar, DataSource dataSource, c cVar2) {
-        this.eG.a(cVar, obj, dVar, this.eL.jX.ak(), cVar);
+        this.eH.a(cVar, obj, dVar, this.eM.jY.ak(), cVar);
     }
 
     public boolean as() {
-        if (this.ha != null) {
-            Object obj = this.ha;
-            this.ha = null;
+        if (this.hb != null) {
+            Object obj = this.hb;
+            this.hb = null;
             m(obj);
         }
-        if (this.gZ != null && this.gZ.as()) {
+        if (this.ha != null && this.ha.as()) {
             return true;
         }
-        this.gZ = null;
-        this.eL = null;
+        this.ha = null;
+        this.eM = null;
         boolean z = false;
         while (!z && at()) {
-            List aF = this.eF.aF();
-            int i = this.gY;
-            this.gY = i + 1;
-            this.eL = (m.a) aF.get(i);
-            if (this.eL != null && (this.eF.ax().b(this.eL.jX.ak()) || this.eF.c(this.eL.jX.aj()))) {
-                this.eL.jX.a(this.eF.ay(), this);
+            List aF = this.eG.aF();
+            int i = this.gZ;
+            this.gZ = i + 1;
+            this.eM = (m.a) aF.get(i);
+            if (this.eM != null && (this.eG.ax().b(this.eM.jY.ak()) || this.eG.c(this.eM.jY.aj()))) {
+                this.eM.jY.a(this.eG.ay(), this);
                 z = true;
             }
         }
@@ -98,23 +98,23 @@ class t implements a<Object>, d.a, d {
     }
 
     public void b(@NonNull Exception exc) {
-        this.eG.a(this.hb, exc, this.eL.jX, this.eL.jX.ak());
+        this.eH.a(this.hc, exc, this.eM.jY, this.eM.jY.ak());
     }
 
     public void cancel() {
-        m.a<?> aVar = this.eL;
+        m.a<?> aVar = this.eM;
         if (aVar != null) {
-            aVar.jX.cancel();
+            aVar.jY.cancel();
         }
     }
 
     public void k(Object obj) {
-        g ax = this.eF.ax();
-        if (obj == null || !ax.b(this.eL.jX.ak())) {
-            this.eG.a(this.eL.eI, obj, this.eL.jX, this.eL.jX.ak(), this.hb);
+        g ax = this.eG.ax();
+        if (obj == null || !ax.b(this.eM.jY.ak())) {
+            this.eH.a(this.eM.eJ, obj, this.eM.jY, this.eM.jY.ak(), this.hc);
             return;
         }
-        this.ha = obj;
-        this.eG.av();
+        this.hb = obj;
+        this.eH.av();
     }
 }

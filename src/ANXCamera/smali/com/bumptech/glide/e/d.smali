@@ -107,7 +107,7 @@
 
     move-result-object v0
 
-    sget-object v1, Lcom/bumptech/glide/e/d;->dG:Ljava/nio/charset/Charset;
+    sget-object v1, Lcom/bumptech/glide/e/d;->dH:Ljava/nio/charset/Charset;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
 

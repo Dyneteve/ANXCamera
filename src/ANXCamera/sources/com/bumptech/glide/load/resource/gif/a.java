@@ -10,47 +10,47 @@ import com.bumptech.glide.load.engine.bitmap_recycle.d;
 
 /* compiled from: GifBitmapProvider */
 public final class a implements C0001a {
-    private final d ak;
+    private final d al;
     @Nullable
-    private final b ap;
+    private final b aq;
 
     public a(d dVar) {
         this(dVar, null);
     }
 
     public a(d dVar, @Nullable b bVar) {
-        this.ak = dVar;
-        this.ap = bVar;
+        this.al = dVar;
+        this.aq = bVar;
     }
 
     @NonNull
     public Bitmap a(int i, int i2, @NonNull Config config) {
-        return this.ak.g(i, i2, config);
+        return this.al.g(i, i2, config);
     }
 
     public void b(@NonNull int[] iArr) {
-        if (this.ap != null) {
-            this.ap.put(iArr);
+        if (this.aq != null) {
+            this.aq.put(iArr);
         }
     }
 
     public void c(@NonNull Bitmap bitmap) {
-        this.ak.d(bitmap);
+        this.al.d(bitmap);
     }
 
     public void c(@NonNull byte[] bArr) {
-        if (this.ap != null) {
-            this.ap.put(bArr);
+        if (this.aq != null) {
+            this.aq.put(bArr);
         }
     }
 
     @NonNull
     public byte[] m(int i) {
-        return this.ap == null ? new byte[i] : (byte[]) this.ap.a(i, byte[].class);
+        return this.aq == null ? new byte[i] : (byte[]) this.aq.a(i, byte[].class);
     }
 
     @NonNull
     public int[] n(int i) {
-        return this.ap == null ? new int[i] : (int[]) this.ap.a(i, int[].class);
+        return this.aq == null ? new int[i] : (int[]) this.aq.a(i, int[].class);
     }
 }

@@ -79,10 +79,6 @@
 .method public IsInMimojiCreate()Z
     .locals 2
 
-    iget-boolean v0, p0, Lcom/android/camera/module/impl/component/MimojiStatusManager;->mIsAvatarInited:Z
-
-    if-eqz v0, :cond_0
-
     iget v0, p0, Lcom/android/camera/module/impl/component/MimojiStatusManager;->mMode:I
 
     sget v1, Lcom/android/camera/module/impl/component/MimojiStatusManager;->MIMOJI_CREATE:I
@@ -102,10 +98,6 @@
 
 .method public IsInMimojiEdit()Z
     .locals 2
-
-    iget-boolean v0, p0, Lcom/android/camera/module/impl/component/MimojiStatusManager;->mIsAvatarInited:Z
-
-    if-eqz v0, :cond_0
 
     iget v0, p0, Lcom/android/camera/module/impl/component/MimojiStatusManager;->mMode:I
 
@@ -127,10 +119,6 @@
 .method public IsInMimojiEditMid()Z
     .locals 2
 
-    iget-boolean v0, p0, Lcom/android/camera/module/impl/component/MimojiStatusManager;->mIsAvatarInited:Z
-
-    if-eqz v0, :cond_0
-
     iget v0, p0, Lcom/android/camera/module/impl/component/MimojiStatusManager;->mMode:I
 
     sget v1, Lcom/android/camera/module/impl/component/MimojiStatusManager;->MIMOJI_EDIT_MID:I
@@ -150,10 +138,6 @@
 
 .method public IsInMimojiPreview()Z
     .locals 2
-
-    iget-boolean v0, p0, Lcom/android/camera/module/impl/component/MimojiStatusManager;->mIsAvatarInited:Z
-
-    if-eqz v0, :cond_0
 
     iget v0, p0, Lcom/android/camera/module/impl/component/MimojiStatusManager;->mMode:I
 
@@ -177,7 +161,7 @@
 
     iget v0, p0, Lcom/android/camera/module/impl/component/MimojiStatusManager;->mMode:I
 
-    sget v1, Lcom/android/camera/module/impl/component/MimojiStatusManager;->MIMOJI_EDIT_MID:I
+    sget v1, Lcom/android/camera/module/impl/component/MimojiStatusManager;->MIMOJI_CREATE:I
 
     if-ge v0, v1, :cond_0
 

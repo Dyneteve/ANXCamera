@@ -15,11 +15,11 @@
 
 
 # static fields
-.field private static final hS:I = 0xa
+.field private static final hT:I = 0xa
 
 
 # instance fields
-.field private final hT:Ljava/util/Queue;
+.field private final hU:Ljava/util/Queue;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Queue<",
@@ -40,7 +40,7 @@
 
     invoke-direct {v0}, Ljava/util/ArrayDeque;-><init>()V
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/a/c$b;->hT:Ljava/util/Queue;
+    iput-object v0, p0, Lcom/bumptech/glide/load/engine/a/c$b;->hU:Ljava/util/Queue;
 
     return-void
 .end method
@@ -50,12 +50,12 @@
 .method a(Lcom/bumptech/glide/load/engine/a/c$a;)V
     .locals 3
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a/c$b;->hT:Ljava/util/Queue;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a/c$b;->hU:Ljava/util/Queue;
 
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/a/c$b;->hT:Ljava/util/Queue;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/a/c$b;->hU:Ljava/util/Queue;
 
     invoke-interface {v1}, Ljava/util/Queue;->size()I
 
@@ -65,7 +65,7 @@
 
     if-ge v1, v2, :cond_0
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/a/c$b;->hT:Ljava/util/Queue;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/a/c$b;->hU:Ljava/util/Queue;
 
     invoke-interface {v1, p1}, Ljava/util/Queue;->offer(Ljava/lang/Object;)Z
 
@@ -87,12 +87,12 @@
 .method bA()Lcom/bumptech/glide/load/engine/a/c$a;
     .locals 2
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a/c$b;->hT:Ljava/util/Queue;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a/c$b;->hU:Ljava/util/Queue;
 
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/a/c$b;->hT:Ljava/util/Queue;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/a/c$b;->hU:Ljava/util/Queue;
 
     invoke-interface {v1}, Ljava/util/Queue;->poll()Ljava/lang/Object;
 

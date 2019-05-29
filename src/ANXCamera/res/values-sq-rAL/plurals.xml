@@ -4,4 +4,8 @@
         <item quantity="other">Fokusuar. %d fytyrë e zbuluar</item>
         <item quantity="one">Fokusuar. %d fytyrë e zbuluar</item>
     </plurals>
+    <plurals name="toast_burst_snap_finished_summary">
+        <item quantity="other">Shkrepja e vazhdueshme u bë, %1$s fotografitç u bërën</item>
+        <item quantity="one">Shkrepja e vazhdueshme u bë, %1$s fotografi është bërë</item>
+    </plurals>
 </resources>

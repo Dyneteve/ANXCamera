@@ -32,7 +32,7 @@
 
 
 # instance fields
-.field private final ee:Landroid/content/ContentResolver;
+.field private final ef:Landroid/content/ContentResolver;
 
 
 # direct methods
@@ -41,7 +41,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/model/v$d;->ee:Landroid/content/ContentResolver;
+    iput-object p1, p0, Lcom/bumptech/glide/load/model/v$d;->ef:Landroid/content/ContentResolver;
 
     return-void
 .end method
@@ -93,7 +93,7 @@
 
     new-instance v0, Lcom/bumptech/glide/load/a/n;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/model/v$d;->ee:Landroid/content/ContentResolver;
+    iget-object v1, p0, Lcom/bumptech/glide/load/model/v$d;->ef:Landroid/content/ContentResolver;
 
     invoke-direct {v0, v1, p1}, Lcom/bumptech/glide/load/a/n;-><init>(Landroid/content/ContentResolver;Landroid/net/Uri;)V
 

@@ -10,8 +10,8 @@ import java.util.regex.Pattern;
 /* compiled from: RuntimeCompat */
 final class b {
     private static final String TAG = "GlideRuntimeCompat";
-    private static final String iY = "cpu[0-9]+";
-    private static final String iZ = "/sys/devices/system/cpu/";
+    private static final String iZ = "cpu[0-9]+";
+    private static final String ja = "/sys/devices/system/cpu/";
 
     private b() {
     }
@@ -26,8 +26,8 @@ final class b {
         File[] fileArr;
         ThreadPolicy allowThreadDiskReads = StrictMode.allowThreadDiskReads();
         try {
-            File file = new File(iZ);
-            final Pattern compile = Pattern.compile(iY);
+            File file = new File(ja);
+            final Pattern compile = Pattern.compile(iZ);
             fileArr = file.listFiles(new FilenameFilter() {
                 public boolean accept(File file, String str) {
                     return compile.matcher(str).matches();

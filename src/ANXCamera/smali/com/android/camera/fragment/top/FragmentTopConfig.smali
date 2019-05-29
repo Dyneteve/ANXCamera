@@ -193,7 +193,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a001b
+    const v3, 0x7f0a001c
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -239,7 +239,7 @@
 
     move-result-object p1
 
-    const v3, 0x7f0a0021
+    const v3, 0x7f0a0011
 
     invoke-virtual {p1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -576,8 +576,8 @@
 
     :array_0
     .array-data 4
-        0x7f020142
-        0x7f020143
+        0x7f020149
+        0x7f02014a
     .end array-data
 .end method
 
@@ -600,8 +600,8 @@
 
     :array_0
     .array-data 4
-        0x7f0200cb
-        0x7f0200cc
+        0x7f0200d1
+        0x7f0200d2
     .end array-data
 .end method
 
@@ -644,8 +644,8 @@
 
     :array_0
     .array-data 4
-        0x7f020153
-        0x7f020154
+        0x7f02015a
+        0x7f02015b
     .end array-data
 .end method
 
@@ -682,24 +682,24 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f020148
+    const v0, 0x7f02014f
 
     return v0
 
     :cond_0
-    const v0, 0x7f02014b
+    const v0, 0x7f020152
 
     return v0
 
     :cond_1
     if-eqz v0, :cond_2
 
-    const v0, 0x7f02014a
+    const v0, 0x7f020151
 
     return v0
 
     :cond_2
-    const v0, 0x7f020149
+    const v0, 0x7f020150
 
     return v0
 .end method
@@ -752,12 +752,12 @@
     :goto_0
     if-eqz p1, :cond_1
 
-    const p1, 0x7f020151
+    const p1, 0x7f020158
 
     return p1
 
     :cond_1
-    const p1, 0x7f020152
+    const p1, 0x7f020159
 
     return p1
 .end method
@@ -935,8 +935,8 @@
 
     :array_0
     .array-data 4
-        0x7f020155
-        0x7f020156
+        0x7f02015c
+        0x7f02015d
     .end array-data
 .end method
 
@@ -955,15 +955,15 @@
 
     :array_0
     .array-data 4
-        0x7f02013e
-        0x7f02013f
+        0x7f020145
+        0x7f020146
     .end array-data
 .end method
 
 .method private getMoreResources()I
     .locals 1
 
-    const v0, 0x7f020157
+    const v0, 0x7f02015e
 
     return v0
 .end method
@@ -987,15 +987,15 @@
 
     :array_0
     .array-data 4
-        0x7f02011d
-        0x7f020120
+        0x7f020123
+        0x7f020126
     .end array-data
 .end method
 
 .method private getPortraitResources()I
     .locals 1
 
-    const v0, 0x7f020158
+    const v0, 0x7f02015f
 
     return v0
 .end method
@@ -1003,7 +1003,7 @@
 .method private getSettingResources()I
     .locals 1
 
-    const v0, 0x7f020150
+    const v0, 0x7f020157
 
     return v0
 .end method
@@ -1085,8 +1085,8 @@
 
     :array_0
     .array-data 4
-        0x7f020178
-        0x7f020179
+        0x7f02017f
+        0x7f020180
     .end array-data
 .end method
 
@@ -1105,8 +1105,8 @@
 
     :array_0
     .array-data 4
-        0x7f02017a
-        0x7f02017b
+        0x7f020181
+        0x7f020182
     .end array-data
 .end method
 
@@ -1129,8 +1129,8 @@
 
     :array_0
     .array-data 4
-        0x7f020194
-        0x7f020195
+        0x7f02019c
+        0x7f02019d
     .end array-data
 .end method
 
@@ -1153,8 +1153,8 @@
 
     :array_0
     .array-data 4
-        0x7f020158
-        0x7f020159
+        0x7f02015f
+        0x7f020160
     .end array-data
 .end method
 
@@ -1163,7 +1163,7 @@
 
     iget-object v0, p0, Lcom/android/camera/fragment/top/FragmentTopConfig;->mTopConfigMenu:Landroid/view/View;
 
-    const v1, 0x7f0d00d3
+    const v1, 0x7f0d00d2
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1173,7 +1173,7 @@
 
     iget-object v1, p0, Lcom/android/camera/fragment/top/FragmentTopConfig;->mTopConfigMenu:Landroid/view/View;
 
-    const v2, 0x7f0d00d4
+    const v2, 0x7f0d00d3
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1183,7 +1183,7 @@
 
     iget-object v2, p0, Lcom/android/camera/fragment/top/FragmentTopConfig;->mTopConfigMenu:Landroid/view/View;
 
-    const v3, 0x7f0d00d5
+    const v3, 0x7f0d00d4
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1193,7 +1193,7 @@
 
     iget-object v3, p0, Lcom/android/camera/fragment/top/FragmentTopConfig;->mTopConfigMenu:Landroid/view/View;
 
-    const v4, 0x7f0d00d6
+    const v4, 0x7f0d00d5
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1203,7 +1203,7 @@
 
     iget-object v4, p0, Lcom/android/camera/fragment/top/FragmentTopConfig;->mTopConfigMenu:Landroid/view/View;
 
-    const v5, 0x7f0d00d7
+    const v5, 0x7f0d00d6
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1213,7 +1213,7 @@
 
     iget-object v5, p0, Lcom/android/camera/fragment/top/FragmentTopConfig;->mTopConfigMenu:Landroid/view/View;
 
-    const v6, 0x7f0d00d8
+    const v6, 0x7f0d00d7
 
     invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1223,7 +1223,7 @@
 
     iget-object v6, p0, Lcom/android/camera/fragment/top/FragmentTopConfig;->mTopConfigMenu:Landroid/view/View;
 
-    const v7, 0x7f0d00d9
+    const v7, 0x7f0d00d8
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1233,7 +1233,7 @@
 
     iget-object v7, p0, Lcom/android/camera/fragment/top/FragmentTopConfig;->mTopConfigMenu:Landroid/view/View;
 
-    const v8, 0x7f0d00da
+    const v8, 0x7f0d00d9
 
     invoke-virtual {v7, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1243,7 +1243,7 @@
 
     iget-object v8, p0, Lcom/android/camera/fragment/top/FragmentTopConfig;->mTopConfigMenu:Landroid/view/View;
 
-    const v9, 0x7f0d00db
+    const v9, 0x7f0d00da
 
     invoke-virtual {v8, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1253,7 +1253,7 @@
 
     iget-object v9, p0, Lcom/android/camera/fragment/top/FragmentTopConfig;->mTopConfigMenu:Landroid/view/View;
 
-    const v10, 0x7f0d00dc
+    const v10, 0x7f0d00db
 
     invoke-virtual {v9, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1263,7 +1263,7 @@
 
     iget-object v10, p0, Lcom/android/camera/fragment/top/FragmentTopConfig;->mTopConfigMenu:Landroid/view/View;
 
-    const v11, 0x7f0d00dd
+    const v11, 0x7f0d00dc
 
     invoke-virtual {v10, v11}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1405,7 +1405,7 @@
 
     if-nez v0, :cond_2
 
-    const v0, 0x7f090219
+    const v0, 0x7f090218
 
     invoke-virtual {p0, v1, v0}, Lcom/android/camera/fragment/top/FragmentTopConfig;->alertTopHint(II)V
 
@@ -1858,7 +1858,7 @@
     :goto_2
     if-eqz p3, :cond_2
 
-    const p3, 0x7f090256
+    const p3, 0x7f090255
 
     :goto_3
     move v4, p3
@@ -1866,7 +1866,7 @@
     goto :goto_4
 
     :cond_2
-    const p3, 0x7f090257
+    const p3, 0x7f090256
 
     goto :goto_3
 
@@ -1899,7 +1899,7 @@
     :goto_6
     if-eqz p3, :cond_4
 
-    const p3, 0x7f090249
+    const p3, 0x7f090248
 
     :goto_7
     move v4, p3
@@ -1907,7 +1907,7 @@
     goto :goto_8
 
     :cond_4
-    const p3, 0x7f09024a
+    const p3, 0x7f090249
 
     goto :goto_7
 
@@ -2071,7 +2071,7 @@
 
     if-eqz p4, :cond_9
 
-    const p4, 0x7f020160
+    const p4, 0x7f020167
 
     :goto_e
     move v5, p4
@@ -2079,7 +2079,7 @@
     goto :goto_f
 
     :cond_9
-    const p4, 0x7f02015f
+    const p4, 0x7f020166
 
     goto :goto_e
 
@@ -2271,7 +2271,7 @@
     goto/16 :goto_25
 
     :pswitch_e
-    const p3, 0x7f020145
+    const p3, 0x7f02014c
 
     nop
 
@@ -2389,7 +2389,7 @@
     :goto_1b
     if-eqz p3, :cond_17
 
-    const p3, 0x7f090214
+    const p3, 0x7f090212
 
     :goto_1c
     move v4, p3
@@ -2397,7 +2397,7 @@
     goto :goto_1d
 
     :cond_17
-    const p3, 0x7f090215
+    const p3, 0x7f090213
 
     goto :goto_1c
 
@@ -2427,7 +2427,7 @@
     :goto_1e
     if-eqz p3, :cond_1a
 
-    const p3, 0x7f0200d0
+    const p3, 0x7f0200d6
 
     :goto_1f
     move v5, p3
@@ -2435,7 +2435,7 @@
     goto :goto_20
 
     :cond_1a
-    const p3, 0x7f0200cf
+    const p3, 0x7f0200d5
 
     goto :goto_1f
 
@@ -2496,7 +2496,7 @@
     :goto_22
     if-eqz p3, :cond_1f
 
-    const p3, 0x7f09025b
+    const p3, 0x7f09025a
 
     :goto_23
     move v4, p3
@@ -2504,7 +2504,7 @@
     goto :goto_24
 
     :cond_1f
-    const p3, 0x7f09025c
+    const p3, 0x7f09025b
 
     goto :goto_23
 
@@ -2714,7 +2714,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d00df
+    const v1, 0x7f0d00de
 
     iget-object v2, p0, Lcom/android/camera/fragment/top/FragmentTopConfig;->mFragmentTopConfigExtra:Lcom/android/camera/fragment/top/FragmentTopConfigExtra;
 
@@ -2918,6 +2918,33 @@
     return-void
 .end method
 
+.method public alertMimojiFaceDetect(ZI)V
+    .locals 2
+
+    invoke-direct {p0}, Lcom/android/camera/fragment/top/FragmentTopConfig;->getTopAlert()Lcom/android/camera/fragment/top/FragmentTopAlert;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0}, Lcom/android/camera/fragment/top/FragmentTopAlert;->isShow()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {v0, p1, p2}, Lcom/android/camera/fragment/top/FragmentTopAlert;->alertMimojiFaceDetect(ZI)V
+
+    return-void
+
+    :cond_1
+    :goto_0
+    return-void
+.end method
+
 .method public alertMoonModeSelector(IZ)V
     .locals 4
 
@@ -2940,7 +2967,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09024f
+    const v2, 0x7f09024e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2950,7 +2977,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090258
+    const v3, 0x7f090257
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3239,7 +3266,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0a014e
+    const v5, 0x7f0a0124
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3365,7 +3392,7 @@
 .method protected getLayoutResourceId()I
     .locals 1
 
-    const v0, 0x7f04003a
+    const v0, 0x7f04003b
 
     return v0
 .end method
@@ -3427,7 +3454,9 @@
     return-void
 
     :cond_0
-    invoke-virtual {v0}, Lcom/android/camera/fragment/top/FragmentTopAlert;->clear()V
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/android/camera/fragment/top/FragmentTopAlert;->clear(Z)V
 
     const/4 v1, 0x0
 
@@ -3578,7 +3607,7 @@
 
     iput-object v0, p0, Lcom/android/camera/fragment/top/FragmentTopConfig;->mDisabledFunctionMenu:Landroid/util/SparseBooleanArray;
 
-    const v0, 0x7f0d00df
+    const v0, 0x7f0d00de
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3588,7 +3617,7 @@
 
     iput-object v0, p0, Lcom/android/camera/fragment/top/FragmentTopConfig;->mTopExtraParent:Landroid/view/ViewGroup;
 
-    const v0, 0x7f0d00d2
+    const v0, 0x7f0d00d1
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3617,7 +3646,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a00c2
+    const v2, 0x7f0a016e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -3628,7 +3657,7 @@
 
     invoke-direct {p0}, Lcom/android/camera/fragment/top/FragmentTopConfig;->initTopView()V
 
-    const v0, 0x7f0d00de
+    const v0, 0x7f0d00dd
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3662,7 +3691,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0a0021
+    const v0, 0x7f0a0011
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3674,7 +3703,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f020145
+    const v0, 0x7f02014c
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -3871,7 +3900,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f0d00e0
+    const p2, 0x7f0d00df
 
     iget-object v0, p0, Lcom/android/camera/fragment/top/FragmentTopConfig;->mFragmentTopAlert:Lcom/android/camera/fragment/top/FragmentTopAlert;
 
@@ -4459,7 +4488,7 @@
 
     const/4 v0, 0x2
 
-    const v1, 0x7f0c0020
+    const v1, 0x7f0c0004
 
     invoke-virtual {p1, v0, v1}, Lcom/android/camera/fragment/music/FragmentLiveMusic;->setStyle(II)V
 
@@ -4786,22 +4815,45 @@
     invoke-virtual {p0, v1}, Lcom/android/camera/fragment/top/FragmentTopConfig;->onBackEvent(I)Z
 
     :cond_4
-    if-eqz v4, :cond_5
+    if-eqz v4, :cond_6
 
+    invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemLive()Lcom/android/camera/data/data/extra/DataItemLive;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/camera/data/data/extra/DataItemLive;->getMimojiStatusManager()Lcom/android/camera/module/impl/component/MimojiStatusManager;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/camera/module/impl/component/MimojiStatusManager;->IsInPreviewSurface()Z
+
+    move-result v1
+
+    if-nez v1, :cond_5
+
+    const/4 v1, 0x2
+
+    new-array v1, v1, [I
+
+    fill-array-data v1, :array_0
+
+    invoke-virtual {p0, v3, v1}, Lcom/android/camera/fragment/top/FragmentTopConfig;->enableMenuItem(Z[I)V
+
+    :cond_5
     iget-object v1, p0, Lcom/android/camera/fragment/top/FragmentTopConfig;->mDisabledFunctionMenu:Landroid/util/SparseBooleanArray;
 
     invoke-virtual {v1}, Landroid/util/SparseBooleanArray;->clear()V
 
-    :cond_5
+    :cond_6
     invoke-direct {p0}, Lcom/android/camera/fragment/top/FragmentTopConfig;->getTopAlert()Lcom/android/camera/fragment/top/FragmentTopAlert;
 
     move-result-object v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_7
 
     invoke-virtual {v1, p1, p2, p3}, Lcom/android/camera/fragment/top/FragmentTopAlert;->provideAnimateElement(ILjava/util/List;I)V
 
-    :cond_6
+    :cond_7
     invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemConfig()Lcom/android/camera/data/data/config/DataItemConfig;
 
     move-result-object p3
@@ -4824,24 +4876,24 @@
 
     move-result-object v4
 
-    if-nez v4, :cond_7
+    if-nez v4, :cond_8
 
     return-void
 
-    :cond_7
+    :cond_8
     iget-object v5, p0, Lcom/android/camera/fragment/top/FragmentTopConfig;->mTopConfigMenu:Landroid/view/View;
 
     invoke-virtual {v5}, Landroid/view/View;->getVisibility()I
 
     move-result v5
 
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_9
 
     iget-object v5, p0, Lcom/android/camera/fragment/top/FragmentTopConfig;->mTopConfigMenu:Landroid/view/View;
 
     invoke-static {v5}, Lcom/android/camera/animation/type/AlphaInOnSubscribe;->directSetResult(Landroid/view/View;)V
 
-    :cond_8
+    :cond_9
     iget v5, p0, Lcom/android/camera/fragment/top/FragmentTopConfig;->mCurrentMode:I
 
     invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemGlobal()Lcom/android/camera/data/data/global/DataItemGlobal;
@@ -4867,7 +4919,7 @@
 
     move-result v4
 
-    if-ge v1, v4, :cond_11
+    if-ge v1, v4, :cond_12
 
     iget-object v4, p0, Lcom/android/camera/fragment/top/FragmentTopConfig;->mConfigViews:Ljava/util/List;
 
@@ -4887,13 +4939,13 @@
 
     move-result-object v11
 
-    if-eqz p2, :cond_9
+    if-eqz p2, :cond_a
 
     move v9, v3
 
     goto :goto_5
 
-    :cond_9
+    :cond_a
     move v9, v2
 
     :goto_5
@@ -4911,7 +4963,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_b
 
     iget-object v5, p0, Lcom/android/camera/fragment/top/FragmentTopConfig;->mDisabledFunctionMenu:Landroid/util/SparseBooleanArray;
 
@@ -4921,7 +4973,7 @@
 
     move-result v5
 
-    if-ltz v5, :cond_a
+    if-ltz v5, :cond_b
 
     iget-object v5, p0, Lcom/android/camera/fragment/top/FragmentTopConfig;->mDisabledFunctionMenu:Landroid/util/SparseBooleanArray;
 
@@ -4931,49 +4983,49 @@
 
     move-result v5
 
-    if-eqz v5, :cond_a
+    if-eqz v5, :cond_b
 
     goto :goto_7
 
-    :cond_a
+    :cond_b
     invoke-virtual {v10}, Landroid/widget/ImageView;->getTag()Ljava/lang/Object;
 
     move-result-object v5
 
     check-cast v5, Lcom/android/camera/data/data/config/TopConfigItem;
 
-    if-eqz v5, :cond_b
+    if-eqz v5, :cond_c
 
     iget v5, v5, Lcom/android/camera/data/data/config/TopConfigItem;->configItem:I
 
     iget v6, v11, Lcom/android/camera/data/data/config/TopConfigItem;->configItem:I
 
-    if-ne v5, v6, :cond_b
+    if-ne v5, v6, :cond_c
 
     invoke-virtual {v10, v11}, Landroid/widget/ImageView;->setTag(Ljava/lang/Object;)V
 
     goto :goto_7
 
-    :cond_b
+    :cond_c
     invoke-virtual {v10, v11}, Landroid/widget/ImageView;->setTag(Ljava/lang/Object;)V
 
-    if-nez p2, :cond_d
+    if-nez p2, :cond_e
 
-    if-eqz v4, :cond_c
+    if-eqz v4, :cond_d
 
     invoke-static {v10}, Lcom/android/camera/animation/type/AlphaInOnSubscribe;->directSetResult(Landroid/view/View;)V
 
     goto :goto_7
 
-    :cond_c
+    :cond_d
     invoke-static {v10}, Lcom/android/camera/animation/type/AlphaOutOnSubscribe;->directSetResult(Landroid/view/View;)V
 
     goto :goto_7
 
-    :cond_d
+    :cond_e
     const/16 v5, 0x96
 
-    if-eqz v4, :cond_e
+    if-eqz v4, :cond_f
 
     new-instance v4, Lcom/android/camera/animation/type/AlphaInOnSubscribe;
 
@@ -4995,18 +5047,18 @@
 
     goto :goto_7
 
-    :cond_e
+    :cond_f
     const/16 v4, 0xa5
 
-    if-eq v0, v4, :cond_10
+    if-eq v0, v4, :cond_11
 
     iget v6, p0, Lcom/android/camera/fragment/top/FragmentTopConfig;->mCurrentMode:I
 
-    if-ne v6, v4, :cond_f
+    if-ne v6, v4, :cond_10
 
     goto :goto_6
 
-    :cond_f
+    :cond_10
     new-instance v4, Lcom/android/camera/animation/type/AlphaOutOnSubscribe;
 
     invoke-direct {v4, v10}, Lcom/android/camera/animation/type/AlphaOutOnSubscribe;-><init>(Landroid/view/View;)V
@@ -5023,7 +5075,7 @@
 
     goto :goto_7
 
-    :cond_10
+    :cond_11
     :goto_6
     invoke-static {v10}, Lcom/android/camera/animation/type/AlphaOutOnSubscribe;->directSetResult(Landroid/view/View;)V
 
@@ -5032,10 +5084,8 @@
 
     goto/16 :goto_4
 
-    :cond_11
+    :cond_12
     return-void
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0xa1
@@ -5056,6 +5106,12 @@
         :pswitch_1
         :pswitch_1
     .end packed-switch
+
+    :array_0
+    .array-data 4
+        0xe1
+        0xc1
+    .end array-data
 .end method
 
 .method public provideRotateItem(Ljava/util/List;I)V
@@ -5359,21 +5415,6 @@
 
     invoke-virtual {v0}, Lio/reactivex/Completable;->subscribe()Lio/reactivex/disposables/Disposable;
 
-    return-void
-.end method
-
-.method public showOrHideMimojiCreateTitle(Z)V
-    .locals 1
-
-    invoke-direct {p0}, Lcom/android/camera/fragment/top/FragmentTopConfig;->getTopAlert()Lcom/android/camera/fragment/top/FragmentTopAlert;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0, p1}, Lcom/android/camera/fragment/top/FragmentTopAlert;->showOrHideMimojiCreateTitle(Z)V
-
-    :cond_0
     return-void
 .end method
 

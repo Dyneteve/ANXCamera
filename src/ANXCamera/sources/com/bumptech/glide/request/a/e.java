@@ -4,22 +4,22 @@ import com.bumptech.glide.load.DataSource;
 
 /* compiled from: NoTransition */
 public class e<R> implements f<R> {
-    static final e<?> pC = new e<>();
-    private static final g<?> pD = new a();
+    static final e<?> pD = new e<>();
+    private static final g<?> pE = new a();
 
     /* compiled from: NoTransition */
     public static class a<R> implements g<R> {
         public f<R> a(DataSource dataSource, boolean z) {
-            return e.pC;
+            return e.pD;
         }
     }
 
     public static <R> g<R> eF() {
-        return pD;
+        return pE;
     }
 
     public static <R> f<R> eG() {
-        return pC;
+        return pD;
     }
 
     public boolean a(Object obj, com.bumptech.glide.request.a.f.a aVar) {

@@ -208,7 +208,7 @@ public class CaptureRequestBuilder {
     static void applyExposureCompensation(Builder builder, int i, CameraCapabilities cameraCapabilities, CameraConfigs cameraConfigs) {
         if (builder != null) {
             int exposureCompensationIndex = cameraConfigs.getExposureCompensationIndex();
-            if (b.iz() && ModuleManager.isManualModule() && i == 1 && cameraConfigs.getISO() == 0 && cameraConfigs.getExposureTime() > MAX_REALTIME_EXPOSURE_TIME) {
+            if (b.iC() && ModuleManager.isManualModule() && i == 1 && cameraConfigs.getISO() == 0 && cameraConfigs.getExposureTime() > MAX_REALTIME_EXPOSURE_TIME) {
                 double log = Math.log((double) ((float) (((double) cameraConfigs.getExposureTime()) / 1.25E8d))) / Math.log(2.0d);
                 String str = TAG;
                 StringBuilder sb = new StringBuilder();
@@ -236,10 +236,10 @@ public class CaptureRequestBuilder {
     static void applyExposureTime(Builder builder, int i, CameraConfigs cameraConfigs) {
         if (builder != null) {
             long exposureTime = cameraConfigs.getExposureTime();
-            if (b.iz() && i == 1) {
+            if (b.iC() && i == 1) {
                 exposureTime = Math.min(exposureTime, MAX_REALTIME_EXPOSURE_TIME);
             }
-            if (b.iz() || i == 3) {
+            if (b.iC() || i == 3) {
                 String str = TAG;
                 StringBuilder sb = new StringBuilder();
                 sb.append("applyExposureTime: ");
@@ -376,7 +376,7 @@ public class CaptureRequestBuilder {
     static void applyIso(Builder builder, int i, CameraCapabilities cameraCapabilities, CameraConfigs cameraConfigs) {
         if (builder != null) {
             int iso = cameraConfigs.getISO();
-            if (b.iz() && i == 1 && iso > 0 && cameraConfigs.getExposureTime() > MAX_REALTIME_EXPOSURE_TIME) {
+            if (b.iC() && i == 1 && iso > 0 && cameraConfigs.getExposureTime() > MAX_REALTIME_EXPOSURE_TIME) {
                 iso = Math.min((int) (((float) iso) * ((float) (((double) cameraConfigs.getExposureTime()) / 1.25E8d))), cameraCapabilities.getMaxIso());
             }
             String str = TAG;
@@ -450,7 +450,7 @@ public class CaptureRequestBuilder {
     static void applySceneMode(Builder builder, CameraConfigs cameraConfigs) {
         if (builder != null) {
             int sceneMode = cameraConfigs.getSceneMode();
-            if (sceneMode != 0) {
+            if (!"-1".equals(String.valueOf(sceneMode))) {
                 builder.set(CaptureRequest.CONTROL_SCENE_MODE, Integer.valueOf(sceneMode));
                 builder.set(CaptureRequest.CONTROL_MODE, Integer.valueOf(2));
             } else {

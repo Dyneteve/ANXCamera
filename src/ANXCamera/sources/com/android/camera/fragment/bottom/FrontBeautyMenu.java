@@ -37,7 +37,7 @@ public class FrontBeautyMenu extends AbBottomMenu implements OnClickListener {
 
     private boolean isJustBeautyTab() {
         boolean z = true;
-        if (DataRepository.dataItemFeature().gE()) {
+        if (DataRepository.dataItemFeature().gF()) {
             return true;
         }
         int currentMode = ((DataItemGlobal) DataRepository.provider().dataGlobal()).getCurrentMode();
@@ -99,7 +99,7 @@ public class FrontBeautyMenu extends AbBottomMenu implements OnClickListener {
         String string = CameraAppImpl.getAndroidContext().getString(R.string.beauty_fragment_tab_name_beauty);
         String string2 = CameraAppImpl.getAndroidContext().getString(R.string.beauty_fragment_tab_name_makeup);
         String string3 = CameraAppImpl.getAndroidContext().getString(R.string.beauty_fragment_tab_name_3d_makeup);
-        if (b.iw()) {
+        if (b.iz()) {
             string = CameraAppImpl.getAndroidContext().getString(R.string.beauty_fragment_tab_name_3d_beauty);
             string2 = CameraAppImpl.getAndroidContext().getString(R.string.beauty_fragment_tab_name_3d_remodeling);
         }

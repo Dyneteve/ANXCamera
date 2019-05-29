@@ -176,7 +176,13 @@
 .end method
 
 .method public onUnbind(Landroid/content/Intent;)Z
-    .locals 0
+    .locals 2
+
+    sget-object v0, Lcom/android/camera/LocalParallelService;->TAG:Ljava/lang/String;
+
+    const-string v1, "onUnbind: start"
+
+    invoke-static {v0, v1}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-super {p0, p1}, Landroid/app/Service;->onUnbind(Landroid/content/Intent;)Z
 

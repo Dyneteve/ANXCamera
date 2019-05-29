@@ -15,9 +15,7 @@
 
 
 # instance fields
-.field private mImageView:Lcom/android/camera/ui/RoundImageView;
-
-.field private mSelectedInnerIndicator:Landroid/widget/ImageView;
+.field private mImageView:Landroid/widget/ImageView;
 
 .field private mSelectedOuterIndicator:Landroid/widget/ImageView;
 
@@ -38,9 +36,9 @@
 
     move-result-object p1
 
-    check-cast p1, Lcom/android/camera/ui/RoundImageView;
+    check-cast p1, Landroid/widget/ImageView;
 
-    iput-object p1, p0, Lcom/android/camera/fragment/beauty/LiveBeautyFilterFragment$FilterStillItemHolder;->mImageView:Lcom/android/camera/ui/RoundImageView;
+    iput-object p1, p0, Lcom/android/camera/fragment/beauty/LiveBeautyFilterFragment$FilterStillItemHolder;->mImageView:Landroid/widget/ImageView;
 
     const p1, 0x7f0d001c
 
@@ -51,16 +49,6 @@
     check-cast p1, Landroid/widget/ImageView;
 
     iput-object p1, p0, Lcom/android/camera/fragment/beauty/LiveBeautyFilterFragment$FilterStillItemHolder;->mSelectedOuterIndicator:Landroid/widget/ImageView;
-
-    const p1, 0x7f0d00f0
-
-    invoke-virtual {p2, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object p1
-
-    check-cast p1, Landroid/widget/ImageView;
-
-    iput-object p1, p0, Lcom/android/camera/fragment/beauty/LiveBeautyFilterFragment$FilterStillItemHolder;->mSelectedInnerIndicator:Landroid/widget/ImageView;
 
     return-void
 .end method
@@ -166,11 +154,11 @@
 
     invoke-super {p0, p1, p2}, Lcom/android/camera/fragment/beauty/LiveBeautyFilterFragment$FilterItemHolder;->bindEffectIndex(ILcom/android/camera/fragment/beauty/LiveBeautyFilterFragment$LiveFilterItem;)V
 
-    iget-object v0, p0, Lcom/android/camera/fragment/beauty/LiveBeautyFilterFragment$FilterStillItemHolder;->mImageView:Lcom/android/camera/ui/RoundImageView;
+    iget-object v0, p0, Lcom/android/camera/fragment/beauty/LiveBeautyFilterFragment$FilterStillItemHolder;->mImageView:Landroid/widget/ImageView;
 
     iget-object p2, p2, Lcom/android/camera/fragment/beauty/LiveBeautyFilterFragment$LiveFilterItem;->imageViewRes:Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {v0, p2}, Lcom/android/camera/ui/RoundImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v0, p2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     iget-object p2, p0, Lcom/android/camera/fragment/beauty/LiveBeautyFilterFragment$FilterStillItemHolder;->this$0:Lcom/android/camera/fragment/beauty/LiveBeautyFilterFragment;
 
@@ -224,10 +212,6 @@
 
     invoke-direct {p0, p1}, Lcom/android/camera/fragment/beauty/LiveBeautyFilterFragment$FilterStillItemHolder;->selectAnim(Landroid/view/View;)V
 
-    iget-object p1, p0, Lcom/android/camera/fragment/beauty/LiveBeautyFilterFragment$FilterStillItemHolder;->mSelectedInnerIndicator:Landroid/widget/ImageView;
-
-    invoke-direct {p0, p1}, Lcom/android/camera/fragment/beauty/LiveBeautyFilterFragment$FilterStillItemHolder;->selectAnim(Landroid/view/View;)V
-
     goto :goto_0
 
     :cond_2
@@ -238,14 +222,6 @@
     iget-object p1, p0, Lcom/android/camera/fragment/beauty/LiveBeautyFilterFragment$FilterStillItemHolder;->mSelectedOuterIndicator:Landroid/widget/ImageView;
 
     const/high16 p2, 0x3f800000    # 1.0f
-
-    invoke-virtual {p1, p2}, Landroid/widget/ImageView;->setAlpha(F)V
-
-    iget-object p1, p0, Lcom/android/camera/fragment/beauty/LiveBeautyFilterFragment$FilterStillItemHolder;->mSelectedInnerIndicator:Landroid/widget/ImageView;
-
-    invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setVisibility(I)V
-
-    iget-object p1, p0, Lcom/android/camera/fragment/beauty/LiveBeautyFilterFragment$FilterStillItemHolder;->mSelectedInnerIndicator:Landroid/widget/ImageView;
 
     invoke-virtual {p1, p2}, Landroid/widget/ImageView;->setAlpha(F)V
 
@@ -276,10 +252,6 @@
 
     invoke-direct {p0, p1}, Lcom/android/camera/fragment/beauty/LiveBeautyFilterFragment$FilterStillItemHolder;->normalAnim(Landroid/view/View;)V
 
-    iget-object p1, p0, Lcom/android/camera/fragment/beauty/LiveBeautyFilterFragment$FilterStillItemHolder;->mSelectedInnerIndicator:Landroid/widget/ImageView;
-
-    invoke-direct {p0, p1}, Lcom/android/camera/fragment/beauty/LiveBeautyFilterFragment$FilterStillItemHolder;->normalAnim(Landroid/view/View;)V
-
     goto :goto_0
 
     :cond_4
@@ -291,17 +263,9 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/beauty/LiveBeautyFilterFragment$FilterStillItemHolder;->mSelectedOuterIndicator:Landroid/widget/ImageView;
 
-    const/4 v0, 0x0
+    const/4 p2, 0x0
 
-    invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setAlpha(F)V
-
-    iget-object p1, p0, Lcom/android/camera/fragment/beauty/LiveBeautyFilterFragment$FilterStillItemHolder;->mSelectedInnerIndicator:Landroid/widget/ImageView;
-
-    invoke-virtual {p1, p2}, Landroid/widget/ImageView;->setVisibility(I)V
-
-    iget-object p1, p0, Lcom/android/camera/fragment/beauty/LiveBeautyFilterFragment$FilterStillItemHolder;->mSelectedInnerIndicator:Landroid/widget/ImageView;
-
-    invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setAlpha(F)V
+    invoke-virtual {p1, p2}, Landroid/widget/ImageView;->setAlpha(F)V
 
     :goto_0
     return-void

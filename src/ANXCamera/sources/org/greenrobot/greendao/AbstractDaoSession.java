@@ -6,18 +6,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Callable;
-import org.greenrobot.greendao.annotation.apihint.Experimental;
 import org.greenrobot.greendao.async.AsyncSession;
 import org.greenrobot.greendao.database.Database;
 import org.greenrobot.greendao.query.QueryBuilder;
-import org.greenrobot.greendao.rx.RxTransaction;
-import rx.schedulers.Schedulers;
 
 public class AbstractDaoSession {
     private final Database db;
     private final Map<Class<?>, AbstractDao<?, ?>> entityToDao = new HashMap();
-    private volatile RxTransaction rxTxIo;
-    private volatile RxTransaction rxTxPlain;
 
     public AbstractDaoSession(Database database) {
         this.db = database;
@@ -117,22 +112,6 @@ public class AbstractDaoSession {
         } finally {
             this.db.endTransaction();
         }
-    }
-
-    @Experimental
-    public RxTransaction rxTx() {
-        if (this.rxTxIo == null) {
-            this.rxTxIo = new RxTransaction(this, Schedulers.io());
-        }
-        return this.rxTxIo;
-    }
-
-    @Experimental
-    public RxTransaction rxTxPlain() {
-        if (this.rxTxPlain == null) {
-            this.rxTxPlain = new RxTransaction(this);
-        }
-        return this.rxTxPlain;
     }
 
     public AsyncSession startAsyncSession() {

@@ -614,7 +614,7 @@
 
     const/4 v2, -0x1
 
-    if-nez p1, :cond_13
+    if-nez p1, :cond_15
 
     :try_start_1
     invoke-static {}, Lcom/android/camera/CameraSettings;->isDualCameraEnable()Z
@@ -674,17 +674,19 @@
 
     move-result-object v3
 
+    const/high16 v4, 0x3f800000    # 1.0f
+
     packed-switch p2, :pswitch_data_0
 
     :pswitch_0
-    goto/16 :goto_2
+    goto/16 :goto_3
 
     :pswitch_1
     invoke-virtual {p0}, Lcom/android/camera/module/loader/camera2/Camera2DataContainer;->getMainBackCameraId()I
 
     move-result v2
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
     :pswitch_2
     invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemRunning()Lcom/android/camera/data/data/runing/DataItemRunning;
@@ -709,7 +711,7 @@
 
     move-result v2
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
     :cond_4
     invoke-virtual {p0}, Lcom/android/camera/module/loader/camera2/Camera2DataContainer;->getBokehCameraId()I
@@ -722,21 +724,21 @@
 
     move-result v2
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
     :cond_5
     invoke-virtual {p0}, Lcom/android/camera/module/loader/camera2/Camera2DataContainer;->getSATCameraId()I
 
     move-result v2
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
     :pswitch_3
     invoke-static {}, Lcom/android/camera/CameraSettings;->isZoomByCameraSwitchingSupported()Z
 
     move-result v2
 
-    if-eqz v2, :cond_12
+    if-eqz v2, :cond_13
 
     invoke-static {p2}, Lcom/android/camera/CameraSettings;->getCameraLensType(I)Ljava/lang/String;
 
@@ -790,7 +792,7 @@
     move v2, p1
 
     :goto_1
-    goto/16 :goto_3
+    goto/16 :goto_4
 
     :pswitch_4
     invoke-static {p2}, Lcom/android/camera/CameraSettings;->isMacroModeEnabled(I)Z
@@ -803,7 +805,7 @@
 
     move-result v2
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
     :cond_9
     invoke-static {}, Lcom/android/camera/CameraSettings;->isUltraPixelOn()Z
@@ -816,7 +818,7 @@
 
     move-result v2
 
-    goto/16 :goto_3
+    goto :goto_2
 
     :cond_a
     invoke-static {}, Lcom/android/camera/CameraSettings;->isDualCameraSatEnable()Z
@@ -845,14 +847,14 @@
 
     move-result v2
 
-    goto/16 :goto_3
+    goto :goto_2
 
     :cond_b
     invoke-virtual {p0}, Lcom/android/camera/module/loader/camera2/Camera2DataContainer;->getSATCameraId()I
 
     move-result v2
 
-    goto/16 :goto_3
+    goto :goto_2
 
     :cond_c
     invoke-virtual {v3, p2}, Lcom/android/camera/data/data/config/ComponentConfigUltraWide;->isUltraWideOnInMode(I)Z
@@ -865,30 +867,75 @@
 
     move-result v2
 
-    goto :goto_3
+    goto :goto_2
 
     :cond_d
     invoke-virtual {p0}, Lcom/android/camera/module/loader/camera2/Camera2DataContainer;->getMainBackCameraId()I
 
     move-result v2
 
-    goto :goto_3
+    :goto_2
+    invoke-static {}, Lcom/android/camera/CameraSettings;->isSupportedOpticalZoom()Z
 
-    :pswitch_5
-    invoke-static {p2}, Lcom/android/camera/CameraSettings;->isMacroModeEnabled(I)Z
+    move-result v3
 
-    move-result v2
+    if-nez v3, :cond_14
 
-    if-eqz v2, :cond_e
+    sget-boolean v3, Lcom/android/camera/HybridZoomingSystem;->IS_3_OR_MORE_SAT:Z
+
+    if-eqz v3, :cond_14
+
+    invoke-static {}, Lcom/android/camera/CameraSettings;->isUltraPixelOn()Z
+
+    move-result v3
+
+    if-nez v3, :cond_14
+
+    const-string v3, "1.0"
+
+    invoke-static {p2, v3}, Lcom/android/camera/HybridZoomingSystem;->getZoomRatioHistory(ILjava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3, v4}, Lcom/android/camera/HybridZoomingSystem;->toFloat(Ljava/lang/String;F)F
+
+    move-result v3
+
+    sget-object v4, Lcom/android/camera/module/loader/camera2/Camera2DataContainer;->TAG:Ljava/lang/String;
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "Currently user selected zoom ratio is "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget v4, Lcom/android/camera/HybridZoomingSystem;->FLOAT_ZOOM_RATIO_WIDE:F
+
+    cmpg-float v3, v3, v4
+
+    if-gez v3, :cond_e
 
     invoke-virtual {p0}, Lcom/android/camera/module/loader/camera2/Camera2DataContainer;->getUltraWideCameraId()I
 
     move-result v2
 
-    goto :goto_3
+    goto :goto_4
 
     :cond_e
-    invoke-static {p2}, Lcom/android/camera/CameraSettings;->isAutoZoomEnabled(I)Z
+    goto :goto_4
+
+    :pswitch_5
+    invoke-static {p2}, Lcom/android/camera/CameraSettings;->isMacroModeEnabled(I)Z
 
     move-result v2
 
@@ -898,29 +945,42 @@
 
     move-result v2
 
-    goto :goto_3
+    goto :goto_4
 
     :cond_f
-    invoke-virtual {v3, p2}, Lcom/android/camera/data/data/config/ComponentConfigUltraWide;->isUltraWideOnInMode(I)Z
+    invoke-static {p2}, Lcom/android/camera/CameraSettings;->isAutoZoomEnabled(I)Z
 
     move-result v2
 
     if-eqz v2, :cond_10
 
+    invoke-virtual {p0}, Lcom/android/camera/module/loader/camera2/Camera2DataContainer;->getUltraWideCameraId()I
+
+    move-result v2
+
+    goto :goto_4
+
+    :cond_10
+    invoke-virtual {v3, p2}, Lcom/android/camera/data/data/config/ComponentConfigUltraWide;->isUltraWideOnInMode(I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_11
+
     sget-boolean v2, Lcom/android/camera/HybridZoomingSystem;->IS_3_OR_MORE_SAT:Z
 
-    if-nez v2, :cond_10
+    if-nez v2, :cond_11
 
     invoke-virtual {p0}, Lcom/android/camera/module/loader/camera2/Camera2DataContainer;->getUltraWideCameraId()I
 
     move-result v2
 
-    goto :goto_3
+    goto :goto_4
 
-    :cond_10
+    :cond_11
     sget-boolean v2, Lcom/android/camera/HybridZoomingSystem;->IS_3_OR_MORE_SAT:Z
 
-    if-eqz v2, :cond_12
+    if-eqz v2, :cond_13
 
     const-string v2, "1.0"
 
@@ -928,9 +988,7 @@
 
     move-result-object v2
 
-    const/high16 v3, 0x3f800000    # 1.0f
-
-    invoke-static {v2, v3}, Lcom/android/camera/HybridZoomingSystem;->toFloat(Ljava/lang/String;F)F
+    invoke-static {v2, v4}, Lcom/android/camera/HybridZoomingSystem;->toFloat(Ljava/lang/String;F)F
 
     move-result v2
 
@@ -956,64 +1014,65 @@
 
     cmpg-float v2, v2, v3
 
-    if-gez v2, :cond_11
+    if-gez v2, :cond_12
 
     invoke-virtual {p0}, Lcom/android/camera/module/loader/camera2/Camera2DataContainer;->getUltraWideCameraId()I
 
     move-result v2
 
-    goto :goto_3
-
-    :cond_11
-    nop
+    goto :goto_4
 
     :cond_12
-    :goto_2
-    move v2, p1
-
-    :goto_3
-    goto :goto_5
+    nop
 
     :cond_13
-    if-ne p1, v1, :cond_17
+    :goto_3
+    move v2, p1
+
+    :cond_14
+    :goto_4
+    goto :goto_6
+
+    :cond_15
+    if-ne p1, v1, :cond_19
 
     const/16 v3, 0xab
 
-    if-eq p2, v3, :cond_14
+    if-eq p2, v3, :cond_16
 
     packed-switch p2, :pswitch_data_1
 
-    goto :goto_4
+    goto :goto_5
 
     :pswitch_6
     invoke-static {}, Lcom/android/camera/CameraSettings;->isVideoBokehOn()Z
 
     move-result v3
 
-    if-eqz v3, :cond_17
+    if-eqz v3, :cond_19
 
     invoke-virtual {p0}, Lcom/android/camera/module/loader/camera2/Camera2DataContainer;->getBokehFrontCameraId()I
 
     move-result v3
 
-    if-eq v3, v2, :cond_17
+    if-eq v3, v2, :cond_19
 
     invoke-virtual {p0}, Lcom/android/camera/module/loader/camera2/Camera2DataContainer;->getBokehFrontCameraId()I
 
     move-result v2
 
-    goto :goto_5
+    goto :goto_6
 
-    :cond_14
+    :cond_16
     invoke-virtual {p0}, Lcom/android/camera/module/loader/camera2/Camera2DataContainer;->getBokehFrontCameraId()I
 
     move-result v3
 
-    if-ne v3, v2, :cond_15
+    if-ne v3, v2, :cond_17
 
-    goto :goto_4
+    goto :goto_5
 
-    :cond_15
+    :cond_17
     invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemGlobal()Lcom/android/camera/data/data/global/DataItemGlobal;
 
     move-result-object v2
@@ -1022,26 +1081,26 @@
 
     move-result v2
 
-    invoke-static {}, Lcom/mi/config/b;->iF()Z
+    invoke-static {}, Lcom/mi/config/b;->iI()Z
 
     move-result v3
 
-    if-eqz v3, :cond_16
+    if-eqz v3, :cond_18
 
-    if-eqz v2, :cond_17
+    if-eqz v2, :cond_19
 
-    :cond_16
+    :cond_18
     invoke-virtual {p0}, Lcom/android/camera/module/loader/camera2/Camera2DataContainer;->getBokehFrontCameraId()I
 
     move-result v2
 
-    goto :goto_5
+    goto :goto_6
 
-    :cond_17
-    :goto_4
+    :cond_19
+    :goto_5
     move v2, p1
 
-    :goto_5
+    :goto_6
     sget-object v3, Lcom/android/camera/module/loader/camera2/Camera2DataContainer;->TAG:Ljava/lang/String;
 
     sget-object v4, Ljava/util/Locale;->US:Ljava/util/Locale;
@@ -1590,6 +1649,12 @@
     :cond_0
     :try_start_1
     sget-boolean v0, Lcom/android/camera/HybridZoomingSystem;->IS_3_SAT:Z
+
+    if-eqz v0, :cond_1
+
+    invoke-static {}, Lcom/android/camera/CameraSettings;->isSupportedOpticalZoom()Z
+
+    move-result v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 

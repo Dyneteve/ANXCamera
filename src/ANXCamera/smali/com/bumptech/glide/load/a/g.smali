@@ -4,17 +4,17 @@
 
 
 # static fields
-.field private static final dQ:I = 0x2
+.field private static final dR:I = 0x2
 
-.field private static final dR:[B
-
-.field private static final dS:I
+.field private static final dS:[B
 
 .field private static final dT:I
 
+.field private static final dU:I
+
 
 # instance fields
-.field private final dU:B
+.field private final dV:B
 
 .field private position:I
 
@@ -29,19 +29,19 @@
 
     fill-array-data v0, :array_0
 
-    sput-object v0, Lcom/bumptech/glide/load/a/g;->dR:[B
+    sput-object v0, Lcom/bumptech/glide/load/a/g;->dS:[B
 
-    sget-object v0, Lcom/bumptech/glide/load/a/g;->dR:[B
+    sget-object v0, Lcom/bumptech/glide/load/a/g;->dS:[B
 
     array-length v0, v0
 
-    sput v0, Lcom/bumptech/glide/load/a/g;->dS:I
+    sput v0, Lcom/bumptech/glide/load/a/g;->dT:I
 
-    sget v0, Lcom/bumptech/glide/load/a/g;->dS:I
+    sget v0, Lcom/bumptech/glide/load/a/g;->dT:I
 
     add-int/lit8 v0, v0, 0x2
 
-    sput v0, Lcom/bumptech/glide/load/a/g;->dT:I
+    sput v0, Lcom/bumptech/glide/load/a/g;->dU:I
 
     return-void
 
@@ -96,7 +96,7 @@
 
     int-to-byte p1, p2
 
-    iput-byte p1, p0, Lcom/bumptech/glide/load/a/g;->dU:B
+    iput-byte p1, p0, Lcom/bumptech/glide/load/a/g;->dV:B
 
     return-void
 
@@ -158,7 +158,7 @@
 
     iget v0, p0, Lcom/bumptech/glide/load/a/g;->position:I
 
-    sget v2, Lcom/bumptech/glide/load/a/g;->dT:I
+    sget v2, Lcom/bumptech/glide/load/a/g;->dU:I
 
     if-le v0, v2, :cond_0
 
@@ -167,16 +167,16 @@
     :cond_0
     iget v0, p0, Lcom/bumptech/glide/load/a/g;->position:I
 
-    sget v2, Lcom/bumptech/glide/load/a/g;->dT:I
+    sget v2, Lcom/bumptech/glide/load/a/g;->dU:I
 
     if-ne v0, v2, :cond_1
 
-    iget-byte v0, p0, Lcom/bumptech/glide/load/a/g;->dU:B
+    iget-byte v0, p0, Lcom/bumptech/glide/load/a/g;->dV:B
 
     goto :goto_1
 
     :cond_1
-    sget-object v0, Lcom/bumptech/glide/load/a/g;->dR:[B
+    sget-object v0, Lcom/bumptech/glide/load/a/g;->dS:[B
 
     iget v2, p0, Lcom/bumptech/glide/load/a/g;->position:I
 
@@ -223,7 +223,7 @@
 
     iget v0, p0, Lcom/bumptech/glide/load/a/g;->position:I
 
-    sget v1, Lcom/bumptech/glide/load/a/g;->dT:I
+    sget v1, Lcom/bumptech/glide/load/a/g;->dU:I
 
     if-le v0, v1, :cond_0
 
@@ -236,11 +236,11 @@
     :cond_0
     iget v0, p0, Lcom/bumptech/glide/load/a/g;->position:I
 
-    sget v1, Lcom/bumptech/glide/load/a/g;->dT:I
+    sget v1, Lcom/bumptech/glide/load/a/g;->dU:I
 
     if-ne v0, v1, :cond_1
 
-    iget-byte p3, p0, Lcom/bumptech/glide/load/a/g;->dU:B
+    iget-byte p3, p0, Lcom/bumptech/glide/load/a/g;->dV:B
 
     aput-byte p3, p1, p2
 
@@ -266,7 +266,7 @@
     goto :goto_0
 
     :cond_2
-    sget v0, Lcom/bumptech/glide/load/a/g;->dT:I
+    sget v0, Lcom/bumptech/glide/load/a/g;->dU:I
 
     iget v2, p0, Lcom/bumptech/glide/load/a/g;->position:I
 
@@ -276,7 +276,7 @@
 
     move-result p3
 
-    sget-object v0, Lcom/bumptech/glide/load/a/g;->dR:[B
+    sget-object v0, Lcom/bumptech/glide/load/a/g;->dS:[B
 
     iget v2, p0, Lcom/bumptech/glide/load/a/g;->position:I
 

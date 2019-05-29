@@ -6,7 +6,7 @@
 # static fields
 .field private static final ID:Ljava/lang/String; = "com.bumptech.glide.load.resource.bitmap.FitCenter"
 
-.field private static final kE:[B
+.field private static final kF:[B
 
 
 # direct methods
@@ -15,13 +15,13 @@
 
     const-string v0, "com.bumptech.glide.load.resource.bitmap.FitCenter"
 
-    sget-object v1, Lcom/bumptech/glide/load/resource/bitmap/q;->dG:Ljava/nio/charset/Charset;
+    sget-object v1, Lcom/bumptech/glide/load/resource/bitmap/q;->dH:Ljava/nio/charset/Charset;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
 
     move-result-object v0
 
-    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/q;->kE:[B
+    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/q;->kF:[B
 
     return-void
 .end method
@@ -81,7 +81,7 @@
         .end annotation
     .end param
 
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/q;->kE:[B
+    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/q;->kF:[B
 
     invoke-virtual {p1, v0}, Ljava/security/MessageDigest;->update([B)V
 

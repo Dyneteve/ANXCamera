@@ -18,14 +18,14 @@
 
 
 # instance fields
-.field final synthetic nt:Lcom/bumptech/glide/manager/SupportRequestManagerFragment;
+.field final synthetic nu:Lcom/bumptech/glide/manager/SupportRequestManagerFragment;
 
 
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/manager/SupportRequestManagerFragment;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/bumptech/glide/manager/SupportRequestManagerFragment$a;->nt:Lcom/bumptech/glide/manager/SupportRequestManagerFragment;
+    iput-object p1, p0, Lcom/bumptech/glide/manager/SupportRequestManagerFragment$a;->nu:Lcom/bumptech/glide/manager/SupportRequestManagerFragment;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -48,7 +48,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/manager/SupportRequestManagerFragment$a;->nt:Lcom/bumptech/glide/manager/SupportRequestManagerFragment;
+    iget-object v0, p0, Lcom/bumptech/glide/manager/SupportRequestManagerFragment$a;->nu:Lcom/bumptech/glide/manager/SupportRequestManagerFragment;
 
     invoke-virtual {v0}, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->da()Ljava/util/Set;
 
@@ -115,7 +115,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/bumptech/glide/manager/SupportRequestManagerFragment$a;->nt:Lcom/bumptech/glide/manager/SupportRequestManagerFragment;
+    iget-object v1, p0, Lcom/bumptech/glide/manager/SupportRequestManagerFragment$a;->nu:Lcom/bumptech/glide/manager/SupportRequestManagerFragment;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 

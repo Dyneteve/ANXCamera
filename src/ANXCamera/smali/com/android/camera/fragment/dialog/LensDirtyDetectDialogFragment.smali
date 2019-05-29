@@ -143,7 +143,7 @@
 
     const/4 p3, 0x0
 
-    const v0, 0x7f040013
+    const v0, 0x7f040014
 
     invoke-virtual {p1, v0, p2, p3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -181,12 +181,12 @@
     :goto_0
     if-eqz p3, :cond_1
 
-    const p3, 0x7f090204
+    const p3, 0x7f090202
 
     goto :goto_1
 
     :cond_1
-    const p3, 0x7f090203
+    const p3, 0x7f090201
 
     :goto_1
     invoke-virtual {p2, p3}, Landroid/widget/TextView;->setText(I)V

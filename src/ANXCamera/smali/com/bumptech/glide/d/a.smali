@@ -12,7 +12,7 @@
 
 
 # instance fields
-.field private final nw:Ljava/util/List;
+.field private final nx:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -33,7 +33,7 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/bumptech/glide/d/a;->nw:Ljava/util/List;
+    iput-object v0, p0, Lcom/bumptech/glide/d/a;->nx:Ljava/util/List;
 
     return-void
 .end method
@@ -65,7 +65,7 @@
     monitor-enter p0
 
     :try_start_0
-    iget-object v0, p0, Lcom/bumptech/glide/d/a;->nw:Ljava/util/List;
+    iget-object v0, p0, Lcom/bumptech/glide/d/a;->nx:Ljava/util/List;
 
     new-instance v1, Lcom/bumptech/glide/d/a$a;
 
@@ -112,7 +112,7 @@
     monitor-enter p0
 
     :try_start_0
-    iget-object v0, p0, Lcom/bumptech/glide/d/a;->nw:Ljava/util/List;
+    iget-object v0, p0, Lcom/bumptech/glide/d/a;->nx:Ljava/util/List;
 
     const/4 v1, 0x0
 
@@ -160,7 +160,7 @@
     monitor-enter p0
 
     :try_start_0
-    iget-object v0, p0, Lcom/bumptech/glide/d/a;->nw:Ljava/util/List;
+    iget-object v0, p0, Lcom/bumptech/glide/d/a;->nx:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -185,7 +185,7 @@
 
     if-eqz v2, :cond_0
 
-    iget-object p1, v1, Lcom/bumptech/glide/d/a$a;->eO:Lcom/bumptech/glide/load/a;
+    iget-object p1, v1, Lcom/bumptech/glide/d/a$a;->eP:Lcom/bumptech/glide/load/a;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

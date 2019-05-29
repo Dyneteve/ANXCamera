@@ -32,21 +32,21 @@ public class l implements Callback {
     @VisibleForTesting
     static final String FRAGMENT_TAG = "com.bumptech.glide.manager";
     private static final String TAG = "RMRetriever";
-    private static final int nf = 1;
-    private static final int ng = 2;
-    private static final String nh = "key";
-    private static final a nn = new a() {
+    private static final int ng = 1;
+    private static final int nh = 2;
+    private static final String ni = "key";
+    private static final a no = new a() {
         @NonNull
         public i a(@NonNull c cVar, @NonNull h hVar, @NonNull m mVar, @NonNull Context context) {
             return new i(cVar, hVar, mVar, context);
         }
     };
     private final Handler handler;
-    private volatile i ni;
-    private final a nj;
-    private final ArrayMap<View, Fragment> nk = new ArrayMap<>();
-    private final ArrayMap<View, android.app.Fragment> nl = new ArrayMap<>();
-    private final Bundle nm = new Bundle();
+    private volatile i nj;
+    private final a nk;
+    private final ArrayMap<View, Fragment> nl = new ArrayMap<>();
+    private final ArrayMap<View, android.app.Fragment> nm = new ArrayMap<>();
+    private final Bundle nn = new Bundle();
     @VisibleForTesting
     final Map<FragmentManager, k> pendingRequestManagerFragments = new HashMap();
     @VisibleForTesting
@@ -60,44 +60,44 @@ public class l implements Callback {
 
     public l(@Nullable a aVar) {
         if (aVar == null) {
-            aVar = nn;
+            aVar = no;
         }
-        this.nj = aVar;
+        this.nk = aVar;
         this.handler = new Handler(Looper.getMainLooper(), this);
     }
 
     @Nullable
     @Deprecated
     private android.app.Fragment a(@NonNull View view, @NonNull Activity activity) {
-        this.nl.clear();
-        a(activity.getFragmentManager(), this.nl);
+        this.nm.clear();
+        a(activity.getFragmentManager(), this.nm);
         View findViewById = activity.findViewById(16908290);
         android.app.Fragment fragment = null;
         while (!view.equals(findViewById)) {
-            fragment = (android.app.Fragment) this.nl.get(view);
+            fragment = (android.app.Fragment) this.nm.get(view);
             if (fragment != null || !(view.getParent() instanceof View)) {
                 break;
             }
             view = (View) view.getParent();
         }
-        this.nl.clear();
+        this.nm.clear();
         return fragment;
     }
 
     @Nullable
     private Fragment a(@NonNull View view, @NonNull FragmentActivity fragmentActivity) {
-        this.nk.clear();
-        a((Collection<Fragment>) fragmentActivity.getSupportFragmentManager().getFragments(), (Map<View, Fragment>) this.nk);
+        this.nl.clear();
+        a((Collection<Fragment>) fragmentActivity.getSupportFragmentManager().getFragments(), (Map<View, Fragment>) this.nl);
         View findViewById = fragmentActivity.findViewById(16908290);
         Fragment fragment = null;
         while (!view.equals(findViewById)) {
-            fragment = (Fragment) this.nk.get(view);
+            fragment = (Fragment) this.nl.get(view);
             if (fragment != null || !(view.getParent() instanceof View)) {
                 break;
             }
             view = (View) view.getParent();
         }
-        this.nk.clear();
+        this.nl.clear();
         return fragment;
     }
 
@@ -109,7 +109,7 @@ public class l implements Callback {
         if (cY != null) {
             return cY;
         }
-        i a3 = this.nj.a(c.c(context), a2.cX(), a2.cZ(), context);
+        i a3 = this.nk.a(c.c(context), a2.cX(), a2.cZ(), context);
         a2.c(a3);
         return a3;
     }
@@ -121,7 +121,7 @@ public class l implements Callback {
         if (cY != null) {
             return cY;
         }
-        i a3 = this.nj.a(c.c(context), a2.cX(), a2.cZ(), context);
+        i a3 = this.nk.a(c.c(context), a2.cX(), a2.cZ(), context);
         a2.c(a3);
         return a3;
     }
@@ -197,10 +197,10 @@ public class l implements Callback {
         int i = 0;
         while (true) {
             int i2 = i + 1;
-            this.nm.putInt(nh, i);
+            this.nn.putInt(ni, i);
             android.app.Fragment fragment = null;
             try {
-                fragment = fragmentManager.getFragment(this.nm, nh);
+                fragment = fragmentManager.getFragment(this.nn, ni);
             } catch (Exception e) {
             }
             if (fragment != null) {
@@ -230,14 +230,14 @@ public class l implements Callback {
 
     @NonNull
     private i i(@NonNull Context context) {
-        if (this.ni == null) {
+        if (this.nj == null) {
             synchronized (this) {
-                if (this.ni == null) {
-                    this.ni = this.nj.a(c.c(context.getApplicationContext()), new b(), new g(), context.getApplicationContext());
+                if (this.nj == null) {
+                    this.nj = this.nk.a(c.c(context.getApplicationContext()), new b(), new g(), context.getApplicationContext());
                 }
             }
         }
-        return this.ni;
+        return this.nj;
     }
 
     @Nullable

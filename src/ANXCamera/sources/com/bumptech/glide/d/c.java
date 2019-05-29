@@ -11,18 +11,18 @@ import java.util.concurrent.atomic.AtomicReference;
 
 /* compiled from: LoadPathCache */
 public class c {
-    private static final n<?, ?, ?> nx;
-    private final ArrayMap<h, n<?, ?, ?>> ny = new ArrayMap<>();
-    private final AtomicReference<h> nz = new AtomicReference<>();
+    private static final n<?, ?, ?> ny;
+    private final AtomicReference<h> nA = new AtomicReference<>();
+    private final ArrayMap<h, n<?, ?, ?>> nz = new ArrayMap<>();
 
     static {
         f fVar = new f(Object.class, Object.class, Object.class, Collections.emptyList(), new g(), null);
         n nVar = new n(Object.class, Object.class, Object.class, Collections.singletonList(fVar), null);
-        nx = nVar;
+        ny = nVar;
     }
 
     private h e(Class<?> cls, Class<?> cls2, Class<?> cls3) {
-        h hVar = (h) this.nz.getAndSet(null);
+        h hVar = (h) this.nA.getAndSet(null);
         if (hVar == null) {
             hVar = new h();
         }
@@ -31,28 +31,28 @@ public class c {
     }
 
     public void a(Class<?> cls, Class<?> cls2, Class<?> cls3, @Nullable n<?, ?, ?> nVar) {
-        synchronized (this.ny) {
-            ArrayMap<h, n<?, ?, ?>> arrayMap = this.ny;
+        synchronized (this.nz) {
+            ArrayMap<h, n<?, ?, ?>> arrayMap = this.nz;
             h hVar = new h(cls, cls2, cls3);
             if (nVar == null) {
-                nVar = nx;
+                nVar = ny;
             }
             arrayMap.put(hVar, nVar);
         }
     }
 
     public boolean a(@Nullable n<?, ?, ?> nVar) {
-        return nx.equals(nVar);
+        return ny.equals(nVar);
     }
 
     @Nullable
     public <Data, TResource, Transcode> n<Data, TResource, Transcode> d(Class<Data> cls, Class<TResource> cls2, Class<Transcode> cls3) {
         n<Data, TResource, Transcode> nVar;
         h e = e(cls, cls2, cls3);
-        synchronized (this.ny) {
-            nVar = (n) this.ny.get(e);
+        synchronized (this.nz) {
+            nVar = (n) this.nz.get(e);
         }
-        this.nz.set(e);
+        this.nA.set(e);
         return nVar;
     }
 }

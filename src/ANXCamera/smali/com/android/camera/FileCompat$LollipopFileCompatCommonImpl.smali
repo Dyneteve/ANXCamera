@@ -207,6 +207,12 @@
 
     if-nez p2, :cond_1
 
+    const-string p1, "FileCompat"
+
+    const-string p2, "handleActivityResult: uri is null, documents permission is Failed!"
+
+    invoke-static {p1, p2}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     return v0
 
     :cond_1

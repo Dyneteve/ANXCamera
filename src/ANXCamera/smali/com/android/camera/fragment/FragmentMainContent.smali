@@ -761,7 +761,7 @@
 .method protected getLayoutResourceId()I
     .locals 1
 
-    const v0, 0x7f040028
+    const v0, 0x7f040029
 
     return v0
 .end method
@@ -895,7 +895,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/FragmentMainContent;->mPreviewPage:Landroid/view/ViewGroup;
 
-    const v0, 0x7f0d0116
+    const v0, 0x7f0d0114
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -907,7 +907,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/FragmentMainContent;->mPreviewPanel:Lcom/android/camera/ui/V6PreviewPanel;
 
-    const v0, 0x7f0d0118
+    const v0, 0x7f0d0116
 
     invoke-virtual {p1, v0}, Lcom/android/camera/ui/V6PreviewPanel;->findViewById(I)Landroid/view/View;
 
@@ -919,7 +919,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/FragmentMainContent;->mPreviewPanel:Lcom/android/camera/ui/V6PreviewPanel;
 
-    const v0, 0x7f0d0124
+    const v0, 0x7f0d0122
 
     invoke-virtual {p1, v0}, Lcom/android/camera/ui/V6PreviewPanel;->findViewById(I)Landroid/view/View;
 
@@ -931,7 +931,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/FragmentMainContent;->mPreviewCenterHint:Landroid/view/ViewGroup;
 
-    const v0, 0x7f0d0125
+    const v0, 0x7f0d0123
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -943,7 +943,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/FragmentMainContent;->mPreviewCenterHint:Landroid/view/ViewGroup;
 
-    const v0, 0x7f0d0126
+    const v0, 0x7f0d0124
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -955,7 +955,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/FragmentMainContent;->mPreviewPanel:Lcom/android/camera/ui/V6PreviewPanel;
 
-    const v0, 0x7f0d0123
+    const v0, 0x7f0d0121
 
     invoke-virtual {p1, v0}, Lcom/android/camera/ui/V6PreviewPanel;->findViewById(I)Landroid/view/View;
 
@@ -967,7 +967,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/FragmentMainContent;->mPreviewPanel:Lcom/android/camera/ui/V6PreviewPanel;
 
-    const v0, 0x7f0d011a
+    const v0, 0x7f0d0118
 
     invoke-virtual {p1, v0}, Lcom/android/camera/ui/V6PreviewPanel;->findViewById(I)Landroid/view/View;
 
@@ -979,7 +979,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/FragmentMainContent;->mPreviewPanel:Lcom/android/camera/ui/V6PreviewPanel;
 
-    const v0, 0x7f0d011c
+    const v0, 0x7f0d011a
 
     invoke-virtual {p1, v0}, Lcom/android/camera/ui/V6PreviewPanel;->findViewById(I)Landroid/view/View;
 
@@ -991,7 +991,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/FragmentMainContent;->mPreviewPanel:Lcom/android/camera/ui/V6PreviewPanel;
 
-    const v0, 0x7f0d011d
+    const v0, 0x7f0d011b
 
     invoke-virtual {p1, v0}, Lcom/android/camera/ui/V6PreviewPanel;->findViewById(I)Landroid/view/View;
 
@@ -1003,7 +1003,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/FragmentMainContent;->mPreviewPanel:Lcom/android/camera/ui/V6PreviewPanel;
 
-    const v0, 0x7f0d011e
+    const v0, 0x7f0d011c
 
     invoke-virtual {p1, v0}, Lcom/android/camera/ui/V6PreviewPanel;->findChildrenById(I)Landroid/view/View;
 
@@ -1015,7 +1015,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/FragmentMainContent;->mPreviewPanel:Lcom/android/camera/ui/V6PreviewPanel;
 
-    const v0, 0x7f0d011b
+    const v0, 0x7f0d0119
 
     invoke-virtual {p1, v0}, Lcom/android/camera/ui/V6PreviewPanel;->findViewById(I)Landroid/view/View;
 
@@ -1027,7 +1027,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/FragmentMainContent;->mPreviewPanel:Lcom/android/camera/ui/V6PreviewPanel;
 
-    const v0, 0x7f0d0120
+    const v0, 0x7f0d011e
 
     invoke-virtual {p1, v0}, Lcom/android/camera/ui/V6PreviewPanel;->findViewById(I)Landroid/view/View;
 
@@ -1039,7 +1039,7 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/FragmentMainContent;->mPreviewPanel:Lcom/android/camera/ui/V6PreviewPanel;
 
-    const v0, 0x7f0d011f
+    const v0, 0x7f0d011d
 
     invoke-virtual {p1, v0}, Lcom/android/camera/ui/V6PreviewPanel;->findChildrenById(I)Landroid/view/View;
 
@@ -1051,9 +1051,15 @@
 
     iget-object p1, p0, Lcom/android/camera/fragment/FragmentMainContent;->mMimojiLightingView:Lcom/android/camera/ui/LightingView;
 
-    const v0, 0x3f99999a    # 1.2f
+    const v0, 0x3f970a3d    # 1.18f
 
     invoke-virtual {p1, v0}, Lcom/android/camera/ui/LightingView;->setCircleRatio(F)V
+
+    iget-object p1, p0, Lcom/android/camera/fragment/FragmentMainContent;->mMimojiLightingView:Lcom/android/camera/ui/LightingView;
+
+    const v0, 0x3f91eb85    # 1.14f
+
+    invoke-virtual {p1, v0}, Lcom/android/camera/ui/LightingView;->setCircleHeightRatio(F)V
 
     iget-object p1, p0, Lcom/android/camera/fragment/FragmentMainContent;->mLightingView:Lcom/android/camera/ui/LightingView;
 
@@ -1111,7 +1117,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a00c6
+    const v3, 0x7f0a0172
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2613,6 +2619,10 @@
 
     if-nez v0, :cond_0
 
+    sget-boolean v0, Lcom/android/camera/HybridZoomingSystem;->IS_3_OR_MORE_SAT:Z
+
+    if-nez v0, :cond_0
+
     const/16 v0, 0xb8
 
     invoke-interface {p1, v0, p0}, Lcom/android/camera/protocol/ModeProtocol$ModeCoordinator;->attachProtocol(ILcom/android/camera/protocol/ModeProtocol$BaseProtocol;)V
@@ -2971,7 +2981,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0c0013
+    const v2, 0x7f0c0015
 
     invoke-direct {v0, v1, v2}, Landroid/text/style/TextAppearanceSpan;-><init>(Landroid/content/Context;I)V
 
@@ -3128,7 +3138,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a002f
+    const v1, 0x7f0a0028
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3152,7 +3162,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0055
+    const v2, 0x7f0a004c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3164,7 +3174,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a014c
+    const v2, 0x7f0a017d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3314,6 +3324,10 @@
     invoke-static {}, Lcom/mi/config/b;->isSupportedOpticalZoom()Z
 
     move-result v0
+
+    if-nez v0, :cond_0
+
+    sget-boolean v0, Lcom/android/camera/HybridZoomingSystem;->IS_3_OR_MORE_SAT:Z
 
     if-nez v0, :cond_0
 

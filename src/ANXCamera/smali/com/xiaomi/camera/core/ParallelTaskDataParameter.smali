@@ -18,7 +18,7 @@
 
 .field private mBokehFrontCamera:Z
 
-.field private mDualWatermarkParam:Lcom/android/camera/effect/renders/DualWatermarkParam;
+.field private mDeviceWatermarkParam:Lcom/android/camera/effect/renders/DeviceWatermarkParam;
 
 .field private mFaceWaterMarkList:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -255,9 +255,9 @@
 
     iput-object v0, p0, Lcom/xiaomi/camera/core/ParallelTaskDataParameter;->mTiltShiftMode:Ljava/lang/String;
 
-    iget-object v0, p1, Lcom/xiaomi/camera/core/ParallelTaskDataParameter;->mDualWatermarkParam:Lcom/android/camera/effect/renders/DualWatermarkParam;
+    iget-object v0, p1, Lcom/xiaomi/camera/core/ParallelTaskDataParameter;->mDeviceWatermarkParam:Lcom/android/camera/effect/renders/DeviceWatermarkParam;
 
-    iput-object v0, p0, Lcom/xiaomi/camera/core/ParallelTaskDataParameter;->mDualWatermarkParam:Lcom/android/camera/effect/renders/DualWatermarkParam;
+    iput-object v0, p0, Lcom/xiaomi/camera/core/ParallelTaskDataParameter;->mDeviceWatermarkParam:Lcom/android/camera/effect/renders/DeviceWatermarkParam;
 
     iget p1, p1, Lcom/xiaomi/camera/core/ParallelTaskDataParameter;->mJpegQuality:I
 
@@ -378,10 +378,10 @@
     return p1
 .end method
 
-.method static synthetic access$2202(Lcom/xiaomi/camera/core/ParallelTaskDataParameter;Lcom/android/camera/effect/renders/DualWatermarkParam;)Lcom/android/camera/effect/renders/DualWatermarkParam;
+.method static synthetic access$2202(Lcom/xiaomi/camera/core/ParallelTaskDataParameter;Lcom/android/camera/effect/renders/DeviceWatermarkParam;)Lcom/android/camera/effect/renders/DeviceWatermarkParam;
     .locals 0
 
-    iput-object p1, p0, Lcom/xiaomi/camera/core/ParallelTaskDataParameter;->mDualWatermarkParam:Lcom/android/camera/effect/renders/DualWatermarkParam;
+    iput-object p1, p0, Lcom/xiaomi/camera/core/ParallelTaskDataParameter;->mDeviceWatermarkParam:Lcom/android/camera/effect/renders/DeviceWatermarkParam;
 
     return-object p1
 .end method
@@ -468,10 +468,10 @@
     return-object v0
 .end method
 
-.method public getDualWatermarkParam()Lcom/android/camera/effect/renders/DualWatermarkParam;
+.method public getDeviceWatermarkParam()Lcom/android/camera/effect/renders/DeviceWatermarkParam;
     .locals 1
 
-    iget-object v0, p0, Lcom/xiaomi/camera/core/ParallelTaskDataParameter;->mDualWatermarkParam:Lcom/android/camera/effect/renders/DualWatermarkParam;
+    iget-object v0, p0, Lcom/xiaomi/camera/core/ParallelTaskDataParameter;->mDeviceWatermarkParam:Lcom/android/camera/effect/renders/DeviceWatermarkParam;
 
     return-object v0
 .end method
@@ -656,6 +656,18 @@
     .locals 1
 
     iget-boolean v0, p0, Lcom/xiaomi/camera/core/ParallelTaskDataParameter;->mHasDualWaterMark:Z
+
+    return v0
+.end method
+
+.method public isHasFrontWaterMark()Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/xiaomi/camera/core/ParallelTaskDataParameter;->mDeviceWatermarkParam:Lcom/android/camera/effect/renders/DeviceWatermarkParam;
+
+    invoke-virtual {v0}, Lcom/android/camera/effect/renders/DeviceWatermarkParam;->isFrontWatermarkEnable()Z
+
+    move-result v0
 
     return v0
 .end method

@@ -2,7 +2,10 @@ package com.android.camera;
 
 import android.app.Activity;
 import android.content.Context;
+import com.android.camera.db.DbContainer;
+import com.android.camera.db.DbRepository;
 import com.android.camera.network.util.NetworkUtils;
+import com.android.camera.parallel.AlgoConnector;
 import com.miui.filtersdk.BeautificationSDK;
 import miui.external.Application;
 
@@ -53,6 +56,13 @@ public class CameraAppImpl extends Application {
     public CameraApplicationDelegate onCreateApplicationDelegate() {
         if (sApplicationDelegate == null) {
             sApplicationDelegate = new CameraApplicationDelegate(this);
+        }
+        DbContainer.init(this);
+        if (CameraSettings.isSupportParallelProcess()) {
+            DbRepository.dbItemSaveTask().markAllDepartedTask();
+            if (CameraSettings.isCameraParallelProcessEnable()) {
+                AlgoConnector.getInstance().startService(this);
+            }
         }
         CrashHandler.getInstance().init(this);
         NetworkUtils.bind(this);

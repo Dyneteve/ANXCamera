@@ -18,7 +18,7 @@
 
 .field public mDate:J
 
-.field public mDualCameraWaterMarkEnabled:Z
+.field public mDeviceWaterMarkEnabled:Z
 
 .field public mEffectIndex:I
 
@@ -180,7 +180,7 @@
 
     move/from16 v1, p21
 
-    iput-boolean v1, v0, Lcom/android/camera/effect/draw_mode/DrawJPEGAttribute;->mDualCameraWaterMarkEnabled:Z
+    iput-boolean v1, v0, Lcom/android/camera/effect/draw_mode/DrawJPEGAttribute;->mDeviceWaterMarkEnabled:Z
 
     move-object/from16 v1, p22
 

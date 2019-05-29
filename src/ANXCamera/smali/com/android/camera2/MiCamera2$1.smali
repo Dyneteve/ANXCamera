@@ -38,7 +38,7 @@
 
     packed-switch v0, :pswitch_data_0
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :pswitch_0
     iget v0, p1, Landroid/os/Message;->arg1:I
@@ -131,6 +131,28 @@
     move-result-object v0
 
     invoke-virtual {p1, v0}, Lcom/android/camera2/MiCamera2;->updateDeferPreviewSession(Landroid/view/Surface;)Z
+
+    move-result p1
+
+    invoke-static {}, Lcom/android/camera2/MiCamera2;->access$000()Ljava/lang/String;
+
+    move-result-object v0
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "handleMessage: MSG_WAITING_LOCAL_PARALLER_SERVICE_READY updateDeferPreviewSession result = "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-static {v0, p1}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 

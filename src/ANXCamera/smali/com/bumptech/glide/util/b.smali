@@ -12,7 +12,7 @@
 # instance fields
 .field private final contentLength:J
 
-.field private pO:I
+.field private pP:I
 
 
 # direct methods
@@ -102,18 +102,18 @@
 
     if-ltz p1, :cond_0
 
-    iget v0, p0, Lcom/bumptech/glide/util/b;->pO:I
+    iget v0, p0, Lcom/bumptech/glide/util/b;->pP:I
 
     add-int/2addr v0, p1
 
-    iput v0, p0, Lcom/bumptech/glide/util/b;->pO:I
+    iput v0, p0, Lcom/bumptech/glide/util/b;->pP:I
 
     goto :goto_0
 
     :cond_0
     iget-wide v0, p0, Lcom/bumptech/glide/util/b;->contentLength:J
 
-    iget v2, p0, Lcom/bumptech/glide/util/b;->pO:I
+    iget v2, p0, Lcom/bumptech/glide/util/b;->pP:I
 
     int-to-long v2, v2
 
@@ -147,7 +147,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v1, p0, Lcom/bumptech/glide/util/b;->pO:I
+    iget v1, p0, Lcom/bumptech/glide/util/b;->pP:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -217,7 +217,7 @@
     :try_start_0
     iget-wide v0, p0, Lcom/bumptech/glide/util/b;->contentLength:J
 
-    iget v2, p0, Lcom/bumptech/glide/util/b;->pO:I
+    iget v2, p0, Lcom/bumptech/glide/util/b;->pP:I
 
     int-to-long v2, v2
 

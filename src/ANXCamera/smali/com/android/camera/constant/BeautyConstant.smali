@@ -17,11 +17,15 @@
 
 .field public static final BEAUTY_CATEGORY_BACK_FIGURE:[Ljava/lang/String;
 
+.field public static final BEAUTY_CATEGORY_FRONT_ADVANCE:[Ljava/lang/String;
+
 .field public static final BEAUTY_CATEGORY_FRONT_MAKEUP:[Ljava/lang/String;
 
 .field public static final BEAUTY_CATEGORY_FRONT_REMODELING:[Ljava/lang/String;
 
 .field public static final BEAUTY_CATEGORY_LEVEL:[Ljava/lang/String;
+
+.field public static final BEAUTY_CATEGORY_LIVE:[Ljava/lang/String;
 
 .field public static final BEAUTY_INVALID_VALUE:I = 0x0
 
@@ -42,6 +46,8 @@
 .field public static final EYEBROW_DYE_RATIO:Ljava/lang/String; = "pref_beautify_eyebrow_dye_ratio_key"
 
 .field public static final EYE_LIGHT:Ljava/lang/String; = "pref_eye_light_type_key"
+
+.field public static final HAIRLINE_RATIO:Ljava/lang/String; = "pref_beautify_hairline_ratio_key"
 
 .field public static final HEAD_SLIM_RATIO:Ljava/lang/String; = "pref_beauty_head_slim_ratio"
 
@@ -104,7 +110,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 10
+    .locals 11
 
     const-string v0, "pref_beautify_level_key_capture"
 
@@ -166,11 +172,39 @@
 
     const-string v9, "pref_beautify_slim_nose_ratio_key"
 
-    filled-new-array/range {v1 .. v9}, [Ljava/lang/String;
+    const-string v10, "pref_beautify_hairline_ratio_key"
+
+    filled-new-array/range {v1 .. v10}, [Ljava/lang/String;
 
     move-result-object v0
 
     sput-object v0, Lcom/android/camera/constant/BeautyConstant;->BEAUTY_CATEGORY_FRONT_REMODELING:[Ljava/lang/String;
+
+    const-string v0, "pref_beautify_skin_smooth_ratio_key"
+
+    const-string v1, "pref_beautify_slim_face_ratio_key"
+
+    const-string v2, "pref_beautify_enlarge_eye_ratio_key"
+
+    const-string v3, "pref_beautify_skin_color_ratio_key"
+
+    filled-new-array {v0, v1, v2, v3}, [Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/camera/constant/BeautyConstant;->BEAUTY_CATEGORY_FRONT_ADVANCE:[Ljava/lang/String;
+
+    const-string v0, "key_live_shrink_face_ratio"
+
+    const-string v1, "key_live_enlarge_eye_ratio"
+
+    const-string v2, "key_live_smooth_strength"
+
+    filled-new-array {v0, v1, v2}, [Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/camera/constant/BeautyConstant;->BEAUTY_CATEGORY_LIVE:[Ljava/lang/String;
 
     return-void
 .end method
@@ -413,97 +447,86 @@
 .end method
 
 .method public static isLiveBeautyModeKey(Ljava/lang/String;)Z
-    .locals 5
-
-    invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_0
-
-    return v1
-
-    :cond_0
-    const/4 v0, -0x1
+    .locals 4
 
     invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
 
-    move-result v2
+    move-result v0
 
-    const v3, -0x7dcb43c1
+    const v1, -0x7dcb43c1
 
-    const/4 v4, 0x1
+    const/4 v2, 0x0
 
-    if-eq v2, v3, :cond_3
+    const/4 v3, 0x1
 
-    const v3, 0xa78ecec
+    if-eq v0, v1, :cond_2
 
-    if-eq v2, v3, :cond_2
+    const v1, 0xa78ecec
 
-    const v3, 0x699265fd
+    if-eq v0, v1, :cond_1
 
-    if-eq v2, v3, :cond_1
+    const v1, 0x699265fd
+
+    if-eq v0, v1, :cond_0
 
     goto :goto_0
 
-    :cond_1
-    const-string v2, "key_live_enlarge_eye_ratio"
+    :cond_0
+    const-string v0, "key_live_enlarge_eye_ratio"
 
-    invoke-virtual {p0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_4
+    if-eqz p0, :cond_3
 
-    move p0, v4
+    move p0, v3
+
+    goto :goto_1
+
+    :cond_1
+    const-string v0, "key_live_shrink_face_ratio"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_3
+
+    move p0, v2
 
     goto :goto_1
 
     :cond_2
-    const-string v2, "key_live_shrink_face_ratio"
+    const-string v0, "key_live_smooth_strength"
 
-    invoke-virtual {p0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-eqz p0, :cond_4
-
-    move p0, v1
-
-    goto :goto_1
-
-    :cond_3
-    const-string v2, "key_live_smooth_strength"
-
-    invoke-virtual {p0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_4
+    if-eqz p0, :cond_3
 
     const/4 p0, 0x2
 
     goto :goto_1
 
-    :cond_4
+    :cond_3
     :goto_0
-    move p0, v0
+    const/4 p0, -0x1
 
     :goto_1
     packed-switch p0, :pswitch_data_0
 
-    return v1
+    return v2
 
     :pswitch_0
-    return v4
+    return v3
 
     :pswitch_1
-    return v4
+    return v3
 
     :pswitch_2
-    return v4
+    return v3
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -581,6 +604,12 @@
     .end packed-switch
 .end method
 
+.method public static warppedSettingForLive(Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+
+    return-object p0
+.end method
+
 .method public static wrappedSettingKey(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
 
@@ -608,10 +637,6 @@
 
     if-eq v0, v1, :cond_0
 
-    const/16 v1, 0xad
-
-    if-eq v0, v1, :cond_1
-
     packed-switch v0, :pswitch_data_0
 
     invoke-static {p0}, Lcom/android/camera/constant/BeautyConstant;->wrappedSettingKeyForVideo(Ljava/lang/String;)Ljava/lang/String;
@@ -634,6 +659,13 @@
 
     return-object p0
 
+    :pswitch_2
+    invoke-static {p0}, Lcom/android/camera/constant/BeautyConstant;->warppedSettingForLive(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
     :cond_0
     invoke-static {p0}, Lcom/android/camera/constant/BeautyConstant;->wrappedSettingKeyForPortrait(Ljava/lang/String;)Ljava/lang/String;
 
@@ -642,7 +674,7 @@
     return-object p0
 
     :cond_1
-    :pswitch_2
+    :pswitch_3
     invoke-static {p0}, Lcom/android/camera/constant/BeautyConstant;->wrappedSettingKeyForCapture(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
@@ -656,11 +688,11 @@
 
     return-object p0
 
-    nop
-
     :pswitch_data_0
-    .packed-switch 0xaf
+    .packed-switch 0xad
+        :pswitch_3
         :pswitch_2
+        :pswitch_3
         :pswitch_1
         :pswitch_0
     .end packed-switch

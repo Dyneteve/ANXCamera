@@ -83,7 +83,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b005a
+    const v1, 0x7f0b005c
 
     invoke-static {v0, v1}, Landroid/support/v4/content/ContextCompat;->getColor(Landroid/content/Context;I)I
 
@@ -136,7 +136,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b005a
+    const v1, 0x7f0b005c
 
     invoke-static {v0, v1}, Landroid/support/v4/content/ContextCompat;->getColor(Landroid/content/Context;I)I
 
@@ -429,7 +429,7 @@
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
-    const p3, 0x7f040014
+    const p3, 0x7f040015
 
     const/4 v0, 0x0
 

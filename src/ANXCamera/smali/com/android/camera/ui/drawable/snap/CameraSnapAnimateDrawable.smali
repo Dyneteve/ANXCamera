@@ -686,19 +686,19 @@
 
     const v2, 0x3f0ccccd    # 0.55f
 
-    const v3, 0x3f553f7d    # 0.833f
+    const/high16 v3, 0x40400000    # 3.0f
 
-    const/high16 v4, 0x41700000    # 15.0f
+    const v4, 0x3f553f7d    # 0.833f
 
-    const/high16 v5, 0x3f800000    # 1.0f
+    const/high16 v5, 0x41700000    # 15.0f
 
     const/high16 v6, 0x3f400000    # 0.75f
 
     const v7, 0x3f404189    # 0.751f
 
-    const/high16 v8, 0x40400000    # 3.0f
+    const/4 v8, 0x0
 
-    const/4 v9, 0x0
+    const/high16 v9, 0x3f800000    # 1.0f
 
     const/4 v10, -0x1
 
@@ -709,7 +709,7 @@
 
     sget p2, Lcom/android/camera/ui/drawable/CameraPaintBase;->ALPHA_OPAQUE:I
 
-    invoke-static {v5}, Lcom/android/camera/Util;->dpToPixel(F)I
+    invoke-static {v9}, Lcom/android/camera/Util;->dpToPixel(F)I
 
     move-result v1
 
@@ -721,102 +721,132 @@
 
     sget p2, Lcom/android/camera/ui/drawable/CameraPaintBase;->ALPHA_OPAQUE:I
 
-    invoke-virtual {p1, v0, v10, p2, v4}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintRound;->setTargetValues(FIIF)V
+    invoke-virtual {p1, v0, v10, p2, v5}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintRound;->setTargetValues(FIIF)V
 
     iget-object p1, p0, Lcom/android/camera/ui/drawable/snap/CameraSnapAnimateDrawable;->mSecondPaintItem:Lcom/android/camera/ui/drawable/snap/CameraSnapPaintSecond;
 
-    invoke-virtual {p1, v3, v10, v9, v8}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintSecond;->setTargetValues(FIIF)V
+    invoke-virtual {p1, v4, v10, v8, v3}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintSecond;->setTargetValues(FIIF)V
 
     iget-object p1, p0, Lcom/android/camera/ui/drawable/snap/CameraSnapAnimateDrawable;->mMotionPaintItem:Lcom/android/camera/ui/drawable/snap/CameraSnapPaintMotion;
 
-    invoke-virtual {p1, v3, v10, v9, v8}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintMotion;->setTargetValues(FIIF)V
+    invoke-virtual {p1, v4, v10, v8, v3}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintMotion;->setTargetValues(FIIF)V
 
     goto/16 :goto_0
 
     :pswitch_1
     iget-object p1, p0, Lcom/android/camera/ui/drawable/snap/CameraSnapAnimateDrawable;->mCirclePaintItem:Lcom/android/camera/ui/drawable/snap/CameraSnapPaintCircle;
 
-    invoke-static {v5}, Lcom/android/camera/Util;->dpToPixel(F)I
+    invoke-static {v9}, Lcom/android/camera/Util;->dpToPixel(F)I
 
     move-result p2
 
     int-to-float p2, p2
 
-    invoke-virtual {p1, v6, v10, v9, p2}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintCircle;->setTargetValues(FIIF)V
+    invoke-virtual {p1, v6, v10, v8, p2}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintCircle;->setTargetValues(FIIF)V
 
     iget-object p1, p0, Lcom/android/camera/ui/drawable/snap/CameraSnapAnimateDrawable;->mRoundPaintItem:Lcom/android/camera/ui/drawable/snap/CameraSnapPaintRound;
 
     sget p2, Lcom/android/camera/ui/drawable/CameraPaintBase;->ALPHA_OPAQUE:I
 
-    invoke-virtual {p1, v2, v10, p2, v4}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintRound;->setTargetValues(FIIF)V
+    invoke-virtual {p1, v2, v10, p2, v5}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintRound;->setTargetValues(FIIF)V
 
     iget-object p1, p0, Lcom/android/camera/ui/drawable/snap/CameraSnapAnimateDrawable;->mSecondPaintItem:Lcom/android/camera/ui/drawable/snap/CameraSnapPaintSecond;
 
     sget p2, Lcom/android/camera/ui/drawable/CameraPaintBase;->ALPHA_OUTSTANDING:I
 
-    invoke-virtual {p1, v7, v10, p2, v8}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintSecond;->setTargetValues(FIIF)V
+    invoke-static {v9}, Lcom/android/camera/Util;->dpToPixel(F)I
+
+    move-result v0
+
+    int-to-float v0, v0
+
+    invoke-virtual {p1, v7, v10, p2, v0}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintSecond;->setTargetValues(FIIF)V
 
     iget-object p1, p0, Lcom/android/camera/ui/drawable/snap/CameraSnapAnimateDrawable;->mSecondPaintItem:Lcom/android/camera/ui/drawable/snap/CameraSnapPaintSecond;
 
-    invoke-virtual {p1, v9}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintSecond;->setNeedSpacing(Z)V
+    invoke-virtual {p1, v8}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintSecond;->setNeedSpacing(Z)V
 
     iget-object p1, p0, Lcom/android/camera/ui/drawable/snap/CameraSnapAnimateDrawable;->mMotionPaintItem:Lcom/android/camera/ui/drawable/snap/CameraSnapPaintMotion;
 
-    invoke-virtual {p1, v7, v10, v9, v8}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintMotion;->setTargetValues(FIIF)V
+    invoke-static {v9}, Lcom/android/camera/Util;->dpToPixel(F)I
+
+    move-result p2
+
+    int-to-float p2, p2
+
+    invoke-virtual {p1, v7, v10, v8, p2}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintMotion;->setTargetValues(FIIF)V
 
     goto :goto_0
 
     :pswitch_2
     iget-object p1, p0, Lcom/android/camera/ui/drawable/snap/CameraSnapAnimateDrawable;->mCirclePaintItem:Lcom/android/camera/ui/drawable/snap/CameraSnapPaintCircle;
 
-    invoke-static {v5}, Lcom/android/camera/Util;->dpToPixel(F)I
+    invoke-static {v9}, Lcom/android/camera/Util;->dpToPixel(F)I
 
     move-result p2
 
     int-to-float p2, p2
 
-    invoke-virtual {p1, v6, v10, v9, p2}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintCircle;->setTargetValues(FIIF)V
+    invoke-virtual {p1, v6, v10, v8, p2}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintCircle;->setTargetValues(FIIF)V
 
     iget-object p1, p0, Lcom/android/camera/ui/drawable/snap/CameraSnapAnimateDrawable;->mRoundPaintItem:Lcom/android/camera/ui/drawable/snap/CameraSnapPaintRound;
 
     sget p2, Lcom/android/camera/ui/drawable/CameraPaintBase;->ALPHA_OPAQUE:I
 
-    invoke-virtual {p1, v2, v1, p2, v4}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintRound;->setTargetValues(FIIF)V
+    invoke-virtual {p1, v2, v1, p2, v5}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintRound;->setTargetValues(FIIF)V
 
     iget-object p1, p0, Lcom/android/camera/ui/drawable/snap/CameraSnapAnimateDrawable;->mSecondPaintItem:Lcom/android/camera/ui/drawable/snap/CameraSnapPaintSecond;
 
-    invoke-virtual {p1, v7, v10, v9, v8}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintSecond;->setTargetValues(FIIF)V
+    invoke-static {v9}, Lcom/android/camera/Util;->dpToPixel(F)I
+
+    move-result p2
+
+    int-to-float p2, p2
+
+    invoke-virtual {p1, v7, v10, v8, p2}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintSecond;->setTargetValues(FIIF)V
 
     iget-object p1, p0, Lcom/android/camera/ui/drawable/snap/CameraSnapAnimateDrawable;->mMotionPaintItem:Lcom/android/camera/ui/drawable/snap/CameraSnapPaintMotion;
 
     sget p2, Lcom/android/camera/ui/drawable/CameraPaintBase;->ALPHA_OUTSTANDING:I
 
-    invoke-virtual {p1, v7, v10, p2, v8}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintMotion;->setTargetValues(FIIF)V
+    invoke-static {v9}, Lcom/android/camera/Util;->dpToPixel(F)I
+
+    move-result v0
+
+    int-to-float v0, v0
+
+    invoke-virtual {p1, v7, v10, p2, v0}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintMotion;->setTargetValues(FIIF)V
 
     goto :goto_0
 
     :pswitch_3
     iget-object p1, p0, Lcom/android/camera/ui/drawable/snap/CameraSnapAnimateDrawable;->mCirclePaintItem:Lcom/android/camera/ui/drawable/snap/CameraSnapPaintCircle;
 
-    invoke-static {v5}, Lcom/android/camera/Util;->dpToPixel(F)I
+    invoke-static {v9}, Lcom/android/camera/Util;->dpToPixel(F)I
 
     move-result v0
 
     int-to-float v0, v0
 
-    invoke-virtual {p1, v6, v10, v9, v0}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintCircle;->setTargetValues(FIIF)V
+    invoke-virtual {p1, v6, v10, v8, v0}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintCircle;->setTargetValues(FIIF)V
 
     iget-object p1, p0, Lcom/android/camera/ui/drawable/snap/CameraSnapAnimateDrawable;->mRoundPaintItem:Lcom/android/camera/ui/drawable/snap/CameraSnapPaintRound;
 
     sget v0, Lcom/android/camera/ui/drawable/CameraPaintBase;->ALPHA_OPAQUE:I
 
-    invoke-virtual {p1, v2, v1, v0, v4}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintRound;->setTargetValues(FIIF)V
+    invoke-virtual {p1, v2, v1, v0, v5}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintRound;->setTargetValues(FIIF)V
 
     iget-object p1, p0, Lcom/android/camera/ui/drawable/snap/CameraSnapAnimateDrawable;->mSecondPaintItem:Lcom/android/camera/ui/drawable/snap/CameraSnapPaintSecond;
 
     sget v0, Lcom/android/camera/ui/drawable/CameraPaintBase;->ALPHA_OUTSTANDING:I
 
-    invoke-virtual {p1, v7, v10, v0, v8}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintSecond;->setTargetValues(FIIF)V
+    invoke-static {v9}, Lcom/android/camera/Util;->dpToPixel(F)I
+
+    move-result v1
+
+    int-to-float v1, v1
+
+    invoke-virtual {p1, v7, v10, v0, v1}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintSecond;->setTargetValues(FIIF)V
 
     iget-object p1, p0, Lcom/android/camera/ui/drawable/snap/CameraSnapAnimateDrawable;->mSecondPaintItem:Lcom/android/camera/ui/drawable/snap/CameraSnapPaintSecond;
 
@@ -824,7 +854,13 @@
 
     iget-object p1, p0, Lcom/android/camera/ui/drawable/snap/CameraSnapAnimateDrawable;->mMotionPaintItem:Lcom/android/camera/ui/drawable/snap/CameraSnapPaintMotion;
 
-    invoke-virtual {p1, v7, v10, v9, v8}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintMotion;->setTargetValues(FIIF)V
+    invoke-static {v9}, Lcom/android/camera/Util;->dpToPixel(F)I
+
+    move-result p2
+
+    int-to-float p2, p2
+
+    invoke-virtual {p1, v7, v10, v8, p2}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintMotion;->setTargetValues(FIIF)V
 
     goto :goto_0
 
@@ -833,7 +869,7 @@
 
     sget p2, Lcom/android/camera/ui/drawable/CameraPaintBase;->ALPHA_OPAQUE:I
 
-    invoke-static {v5}, Lcom/android/camera/Util;->dpToPixel(F)I
+    invoke-static {v9}, Lcom/android/camera/Util;->dpToPixel(F)I
 
     move-result v2
 
@@ -845,15 +881,15 @@
 
     sget p2, Lcom/android/camera/ui/drawable/CameraPaintBase;->ALPHA_OPAQUE:I
 
-    invoke-virtual {p1, v0, v1, p2, v4}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintRound;->setTargetValues(FIIF)V
+    invoke-virtual {p1, v0, v1, p2, v5}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintRound;->setTargetValues(FIIF)V
 
     iget-object p1, p0, Lcom/android/camera/ui/drawable/snap/CameraSnapAnimateDrawable;->mSecondPaintItem:Lcom/android/camera/ui/drawable/snap/CameraSnapPaintSecond;
 
-    invoke-virtual {p1, v3, v10, v9, v8}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintSecond;->setTargetValues(FIIF)V
+    invoke-virtual {p1, v4, v10, v8, v3}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintSecond;->setTargetValues(FIIF)V
 
     iget-object p1, p0, Lcom/android/camera/ui/drawable/snap/CameraSnapAnimateDrawable;->mMotionPaintItem:Lcom/android/camera/ui/drawable/snap/CameraSnapPaintMotion;
 
-    invoke-virtual {p1, v3, v10, v9, v8}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintMotion;->setTargetValues(FIIF)V
+    invoke-virtual {p1, v4, v10, v8, v3}, Lcom/android/camera/ui/drawable/snap/CameraSnapPaintMotion;->setTargetValues(FIIF)V
 
     nop
 

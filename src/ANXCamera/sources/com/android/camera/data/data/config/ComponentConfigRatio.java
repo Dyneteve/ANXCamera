@@ -64,7 +64,7 @@ public class ComponentConfigRatio extends ComponentData {
         this.sEntryValues.clear();
         this.sEntryValues.add(RATIO_4X3);
         this.sEntryValues.add(RATIO_16X9);
-        if (b.gR()) {
+        if (b.gU()) {
             this.sEntryValues.add(RATIO_FULL_18X9);
         }
         if (DataRepository.dataItemFeature().fo()) {
@@ -116,10 +116,6 @@ public class ComponentConfigRatio extends ComponentData {
     }
 
     public void initSensorRatio(List<CameraSize> list, int i, int i2) {
-        if (b.qS || b.qZ) {
-            this.mDefaultValue = RATIO_16X9;
-            return;
-        }
         CameraSize cameraSize = new CameraSize();
         int i3 = -1;
         int i4 = 0;
@@ -191,7 +187,7 @@ public class ComponentConfigRatio extends ComponentData {
      */
     /* Code decompiled incorrectly, please refer to instructions dump. */
     public List<ComponentDataItem> reInit(int i, int i2, CameraCapabilities cameraCapabilities) {
-        if (b.gR()) {
+        if (b.gU()) {
             this.sSupport18x9 = true;
         } else {
             this.sSupport18x9 = false;

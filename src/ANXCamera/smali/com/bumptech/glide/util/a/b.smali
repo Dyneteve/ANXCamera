@@ -4,9 +4,9 @@
 
 
 # static fields
-.field private static final qj:Z = false
+.field private static final qk:Z = false
 
-.field private static final qk:I = 0x7f
+.field private static final ql:I = 0x7f
 
 
 # direct methods

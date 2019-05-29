@@ -63,7 +63,7 @@
     goto :goto_0
 
     :cond_1
-    const p2, 0x7f0b0049
+    const p2, 0x7f0b004b
 
     invoke-virtual {p1, p2}, Landroid/view/View;->setBackgroundResource(I)V
 
@@ -84,7 +84,7 @@
 .method protected getLayoutResourceId()I
     .locals 1
 
-    const v0, 0x7f04000f
+    const v0, 0x7f040010
 
     return v0
 .end method

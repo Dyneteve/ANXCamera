@@ -70,6 +70,7 @@ public class Camera2OpenManager {
             sb.append(cameraDevice.getId());
             Log.d(access$200, sb.toString());
             if (Camera2OpenManager.this.mCamera2Device != null) {
+                Camera2OpenManager.this.mPendingCameraId.set(-1);
                 Camera2OpenManager.this.mCameraHandler.sendEmptyMessage(2);
             }
         }
@@ -120,7 +121,8 @@ public class Camera2OpenManager {
     private AtomicInteger mCurrentModule = new AtomicInteger(160);
     private int mCurrentState = 1;
     private final Object mEmitterLock = new Object();
-    private AtomicInteger mPendingCameraId = new AtomicInteger(-1);
+    /* access modifiers changed from: private */
+    public AtomicInteger mPendingCameraId = new AtomicInteger(-1);
 
     @interface ManagerState {
     }
@@ -314,15 +316,22 @@ public class Camera2OpenManager {
                 if (this.mCamera2Device == null) {
                     this.mCameraHandler.sendEmptyMessage(1);
                     return;
-                } else if (getManagerState() == 1) {
+                } else if (getManagerState() != 1) {
+                    String str2 = TAG;
+                    StringBuilder sb6 = new StringBuilder();
+                    sb6.append("not idle, break on msg.what ");
+                    sb6.append(message.what);
+                    sb6.append(", mCurrentState ");
+                    sb6.append(this.mCurrentState);
+                    Log.w(str2, sb6.toString());
+                    return;
+                } else {
                     setManagerState(2);
                     Log.e(TAG, "force close start");
                     this.mCamera2Device.releasePreview();
                     this.mCamera2Device.resetConfigs();
                     this.mCamera2Device.close();
                     this.mCamera2Device = null;
-                    return;
-                } else {
                     return;
                 }
             case 3:
@@ -396,9 +405,8 @@ public class Camera2OpenManager {
     public void release(boolean z) {
         abandonOpenObservableIfExists();
         this.mPendingCameraId.set(-1);
-        this.mCameraHandler.removeCallbacksAndMessages(null);
+        this.mCameraHandler.removeMessages(1);
         this.mCurrentModule.set(160);
-        setManagerState(1);
         this.mCamera2Device.setCaptureBusyCallback(new CaptureBusyCallback(z) {
             private final /* synthetic */ boolean f$1;
 

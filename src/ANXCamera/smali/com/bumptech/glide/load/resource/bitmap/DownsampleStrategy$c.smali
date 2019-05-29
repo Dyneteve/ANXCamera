@@ -28,7 +28,7 @@
 .method public a(IIII)F
     .locals 1
 
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy$c;->lb:Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;
+    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy$c;->lc:Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;
 
     invoke-virtual {v0, p1, p2, p3, p4}, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;->a(IIII)F
 
@@ -46,7 +46,7 @@
 .method public b(IIII)Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy$SampleSizeRounding;
     .locals 0
 
-    sget-object p1, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy$SampleSizeRounding;->lk:Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy$SampleSizeRounding;
+    sget-object p1, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy$SampleSizeRounding;->ll:Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy$SampleSizeRounding;
 
     return-object p1
 .end method

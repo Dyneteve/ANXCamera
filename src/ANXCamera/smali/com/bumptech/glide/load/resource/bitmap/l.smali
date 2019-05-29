@@ -8,7 +8,7 @@
 
 .field private static final VERSION:I = 0x1
 
-.field private static final kE:[B
+.field private static final kF:[B
 
 
 # direct methods
@@ -17,13 +17,13 @@
 
     const-string v0, "com.bumptech.glide.load.resource.bitmap.CircleCrop.1"
 
-    sget-object v1, Lcom/bumptech/glide/load/resource/bitmap/l;->dG:Ljava/nio/charset/Charset;
+    sget-object v1, Lcom/bumptech/glide/load/resource/bitmap/l;->dH:Ljava/nio/charset/Charset;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
 
     move-result-object v0
 
-    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/l;->kE:[B
+    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/l;->kF:[B
 
     return-void
 .end method
@@ -83,7 +83,7 @@
         .end annotation
     .end param
 
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/l;->kE:[B
+    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/l;->kF:[B
 
     invoke-virtual {p1, v0}, Ljava/security/MessageDigest;->update([B)V
 

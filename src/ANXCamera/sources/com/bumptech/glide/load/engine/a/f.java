@@ -9,11 +9,11 @@ import java.io.File;
 /* compiled from: ExternalCacheDiskCacheFactory */
 public final class f extends d {
     public f(Context context) {
-        this(context, C0003a.ag, C0003a.hO);
+        this(context, C0003a.ah, C0003a.hP);
     }
 
     public f(Context context, int i) {
-        this(context, C0003a.ag, i);
+        this(context, C0003a.ah, i);
     }
 
     public f(final Context context, final String str, int i) {

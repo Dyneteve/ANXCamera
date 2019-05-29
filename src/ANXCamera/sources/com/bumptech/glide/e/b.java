@@ -6,14 +6,14 @@ import java.security.MessageDigest;
 
 /* compiled from: EmptySignature */
 public final class b implements c {
-    private static final b pK = new b();
+    private static final b pL = new b();
 
     private b() {
     }
 
     @NonNull
     public static b eH() {
-        return pK;
+        return pL;
     }
 
     public String toString() {

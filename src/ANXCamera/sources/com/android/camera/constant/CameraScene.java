@@ -13,6 +13,7 @@ public class CameraScene {
     public static final String LANDSCAPE = "4";
     public static final String NIGHT = "5";
     public static final String NIGHT_PORTRAIT = "6";
+    public static final String OFF = "-1";
     public static final String PORTRAIT = "3";
     public static final String SNOW = "9";
     public static final String SPORTS = "13";

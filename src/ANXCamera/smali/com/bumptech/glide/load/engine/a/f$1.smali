@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field final synthetic hX:Ljava/lang/String;
+.field final synthetic hY:Ljava/lang/String;
 
 .field final synthetic val$context:Landroid/content/Context;
 
@@ -29,7 +29,7 @@
 
     iput-object p1, p0, Lcom/bumptech/glide/load/engine/a/f$1;->val$context:Landroid/content/Context;
 
-    iput-object p2, p0, Lcom/bumptech/glide/load/engine/a/f$1;->hX:Ljava/lang/String;
+    iput-object p2, p0, Lcom/bumptech/glide/load/engine/a/f$1;->hY:Ljava/lang/String;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -54,13 +54,13 @@
     return-object v0
 
     :cond_0
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/a/f$1;->hX:Ljava/lang/String;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/a/f$1;->hY:Ljava/lang/String;
 
     if-eqz v1, :cond_1
 
     new-instance v1, Ljava/io/File;
 
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/a/f$1;->hX:Ljava/lang/String;
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/a/f$1;->hY:Ljava/lang/String;
 
     invoke-direct {v1, v0, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 

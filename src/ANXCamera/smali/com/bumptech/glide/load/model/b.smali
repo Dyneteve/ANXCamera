@@ -29,7 +29,7 @@
 
 
 # instance fields
-.field private final js:Lcom/bumptech/glide/load/model/b$b;
+.field private final jt:Lcom/bumptech/glide/load/model/b$b;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/model/b$b<",
@@ -52,7 +52,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/model/b;->js:Lcom/bumptech/glide/load/model/b$b;
+    iput-object p1, p0, Lcom/bumptech/glide/load/model/b;->jt:Lcom/bumptech/glide/load/model/b$b;
 
     return-void
 .end method
@@ -87,7 +87,7 @@
 
     new-instance p4, Lcom/bumptech/glide/load/model/b$c;
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/model/b;->js:Lcom/bumptech/glide/load/model/b$b;
+    iget-object v0, p0, Lcom/bumptech/glide/load/model/b;->jt:Lcom/bumptech/glide/load/model/b$b;
 
     invoke-direct {p4, p1, v0}, Lcom/bumptech/glide/load/model/b$c;-><init>([BLcom/bumptech/glide/load/model/b$b;)V
 

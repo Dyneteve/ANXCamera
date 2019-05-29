@@ -6,4 +6,10 @@
         <item quantity="two">ממוקד. זוהו %d פרצופים</item>
         <item quantity="many">ממוקד. זוהו %d פרצופים</item>
     </plurals>
+    <plurals name="toast_burst_snap_finished_summary">
+        <item quantity="other">הצילום המתפרץ בוצע, צולמו %1$s תמונות</item>
+        <item quantity="one">הצילום המתפרץ בוצע, %1$s תמונה צולמה</item>
+        <item quantity="two">הצילום המתפרץ בוצע, צולמו %1$s תמונות</item>
+        <item quantity="many">הצילום המתפרץ בוצע, צולמו %1$s תמונות</item>
+    </plurals>
 </resources>

@@ -17,6 +17,8 @@
 # static fields
 .field public static final accessibility_focus_face_detect:I = 0x7f110000
 
+.field public static final toast_burst_snap_finished_summary:I = 0x7f110001
+
 
 # direct methods
 .method public constructor <init>()V

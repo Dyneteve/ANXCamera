@@ -8,33 +8,33 @@ import java.io.InputStream;
 /* compiled from: MarkEnforcingInputStream */
 public class g extends FilterInputStream {
     private static final int UNSET = Integer.MIN_VALUE;
-    private static final int pV = -1;
-    private int pW = Integer.MIN_VALUE;
+    private static final int pW = -1;
+    private int pX = Integer.MIN_VALUE;
 
     public g(@NonNull InputStream inputStream) {
         super(inputStream);
     }
 
     private long g(long j) {
-        if (this.pW == 0) {
+        if (this.pX == 0) {
             return -1;
         }
-        return (this.pW == Integer.MIN_VALUE || j <= ((long) this.pW)) ? j : (long) this.pW;
+        return (this.pX == Integer.MIN_VALUE || j <= ((long) this.pX)) ? j : (long) this.pX;
     }
 
     private void h(long j) {
-        if (this.pW != Integer.MIN_VALUE && j != -1) {
-            this.pW = (int) (((long) this.pW) - j);
+        if (this.pX != Integer.MIN_VALUE && j != -1) {
+            this.pX = (int) (((long) this.pX) - j);
         }
     }
 
     public int available() throws IOException {
-        return this.pW == Integer.MIN_VALUE ? super.available() : Math.min(this.pW, super.available());
+        return this.pX == Integer.MIN_VALUE ? super.available() : Math.min(this.pX, super.available());
     }
 
     public synchronized void mark(int i) {
         super.mark(i);
-        this.pW = i;
+        this.pX = i;
     }
 
     public int read() throws IOException {
@@ -58,7 +58,7 @@ public class g extends FilterInputStream {
 
     public synchronized void reset() throws IOException {
         super.reset();
-        this.pW = Integer.MIN_VALUE;
+        this.pX = Integer.MIN_VALUE;
     }
 
     public long skip(long j) throws IOException {

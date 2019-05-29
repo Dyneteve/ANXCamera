@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/camera/module/LiveModule;->onNewUriArrived(Landroid/net/Uri;Ljava/lang/String;)V
+    value = Lcom/android/camera/module/LiveModule;->stopScreenLight()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,12 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/camera/module/LiveModule;
 
-.field final synthetic val$title:Ljava/lang/String;
-
-.field final synthetic val$uri:Landroid/net/Uri;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/camera/module/LiveModule;Ljava/lang/String;Landroid/net/Uri;)V
+.method constructor <init>(Lcom/android/camera/module/LiveModule;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/camera/module/LiveModule$6;->this$0:Lcom/android/camera/module/LiveModule;
-
-    iput-object p2, p0, Lcom/android/camera/module/LiveModule$6;->val$title:Ljava/lang/String;
-
-    iput-object p3, p0, Lcom/android/camera/module/LiveModule$6;->val$uri:Landroid/net/Uri;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,8 +35,21 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .locals 4
 
+    iget-object v0, p0, Lcom/android/camera/module/LiveModule$6;->this$0:Lcom/android/camera/module/LiveModule;
+
+    iget-object v0, v0, Lcom/android/camera/module/LiveModule;->mActivity:Lcom/android/camera/Camera;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/camera/module/LiveModule$6;->this$0:Lcom/android/camera/module/LiveModule;
+
+    iget-object v0, v0, Lcom/android/camera/module/LiveModule;->mActivity:Lcom/android/camera/Camera;
+
+    invoke-virtual {v0}, Lcom/android/camera/Camera;->restoreWindowBrightness()V
+
+    :cond_0
     invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
 
     move-result-object v0
@@ -57,68 +62,40 @@
 
     check-cast v0, Lcom/android/camera/protocol/ModeProtocol$FullScreenProtocol;
 
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-interface {v0}, Lcom/android/camera/protocol/ModeProtocol$FullScreenProtocol;->getSaveContentValues()Landroid/content/ContentValues;
-
-    move-result-object v1
-
-    if-nez v1, :cond_1
-
-    return-void
-
-    :cond_1
-    const-string v2, "title"
-
-    invoke-virtual {v1, v2}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
     invoke-static {}, Lcom/android/camera/module/LiveModule;->access$300()Ljava/lang/String;
+
+    move-result-object v1
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "stopScreenLight: protocol = "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v3, ", mHandler = "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v3, p0, Lcom/android/camera/module/LiveModule$6;->this$0:Lcom/android/camera/module/LiveModule;
+
+    iget-object v3, v3, Lcom/android/camera/module/LiveModule;->mHandler:Landroid/os/Handler;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-static {v1, v2}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    if-eqz v0, :cond_1
 
-    const-string v4, "newUri: "
+    invoke-interface {v0}, Lcom/android/camera/protocol/ModeProtocol$FullScreenProtocol;->hideScreenLight()V
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v4, p0, Lcom/android/camera/module/LiveModule$6;->val$title:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v4, " | "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v2, p0, Lcom/android/camera/module/LiveModule$6;->val$title:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_2
-
-    return-void
-
-    :cond_2
-    iget-object v1, p0, Lcom/android/camera/module/LiveModule$6;->val$uri:Landroid/net/Uri;
-
-    invoke-interface {v0, v1}, Lcom/android/camera/protocol/ModeProtocol$FullScreenProtocol;->onLiveSaveToLocalFinished(Landroid/net/Uri;)V
-
+    :cond_1
     return-void
 .end method

@@ -118,7 +118,6 @@
 
     const/4 p1, 0x1
 
-    :goto_0
     iget-object p2, p0, Lorg/greenrobot/greendao/identityscope/IdentityScopeObject;->lock:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {p2}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
@@ -128,7 +127,11 @@
     :cond_0
     const/4 p1, 0x0
 
-    goto :goto_0
+    iget-object p2, p0, Lorg/greenrobot/greendao/identityscope/IdentityScopeObject;->lock:Ljava/util/concurrent/locks/ReentrantLock;
+
+    invoke-virtual {p2}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
+
+    return p1
 
     :catchall_0
     move-exception p1

@@ -22,17 +22,17 @@ final class BitmapPreFillRunner implements Runnable {
     static final long MAX_DURATION_MS = 32;
     @VisibleForTesting
     static final String TAG = "PreFillRunner";
-    private static final Clock jb = new Clock();
-    static final int jc = 4;
-    static final long jd = TimeUnit.SECONDS.toMillis(1);
-    private final d ak;
-    private final j al;
-    private boolean ea;
+    private static final Clock jc = new Clock();
+    static final int jd = 4;
+    static final long je = TimeUnit.SECONDS.toMillis(1);
+    private final d al;
+    private final j am;
+    private boolean eb;
     private final Handler handler;
-    private final b je;
-    private final Clock jf;
-    private final Set<c> jg;
-    private long jh;
+    private final b jf;
+    private final Clock jg;
+    private final Set<c> jh;
+    private long ji;
 
     @VisibleForTesting
     static class Clock {
@@ -55,52 +55,52 @@ final class BitmapPreFillRunner implements Runnable {
     }
 
     public BitmapPreFillRunner(d dVar, j jVar, b bVar) {
-        this(dVar, jVar, bVar, jb, new Handler(Looper.getMainLooper()));
+        this(dVar, jVar, bVar, jc, new Handler(Looper.getMainLooper()));
     }
 
     @VisibleForTesting
     BitmapPreFillRunner(d dVar, j jVar, b bVar, Clock clock, Handler handler2) {
-        this.jg = new HashSet();
-        this.jh = INITIAL_BACKOFF_MS;
-        this.ak = dVar;
-        this.al = jVar;
-        this.je = bVar;
-        this.jf = clock;
+        this.jh = new HashSet();
+        this.ji = INITIAL_BACKOFF_MS;
+        this.al = dVar;
+        this.am = jVar;
+        this.jf = bVar;
+        this.jg = clock;
         this.handler = handler2;
     }
 
     private long bT() {
-        return this.al.getMaxSize() - this.al.bF();
+        return this.am.getMaxSize() - this.am.bF();
     }
 
     private long bU() {
-        long j = this.jh;
-        this.jh = Math.min(this.jh * 4, jd);
+        long j = this.ji;
+        this.ji = Math.min(this.ji * 4, je);
         return j;
     }
 
     private boolean c(long j) {
-        return this.jf.now() - j >= 32;
+        return this.jg.now() - j >= 32;
     }
 
     /* access modifiers changed from: 0000 */
     @VisibleForTesting
     public boolean allocate() {
         Bitmap bitmap;
-        long now = this.jf.now();
-        while (!this.je.isEmpty() && !c(now)) {
-            c bV = this.je.bV();
-            if (!this.jg.contains(bV)) {
-                this.jg.add(bV);
-                bitmap = this.ak.g(bV.getWidth(), bV.getHeight(), bV.getConfig());
+        long now = this.jg.now();
+        while (!this.jf.isEmpty() && !c(now)) {
+            c bV = this.jf.bV();
+            if (!this.jh.contains(bV)) {
+                this.jh.add(bV);
+                bitmap = this.al.g(bV.getWidth(), bV.getHeight(), bV.getConfig());
             } else {
                 bitmap = Bitmap.createBitmap(bV.getWidth(), bV.getHeight(), bV.getConfig());
             }
             int p = k.p(bitmap);
             if (bT() >= ((long) p)) {
-                this.al.b(new a(), f.a(bitmap, this.ak));
+                this.am.b(new a(), f.a(bitmap, this.al));
             } else {
-                this.ak.d(bitmap);
+                this.al.d(bitmap);
             }
             if (Log.isLoggable(TAG, 3)) {
                 String str = TAG;
@@ -116,11 +116,11 @@ final class BitmapPreFillRunner implements Runnable {
                 Log.d(str, sb.toString());
             }
         }
-        return !this.ea && !this.je.isEmpty();
+        return !this.eb && !this.jf.isEmpty();
     }
 
     public void cancel() {
-        this.ea = true;
+        this.eb = true;
     }
 
     public void run() {

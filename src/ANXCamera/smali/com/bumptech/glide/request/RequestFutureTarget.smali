@@ -31,33 +31,33 @@
 
 
 # static fields
-.field private static final nH:Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
+.field private static final nI:Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
 
 
 # instance fields
-.field private final aD:Landroid/os/Handler;
+.field private final aE:Landroid/os/Handler;
 
-.field private ea:Z
+.field private eb:Z
 
-.field private gA:Lcom/bumptech/glide/load/engine/GlideException;
+.field private gB:Lcom/bumptech/glide/load/engine/GlideException;
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 .end field
 
 .field private final height:I
 
-.field private final nI:Z
+.field private final nJ:Z
 
-.field private final nJ:Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
+.field private final nK:Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
 
-.field private nK:Lcom/bumptech/glide/request/c;
+.field private nL:Lcom/bumptech/glide/request/c;
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 .end field
 
-.field private nL:Z
-
 .field private nM:Z
+
+.field private nN:Z
 
 .field private resource:Ljava/lang/Object;
     .annotation build Landroid/support/annotation/Nullable;
@@ -81,7 +81,7 @@
 
     invoke-direct {v0}, Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;-><init>()V
 
-    sput-object v0, Lcom/bumptech/glide/request/RequestFutureTarget;->nH:Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
+    sput-object v0, Lcom/bumptech/glide/request/RequestFutureTarget;->nI:Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
 
     return-void
 .end method
@@ -89,7 +89,7 @@
 .method public constructor <init>(Landroid/os/Handler;II)V
     .locals 6
 
-    sget-object v5, Lcom/bumptech/glide/request/RequestFutureTarget;->nH:Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
+    sget-object v5, Lcom/bumptech/glide/request/RequestFutureTarget;->nI:Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
 
     const/4 v4, 0x1
 
@@ -111,15 +111,15 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->aD:Landroid/os/Handler;
+    iput-object p1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->aE:Landroid/os/Handler;
 
     iput p2, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->width:I
 
     iput p3, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->height:I
 
-    iput-boolean p4, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nI:Z
+    iput-boolean p4, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nJ:Z
 
-    iput-object p5, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nJ:Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
+    iput-object p5, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nK:Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
 
     return-void
 .end method
@@ -145,7 +145,7 @@
     monitor-enter p0
 
     :try_start_0
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nI:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nJ:Z
 
     if-eqz v0, :cond_0
 
@@ -158,15 +158,15 @@
     invoke-static {}, Lcom/bumptech/glide/util/k;->eM()V
 
     :cond_0
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->ea:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->eb:Z
 
     if-nez v0, :cond_9
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nM:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nN:Z
 
     if-nez v0, :cond_8
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nL:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nM:Z
 
     if-eqz v0, :cond_1
 
@@ -184,7 +184,7 @@
     if-nez p1, :cond_2
 
     :try_start_1
-    iget-object p1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nJ:Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
+    iget-object p1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nK:Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
 
     invoke-virtual {p1, p0, v0, v1}, Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;->a(Ljava/lang/Object;J)V
 
@@ -220,7 +220,7 @@
 
     if-gez p1, :cond_3
 
-    iget-object p1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nJ:Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
+    iget-object p1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nK:Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
 
     sub-long v0, v2, v0
 
@@ -240,15 +240,15 @@
 
     if-nez p1, :cond_7
 
-    iget-boolean p1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nM:Z
+    iget-boolean p1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nN:Z
 
     if-nez p1, :cond_6
 
-    iget-boolean p1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->ea:Z
+    iget-boolean p1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->eb:Z
 
     if-nez p1, :cond_5
 
-    iget-boolean p1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nL:Z
+    iget-boolean p1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nM:Z
 
     if-eqz p1, :cond_4
 
@@ -278,7 +278,7 @@
     :cond_6
     new-instance p1, Ljava/util/concurrent/ExecutionException;
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->gA:Lcom/bumptech/glide/load/engine/GlideException;
+    iget-object v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->gB:Lcom/bumptech/glide/load/engine/GlideException;
 
     invoke-direct {p1, v0}, Ljava/util/concurrent/ExecutionException;-><init>(Ljava/lang/Throwable;)V
 
@@ -294,7 +294,7 @@
     :cond_8
     new-instance p1, Ljava/util/concurrent/ExecutionException;
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->gA:Lcom/bumptech/glide/load/engine/GlideException;
+    iget-object v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->gB:Lcom/bumptech/glide/load/engine/GlideException;
 
     invoke-direct {p1, v0}, Ljava/util/concurrent/ExecutionException;-><init>(Ljava/lang/Throwable;)V
 
@@ -320,7 +320,7 @@
 .method private dq()V
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->aD:Landroid/os/Handler;
+    iget-object v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->aE:Landroid/os/Handler;
 
     invoke-virtual {v0, p0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
@@ -391,11 +391,11 @@
     const/4 p2, 0x1
 
     :try_start_0
-    iput-boolean p2, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nM:Z
+    iput-boolean p2, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nN:Z
 
-    iput-object p1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->gA:Lcom/bumptech/glide/load/engine/GlideException;
+    iput-object p1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->gB:Lcom/bumptech/glide/load/engine/GlideException;
 
-    iget-object p1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nJ:Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
+    iget-object p1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nK:Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
 
     invoke-virtual {p1, p0}, Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;->t(Ljava/lang/Object;)V
     :try_end_0
@@ -433,11 +433,11 @@
     const/4 p2, 0x1
 
     :try_start_0
-    iput-boolean p2, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nL:Z
+    iput-boolean p2, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nM:Z
 
     iput-object p1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->resource:Ljava/lang/Object;
 
-    iget-object p1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nJ:Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
+    iget-object p1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nK:Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
 
     invoke-virtual {p1, p0}, Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;->t(Ljava/lang/Object;)V
     :try_end_0
@@ -491,9 +491,9 @@
     const/4 v0, 0x1
 
     :try_start_1
-    iput-boolean v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->ea:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->eb:Z
 
-    iget-object v1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nJ:Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
+    iget-object v1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nK:Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;
 
     invoke-virtual {v1, p0}, Lcom/bumptech/glide/request/RequestFutureTarget$Waiter;->t(Ljava/lang/Object;)V
 
@@ -531,7 +531,7 @@
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nK:Lcom/bumptech/glide/request/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nL:Lcom/bumptech/glide/request/c;
 
     return-object v0
 .end method
@@ -639,7 +639,7 @@
     monitor-enter p0
 
     :try_start_0
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->ea:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->eb:Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -661,15 +661,15 @@
     monitor-enter p0
 
     :try_start_0
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->ea:Z
-
-    if-nez v0, :cond_1
-
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nL:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->eb:Z
 
     if-nez v0, :cond_1
 
     iget-boolean v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nM:Z
+
+    if-nez v0, :cond_1
+
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nN:Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -706,7 +706,7 @@
         .end annotation
     .end param
 
-    iput-object p1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nK:Lcom/bumptech/glide/request/c;
+    iput-object p1, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nL:Lcom/bumptech/glide/request/c;
 
     return-void
 .end method
@@ -732,17 +732,17 @@
 .method public run()V
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nK:Lcom/bumptech/glide/request/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nL:Lcom/bumptech/glide/request/c;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nK:Lcom/bumptech/glide/request/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nL:Lcom/bumptech/glide/request/c;
 
     invoke-interface {v0}, Lcom/bumptech/glide/request/c;->clear()V
 
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nK:Lcom/bumptech/glide/request/c;
+    iput-object v0, p0, Lcom/bumptech/glide/request/RequestFutureTarget;->nL:Lcom/bumptech/glide/request/c;
 
     :cond_0
     return-void

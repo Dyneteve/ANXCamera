@@ -8,6 +8,7 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
@@ -102,6 +103,9 @@ public class CameraSnapView extends View {
     }
 
     private boolean inRegion(int i, int i2) {
+        if ("hercules".equals(Build.DEVICE)) {
+            i2 -= 96;
+        }
         Rect rect = new Rect();
         getGlobalVisibleRect(rect);
         return rect.contains(i, i2);
@@ -249,10 +253,16 @@ public class CameraSnapView extends View {
                 case 3:
                     this.mHandler.removeCallbacksAndMessages(null);
                     this.mPressUpTime = System.currentTimeMillis();
-                    if (this.mPressUpTime - this.mPressDownTime < 800 && inRegion((int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
-                        this.mHandler.sendEmptyMessage(1);
-                        break;
+                    if (this.mPressUpTime - this.mPressDownTime < 800) {
+                        if (!inRegion((int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
+                            Log.d(TAG, "out of shutter button when you touch up");
+                            break;
+                        } else {
+                            this.mHandler.sendEmptyMessage(1);
+                            break;
+                        }
                     }
+                    break;
                 case 2:
                     return false;
             }
@@ -331,6 +341,7 @@ public class CameraSnapView extends View {
             return;
         }
         this.cameraSnapAnimateDrawable.initParameters(i, z2);
+        invalidate();
     }
 
     public void setSnapClickEnable(boolean z) {

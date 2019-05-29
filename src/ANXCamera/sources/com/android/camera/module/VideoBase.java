@@ -72,6 +72,7 @@ import io.reactivex.disposables.Disposable;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.ref.WeakReference;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -170,100 +171,105 @@ public abstract class VideoBase extends BaseModule implements Listener, CameraAc
     protected String mVideoFocusMode;
     protected CameraSize mVideoSize;
 
-    private class MainHandler extends Handler {
-        private MainHandler() {
+    private static class MainHandler extends Handler {
+        private WeakReference<VideoBase> mModule;
+
+        public MainHandler(VideoBase videoBase) {
+            this.mModule = new WeakReference<>(videoBase);
         }
 
         public void handleMessage(Message message) {
-            if (!VideoBase.this.isCreated()) {
-                removeCallbacksAndMessages(null);
-            } else if (VideoBase.this.getActivity() != null) {
-                boolean z = false;
-                switch (message.what) {
-                    case 2:
-                        break;
-                    case 4:
-                        if (Util.getDisplayRotation(VideoBase.this.mActivity) != VideoBase.this.mDisplayRotation && !VideoBase.this.mMediaRecorderRecording) {
-                            VideoBase.this.startPreview();
-                        }
-                        if (SystemClock.uptimeMillis() - VideoBase.this.mOnResumeTime < 5000) {
-                            VideoBase.this.mHandler.sendEmptyMessageDelayed(4, 100);
+            VideoBase videoBase = (VideoBase) this.mModule.get();
+            if (videoBase != null) {
+                if (!videoBase.isCreated()) {
+                    removeCallbacksAndMessages(null);
+                } else if (videoBase.getActivity() != null) {
+                    boolean z = false;
+                    switch (message.what) {
+                        case 2:
                             break;
-                        }
-                        break;
-                    case 9:
-                        VideoBase.this.onPreviewStart();
-                        VideoBase.this.mStereoSwitchThread = null;
-                        break;
-                    case 10:
-                        VideoBase.this.stopVideoRecording(true, false);
-                        VideoBase.this.mOpenCameraFail = true;
-                        VideoBase.this.onCameraException();
-                        break;
-                    case 17:
-                        VideoBase.this.mHandler.removeMessages(17);
-                        VideoBase.this.mHandler.removeMessages(2);
-                        VideoBase.this.getWindow().addFlags(128);
-                        VideoBase.this.mHandler.sendEmptyMessageDelayed(2, (long) VideoBase.this.getScreenDelay());
-                        break;
-                    case 35:
-                        VideoBase videoBase = VideoBase.this;
-                        boolean z2 = message.arg1 > 0;
-                        if (message.arg2 > 0) {
-                            z = true;
-                        }
-                        videoBase.handleUpdateFaceView(z2, z);
-                        break;
-                    case 40:
-                        if (CameraSettings.isStereoModeOn()) {
-                            VideoBase.this.updateTipMessage(6, R.string.dual_camera_use_hint, 2);
+                        case 4:
+                            if (Util.getDisplayRotation(videoBase.mActivity) != videoBase.mDisplayRotation && !videoBase.mMediaRecorderRecording) {
+                                videoBase.startPreview();
+                            }
+                            if (SystemClock.uptimeMillis() - videoBase.mOnResumeTime < 5000) {
+                                sendEmptyMessageDelayed(4, 100);
+                                break;
+                            }
                             break;
-                        }
-                        break;
-                    case 42:
-                        VideoBase.this.updateRecordingTime();
-                        break;
-                    case 43:
-                        VideoBase.this.restoreMusicSound();
-                        break;
-                    case 45:
-                        VideoBase.this.setActivity(null);
-                        break;
-                    case 46:
-                        VideoBase.this.onWaitStopCallbackTimeout();
-                        break;
-                    case 51:
-                        VideoBase.this.stopVideoRecording(true, false);
-                        if (!VideoBase.this.mActivity.isActivityPaused()) {
-                            VideoBase.this.mOpenCameraFail = true;
-                            VideoBase.this.onCameraException();
+                        case 9:
+                            videoBase.onPreviewStart();
+                            videoBase.mStereoSwitchThread = null;
                             break;
-                        }
-                        break;
-                    case 52:
-                        VideoBase.this.enterSavePowerMode();
-                        break;
-                    case 55:
-                        Log.e(VideoBase.TAG, "autoFocus timeout!");
-                        VideoBase.this.mFocusManager.resetFocused();
-                        VideoBase.this.onWaitingFocusFinished();
-                        break;
-                    default:
-                        if (!BaseModule.DEBUG) {
-                            String str = VideoBase.TAG;
-                            StringBuilder sb = new StringBuilder();
-                            sb.append("no consumer for this message: ");
-                            sb.append(message.what);
-                            Log.e(str, sb.toString());
+                        case 10:
+                            videoBase.stopVideoRecording(true, false);
+                            videoBase.mOpenCameraFail = true;
+                            videoBase.onCameraException();
                             break;
-                        } else {
-                            StringBuilder sb2 = new StringBuilder();
-                            sb2.append("no consumer for this message: ");
-                            sb2.append(message.what);
-                            throw new RuntimeException(sb2.toString());
-                        }
+                        case 17:
+                            removeMessages(17);
+                            removeMessages(2);
+                            videoBase.getWindow().addFlags(128);
+                            sendEmptyMessageDelayed(2, (long) videoBase.getScreenDelay());
+                            break;
+                        case 35:
+                            boolean z2 = message.arg1 > 0;
+                            if (message.arg2 > 0) {
+                                z = true;
+                            }
+                            videoBase.handleUpdateFaceView(z2, z);
+                            break;
+                        case 40:
+                            if (CameraSettings.isStereoModeOn()) {
+                                videoBase.updateTipMessage(6, R.string.dual_camera_use_hint, 2);
+                                break;
+                            }
+                            break;
+                        case 42:
+                            videoBase.updateRecordingTime();
+                            break;
+                        case 43:
+                            videoBase.restoreMusicSound();
+                            break;
+                        case 45:
+                            videoBase.setActivity(null);
+                            break;
+                        case 46:
+                            videoBase.onWaitStopCallbackTimeout();
+                            break;
+                        case 51:
+                            videoBase.stopVideoRecording(true, false);
+                            if (!videoBase.mActivity.isActivityPaused()) {
+                                videoBase.mOpenCameraFail = true;
+                                videoBase.onCameraException();
+                                break;
+                            }
+                            break;
+                        case 52:
+                            videoBase.enterSavePowerMode();
+                            break;
+                        case 55:
+                            Log.e(VideoBase.TAG, "autoFocus timeout!");
+                            videoBase.mFocusManager.resetFocused();
+                            videoBase.onWaitingFocusFinished();
+                            break;
+                        default:
+                            if (!BaseModule.DEBUG) {
+                                String str = VideoBase.TAG;
+                                StringBuilder sb = new StringBuilder();
+                                sb.append("no consumer for this message: ");
+                                sb.append(message.what);
+                                Log.e(str, sb.toString());
+                                break;
+                            } else {
+                                StringBuilder sb2 = new StringBuilder();
+                                sb2.append("no consumer for this message: ");
+                                sb2.append(message.what);
+                                throw new RuntimeException(sb2.toString());
+                            }
+                    }
+                    videoBase.getWindow().clearFlags(128);
                 }
-                VideoBase.this.getWindow().clearFlags(128);
             }
         }
     }
@@ -302,7 +308,7 @@ public abstract class VideoBase extends BaseModule implements Listener, CameraAc
 
     public VideoBase(String str) {
         TAG = str;
-        this.mHandler = new MainHandler();
+        this.mHandler = new MainHandler(this);
     }
 
     private String createName(long j, int i) {
@@ -492,6 +498,7 @@ public abstract class VideoBase extends BaseModule implements Listener, CameraAc
             this.mMetaDataDisposable.dispose();
         }
         if (this.mCamera2Device != null) {
+            this.mCamera2Device.setMetaDataCallback(null);
             this.mCamera2Device.setFocusCallback(null);
             this.mCamera2Device.setErrorCallback(null);
             unlockAEAF();
@@ -937,7 +944,7 @@ public abstract class VideoBase extends BaseModule implements Listener, CameraAc
     }
 
     public void onFaceDetected(CameraHardwareFace[] cameraHardwareFaceArr, FaceAnalyzeInfo faceAnalyzeInfo) {
-        if (isCreated() && cameraHardwareFaceArr != null && b.iF()) {
+        if (isCreated() && cameraHardwareFaceArr != null && b.iI()) {
             boolean z = cameraHardwareFaceArr.length > 0;
             if (z != this.mFaceDetected && isFrontCamera() && this.mModuleIndex == 162) {
                 this.mCamera2Device.resumePreview();

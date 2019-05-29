@@ -63,7 +63,7 @@ public class EyeLightConstant {
                         break;
                     }
             }
-        } else if (str.equals(OFF)) {
+        } else if (str.equals("-1")) {
             c = 0;
             switch (c) {
                 case 0:
@@ -158,7 +158,7 @@ public class EyeLightConstant {
                         break;
                     }
             }
-        } else if (str.equals(OFF)) {
+        } else if (str.equals("-1")) {
             c = 0;
             switch (c) {
                 case 0:

@@ -24,7 +24,7 @@
 
 
 # instance fields
-.field final kb:Ljava/util/List;
+.field final kc:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -49,7 +49,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/model/o$a$a;->kb:Ljava/util/List;
+    iput-object p1, p0, Lcom/bumptech/glide/load/model/o$a$a;->kc:Ljava/util/List;
 
     return-void
 .end method

@@ -10,6 +10,8 @@ import java.util.List;
 public class DrawYuvAttribute extends DrawAttribute {
     public boolean mApplyWaterMark;
     public EffectRectAttribute mAttribute;
+    public int mBlockHeight;
+    public int mBlockWidth;
     public int[] mCoordinatesOfTheRegionUnderWatermarks;
     public byte[] mDataOfTheRegionUnderWatermarks;
     public long mDate;
@@ -19,6 +21,8 @@ public class DrawYuvAttribute extends DrawAttribute {
     public int mJpegQuality;
     public int mJpegRotation;
     public boolean mMirror;
+    public int mOffsetUV;
+    public int mOffsetY;
     public int mOrientation;
     public Size mOriginalSize;
     public Size mOutputSize;

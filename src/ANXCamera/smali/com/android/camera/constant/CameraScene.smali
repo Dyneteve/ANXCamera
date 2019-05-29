@@ -30,6 +30,8 @@
 
 .field public static final NIGHT_PORTRAIT:Ljava/lang/String; = "6"
 
+.field public static final OFF:Ljava/lang/String; = "-1"
+
 .field public static final PORTRAIT:Ljava/lang/String; = "3"
 
 .field public static final SNOW:Ljava/lang/String; = "9"

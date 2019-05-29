@@ -11,12 +11,12 @@ import com.bumptech.glide.util.k;
 
 /* compiled from: BitmapResource */
 public class f implements l, p<Bitmap> {
-    private final d ak;
+    private final d al;
     private final Bitmap bitmap;
 
     public f(@NonNull Bitmap bitmap2, @NonNull d dVar) {
         this.bitmap = (Bitmap) i.a(bitmap2, "Bitmap must not be null");
-        this.ak = (d) i.a(dVar, "BitmapPool must not be null");
+        this.al = (d) i.a(dVar, "BitmapPool must not be null");
     }
 
     @Nullable
@@ -47,6 +47,6 @@ public class f implements l, p<Bitmap> {
     }
 
     public void recycle() {
-        this.ak.d(this.bitmap);
+        this.al.d(this.bitmap);
     }
 }

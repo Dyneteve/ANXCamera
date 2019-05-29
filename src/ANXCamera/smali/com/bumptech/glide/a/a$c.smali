@@ -15,9 +15,9 @@
 
 
 # instance fields
-.field final synthetic bT:Lcom/bumptech/glide/a/a;
+.field final synthetic bU:Lcom/bumptech/glide/a/a;
 
-.field private bW:Lcom/bumptech/glide/a/a$b;
+.field private bX:Lcom/bumptech/glide/a/a$b;
 
 .field cleanFiles:[Ljava/io/File;
 
@@ -36,7 +36,7 @@
 .method private constructor <init>(Lcom/bumptech/glide/a/a;Ljava/lang/String;)V
     .locals 6
 
-    iput-object p1, p0, Lcom/bumptech/glide/a/a$c;->bT:Lcom/bumptech/glide/a/a;
+    iput-object p1, p0, Lcom/bumptech/glide/a/a$c;->bU:Lcom/bumptech/glide/a/a;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -154,7 +154,7 @@
 .method static synthetic a(Lcom/bumptech/glide/a/a$c;)Lcom/bumptech/glide/a/a$b;
     .locals 0
 
-    iget-object p0, p0, Lcom/bumptech/glide/a/a$c;->bW:Lcom/bumptech/glide/a/a$b;
+    iget-object p0, p0, Lcom/bumptech/glide/a/a$c;->bX:Lcom/bumptech/glide/a/a$b;
 
     return-object p0
 .end method
@@ -162,7 +162,7 @@
 .method static synthetic a(Lcom/bumptech/glide/a/a$c;Lcom/bumptech/glide/a/a$b;)Lcom/bumptech/glide/a/a$b;
     .locals 0
 
-    iput-object p1, p0, Lcom/bumptech/glide/a/a$c;->bW:Lcom/bumptech/glide/a/a$b;
+    iput-object p1, p0, Lcom/bumptech/glide/a/a$c;->bX:Lcom/bumptech/glide/a/a$b;
 
     return-object p1
 .end method
@@ -263,7 +263,7 @@
 
     array-length v0, p1
 
-    iget-object v1, p0, Lcom/bumptech/glide/a/a$c;->bT:Lcom/bumptech/glide/a/a;
+    iget-object v1, p0, Lcom/bumptech/glide/a/a$c;->bU:Lcom/bumptech/glide/a/a;
 
     invoke-static {v1}, Lcom/bumptech/glide/a/a;->e(Lcom/bumptech/glide/a/a;)I
 

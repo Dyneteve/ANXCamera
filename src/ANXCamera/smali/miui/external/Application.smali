@@ -207,7 +207,7 @@
     # invoke-direct {p0, v1}, Lmiui/external/Application;->handleGenericError(Ljava/lang/Throwable;)V
 
     # return v0
-    
+
     .locals 1
 
     .prologue

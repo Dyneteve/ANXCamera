@@ -19,7 +19,7 @@
 
 .field private static final TAG:Ljava/lang/String; = "FactoryPools"
 
-.field private static final qg:Lcom/bumptech/glide/util/a/a$d;
+.field private static final qh:Lcom/bumptech/glide/util/a/a$d;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/util/a/a$d<",
@@ -38,7 +38,7 @@
 
     invoke-direct {v0}, Lcom/bumptech/glide/util/a/a$1;-><init>()V
 
-    sput-object v0, Lcom/bumptech/glide/util/a/a;->qg:Lcom/bumptech/glide/util/a/a$d;
+    sput-object v0, Lcom/bumptech/glide/util/a/a;->qh:Lcom/bumptech/glide/util/a/a$d;
 
     return-void
 .end method
@@ -268,7 +268,7 @@
         }
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/util/a/a;->qg:Lcom/bumptech/glide/util/a/a$d;
+    sget-object v0, Lcom/bumptech/glide/util/a/a;->qh:Lcom/bumptech/glide/util/a/a$d;
 
     return-object v0
 .end method

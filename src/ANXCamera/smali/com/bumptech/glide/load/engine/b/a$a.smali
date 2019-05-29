@@ -18,15 +18,15 @@
 
 
 # static fields
-.field private static final iP:I = 0x9
+.field private static final iQ:I = 0x9
 
 
 # instance fields
-.field final iQ:Lcom/bumptech/glide/load/engine/b/a$b;
+.field final iR:Lcom/bumptech/glide/load/engine/b/a$b;
 
-.field final iR:Z
+.field final iS:Z
 
-.field private iS:I
+.field private iT:I
 
 .field private final name:Ljava/lang/String;
 
@@ -39,9 +39,9 @@
 
     iput-object p1, p0, Lcom/bumptech/glide/load/engine/b/a$a;->name:Ljava/lang/String;
 
-    iput-object p2, p0, Lcom/bumptech/glide/load/engine/b/a$a;->iQ:Lcom/bumptech/glide/load/engine/b/a$b;
+    iput-object p2, p0, Lcom/bumptech/glide/load/engine/b/a$a;->iR:Lcom/bumptech/glide/load/engine/b/a$b;
 
-    iput-boolean p3, p0, Lcom/bumptech/glide/load/engine/b/a$a;->iR:Z
+    iput-boolean p3, p0, Lcom/bumptech/glide/load/engine/b/a$a;->iS:Z
 
     return-void
 .end method
@@ -76,7 +76,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v2, p0, Lcom/bumptech/glide/load/engine/b/a$a;->iS:I
+    iget v2, p0, Lcom/bumptech/glide/load/engine/b/a$a;->iT:I
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -86,11 +86,11 @@
 
     invoke-direct {v0, p0, p1, v1}, Lcom/bumptech/glide/load/engine/b/a$a$1;-><init>(Lcom/bumptech/glide/load/engine/b/a$a;Ljava/lang/Runnable;Ljava/lang/String;)V
 
-    iget p1, p0, Lcom/bumptech/glide/load/engine/b/a$a;->iS:I
+    iget p1, p0, Lcom/bumptech/glide/load/engine/b/a$a;->iT:I
 
     add-int/lit8 p1, p1, 0x1
 
-    iput p1, p0, Lcom/bumptech/glide/load/engine/b/a$a;->iS:I
+    iput p1, p0, Lcom/bumptech/glide/load/engine/b/a$a;->iT:I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

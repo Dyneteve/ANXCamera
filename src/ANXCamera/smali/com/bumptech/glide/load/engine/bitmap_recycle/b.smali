@@ -4,7 +4,7 @@
 
 
 # static fields
-.field public static final hc:I = 0x10000
+.field public static final hd:I = 0x10000
 
 
 # virtual methods

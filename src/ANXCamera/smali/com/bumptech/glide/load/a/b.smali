@@ -24,9 +24,9 @@
 
 
 # instance fields
-.field private final dM:Ljava/lang/String;
+.field private final dN:Ljava/lang/String;
 
-.field private final dN:Landroid/content/res/AssetManager;
+.field private final dO:Landroid/content/res/AssetManager;
 
 .field private data:Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
@@ -43,9 +43,9 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/a/b;->dN:Landroid/content/res/AssetManager;
+    iput-object p1, p0, Lcom/bumptech/glide/load/a/b;->dO:Landroid/content/res/AssetManager;
 
-    iput-object p2, p0, Lcom/bumptech/glide/load/a/b;->dM:Ljava/lang/String;
+    iput-object p2, p0, Lcom/bumptech/glide/load/a/b;->dN:Ljava/lang/String;
 
     return-void
 .end method
@@ -89,9 +89,9 @@
     .end annotation
 
     :try_start_0
-    iget-object p1, p0, Lcom/bumptech/glide/load/a/b;->dN:Landroid/content/res/AssetManager;
+    iget-object p1, p0, Lcom/bumptech/glide/load/a/b;->dO:Landroid/content/res/AssetManager;
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/a/b;->dM:Ljava/lang/String;
+    iget-object v0, p0, Lcom/bumptech/glide/load/a/b;->dN:Ljava/lang/String;
 
     invoke-virtual {p0, p1, v0}, Lcom/bumptech/glide/load/a/b;->a(Landroid/content/res/AssetManager;Ljava/lang/String;)Ljava/lang/Object;
 
@@ -139,7 +139,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/load/DataSource;->dc:Lcom/bumptech/glide/load/DataSource;
+    sget-object v0, Lcom/bumptech/glide/load/DataSource;->dd:Lcom/bumptech/glide/load/DataSource;
 
     return-object v0
 .end method

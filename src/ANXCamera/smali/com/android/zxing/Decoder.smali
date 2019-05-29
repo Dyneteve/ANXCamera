@@ -155,7 +155,7 @@
     return v0
 .end method
 
-.method public abstract onPreviewFrame(Landroid/media/Image;III)V
+.method public abstract onPreviewFrame(Landroid/media/Image;I)V
 .end method
 
 .method public quit()V
@@ -211,12 +211,6 @@
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/zxing/Decoder;->mDecoding:Z
-
-    return-void
-.end method
-
-.method public updatePreviewSize(II)V
-    .locals 0
 
     return-void
 .end method

@@ -16,6 +16,8 @@
 
 
 # instance fields
+.field private volatile mInitialized:Z
+
 .field private volatile mIsResumed:Z
 
 .field private mLensliteApi:Lcom/google/android/libraries/lens/lenslite/LensliteApi;
@@ -57,7 +59,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a0150
+    const v4, 0x7f0a0126
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -81,7 +83,7 @@
 
     invoke-virtual {v0, v4}, Lcom/google/android/libraries/lens/lenslite/LensliteUiController;->setChipLocation(Landroid/graphics/PointF;)V
 
-    const v3, 0x7f020027
+    const v3, 0x7f02002d
 
     invoke-virtual {v0, v3}, Lcom/google/android/libraries/lens/lenslite/LensliteUiController;->setChipDrawable(I)V
 
@@ -127,7 +129,7 @@
 
     iput v6, v7, Landroid/widget/LinearLayout$LayoutParams;->height:I
 
-    const v9, 0x7f0a0152
+    const v9, 0x7f0a0128
 
     invoke-virtual {v1, v9}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -141,7 +143,7 @@
 
     invoke-virtual {v3, v5}, Landroid/widget/TextView;->setTextColor(I)V
 
-    const v7, 0x7f0a0151
+    const v7, 0x7f0a0127
 
     invoke-virtual {v1, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -162,7 +164,7 @@
 
     if-eqz v3, :cond_1
 
-    const v8, 0x7f02002a
+    const v8, 0x7f020030
 
     invoke-virtual {v3, v8}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -172,7 +174,7 @@
 
     invoke-virtual {v3, v5}, Landroid/widget/ImageView;->setImageTintList(Landroid/content/res/ColorStateList;)V
 
-    const v5, 0x7f0a0157
+    const v5, 0x7f0a012d
 
     invoke-virtual {v1, v5}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -196,7 +198,7 @@
 
     const-string v6, "cancel_margin_left"
 
-    const v8, 0x7f0a0158
+    const v8, 0x7f0a012e
 
     invoke-virtual {v1, v8}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -208,7 +210,7 @@
 
     const-string v8, "cancel_margin_right"
 
-    const v9, 0x7f0a0159
+    const v9, 0x7f0a012f
 
     invoke-virtual {v1, v9}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -282,7 +284,7 @@
 
     const-string v5, "icon_margin_left"
 
-    const v6, 0x7f0a0155
+    const v6, 0x7f0a012b
 
     invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -294,7 +296,7 @@
 
     const-string v6, "icon_margin_right"
 
-    const v7, 0x7f0a0156
+    const v7, 0x7f0a012c
 
     invoke-virtual {v1, v7}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -333,7 +335,7 @@
     invoke-virtual {p2, v3}, Landroid/widget/FrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     :cond_3
-    const p2, 0x7f02002c
+    const p2, 0x7f020032
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -343,7 +345,7 @@
 
     nop
 
-    const p2, 0x7f02002d
+    const p2, 0x7f020033
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -353,7 +355,7 @@
 
     const/4 v1, 0x2
 
-    const v2, 0x7f020028
+    const v2, 0x7f02002e
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -363,7 +365,7 @@
 
     const/4 v1, 0x3
 
-    const v2, 0x7f02002f
+    const v2, 0x7f020035
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -373,7 +375,7 @@
 
     const/4 v1, 0x4
 
-    const v2, 0x7f02002b
+    const v2, 0x7f020031
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -383,7 +385,7 @@
 
     const/4 v1, 0x5
 
-    const v2, 0x7f020030
+    const v2, 0x7f020036
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -433,7 +435,7 @@
 
     const/16 p2, 0xe
 
-    const v1, 0x7f020029
+    const v1, 0x7f02002f
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -443,7 +445,7 @@
 
     const/16 p2, 0x12
 
-    const v1, 0x7f02002e
+    const v1, 0x7f020034
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -667,6 +669,10 @@
 
     invoke-direct {p0, p1, p3}, Lcom/android/lens/LensAgent;->applyCustomStyle(Landroid/content/Context;Landroid/view/ViewGroup;)V
 
+    const/4 p1, 0x1
+
+    iput-boolean p1, p0, Lcom/android/lens/LensAgent;->mInitialized:Z
+
     return-void
 .end method
 
@@ -677,6 +683,13 @@
         .end annotation
     .end param
 
+    iget-boolean v0, p0, Lcom/android/lens/LensAgent;->mInitialized:Z
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
     const-string v0, "LensAgent"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -740,17 +753,28 @@
 .method public onNewImage(Landroid/media/Image;I)V
     .locals 1
 
+    iget-boolean v0, p0, Lcom/android/lens/LensAgent;->mInitialized:Z
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
     iget-boolean v0, p0, Lcom/android/lens/LensAgent;->mIsResumed:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/lens/LensAgent;->mLensliteApi:Lcom/google/android/libraries/lens/lenslite/LensliteApi;
 
-    invoke-virtual {v0, p1, p2}, Lcom/google/android/libraries/lens/lenslite/LensliteApi;->onNewImage(Landroid/media/Image;I)V
+    invoke-static {p1, p2}, Lcom/google/android/libraries/lens/lenslite/api/LinkImage;->create(Landroid/media/Image;I)Lcom/google/android/libraries/lens/lenslite/api/LinkImage;
+
+    move-result-object p1
+
+    invoke-virtual {v0, p1}, Lcom/google/android/libraries/lens/lenslite/LensliteApi;->onNewImage(Lcom/google/android/libraries/lens/lenslite/api/LinkImage;)V
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     const-string p1, "LensAgent"
 
     const-string p2, "onNewImage: lens api not resume..."
@@ -764,13 +788,20 @@
 .method public onPause()V
     .locals 6
 
+    iget-boolean v0, p0, Lcom/android/lens/LensAgent;->mInitialized:Z
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
 
     iget-boolean v2, p0, Lcom/android/lens/LensAgent;->mIsResumed:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     const/4 v2, 0x0
 
@@ -780,7 +811,7 @@
 
     invoke-virtual {v2}, Lcom/google/android/libraries/lens/lenslite/LensliteApi;->onPause()V
 
-    :cond_0
+    :cond_1
     const-string v2, "LensAgent"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -815,13 +846,20 @@
 .method public onResume()V
     .locals 6
 
+    iget-boolean v0, p0, Lcom/android/lens/LensAgent;->mInitialized:Z
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
 
     iget-boolean v2, p0, Lcom/android/lens/LensAgent;->mIsResumed:Z
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1
 
     iget-object v2, p0, Lcom/android/lens/LensAgent;->mLensliteApi:Lcom/google/android/libraries/lens/lenslite/LensliteApi;
 
@@ -831,7 +869,7 @@
 
     iput-boolean v2, p0, Lcom/android/lens/LensAgent;->mIsResumed:Z
 
-    :cond_0
+    :cond_1
     const-string v2, "LensAgent"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -866,6 +904,13 @@
 .method public release()V
     .locals 6
 
+    iget-boolean v0, p0, Lcom/android/lens/LensAgent;->mInitialized:Z
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
@@ -902,12 +947,23 @@
 
     invoke-static {v2, v0}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/lens/LensAgent;->mInitialized:Z
+
     return-void
 .end method
 
 .method public showOrHideChip(Z)V
     .locals 1
 
+    iget-boolean v0, p0, Lcom/android/lens/LensAgent;->mInitialized:Z
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
     iget-object v0, p0, Lcom/android/lens/LensAgent;->mLensliteApi:Lcom/google/android/libraries/lens/lenslite/LensliteApi;
 
     invoke-virtual {v0}, Lcom/google/android/libraries/lens/lenslite/LensliteApi;->getUiController()Lcom/google/android/libraries/lens/lenslite/LensliteUiController;

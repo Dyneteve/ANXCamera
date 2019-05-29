@@ -15,14 +15,14 @@
 
 
 # instance fields
-.field final synthetic mV:Lcom/bumptech/glide/manager/e;
+.field final synthetic mW:Lcom/bumptech/glide/manager/e;
 
 
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/manager/e;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/bumptech/glide/manager/e$1;->mV:Lcom/bumptech/glide/manager/e;
+    iput-object p1, p0, Lcom/bumptech/glide/manager/e$1;->mW:Lcom/bumptech/glide/manager/e;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
@@ -38,13 +38,13 @@
         .end annotation
     .end param
 
-    iget-object p2, p0, Lcom/bumptech/glide/manager/e$1;->mV:Lcom/bumptech/glide/manager/e;
+    iget-object p2, p0, Lcom/bumptech/glide/manager/e$1;->mW:Lcom/bumptech/glide/manager/e;
 
     iget-boolean p2, p2, Lcom/bumptech/glide/manager/e;->isConnected:Z
 
-    iget-object v0, p0, Lcom/bumptech/glide/manager/e$1;->mV:Lcom/bumptech/glide/manager/e;
+    iget-object v0, p0, Lcom/bumptech/glide/manager/e$1;->mW:Lcom/bumptech/glide/manager/e;
 
-    iget-object v1, p0, Lcom/bumptech/glide/manager/e$1;->mV:Lcom/bumptech/glide/manager/e;
+    iget-object v1, p0, Lcom/bumptech/glide/manager/e$1;->mW:Lcom/bumptech/glide/manager/e;
 
     invoke-virtual {v1, p1}, Lcom/bumptech/glide/manager/e;->isConnected(Landroid/content/Context;)Z
 
@@ -52,7 +52,7 @@
 
     iput-boolean p1, v0, Lcom/bumptech/glide/manager/e;->isConnected:Z
 
-    iget-object p1, p0, Lcom/bumptech/glide/manager/e$1;->mV:Lcom/bumptech/glide/manager/e;
+    iget-object p1, p0, Lcom/bumptech/glide/manager/e$1;->mW:Lcom/bumptech/glide/manager/e;
 
     iget-boolean p1, p1, Lcom/bumptech/glide/manager/e;->isConnected:Z
 
@@ -78,7 +78,7 @@
 
     invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v0, p0, Lcom/bumptech/glide/manager/e$1;->mV:Lcom/bumptech/glide/manager/e;
+    iget-object v0, p0, Lcom/bumptech/glide/manager/e$1;->mW:Lcom/bumptech/glide/manager/e;
 
     iget-boolean v0, v0, Lcom/bumptech/glide/manager/e;->isConnected:Z
 
@@ -91,11 +91,11 @@
     invoke-static {p1, p2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    iget-object p1, p0, Lcom/bumptech/glide/manager/e$1;->mV:Lcom/bumptech/glide/manager/e;
+    iget-object p1, p0, Lcom/bumptech/glide/manager/e$1;->mW:Lcom/bumptech/glide/manager/e;
 
-    iget-object p1, p1, Lcom/bumptech/glide/manager/e;->mS:Lcom/bumptech/glide/manager/c$a;
+    iget-object p1, p1, Lcom/bumptech/glide/manager/e;->mT:Lcom/bumptech/glide/manager/c$a;
 
-    iget-object p2, p0, Lcom/bumptech/glide/manager/e$1;->mV:Lcom/bumptech/glide/manager/e;
+    iget-object p2, p0, Lcom/bumptech/glide/manager/e$1;->mW:Lcom/bumptech/glide/manager/e;
 
     iget-boolean p2, p2, Lcom/bumptech/glide/manager/e;->isConnected:Z
 

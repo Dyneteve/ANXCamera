@@ -148,7 +148,7 @@ public class Camera2DataContainer {
         return (this.mCapabilities == null || this.mOrderedCameraIds == null) ? false : true;
     }
 
-    /* JADX WARNING: Code restructure failed: missing block: B:87:0x014c, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:97:0x0184, code lost:
         r2 = r8;
      */
     /* Code decompiled incorrectly, please refer to instructions dump. */
@@ -195,25 +195,20 @@ public class Camera2DataContainer {
                     case 163:
                     case 165:
                         if (!CameraSettings.isMacroModeEnabled(i2)) {
-                            if (!CameraSettings.isUltraPixelOn()) {
-                                if (CameraSettings.isDualCameraSatEnable() && b.isSupportedOpticalZoom()) {
-                                    if (componentConfigUltraWide.isUltraWideOnInMode(i2) && !HybridZoomingSystem.IS_3_OR_MORE_SAT) {
-                                        i3 = getUltraWideCameraId();
-                                        break;
-                                    } else {
-                                        i3 = getSATCameraId();
-                                        break;
-                                    }
-                                } else if (!componentConfigUltraWide.isUltraWideOnInMode(i2)) {
-                                    i3 = getMainBackCameraId();
+                            int mainBackCameraId = CameraSettings.isUltraPixelOn() ? getMainBackCameraId() : (!CameraSettings.isDualCameraSatEnable() || !b.isSupportedOpticalZoom()) ? componentConfigUltraWide.isUltraWideOnInMode(i2) ? getUltraWideCameraId() : getMainBackCameraId() : (!componentConfigUltraWide.isUltraWideOnInMode(i2) || HybridZoomingSystem.IS_3_OR_MORE_SAT) ? getSATCameraId() : getUltraWideCameraId();
+                            if (!CameraSettings.isSupportedOpticalZoom() && HybridZoomingSystem.IS_3_OR_MORE_SAT && !CameraSettings.isUltraPixelOn()) {
+                                float f2 = HybridZoomingSystem.toFloat(HybridZoomingSystem.getZoomRatioHistory(i2, "1.0"), 1.0f);
+                                String str2 = TAG;
+                                StringBuilder sb2 = new StringBuilder();
+                                sb2.append("Currently user selected zoom ratio is ");
+                                sb2.append(f2);
+                                Log.d(str2, sb2.toString());
+                                if (f2 >= HybridZoomingSystem.FLOAT_ZOOM_RATIO_WIDE) {
                                     break;
                                 } else {
                                     i3 = getUltraWideCameraId();
                                     break;
                                 }
-                            } else {
-                                i3 = getMainBackCameraId();
-                                break;
                             }
                         } else {
                             i3 = getUltraWideCameraId();
@@ -262,7 +257,7 @@ public class Camera2DataContainer {
                     }
                 } else if (getBokehFrontCameraId() != -1) {
                     boolean isIntentAction = DataRepository.dataItemGlobal().isIntentAction();
-                    if (!b.iF() || isIntentAction) {
+                    if (!b.iI() || isIntentAction) {
                         i3 = getBokehFrontCameraId();
                     }
                 }
@@ -355,7 +350,7 @@ public class Camera2DataContainer {
         if (!isInitialized()) {
             Log.d(TAG, "Warning: getSATCameraId(): #init() failed.");
             return -1;
-        } else if (HybridZoomingSystem.IS_3_SAT) {
+        } else if (HybridZoomingSystem.IS_3_SAT && CameraSettings.isSupportedOpticalZoom()) {
             return 120;
         } else {
             return this.mOrderedCameraIds[2];

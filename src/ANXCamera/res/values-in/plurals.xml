@@ -3,4 +3,7 @@
     <plurals name="accessibility_focus_face_detect">
         <item quantity="other">Fokus. %d muka terdeteksi</item>
     </plurals>
+    <plurals name="toast_burst_snap_finished_summary">
+        <item quantity="other">Burst shot done, %1$s photos taken</item>
+    </plurals>
 </resources>

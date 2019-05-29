@@ -15,6 +15,14 @@
 
 
 # static fields
+.field public static final av_tabText:I = 0x7f010021
+
+.field public static final av_tabTextSize:I = 0x7f010022
+
+.field public static final av_textColorNormal:I = 0x7f010023
+
+.field public static final av_textColorSelected:I = 0x7f010024
+
 .field public static final backgroundColor:I = 0x7f010011
 
 .field public static final backgroundStrokeColor:I = 0x7f010012

@@ -20,46 +20,46 @@ import java.io.InputStream;
 /* compiled from: ThumbFetcher */
 public class c implements d<InputStream> {
     private static final String TAG = "MediaStoreThumbFetcher";
-    private final Uri en;
-    private final e eo;
+    private final Uri eo;
+    private final e ep;
     private InputStream inputStream;
 
     /* compiled from: ThumbFetcher */
     static class a implements d {
-        private static final String[] ep = {"_data"};
-        private static final String eq = "kind = 1 AND image_id = ?";
-        private final ContentResolver ee;
+        private static final String[] eq = {"_data"};
+        private static final String er = "kind = 1 AND image_id = ?";
+        private final ContentResolver ef;
 
         a(ContentResolver contentResolver) {
-            this.ee = contentResolver;
+            this.ef = contentResolver;
         }
 
         public Cursor g(Uri uri) {
             String lastPathSegment = uri.getLastPathSegment();
-            return this.ee.query(Thumbnails.EXTERNAL_CONTENT_URI, ep, eq, new String[]{lastPathSegment}, null);
+            return this.ef.query(Thumbnails.EXTERNAL_CONTENT_URI, eq, er, new String[]{lastPathSegment}, null);
         }
     }
 
     /* compiled from: ThumbFetcher */
     static class b implements d {
-        private static final String[] ep = {"_data"};
-        private static final String eq = "kind = 1 AND video_id = ?";
-        private final ContentResolver ee;
+        private static final String[] eq = {"_data"};
+        private static final String er = "kind = 1 AND video_id = ?";
+        private final ContentResolver ef;
 
         b(ContentResolver contentResolver) {
-            this.ee = contentResolver;
+            this.ef = contentResolver;
         }
 
         public Cursor g(Uri uri) {
             String lastPathSegment = uri.getLastPathSegment();
-            return this.ee.query(Video.Thumbnails.EXTERNAL_CONTENT_URI, ep, eq, new String[]{lastPathSegment}, null);
+            return this.ef.query(Video.Thumbnails.EXTERNAL_CONTENT_URI, eq, er, new String[]{lastPathSegment}, null);
         }
     }
 
     @VisibleForTesting
     c(Uri uri, e eVar) {
-        this.en = uri;
-        this.eo = eVar;
+        this.eo = uri;
+        this.ep = eVar;
     }
 
     private static c a(Context context, Uri uri, d dVar) {
@@ -67,8 +67,8 @@ public class c implements d<InputStream> {
     }
 
     private InputStream ao() throws FileNotFoundException {
-        InputStream i = this.eo.i(this.en);
-        int h = i != null ? this.eo.h(this.en) : -1;
+        InputStream i = this.ep.i(this.eo);
+        int h = i != null ? this.ep.h(this.eo) : -1;
         return h != -1 ? new g(i, h) : i;
     }
 

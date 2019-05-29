@@ -3113,7 +3113,7 @@
 
     invoke-interface {v0, v1, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {}, Lcom/mi/config/b;->iw()Z
+    invoke-static {}, Lcom/mi/config/b;->iz()Z
 
     move-result v1
 
@@ -5690,7 +5690,7 @@
 .end method
 
 .method public static trackPictureTaken(IZIZZLjava/lang/String;)V
-    .locals 3
+    .locals 5
 
     new-instance v0, Ljava/util/HashMap;
 
@@ -5748,61 +5748,83 @@
     :goto_1
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string v1, "\u53cc\u6444\u6c34\u5370"
-
     invoke-static {}, Lcom/android/camera/CameraSettings;->isDualCameraWaterMarkOpen()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_2
+    const/4 v2, 0x1
 
-    const-string v2, "on"
+    if-nez v1, :cond_3
+
+    invoke-static {}, Lcom/android/camera/CameraSettings;->isFrontCameraWaterMarkOpen()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
 
     goto :goto_2
 
     :cond_2
-    const-string v2, "off"
-
-    :goto_2
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    const-string v1, "\u5730\u7406\u4f4d\u7f6e"
-
-    if-eqz p4, :cond_3
-
-    const-string p4, "\u6709"
+    const/4 v1, 0x0
 
     goto :goto_3
 
     :cond_3
+    :goto_2
+    move v1, v2
+
+    :goto_3
+    const-string v3, "\u673a\u578b\u6c34\u5370"
+
+    if-eqz v1, :cond_4
+
+    const-string v1, "on"
+
+    goto :goto_4
+
+    :cond_4
+    const-string v1, "off"
+
+    :goto_4
+    invoke-interface {v0, v3, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v1, "\u5730\u7406\u4f4d\u7f6e"
+
+    if-eqz p4, :cond_5
+
+    const-string p4, "\u6709"
+
+    goto :goto_5
+
+    :cond_5
     invoke-static {}, Lcom/android/camera/CameraSettings;->isRecordLocation()Z
 
     move-result p4
 
-    if-eqz p4, :cond_4
+    if-eqz p4, :cond_6
 
     const-string p4, "\u65e0"
 
-    goto :goto_3
+    goto :goto_5
 
-    :cond_4
+    :cond_6
     const-string p4, "\u5173"
 
-    :goto_3
+    :goto_5
     invoke-interface {v0, v1, p4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    if-eqz p5, :cond_5
+    if-eqz p5, :cond_7
 
     const-string p4, "\u667a\u80fd\u573a\u666f\u53d1\u73b0"
 
     invoke-interface {v0, p4, p5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_5
+    :cond_7
     const/16 p4, 0xab
 
-    if-ne p2, p4, :cond_6
+    if-ne p2, p4, :cond_8
 
-    if-nez p3, :cond_6
+    if-nez p3, :cond_8
 
     const-string p4, "\u5149\u6548"
 
@@ -5816,23 +5838,23 @@
 
     invoke-interface {v0, p4, p5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_6
+    :cond_8
     const-string p4, "\u52a8\u6001\u7167\u7247"
 
     invoke-static {}, Lcom/android/camera/CameraSettings;->isLiveShotOn()Z
 
     move-result p5
 
-    if-eqz p5, :cond_7
+    if-eqz p5, :cond_9
 
     const-string p5, "on"
 
-    goto :goto_4
+    goto :goto_6
 
-    :cond_7
+    :cond_9
     const-string p5, "off"
 
-    :goto_4
+    :goto_6
     invoke-interface {v0, p4, p5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     invoke-static {p3, v0}, Lcom/android/camera/statistic/CameraStatUtil;->addUltraPixelParameter(ZLjava/util/Map;)V
@@ -5841,25 +5863,23 @@
 
     const-string p4, "picture_taken"
 
-    int-to-long v1, p0
+    int-to-long v3, p0
 
-    invoke-static {p3, p4, v1, v2, v0}, Lcom/android/camera/statistic/CameraStat;->recordCalculateEvent(Ljava/lang/String;Ljava/lang/String;JLjava/util/Map;)V
+    invoke-static {p3, p4, v3, v4, v0}, Lcom/android/camera/statistic/CameraStat;->recordCalculateEvent(Ljava/lang/String;Ljava/lang/String;JLjava/util/Map;)V
 
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_b
 
     invoke-static {}, Lcom/android/camera/CameraSettings;->isPressDownCapture()Z
 
     move-result p1
 
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_a
 
-    const/4 p1, 0x1
-
-    if-le p0, p1, :cond_8
+    if-le p0, v2, :cond_a
 
     add-int/lit8 p0, p0, -0x1
 
-    :cond_8
+    :cond_a
     new-instance p1, Ljava/util/HashMap;
 
     invoke-direct {p1}, Ljava/util/HashMap;-><init>()V
@@ -5886,7 +5906,7 @@
 
     invoke-static {p0, p3, p1}, Lcom/android/camera/statistic/CameraStat;->recordCountEvent(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;)V
 
-    :cond_9
+    :cond_b
     invoke-static {p2}, Lcom/android/camera/statistic/CameraStatUtil;->trackMacroModeTaken(I)V
 
     return-void

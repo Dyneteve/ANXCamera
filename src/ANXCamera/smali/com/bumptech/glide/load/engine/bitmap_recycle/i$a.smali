@@ -18,9 +18,9 @@
 
 
 # instance fields
-.field private final hq:Lcom/bumptech/glide/load/engine/bitmap_recycle/i$b;
+.field private final hr:Lcom/bumptech/glide/load/engine/bitmap_recycle/i$b;
 
-.field private hr:Ljava/lang/Class;
+.field private hs:Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/Class<",
@@ -38,7 +38,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i$a;->hq:Lcom/bumptech/glide/load/engine/bitmap_recycle/i$b;
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i$a;->hr:Lcom/bumptech/glide/load/engine/bitmap_recycle/i$b;
 
     return-void
 .end method
@@ -48,7 +48,7 @@
 .method public bm()V
     .locals 1
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i$a;->hq:Lcom/bumptech/glide/load/engine/bitmap_recycle/i$b;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i$a;->hr:Lcom/bumptech/glide/load/engine/bitmap_recycle/i$b;
 
     invoke-virtual {v0, p0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/i$b;->a(Lcom/bumptech/glide/load/engine/bitmap_recycle/l;)V
 
@@ -67,7 +67,7 @@
 
     iput p1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i$a;->size:I
 
-    iput-object p2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i$a;->hr:Ljava/lang/Class;
+    iput-object p2, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i$a;->hs:Ljava/lang/Class;
 
     return-void
 .end method
@@ -89,9 +89,9 @@
 
     if-ne v0, v2, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i$a;->hr:Ljava/lang/Class;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i$a;->hs:Ljava/lang/Class;
 
-    iget-object p1, p1, Lcom/bumptech/glide/load/engine/bitmap_recycle/i$a;->hr:Ljava/lang/Class;
+    iget-object p1, p1, Lcom/bumptech/glide/load/engine/bitmap_recycle/i$a;->hs:Ljava/lang/Class;
 
     if-ne v0, p1, :cond_0
 
@@ -115,11 +115,11 @@
 
     mul-int/2addr v1, v0
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i$a;->hr:Ljava/lang/Class;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i$a;->hs:Ljava/lang/Class;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i$a;->hr:Ljava/lang/Class;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i$a;->hs:Ljava/lang/Class;
 
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
@@ -155,7 +155,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i$a;->hr:Ljava/lang/Class;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/i$a;->hs:Ljava/lang/Class;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 

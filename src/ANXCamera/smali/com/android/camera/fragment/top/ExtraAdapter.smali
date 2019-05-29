@@ -174,21 +174,21 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0200dd
+    const v0, 0x7f0200e3
 
     const v1, 0x7f09017a
 
     goto/16 :goto_0
 
     :cond_0
-    const v0, 0x7f0200dc
+    const v0, 0x7f0200e2
 
     const v1, 0x7f090179
 
     goto/16 :goto_0
 
     :pswitch_1
-    const v3, 0x7f0200f0
+    const v3, 0x7f0200f6
 
     const v0, 0x7f0901d4
 
@@ -203,7 +203,7 @@
     goto/16 :goto_3
 
     :pswitch_2
-    const v3, 0x7f0200e1
+    const v3, 0x7f0200e7
 
     const v0, 0x7f090131
 
@@ -235,7 +235,7 @@
     goto/16 :goto_2
 
     :pswitch_4
-    const v3, 0x7f0200e5
+    const v3, 0x7f0200eb
 
     const v0, 0x7f090152
 
@@ -250,14 +250,14 @@
     goto/16 :goto_3
 
     :pswitch_5
-    const v0, 0x7f0200eb
+    const v0, 0x7f0200f1
 
     const v1, 0x7f090053
 
     goto/16 :goto_0
 
     :pswitch_6
-    const v3, 0x7f0200ea
+    const v3, 0x7f0200f0
 
     const v0, 0x7f09018f
 
@@ -272,7 +272,7 @@
     goto/16 :goto_3
 
     :pswitch_7
-    const v3, 0x7f0200e6
+    const v3, 0x7f0200ec
 
     const v0, 0x7f0901d0
 
@@ -287,7 +287,7 @@
     goto/16 :goto_3
 
     :pswitch_8
-    const v3, 0x7f0200ec
+    const v3, 0x7f0200f2
 
     const v0, 0x7f0901d2
 
@@ -302,7 +302,7 @@
     goto/16 :goto_3
 
     :pswitch_9
-    const v3, 0x7f0200e3
+    const v3, 0x7f0200e9
 
     const v0, 0x7f090158
 
@@ -313,7 +313,7 @@
     goto/16 :goto_3
 
     :pswitch_a
-    const v3, 0x7f0200ed
+    const v3, 0x7f0200f3
 
     const v0, 0x7f090159
 
@@ -324,7 +324,7 @@
     goto/16 :goto_3
 
     :pswitch_b
-    const v3, 0x7f0200e9
+    const v3, 0x7f0200ef
 
     const v0, 0x7f0901d3
 
@@ -339,7 +339,7 @@
     goto/16 :goto_3
 
     :pswitch_c
-    const v3, 0x7f0200e8
+    const v3, 0x7f0200ee
 
     const v0, 0x7f0901cf
 
@@ -354,7 +354,7 @@
     goto/16 :goto_3
 
     :pswitch_d
-    const v3, 0x7f0200ef
+    const v3, 0x7f0200f5
 
     const v0, 0x7f0901ce
 
@@ -408,7 +408,7 @@
     :cond_1
     const v0, 0x7f0901d1
 
-    const v1, 0x7f0200f1
+    const v1, 0x7f0200f7
 
     nop
 
@@ -444,7 +444,7 @@
     goto :goto_2
 
     :pswitch_10
-    const v0, 0x7f0200e2
+    const v0, 0x7f0200e8
 
     const v1, 0x7f0901cd
 
@@ -463,7 +463,7 @@
     goto :goto_3
 
     :pswitch_11
-    const v3, 0x7f0200ee
+    const v3, 0x7f0200f4
 
     const v0, 0x7f0901c8
 
@@ -556,7 +556,7 @@
     goto :goto_0
 
     :cond_3
-    const v3, 0x7f0200e7
+    const v3, 0x7f0200ed
 
     const v0, 0x7f09028a
 
@@ -578,6 +578,10 @@
     move-result-object v5
 
     check-cast v5, Landroid/widget/TextView;
+
+    const/4 v6, 0x1
+
+    invoke-virtual {v5, v6}, Landroid/widget/TextView;->setSelected(Z)V
 
     const v6, 0x7f0d00a1
 
@@ -755,7 +759,7 @@
 
     move-result-object p2
 
-    const v0, 0x7f04003c
+    const v0, 0x7f04003d
 
     const/4 v1, 0x0
 

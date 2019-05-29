@@ -81,7 +81,7 @@
 
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
 
-    invoke-static {}, Lcom/mi/config/b;->gQ()Z
+    invoke-static {}, Lcom/mi/config/b;->gT()Z
 
     move-result v1
 
@@ -96,7 +96,7 @@
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :cond_0
-    invoke-static {}, Lcom/mi/config/b;->gL()Z
+    invoke-static {}, Lcom/mi/config/b;->gO()Z
 
     move-result v1
 
@@ -126,7 +126,7 @@
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :cond_2
-    const v1, 0x7f0901f4
+    const v1, 0x7f0901f2
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -134,7 +134,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-static {}, Lcom/mi/config/b;->gS()Z
+    invoke-static {}, Lcom/mi/config/b;->gV()Z
 
     move-result v1
 
@@ -172,7 +172,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const v1, 0x7f0901f2
+    const v1, 0x7f0901f0
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -195,7 +195,7 @@
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :cond_5
-    invoke-static {}, Lcom/mi/config/b;->gN()Z
+    invoke-static {}, Lcom/mi/config/b;->gQ()Z
 
     move-result v1
 
@@ -257,13 +257,13 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-static {}, Lcom/mi/config/b;->ip()Z
+    invoke-static {}, Lcom/mi/config/b;->is()Z
 
     move-result v1
 
     if-eqz v1, :cond_8
 
-    const v1, 0x7f0901f6
+    const v1, 0x7f0901f4
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 

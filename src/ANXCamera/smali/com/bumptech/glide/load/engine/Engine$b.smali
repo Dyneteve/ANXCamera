@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private final go:Lcom/bumptech/glide/load/engine/EngineJob;
+.field private final gp:Lcom/bumptech/glide/load/engine/EngineJob;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/engine/EngineJob<",
@@ -24,7 +24,7 @@
     .end annotation
 .end field
 
-.field private final gp:Lcom/bumptech/glide/request/g;
+.field private final gq:Lcom/bumptech/glide/request/g;
 
 
 # direct methods
@@ -41,9 +41,9 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/engine/Engine$b;->gp:Lcom/bumptech/glide/request/g;
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/Engine$b;->gq:Lcom/bumptech/glide/request/g;
 
-    iput-object p2, p0, Lcom/bumptech/glide/load/engine/Engine$b;->go:Lcom/bumptech/glide/load/engine/EngineJob;
+    iput-object p2, p0, Lcom/bumptech/glide/load/engine/Engine$b;->gp:Lcom/bumptech/glide/load/engine/EngineJob;
 
     return-void
 .end method
@@ -53,9 +53,9 @@
 .method public cancel()V
     .locals 2
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$b;->go:Lcom/bumptech/glide/load/engine/EngineJob;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$b;->gp:Lcom/bumptech/glide/load/engine/EngineJob;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/Engine$b;->gp:Lcom/bumptech/glide/request/g;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/Engine$b;->gq:Lcom/bumptech/glide/request/g;
 
     invoke-virtual {v0, v1}, Lcom/bumptech/glide/load/engine/EngineJob;->b(Lcom/bumptech/glide/request/g;)V
 

@@ -66,7 +66,7 @@ public class ComponentConfigFlash extends ComponentData {
     }
 
     public boolean disableUpdate() {
-        return ThermalDetector.getInstance().thermalConstrained();
+        return ThermalDetector.getInstance().thermalConstrained() && isHardwareSupported();
     }
 
     public String getComponentValue(int i) {
@@ -185,42 +185,60 @@ public class ComponentConfigFlash extends ComponentData {
         }
         this.mIsHardwareSupported = cameraCapabilities.isFlashSupported();
         if (!this.mIsHardwareSupported) {
-            if (i2 == 1 && b.iq() && (i == 163 || i == 165 || i == 171 || i == 177)) {
-                this.mItems.add(new ComponentDataItem(getFlashOffRes(), getFlashOffRes(), R.string.pref_camera_flashmode_entry_off, "0"));
-                this.mItems.add(new ComponentDataItem(getFlashAutoRes(), getFlashAutoRes(), R.string.pref_camera_flashmode_entry_auto, FLASH_VALUE_SCREEN_LIGHT_AUTO));
-                this.mItems.add(new ComponentDataItem(getFlashOnRes(), getFlashOnRes(), R.string.pref_camera_flashmode_entry_on, FLASH_VALUE_SCREEN_LIGHT_ON));
+            if (i2 == 1 && b.it()) {
+                if (i == 163 || i == 165 || i == 171) {
+                    this.mItems.add(new ComponentDataItem(getFlashOffRes(), getFlashOffRes(), R.string.pref_camera_flashmode_entry_off, "0"));
+                    this.mItems.add(new ComponentDataItem(getFlashAutoRes(), getFlashAutoRes(), R.string.pref_camera_flashmode_entry_auto, FLASH_VALUE_SCREEN_LIGHT_AUTO));
+                    this.mItems.add(new ComponentDataItem(getFlashOnRes(), getFlashOnRes(), R.string.pref_camera_flashmode_entry_on, FLASH_VALUE_SCREEN_LIGHT_ON));
+                }
+                if (i == 177) {
+                    this.mItems.add(new ComponentDataItem(getFlashOffRes(), getFlashOffRes(), R.string.pref_camera_flashmode_entry_off, "0"));
+                    this.mItems.add(new ComponentDataItem(getFlashOnRes(), getFlashOnRes(), R.string.pref_camera_flashmode_entry_on, FLASH_VALUE_SCREEN_LIGHT_ON));
+                }
             }
             return this.mItems;
         }
         this.mItems.add(new ComponentDataItem(getFlashOffRes(), getFlashOffRes(), R.string.pref_camera_flashmode_entry_off, "0"));
         if (!(i == 172 || i == 174)) {
-            switch (i) {
-                case 161:
-                case 162:
-                    break;
-                default:
-                    switch (i) {
-                        case 168:
-                        case 169:
-                        case 170:
-                            break;
-                        default:
-                            this.mItems.add(new ComponentDataItem(getFlashAutoRes(), getFlashAutoRes(), R.string.pref_camera_flashmode_entry_auto, "3"));
-                            if (CameraSettings.isBackCamera()) {
-                                this.mItems.add(new ComponentDataItem(getFlashOnRes(), getFlashOnRes(), R.string.pref_camera_flashmode_entry_on, "1"));
-                            }
-                            if (!CameraSettings.isFrontCamera() || !b.ik()) {
-                                if (b.ht()) {
-                                    this.mItems.add(new ComponentDataItem(getFlashTorchRes(), getFlashTorchRes(), R.string.pref_camera_flashmode_entry_torch, "2"));
+            if (i != 177) {
+                switch (i) {
+                    case 161:
+                    case 162:
+                        break;
+                    default:
+                        switch (i) {
+                            case 168:
+                            case 169:
+                            case 170:
+                                break;
+                            default:
+                                this.mItems.add(new ComponentDataItem(getFlashAutoRes(), getFlashAutoRes(), R.string.pref_camera_flashmode_entry_auto, "3"));
+                                if (CameraSettings.isBackCamera()) {
+                                    this.mItems.add(new ComponentDataItem(getFlashOnRes(), getFlashOnRes(), R.string.pref_camera_flashmode_entry_on, "1"));
+                                }
+                                if (!CameraSettings.isFrontCamera() || !b.in()) {
+                                    if (b.hw()) {
+                                        this.mItems.add(new ComponentDataItem(getFlashTorchRes(), getFlashTorchRes(), R.string.pref_camera_flashmode_entry_torch, "2"));
+                                        break;
+                                    }
+                                } else {
+                                    this.mItems.add(new ComponentDataItem(getFlashOnRes(), getFlashOnRes(), R.string.pref_camera_flashmode_entry_on, "2"));
                                     break;
                                 }
-                            } else {
-                                this.mItems.add(new ComponentDataItem(getFlashOnRes(), getFlashOnRes(), R.string.pref_camera_flashmode_entry_on, "2"));
                                 break;
-                            }
-                            break;
-                    }
+                        }
+                }
+            } else {
+                if (CameraSettings.isBackCamera()) {
+                    this.mItems.add(new ComponentDataItem(getFlashOnRes(), getFlashOnRes(), R.string.pref_camera_flashmode_entry_on, "1"));
+                }
+                if (CameraSettings.isFrontCamera() && b.in()) {
+                    this.mItems.add(new ComponentDataItem(getFlashOnRes(), getFlashOnRes(), R.string.pref_camera_flashmode_entry_on, "2"));
+                } else if (b.hw()) {
+                    this.mItems.add(new ComponentDataItem(getFlashTorchRes(), getFlashTorchRes(), R.string.pref_camera_flashmode_entry_torch, "2"));
+                }
             }
+            return this.mItems;
         }
         this.mItems.add(new ComponentDataItem(getFlashTorchRes(), getFlashTorchRes(), R.string.pref_camera_flashmode_entry_torch, "2"));
         return this.mItems;

@@ -739,7 +739,7 @@
 
     move-result v0
 
-    invoke-static {}, Lcom/mi/config/b;->iz()Z
+    invoke-static {}, Lcom/mi/config/b;->iC()Z
 
     move-result v1
 
@@ -904,7 +904,7 @@
 
     move-result-wide v0
 
-    invoke-static {}, Lcom/mi/config/b;->iz()Z
+    invoke-static {}, Lcom/mi/config/b;->iC()Z
 
     move-result p2
 
@@ -921,7 +921,7 @@
     move-result-wide v0
 
     :cond_1
-    invoke-static {}, Lcom/mi/config/b;->iz()Z
+    invoke-static {}, Lcom/mi/config/b;->iC()Z
 
     move-result p2
 
@@ -1492,7 +1492,7 @@
 
     move-result v0
 
-    invoke-static {}, Lcom/mi/config/b;->iz()Z
+    invoke-static {}, Lcom/mi/config/b;->iC()Z
 
     move-result v1
 
@@ -1813,7 +1813,7 @@
 .end method
 
 .method static applySceneMode(Landroid/hardware/camera2/CaptureRequest$Builder;Lcom/android/camera2/CameraConfigs;)V
-    .locals 1
+    .locals 2
 
     if-nez p0, :cond_0
 
@@ -1824,7 +1824,17 @@
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    const-string v0, "-1"
+
+    invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
 
     sget-object v0, Landroid/hardware/camera2/CaptureRequest;->CONTROL_SCENE_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
 

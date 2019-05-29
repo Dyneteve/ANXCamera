@@ -18,33 +18,33 @@ import java.util.List;
 /* compiled from: ThumbnailStreamOpener */
 class e {
     private static final String TAG = "ThumbStreamOpener";
-    private static final a er = new a();
-    private final b ed;
-    private final ContentResolver ee;
-    private final a es;
-    private final d et;
-    private final List<ImageHeaderParser> eu;
+    private static final a es = new a();
+    private final b ee;
+    private final ContentResolver ef;
+    private final a et;
+    private final d eu;
+    private final List<ImageHeaderParser> ev;
 
     e(List<ImageHeaderParser> list, a aVar, d dVar, b bVar, ContentResolver contentResolver) {
-        this.es = aVar;
-        this.et = dVar;
-        this.ed = bVar;
-        this.ee = contentResolver;
-        this.eu = list;
+        this.et = aVar;
+        this.eu = dVar;
+        this.ee = bVar;
+        this.ef = contentResolver;
+        this.ev = list;
     }
 
     e(List<ImageHeaderParser> list, d dVar, b bVar, ContentResolver contentResolver) {
-        this(list, er, dVar, bVar, contentResolver);
+        this(list, es, dVar, bVar, contentResolver);
     }
 
     private boolean e(File file) {
-        return this.es.exists(file) && 0 < this.es.d(file);
+        return this.et.exists(file) && 0 < this.et.d(file);
     }
 
     /* JADX INFO: finally extract failed */
     @Nullable
     private String j(@NonNull Uri uri) {
-        Cursor g = this.et.g(uri);
+        Cursor g = this.eu.g(uri);
         if (g != null) {
             try {
                 if (g.moveToFirst()) {
@@ -76,9 +76,9 @@ class e {
         InputStream inputStream;
         Throwable e;
         try {
-            inputStream = this.ee.openInputStream(uri);
+            inputStream = this.ef.openInputStream(uri);
             try {
-                int b = com.bumptech.glide.load.b.b(this.eu, inputStream, this.ed);
+                int b = com.bumptech.glide.load.b.b(this.ev, inputStream, this.ee);
                 if (inputStream != null) {
                     try {
                         inputStream.close();
@@ -137,13 +137,13 @@ class e {
         if (TextUtils.isEmpty(j)) {
             return null;
         }
-        File r = this.es.r(j);
+        File r = this.et.r(j);
         if (!e(r)) {
             return null;
         }
         Uri fromFile = Uri.fromFile(r);
         try {
-            return this.ee.openInputStream(fromFile);
+            return this.ef.openInputStream(fromFile);
         } catch (NullPointerException e) {
             StringBuilder sb = new StringBuilder();
             sb.append("NPE opening uri: ");

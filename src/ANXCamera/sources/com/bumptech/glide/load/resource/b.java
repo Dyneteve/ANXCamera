@@ -8,14 +8,14 @@ import java.security.MessageDigest;
 
 /* compiled from: UnitTransformation */
 public final class b<T> implements i<T> {
-    private static final i<?> ky = new b();
+    private static final i<?> kz = new b();
 
     private b() {
     }
 
     @NonNull
     public static <T> b<T> cm() {
-        return (b) ky;
+        return (b) kz;
     }
 
     @NonNull

@@ -18,14 +18,14 @@
 
 
 # instance fields
-.field final synthetic ne:Lcom/bumptech/glide/manager/k;
+.field final synthetic nf:Lcom/bumptech/glide/manager/k;
 
 
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/manager/k;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/bumptech/glide/manager/k$a;->ne:Lcom/bumptech/glide/manager/k;
+    iput-object p1, p0, Lcom/bumptech/glide/manager/k$a;->nf:Lcom/bumptech/glide/manager/k;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -48,7 +48,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/manager/k$a;->ne:Lcom/bumptech/glide/manager/k;
+    iget-object v0, p0, Lcom/bumptech/glide/manager/k$a;->nf:Lcom/bumptech/glide/manager/k;
 
     invoke-virtual {v0}, Lcom/bumptech/glide/manager/k;->da()Ljava/util/Set;
 
@@ -115,7 +115,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/bumptech/glide/manager/k$a;->ne:Lcom/bumptech/glide/manager/k;
+    iget-object v1, p0, Lcom/bumptech/glide/manager/k$a;->nf:Lcom/bumptech/glide/manager/k;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 

@@ -91,14 +91,14 @@ public final class MonochromeRectangleDetector {
                 }
                 return new ResultPoint((float) (deltaY > 0 ? lastRange[0] : lastRange[1]), (float) lastY);
             } else {
-                int lastX = x - deltaX;
+                int lastY2 = x - deltaX;
                 if (lastRange[0] >= i2) {
-                    return new ResultPoint((float) lastX, (float) lastRange[1]);
+                    return new ResultPoint((float) lastY2, (float) lastRange[1]);
                 }
                 if (lastRange[1] <= i2) {
-                    return new ResultPoint((float) lastX, (float) lastRange[0]);
+                    return new ResultPoint((float) lastY2, (float) lastRange[0]);
                 }
-                return new ResultPoint((float) lastX, (float) (deltaX < 0 ? lastRange[0] : lastRange[1]));
+                return new ResultPoint((float) lastY2, (float) (deltaX < 0 ? lastRange[0] : lastRange[1]));
             }
         }
         throw NotFoundException.getNotFoundInstance();

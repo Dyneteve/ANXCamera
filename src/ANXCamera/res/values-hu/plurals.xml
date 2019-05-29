@@ -4,4 +4,8 @@
         <item quantity="other">Összpontosítva. %d arc felismerve</item>
         <item quantity="one">Összpontosítva. %d arc felismerve</item>
     </plurals>
+    <plurals name="toast_burst_snap_finished_summary">
+        <item quantity="other">A sorozatfelvétel elkészült, %1$s fényképpel</item>
+        <item quantity="one">A sorozatfelvétel elkészült, %1$s fényképpel</item>
+    </plurals>
 </resources>

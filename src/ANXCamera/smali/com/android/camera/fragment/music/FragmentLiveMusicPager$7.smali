@@ -59,7 +59,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f02011f
+    const v0, 0x7f020125
 
     invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 

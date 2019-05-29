@@ -87,6 +87,10 @@ public class LightingView extends View implements Rotatable {
         }
     }
 
+    public void setCircleHeightRatio(float f) {
+        this.mLightingAnimateDrawable.setCircleHeightRatio(f);
+    }
+
     public void setCircleRatio(float f) {
         this.mLightingAnimateDrawable.setCircleRatio(f);
     }

@@ -3,12 +3,12 @@
 .source "LiveModule.java"
 
 # interfaces
-.implements Lcom/android/camera/SensorStateManager$SensorStateListener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/camera/module/LiveModule;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/camera/module/LiveModule;->startScreenLight(II)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,12 +20,20 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/camera/module/LiveModule;
 
+.field final synthetic val$brightness:I
+
+.field final synthetic val$color:I
+
 
 # direct methods
-.method constructor <init>(Lcom/android/camera/module/LiveModule;)V
+.method constructor <init>(Lcom/android/camera/module/LiveModule;II)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/camera/module/LiveModule$5;->this$0:Lcom/android/camera/module/LiveModule;
+
+    iput p2, p0, Lcom/android/camera/module/LiveModule$5;->val$brightness:I
+
+    iput p3, p0, Lcom/android/camera/module/LiveModule$5;->val$color:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -34,213 +42,44 @@
 
 
 # virtual methods
-.method public isWorking()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/camera/module/LiveModule$5;->this$0:Lcom/android/camera/module/LiveModule;
-
-    invoke-virtual {v0}, Lcom/android/camera/module/LiveModule;->isAlive()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/camera/module/LiveModule$5;->this$0:Lcom/android/camera/module/LiveModule;
-
-    invoke-virtual {v0}, Lcom/android/camera/module/LiveModule;->getCameraState()I
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
-    return v0
-.end method
-
-.method public notifyDevicePostureChanged()V
-    .locals 1
+.method public run()V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/camera/module/LiveModule$5;->this$0:Lcom/android/camera/module/LiveModule;
 
     iget-object v0, v0, Lcom/android/camera/module/LiveModule;->mActivity:Lcom/android/camera/Camera;
 
-    invoke-virtual {v0}, Lcom/android/camera/Camera;->getEdgeShutterView()Lcom/android/camera/ui/V9EdgeShutterView;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/camera/ui/V9EdgeShutterView;->onDevicePostureChanged()V
-
-    return-void
-.end method
-
-.method public onDeviceBecomeStable()V
-    .locals 2
-
-    invoke-static {}, Lcom/android/camera/module/LiveModule;->access$300()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v1, "onDeviceBecomeStable"
-
-    invoke-static {v0, v1}, Lcom/android/camera/log/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-.end method
-
-.method public onDeviceBeginMoving()V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onDeviceKeepMoving(D)V
-    .locals 7
-
-    iget-object v0, p0, Lcom/android/camera/module/LiveModule$5;->this$0:Lcom/android/camera/module/LiveModule;
-
-    iget-object v0, v0, Lcom/android/camera/module/LiveModule;->mMainProtocol:Lcom/android/camera/protocol/ModeProtocol$MainContentProtocol;
-
-    const/4 v1, 0x1
-
-    invoke-interface {v0, v1}, Lcom/android/camera/protocol/ModeProtocol$MainContentProtocol;->isEvAdjusted(Z)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/camera/module/LiveModule$5;->this$0:Lcom/android/camera/module/LiveModule;
-
-    iget-boolean v0, v0, Lcom/android/camera/module/LiveModule;->mPaused:Z
-
-    if-nez v0, :cond_0
-
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v1
-
-    iget-object v0, p0, Lcom/android/camera/module/LiveModule$5;->this$0:Lcom/android/camera/module/LiveModule;
-
-    invoke-static {v0}, Lcom/android/camera/module/LiveModule;->access$500(Lcom/android/camera/module/LiveModule;)J
-
-    move-result-wide v3
-
-    const-wide/16 v5, 0xbb8
-
-    invoke-static/range {v1 .. v6}, Lcom/android/camera/Util;->isTimeout(JJJ)Z
-
-    move-result v0
-
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/camera/module/LiveModule$5;->this$0:Lcom/android/camera/module/LiveModule;
 
-    invoke-virtual {v0}, Lcom/android/camera/module/LiveModule;->is3ALocked()Z
+    iget-object v0, v0, Lcom/android/camera/module/LiveModule;->mActivity:Lcom/android/camera/Camera;
 
-    move-result v0
+    iget v1, p0, Lcom/android/camera/module/LiveModule$5;->val$brightness:I
 
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/camera/module/LiveModule$5;->this$0:Lcom/android/camera/module/LiveModule;
-
-    invoke-static {v0}, Lcom/android/camera/module/LiveModule;->access$600(Lcom/android/camera/module/LiveModule;)Lcom/android/camera/module/loader/camera2/FocusManager2;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/camera/module/LiveModule$5;->this$0:Lcom/android/camera/module/LiveModule;
-
-    invoke-static {v0}, Lcom/android/camera/module/LiveModule;->access$600(Lcom/android/camera/module/LiveModule;)Lcom/android/camera/module/loader/camera2/FocusManager2;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/camera/module/loader/camera2/FocusManager2;->isNeedCancelAutoFocus()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/camera/module/LiveModule$5;->this$0:Lcom/android/camera/module/LiveModule;
-
-    invoke-virtual {v0}, Lcom/android/camera/module/LiveModule;->isRecording()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/camera/module/LiveModule$5;->this$0:Lcom/android/camera/module/LiveModule;
-
-    invoke-static {v0}, Lcom/android/camera/module/LiveModule;->access$600(Lcom/android/camera/module/LiveModule;)Lcom/android/camera/module/loader/camera2/FocusManager2;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1, p2}, Lcom/android/camera/module/loader/camera2/FocusManager2;->onDeviceKeepMoving(D)V
+    invoke-virtual {v0, v1}, Lcom/android/camera/Camera;->setWindowBrightness(I)V
 
     :cond_0
-    return-void
-.end method
-
-.method public onDeviceKeepStable()V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onDeviceOrientationChanged(FZ)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onDeviceRotationChanged([F)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/camera/module/LiveModule$5;->this$0:Lcom/android/camera/module/LiveModule;
-
-    invoke-static {v0}, Lcom/android/camera/module/LiveModule;->access$700(Lcom/android/camera/module/LiveModule;)Lcom/android/camera/protocol/ModeProtocol$LiveConfigChanges;
+    invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    const/16 v1, 0xc4
 
-    iget-object v0, p0, Lcom/android/camera/module/LiveModule$5;->this$0:Lcom/android/camera/module/LiveModule;
-
-    invoke-static {v0}, Lcom/android/camera/module/LiveModule;->access$700(Lcom/android/camera/module/LiveModule;)Lcom/android/camera/protocol/ModeProtocol$LiveConfigChanges;
+    invoke-virtual {v0, v1}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getAttachProtocol(I)Lcom/android/camera/protocol/ModeProtocol$BaseProtocol;
 
     move-result-object v0
 
-    invoke-interface {v0, p1}, Lcom/android/camera/protocol/ModeProtocol$LiveConfigChanges;->onDeviceRotationChange([F)V
+    check-cast v0, Lcom/android/camera/protocol/ModeProtocol$FullScreenProtocol;
 
-    :cond_0
-    return-void
-.end method
+    if-eqz v0, :cond_1
 
-.method public onSensorChanged(Landroid/hardware/SensorEvent;)V
-    .locals 1
+    iget v1, p0, Lcom/android/camera/module/LiveModule$5;->val$color:I
 
-    iget-object v0, p0, Lcom/android/camera/module/LiveModule$5;->this$0:Lcom/android/camera/module/LiveModule;
+    invoke-interface {v0, v1}, Lcom/android/camera/protocol/ModeProtocol$FullScreenProtocol;->setScreenLightColor(I)V
 
-    invoke-static {v0}, Lcom/android/camera/module/LiveModule;->access$700(Lcom/android/camera/module/LiveModule;)Lcom/android/camera/protocol/ModeProtocol$LiveConfigChanges;
+    invoke-interface {v0}, Lcom/android/camera/protocol/ModeProtocol$FullScreenProtocol;->showScreenLight()V
 
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/camera/module/LiveModule$5;->this$0:Lcom/android/camera/module/LiveModule;
-
-    invoke-static {v0}, Lcom/android/camera/module/LiveModule;->access$700(Lcom/android/camera/module/LiveModule;)Lcom/android/camera/protocol/ModeProtocol$LiveConfigChanges;
-
-    move-result-object v0
-
-    invoke-interface {v0, p1}, Lcom/android/camera/protocol/ModeProtocol$LiveConfigChanges;->onSensorChanged(Landroid/hardware/SensorEvent;)V
-
-    :cond_0
+    :cond_1
     return-void
 .end method

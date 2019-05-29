@@ -68,6 +68,8 @@
 
 .field public configFrecklesID:I
 
+.field public configGenderID:I
+
 .field public configHairColorID:I
 
 .field public configHairColorValue:F

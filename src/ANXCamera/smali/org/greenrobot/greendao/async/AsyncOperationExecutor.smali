@@ -215,11 +215,9 @@
 
     check-cast v1, [Ljava/lang/Object;
 
-    check-cast v1, [Ljava/lang/Object;
-
     invoke-virtual {v0, v1}, Lorg/greenrobot/greendao/AbstractDao;->updateInTx([Ljava/lang/Object;)V
 
-    goto/16 :goto_0
+    goto :goto_0
 
     :pswitch_b
     iget-object v0, p1, Lorg/greenrobot/greendao/async/AsyncOperation;->dao:Lorg/greenrobot/greendao/AbstractDao;
@@ -245,8 +243,6 @@
     iget-object v0, p1, Lorg/greenrobot/greendao/async/AsyncOperation;->dao:Lorg/greenrobot/greendao/AbstractDao;
 
     iget-object v1, p1, Lorg/greenrobot/greendao/async/AsyncOperation;->parameter:Ljava/lang/Object;
-
-    check-cast v1, [Ljava/lang/Object;
 
     check-cast v1, [Ljava/lang/Object;
 
@@ -281,8 +277,6 @@
 
     check-cast v1, [Ljava/lang/Object;
 
-    check-cast v1, [Ljava/lang/Object;
-
     invoke-virtual {v0, v1}, Lorg/greenrobot/greendao/AbstractDao;->insertInTx([Ljava/lang/Object;)V
 
     goto :goto_0
@@ -311,8 +305,6 @@
     iget-object v0, p1, Lorg/greenrobot/greendao/async/AsyncOperation;->dao:Lorg/greenrobot/greendao/AbstractDao;
 
     iget-object v1, p1, Lorg/greenrobot/greendao/async/AsyncOperation;->parameter:Ljava/lang/Object;
-
-    check-cast v1, [Ljava/lang/Object;
 
     check-cast v1, [Ljava/lang/Object;
 
@@ -379,8 +371,6 @@
     iput-wide v0, p1, Lorg/greenrobot/greendao/async/AsyncOperation;->timeCompleted:J
 
     return-void
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x1

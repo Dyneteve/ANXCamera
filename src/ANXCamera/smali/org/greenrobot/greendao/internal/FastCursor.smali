@@ -525,6 +525,12 @@
     throw p1
 .end method
 
+.method public setExtras(Landroid/os/Bundle;)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public setNotificationUri(Landroid/content/ContentResolver;Landroid/net/Uri;)V
     .locals 0
 

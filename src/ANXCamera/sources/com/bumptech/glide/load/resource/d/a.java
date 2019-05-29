@@ -11,7 +11,7 @@ import java.io.ByteArrayOutputStream;
 
 /* compiled from: BitmapBytesTranscoder */
 public class a implements e<Bitmap, byte[]> {
-    private final CompressFormat mH;
+    private final CompressFormat mJ;
     private final int quality;
 
     public a() {
@@ -19,14 +19,14 @@ public class a implements e<Bitmap, byte[]> {
     }
 
     public a(@NonNull CompressFormat compressFormat, int i) {
-        this.mH = compressFormat;
+        this.mJ = compressFormat;
         this.quality = i;
     }
 
     @Nullable
     public p<byte[]> a(@NonNull p<Bitmap> pVar, @NonNull f fVar) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        ((Bitmap) pVar.get()).compress(this.mH, this.quality, byteArrayOutputStream);
+        ((Bitmap) pVar.get()).compress(this.mJ, this.quality, byteArrayOutputStream);
         pVar.recycle();
         return new b(byteArrayOutputStream.toByteArray());
     }

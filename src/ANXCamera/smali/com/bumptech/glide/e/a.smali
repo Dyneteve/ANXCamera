@@ -6,7 +6,7 @@
 # static fields
 .field private static final TAG:Ljava/lang/String; = "AppVersionSignature"
 
-.field private static final pJ:Ljava/util/concurrent/ConcurrentMap;
+.field private static final pK:Ljava/util/concurrent/ConcurrentMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/concurrent/ConcurrentMap<",
@@ -26,7 +26,7 @@
 
     invoke-direct {v0}, Ljava/util/concurrent/ConcurrentHashMap;-><init>()V
 
-    sput-object v0, Lcom/bumptech/glide/e/a;->pJ:Ljava/util/concurrent/ConcurrentMap;
+    sput-object v0, Lcom/bumptech/glide/e/a;->pK:Ljava/util/concurrent/ConcurrentMap;
 
     return-void
 .end method
@@ -84,7 +84,7 @@
 
     move-result-object v0
 
-    sget-object v1, Lcom/bumptech/glide/e/a;->pJ:Ljava/util/concurrent/ConcurrentMap;
+    sget-object v1, Lcom/bumptech/glide/e/a;->pK:Ljava/util/concurrent/ConcurrentMap;
 
     invoke-interface {v1, v0}, Ljava/util/concurrent/ConcurrentMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -98,7 +98,7 @@
 
     move-result-object v1
 
-    sget-object p0, Lcom/bumptech/glide/e/a;->pJ:Ljava/util/concurrent/ConcurrentMap;
+    sget-object p0, Lcom/bumptech/glide/e/a;->pK:Ljava/util/concurrent/ConcurrentMap;
 
     invoke-interface {p0, v0, v1}, Ljava/util/concurrent/ConcurrentMap;->putIfAbsent(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -205,7 +205,7 @@
     .annotation build Landroid/support/annotation/VisibleForTesting;
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/e/a;->pJ:Ljava/util/concurrent/ConcurrentMap;
+    sget-object v0, Lcom/bumptech/glide/e/a;->pK:Ljava/util/concurrent/ConcurrentMap;
 
     invoke-interface {v0}, Ljava/util/concurrent/ConcurrentMap;->clear()V
 

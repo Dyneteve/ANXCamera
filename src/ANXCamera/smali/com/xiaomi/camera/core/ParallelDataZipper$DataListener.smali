@@ -15,8 +15,8 @@
 
 
 # virtual methods
-.method public abstract onParallelDataAvailable(Lcom/xiaomi/camera/core/CaptureData;)V
+.method public abstract onParallelDataAbandoned(Lcom/xiaomi/camera/core/CaptureData;)V
 .end method
 
-.method public abstract onParallelDataUnmatched(Lcom/xiaomi/camera/core/CaptureData$CaptureDataBean;)V
+.method public abstract onParallelDataAvailable(Lcom/xiaomi/camera/core/CaptureData;)V
 .end method

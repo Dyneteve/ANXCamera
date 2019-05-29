@@ -350,7 +350,7 @@
 
     iget-object p1, p0, Lcom/android/camera/module/loader/camera2/CompletablePreFixCamera2Setup;->mIntent:Landroid/content/Intent;
 
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_7
 
     iget-object v1, p0, Lcom/android/camera/module/loader/camera2/CompletablePreFixCamera2Setup;->mIntent:Landroid/content/Intent;
 
@@ -386,35 +386,6 @@
 
     move-result p1
 
-    invoke-static {}, Lcom/android/camera/CameraSettings;->isSupportParallelProcess()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_6
-
-    invoke-static {}, Lcom/android/camera/db/DbRepository;->dbItemSaveTask()Lcom/android/camera/db/item/DbItemSaveTask;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/camera/db/item/DbItemSaveTask;->markAllDepartedTask()V
-
-    invoke-static {}, Lcom/android/camera/CameraSettings;->isCameraParallelProcessEnable()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_6
-
-    invoke-static {}, Lcom/android/camera/parallel/AlgoConnector;->getInstance()Lcom/android/camera/parallel/AlgoConnector;
-
-    move-result-object v1
-
-    invoke-static {}, Lcom/android/camera/CameraAppImpl;->getAndroidContext()Landroid/content/Context;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Lcom/android/camera/parallel/AlgoConnector;->startService(Landroid/content/Context;)V
-
-    :cond_6
     invoke-static {}, Lcom/android/camera/ThermalDetector;->getInstance()Lcom/android/camera/ThermalDetector;
 
     move-result-object v1
@@ -433,11 +404,11 @@
 
     move-result v1
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_6
 
     invoke-static {}, Lcom/android/camera/network/util/NetworkUtils;->tryRequestTTSticker()V
 
-    :cond_7
+    :cond_6
     nop
 
     move v6, v0
@@ -448,7 +419,7 @@
 
     goto :goto_1
 
-    :cond_8
+    :cond_7
     invoke-virtual {v0}, Lcom/android/camera/data/data/global/DataItemGlobal;->getCurrentCameraId()I
 
     move-result p1
@@ -458,6 +429,30 @@
     move-result v0
 
     :goto_1
+    const-string v1, "prefix"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "openCamera: pendingOpenId = "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v3, ", pendingOpenModule = "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     invoke-static {}, Lcom/android/camera/module/loader/camera2/Camera2OpenManager;->getInstance()Lcom/android/camera/module/loader/camera2/Camera2OpenManager;
 
     move-result-object v1

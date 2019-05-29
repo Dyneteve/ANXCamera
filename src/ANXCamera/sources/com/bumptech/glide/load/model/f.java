@@ -15,19 +15,19 @@ import java.io.InputStream;
 /* compiled from: FileLoader */
 public class f<Data> implements m<File, Data> {
     private static final String TAG = "FileLoader";
-    private final d<Data> jD;
+    private final d<Data> jE;
 
     /* compiled from: FileLoader */
     public static class a<Data> implements n<File, Data> {
-        private final d<Data> jE;
+        private final d<Data> jF;
 
         public a(d<Data> dVar) {
-            this.jE = dVar;
+            this.jF = dVar;
         }
 
         @NonNull
         public final m<File, Data> a(@NonNull q qVar) {
-            return new f(this.jE);
+            return new f(this.jF);
         }
 
         public final void bX() {
@@ -59,16 +59,16 @@ public class f<Data> implements m<File, Data> {
     private static final class c<Data> implements com.bumptech.glide.load.a.d<Data> {
         private Data data;
         private final File file;
-        private final d<Data> jE;
+        private final d<Data> jF;
 
         c(File file2, d<Data> dVar) {
             this.file = file2;
-            this.jE = dVar;
+            this.jF = dVar;
         }
 
         public void a(@NonNull Priority priority, @NonNull com.bumptech.glide.load.a.d.a<? super Data> aVar) {
             try {
-                this.data = this.jE.j(this.file);
+                this.data = this.jF.j(this.file);
                 aVar.k(this.data);
             } catch (FileNotFoundException e) {
                 if (Log.isLoggable(f.TAG, 3)) {
@@ -80,7 +80,7 @@ public class f<Data> implements m<File, Data> {
 
         @NonNull
         public Class<Data> aj() {
-            return this.jE.aj();
+            return this.jF.aj();
         }
 
         @NonNull
@@ -94,7 +94,7 @@ public class f<Data> implements m<File, Data> {
         public void cleanup() {
             if (this.data != null) {
                 try {
-                    this.jE.j(this.data);
+                    this.jF.j(this.data);
                 } catch (IOException e) {
                 }
             }
@@ -132,12 +132,12 @@ public class f<Data> implements m<File, Data> {
     }
 
     public f(d<Data> dVar) {
-        this.jD = dVar;
+        this.jE = dVar;
     }
 
     /* renamed from: a */
     public com.bumptech.glide.load.model.m.a<Data> b(@NonNull File file, int i, int i2, @NonNull com.bumptech.glide.load.f fVar) {
-        return new com.bumptech.glide.load.model.m.a<>(new com.bumptech.glide.e.d(file), new c(file, this.jD));
+        return new com.bumptech.glide.load.model.m.a<>(new com.bumptech.glide.e.d(file), new c(file, this.jE));
     }
 
     /* renamed from: h */

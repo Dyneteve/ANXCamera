@@ -27,14 +27,14 @@
 
 
 # instance fields
-.field final synthetic iF:Lcom/bumptech/glide/load/engine/a/m;
+.field final synthetic iG:Lcom/bumptech/glide/load/engine/a/m;
 
 
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/load/engine/a/m;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/engine/a/m$1;->iF:Lcom/bumptech/glide/load/engine/a/m;
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/a/m$1;->iG:Lcom/bumptech/glide/load/engine/a/m;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 

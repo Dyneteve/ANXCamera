@@ -51,9 +51,9 @@
 
     const-string v2, "2"
 
-    const v4, 0x7f020015
+    const v4, 0x7f02001b
 
-    const v5, 0x7f020185
+    const v5, 0x7f02018c
 
     invoke-direct {v1, v4, v5, v3, v2}, Lcom/android/camera/data/data/ComponentDataItem;-><init>(IIILjava/lang/String;)V
 
@@ -63,9 +63,9 @@
 
     const-string v2, "5"
 
-    const v4, 0x7f020017
+    const v4, 0x7f02001d
 
-    const v5, 0x7f02018b
+    const v5, 0x7f020192
 
     invoke-direct {v1, v4, v5, v3, v2}, Lcom/android/camera/data/data/ComponentDataItem;-><init>(IIILjava/lang/String;)V
 
@@ -75,9 +75,9 @@
 
     const-string v2, "3"
 
-    const v4, 0x7f020014
+    const v4, 0x7f02001a
 
-    const v5, 0x7f020182
+    const v5, 0x7f020189
 
     invoke-direct {v1, v4, v5, v3, v2}, Lcom/android/camera/data/data/ComponentDataItem;-><init>(IIILjava/lang/String;)V
 
@@ -87,15 +87,15 @@
 
     const-string v2, "6"
 
-    const v4, 0x7f020013
+    const v4, 0x7f020019
 
-    const v5, 0x7f02017f
+    const v5, 0x7f020186
 
     invoke-direct {v1, v4, v5, v3, v2}, Lcom/android/camera/data/data/ComponentDataItem;-><init>(IIILjava/lang/String;)V
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    invoke-static {}, Lcom/mi/config/b;->hp()Z
+    invoke-static {}, Lcom/mi/config/b;->hs()Z
 
     move-result v1
 
@@ -113,9 +113,9 @@
 
     new-instance v1, Lcom/android/camera/data/data/ComponentDataItem;
 
-    const v2, 0x7f020016
+    const v2, 0x7f02001c
 
-    const v4, 0x7f020188
+    const v4, 0x7f02018f
 
     const-string v5, "manual"
 

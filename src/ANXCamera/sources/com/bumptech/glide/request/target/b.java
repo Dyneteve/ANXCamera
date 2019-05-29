@@ -6,14 +6,14 @@ import com.bumptech.glide.request.c;
 
 /* compiled from: BaseTarget */
 public abstract class b<Z> implements n<Z> {
-    private c nK;
+    private c nL;
 
     public void d(@Nullable Drawable drawable) {
     }
 
     @Nullable
     public c dp() {
-        return this.nK;
+        return this.nL;
     }
 
     public void e(@Nullable Drawable drawable) {
@@ -23,7 +23,7 @@ public abstract class b<Z> implements n<Z> {
     }
 
     public void j(@Nullable c cVar) {
-        this.nK = cVar;
+        this.nL = cVar;
     }
 
     public void onDestroy() {

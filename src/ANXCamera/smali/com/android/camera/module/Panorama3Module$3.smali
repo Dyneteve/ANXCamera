@@ -109,6 +109,14 @@
 
     if-nez p1, :cond_1
 
+    invoke-static {}, Lcom/android/camera/module/Panorama3Module;->access$000()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string v0, "set mPanoramaState PanoramaState"
+
+    invoke-static {p1, v0}, Lcom/android/camera/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
     iget-object p1, p0, Lcom/android/camera/module/Panorama3Module$3;->this$0:Lcom/android/camera/module/Panorama3Module;
 
     new-instance v0, Lcom/android/camera/panorama/PanoramaState;

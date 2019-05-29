@@ -7,7 +7,6 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/camera/fragment/CtaNoticeFragment$OnCtaNoticeClickListener;,
-        Lcom/android/camera/fragment/CtaNoticeFragment$Licence;,
         Lcom/android/camera/fragment/CtaNoticeFragment$CTA;
     }
 .end annotation
@@ -48,90 +47,6 @@
     .locals 0
 
     iget-object p0, p0, Lcom/android/camera/fragment/CtaNoticeFragment;->mClickListener:Lcom/android/camera/fragment/CtaNoticeFragment$OnCtaNoticeClickListener;
-
-    return-object p0
-.end method
-
-.method private static buildUserNotice(Landroid/content/Context;I)Landroid/text/SpannableStringBuilder;
-    .locals 6
-
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f0901e8
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    const v2, 0x7f0901e9
-
-    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    const/4 v3, 0x2
-
-    new-array v3, v3, [Ljava/lang/Object;
-
-    const/4 v4, 0x0
-
-    aput-object v1, v3, v4
-
-    const/4 v4, 0x1
-
-    aput-object v2, v3, v4
-
-    invoke-virtual {v0, p1, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p1
-
-    new-instance v0, Lcom/android/camera/fragment/CtaNoticeFragment$3;
-
-    invoke-direct {v0, p0}, Lcom/android/camera/fragment/CtaNoticeFragment$3;-><init>(Landroid/content/Context;)V
-
-    new-instance v3, Lcom/android/camera/fragment/CtaNoticeFragment$4;
-
-    invoke-direct {v3, p0}, Lcom/android/camera/fragment/CtaNoticeFragment$4;-><init>(Landroid/content/Context;)V
-
-    new-instance p0, Landroid/text/SpannableStringBuilder;
-
-    invoke-direct {p0, p1}, Landroid/text/SpannableStringBuilder;-><init>(Ljava/lang/CharSequence;)V
-
-    invoke-virtual {p1, v1}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
-
-    move-result v4
-
-    new-instance v5, Lcom/android/camera/ui/UrlSpan;
-
-    invoke-direct {v5, v0}, Lcom/android/camera/ui/UrlSpan;-><init>(Lcom/android/camera/ui/UrlSpan$UrlSpanOnClickListener;)V
-
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
-
-    move-result v0
-
-    add-int/2addr v0, v4
-
-    const/16 v1, 0x21
-
-    invoke-virtual {p0, v5, v4, v0, v1}, Landroid/text/SpannableStringBuilder;->setSpan(Ljava/lang/Object;III)V
-
-    invoke-virtual {p1, v2}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
-
-    move-result p1
-
-    new-instance v0, Lcom/android/camera/ui/UrlSpan;
-
-    invoke-direct {v0, v3}, Lcom/android/camera/ui/UrlSpan;-><init>(Lcom/android/camera/ui/UrlSpan$UrlSpanOnClickListener;)V
-
-    invoke-virtual {v2}, Ljava/lang/String;->length()I
-
-    move-result v2
-
-    add-int/2addr v2, p1
-
-    invoke-virtual {p0, v0, p1, v2, v1}, Landroid/text/SpannableStringBuilder;->setSpan(Ljava/lang/Object;III)V
 
     return-object p0
 .end method
@@ -235,31 +150,23 @@
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
     .locals 3
 
-    invoke-virtual {p0}, Lcom/android/camera/fragment/CtaNoticeFragment;->getActivity()Landroid/app/Activity;
-
-    move-result-object p1
-
-    const v0, 0x7f0901ec
-
-    invoke-static {p1, v0}, Lcom/android/camera/fragment/CtaNoticeFragment;->buildUserNotice(Landroid/content/Context;I)Landroid/text/SpannableStringBuilder;
-
-    move-result-object p1
-
-    new-instance v0, Lmiui/app/AlertDialog$Builder;
+    new-instance p1, Lmiui/app/AlertDialog$Builder;
 
     invoke-virtual {p0}, Lcom/android/camera/fragment/CtaNoticeFragment;->getActivity()Landroid/app/Activity;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Lmiui/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
-
-    const v1, 0x7f0901ee
-
-    invoke-virtual {v0, v1}, Lmiui/app/AlertDialog$Builder;->setTitle(I)Lmiui/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Lmiui/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Lmiui/app/AlertDialog$Builder;
+    invoke-direct {p1, v0}, Lmiui/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+
+    const v0, 0x7f0901ec
+
+    invoke-virtual {p1, v0}, Lmiui/app/AlertDialog$Builder;->setTitle(I)Lmiui/app/AlertDialog$Builder;
+
+    move-result-object p1
+
+    const v0, 0x7f0901ea
+
+    invoke-virtual {p1, v0}, Lmiui/app/AlertDialog$Builder;->setMessage(I)Lmiui/app/AlertDialog$Builder;
 
     move-result-object p1
 
@@ -267,7 +174,7 @@
 
     invoke-direct {v0, p0}, Lcom/android/camera/fragment/CtaNoticeFragment$2;-><init>(Lcom/android/camera/fragment/CtaNoticeFragment;)V
 
-    const v1, 0x7f0901ea
+    const v1, 0x7f0901e8
 
     invoke-virtual {p1, v1, v0}, Lmiui/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Lmiui/app/AlertDialog$Builder;
 
@@ -293,7 +200,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0901eb
+    const v2, 0x7f0901e9
 
     invoke-virtual {v1, v2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 

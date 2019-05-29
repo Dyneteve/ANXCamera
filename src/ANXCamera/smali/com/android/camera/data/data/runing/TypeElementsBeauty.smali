@@ -51,7 +51,7 @@
 
     if-eqz p4, :cond_1
 
-    const/16 p3, 0x10
+    const/16 p3, 0x11
 
     goto/16 :goto_0
 
@@ -64,7 +64,7 @@
 
     if-eqz p4, :cond_1
 
-    const/16 p3, 0x17
+    const/16 p3, 0x18
 
     goto/16 :goto_0
 
@@ -77,11 +77,24 @@
 
     if-eqz p4, :cond_1
 
-    const/16 p3, 0x12
+    const/16 p3, 0x13
 
     goto/16 :goto_0
 
     :sswitch_3
+    const-string p4, "pref_beautify_hairline_ratio_key"
+
+    invoke-virtual {p2, p4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p4
+
+    if-eqz p4, :cond_1
+
+    const/4 p3, 0x6
+
+    goto/16 :goto_0
+
+    :sswitch_4
     const-string p4, "pref_beautify_pupil_line_ratio_key"
 
     invoke-virtual {p2, p4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -90,11 +103,11 @@
 
     if-eqz p4, :cond_1
 
-    const/16 p3, 0xc
+    const/16 p3, 0xd
 
     goto/16 :goto_0
 
-    :sswitch_4
+    :sswitch_5
     const-string p4, "pref_beautify_blusher_ratio_key"
 
     invoke-virtual {p2, p4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -103,11 +116,11 @@
 
     if-eqz p4, :cond_1
 
-    const/16 p3, 0xe
+    const/16 p3, 0xf
 
     goto/16 :goto_0
 
-    :sswitch_5
+    :sswitch_6
     const-string p4, "pref_beautify_skin_color_ratio_key"
 
     invoke-virtual {p2, p4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -120,7 +133,7 @@
 
     goto/16 :goto_0
 
-    :sswitch_6
+    :sswitch_7
     const-string p4, "pref_beautify_enlarge_eye_ratio_key"
 
     invoke-virtual {p2, p4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -133,7 +146,7 @@
 
     goto/16 :goto_0
 
-    :sswitch_7
+    :sswitch_8
     const-string p4, "pref_beautify_nose_ratio_key"
 
     invoke-virtual {p2, p4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -146,7 +159,7 @@
 
     goto/16 :goto_0
 
-    :sswitch_8
+    :sswitch_9
     const-string p4, "pref_eye_light_type_key"
 
     invoke-virtual {p2, p4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -155,11 +168,11 @@
 
     if-eqz p4, :cond_1
 
-    const/16 p3, 0xf
+    const/16 p3, 0x10
 
     goto/16 :goto_0
 
-    :sswitch_9
+    :sswitch_a
     const-string p4, "pref_beautify_skin_smooth_ratio_key"
 
     invoke-virtual {p2, p4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -172,7 +185,7 @@
 
     goto/16 :goto_0
 
-    :sswitch_a
+    :sswitch_b
     const-string p4, "pref_beautify_slim_face_ratio_key"
 
     invoke-virtual {p2, p4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -185,7 +198,7 @@
 
     goto/16 :goto_0
 
-    :sswitch_b
+    :sswitch_c
     const-string p4, "key_live_shrink_face_ratio"
 
     invoke-virtual {p2, p4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -194,11 +207,11 @@
 
     if-eqz p4, :cond_1
 
-    const/16 p3, 0x16
+    const/16 p3, 0x17
 
     goto/16 :goto_0
 
-    :sswitch_c
+    :sswitch_d
     const-string p4, "pref_beautify_risorius_ratio_key"
 
     invoke-virtual {p2, p4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -211,7 +224,7 @@
 
     goto/16 :goto_0
 
-    :sswitch_d
+    :sswitch_e
     const-string p4, "key_beauty_leg_slim_ratio"
 
     invoke-virtual {p2, p4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -220,38 +233,12 @@
 
     if-eqz p4, :cond_1
 
-    const/16 p3, 0x13
-
-    goto/16 :goto_0
-
-    :sswitch_e
-    const-string p4, "pref_beautify_chin_ratio_key"
-
-    invoke-virtual {p2, p4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p4
-
-    if-eqz p4, :cond_1
-
-    const/4 p3, 0x7
+    const/16 p3, 0x14
 
     goto/16 :goto_0
 
     :sswitch_f
-    const-string p4, "pref_beautify_lips_ratio_key"
-
-    invoke-virtual {p2, p4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p4
-
-    if-eqz p4, :cond_1
-
-    const/4 p3, 0x6
-
-    goto :goto_0
-
-    :sswitch_10
-    const-string p4, "pref_beautify_neck_ratio_key"
+    const-string p4, "pref_beautify_chin_ratio_key"
 
     invoke-virtual {p2, p4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -261,10 +248,10 @@
 
     const/16 p3, 0x8
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    :sswitch_11
-    const-string p4, "pref_beautify_slim_nose_ratio_key"
+    :sswitch_10
+    const-string p4, "pref_beautify_lips_ratio_key"
 
     invoke-virtual {p2, p4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -272,12 +259,25 @@
 
     if-eqz p4, :cond_1
 
-    const/16 p3, 0xa
+    const/4 p3, 0x7
+
+    goto :goto_0
+
+    :sswitch_11
+    const-string p4, "pref_beautify_neck_ratio_key"
+
+    invoke-virtual {p2, p4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p4
+
+    if-eqz p4, :cond_1
+
+    const/16 p3, 0x9
 
     goto :goto_0
 
     :sswitch_12
-    const-string p4, "pref_beautify_eyebrow_dye_ratio_key"
+    const-string p4, "pref_beautify_slim_nose_ratio_key"
 
     invoke-virtual {p2, p4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -290,6 +290,19 @@
     goto :goto_0
 
     :sswitch_13
+    const-string p4, "pref_beautify_eyebrow_dye_ratio_key"
+
+    invoke-virtual {p2, p4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p4
+
+    if-eqz p4, :cond_1
+
+    const/16 p3, 0xc
+
+    goto :goto_0
+
+    :sswitch_14
     const-string p4, "pref_beautify_smile_ratio_key"
 
     invoke-virtual {p2, p4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -298,25 +311,12 @@
 
     if-eqz p4, :cond_1
 
-    const/16 p3, 0x9
-
-    goto :goto_0
-
-    :sswitch_14
-    const-string p4, "pref_beauty_whole_body_slim_ratio"
-
-    invoke-virtual {p2, p4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p4
-
-    if-eqz p4, :cond_1
-
-    const/16 p3, 0x14
+    const/16 p3, 0xa
 
     goto :goto_0
 
     :sswitch_15
-    const-string p4, "pref_beauty_butt_slim_ratio"
+    const-string p4, "pref_beauty_whole_body_slim_ratio"
 
     invoke-virtual {p2, p4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -329,6 +329,19 @@
     goto :goto_0
 
     :sswitch_16
+    const-string p4, "pref_beauty_butt_slim_ratio"
+
+    invoke-virtual {p2, p4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p4
+
+    if-eqz p4, :cond_1
+
+    const/16 p3, 0x16
+
+    goto :goto_0
+
+    :sswitch_17
     const-string p4, "pref_beautify_jelly_lips_ratio_key"
 
     invoke-virtual {p2, p4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -337,11 +350,11 @@
 
     if-eqz p4, :cond_1
 
-    const/16 p3, 0xd
+    const/16 p3, 0xe
 
     goto :goto_0
 
-    :sswitch_17
+    :sswitch_18
     const-string p4, "pref_beauty_body_slim_ratio"
 
     invoke-virtual {p2, p4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -350,11 +363,11 @@
 
     if-eqz p4, :cond_1
 
-    const/16 p3, 0x11
+    const/16 p3, 0x12
 
     goto :goto_0
 
-    :sswitch_18
+    :sswitch_19
     const-string p4, "key_live_smooth_strength"
 
     invoke-virtual {p2, p4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -363,23 +376,23 @@
 
     if-eqz p4, :cond_1
 
-    const/16 p3, 0x18
+    const/16 p3, 0x19
 
     :cond_1
     :goto_0
-    const p4, 0x7f0201a6
+    const p4, 0x7f0201af
 
     const v1, 0x7f0901dc
 
-    const v2, 0x7f020199
+    const v2, 0x7f0201a1
 
     const v3, 0x7f0901db
 
-    const v4, 0x7f020196
+    const v4, 0x7f02019e
 
     const v5, 0x7f0901da
 
-    const v6, 0x7f0201a8
+    const v6, 0x7f0201b1
 
     packed-switch p3, :pswitch_data_0
 
@@ -418,18 +431,7 @@
     :pswitch_4
     new-instance p3, Lcom/android/camera/data/data/TypeItem;
 
-    const p4, 0x7f0201af
-
-    const v0, 0x7f090241
-
-    invoke-direct {p3, p4, v0, p1, p2}, Lcom/android/camera/data/data/TypeItem;-><init>(IILjava/lang/String;Ljava/lang/String;)V
-
-    return-object p3
-
-    :pswitch_5
-    new-instance p3, Lcom/android/camera/data/data/TypeItem;
-
-    const p4, 0x7f02019c
+    const p4, 0x7f0201b8
 
     const v0, 0x7f090240
 
@@ -437,7 +439,7 @@
 
     return-object p3
 
-    :pswitch_6
+    :pswitch_5
     new-instance p3, Lcom/android/camera/data/data/TypeItem;
 
     const p4, 0x7f0201a5
@@ -448,10 +450,10 @@
 
     return-object p3
 
-    :pswitch_7
+    :pswitch_6
     new-instance p3, Lcom/android/camera/data/data/TypeItem;
 
-    const p4, 0x7f020192
+    const p4, 0x7f0201ae
 
     const v0, 0x7f09023e
 
@@ -459,7 +461,7 @@
 
     return-object p3
 
-    :pswitch_8
+    :pswitch_7
     new-instance p3, Lcom/android/camera/data/data/TypeItem;
 
     const p4, 0x7f02019a
@@ -470,12 +472,23 @@
 
     return-object p3
 
+    :pswitch_8
+    new-instance p3, Lcom/android/camera/data/data/TypeItem;
+
+    const p4, 0x7f0201a3
+
+    const v0, 0x7f09023c
+
+    invoke-direct {p3, p4, v0, p1, p2}, Lcom/android/camera/data/data/TypeItem;-><init>(IILjava/lang/String;Ljava/lang/String;)V
+
+    return-object p3
+
     :pswitch_9
     new-instance p3, Lcom/android/camera/data/data/TypeItem;
 
-    const p4, 0x7f020197
+    const p4, 0x7f02019f
 
-    const v0, 0x7f090219
+    const v0, 0x7f090218
 
     invoke-direct {p3, p4, v0, p1, p2}, Lcom/android/camera/data/data/TypeItem;-><init>(IILjava/lang/String;Ljava/lang/String;)V
 
@@ -484,9 +497,9 @@
     :pswitch_a
     new-instance p3, Lcom/android/camera/data/data/TypeItem;
 
-    const p4, 0x7f020191
+    const p4, 0x7f020199
 
-    const v0, 0x7f09023a
+    const v0, 0x7f090239
 
     invoke-direct {p3, p4, v0, p1, p2}, Lcom/android/camera/data/data/TypeItem;-><init>(IILjava/lang/String;Ljava/lang/String;)V
 
@@ -495,9 +508,9 @@
     :pswitch_b
     new-instance p3, Lcom/android/camera/data/data/TypeItem;
 
-    const p4, 0x7f02019b
+    const p4, 0x7f0201a4
 
-    const v0, 0x7f090239
+    const v0, 0x7f090238
 
     invoke-direct {p3, p4, v0, p1, p2}, Lcom/android/camera/data/data/TypeItem;-><init>(IILjava/lang/String;Ljava/lang/String;)V
 
@@ -506,9 +519,9 @@
     :pswitch_c
     new-instance p3, Lcom/android/camera/data/data/TypeItem;
 
-    const p4, 0x7f0201a3
+    const p4, 0x7f0201ac
 
-    const v0, 0x7f090238
+    const v0, 0x7f090237
 
     invoke-direct {p3, p4, v0, p1, p2}, Lcom/android/camera/data/data/TypeItem;-><init>(IILjava/lang/String;Ljava/lang/String;)V
 
@@ -517,9 +530,9 @@
     :pswitch_d
     new-instance p3, Lcom/android/camera/data/data/TypeItem;
 
-    const p4, 0x7f020198
+    const p4, 0x7f0201a0
 
-    const v0, 0x7f090237
+    const v0, 0x7f090236
 
     invoke-direct {p3, p4, v0, p1, p2}, Lcom/android/camera/data/data/TypeItem;-><init>(IILjava/lang/String;Ljava/lang/String;)V
 
@@ -528,7 +541,7 @@
     :pswitch_e
     new-instance p3, Lcom/android/camera/data/data/TypeItem;
 
-    const p4, 0x7f0201a7
+    const p4, 0x7f0201b0
 
     const v0, 0x7f0901e3
 
@@ -548,7 +561,7 @@
     :pswitch_10
     new-instance p3, Lcom/android/camera/data/data/TypeItem;
 
-    const p4, 0x7f0201a1
+    const p4, 0x7f0201aa
 
     const v0, 0x7f0901e1
 
@@ -559,7 +572,7 @@
     :pswitch_11
     new-instance p3, Lcom/android/camera/data/data/TypeItem;
 
-    const p4, 0x7f020193
+    const p4, 0x7f02019b
 
     const v0, 0x7f0901e0
 
@@ -570,7 +583,7 @@
     :pswitch_12
     new-instance p3, Lcom/android/camera/data/data/TypeItem;
 
-    const p4, 0x7f02019d
+    const p4, 0x7f0201a6
 
     const v0, 0x7f0901df
 
@@ -581,9 +594,9 @@
     :pswitch_13
     new-instance p3, Lcom/android/camera/data/data/TypeItem;
 
-    const p4, 0x7f0201a4
+    const p4, 0x7f0201a2
 
-    const v0, 0x7f0901de
+    const v0, 0x7f090381
 
     invoke-direct {p3, p4, v0, p1, p2}, Lcom/android/camera/data/data/TypeItem;-><init>(IILjava/lang/String;Ljava/lang/String;)V
 
@@ -592,9 +605,9 @@
     :pswitch_14
     new-instance p3, Lcom/android/camera/data/data/TypeItem;
 
-    const p4, 0x7f0201a2
+    const p4, 0x7f0201ad
 
-    const v0, 0x7f0901dd
+    const v0, 0x7f0901de
 
     invoke-direct {p3, p4, v0, p1, p2}, Lcom/android/camera/data/data/TypeItem;-><init>(IILjava/lang/String;Ljava/lang/String;)V
 
@@ -603,25 +616,36 @@
     :pswitch_15
     new-instance p3, Lcom/android/camera/data/data/TypeItem;
 
-    invoke-direct {p3, v6, v5, p1, p2}, Lcom/android/camera/data/data/TypeItem;-><init>(IILjava/lang/String;Ljava/lang/String;)V
+    const p4, 0x7f0201ab
+
+    const v0, 0x7f0901dd
+
+    invoke-direct {p3, p4, v0, p1, p2}, Lcom/android/camera/data/data/TypeItem;-><init>(IILjava/lang/String;Ljava/lang/String;)V
 
     return-object p3
 
     :pswitch_16
     new-instance p3, Lcom/android/camera/data/data/TypeItem;
 
-    invoke-direct {p3, v4, v3, p1, p2}, Lcom/android/camera/data/data/TypeItem;-><init>(IILjava/lang/String;Ljava/lang/String;)V
+    invoke-direct {p3, v6, v5, p1, p2}, Lcom/android/camera/data/data/TypeItem;-><init>(IILjava/lang/String;Ljava/lang/String;)V
 
     return-object p3
 
     :pswitch_17
     new-instance p3, Lcom/android/camera/data/data/TypeItem;
 
-    invoke-direct {p3, v2, v1, p1, p2}, Lcom/android/camera/data/data/TypeItem;-><init>(IILjava/lang/String;Ljava/lang/String;)V
+    invoke-direct {p3, v4, v3, p1, p2}, Lcom/android/camera/data/data/TypeItem;-><init>(IILjava/lang/String;Ljava/lang/String;)V
 
     return-object p3
 
     :pswitch_18
+    new-instance p3, Lcom/android/camera/data/data/TypeItem;
+
+    invoke-direct {p3, v2, v1, p1, p2}, Lcom/android/camera/data/data/TypeItem;-><init>(IILjava/lang/String;Ljava/lang/String;)V
+
+    return-object p3
+
+    :pswitch_19
     new-instance p3, Lcom/android/camera/data/data/TypeItem;
 
     const v0, 0x7f0901d9
@@ -632,28 +656,29 @@
 
     :sswitch_data_0
     .sparse-switch
-        -0x7dcb43c1 -> :sswitch_18
-        -0x676e6ee1 -> :sswitch_17
-        -0x5e6b0daf -> :sswitch_16
-        -0x5a8387f2 -> :sswitch_15
-        -0x4b3d8c29 -> :sswitch_14
-        -0x423823b0 -> :sswitch_13
-        -0x3926c11e -> :sswitch_12
-        -0x3579d363 -> :sswitch_11
-        -0x1403c3d1 -> :sswitch_10
-        -0x12884130 -> :sswitch_f
-        -0x102a61a6 -> :sswitch_e
-        -0x8bc7263 -> :sswitch_d
-        -0x25d6108 -> :sswitch_c
-        0xa78ecec -> :sswitch_b
-        0x35532ea7 -> :sswitch_a
-        0x36aaa8f8 -> :sswitch_9
-        0x3832544d -> :sswitch_8
-        0x3ad8a2a3 -> :sswitch_7
-        0x3e8271ec -> :sswitch_6
-        0x3f0b1471 -> :sswitch_5
-        0x5514d1b5 -> :sswitch_4
-        0x6202ad75 -> :sswitch_3
+        -0x7dcb43c1 -> :sswitch_19
+        -0x676e6ee1 -> :sswitch_18
+        -0x5e6b0daf -> :sswitch_17
+        -0x5a8387f2 -> :sswitch_16
+        -0x4b3d8c29 -> :sswitch_15
+        -0x423823b0 -> :sswitch_14
+        -0x3926c11e -> :sswitch_13
+        -0x3579d363 -> :sswitch_12
+        -0x1403c3d1 -> :sswitch_11
+        -0x12884130 -> :sswitch_10
+        -0x102a61a6 -> :sswitch_f
+        -0x8bc7263 -> :sswitch_e
+        -0x25d6108 -> :sswitch_d
+        0xa78ecec -> :sswitch_c
+        0x35532ea7 -> :sswitch_b
+        0x36aaa8f8 -> :sswitch_a
+        0x3832544d -> :sswitch_9
+        0x3ad8a2a3 -> :sswitch_8
+        0x3e8271ec -> :sswitch_7
+        0x3f0b1471 -> :sswitch_6
+        0x5514d1b5 -> :sswitch_5
+        0x6202ad75 -> :sswitch_4
+        0x62f067e6 -> :sswitch_3
         0x65e369e1 -> :sswitch_2
         0x699265fd -> :sswitch_1
         0x73f08a21 -> :sswitch_0
@@ -661,6 +686,7 @@
 
     :pswitch_data_0
     .packed-switch 0x0
+        :pswitch_19
         :pswitch_18
         :pswitch_17
         :pswitch_16
@@ -690,7 +716,7 @@
 .end method
 
 .method private initAdvanceItems(Ljava/util/List;ILcom/android/camera2/CameraCapabilities;Lcom/android/camera/data/data/runing/ComponentRunningShine;)V
-    .locals 8
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -703,29 +729,19 @@
         }
     .end annotation
 
-    const-string p2, "pref_beautify_slim_face_ratio_key"
+    sget-object v2, Lcom/android/camera/constant/BeautyConstant;->BEAUTY_CATEGORY_FRONT_ADVANCE:[Ljava/lang/String;
 
-    const-string p4, "pref_beautify_enlarge_eye_ratio_key"
+    const-string v1, "3"
 
-    const-string v0, "pref_beautify_skin_color_ratio_key"
+    const/4 v4, 0x1
 
-    const-string v1, "pref_beautify_skin_smooth_ratio_key"
+    move-object v0, p0
 
-    filled-new-array {p2, p4, v0, v1}, [Ljava/lang/String;
+    move-object v3, p1
 
-    move-result-object v4
+    move-object v5, p3
 
-    const-string v3, "3"
-
-    const/4 v6, 0x1
-
-    move-object v2, p0
-
-    move-object v5, p1
-
-    move-object v7, p3
-
-    invoke-direct/range {v2 .. v7}, Lcom/android/camera/data/data/runing/TypeElementsBeauty;->initItemsBySupportedTypes(Ljava/lang/String;[Ljava/lang/String;Ljava/util/List;ZLcom/android/camera2/CameraCapabilities;)V
+    invoke-direct/range {v0 .. v5}, Lcom/android/camera/data/data/runing/TypeElementsBeauty;->initItemsBySupportedTypes(Ljava/lang/String;[Ljava/lang/String;Ljava/util/List;ZLcom/android/camera2/CameraCapabilities;)V
 
     return-void
 .end method
@@ -831,45 +847,6 @@
 .end method
 
 .method private initLiveBeautyItems(Ljava/util/List;ILcom/android/camera2/CameraCapabilities;Lcom/android/camera/data/data/runing/ComponentRunningShine;)V
-    .locals 7
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Lcom/android/camera/data/data/TypeItem;",
-            ">;I",
-            "Lcom/android/camera2/CameraCapabilities;",
-            "Lcom/android/camera/data/data/runing/ComponentRunningShine;",
-            ")V"
-        }
-    .end annotation
-
-    const-string p2, "key_live_smooth_strength"
-
-    const-string p4, "key_live_shrink_face_ratio"
-
-    const-string v0, "key_live_enlarge_eye_ratio"
-
-    filled-new-array {p2, p4, v0}, [Ljava/lang/String;
-
-    move-result-object v3
-
-    const-string v2, "11"
-
-    const/4 v5, 0x0
-
-    move-object v1, p0
-
-    move-object v4, p1
-
-    move-object v6, p3
-
-    invoke-direct/range {v1 .. v6}, Lcom/android/camera/data/data/runing/TypeElementsBeauty;->initItemsBySupportedTypes(Ljava/lang/String;[Ljava/lang/String;Ljava/util/List;ZLcom/android/camera2/CameraCapabilities;)V
-
-    return-void
-.end method
-
-.method private initMakeUpItems(Ljava/util/List;ILcom/android/camera2/CameraCapabilities;Lcom/android/camera/data/data/runing/ComponentRunningShine;)V
     .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -883,33 +860,11 @@
         }
     .end annotation
 
-    sget-object v2, Lcom/android/camera/constant/BeautyConstant;->BEAUTY_CATEGORY_FRONT_MAKEUP:[Ljava/lang/String;
+    sget-object v2, Lcom/android/camera/constant/BeautyConstant;->BEAUTY_CATEGORY_LIVE:[Ljava/lang/String;
 
-    const/4 p4, 0x1
+    const-string v1, "11"
 
-    if-ne p2, p4, :cond_0
-
-    invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemFeature()Lcom/mi/config/a;
-
-    move-result-object p2
-
-    invoke-virtual {p2}, Lcom/mi/config/a;->fD()Z
-
-    move-result p2
-
-    if-nez p2, :cond_1
-
-    :cond_0
-    const/4 p2, 0x3
-
-    const/4 p4, 0x0
-
-    aput-object p4, v2, p2
-
-    :cond_1
-    const-string v1, "5"
-
-    const/4 v4, 0x1
+    const/4 v4, 0x0
 
     move-object v0, p0
 
@@ -922,8 +877,108 @@
     return-void
 .end method
 
+.method private initMakeUpItems(Ljava/util/List;ILcom/android/camera2/CameraCapabilities;Lcom/android/camera/data/data/runing/ComponentRunningShine;)V
+    .locals 8
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Lcom/android/camera/data/data/TypeItem;",
+            ">;I",
+            "Lcom/android/camera2/CameraCapabilities;",
+            "Lcom/android/camera/data/data/runing/ComponentRunningShine;",
+            ")V"
+        }
+    .end annotation
+
+    sget-object p4, Lcom/android/camera/constant/BeautyConstant;->BEAUTY_CATEGORY_FRONT_MAKEUP:[Ljava/lang/String;
+
+    array-length v0, p4
+
+    const/4 v1, 0x0
+
+    move v2, v1
+
+    :goto_0
+    if-ge v2, v0, :cond_5
+
+    aget-object v3, p4, v2
+
+    const/4 v4, 0x0
+
+    const/4 v5, -0x1
+
+    invoke-virtual {v3}, Ljava/lang/String;->hashCode()I
+
+    move-result v6
+
+    const v7, 0x3832544d
+
+    if-eq v6, v7, :cond_0
+
+    goto :goto_1
+
+    :cond_0
+    const-string v6, "pref_eye_light_type_key"
+
+    invoke-virtual {v3, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_1
+
+    move v5, v1
+
+    :cond_1
+    :goto_1
+    const/4 v6, 0x1
+
+    if-eqz v5, :cond_2
+
+    const-string v4, "5"
+
+    invoke-direct {p0, v4, v3, v6, p3}, Lcom/android/camera/data/data/runing/TypeElementsBeauty;->createTypeItem(Ljava/lang/String;Ljava/lang/String;ZLcom/android/camera2/CameraCapabilities;)Lcom/android/camera/data/data/TypeItem;
+
+    move-result-object v4
+
+    goto :goto_2
+
+    :cond_2
+    if-ne p2, v6, :cond_3
+
+    invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemFeature()Lcom/mi/config/a;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/mi/config/a;->fD()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_3
+
+    const-string v4, "5"
+
+    invoke-direct {p0, v4, v3, v1, p3}, Lcom/android/camera/data/data/runing/TypeElementsBeauty;->createTypeItem(Ljava/lang/String;Ljava/lang/String;ZLcom/android/camera2/CameraCapabilities;)Lcom/android/camera/data/data/TypeItem;
+
+    move-result-object v4
+
+    :cond_3
+    :goto_2
+    if-eqz v4, :cond_4
+
+    invoke-interface {p1, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    :cond_4
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_5
+    return-void
+.end method
+
 .method private initReModelingItems(Ljava/util/List;ILcom/android/camera2/CameraCapabilities;Lcom/android/camera/data/data/runing/ComponentRunningShine;)V
-    .locals 6
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -954,26 +1009,137 @@
 
     move-result p2
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_5
 
+    invoke-interface {p1}, Ljava/util/List;->size()I
+
+    move-result p2
+
+    nop
+
+    nop
+
+    const/4 p4, 0x0
+
+    const/4 v0, -0x1
+
+    move v1, p4
+
+    move v2, v0
+
+    move v3, v2
+
+    :goto_0
+    const/4 v4, 0x1
+
+    if-ge v1, p2, :cond_3
+
+    invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/android/camera/data/data/TypeItem;
+
+    iget-object v5, v5, Lcom/android/camera/data/data/TypeItem;->mKeyOrType:Ljava/lang/String;
+
+    invoke-virtual {v5}, Ljava/lang/String;->hashCode()I
+
+    move-result v6
+
+    const v7, -0x25d6108
+
+    if-eq v6, v7, :cond_1
+
+    const v7, 0x62f067e6
+
+    if-eq v6, v7, :cond_0
+
+    goto :goto_1
+
+    :cond_0
+    const-string v6, "pref_beautify_hairline_ratio_key"
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_2
+
+    goto :goto_2
+
+    :cond_1
+    const-string v4, "pref_beautify_risorius_ratio_key"
+
+    invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    move v4, p4
+
+    goto :goto_2
+
+    :cond_2
+    :goto_1
+    move v4, v0
+
+    :goto_2
+    packed-switch v4, :pswitch_data_0
+
+    goto :goto_3
+
+    :pswitch_0
+    nop
+
+    nop
+
+    move v2, v1
+
+    goto :goto_3
+
+    :pswitch_1
+    nop
+
+    nop
+
+    move v3, v1
+
+    :goto_3
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_3
+    if-eq v2, v0, :cond_4
+
+    if-eq v3, v0, :cond_4
+
+    invoke-interface {p1, v3}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    :cond_4
     const-string p2, "4"
 
-    const-string p4, "pref_beautify_skin_smooth_ratio_key"
+    const-string v0, "pref_beautify_skin_smooth_ratio_key"
 
-    const/4 v0, 0x1
-
-    invoke-direct {p0, p2, p4, v0, p3}, Lcom/android/camera/data/data/runing/TypeElementsBeauty;->createTypeItem(Ljava/lang/String;Ljava/lang/String;ZLcom/android/camera2/CameraCapabilities;)Lcom/android/camera/data/data/TypeItem;
+    invoke-direct {p0, p2, v0, v4, p3}, Lcom/android/camera/data/data/runing/TypeElementsBeauty;->createTypeItem(Ljava/lang/String;Ljava/lang/String;ZLcom/android/camera2/CameraCapabilities;)Lcom/android/camera/data/data/TypeItem;
 
     move-result-object p2
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_5
 
-    const/4 p3, 0x0
+    invoke-interface {p1, p4, p2}, Ljava/util/List;->add(ILjava/lang/Object;)V
 
-    invoke-interface {p1, p3, p2}, Ljava/util/List;->add(ILjava/lang/Object;)V
-
-    :cond_0
+    :cond_5
     return-void
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method
 
 .method private supportType(Ljava/lang/String;Lcom/android/camera2/CameraCapabilities;)Z

@@ -4,4 +4,8 @@
         <item quantity="other">فوکس کیا گیا۔ %d چہرے ملے</item>
         <item quantity="one">فوکس کیا گیا۔ %d چہرہ ملا</item>
     </plurals>
+    <plurals name="toast_burst_snap_finished_summary">
+        <item quantity="other">Burst shot done, %1$s photos taken</item>
+        <item quantity="one">Burst shot done, %1$s photo taken</item>
+    </plurals>
 </resources>

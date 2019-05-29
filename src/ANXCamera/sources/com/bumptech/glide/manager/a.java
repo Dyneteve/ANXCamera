@@ -8,18 +8,18 @@ import java.util.WeakHashMap;
 
 /* compiled from: ActivityFragmentLifecycle */
 class a implements h {
-    private final Set<i> mQ = Collections.newSetFromMap(new WeakHashMap());
-    private boolean mR;
-    private boolean ml;
+    private final Set<i> mR = Collections.newSetFromMap(new WeakHashMap());
+    private boolean mS;
+    private boolean mm;
 
     a() {
     }
 
     public void a(@NonNull i iVar) {
-        this.mQ.add(iVar);
-        if (this.mR) {
+        this.mR.add(iVar);
+        if (this.mS) {
             iVar.onDestroy();
-        } else if (this.ml) {
+        } else if (this.mm) {
             iVar.onStart();
         } else {
             iVar.onStop();
@@ -27,29 +27,29 @@ class a implements h {
     }
 
     public void b(@NonNull i iVar) {
-        this.mQ.remove(iVar);
+        this.mR.remove(iVar);
     }
 
     /* access modifiers changed from: 0000 */
     public void onDestroy() {
-        this.mR = true;
-        for (i onDestroy : k.c(this.mQ)) {
+        this.mS = true;
+        for (i onDestroy : k.c(this.mR)) {
             onDestroy.onDestroy();
         }
     }
 
     /* access modifiers changed from: 0000 */
     public void onStart() {
-        this.ml = true;
-        for (i onStart : k.c(this.mQ)) {
+        this.mm = true;
+        for (i onStart : k.c(this.mR)) {
             onStart.onStart();
         }
     }
 
     /* access modifiers changed from: 0000 */
     public void onStop() {
-        this.ml = false;
-        for (i onStop : k.c(this.mQ)) {
+        this.mm = false;
+        for (i onStop : k.c(this.mR)) {
             onStop.onStop();
         }
     }

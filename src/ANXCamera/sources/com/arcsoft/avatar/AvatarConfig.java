@@ -32,6 +32,7 @@ public interface AvatarConfig {
         public static final int FACE_COLOR = 3;
         public static final int FACE_SHAPE = 19;
         public static final int FRECKLES = 7;
+        public static final int GENDER = 29;
         public static final int HAIR_COLOR = 2;
         public static final int HAIR_HIGHLIGHT_COLOR = 6;
         public static final int HAIR_STYLE = 1;
@@ -145,6 +146,7 @@ public interface AvatarConfig {
         public int configFaceShapeID;
         public float configFaceShapeValue;
         public int configFrecklesID;
+        public int configGenderID;
         public int configHairColorID;
         public float configHairColorValue;
         public int configHairHighlightColorID;

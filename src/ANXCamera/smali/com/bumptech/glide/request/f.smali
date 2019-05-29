@@ -11,48 +11,43 @@
 
 .field private static final UNSET:I = -0x1
 
-.field private static final nN:I = 0x2
+.field private static final nO:I = 0x2
 
-.field private static final nO:I = 0x4
+.field private static final nP:I = 0x4
 
-.field private static final nP:I = 0x10
+.field private static final nQ:I = 0x10
 
-.field private static final nQ:I = 0x20
+.field private static final nR:I = 0x20
 
-.field private static final nR:I = 0x40
+.field private static final nS:I = 0x40
 
-.field private static final nS:I = 0x80
+.field private static final nT:I = 0x80
 
-.field private static final nT:I = 0x100
+.field private static final nU:I = 0x100
 
-.field private static final nU:I = 0x200
+.field private static final nV:I = 0x200
 
-.field private static final nV:I = 0x400
+.field private static final nW:I = 0x400
 
-.field private static final nW:I = 0x800
+.field private static final nX:I = 0x800
 
-.field private static final nX:I = 0x1000
+.field private static final nY:I = 0x1000
 
-.field private static final nY:I = 0x2000
+.field private static final nZ:I = 0x2000
 
-.field private static final nZ:I = 0x4000
+.field private static final oa:I = 0x4000
 
-.field private static final oa:I = 0x8000
+.field private static final ob:I = 0x8000
 
-.field private static final ob:I = 0x10000
+.field private static final oc:I = 0x10000
 
-.field private static final oc:I = 0x20000
+.field private static final od:I = 0x20000
 
-.field private static final od:I = 0x40000
+.field private static final oe:I = 0x40000
 
-.field private static final oe:I = 0x80000
+.field private static final of:I = 0x80000
 
-.field private static final of:I = 0x100000
-
-.field private static og:Lcom/bumptech/glide/request/f;
-    .annotation build Landroid/support/annotation/Nullable;
-    .end annotation
-.end field
+.field private static final og:I = 0x100000
 
 .field private static oh:Lcom/bumptech/glide/request/f;
     .annotation build Landroid/support/annotation/Nullable;
@@ -89,21 +84,26 @@
     .end annotation
 .end field
 
+.field private static oo:Lcom/bumptech/glide/request/f;
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+.end field
+
 
 # instance fields
-.field private eC:Z
+.field private eD:Z
 
-.field private eN:Lcom/bumptech/glide/load/c;
+.field private eO:Lcom/bumptech/glide/load/c;
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 .end field
 
-.field private eP:Lcom/bumptech/glide/load/f;
+.field private eQ:Lcom/bumptech/glide/load/f;
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 .end field
 
-.field private eR:Ljava/lang/Class;
+.field private eS:Ljava/lang/Class;
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -115,7 +115,7 @@
     .end annotation
 .end field
 
-.field private eT:Ljava/util/Map;
+.field private eU:Ljava/util/Map;
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -130,65 +130,65 @@
     .end annotation
 .end field
 
-.field private eW:Lcom/bumptech/glide/Priority;
+.field private eX:Lcom/bumptech/glide/Priority;
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 .end field
 
-.field private eX:Lcom/bumptech/glide/load/engine/g;
+.field private eY:Lcom/bumptech/glide/load/engine/g;
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 .end field
-
-.field private eY:Z
 
 .field private eZ:Z
 
-.field private fl:Z
+.field private fa:Z
 
-.field private gy:Z
+.field private fm:Z
+
+.field private gz:Z
 
 .field private isLocked:Z
 
-.field private oA:Landroid/content/res/Resources$Theme;
+.field private oA:I
+
+.field private oB:Landroid/content/res/Resources$Theme;
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 .end field
-
-.field private oB:Z
 
 .field private oC:Z
 
-.field private oo:I
+.field private oD:Z
 
-.field private oq:F
+.field private oq:I
 
-.field private or:Landroid/graphics/drawable/Drawable;
+.field private or:F
+
+.field private os:Landroid/graphics/drawable/Drawable;
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 .end field
 
-.field private os:I
+.field private ot:I
 
-.field private ot:Landroid/graphics/drawable/Drawable;
+.field private ou:Landroid/graphics/drawable/Drawable;
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 .end field
-
-.field private ou:I
 
 .field private ov:I
 
 .field private ow:I
 
-.field private ox:Z
+.field private ox:I
 
-.field private oy:Landroid/graphics/drawable/Drawable;
+.field private oy:Z
+
+.field private oz:Landroid/graphics/drawable/Drawable;
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 .end field
-
-.field private oz:I
 
 
 # direct methods
@@ -199,25 +199,25 @@
 
     const/high16 v0, 0x3f800000    # 1.0f
 
-    iput v0, p0, Lcom/bumptech/glide/request/f;->oq:F
+    iput v0, p0, Lcom/bumptech/glide/request/f;->or:F
 
-    sget-object v0, Lcom/bumptech/glide/load/engine/g;->fW:Lcom/bumptech/glide/load/engine/g;
+    sget-object v0, Lcom/bumptech/glide/load/engine/g;->fX:Lcom/bumptech/glide/load/engine/g;
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/f;->eX:Lcom/bumptech/glide/load/engine/g;
+    iput-object v0, p0, Lcom/bumptech/glide/request/f;->eY:Lcom/bumptech/glide/load/engine/g;
 
-    sget-object v0, Lcom/bumptech/glide/Priority;->aX:Lcom/bumptech/glide/Priority;
+    sget-object v0, Lcom/bumptech/glide/Priority;->aY:Lcom/bumptech/glide/Priority;
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/f;->eW:Lcom/bumptech/glide/Priority;
+    iput-object v0, p0, Lcom/bumptech/glide/request/f;->eX:Lcom/bumptech/glide/Priority;
 
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/request/f;->eC:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/request/f;->eD:Z
 
     const/4 v1, -0x1
 
-    iput v1, p0, Lcom/bumptech/glide/request/f;->ov:I
-
     iput v1, p0, Lcom/bumptech/glide/request/f;->ow:I
+
+    iput v1, p0, Lcom/bumptech/glide/request/f;->ox:I
 
     nop
 
@@ -225,27 +225,27 @@
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/bumptech/glide/request/f;->eN:Lcom/bumptech/glide/load/c;
+    iput-object v1, p0, Lcom/bumptech/glide/request/f;->eO:Lcom/bumptech/glide/load/c;
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/request/f;->ox:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/request/f;->oy:Z
 
     new-instance v1, Lcom/bumptech/glide/load/f;
 
     invoke-direct {v1}, Lcom/bumptech/glide/load/f;-><init>()V
 
-    iput-object v1, p0, Lcom/bumptech/glide/request/f;->eP:Lcom/bumptech/glide/load/f;
+    iput-object v1, p0, Lcom/bumptech/glide/request/f;->eQ:Lcom/bumptech/glide/load/f;
 
     new-instance v1, Lcom/bumptech/glide/util/CachedHashCodeArrayMap;
 
     invoke-direct {v1}, Lcom/bumptech/glide/util/CachedHashCodeArrayMap;-><init>()V
 
-    iput-object v1, p0, Lcom/bumptech/glide/request/f;->eT:Ljava/util/Map;
+    iput-object v1, p0, Lcom/bumptech/glide/request/f;->eU:Ljava/util/Map;
 
     const-class v1, Ljava/lang/Object;
 
-    iput-object v1, p0, Lcom/bumptech/glide/request/f;->eR:Ljava/lang/Class;
+    iput-object v1, p0, Lcom/bumptech/glide/request/f;->eS:Ljava/lang/Class;
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/request/f;->eZ:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/request/f;->fa:Z
 
     return-void
 .end method
@@ -486,7 +486,7 @@
         }
     .end annotation
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oB:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oC:Z
 
     if-eqz v0, :cond_0
 
@@ -599,7 +599,7 @@
     :goto_0
     const/4 p2, 0x1
 
-    iput-boolean p2, p1, Lcom/bumptech/glide/request/f;->eZ:Z
+    iput-boolean p2, p1, Lcom/bumptech/glide/request/f;->fa:Z
 
     return-object p1
 .end method
@@ -630,7 +630,7 @@
         }
     .end annotation
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oB:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oC:Z
 
     if-eqz v0, :cond_0
 
@@ -649,43 +649,43 @@
 
     invoke-static {p2}, Lcom/bumptech/glide/util/i;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eT:Ljava/util/Map;
+    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eU:Ljava/util/Map;
 
     invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iget p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     or-int/lit16 p1, p1, 0x800
 
-    iput p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iput p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     const/4 p1, 0x1
 
-    iput-boolean p1, p0, Lcom/bumptech/glide/request/f;->ox:Z
+    iput-boolean p1, p0, Lcom/bumptech/glide/request/f;->oy:Z
 
-    iget p2, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iget p2, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     const/high16 v0, 0x10000
 
     or-int/2addr p2, v0
 
-    iput p2, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iput p2, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     const/4 p2, 0x0
 
-    iput-boolean p2, p0, Lcom/bumptech/glide/request/f;->eZ:Z
+    iput-boolean p2, p0, Lcom/bumptech/glide/request/f;->fa:Z
 
     if-eqz p3, :cond_1
 
-    iget p2, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iget p2, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     const/high16 p3, 0x20000
 
     or-int/2addr p2, p3
 
-    iput p2, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iput p2, p0, Lcom/bumptech/glide/request/f;->oq:I
 
-    iput-boolean p1, p0, Lcom/bumptech/glide/request/f;->eY:Z
+    iput-boolean p1, p0, Lcom/bumptech/glide/request/f;->eZ:Z
 
     :cond_1
     invoke-direct {p0}, Lcom/bumptech/glide/request/f;->dN()Lcom/bumptech/glide/request/f;
@@ -875,7 +875,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/request/f;->oi:Lcom/bumptech/glide/request/f;
+    sget-object v0, Lcom/bumptech/glide/request/f;->oj:Lcom/bumptech/glide/request/f;
 
     if-nez v0, :cond_0
 
@@ -891,10 +891,10 @@
 
     move-result-object v0
 
-    sput-object v0, Lcom/bumptech/glide/request/f;->oi:Lcom/bumptech/glide/request/f;
+    sput-object v0, Lcom/bumptech/glide/request/f;->oj:Lcom/bumptech/glide/request/f;
 
     :cond_0
-    sget-object v0, Lcom/bumptech/glide/request/f;->oi:Lcom/bumptech/glide/request/f;
+    sget-object v0, Lcom/bumptech/glide/request/f;->oj:Lcom/bumptech/glide/request/f;
 
     return-object v0
 .end method
@@ -907,7 +907,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/request/f;->oj:Lcom/bumptech/glide/request/f;
+    sget-object v0, Lcom/bumptech/glide/request/f;->ok:Lcom/bumptech/glide/request/f;
 
     if-nez v0, :cond_0
 
@@ -923,10 +923,10 @@
 
     move-result-object v0
 
-    sput-object v0, Lcom/bumptech/glide/request/f;->oj:Lcom/bumptech/glide/request/f;
+    sput-object v0, Lcom/bumptech/glide/request/f;->ok:Lcom/bumptech/glide/request/f;
 
     :cond_0
-    sget-object v0, Lcom/bumptech/glide/request/f;->oj:Lcom/bumptech/glide/request/f;
+    sget-object v0, Lcom/bumptech/glide/request/f;->ok:Lcom/bumptech/glide/request/f;
 
     return-object v0
 .end method
@@ -939,7 +939,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/request/f;->ok:Lcom/bumptech/glide/request/f;
+    sget-object v0, Lcom/bumptech/glide/request/f;->ol:Lcom/bumptech/glide/request/f;
 
     if-nez v0, :cond_0
 
@@ -955,10 +955,10 @@
 
     move-result-object v0
 
-    sput-object v0, Lcom/bumptech/glide/request/f;->ok:Lcom/bumptech/glide/request/f;
+    sput-object v0, Lcom/bumptech/glide/request/f;->ol:Lcom/bumptech/glide/request/f;
 
     :cond_0
-    sget-object v0, Lcom/bumptech/glide/request/f;->ok:Lcom/bumptech/glide/request/f;
+    sget-object v0, Lcom/bumptech/glide/request/f;->ol:Lcom/bumptech/glide/request/f;
 
     return-object v0
 .end method
@@ -971,7 +971,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/request/f;->ol:Lcom/bumptech/glide/request/f;
+    sget-object v0, Lcom/bumptech/glide/request/f;->om:Lcom/bumptech/glide/request/f;
 
     if-nez v0, :cond_0
 
@@ -987,10 +987,10 @@
 
     move-result-object v0
 
-    sput-object v0, Lcom/bumptech/glide/request/f;->ol:Lcom/bumptech/glide/request/f;
+    sput-object v0, Lcom/bumptech/glide/request/f;->om:Lcom/bumptech/glide/request/f;
 
     :cond_0
-    sget-object v0, Lcom/bumptech/glide/request/f;->ol:Lcom/bumptech/glide/request/f;
+    sget-object v0, Lcom/bumptech/glide/request/f;->om:Lcom/bumptech/glide/request/f;
 
     return-object v0
 .end method
@@ -1003,7 +1003,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/request/f;->om:Lcom/bumptech/glide/request/f;
+    sget-object v0, Lcom/bumptech/glide/request/f;->on:Lcom/bumptech/glide/request/f;
 
     if-nez v0, :cond_0
 
@@ -1019,10 +1019,10 @@
 
     move-result-object v0
 
-    sput-object v0, Lcom/bumptech/glide/request/f;->om:Lcom/bumptech/glide/request/f;
+    sput-object v0, Lcom/bumptech/glide/request/f;->on:Lcom/bumptech/glide/request/f;
 
     :cond_0
-    sget-object v0, Lcom/bumptech/glide/request/f;->om:Lcom/bumptech/glide/request/f;
+    sget-object v0, Lcom/bumptech/glide/request/f;->on:Lcom/bumptech/glide/request/f;
 
     return-object v0
 .end method
@@ -1035,7 +1035,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/request/f;->on:Lcom/bumptech/glide/request/f;
+    sget-object v0, Lcom/bumptech/glide/request/f;->oo:Lcom/bumptech/glide/request/f;
 
     if-nez v0, :cond_0
 
@@ -1051,10 +1051,10 @@
 
     move-result-object v0
 
-    sput-object v0, Lcom/bumptech/glide/request/f;->on:Lcom/bumptech/glide/request/f;
+    sput-object v0, Lcom/bumptech/glide/request/f;->oo:Lcom/bumptech/glide/request/f;
 
     :cond_0
-    sget-object v0, Lcom/bumptech/glide/request/f;->on:Lcom/bumptech/glide/request/f;
+    sget-object v0, Lcom/bumptech/glide/request/f;->oo:Lcom/bumptech/glide/request/f;
 
     return-object v0
 .end method
@@ -1140,7 +1140,7 @@
 
     if-eqz p0, :cond_1
 
-    sget-object p0, Lcom/bumptech/glide/request/f;->og:Lcom/bumptech/glide/request/f;
+    sget-object p0, Lcom/bumptech/glide/request/f;->oh:Lcom/bumptech/glide/request/f;
 
     if-nez p0, :cond_0
 
@@ -1158,15 +1158,15 @@
 
     move-result-object p0
 
-    sput-object p0, Lcom/bumptech/glide/request/f;->og:Lcom/bumptech/glide/request/f;
+    sput-object p0, Lcom/bumptech/glide/request/f;->oh:Lcom/bumptech/glide/request/f;
 
     :cond_0
-    sget-object p0, Lcom/bumptech/glide/request/f;->og:Lcom/bumptech/glide/request/f;
+    sget-object p0, Lcom/bumptech/glide/request/f;->oh:Lcom/bumptech/glide/request/f;
 
     return-object p0
 
     :cond_1
-    sget-object p0, Lcom/bumptech/glide/request/f;->oh:Lcom/bumptech/glide/request/f;
+    sget-object p0, Lcom/bumptech/glide/request/f;->oi:Lcom/bumptech/glide/request/f;
 
     if-nez p0, :cond_2
 
@@ -1184,10 +1184,10 @@
 
     move-result-object p0
 
-    sput-object p0, Lcom/bumptech/glide/request/f;->oh:Lcom/bumptech/glide/request/f;
+    sput-object p0, Lcom/bumptech/glide/request/f;->oi:Lcom/bumptech/glide/request/f;
 
     :cond_2
-    sget-object p0, Lcom/bumptech/glide/request/f;->oh:Lcom/bumptech/glide/request/f;
+    sget-object p0, Lcom/bumptech/glide/request/f;->oi:Lcom/bumptech/glide/request/f;
 
     return-object p0
 .end method
@@ -1195,7 +1195,7 @@
 .method private isSet(I)Z
     .locals 1
 
-    iget v0, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iget v0, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     invoke-static {v0, p1}, Lcom/bumptech/glide/request/f;->n(II)Z
 
@@ -1320,7 +1320,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oB:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oC:Z
 
     if-eqz v0, :cond_0
 
@@ -1335,13 +1335,13 @@
     return-object p1
 
     :cond_0
-    iput p1, p0, Lcom/bumptech/glide/request/f;->ou:I
+    iput p1, p0, Lcom/bumptech/glide/request/f;->ov:I
 
-    iget p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iget p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     or-int/lit16 p1, p1, 0x80
 
-    iput p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iput p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     invoke-direct {p0}, Lcom/bumptech/glide/request/f;->dN()Lcom/bumptech/glide/request/f;
 
@@ -1362,7 +1362,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oB:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oC:Z
 
     if-eqz v0, :cond_0
 
@@ -1377,13 +1377,13 @@
     return-object p1
 
     :cond_0
-    iput p1, p0, Lcom/bumptech/glide/request/f;->oz:I
+    iput p1, p0, Lcom/bumptech/glide/request/f;->oA:I
 
-    iget p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iget p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     or-int/lit16 p1, p1, 0x4000
 
-    iput p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iput p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     invoke-direct {p0}, Lcom/bumptech/glide/request/f;->dN()Lcom/bumptech/glide/request/f;
 
@@ -1404,7 +1404,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oB:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oC:Z
 
     if-eqz v0, :cond_0
 
@@ -1419,13 +1419,13 @@
     return-object p1
 
     :cond_0
-    iput p1, p0, Lcom/bumptech/glide/request/f;->os:I
+    iput p1, p0, Lcom/bumptech/glide/request/f;->ot:I
 
-    iget p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iget p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     or-int/lit8 p1, p1, 0x20
 
-    iput p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iput p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     invoke-direct {p0}, Lcom/bumptech/glide/request/f;->dN()Lcom/bumptech/glide/request/f;
 
@@ -1463,7 +1463,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/e;->kB:Lcom/bumptech/glide/load/e;
+    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/e;->kC:Lcom/bumptech/glide/load/e;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -1489,7 +1489,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/load/model/a/b;->kw:Lcom/bumptech/glide/load/e;
+    sget-object v0, Lcom/bumptech/glide/load/model/a/b;->kx:Lcom/bumptech/glide/load/e;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -1514,7 +1514,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oB:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oC:Z
 
     if-eqz v0, :cond_0
 
@@ -1529,15 +1529,15 @@
     return-object p1
 
     :cond_0
-    iput-object p1, p0, Lcom/bumptech/glide/request/f;->oA:Landroid/content/res/Resources$Theme;
+    iput-object p1, p0, Lcom/bumptech/glide/request/f;->oB:Landroid/content/res/Resources$Theme;
 
-    iget p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iget p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     const v0, 0x8000
 
     or-int/2addr p1, v0
 
-    iput p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iput p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     invoke-direct {p0}, Lcom/bumptech/glide/request/f;->dN()Lcom/bumptech/glide/request/f;
 
@@ -1570,7 +1570,7 @@
         }
     .end annotation
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oB:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oC:Z
 
     if-eqz v0, :cond_0
 
@@ -1674,7 +1674,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eN:Lcom/bumptech/glide/load/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eO:Lcom/bumptech/glide/load/c;
 
     return-object v0
 .end method
@@ -1682,7 +1682,7 @@
 .method aE()Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->eZ:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->fa:Z
 
     return v0
 .end method
@@ -1692,7 +1692,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eX:Lcom/bumptech/glide/load/engine/g;
+    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eY:Lcom/bumptech/glide/load/engine/g;
 
     return-object v0
 .end method
@@ -1702,7 +1702,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eW:Lcom/bumptech/glide/Priority;
+    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eX:Lcom/bumptech/glide/Priority;
 
     return-object v0
 .end method
@@ -1712,7 +1712,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eP:Lcom/bumptech/glide/load/f;
+    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eQ:Lcom/bumptech/glide/load/f;
 
     return-object v0
 .end method
@@ -1729,7 +1729,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/e;->kC:Lcom/bumptech/glide/load/e;
+    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/e;->kD:Lcom/bumptech/glide/load/e;
 
     invoke-static {p1}, Lcom/bumptech/glide/util/i;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1756,13 +1756,13 @@
 
     invoke-static {p1}, Lcom/bumptech/glide/util/i;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/n;->lm:Lcom/bumptech/glide/load/e;
+    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/n;->ln:Lcom/bumptech/glide/load/e;
 
     invoke-virtual {p0, v0, p1}, Lcom/bumptech/glide/request/f;->c(Lcom/bumptech/glide/load/e;Ljava/lang/Object;)Lcom/bumptech/glide/request/f;
 
     move-result-object v0
 
-    sget-object v1, Lcom/bumptech/glide/load/resource/gif/g;->lm:Lcom/bumptech/glide/load/e;
+    sget-object v1, Lcom/bumptech/glide/load/resource/gif/g;->ln:Lcom/bumptech/glide/load/e;
 
     invoke-virtual {v0, v1, p1}, Lcom/bumptech/glide/request/f;->c(Lcom/bumptech/glide/load/e;Ljava/lang/Object;)Lcom/bumptech/glide/request/f;
 
@@ -1783,7 +1783,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oB:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oC:Z
 
     if-eqz v0, :cond_0
 
@@ -1804,13 +1804,13 @@
 
     check-cast p1, Lcom/bumptech/glide/load/engine/g;
 
-    iput-object p1, p0, Lcom/bumptech/glide/request/f;->eX:Lcom/bumptech/glide/load/engine/g;
+    iput-object p1, p0, Lcom/bumptech/glide/request/f;->eY:Lcom/bumptech/glide/load/engine/g;
 
-    iget p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iget p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     or-int/lit8 p1, p1, 0x4
 
-    iput p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iput p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     invoke-direct {p0}, Lcom/bumptech/glide/request/f;->dN()Lcom/bumptech/glide/request/f;
 
@@ -1862,7 +1862,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;->li:Lcom/bumptech/glide/load/e;
+    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;->lj:Lcom/bumptech/glide/load/e;
 
     invoke-static {p1}, Lcom/bumptech/glide/util/i;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1902,7 +1902,7 @@
         }
     .end annotation
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oB:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oC:Z
 
     if-eqz v0, :cond_0
 
@@ -1977,7 +1977,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eR:Ljava/lang/Class;
+    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eS:Ljava/lang/Class;
 
     return-object v0
 .end method
@@ -1994,7 +1994,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oB:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oC:Z
 
     if-eqz v0, :cond_0
 
@@ -2015,13 +2015,13 @@
 
     check-cast p1, Lcom/bumptech/glide/Priority;
 
-    iput-object p1, p0, Lcom/bumptech/glide/request/f;->eW:Lcom/bumptech/glide/Priority;
+    iput-object p1, p0, Lcom/bumptech/glide/request/f;->eX:Lcom/bumptech/glide/Priority;
 
-    iget p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iget p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     or-int/lit8 p1, p1, 0x8
 
-    iput p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iput p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     invoke-direct {p0}, Lcom/bumptech/glide/request/f;->dN()Lcom/bumptech/glide/request/f;
 
@@ -2057,7 +2057,7 @@
         }
     .end annotation
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oB:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oC:Z
 
     if-eqz v0, :cond_0
 
@@ -2076,7 +2076,7 @@
 
     invoke-static {p2}, Lcom/bumptech/glide/util/i;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eP:Lcom/bumptech/glide/load/f;
+    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eQ:Lcom/bumptech/glide/load/f;
 
     invoke-virtual {v0, p1, p2}, Lcom/bumptech/glide/load/f;->a(Lcom/bumptech/glide/load/e;Ljava/lang/Object;)Lcom/bumptech/glide/load/f;
 
@@ -2144,7 +2144,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/n;->lp:Lcom/bumptech/glide/load/e;
+    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/n;->lq:Lcom/bumptech/glide/load/e;
 
     const/4 v1, 0x0
 
@@ -2167,7 +2167,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;->lc:Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;
+    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;->ld:Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;
 
     new-instance v1, Lcom/bumptech/glide/load/resource/bitmap/j;
 
@@ -2188,7 +2188,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;->lc:Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;
+    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;->ld:Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;
 
     new-instance v1, Lcom/bumptech/glide/load/resource/bitmap/j;
 
@@ -2209,7 +2209,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;->lb:Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;
+    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;->lc:Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;
 
     new-instance v1, Lcom/bumptech/glide/load/resource/bitmap/q;
 
@@ -2230,7 +2230,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;->lb:Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;
+    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;->lc:Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;
 
     new-instance v1, Lcom/bumptech/glide/load/resource/bitmap/q;
 
@@ -2251,7 +2251,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;->lf:Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;
+    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;->lg:Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;
 
     new-instance v1, Lcom/bumptech/glide/load/resource/bitmap/k;
 
@@ -2272,7 +2272,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;->lf:Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;
+    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;->lg:Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;
 
     new-instance v1, Lcom/bumptech/glide/load/resource/bitmap/k;
 
@@ -2293,7 +2293,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;->lc:Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;
+    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;->ld:Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;
 
     new-instance v1, Lcom/bumptech/glide/load/resource/bitmap/l;
 
@@ -2314,7 +2314,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;->lf:Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;
+    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;->lg:Lcom/bumptech/glide/load/resource/bitmap/DownsampleStrategy;
 
     new-instance v1, Lcom/bumptech/glide/load/resource/bitmap/l;
 
@@ -2335,7 +2335,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oB:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oC:Z
 
     if-eqz v0, :cond_0
 
@@ -2350,41 +2350,41 @@
     return-object v0
 
     :cond_0
-    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eT:Ljava/util/Map;
+    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eU:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->clear()V
 
-    iget v0, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iget v0, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     and-int/lit16 v0, v0, -0x801
 
-    iput v0, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iput v0, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     const/4 v0, 0x0
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/request/f;->eY:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/request/f;->eZ:Z
 
-    iget v1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iget v1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     const v2, -0x20001
 
     and-int/2addr v1, v2
 
-    iput v1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iput v1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/request/f;->ox:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/request/f;->oy:Z
 
-    iget v0, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iget v0, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     const/high16 v1, 0x10000
 
     or-int/2addr v0, v1
 
-    iput v0, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iput v0, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/request/f;->eZ:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/request/f;->fa:Z
 
     invoke-direct {p0}, Lcom/bumptech/glide/request/f;->dN()Lcom/bumptech/glide/request/f;
 
@@ -2401,7 +2401,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/load/resource/gif/g;->mF:Lcom/bumptech/glide/load/e;
+    sget-object v0, Lcom/bumptech/glide/load/resource/gif/g;->mG:Lcom/bumptech/glide/load/e;
 
     const/4 v1, 0x1
 
@@ -2437,7 +2437,7 @@
 
     if-eqz v0, :cond_1
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oB:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oC:Z
 
     if-eqz v0, :cond_0
 
@@ -2456,7 +2456,7 @@
     :goto_0
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/request/f;->oB:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/request/f;->oC:Z
 
     invoke-virtual {p0}, Lcom/bumptech/glide/request/f;->dL()Lcom/bumptech/glide/request/f;
 
@@ -2468,7 +2468,7 @@
 .method protected dO()Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oB:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oC:Z
 
     return v0
 .end method
@@ -2513,7 +2513,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eT:Ljava/util/Map;
+    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eU:Ljava/util/Map;
 
     return-object v0
 .end method
@@ -2521,7 +2521,7 @@
 .method public final dS()Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->eY:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->eZ:Z
 
     return v0
 .end method
@@ -2531,7 +2531,7 @@
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/f;->or:Landroid/graphics/drawable/Drawable;
+    iget-object v0, p0, Lcom/bumptech/glide/request/f;->os:Landroid/graphics/drawable/Drawable;
 
     return-object v0
 .end method
@@ -2539,7 +2539,7 @@
 .method public final dU()I
     .locals 1
 
-    iget v0, p0, Lcom/bumptech/glide/request/f;->os:I
+    iget v0, p0, Lcom/bumptech/glide/request/f;->ot:I
 
     return v0
 .end method
@@ -2547,7 +2547,7 @@
 .method public final dV()I
     .locals 1
 
-    iget v0, p0, Lcom/bumptech/glide/request/f;->ou:I
+    iget v0, p0, Lcom/bumptech/glide/request/f;->ov:I
 
     return v0
 .end method
@@ -2557,7 +2557,7 @@
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/f;->ot:Landroid/graphics/drawable/Drawable;
+    iget-object v0, p0, Lcom/bumptech/glide/request/f;->ou:Landroid/graphics/drawable/Drawable;
 
     return-object v0
 .end method
@@ -2565,7 +2565,7 @@
 .method public final dX()I
     .locals 1
 
-    iget v0, p0, Lcom/bumptech/glide/request/f;->oz:I
+    iget v0, p0, Lcom/bumptech/glide/request/f;->oA:I
 
     return v0
 .end method
@@ -2575,7 +2575,7 @@
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/f;->oy:Landroid/graphics/drawable/Drawable;
+    iget-object v0, p0, Lcom/bumptech/glide/request/f;->oz:Landroid/graphics/drawable/Drawable;
 
     return-object v0
 .end method
@@ -2583,7 +2583,7 @@
 .method public final dZ()Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->eC:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->eD:Z
 
     return v0
 .end method
@@ -2604,11 +2604,11 @@
 
     invoke-direct {v1}, Lcom/bumptech/glide/load/f;-><init>()V
 
-    iput-object v1, v0, Lcom/bumptech/glide/request/f;->eP:Lcom/bumptech/glide/load/f;
+    iput-object v1, v0, Lcom/bumptech/glide/request/f;->eQ:Lcom/bumptech/glide/load/f;
 
-    iget-object v1, v0, Lcom/bumptech/glide/request/f;->eP:Lcom/bumptech/glide/load/f;
+    iget-object v1, v0, Lcom/bumptech/glide/request/f;->eQ:Lcom/bumptech/glide/load/f;
 
-    iget-object v2, p0, Lcom/bumptech/glide/request/f;->eP:Lcom/bumptech/glide/load/f;
+    iget-object v2, p0, Lcom/bumptech/glide/request/f;->eQ:Lcom/bumptech/glide/load/f;
 
     invoke-virtual {v1, v2}, Lcom/bumptech/glide/load/f;->a(Lcom/bumptech/glide/load/f;)V
 
@@ -2616,11 +2616,11 @@
 
     invoke-direct {v1}, Lcom/bumptech/glide/util/CachedHashCodeArrayMap;-><init>()V
 
-    iput-object v1, v0, Lcom/bumptech/glide/request/f;->eT:Ljava/util/Map;
+    iput-object v1, v0, Lcom/bumptech/glide/request/f;->eU:Ljava/util/Map;
 
-    iget-object v1, v0, Lcom/bumptech/glide/request/f;->eT:Ljava/util/Map;
+    iget-object v1, v0, Lcom/bumptech/glide/request/f;->eU:Ljava/util/Map;
 
-    iget-object v2, p0, Lcom/bumptech/glide/request/f;->eT:Ljava/util/Map;
+    iget-object v2, p0, Lcom/bumptech/glide/request/f;->eU:Ljava/util/Map;
 
     invoke-interface {v1, v2}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
 
@@ -2628,7 +2628,7 @@
 
     iput-boolean v1, v0, Lcom/bumptech/glide/request/f;->isLocked:Z
 
-    iput-boolean v1, v0, Lcom/bumptech/glide/request/f;->oB:Z
+    iput-boolean v1, v0, Lcom/bumptech/glide/request/f;->oC:Z
     :try_end_0
     .catch Ljava/lang/CloneNotSupportedException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -2647,7 +2647,7 @@
 .method public final dy()Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->ox:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oy:Z
 
     return v0
 .end method
@@ -2677,7 +2677,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder;->lS:Lcom/bumptech/glide/load/e;
+    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/VideoDecoder;->lT:Lcom/bumptech/glide/load/e;
 
     invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
@@ -2705,7 +2705,7 @@
 .method public final eb()I
     .locals 1
 
-    iget v0, p0, Lcom/bumptech/glide/request/f;->ow:I
+    iget v0, p0, Lcom/bumptech/glide/request/f;->ox:I
 
     return v0
 .end method
@@ -2713,9 +2713,9 @@
 .method public final ec()Z
     .locals 2
 
-    iget v0, p0, Lcom/bumptech/glide/request/f;->ow:I
+    iget v0, p0, Lcom/bumptech/glide/request/f;->ox:I
 
-    iget v1, p0, Lcom/bumptech/glide/request/f;->ov:I
+    iget v1, p0, Lcom/bumptech/glide/request/f;->ow:I
 
     invoke-static {v0, v1}, Lcom/bumptech/glide/util/k;->s(II)Z
 
@@ -2727,7 +2727,7 @@
 .method public final ed()I
     .locals 1
 
-    iget v0, p0, Lcom/bumptech/glide/request/f;->ov:I
+    iget v0, p0, Lcom/bumptech/glide/request/f;->ow:I
 
     return v0
 .end method
@@ -2735,7 +2735,7 @@
 .method public final ee()F
     .locals 1
 
-    iget v0, p0, Lcom/bumptech/glide/request/f;->oq:F
+    iget v0, p0, Lcom/bumptech/glide/request/f;->or:F
 
     return v0
 .end method
@@ -2743,7 +2743,7 @@
 .method public final ef()Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oC:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oD:Z
 
     return v0
 .end method
@@ -2751,7 +2751,7 @@
 .method public final eg()Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->gy:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->gz:Z
 
     return v0
 .end method
@@ -2759,7 +2759,7 @@
 .method public final eh()Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->fl:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->fm:Z
 
     return v0
 .end method
@@ -2775,9 +2775,9 @@
 
     check-cast p1, Lcom/bumptech/glide/request/f;
 
-    iget v0, p1, Lcom/bumptech/glide/request/f;->oq:F
+    iget v0, p1, Lcom/bumptech/glide/request/f;->or:F
 
-    iget v2, p0, Lcom/bumptech/glide/request/f;->oq:F
+    iget v2, p0, Lcom/bumptech/glide/request/f;->or:F
 
     invoke-static {v0, v2}, Ljava/lang/Float;->compare(FF)I
 
@@ -2785,63 +2785,57 @@
 
     if-nez v0, :cond_0
 
-    iget v0, p0, Lcom/bumptech/glide/request/f;->os:I
+    iget v0, p0, Lcom/bumptech/glide/request/f;->ot:I
 
-    iget v2, p1, Lcom/bumptech/glide/request/f;->os:I
+    iget v2, p1, Lcom/bumptech/glide/request/f;->ot:I
 
     if-ne v0, v2, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/f;->or:Landroid/graphics/drawable/Drawable;
+    iget-object v0, p0, Lcom/bumptech/glide/request/f;->os:Landroid/graphics/drawable/Drawable;
 
-    iget-object v2, p1, Lcom/bumptech/glide/request/f;->or:Landroid/graphics/drawable/Drawable;
+    iget-object v2, p1, Lcom/bumptech/glide/request/f;->os:Landroid/graphics/drawable/Drawable;
 
     invoke-static {v0, v2}, Lcom/bumptech/glide/util/k;->c(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
-
-    iget v0, p0, Lcom/bumptech/glide/request/f;->ou:I
-
-    iget v2, p1, Lcom/bumptech/glide/request/f;->ou:I
-
-    if-ne v0, v2, :cond_0
-
-    iget-object v0, p0, Lcom/bumptech/glide/request/f;->ot:Landroid/graphics/drawable/Drawable;
-
-    iget-object v2, p1, Lcom/bumptech/glide/request/f;->ot:Landroid/graphics/drawable/Drawable;
-
-    invoke-static {v0, v2}, Lcom/bumptech/glide/util/k;->c(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget v0, p0, Lcom/bumptech/glide/request/f;->oz:I
-
-    iget v2, p1, Lcom/bumptech/glide/request/f;->oz:I
-
-    if-ne v0, v2, :cond_0
-
-    iget-object v0, p0, Lcom/bumptech/glide/request/f;->oy:Landroid/graphics/drawable/Drawable;
-
-    iget-object v2, p1, Lcom/bumptech/glide/request/f;->oy:Landroid/graphics/drawable/Drawable;
-
-    invoke-static {v0, v2}, Lcom/bumptech/glide/util/k;->c(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->eC:Z
-
-    iget-boolean v2, p1, Lcom/bumptech/glide/request/f;->eC:Z
-
-    if-ne v0, v2, :cond_0
 
     iget v0, p0, Lcom/bumptech/glide/request/f;->ov:I
 
     iget v2, p1, Lcom/bumptech/glide/request/f;->ov:I
+
+    if-ne v0, v2, :cond_0
+
+    iget-object v0, p0, Lcom/bumptech/glide/request/f;->ou:Landroid/graphics/drawable/Drawable;
+
+    iget-object v2, p1, Lcom/bumptech/glide/request/f;->ou:Landroid/graphics/drawable/Drawable;
+
+    invoke-static {v0, v2}, Lcom/bumptech/glide/util/k;->c(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget v0, p0, Lcom/bumptech/glide/request/f;->oA:I
+
+    iget v2, p1, Lcom/bumptech/glide/request/f;->oA:I
+
+    if-ne v0, v2, :cond_0
+
+    iget-object v0, p0, Lcom/bumptech/glide/request/f;->oz:Landroid/graphics/drawable/Drawable;
+
+    iget-object v2, p1, Lcom/bumptech/glide/request/f;->oz:Landroid/graphics/drawable/Drawable;
+
+    invoke-static {v0, v2}, Lcom/bumptech/glide/util/k;->c(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->eD:Z
+
+    iget-boolean v2, p1, Lcom/bumptech/glide/request/f;->eD:Z
 
     if-ne v0, v2, :cond_0
 
@@ -2851,33 +2845,39 @@
 
     if-ne v0, v2, :cond_0
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->eY:Z
+    iget v0, p0, Lcom/bumptech/glide/request/f;->ox:I
 
-    iget-boolean v2, p1, Lcom/bumptech/glide/request/f;->eY:Z
-
-    if-ne v0, v2, :cond_0
-
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->ox:Z
-
-    iget-boolean v2, p1, Lcom/bumptech/glide/request/f;->ox:Z
+    iget v2, p1, Lcom/bumptech/glide/request/f;->ox:I
 
     if-ne v0, v2, :cond_0
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oC:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->eZ:Z
 
-    iget-boolean v2, p1, Lcom/bumptech/glide/request/f;->oC:Z
-
-    if-ne v0, v2, :cond_0
-
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->fl:Z
-
-    iget-boolean v2, p1, Lcom/bumptech/glide/request/f;->fl:Z
+    iget-boolean v2, p1, Lcom/bumptech/glide/request/f;->eZ:Z
 
     if-ne v0, v2, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eX:Lcom/bumptech/glide/load/engine/g;
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oy:Z
 
-    iget-object v2, p1, Lcom/bumptech/glide/request/f;->eX:Lcom/bumptech/glide/load/engine/g;
+    iget-boolean v2, p1, Lcom/bumptech/glide/request/f;->oy:Z
+
+    if-ne v0, v2, :cond_0
+
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oD:Z
+
+    iget-boolean v2, p1, Lcom/bumptech/glide/request/f;->oD:Z
+
+    if-ne v0, v2, :cond_0
+
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->fm:Z
+
+    iget-boolean v2, p1, Lcom/bumptech/glide/request/f;->fm:Z
+
+    if-ne v0, v2, :cond_0
+
+    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eY:Lcom/bumptech/glide/load/engine/g;
+
+    iget-object v2, p1, Lcom/bumptech/glide/request/f;->eY:Lcom/bumptech/glide/load/engine/g;
 
     invoke-virtual {v0, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
@@ -2885,15 +2885,15 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eW:Lcom/bumptech/glide/Priority;
+    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eX:Lcom/bumptech/glide/Priority;
 
-    iget-object v2, p1, Lcom/bumptech/glide/request/f;->eW:Lcom/bumptech/glide/Priority;
+    iget-object v2, p1, Lcom/bumptech/glide/request/f;->eX:Lcom/bumptech/glide/Priority;
 
     if-ne v0, v2, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eP:Lcom/bumptech/glide/load/f;
+    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eQ:Lcom/bumptech/glide/load/f;
 
-    iget-object v2, p1, Lcom/bumptech/glide/request/f;->eP:Lcom/bumptech/glide/load/f;
+    iget-object v2, p1, Lcom/bumptech/glide/request/f;->eQ:Lcom/bumptech/glide/load/f;
 
     invoke-virtual {v0, v2}, Lcom/bumptech/glide/load/f;->equals(Ljava/lang/Object;)Z
 
@@ -2901,9 +2901,9 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eT:Ljava/util/Map;
+    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eU:Ljava/util/Map;
 
-    iget-object v2, p1, Lcom/bumptech/glide/request/f;->eT:Ljava/util/Map;
+    iget-object v2, p1, Lcom/bumptech/glide/request/f;->eU:Ljava/util/Map;
 
     invoke-interface {v0, v2}, Ljava/util/Map;->equals(Ljava/lang/Object;)Z
 
@@ -2911,9 +2911,9 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eR:Ljava/lang/Class;
+    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eS:Ljava/lang/Class;
 
-    iget-object v2, p1, Lcom/bumptech/glide/request/f;->eR:Ljava/lang/Class;
+    iget-object v2, p1, Lcom/bumptech/glide/request/f;->eS:Ljava/lang/Class;
 
     invoke-virtual {v0, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
@@ -2921,9 +2921,9 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eN:Lcom/bumptech/glide/load/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eO:Lcom/bumptech/glide/load/c;
 
-    iget-object v2, p1, Lcom/bumptech/glide/request/f;->eN:Lcom/bumptech/glide/load/c;
+    iget-object v2, p1, Lcom/bumptech/glide/request/f;->eO:Lcom/bumptech/glide/load/c;
 
     invoke-static {v0, v2}, Lcom/bumptech/glide/util/k;->c(Ljava/lang/Object;Ljava/lang/Object;)Z
 
@@ -2931,9 +2931,9 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/f;->oA:Landroid/content/res/Resources$Theme;
+    iget-object v0, p0, Lcom/bumptech/glide/request/f;->oB:Landroid/content/res/Resources$Theme;
 
-    iget-object p1, p1, Lcom/bumptech/glide/request/f;->oA:Landroid/content/res/Resources$Theme;
+    iget-object p1, p1, Lcom/bumptech/glide/request/f;->oB:Landroid/content/res/Resources$Theme;
 
     invoke-static {v0, p1}, Lcom/bumptech/glide/util/k;->c(Ljava/lang/Object;Ljava/lang/Object;)Z
 
@@ -2964,7 +2964,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oB:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oC:Z
 
     if-eqz v0, :cond_0
 
@@ -2979,7 +2979,7 @@
     return-object p1
 
     :cond_0
-    iget v0, p1, Lcom/bumptech/glide/request/f;->oo:I
+    iget v0, p1, Lcom/bumptech/glide/request/f;->oq:I
 
     const/4 v1, 0x2
 
@@ -2989,12 +2989,12 @@
 
     if-eqz v0, :cond_1
 
-    iget v0, p1, Lcom/bumptech/glide/request/f;->oq:F
+    iget v0, p1, Lcom/bumptech/glide/request/f;->or:F
 
-    iput v0, p0, Lcom/bumptech/glide/request/f;->oq:F
+    iput v0, p0, Lcom/bumptech/glide/request/f;->or:F
 
     :cond_1
-    iget v0, p1, Lcom/bumptech/glide/request/f;->oo:I
+    iget v0, p1, Lcom/bumptech/glide/request/f;->oq:I
 
     const/high16 v1, 0x40000
 
@@ -3004,12 +3004,12 @@
 
     if-eqz v0, :cond_2
 
-    iget-boolean v0, p1, Lcom/bumptech/glide/request/f;->oC:Z
+    iget-boolean v0, p1, Lcom/bumptech/glide/request/f;->oD:Z
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/request/f;->oC:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/request/f;->oD:Z
 
     :cond_2
-    iget v0, p1, Lcom/bumptech/glide/request/f;->oo:I
+    iget v0, p1, Lcom/bumptech/glide/request/f;->oq:I
 
     const/high16 v1, 0x100000
 
@@ -3019,12 +3019,12 @@
 
     if-eqz v0, :cond_3
 
-    iget-boolean v0, p1, Lcom/bumptech/glide/request/f;->gy:Z
+    iget-boolean v0, p1, Lcom/bumptech/glide/request/f;->gz:Z
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/request/f;->gy:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/request/f;->gz:Z
 
     :cond_3
-    iget v0, p1, Lcom/bumptech/glide/request/f;->oo:I
+    iget v0, p1, Lcom/bumptech/glide/request/f;->oq:I
 
     const/4 v1, 0x4
 
@@ -3034,12 +3034,12 @@
 
     if-eqz v0, :cond_4
 
-    iget-object v0, p1, Lcom/bumptech/glide/request/f;->eX:Lcom/bumptech/glide/load/engine/g;
+    iget-object v0, p1, Lcom/bumptech/glide/request/f;->eY:Lcom/bumptech/glide/load/engine/g;
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/f;->eX:Lcom/bumptech/glide/load/engine/g;
+    iput-object v0, p0, Lcom/bumptech/glide/request/f;->eY:Lcom/bumptech/glide/load/engine/g;
 
     :cond_4
-    iget v0, p1, Lcom/bumptech/glide/request/f;->oo:I
+    iget v0, p1, Lcom/bumptech/glide/request/f;->oq:I
 
     const/16 v1, 0x8
 
@@ -3049,12 +3049,12 @@
 
     if-eqz v0, :cond_5
 
-    iget-object v0, p1, Lcom/bumptech/glide/request/f;->eW:Lcom/bumptech/glide/Priority;
+    iget-object v0, p1, Lcom/bumptech/glide/request/f;->eX:Lcom/bumptech/glide/Priority;
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/f;->eW:Lcom/bumptech/glide/Priority;
+    iput-object v0, p0, Lcom/bumptech/glide/request/f;->eX:Lcom/bumptech/glide/Priority;
 
     :cond_5
-    iget v0, p1, Lcom/bumptech/glide/request/f;->oo:I
+    iget v0, p1, Lcom/bumptech/glide/request/f;->oq:I
 
     const/16 v1, 0x10
 
@@ -3064,12 +3064,12 @@
 
     if-eqz v0, :cond_6
 
-    iget-object v0, p1, Lcom/bumptech/glide/request/f;->or:Landroid/graphics/drawable/Drawable;
+    iget-object v0, p1, Lcom/bumptech/glide/request/f;->os:Landroid/graphics/drawable/Drawable;
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/f;->or:Landroid/graphics/drawable/Drawable;
+    iput-object v0, p0, Lcom/bumptech/glide/request/f;->os:Landroid/graphics/drawable/Drawable;
 
     :cond_6
-    iget v0, p1, Lcom/bumptech/glide/request/f;->oo:I
+    iget v0, p1, Lcom/bumptech/glide/request/f;->oq:I
 
     const/16 v1, 0x20
 
@@ -3079,12 +3079,12 @@
 
     if-eqz v0, :cond_7
 
-    iget v0, p1, Lcom/bumptech/glide/request/f;->os:I
+    iget v0, p1, Lcom/bumptech/glide/request/f;->ot:I
 
-    iput v0, p0, Lcom/bumptech/glide/request/f;->os:I
+    iput v0, p0, Lcom/bumptech/glide/request/f;->ot:I
 
     :cond_7
-    iget v0, p1, Lcom/bumptech/glide/request/f;->oo:I
+    iget v0, p1, Lcom/bumptech/glide/request/f;->oq:I
 
     const/16 v1, 0x40
 
@@ -3094,12 +3094,12 @@
 
     if-eqz v0, :cond_8
 
-    iget-object v0, p1, Lcom/bumptech/glide/request/f;->ot:Landroid/graphics/drawable/Drawable;
+    iget-object v0, p1, Lcom/bumptech/glide/request/f;->ou:Landroid/graphics/drawable/Drawable;
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/f;->ot:Landroid/graphics/drawable/Drawable;
+    iput-object v0, p0, Lcom/bumptech/glide/request/f;->ou:Landroid/graphics/drawable/Drawable;
 
     :cond_8
-    iget v0, p1, Lcom/bumptech/glide/request/f;->oo:I
+    iget v0, p1, Lcom/bumptech/glide/request/f;->oq:I
 
     const/16 v1, 0x80
 
@@ -3109,12 +3109,12 @@
 
     if-eqz v0, :cond_9
 
-    iget v0, p1, Lcom/bumptech/glide/request/f;->ou:I
+    iget v0, p1, Lcom/bumptech/glide/request/f;->ov:I
 
-    iput v0, p0, Lcom/bumptech/glide/request/f;->ou:I
+    iput v0, p0, Lcom/bumptech/glide/request/f;->ov:I
 
     :cond_9
-    iget v0, p1, Lcom/bumptech/glide/request/f;->oo:I
+    iget v0, p1, Lcom/bumptech/glide/request/f;->oq:I
 
     const/16 v1, 0x100
 
@@ -3124,12 +3124,12 @@
 
     if-eqz v0, :cond_a
 
-    iget-boolean v0, p1, Lcom/bumptech/glide/request/f;->eC:Z
+    iget-boolean v0, p1, Lcom/bumptech/glide/request/f;->eD:Z
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/request/f;->eC:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/request/f;->eD:Z
 
     :cond_a
-    iget v0, p1, Lcom/bumptech/glide/request/f;->oo:I
+    iget v0, p1, Lcom/bumptech/glide/request/f;->oq:I
 
     const/16 v1, 0x200
 
@@ -3139,16 +3139,16 @@
 
     if-eqz v0, :cond_b
 
+    iget v0, p1, Lcom/bumptech/glide/request/f;->ox:I
+
+    iput v0, p0, Lcom/bumptech/glide/request/f;->ox:I
+
     iget v0, p1, Lcom/bumptech/glide/request/f;->ow:I
 
     iput v0, p0, Lcom/bumptech/glide/request/f;->ow:I
 
-    iget v0, p1, Lcom/bumptech/glide/request/f;->ov:I
-
-    iput v0, p0, Lcom/bumptech/glide/request/f;->ov:I
-
     :cond_b
-    iget v0, p1, Lcom/bumptech/glide/request/f;->oo:I
+    iget v0, p1, Lcom/bumptech/glide/request/f;->oq:I
 
     const/16 v1, 0x400
 
@@ -3158,12 +3158,12 @@
 
     if-eqz v0, :cond_c
 
-    iget-object v0, p1, Lcom/bumptech/glide/request/f;->eN:Lcom/bumptech/glide/load/c;
+    iget-object v0, p1, Lcom/bumptech/glide/request/f;->eO:Lcom/bumptech/glide/load/c;
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/f;->eN:Lcom/bumptech/glide/load/c;
+    iput-object v0, p0, Lcom/bumptech/glide/request/f;->eO:Lcom/bumptech/glide/load/c;
 
     :cond_c
-    iget v0, p1, Lcom/bumptech/glide/request/f;->oo:I
+    iget v0, p1, Lcom/bumptech/glide/request/f;->oq:I
 
     const/16 v1, 0x1000
 
@@ -3173,12 +3173,12 @@
 
     if-eqz v0, :cond_d
 
-    iget-object v0, p1, Lcom/bumptech/glide/request/f;->eR:Ljava/lang/Class;
+    iget-object v0, p1, Lcom/bumptech/glide/request/f;->eS:Ljava/lang/Class;
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/f;->eR:Ljava/lang/Class;
+    iput-object v0, p0, Lcom/bumptech/glide/request/f;->eS:Ljava/lang/Class;
 
     :cond_d
-    iget v0, p1, Lcom/bumptech/glide/request/f;->oo:I
+    iget v0, p1, Lcom/bumptech/glide/request/f;->oq:I
 
     const/16 v1, 0x2000
 
@@ -3188,12 +3188,12 @@
 
     if-eqz v0, :cond_e
 
-    iget-object v0, p1, Lcom/bumptech/glide/request/f;->oy:Landroid/graphics/drawable/Drawable;
+    iget-object v0, p1, Lcom/bumptech/glide/request/f;->oz:Landroid/graphics/drawable/Drawable;
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/f;->oy:Landroid/graphics/drawable/Drawable;
+    iput-object v0, p0, Lcom/bumptech/glide/request/f;->oz:Landroid/graphics/drawable/Drawable;
 
     :cond_e
-    iget v0, p1, Lcom/bumptech/glide/request/f;->oo:I
+    iget v0, p1, Lcom/bumptech/glide/request/f;->oq:I
 
     const/16 v1, 0x4000
 
@@ -3203,12 +3203,12 @@
 
     if-eqz v0, :cond_f
 
-    iget v0, p1, Lcom/bumptech/glide/request/f;->oz:I
+    iget v0, p1, Lcom/bumptech/glide/request/f;->oA:I
 
-    iput v0, p0, Lcom/bumptech/glide/request/f;->oz:I
+    iput v0, p0, Lcom/bumptech/glide/request/f;->oA:I
 
     :cond_f
-    iget v0, p1, Lcom/bumptech/glide/request/f;->oo:I
+    iget v0, p1, Lcom/bumptech/glide/request/f;->oq:I
 
     const v1, 0x8000
 
@@ -3218,12 +3218,12 @@
 
     if-eqz v0, :cond_10
 
-    iget-object v0, p1, Lcom/bumptech/glide/request/f;->oA:Landroid/content/res/Resources$Theme;
+    iget-object v0, p1, Lcom/bumptech/glide/request/f;->oB:Landroid/content/res/Resources$Theme;
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/f;->oA:Landroid/content/res/Resources$Theme;
+    iput-object v0, p0, Lcom/bumptech/glide/request/f;->oB:Landroid/content/res/Resources$Theme;
 
     :cond_10
-    iget v0, p1, Lcom/bumptech/glide/request/f;->oo:I
+    iget v0, p1, Lcom/bumptech/glide/request/f;->oq:I
 
     const/high16 v1, 0x10000
 
@@ -3233,12 +3233,12 @@
 
     if-eqz v0, :cond_11
 
-    iget-boolean v0, p1, Lcom/bumptech/glide/request/f;->ox:Z
+    iget-boolean v0, p1, Lcom/bumptech/glide/request/f;->oy:Z
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/request/f;->ox:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/request/f;->oy:Z
 
     :cond_11
-    iget v0, p1, Lcom/bumptech/glide/request/f;->oo:I
+    iget v0, p1, Lcom/bumptech/glide/request/f;->oq:I
 
     const/high16 v1, 0x20000
 
@@ -3248,12 +3248,12 @@
 
     if-eqz v0, :cond_12
 
-    iget-boolean v0, p1, Lcom/bumptech/glide/request/f;->eY:Z
+    iget-boolean v0, p1, Lcom/bumptech/glide/request/f;->eZ:Z
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/request/f;->eY:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/request/f;->eZ:Z
 
     :cond_12
-    iget v0, p1, Lcom/bumptech/glide/request/f;->oo:I
+    iget v0, p1, Lcom/bumptech/glide/request/f;->oq:I
 
     const/16 v1, 0x800
 
@@ -3263,18 +3263,18 @@
 
     if-eqz v0, :cond_13
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eT:Ljava/util/Map;
+    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eU:Ljava/util/Map;
 
-    iget-object v1, p1, Lcom/bumptech/glide/request/f;->eT:Ljava/util/Map;
+    iget-object v1, p1, Lcom/bumptech/glide/request/f;->eU:Ljava/util/Map;
 
     invoke-interface {v0, v1}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
 
-    iget-boolean v0, p1, Lcom/bumptech/glide/request/f;->eZ:Z
+    iget-boolean v0, p1, Lcom/bumptech/glide/request/f;->fa:Z
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/request/f;->eZ:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/request/f;->fa:Z
 
     :cond_13
-    iget v0, p1, Lcom/bumptech/glide/request/f;->oo:I
+    iget v0, p1, Lcom/bumptech/glide/request/f;->oq:I
 
     const/high16 v1, 0x80000
 
@@ -3284,53 +3284,53 @@
 
     if-eqz v0, :cond_14
 
-    iget-boolean v0, p1, Lcom/bumptech/glide/request/f;->fl:Z
+    iget-boolean v0, p1, Lcom/bumptech/glide/request/f;->fm:Z
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/request/f;->fl:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/request/f;->fm:Z
 
     :cond_14
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->ox:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oy:Z
 
     if-nez v0, :cond_15
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eT:Ljava/util/Map;
+    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eU:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->clear()V
 
-    iget v0, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iget v0, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     and-int/lit16 v0, v0, -0x801
 
-    iput v0, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iput v0, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     const/4 v0, 0x0
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/request/f;->eY:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/request/f;->eZ:Z
 
-    iget v0, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iget v0, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     const v1, -0x20001
 
     and-int/2addr v0, v1
 
-    iput v0, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iput v0, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/request/f;->eZ:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/request/f;->fa:Z
 
     :cond_15
-    iget v0, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iget v0, p0, Lcom/bumptech/glide/request/f;->oq:I
 
-    iget v1, p1, Lcom/bumptech/glide/request/f;->oo:I
+    iget v1, p1, Lcom/bumptech/glide/request/f;->oq:I
 
     or-int/2addr v0, v1
 
-    iput v0, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iput v0, p0, Lcom/bumptech/glide/request/f;->oq:I
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eP:Lcom/bumptech/glide/load/f;
+    iget-object v0, p0, Lcom/bumptech/glide/request/f;->eQ:Lcom/bumptech/glide/load/f;
 
-    iget-object p1, p1, Lcom/bumptech/glide/request/f;->eP:Lcom/bumptech/glide/load/f;
+    iget-object p1, p1, Lcom/bumptech/glide/request/f;->eQ:Lcom/bumptech/glide/load/f;
 
     invoke-virtual {v0, p1}, Lcom/bumptech/glide/load/f;->a(Lcom/bumptech/glide/load/f;)V
 
@@ -3346,7 +3346,7 @@
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/f;->oA:Landroid/content/res/Resources$Theme;
+    iget-object v0, p0, Lcom/bumptech/glide/request/f;->oB:Landroid/content/res/Resources$Theme;
 
     return-object v0
 .end method
@@ -3365,7 +3365,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oB:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oC:Z
 
     if-eqz v0, :cond_0
 
@@ -3392,13 +3392,13 @@
 
     if-gtz v0, :cond_1
 
-    iput p1, p0, Lcom/bumptech/glide/request/f;->oq:F
+    iput p1, p0, Lcom/bumptech/glide/request/f;->or:F
 
-    iget p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iget p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     or-int/lit8 p1, p1, 0x2
 
-    iput p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iput p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     invoke-direct {p0}, Lcom/bumptech/glide/request/f;->dN()Lcom/bumptech/glide/request/f;
 
@@ -3419,51 +3419,21 @@
 .method public hashCode()I
     .locals 2
 
-    iget v0, p0, Lcom/bumptech/glide/request/f;->oq:F
+    iget v0, p0, Lcom/bumptech/glide/request/f;->or:F
 
     invoke-static {v0}, Lcom/bumptech/glide/util/k;->hashCode(F)I
 
     move-result v0
 
-    iget v1, p0, Lcom/bumptech/glide/request/f;->os:I
+    iget v1, p0, Lcom/bumptech/glide/request/f;->ot:I
 
     invoke-static {v1, v0}, Lcom/bumptech/glide/util/k;->t(II)I
 
     move-result v0
 
-    iget-object v1, p0, Lcom/bumptech/glide/request/f;->or:Landroid/graphics/drawable/Drawable;
+    iget-object v1, p0, Lcom/bumptech/glide/request/f;->os:Landroid/graphics/drawable/Drawable;
 
     invoke-static {v1, v0}, Lcom/bumptech/glide/util/k;->a(Ljava/lang/Object;I)I
-
-    move-result v0
-
-    iget v1, p0, Lcom/bumptech/glide/request/f;->ou:I
-
-    invoke-static {v1, v0}, Lcom/bumptech/glide/util/k;->t(II)I
-
-    move-result v0
-
-    iget-object v1, p0, Lcom/bumptech/glide/request/f;->ot:Landroid/graphics/drawable/Drawable;
-
-    invoke-static {v1, v0}, Lcom/bumptech/glide/util/k;->a(Ljava/lang/Object;I)I
-
-    move-result v0
-
-    iget v1, p0, Lcom/bumptech/glide/request/f;->oz:I
-
-    invoke-static {v1, v0}, Lcom/bumptech/glide/util/k;->t(II)I
-
-    move-result v0
-
-    iget-object v1, p0, Lcom/bumptech/glide/request/f;->oy:Landroid/graphics/drawable/Drawable;
-
-    invoke-static {v1, v0}, Lcom/bumptech/glide/util/k;->a(Ljava/lang/Object;I)I
-
-    move-result v0
-
-    iget-boolean v1, p0, Lcom/bumptech/glide/request/f;->eC:Z
-
-    invoke-static {v1, v0}, Lcom/bumptech/glide/util/k;->a(ZI)I
 
     move-result v0
 
@@ -3473,73 +3443,103 @@
 
     move-result v0
 
+    iget-object v1, p0, Lcom/bumptech/glide/request/f;->ou:Landroid/graphics/drawable/Drawable;
+
+    invoke-static {v1, v0}, Lcom/bumptech/glide/util/k;->a(Ljava/lang/Object;I)I
+
+    move-result v0
+
+    iget v1, p0, Lcom/bumptech/glide/request/f;->oA:I
+
+    invoke-static {v1, v0}, Lcom/bumptech/glide/util/k;->t(II)I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/bumptech/glide/request/f;->oz:Landroid/graphics/drawable/Drawable;
+
+    invoke-static {v1, v0}, Lcom/bumptech/glide/util/k;->a(Ljava/lang/Object;I)I
+
+    move-result v0
+
+    iget-boolean v1, p0, Lcom/bumptech/glide/request/f;->eD:Z
+
+    invoke-static {v1, v0}, Lcom/bumptech/glide/util/k;->a(ZI)I
+
+    move-result v0
+
     iget v1, p0, Lcom/bumptech/glide/request/f;->ow:I
 
     invoke-static {v1, v0}, Lcom/bumptech/glide/util/k;->t(II)I
 
     move-result v0
 
-    iget-boolean v1, p0, Lcom/bumptech/glide/request/f;->eY:Z
+    iget v1, p0, Lcom/bumptech/glide/request/f;->ox:I
+
+    invoke-static {v1, v0}, Lcom/bumptech/glide/util/k;->t(II)I
+
+    move-result v0
+
+    iget-boolean v1, p0, Lcom/bumptech/glide/request/f;->eZ:Z
 
     invoke-static {v1, v0}, Lcom/bumptech/glide/util/k;->a(ZI)I
 
     move-result v0
 
-    iget-boolean v1, p0, Lcom/bumptech/glide/request/f;->ox:Z
+    iget-boolean v1, p0, Lcom/bumptech/glide/request/f;->oy:Z
 
     invoke-static {v1, v0}, Lcom/bumptech/glide/util/k;->a(ZI)I
 
     move-result v0
 
-    iget-boolean v1, p0, Lcom/bumptech/glide/request/f;->oC:Z
+    iget-boolean v1, p0, Lcom/bumptech/glide/request/f;->oD:Z
 
     invoke-static {v1, v0}, Lcom/bumptech/glide/util/k;->a(ZI)I
 
     move-result v0
 
-    iget-boolean v1, p0, Lcom/bumptech/glide/request/f;->fl:Z
+    iget-boolean v1, p0, Lcom/bumptech/glide/request/f;->fm:Z
 
     invoke-static {v1, v0}, Lcom/bumptech/glide/util/k;->a(ZI)I
 
     move-result v0
 
-    iget-object v1, p0, Lcom/bumptech/glide/request/f;->eX:Lcom/bumptech/glide/load/engine/g;
+    iget-object v1, p0, Lcom/bumptech/glide/request/f;->eY:Lcom/bumptech/glide/load/engine/g;
 
     invoke-static {v1, v0}, Lcom/bumptech/glide/util/k;->a(Ljava/lang/Object;I)I
 
     move-result v0
 
-    iget-object v1, p0, Lcom/bumptech/glide/request/f;->eW:Lcom/bumptech/glide/Priority;
+    iget-object v1, p0, Lcom/bumptech/glide/request/f;->eX:Lcom/bumptech/glide/Priority;
 
     invoke-static {v1, v0}, Lcom/bumptech/glide/util/k;->a(Ljava/lang/Object;I)I
 
     move-result v0
 
-    iget-object v1, p0, Lcom/bumptech/glide/request/f;->eP:Lcom/bumptech/glide/load/f;
+    iget-object v1, p0, Lcom/bumptech/glide/request/f;->eQ:Lcom/bumptech/glide/load/f;
 
     invoke-static {v1, v0}, Lcom/bumptech/glide/util/k;->a(Ljava/lang/Object;I)I
 
     move-result v0
 
-    iget-object v1, p0, Lcom/bumptech/glide/request/f;->eT:Ljava/util/Map;
+    iget-object v1, p0, Lcom/bumptech/glide/request/f;->eU:Ljava/util/Map;
 
     invoke-static {v1, v0}, Lcom/bumptech/glide/util/k;->a(Ljava/lang/Object;I)I
 
     move-result v0
 
-    iget-object v1, p0, Lcom/bumptech/glide/request/f;->eR:Ljava/lang/Class;
+    iget-object v1, p0, Lcom/bumptech/glide/request/f;->eS:Ljava/lang/Class;
 
     invoke-static {v1, v0}, Lcom/bumptech/glide/util/k;->a(Ljava/lang/Object;I)I
 
     move-result v0
 
-    iget-object v1, p0, Lcom/bumptech/glide/request/f;->eN:Lcom/bumptech/glide/load/c;
+    iget-object v1, p0, Lcom/bumptech/glide/request/f;->eO:Lcom/bumptech/glide/load/c;
 
     invoke-static {v1, v0}, Lcom/bumptech/glide/util/k;->a(Ljava/lang/Object;I)I
 
     move-result v0
 
-    iget-object v1, p0, Lcom/bumptech/glide/request/f;->oA:Landroid/content/res/Resources$Theme;
+    iget-object v1, p0, Lcom/bumptech/glide/request/f;->oB:Landroid/content/res/Resources$Theme;
 
     invoke-static {v1, v0}, Lcom/bumptech/glide/util/k;->a(Ljava/lang/Object;I)I
 
@@ -3560,7 +3560,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oB:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oC:Z
 
     if-eqz v0, :cond_0
 
@@ -3575,13 +3575,13 @@
     return-object p1
 
     :cond_0
-    iput-object p1, p0, Lcom/bumptech/glide/request/f;->ot:Landroid/graphics/drawable/Drawable;
+    iput-object p1, p0, Lcom/bumptech/glide/request/f;->ou:Landroid/graphics/drawable/Drawable;
 
-    iget p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iget p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     or-int/lit8 p1, p1, 0x40
 
-    iput p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iput p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     invoke-direct {p0}, Lcom/bumptech/glide/request/f;->dN()Lcom/bumptech/glide/request/f;
 
@@ -3610,7 +3610,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oB:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oC:Z
 
     if-eqz v0, :cond_0
 
@@ -3625,13 +3625,13 @@
     return-object p1
 
     :cond_0
-    iput-object p1, p0, Lcom/bumptech/glide/request/f;->oy:Landroid/graphics/drawable/Drawable;
+    iput-object p1, p0, Lcom/bumptech/glide/request/f;->oz:Landroid/graphics/drawable/Drawable;
 
-    iget p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iget p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     or-int/lit16 p1, p1, 0x2000
 
-    iput p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iput p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     invoke-direct {p0}, Lcom/bumptech/glide/request/f;->dN()Lcom/bumptech/glide/request/f;
 
@@ -3648,7 +3648,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oB:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oC:Z
 
     if-eqz v0, :cond_0
 
@@ -3663,15 +3663,15 @@
     return-object p1
 
     :cond_0
-    iput-boolean p1, p0, Lcom/bumptech/glide/request/f;->oC:Z
+    iput-boolean p1, p0, Lcom/bumptech/glide/request/f;->oD:Z
 
-    iget p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iget p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     const/high16 v0, 0x40000
 
     or-int/2addr p1, v0
 
-    iput p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iput p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     invoke-direct {p0}, Lcom/bumptech/glide/request/f;->dN()Lcom/bumptech/glide/request/f;
 
@@ -3692,7 +3692,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oB:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oC:Z
 
     if-eqz v0, :cond_0
 
@@ -3707,13 +3707,13 @@
     return-object p1
 
     :cond_0
-    iput-object p1, p0, Lcom/bumptech/glide/request/f;->or:Landroid/graphics/drawable/Drawable;
+    iput-object p1, p0, Lcom/bumptech/glide/request/f;->os:Landroid/graphics/drawable/Drawable;
 
-    iget p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iget p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     or-int/lit8 p1, p1, 0x10
 
-    iput p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iput p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     invoke-direct {p0}, Lcom/bumptech/glide/request/f;->dN()Lcom/bumptech/glide/request/f;
 
@@ -3734,7 +3734,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oB:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oC:Z
 
     if-eqz v0, :cond_0
 
@@ -3755,13 +3755,13 @@
 
     check-cast p1, Lcom/bumptech/glide/load/c;
 
-    iput-object p1, p0, Lcom/bumptech/glide/request/f;->eN:Lcom/bumptech/glide/load/c;
+    iput-object p1, p0, Lcom/bumptech/glide/request/f;->eO:Lcom/bumptech/glide/load/c;
 
-    iget p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iget p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     or-int/lit16 p1, p1, 0x400
 
-    iput p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iput p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     invoke-direct {p0}, Lcom/bumptech/glide/request/f;->dN()Lcom/bumptech/glide/request/f;
 
@@ -3778,7 +3778,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oB:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oC:Z
 
     if-eqz v0, :cond_0
 
@@ -3793,15 +3793,15 @@
     return-object p1
 
     :cond_0
-    iput-boolean p1, p0, Lcom/bumptech/glide/request/f;->gy:Z
+    iput-boolean p1, p0, Lcom/bumptech/glide/request/f;->gz:Z
 
-    iget p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iget p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     const/high16 v0, 0x100000
 
     or-int/2addr p1, v0
 
-    iput p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iput p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     invoke-direct {p0}, Lcom/bumptech/glide/request/f;->dN()Lcom/bumptech/glide/request/f;
 
@@ -3818,7 +3818,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oB:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oC:Z
 
     if-eqz v0, :cond_0
 
@@ -3833,15 +3833,15 @@
     return-object p1
 
     :cond_0
-    iput-boolean p1, p0, Lcom/bumptech/glide/request/f;->fl:Z
+    iput-boolean p1, p0, Lcom/bumptech/glide/request/f;->fm:Z
 
-    iget p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iget p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     const/high16 v0, 0x80000
 
     or-int/2addr p1, v0
 
-    iput p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iput p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     invoke-direct {p0}, Lcom/bumptech/glide/request/f;->dN()Lcom/bumptech/glide/request/f;
 
@@ -3858,7 +3858,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oB:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oC:Z
 
     const/4 v1, 0x1
 
@@ -3877,13 +3877,13 @@
     :cond_0
     xor-int/2addr p1, v1
 
-    iput-boolean p1, p0, Lcom/bumptech/glide/request/f;->eC:Z
+    iput-boolean p1, p0, Lcom/bumptech/glide/request/f;->eD:Z
 
-    iget p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iget p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     or-int/lit16 p1, p1, 0x100
 
-    iput p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iput p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     invoke-direct {p0}, Lcom/bumptech/glide/request/f;->dN()Lcom/bumptech/glide/request/f;
 
@@ -3900,7 +3900,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oB:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oC:Z
 
     if-eqz v0, :cond_0
 
@@ -3915,15 +3915,15 @@
     return-object p1
 
     :cond_0
-    iput p1, p0, Lcom/bumptech/glide/request/f;->ow:I
+    iput p1, p0, Lcom/bumptech/glide/request/f;->ox:I
 
-    iput p2, p0, Lcom/bumptech/glide/request/f;->ov:I
+    iput p2, p0, Lcom/bumptech/glide/request/f;->ow:I
 
-    iget p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iget p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     or-int/lit16 p1, p1, 0x200
 
-    iput p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iput p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     invoke-direct {p0}, Lcom/bumptech/glide/request/f;->dN()Lcom/bumptech/glide/request/f;
 
@@ -3953,7 +3953,7 @@
         }
     .end annotation
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oB:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/f;->oC:Z
 
     if-eqz v0, :cond_0
 
@@ -3974,13 +3974,13 @@
 
     check-cast p1, Ljava/lang/Class;
 
-    iput-object p1, p0, Lcom/bumptech/glide/request/f;->eR:Ljava/lang/Class;
+    iput-object p1, p0, Lcom/bumptech/glide/request/f;->eS:Ljava/lang/Class;
 
-    iget p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iget p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     or-int/lit16 p1, p1, 0x1000
 
-    iput p1, p0, Lcom/bumptech/glide/request/f;->oo:I
+    iput p1, p0, Lcom/bumptech/glide/request/f;->oq:I
 
     invoke-direct {p0}, Lcom/bumptech/glide/request/f;->dN()Lcom/bumptech/glide/request/f;
 

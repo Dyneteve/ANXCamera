@@ -20,13 +20,13 @@
     .end annotation
 .end field
 
-.field static final il:I
+.field static final im:I
 
-.field static final im:F = 0.4f
+.field static final io:F = 0.4f
 
-.field static final io:F = 0.33f
+.field static final ip:F = 0.33f
 
-.field static final ip:I = 0x400000
+.field static final iq:I = 0x400000
 
 
 # instance fields
@@ -34,13 +34,13 @@
 
 .field iA:F
 
-.field iB:I
+.field iB:F
 
-.field iq:Landroid/app/ActivityManager;
+.field iC:I
 
-.field ir:Lcom/bumptech/glide/load/engine/a/l$c;
+.field ir:Landroid/app/ActivityManager;
 
-.field iu:F
+.field iu:Lcom/bumptech/glide/load/engine/a/l$c;
 
 .field iv:F
 
@@ -65,7 +65,7 @@
     const/4 v0, 0x1
 
     :goto_0
-    sput v0, Lcom/bumptech/glide/load/engine/a/l$a;->il:I
+    sput v0, Lcom/bumptech/glide/load/engine/a/l$a;->im:I
 
     return-void
 .end method
@@ -77,25 +77,25 @@
 
     const/high16 v0, 0x40000000    # 2.0f
 
-    iput v0, p0, Lcom/bumptech/glide/load/engine/a/l$a;->iu:F
+    iput v0, p0, Lcom/bumptech/glide/load/engine/a/l$a;->iv:F
 
-    sget v0, Lcom/bumptech/glide/load/engine/a/l$a;->il:I
+    sget v0, Lcom/bumptech/glide/load/engine/a/l$a;->im:I
 
     int-to-float v0, v0
 
-    iput v0, p0, Lcom/bumptech/glide/load/engine/a/l$a;->iv:F
+    iput v0, p0, Lcom/bumptech/glide/load/engine/a/l$a;->iz:F
 
     const v0, 0x3ecccccd    # 0.4f
 
-    iput v0, p0, Lcom/bumptech/glide/load/engine/a/l$a;->iz:F
+    iput v0, p0, Lcom/bumptech/glide/load/engine/a/l$a;->iA:F
 
     const v0, 0x3ea8f5c3    # 0.33f
 
-    iput v0, p0, Lcom/bumptech/glide/load/engine/a/l$a;->iA:F
+    iput v0, p0, Lcom/bumptech/glide/load/engine/a/l$a;->iB:F
 
     const/high16 v0, 0x400000
 
-    iput v0, p0, Lcom/bumptech/glide/load/engine/a/l$a;->iB:I
+    iput v0, p0, Lcom/bumptech/glide/load/engine/a/l$a;->iC:I
 
     iput-object p1, p0, Lcom/bumptech/glide/load/engine/a/l$a;->context:Landroid/content/Context;
 
@@ -107,7 +107,7 @@
 
     check-cast v0, Landroid/app/ActivityManager;
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/a/l$a;->iq:Landroid/app/ActivityManager;
+    iput-object v0, p0, Lcom/bumptech/glide/load/engine/a/l$a;->ir:Landroid/app/ActivityManager;
 
     new-instance v0, Lcom/bumptech/glide/load/engine/a/l$b;
 
@@ -121,7 +121,7 @@
 
     invoke-direct {v0, p1}, Lcom/bumptech/glide/load/engine/a/l$b;-><init>(Landroid/util/DisplayMetrics;)V
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/a/l$a;->ir:Lcom/bumptech/glide/load/engine/a/l$c;
+    iput-object v0, p0, Lcom/bumptech/glide/load/engine/a/l$a;->iu:Lcom/bumptech/glide/load/engine/a/l$c;
 
     sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
 
@@ -129,7 +129,7 @@
 
     if-lt p1, v0, :cond_0
 
-    iget-object p1, p0, Lcom/bumptech/glide/load/engine/a/l$a;->iq:Landroid/app/ActivityManager;
+    iget-object p1, p0, Lcom/bumptech/glide/load/engine/a/l$a;->ir:Landroid/app/ActivityManager;
 
     invoke-static {p1}, Lcom/bumptech/glide/load/engine/a/l;->a(Landroid/app/ActivityManager;)Z
 
@@ -139,7 +139,7 @@
 
     const/4 p1, 0x0
 
-    iput p1, p0, Lcom/bumptech/glide/load/engine/a/l$a;->iv:F
+    iput p1, p0, Lcom/bumptech/glide/load/engine/a/l$a;->iz:F
 
     :cond_0
     return-void
@@ -178,7 +178,7 @@
 
     invoke-static {v0, v1}, Lcom/bumptech/glide/util/i;->a(ZLjava/lang/String;)V
 
-    iput p1, p0, Lcom/bumptech/glide/load/engine/a/l$a;->iu:F
+    iput p1, p0, Lcom/bumptech/glide/load/engine/a/l$a;->iv:F
 
     return-object p0
 .end method
@@ -204,7 +204,7 @@
 
     invoke-static {v0, v1}, Lcom/bumptech/glide/util/i;->a(ZLjava/lang/String;)V
 
-    iput p1, p0, Lcom/bumptech/glide/load/engine/a/l$a;->iv:F
+    iput p1, p0, Lcom/bumptech/glide/load/engine/a/l$a;->iz:F
 
     return-object p0
 .end method
@@ -236,7 +236,7 @@
 
     invoke-static {v0, v1}, Lcom/bumptech/glide/util/i;->a(ZLjava/lang/String;)V
 
-    iput p1, p0, Lcom/bumptech/glide/load/engine/a/l$a;->iz:F
+    iput p1, p0, Lcom/bumptech/glide/load/engine/a/l$a;->iA:F
 
     return-object p0
 .end method
@@ -268,7 +268,7 @@
 
     invoke-static {v0, v1}, Lcom/bumptech/glide/util/i;->a(ZLjava/lang/String;)V
 
-    iput p1, p0, Lcom/bumptech/glide/load/engine/a/l$a;->iA:F
+    iput p1, p0, Lcom/bumptech/glide/load/engine/a/l$a;->iB:F
 
     return-object p0
 .end method
@@ -278,7 +278,7 @@
     .annotation build Landroid/support/annotation/VisibleForTesting;
     .end annotation
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/engine/a/l$a;->iq:Landroid/app/ActivityManager;
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/a/l$a;->ir:Landroid/app/ActivityManager;
 
     return-object p0
 .end method
@@ -288,7 +288,7 @@
     .annotation build Landroid/support/annotation/VisibleForTesting;
     .end annotation
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/engine/a/l$a;->ir:Lcom/bumptech/glide/load/engine/a/l$c;
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/a/l$a;->iu:Lcom/bumptech/glide/load/engine/a/l$c;
 
     return-object p0
 .end method
@@ -296,7 +296,7 @@
 .method public x(I)Lcom/bumptech/glide/load/engine/a/l$a;
     .locals 0
 
-    iput p1, p0, Lcom/bumptech/glide/load/engine/a/l$a;->iB:I
+    iput p1, p0, Lcom/bumptech/glide/load/engine/a/l$a;->iC:I
 
     return-object p0
 .end method

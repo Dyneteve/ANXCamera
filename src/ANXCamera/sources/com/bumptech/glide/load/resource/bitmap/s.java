@@ -14,12 +14,12 @@ import com.bumptech.glide.util.i;
 
 /* compiled from: LazyBitmapDrawableResource */
 public final class s implements l, p<BitmapDrawable> {
-    private final Resources ko;
-    private final p<Bitmap> lG;
+    private final Resources kp;
+    private final p<Bitmap> lH;
 
     private s(@NonNull Resources resources, @NonNull p<Bitmap> pVar) {
-        this.ko = (Resources) i.checkNotNull(resources);
-        this.lG = (p) i.checkNotNull(pVar);
+        this.kp = (Resources) i.checkNotNull(resources);
+        this.lH = (p) i.checkNotNull(pVar);
     }
 
     @Nullable
@@ -48,20 +48,20 @@ public final class s implements l, p<BitmapDrawable> {
     @NonNull
     /* renamed from: cx */
     public BitmapDrawable get() {
-        return new BitmapDrawable(this.ko, (Bitmap) this.lG.get());
+        return new BitmapDrawable(this.kp, (Bitmap) this.lH.get());
     }
 
     public int getSize() {
-        return this.lG.getSize();
+        return this.lH.getSize();
     }
 
     public void initialize() {
-        if (this.lG instanceof l) {
-            ((l) this.lG).initialize();
+        if (this.lH instanceof l) {
+            ((l) this.lH).initialize();
         }
     }
 
     public void recycle() {
-        this.lG.recycle();
+        this.lH.recycle();
     }
 }

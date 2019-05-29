@@ -9,7 +9,7 @@ import java.security.MessageDigest;
 public class l extends g {
     private static final String ID = "com.bumptech.glide.load.resource.bitmap.CircleCrop.1";
     private static final int VERSION = 1;
-    private static final byte[] kE = ID.getBytes(dG);
+    private static final byte[] kF = ID.getBytes(dH);
 
     public boolean equals(Object obj) {
         return obj instanceof l;
@@ -25,6 +25,6 @@ public class l extends g {
     }
 
     public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
-        messageDigest.update(kE);
+        messageDigest.update(kF);
     }
 }

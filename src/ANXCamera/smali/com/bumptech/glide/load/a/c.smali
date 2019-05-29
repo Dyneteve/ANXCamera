@@ -4,7 +4,7 @@
 
 
 # instance fields
-.field private ap:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
+.field private aq:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
 
 .field private buffer:[B
 
@@ -48,7 +48,7 @@
 
     iput-object p1, p0, Lcom/bumptech/glide/load/a/c;->out:Ljava/io/OutputStream;
 
-    iput-object p2, p0, Lcom/bumptech/glide/load/a/c;->ap:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
+    iput-object p2, p0, Lcom/bumptech/glide/load/a/c;->aq:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
 
     const-class p1, [B
 
@@ -120,7 +120,7 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/a/c;->ap:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
+    iget-object v0, p0, Lcom/bumptech/glide/load/a/c;->aq:Lcom/bumptech/glide/load/engine/bitmap_recycle/b;
 
     iget-object v1, p0, Lcom/bumptech/glide/load/a/c;->buffer:[B
 

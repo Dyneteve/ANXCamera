@@ -14,8 +14,8 @@ public interface a {
     public static final int STATUS_FORMAT_ERROR = 1;
     public static final int STATUS_OK = 0;
     public static final int STATUS_OPEN_ERROR = 2;
-    public static final int cb = 3;
-    public static final int cc = 0;
+    public static final int cc = 3;
+    public static final int cd = 0;
 
     /* compiled from: GifDecoder */
     /* renamed from: com.bumptech.glide.b.a$a reason: collision with other inner class name */

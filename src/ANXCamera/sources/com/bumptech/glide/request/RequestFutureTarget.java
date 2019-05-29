@@ -17,18 +17,18 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 public class RequestFutureTarget<R> implements b<R>, e<R>, Runnable {
-    private static final Waiter nH = new Waiter();
-    private final Handler aD;
-    private boolean ea;
+    private static final Waiter nI = new Waiter();
+    private final Handler aE;
+    private boolean eb;
     @Nullable
-    private GlideException gA;
+    private GlideException gB;
     private final int height;
-    private final boolean nI;
-    private final Waiter nJ;
+    private final boolean nJ;
+    private final Waiter nK;
     @Nullable
-    private c nK;
-    private boolean nL;
+    private c nL;
     private boolean nM;
+    private boolean nN;
     @Nullable
     private R resource;
     private final int width;
@@ -50,45 +50,45 @@ public class RequestFutureTarget<R> implements b<R>, e<R>, Runnable {
     }
 
     public RequestFutureTarget(Handler handler, int i, int i2) {
-        this(handler, i, i2, true, nH);
+        this(handler, i, i2, true, nI);
     }
 
     RequestFutureTarget(Handler handler, int i, int i2, boolean z, Waiter waiter) {
-        this.aD = handler;
+        this.aE = handler;
         this.width = i;
         this.height = i2;
-        this.nI = z;
-        this.nJ = waiter;
+        this.nJ = z;
+        this.nK = waiter;
     }
 
     private synchronized R doGet(Long l) throws ExecutionException, InterruptedException, TimeoutException {
-        if (this.nI && !isDone()) {
+        if (this.nJ && !isDone()) {
             k.eM();
         }
-        if (this.ea) {
+        if (this.eb) {
             throw new CancellationException();
+        } else if (this.nN) {
+            throw new ExecutionException(this.gB);
         } else if (this.nM) {
-            throw new ExecutionException(this.gA);
-        } else if (this.nL) {
             return this.resource;
         } else {
             if (l == null) {
-                this.nJ.a(this, 0);
+                this.nK.a(this, 0);
             } else if (l.longValue() > 0) {
                 long currentTimeMillis = System.currentTimeMillis();
                 long longValue = l.longValue() + currentTimeMillis;
                 while (!isDone() && currentTimeMillis < longValue) {
-                    this.nJ.a(this, longValue - currentTimeMillis);
+                    this.nK.a(this, longValue - currentTimeMillis);
                     currentTimeMillis = System.currentTimeMillis();
                 }
             }
             if (Thread.interrupted()) {
                 throw new InterruptedException();
-            } else if (this.nM) {
-                throw new ExecutionException(this.gA);
-            } else if (this.ea) {
+            } else if (this.nN) {
+                throw new ExecutionException(this.gB);
+            } else if (this.eb) {
                 throw new CancellationException();
-            } else if (this.nL) {
+            } else if (this.nM) {
                 return this.resource;
             } else {
                 throw new TimeoutException();
@@ -97,7 +97,7 @@ public class RequestFutureTarget<R> implements b<R>, e<R>, Runnable {
     }
 
     private void dq() {
-        this.aD.post(this);
+        this.aE.post(this);
     }
 
     public void a(@NonNull m mVar) {
@@ -108,16 +108,16 @@ public class RequestFutureTarget<R> implements b<R>, e<R>, Runnable {
     }
 
     public synchronized boolean a(@Nullable GlideException glideException, Object obj, n<R> nVar, boolean z) {
-        this.nM = true;
-        this.gA = glideException;
-        this.nJ.t(this);
+        this.nN = true;
+        this.gB = glideException;
+        this.nK.t(this);
         return false;
     }
 
     public synchronized boolean a(R r, Object obj, n<R> nVar, DataSource dataSource, boolean z) {
-        this.nL = true;
+        this.nM = true;
         this.resource = r;
-        this.nJ.t(this);
+        this.nK.t(this);
         return false;
     }
 
@@ -132,8 +132,8 @@ public class RequestFutureTarget<R> implements b<R>, e<R>, Runnable {
         if (isDone()) {
             return false;
         }
-        this.ea = true;
-        this.nJ.t(this);
+        this.eb = true;
+        this.nK.t(this);
         if (z) {
             dq();
         }
@@ -144,7 +144,7 @@ public class RequestFutureTarget<R> implements b<R>, e<R>, Runnable {
 
     @Nullable
     public c dp() {
-        return this.nK;
+        return this.nL;
     }
 
     public void e(@Nullable Drawable drawable) {
@@ -166,17 +166,17 @@ public class RequestFutureTarget<R> implements b<R>, e<R>, Runnable {
     }
 
     public synchronized boolean isCancelled() {
-        return this.ea;
+        return this.eb;
     }
 
     public synchronized boolean isDone() {
         boolean z;
-        z = this.ea || this.nL || this.nM;
+        z = this.eb || this.nM || this.nN;
         return z;
     }
 
     public void j(@Nullable c cVar) {
-        this.nK = cVar;
+        this.nL = cVar;
     }
 
     public void onDestroy() {
@@ -189,9 +189,9 @@ public class RequestFutureTarget<R> implements b<R>, e<R>, Runnable {
     }
 
     public void run() {
-        if (this.nK != null) {
-            this.nK.clear();
-            this.nK = null;
+        if (this.nL != null) {
+            this.nL.clear();
+            this.nL = null;
         }
     }
 }

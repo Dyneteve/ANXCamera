@@ -72,7 +72,7 @@
 
     iput-object v0, p0, Lcom/android/camera2/MiCamera2$PictureCaptureCallback;->mStateLock:Ljava/lang/Object;
 
-    invoke-static {p1}, Lcom/android/camera2/MiCamera2;->access$1900(Lcom/android/camera2/MiCamera2;)Lcom/android/camera2/CameraCapabilities;
+    invoke-static {p1}, Lcom/android/camera2/MiCamera2;->access$2000(Lcom/android/camera2/MiCamera2;)Lcom/android/camera2/CameraCapabilities;
 
     move-result-object v0
 
@@ -82,7 +82,7 @@
 
     iput-boolean v0, p0, Lcom/android/camera2/MiCamera2$PictureCaptureCallback;->mPartialResultSupported:Z
 
-    invoke-static {p1}, Lcom/android/camera2/MiCamera2;->access$1900(Lcom/android/camera2/MiCamera2;)Lcom/android/camera2/CameraCapabilities;
+    invoke-static {p1}, Lcom/android/camera2/MiCamera2;->access$2000(Lcom/android/camera2/MiCamera2;)Lcom/android/camera2/CameraCapabilities;
 
     move-result-object p1
 
@@ -208,7 +208,7 @@
 
     iget-object v0, p0, Lcom/android/camera2/MiCamera2$PictureCaptureCallback;->this$0:Lcom/android/camera2/MiCamera2;
 
-    invoke-static {v0}, Lcom/android/camera2/MiCamera2;->access$2500(Lcom/android/camera2/MiCamera2;)Z
+    invoke-static {v0}, Lcom/android/camera2/MiCamera2;->access$2600(Lcom/android/camera2/MiCamera2;)Z
 
     move-result v0
 
@@ -302,7 +302,7 @@
 
     iget-object p1, p0, Lcom/android/camera2/MiCamera2$PictureCaptureCallback;->this$0:Lcom/android/camera2/MiCamera2;
 
-    invoke-static {p1}, Lcom/android/camera2/MiCamera2;->access$2600(Lcom/android/camera2/MiCamera2;)V
+    invoke-static {p1}, Lcom/android/camera2/MiCamera2;->access$2700(Lcom/android/camera2/MiCamera2;)V
 
     goto :goto_0
 
@@ -349,7 +349,7 @@
 
     iget-object p1, p0, Lcom/android/camera2/MiCamera2$PictureCaptureCallback;->this$0:Lcom/android/camera2/MiCamera2;
 
-    invoke-static {p1}, Lcom/android/camera2/MiCamera2;->access$2700(Lcom/android/camera2/MiCamera2;)V
+    invoke-static {p1}, Lcom/android/camera2/MiCamera2;->access$2800(Lcom/android/camera2/MiCamera2;)V
 
     goto :goto_0
 
@@ -996,7 +996,7 @@
     :cond_4
     iget-object v1, p0, Lcom/android/camera2/MiCamera2$PictureCaptureCallback;->this$0:Lcom/android/camera2/MiCamera2;
 
-    invoke-static {v1}, Lcom/android/camera2/MiCamera2;->access$2400(Lcom/android/camera2/MiCamera2;)I
+    invoke-static {v1}, Lcom/android/camera2/MiCamera2;->access$2500(Lcom/android/camera2/MiCamera2;)I
 
     move-result v1
 
@@ -1177,7 +1177,7 @@
 
     iget-object p1, p0, Lcom/android/camera2/MiCamera2$PictureCaptureCallback;->this$0:Lcom/android/camera2/MiCamera2;
 
-    invoke-static {p1}, Lcom/android/camera2/MiCamera2;->access$2300(Lcom/android/camera2/MiCamera2;)V
+    invoke-static {p1}, Lcom/android/camera2/MiCamera2;->access$2400(Lcom/android/camera2/MiCamera2;)V
 
     goto/16 :goto_6
 
@@ -1359,7 +1359,7 @@
 
     iget-object v1, p0, Lcom/android/camera2/MiCamera2$PictureCaptureCallback;->this$0:Lcom/android/camera2/MiCamera2;
 
-    invoke-static {v1}, Lcom/android/camera2/MiCamera2;->access$2100(Lcom/android/camera2/MiCamera2;)I
+    invoke-static {v1}, Lcom/android/camera2/MiCamera2;->access$2200(Lcom/android/camera2/MiCamera2;)I
 
     move-result v1
 
@@ -1384,7 +1384,7 @@
     :cond_c
     iget-object v0, p0, Lcom/android/camera2/MiCamera2$PictureCaptureCallback;->this$0:Lcom/android/camera2/MiCamera2;
 
-    invoke-static {v0}, Lcom/android/camera2/MiCamera2;->access$2100(Lcom/android/camera2/MiCamera2;)I
+    invoke-static {v0}, Lcom/android/camera2/MiCamera2;->access$2200(Lcom/android/camera2/MiCamera2;)I
 
     move-result v0
 
@@ -1400,7 +1400,7 @@
 
     iget-object p1, p0, Lcom/android/camera2/MiCamera2$PictureCaptureCallback;->this$0:Lcom/android/camera2/MiCamera2;
 
-    invoke-static {p1, v3}, Lcom/android/camera2/MiCamera2;->access$2102(Lcom/android/camera2/MiCamera2;I)I
+    invoke-static {p1, v3}, Lcom/android/camera2/MiCamera2;->access$2202(Lcom/android/camera2/MiCamera2;I)I
 
     goto :goto_6
 
@@ -1408,7 +1408,7 @@
     :goto_5
     iget-object v0, p0, Lcom/android/camera2/MiCamera2$PictureCaptureCallback;->this$0:Lcom/android/camera2/MiCamera2;
 
-    invoke-static {v0}, Lcom/android/camera2/MiCamera2;->access$2100(Lcom/android/camera2/MiCamera2;)I
+    invoke-static {v0}, Lcom/android/camera2/MiCamera2;->access$2200(Lcom/android/camera2/MiCamera2;)I
 
     move-result v0
 
@@ -1424,7 +1424,7 @@
 
     iget-object p1, p0, Lcom/android/camera2/MiCamera2$PictureCaptureCallback;->this$0:Lcom/android/camera2/MiCamera2;
 
-    invoke-static {p1}, Lcom/android/camera2/MiCamera2;->access$2100(Lcom/android/camera2/MiCamera2;)I
+    invoke-static {p1}, Lcom/android/camera2/MiCamera2;->access$2200(Lcom/android/camera2/MiCamera2;)I
 
     move-result p1
 
@@ -1433,7 +1433,7 @@
     :cond_e
     iget-object p1, p0, Lcom/android/camera2/MiCamera2$PictureCaptureCallback;->this$0:Lcom/android/camera2/MiCamera2;
 
-    invoke-static {p1}, Lcom/android/camera2/MiCamera2;->access$2200(Lcom/android/camera2/MiCamera2;)Landroid/os/Handler;
+    invoke-static {p1}, Lcom/android/camera2/MiCamera2;->access$2300(Lcom/android/camera2/MiCamera2;)Landroid/os/Handler;
 
     move-result-object p1
 
@@ -1441,7 +1441,7 @@
 
     iget-object p1, p0, Lcom/android/camera2/MiCamera2$PictureCaptureCallback;->this$0:Lcom/android/camera2/MiCamera2;
 
-    invoke-static {p1}, Lcom/android/camera2/MiCamera2;->access$2200(Lcom/android/camera2/MiCamera2;)Landroid/os/Handler;
+    invoke-static {p1}, Lcom/android/camera2/MiCamera2;->access$2300(Lcom/android/camera2/MiCamera2;)Landroid/os/Handler;
 
     move-result-object p1
 
@@ -1473,7 +1473,7 @@
 
     iget-object v0, p0, Lcom/android/camera2/MiCamera2$PictureCaptureCallback;->this$0:Lcom/android/camera2/MiCamera2;
 
-    invoke-static {v0}, Lcom/android/camera2/MiCamera2;->access$2800(Lcom/android/camera2/MiCamera2;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/camera2/MiCamera2;->access$2900(Lcom/android/camera2/MiCamera2;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -1482,7 +1482,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/camera2/MiCamera2$PictureCaptureCallback;->this$0:Lcom/android/camera2/MiCamera2;
 
-    invoke-static {v1}, Lcom/android/camera2/MiCamera2;->access$2900(Lcom/android/camera2/MiCamera2;)Lcom/android/camera2/Camera2Proxy$VideoRecordStateCallback;
+    invoke-static {v1}, Lcom/android/camera2/MiCamera2;->access$3000(Lcom/android/camera2/MiCamera2;)Lcom/android/camera2/Camera2Proxy$VideoRecordStateCallback;
 
     move-result-object v1
 
@@ -1508,7 +1508,7 @@
 
     iget-object p1, p0, Lcom/android/camera2/MiCamera2$PictureCaptureCallback;->this$0:Lcom/android/camera2/MiCamera2;
 
-    invoke-static {p1}, Lcom/android/camera2/MiCamera2;->access$2900(Lcom/android/camera2/MiCamera2;)Lcom/android/camera2/Camera2Proxy$VideoRecordStateCallback;
+    invoke-static {p1}, Lcom/android/camera2/MiCamera2;->access$3000(Lcom/android/camera2/MiCamera2;)Lcom/android/camera2/Camera2Proxy$VideoRecordStateCallback;
 
     move-result-object p1
 
@@ -1518,7 +1518,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {p1, v1}, Lcom/android/camera2/MiCamera2;->access$2902(Lcom/android/camera2/MiCamera2;Lcom/android/camera2/Camera2Proxy$VideoRecordStateCallback;)Lcom/android/camera2/Camera2Proxy$VideoRecordStateCallback;
+    invoke-static {p1, v1}, Lcom/android/camera2/MiCamera2;->access$3002(Lcom/android/camera2/MiCamera2;Lcom/android/camera2/Camera2Proxy$VideoRecordStateCallback;)Lcom/android/camera2/Camera2Proxy$VideoRecordStateCallback;
 
     :cond_0
     monitor-exit v0
@@ -1777,7 +1777,7 @@
 
     const/4 p2, 0x0
 
-    invoke-static {p1, p2}, Lcom/android/camera2/MiCamera2;->access$2000(Lcom/android/camera2/MiCamera2;Z)V
+    invoke-static {p1, p2}, Lcom/android/camera2/MiCamera2;->access$2100(Lcom/android/camera2/MiCamera2;Z)V
 
     :cond_0
     invoke-virtual {p0}, Lcom/android/camera2/MiCamera2$PictureCaptureCallback;->getState()I

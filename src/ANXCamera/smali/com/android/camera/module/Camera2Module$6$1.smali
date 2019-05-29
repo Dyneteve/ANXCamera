@@ -42,7 +42,7 @@
 
     iget-object v0, v0, Lcom/android/camera/module/Camera2Module$6;->this$0:Lcom/android/camera/module/Camera2Module;
 
-    invoke-static {v0}, Lcom/android/camera/module/Camera2Module;->access$800(Lcom/android/camera/module/Camera2Module;)Lio/reactivex/functions/Consumer;
+    invoke-static {v0}, Lcom/android/camera/module/Camera2Module;->access$700(Lcom/android/camera/module/Camera2Module;)Lio/reactivex/functions/Consumer;
 
     move-result-object v0
 

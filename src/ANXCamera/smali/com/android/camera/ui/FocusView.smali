@@ -300,7 +300,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f020002
+    const p2, 0x7f020003
 
     invoke-static {p1, p2}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -336,7 +336,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f02018f
+    const p2, 0x7f020196
 
     invoke-static {p1, p2}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -348,7 +348,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f02018e
+    const p2, 0x7f020195
 
     invoke-static {p1, p2}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 

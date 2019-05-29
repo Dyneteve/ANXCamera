@@ -15,7 +15,7 @@
 
 
 # static fields
-.field static final synthetic hJ:[I
+.field static final synthetic hK:[I
 
 
 # direct methods
@@ -30,10 +30,10 @@
 
     new-array v0, v0, [I
 
-    sput-object v0, Lcom/bumptech/glide/util/k$1;->hJ:[I
+    sput-object v0, Lcom/bumptech/glide/util/k$1;->hK:[I
 
     :try_start_0
-    sget-object v0, Lcom/bumptech/glide/util/k$1;->hJ:[I
+    sget-object v0, Lcom/bumptech/glide/util/k$1;->hK:[I
 
     sget-object v1, Landroid/graphics/Bitmap$Config;->ALPHA_8:Landroid/graphics/Bitmap$Config;
 
@@ -54,7 +54,7 @@
 
     :goto_0
     :try_start_1
-    sget-object v0, Lcom/bumptech/glide/util/k$1;->hJ:[I
+    sget-object v0, Lcom/bumptech/glide/util/k$1;->hK:[I
 
     sget-object v1, Landroid/graphics/Bitmap$Config;->RGB_565:Landroid/graphics/Bitmap$Config;
 
@@ -75,7 +75,7 @@
 
     :goto_1
     :try_start_2
-    sget-object v0, Lcom/bumptech/glide/util/k$1;->hJ:[I
+    sget-object v0, Lcom/bumptech/glide/util/k$1;->hK:[I
 
     sget-object v1, Landroid/graphics/Bitmap$Config;->ARGB_4444:Landroid/graphics/Bitmap$Config;
 
@@ -96,7 +96,7 @@
 
     :goto_2
     :try_start_3
-    sget-object v0, Lcom/bumptech/glide/util/k$1;->hJ:[I
+    sget-object v0, Lcom/bumptech/glide/util/k$1;->hK:[I
 
     sget-object v1, Landroid/graphics/Bitmap$Config;->RGBA_F16:Landroid/graphics/Bitmap$Config;
 
@@ -117,7 +117,7 @@
 
     :goto_3
     :try_start_4
-    sget-object v0, Lcom/bumptech/glide/util/k$1;->hJ:[I
+    sget-object v0, Lcom/bumptech/glide/util/k$1;->hK:[I
 
     sget-object v1, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 

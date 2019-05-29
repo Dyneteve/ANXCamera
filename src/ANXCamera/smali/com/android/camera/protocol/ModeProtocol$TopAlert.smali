@@ -44,6 +44,13 @@
 .method public abstract alertLightingTitle(Z)V
 .end method
 
+.method public abstract alertMimojiFaceDetect(ZI)V
+    .param p2    # I
+        .annotation build Landroid/support/annotation/StringRes;
+        .end annotation
+    .end param
+.end method
+
 .method public abstract alertMoonModeSelector(IZ)V
 .end method
 
@@ -133,9 +140,6 @@
 .end method
 
 .method public abstract showConfigMenu()V
-.end method
-
-.method public abstract showOrHideMimojiCreateTitle(Z)V
 .end method
 
 .method public abstract startLiveShotAnimation()V

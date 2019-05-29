@@ -18,7 +18,7 @@ public class SnapKeyReceiver extends BroadcastReceiver {
     private static final String TAG = SnapKeyReceiver.class.getSimpleName();
 
     public void onReceive(Context context, Intent intent) {
-        if (VERSION.SDK_INT >= 21 && b.hM() && "miui.intent.action.CAMERA_KEY_BUTTON".equals(intent.getAction()) && SnapCamera.isSnapEnabled(context) && PermissionManager.checkCameraLaunchPermissions()) {
+        if (VERSION.SDK_INT >= 21 && b.hP() && "miui.intent.action.CAMERA_KEY_BUTTON".equals(intent.getAction()) && SnapCamera.isSnapEnabled(context) && PermissionManager.checkCameraLaunchPermissions()) {
             if ((((PowerManager) context.getSystemService("power")).isScreenOn() || 26 == intent.getIntExtra(KEY_CODE, 0)) && !SnapTrigger.getInstance().isRunning()) {
                 SnapService.setScreenOn(true);
                 return;

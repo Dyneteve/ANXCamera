@@ -22,9 +22,7 @@
 
 
 # instance fields
-.field private final ko:Landroid/content/res/Resources;
-
-.field private final kz:Lcom/bumptech/glide/load/g;
+.field private final kA:Lcom/bumptech/glide/load/g;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/g<",
@@ -34,6 +32,8 @@
         }
     .end annotation
 .end field
+
+.field private final kp:Landroid/content/res/Resources;
 
 
 # direct methods
@@ -110,7 +110,7 @@
 
     check-cast p1, Landroid/content/res/Resources;
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/a;->ko:Landroid/content/res/Resources;
+    iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/a;->kp:Landroid/content/res/Resources;
 
     invoke-static {p2}, Lcom/bumptech/glide/util/i;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -118,7 +118,7 @@
 
     check-cast p1, Lcom/bumptech/glide/load/g;
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/a;->kz:Lcom/bumptech/glide/load/g;
+    iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/a;->kA:Lcom/bumptech/glide/load/g;
 
     return-void
 .end method
@@ -152,13 +152,13 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/a;->kz:Lcom/bumptech/glide/load/g;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/a;->kA:Lcom/bumptech/glide/load/g;
 
     invoke-interface {v0, p1, p2, p3, p4}, Lcom/bumptech/glide/load/g;->a(Ljava/lang/Object;IILcom/bumptech/glide/load/f;)Lcom/bumptech/glide/load/engine/p;
 
     move-result-object p1
 
-    iget-object p2, p0, Lcom/bumptech/glide/load/resource/bitmap/a;->ko:Landroid/content/res/Resources;
+    iget-object p2, p0, Lcom/bumptech/glide/load/resource/bitmap/a;->kp:Landroid/content/res/Resources;
 
     invoke-static {p2, p1}, Lcom/bumptech/glide/load/resource/bitmap/s;->a(Landroid/content/res/Resources;Lcom/bumptech/glide/load/engine/p;)Lcom/bumptech/glide/load/engine/p;
 
@@ -191,7 +191,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/a;->kz:Lcom/bumptech/glide/load/g;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/a;->kA:Lcom/bumptech/glide/load/g;
 
     invoke-interface {v0, p1, p2}, Lcom/bumptech/glide/load/g;->a(Ljava/lang/Object;Lcom/bumptech/glide/load/f;)Z
 

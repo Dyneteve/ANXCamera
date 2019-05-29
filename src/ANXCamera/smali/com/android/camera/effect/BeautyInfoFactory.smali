@@ -153,7 +153,7 @@
 
     const v4, 0x7f09006f
 
-    const v5, 0x7f0201cc
+    const v5, 0x7f0201d5
 
     invoke-direct {v1, v2, v4, v5, v3}, Lcom/android/camera/effect/FilterInfo;-><init>(IIII)V
 
@@ -207,7 +207,7 @@
 
     const v6, 0x7f09008b
 
-    const v7, 0x7f0201c4
+    const v7, 0x7f0201cd
 
     goto :goto_1
 
@@ -216,7 +216,7 @@
 
     const v6, 0x7f090091
 
-    const v7, 0x7f0201c6
+    const v7, 0x7f0201cf
 
     goto :goto_1
 
@@ -225,7 +225,7 @@
 
     const v6, 0x7f090090
 
-    const v7, 0x7f0201c5
+    const v7, 0x7f0201ce
 
     goto :goto_1
 
@@ -234,7 +234,7 @@
 
     const v6, 0x7f09008f
 
-    const v7, 0x7f0201c7
+    const v7, 0x7f0201d0
 
     goto :goto_1
 
@@ -243,7 +243,7 @@
 
     const v6, 0x7f09008e
 
-    const v7, 0x7f0201ca
+    const v7, 0x7f0201d3
 
     goto :goto_1
 
@@ -252,7 +252,7 @@
 
     const v6, 0x7f09008d
 
-    const v7, 0x7f0201ce
+    const v7, 0x7f0201d7
 
     goto :goto_1
 
@@ -261,7 +261,7 @@
 
     const v6, 0x7f090089
 
-    const v7, 0x7f0201c8
+    const v7, 0x7f0201d1
 
     goto :goto_1
 
@@ -270,7 +270,7 @@
 
     const v6, 0x7f090084
 
-    const v7, 0x7f0201c2
+    const v7, 0x7f0201cb
 
     goto :goto_1
 
@@ -279,7 +279,7 @@
 
     const v6, 0x7f09008c
 
-    const v7, 0x7f0201d0
+    const v7, 0x7f0201d9
 
     goto :goto_1
 
@@ -288,7 +288,7 @@
 
     const v6, 0x7f090085
 
-    const v7, 0x7f0201cd
+    const v7, 0x7f0201d6
 
     goto :goto_1
 
@@ -297,7 +297,7 @@
 
     const v6, 0x7f090086
 
-    const v7, 0x7f0201c3
+    const v7, 0x7f0201cc
 
     goto :goto_1
 
@@ -306,7 +306,7 @@
 
     const v6, 0x7f090083
 
-    const v7, 0x7f0201cb
+    const v7, 0x7f0201d4
 
     nop
 
@@ -407,7 +407,7 @@
 
     const v4, 0x7f09006f
 
-    const v5, 0x7f0201d9
+    const v5, 0x7f0201e2
 
     invoke-direct {v1, v2, v4, v5, v3}, Lcom/android/camera/effect/FilterInfo;-><init>(IIII)V
 
@@ -461,7 +461,7 @@
 
     const v6, 0x7f09008b
 
-    const v7, 0x7f0201d2
+    const v7, 0x7f0201db
 
     goto :goto_1
 
@@ -470,7 +470,7 @@
 
     const v6, 0x7f090091
 
-    const v7, 0x7f0201d5
+    const v7, 0x7f0201de
 
     goto :goto_1
 
@@ -479,7 +479,7 @@
 
     const v6, 0x7f09008f
 
-    const v7, 0x7f0201d6
+    const v7, 0x7f0201df
 
     goto :goto_1
 
@@ -488,7 +488,7 @@
 
     const v6, 0x7f090090
 
-    const v7, 0x7f0201d4
+    const v7, 0x7f0201dd
 
     goto :goto_1
 
@@ -497,70 +497,70 @@
 
     const v6, 0x7f090092
 
-    const v7, 0x7f0201d3
+    const v7, 0x7f0201dc
 
     goto :goto_1
 
     :pswitch_5
     const/16 v5, 0x64
 
-    const v6, 0x7f0902f8
+    const v6, 0x7f090393
 
-    const v7, 0x7f0201dd
+    const v7, 0x7f0201e6
 
     goto :goto_1
 
     :pswitch_6
     const/16 v5, 0x50
 
-    const v6, 0x7f0902f6
+    const v6, 0x7f090391
 
-    const v7, 0x7f0201dc
+    const v7, 0x7f0201e5
 
     goto :goto_1
 
     :pswitch_7
     const/16 v5, 0x32
 
-    const v6, 0x7f0902f3
+    const v6, 0x7f09038e
 
-    const v7, 0x7f0201e1
+    const v7, 0x7f0201ea
 
     goto :goto_1
 
     :pswitch_8
     const/16 v5, 0x28
 
-    const v6, 0x7f0902f2
+    const v6, 0x7f09038d
 
-    const v7, 0x7f0201de
+    const v7, 0x7f0201e7
 
     goto :goto_1
 
     :pswitch_9
     const/16 v5, 0x1e
 
-    const v6, 0x7f0902f1
+    const v6, 0x7f09038c
 
-    const v7, 0x7f0201d7
+    const v7, 0x7f0201e0
 
     goto :goto_1
 
     :pswitch_a
     const/16 v5, 0x14
 
-    const v6, 0x7f0902f0
+    const v6, 0x7f09038b
 
-    const v7, 0x7f0201da
+    const v7, 0x7f0201e3
 
     goto :goto_1
 
     :pswitch_b
     const/16 v5, 0xa
 
-    const v6, 0x7f0902ef
+    const v6, 0x7f09038a
 
-    const v7, 0x7f0201df
+    const v7, 0x7f0201e8
 
     nop
 

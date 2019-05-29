@@ -1,6 +1,7 @@
 package com.android.camera.ui;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
@@ -117,7 +118,9 @@ public class MimojiTypeSelectView extends LinearLayout implements OnClickListene
                 ColorActivateTextView colorActivateTextView = (ColorActivateTextView) viewGroup.findViewById(R.id.text_item_title);
                 colorActivateTextView.setActivateColor(ColorConstant.COLOR_COMMON_SELECTED);
                 viewGroup.setOnClickListener(this);
-                colorActivateTextView.setNormalCor(ColorConstant.WHITE_ALPHA_99);
+                colorActivateTextView.setNormalCor(-1);
+                colorActivateTextView.setTypeface(Typeface.defaultFromStyle(1));
+                colorActivateTextView.setTextSize(17.5f);
                 colorActivateTextView.setText(AvatarEngineManager.replaceTabTitle(this.mContext, aSAvatarConfigType.configType));
                 Message obtain = Message.obtain();
                 int i2 = i + 1;
@@ -145,7 +148,7 @@ public class MimojiTypeSelectView extends LinearLayout implements OnClickListene
         }
         MimojiEditor mimojiEditor = (MimojiEditor) ModeCoordinatorImpl.getInstance().getAttachProtocol(224);
         if (mimojiEditor != null) {
-            mimojiEditor.onTypeConfigSelect(19);
+            mimojiEditor.onTypeConfigSelect(1);
         }
         setSelection(0, null);
     }

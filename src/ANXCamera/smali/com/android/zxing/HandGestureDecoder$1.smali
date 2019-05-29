@@ -291,6 +291,12 @@
 
     if-eqz p1, :cond_4
 
+    invoke-interface {p1}, Lcom/android/camera/protocol/ModeProtocol$TopAlert;->isExtraMenuShowing()Z
+
+    move-result v0
+
+    if-nez v0, :cond_4
+
     invoke-interface {p1, v1}, Lcom/android/camera/protocol/ModeProtocol$TopAlert;->reInitAlert(Z)V
 
     :cond_4

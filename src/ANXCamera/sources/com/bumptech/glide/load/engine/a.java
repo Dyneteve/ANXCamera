@@ -9,55 +9,55 @@ import java.util.List;
 
 /* compiled from: DataCacheGenerator */
 class a implements com.bumptech.glide.load.a.d.a<Object>, d {
-    private final List<c> eE;
-    private final e<?> eF;
-    private final com.bumptech.glide.load.engine.d.a eG;
-    private int eH;
-    private c eI;
-    private List<m<File, ?>> eJ;
-    private int eK;
-    private volatile com.bumptech.glide.load.model.m.a<?> eL;
-    private File eM;
+    private final List<c> eF;
+    private final e<?> eG;
+    private final com.bumptech.glide.load.engine.d.a eH;
+    private int eI;
+    private c eJ;
+    private List<m<File, ?>> eK;
+    private int eL;
+    private volatile com.bumptech.glide.load.model.m.a<?> eM;
+    private File eN;
 
     a(e<?> eVar, com.bumptech.glide.load.engine.d.a aVar) {
         this(eVar.aG(), eVar, aVar);
     }
 
     a(List<c> list, e<?> eVar, com.bumptech.glide.load.engine.d.a aVar) {
-        this.eH = -1;
-        this.eE = list;
-        this.eF = eVar;
-        this.eG = aVar;
+        this.eI = -1;
+        this.eF = list;
+        this.eG = eVar;
+        this.eH = aVar;
     }
 
     private boolean at() {
-        return this.eK < this.eJ.size();
+        return this.eL < this.eK.size();
     }
 
     public boolean as() {
         while (true) {
             boolean z = false;
-            if (this.eJ == null || !at()) {
-                this.eH++;
-                if (this.eH >= this.eE.size()) {
+            if (this.eK == null || !at()) {
+                this.eI++;
+                if (this.eI >= this.eF.size()) {
                     return false;
                 }
-                c cVar = (c) this.eE.get(this.eH);
-                this.eM = this.eF.aw().e(new b(cVar, this.eF.aA()));
-                if (this.eM != null) {
-                    this.eI = cVar;
-                    this.eJ = this.eF.g(this.eM);
-                    this.eK = 0;
+                c cVar = (c) this.eF.get(this.eI);
+                this.eN = this.eG.aw().e(new b(cVar, this.eG.aA()));
+                if (this.eN != null) {
+                    this.eJ = cVar;
+                    this.eK = this.eG.g(this.eN);
+                    this.eL = 0;
                 }
             } else {
-                this.eL = null;
+                this.eM = null;
                 while (!z && at()) {
-                    List<m<File, ?>> list = this.eJ;
-                    int i = this.eK;
-                    this.eK = i + 1;
-                    this.eL = ((m) list.get(i)).b(this.eM, this.eF.getWidth(), this.eF.getHeight(), this.eF.az());
-                    if (this.eL != null && this.eF.c(this.eL.jX.aj())) {
-                        this.eL.jX.a(this.eF.ay(), this);
+                    List<m<File, ?>> list = this.eK;
+                    int i = this.eL;
+                    this.eL = i + 1;
+                    this.eM = ((m) list.get(i)).b(this.eN, this.eG.getWidth(), this.eG.getHeight(), this.eG.az());
+                    if (this.eM != null && this.eG.c(this.eM.jY.aj())) {
+                        this.eM.jY.a(this.eG.ay(), this);
                         z = true;
                     }
                 }
@@ -67,17 +67,17 @@ class a implements com.bumptech.glide.load.a.d.a<Object>, d {
     }
 
     public void b(@NonNull Exception exc) {
-        this.eG.a(this.eI, exc, this.eL.jX, DataSource.DATA_DISK_CACHE);
+        this.eH.a(this.eJ, exc, this.eM.jY, DataSource.DATA_DISK_CACHE);
     }
 
     public void cancel() {
-        com.bumptech.glide.load.model.m.a<?> aVar = this.eL;
+        com.bumptech.glide.load.model.m.a<?> aVar = this.eM;
         if (aVar != null) {
-            aVar.jX.cancel();
+            aVar.jY.cancel();
         }
     }
 
     public void k(Object obj) {
-        this.eG.a(this.eI, obj, this.eL.jX, DataSource.DATA_DISK_CACHE, this.eI);
+        this.eH.a(this.eJ, obj, this.eM.jY, DataSource.DATA_DISK_CACHE, this.eJ);
     }
 }

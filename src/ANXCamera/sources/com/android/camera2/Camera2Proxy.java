@@ -166,7 +166,13 @@ public abstract class Camera2Proxy {
 
     public abstract void close();
 
+    public abstract void forceTurnFlashONAndPausePreview();
+
     public abstract void forceTurnFlashOffAndPausePreview();
+
+    public abstract int getAlgorithmPreviewFormat();
+
+    public abstract CameraSize getAlgorithmPreviewSize();
 
     public abstract CameraConfigs getCameraConfigs();
 
@@ -247,8 +253,6 @@ public abstract class Camera2Proxy {
         return previewCallback;
     }
 
-    public abstract int getPreviewFormat();
-
     public abstract int getPreviewMaxImages();
 
     public abstract Builder getPreviewRequestBuilder();
@@ -311,6 +315,8 @@ public abstract class Camera2Proxy {
 
     public abstract void onCapabilityChanged(CameraCapabilities cameraCapabilities);
 
+    public abstract void onMultiSnapEnd(boolean z, MiCamera2Shot miCamera2Shot);
+
     public abstract void onParallelImagePostProcStart();
 
     public abstract void onPreviewComing();
@@ -348,6 +354,10 @@ public abstract class Camera2Proxy {
     public abstract void setAWBLock(boolean z);
 
     public abstract void setAWBMode(int i);
+
+    public abstract void setAlgorithmPreviewFormat(int i);
+
+    public abstract void setAlgorithmPreviewSize(CameraSize cameraSize);
 
     public abstract void setAntiBanding(int i);
 
@@ -491,8 +501,6 @@ public abstract class Camera2Proxy {
             this.mPreviewCallback = previewCallback;
         }
     }
-
-    public abstract void setPreviewFormat(int i);
 
     public abstract void setPreviewMaxImages(int i);
 

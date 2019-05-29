@@ -18,7 +18,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.android.camera.sensitive.SensitiveFilter;
-import miui.R;
 import miui.app.ActionBar;
 
 public class UserDefineWatermarkActivity extends Activity implements TextWatcher {
@@ -128,7 +127,7 @@ public class UserDefineWatermarkActivity extends Activity implements TextWatcher
         ActionBar actionBar = getActionBar();
         if (actionBar != null) {
             actionBar.setDisplayOptions(16, 16);
-            actionBar.setCustomView(R.layout.edit_mode_title);
+            actionBar.setCustomView(GeneralUtils.editModeTitleLayout());
             View customView = actionBar.getCustomView();
             ((TextView) customView.findViewById(16908310)).setText(getTitle());
             TextView textView = (TextView) customView.findViewById(16908313);

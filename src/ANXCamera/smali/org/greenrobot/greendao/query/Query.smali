@@ -31,10 +31,6 @@
     .end annotation
 .end field
 
-.field private volatile rxTxIo:Lorg/greenrobot/greendao/rx/RxQuery;
-
-.field private volatile rxTxPlain:Lorg/greenrobot/greendao/rx/RxQuery;
-
 
 # direct methods
 .method private constructor <init>(Lorg/greenrobot/greendao/query/Query$QueryData;Lorg/greenrobot/greendao/AbstractDao;Ljava/lang/String;[Ljava/lang/String;II)V
@@ -154,52 +150,6 @@
 
 
 # virtual methods
-.method public __InternalRx()Lorg/greenrobot/greendao/rx/RxQuery;
-    .locals 2
-    .annotation build Lorg/greenrobot/greendao/annotation/apihint/Internal;
-    .end annotation
-
-    iget-object v0, p0, Lorg/greenrobot/greendao/query/Query;->rxTxIo:Lorg/greenrobot/greendao/rx/RxQuery;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Lorg/greenrobot/greendao/rx/RxQuery;
-
-    invoke-static {}, Lrx/schedulers/Schedulers;->io()Lrx/Scheduler;
-
-    move-result-object v1
-
-    invoke-direct {v0, p0, v1}, Lorg/greenrobot/greendao/rx/RxQuery;-><init>(Lorg/greenrobot/greendao/query/Query;Lrx/Scheduler;)V
-
-    iput-object v0, p0, Lorg/greenrobot/greendao/query/Query;->rxTxIo:Lorg/greenrobot/greendao/rx/RxQuery;
-
-    :cond_0
-    iget-object v0, p0, Lorg/greenrobot/greendao/query/Query;->rxTxIo:Lorg/greenrobot/greendao/rx/RxQuery;
-
-    return-object v0
-.end method
-
-.method public __internalRxPlain()Lorg/greenrobot/greendao/rx/RxQuery;
-    .locals 1
-    .annotation build Lorg/greenrobot/greendao/annotation/apihint/Internal;
-    .end annotation
-
-    iget-object v0, p0, Lorg/greenrobot/greendao/query/Query;->rxTxPlain:Lorg/greenrobot/greendao/rx/RxQuery;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Lorg/greenrobot/greendao/rx/RxQuery;
-
-    invoke-direct {v0, p0}, Lorg/greenrobot/greendao/rx/RxQuery;-><init>(Lorg/greenrobot/greendao/query/Query;)V
-
-    iput-object v0, p0, Lorg/greenrobot/greendao/query/Query;->rxTxPlain:Lorg/greenrobot/greendao/rx/RxQuery;
-
-    :cond_0
-    iget-object v0, p0, Lorg/greenrobot/greendao/query/Query;->rxTxPlain:Lorg/greenrobot/greendao/rx/RxQuery;
-
-    return-object v0
-.end method
-
 .method public forCurrentThread()Lorg/greenrobot/greendao/query/Query;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;

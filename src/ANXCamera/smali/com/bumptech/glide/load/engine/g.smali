@@ -4,8 +4,6 @@
 
 
 # static fields
-.field public static final fS:Lcom/bumptech/glide/load/engine/g;
-
 .field public static final fT:Lcom/bumptech/glide/load/engine/g;
 
 .field public static final fU:Lcom/bumptech/glide/load/engine/g;
@@ -13,6 +11,8 @@
 .field public static final fV:Lcom/bumptech/glide/load/engine/g;
 
 .field public static final fW:Lcom/bumptech/glide/load/engine/g;
+
+.field public static final fX:Lcom/bumptech/glide/load/engine/g;
 
 
 # direct methods
@@ -23,31 +23,31 @@
 
     invoke-direct {v0}, Lcom/bumptech/glide/load/engine/g$1;-><init>()V
 
-    sput-object v0, Lcom/bumptech/glide/load/engine/g;->fS:Lcom/bumptech/glide/load/engine/g;
+    sput-object v0, Lcom/bumptech/glide/load/engine/g;->fT:Lcom/bumptech/glide/load/engine/g;
 
     new-instance v0, Lcom/bumptech/glide/load/engine/g$2;
 
     invoke-direct {v0}, Lcom/bumptech/glide/load/engine/g$2;-><init>()V
 
-    sput-object v0, Lcom/bumptech/glide/load/engine/g;->fT:Lcom/bumptech/glide/load/engine/g;
+    sput-object v0, Lcom/bumptech/glide/load/engine/g;->fU:Lcom/bumptech/glide/load/engine/g;
 
     new-instance v0, Lcom/bumptech/glide/load/engine/g$3;
 
     invoke-direct {v0}, Lcom/bumptech/glide/load/engine/g$3;-><init>()V
 
-    sput-object v0, Lcom/bumptech/glide/load/engine/g;->fU:Lcom/bumptech/glide/load/engine/g;
+    sput-object v0, Lcom/bumptech/glide/load/engine/g;->fV:Lcom/bumptech/glide/load/engine/g;
 
     new-instance v0, Lcom/bumptech/glide/load/engine/g$4;
 
     invoke-direct {v0}, Lcom/bumptech/glide/load/engine/g$4;-><init>()V
 
-    sput-object v0, Lcom/bumptech/glide/load/engine/g;->fV:Lcom/bumptech/glide/load/engine/g;
+    sput-object v0, Lcom/bumptech/glide/load/engine/g;->fW:Lcom/bumptech/glide/load/engine/g;
 
     new-instance v0, Lcom/bumptech/glide/load/engine/g$5;
 
     invoke-direct {v0}, Lcom/bumptech/glide/load/engine/g$5;-><init>()V
 
-    sput-object v0, Lcom/bumptech/glide/load/engine/g;->fW:Lcom/bumptech/glide/load/engine/g;
+    sput-object v0, Lcom/bumptech/glide/load/engine/g;->fX:Lcom/bumptech/glide/load/engine/g;
 
     return-void
 .end method

@@ -68,7 +68,7 @@
     goto :goto_0
 
     :pswitch_0
-    const p2, 0x7f0b0048
+    const p2, 0x7f0b004a
 
     invoke-virtual {p1, p2}, Landroid/view/View;->setBackgroundResource(I)V
 
@@ -76,7 +76,7 @@
 
     :cond_0
     :pswitch_1
-    const p2, 0x7f0b0049
+    const p2, 0x7f0b004b
 
     invoke-virtual {p1, p2}, Landroid/view/View;->setBackgroundResource(I)V
 
@@ -443,7 +443,7 @@
 .method protected getLayoutResourceId()I
     .locals 1
 
-    const v0, 0x7f04002a
+    const v0, 0x7f04002b
 
     return v0
 .end method

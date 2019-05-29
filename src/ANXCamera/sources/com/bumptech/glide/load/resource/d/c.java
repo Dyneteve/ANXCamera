@@ -12,14 +12,14 @@ import com.bumptech.glide.load.resource.gif.b;
 
 /* compiled from: DrawableBytesTranscoder */
 public final class c implements e<Drawable, byte[]> {
-    private final d ak;
-    private final e<Bitmap, byte[]> mJ;
-    private final e<b, byte[]> mK;
+    private final d al;
+    private final e<Bitmap, byte[]> mK;
+    private final e<b, byte[]> mL;
 
     public c(@NonNull d dVar, @NonNull e<Bitmap, byte[]> eVar, @NonNull e<b, byte[]> eVar2) {
-        this.ak = dVar;
-        this.mJ = eVar;
-        this.mK = eVar2;
+        this.al = dVar;
+        this.mK = eVar;
+        this.mL = eVar2;
     }
 
     @NonNull
@@ -31,10 +31,10 @@ public final class c implements e<Drawable, byte[]> {
     public p<byte[]> a(@NonNull p<Drawable> pVar, @NonNull f fVar) {
         Drawable drawable = (Drawable) pVar.get();
         if (drawable instanceof BitmapDrawable) {
-            return this.mJ.a(com.bumptech.glide.load.resource.bitmap.f.a(((BitmapDrawable) drawable).getBitmap(), this.ak), fVar);
+            return this.mK.a(com.bumptech.glide.load.resource.bitmap.f.a(((BitmapDrawable) drawable).getBitmap(), this.al), fVar);
         }
         if (drawable instanceof b) {
-            return this.mK.a(l(pVar), fVar);
+            return this.mL.a(l(pVar), fVar);
         }
         return null;
     }

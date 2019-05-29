@@ -10,12 +10,12 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /* compiled from: DiskCacheWriteLocker */
 final class c {
-    private final Map<String, a> hP = new HashMap();
-    private final b hQ = new b();
+    private final Map<String, a> hQ = new HashMap();
+    private final b hR = new b();
 
     /* compiled from: DiskCacheWriteLocker */
     private static class a {
-        int hR;
+        int hS;
         final Lock lock = new ReentrantLock();
 
         a() {
@@ -24,17 +24,17 @@ final class c {
 
     /* compiled from: DiskCacheWriteLocker */
     private static class b {
-        private static final int hS = 10;
-        private final Queue<a> hT = new ArrayDeque();
+        private static final int hT = 10;
+        private final Queue<a> hU = new ArrayDeque();
 
         b() {
         }
 
         /* access modifiers changed from: 0000 */
         public void a(a aVar) {
-            synchronized (this.hT) {
-                if (this.hT.size() < 10) {
-                    this.hT.offer(aVar);
+            synchronized (this.hU) {
+                if (this.hU.size() < 10) {
+                    this.hU.offer(aVar);
                 }
             }
         }
@@ -42,8 +42,8 @@ final class c {
         /* access modifiers changed from: 0000 */
         public a bA() {
             a aVar;
-            synchronized (this.hT) {
-                aVar = (a) this.hT.poll();
+            synchronized (this.hU) {
+                aVar = (a) this.hU.poll();
             }
             return aVar == null ? new a() : aVar;
         }
@@ -56,12 +56,12 @@ final class c {
     public void t(String str) {
         a aVar;
         synchronized (this) {
-            aVar = (a) this.hP.get(str);
+            aVar = (a) this.hQ.get(str);
             if (aVar == null) {
-                aVar = this.hQ.bA();
-                this.hP.put(str, aVar);
+                aVar = this.hR.bA();
+                this.hQ.put(str, aVar);
             }
-            aVar.hR++;
+            aVar.hS++;
         }
         aVar.lock.lock();
     }
@@ -70,13 +70,13 @@ final class c {
     public void u(String str) {
         a aVar;
         synchronized (this) {
-            aVar = (a) i.checkNotNull(this.hP.get(str));
-            if (aVar.hR >= 1) {
-                aVar.hR--;
-                if (aVar.hR == 0) {
-                    a aVar2 = (a) this.hP.remove(str);
+            aVar = (a) i.checkNotNull(this.hQ.get(str));
+            if (aVar.hS >= 1) {
+                aVar.hS--;
+                if (aVar.hS == 0) {
+                    a aVar2 = (a) this.hQ.remove(str);
                     if (aVar2.equals(aVar)) {
-                        this.hQ.a(aVar2);
+                        this.hR.a(aVar2);
                     } else {
                         StringBuilder sb = new StringBuilder();
                         sb.append("Removed the wrong lock, expected to remove: ");
@@ -93,7 +93,7 @@ final class c {
                 sb2.append("Cannot release a lock that is not held, safeKey: ");
                 sb2.append(str);
                 sb2.append(", interestedThreads: ");
-                sb2.append(aVar.hR);
+                sb2.append(aVar.hS);
                 throw new IllegalStateException(sb2.toString());
             }
         }

@@ -138,7 +138,7 @@
 
     invoke-direct {v4}, Lcom/android/camera/sticker/LiveStickerInfo;-><init>()V
 
-    const v5, 0x7f020137
+    const v5, 0x7f02013d
 
     iput v5, v4, Lcom/android/camera/sticker/LiveStickerInfo;->iconId:I
 

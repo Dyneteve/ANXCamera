@@ -4,7 +4,7 @@
 
 
 # static fields
-.field private static final pT:D
+.field private static final pU:D
 
 
 # direct methods
@@ -32,7 +32,7 @@
     nop
 
     :cond_0
-    sput-wide v1, Lcom/bumptech/glide/util/e;->pT:D
+    sput-wide v1, Lcom/bumptech/glide/util/e;->pU:D
 
     return-void
 .end method
@@ -82,7 +82,7 @@
 
     long-to-double p0, v0
 
-    sget-wide v0, Lcom/bumptech/glide/util/e;->pT:D
+    sget-wide v0, Lcom/bumptech/glide/util/e;->pU:D
 
     mul-double/2addr p0, v0
 

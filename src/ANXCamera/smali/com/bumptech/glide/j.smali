@@ -23,7 +23,7 @@
 
 
 # instance fields
-.field private bP:Lcom/bumptech/glide/request/a/g;
+.field private bQ:Lcom/bumptech/glide/request/a/g;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/request/a/g<",
@@ -43,7 +43,7 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/bumptech/glide/j;->bP:Lcom/bumptech/glide/request/a/g;
+    iput-object v0, p0, Lcom/bumptech/glide/j;->bQ:Lcom/bumptech/glide/request/a/g;
 
     return-void
 .end method
@@ -125,7 +125,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/j;->bP:Lcom/bumptech/glide/request/a/g;
+    iget-object v0, p0, Lcom/bumptech/glide/j;->bQ:Lcom/bumptech/glide/request/a/g;
 
     return-object v0
 .end method
@@ -154,7 +154,7 @@
 
     check-cast p1, Lcom/bumptech/glide/request/a/g;
 
-    iput-object p1, p0, Lcom/bumptech/glide/j;->bP:Lcom/bumptech/glide/request/a/g;
+    iput-object p1, p0, Lcom/bumptech/glide/j;->bQ:Lcom/bumptech/glide/request/a/g;
 
     invoke-direct {p0}, Lcom/bumptech/glide/j;->P()Lcom/bumptech/glide/j;
 

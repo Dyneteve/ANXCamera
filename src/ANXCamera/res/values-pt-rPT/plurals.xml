@@ -4,4 +4,8 @@
         <item quantity="other">Focado. %d rostos detetados</item>
         <item quantity="one">Focado. %d rosto detetado</item>
     </plurals>
+    <plurals name="toast_burst_snap_finished_summary">
+        <item quantity="other">Disparo contínuo concluído, %1$s fotos tiradas</item>
+        <item quantity="one">Disparo contínuo concluído, %1$s foto tirada</item>
+    </plurals>
 </resources>

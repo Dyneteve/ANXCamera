@@ -13,8 +13,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/camera/fragment/FragmentBeauty$BeautyPagerAdapter;,
-        Lcom/android/camera/fragment/FragmentBeauty$ExitAnimationListener;
+        Lcom/android/camera/fragment/FragmentBeauty$BeautyPagerAdapter;
     }
 .end annotation
 
@@ -51,13 +50,13 @@
 
 .field private mBeautyPagerAdapter:Lcom/android/camera/fragment/FragmentBeauty$BeautyPagerAdapter;
 
-.field private mBeautyPanelShow:Z
-
 .field private mBeautySettingManager:Lcom/android/camera/fragment/beauty/BeautySettingManager;
 
 .field private mComponentRunningShine:Lcom/android/camera/data/data/runing/ComponentRunningShine;
 
 .field private mCurrentSettingBusiness:Lcom/android/camera/fragment/beauty/IBeautySettingBusiness;
+
+.field private mCurrentState:I
 
 .field private mEyeLightFragment:Lcom/android/camera/fragment/beauty/BeautyEyeLightFragment;
 
@@ -71,21 +70,9 @@
     .end annotation
 .end field
 
-.field mFragments:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Landroid/support/v4/app/Fragment;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 .field private mIsEyeLightShow:Z
 
 .field private mIsRTL:Z
-
-.field private mRemoveFragmentBeauty:Z
 
 .field private mSeekBarDisposable:Lio/reactivex/disposables/Disposable;
 
@@ -103,6 +90,10 @@
     const/16 v0, 0x64
 
     iput v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mSeekBarMaxProgress:I
+
+    const/4 v0, -0x1
+
+    iput v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mCurrentState:I
 
     return-void
 .end method
@@ -129,14 +120,6 @@
     iget p0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mSeekBarMaxProgress:I
 
     return p0
-.end method
-
-.method static synthetic access$1000(Lcom/android/camera/fragment/FragmentBeauty;ZLandroid/support/v4/app/Fragment;Ljava/lang/String;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/camera/fragment/FragmentBeauty;->showHideExtraLayout(ZLandroid/support/v4/app/Fragment;Ljava/lang/String;)V
-
-    return-void
 .end method
 
 .method static synthetic access$200(Lcom/android/camera/fragment/FragmentBeauty;)I
@@ -171,44 +154,20 @@
     return p0
 .end method
 
-.method static synthetic access$500(Lcom/android/camera/fragment/FragmentBeauty;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mRemoveFragmentBeauty:Z
-
-    return p0
-.end method
-
-.method static synthetic access$502(Lcom/android/camera/fragment/FragmentBeauty;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/camera/fragment/FragmentBeauty;->mRemoveFragmentBeauty:Z
-
-    return p1
-.end method
-
-.method static synthetic access$600(Lcom/android/camera/fragment/FragmentBeauty;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/camera/fragment/FragmentBeauty;->notifyTipsMargin(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$700(Lcom/android/camera/fragment/FragmentBeauty;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/camera/fragment/FragmentBeauty;->showZoomTipImage()V
-
-    return-void
-.end method
-
-.method static synthetic access$900(Lcom/android/camera/fragment/FragmentBeauty;)Lcom/android/camera/fragment/beauty/BeautyEyeLightFragment;
+.method static synthetic access$500(Lcom/android/camera/fragment/FragmentBeauty;)Lcom/android/camera/fragment/beauty/BeautyEyeLightFragment;
     .locals 0
 
     iget-object p0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mEyeLightFragment:Lcom/android/camera/fragment/beauty/BeautyEyeLightFragment;
 
     return-object p0
+.end method
+
+.method static synthetic access$600(Lcom/android/camera/fragment/FragmentBeauty;ZLandroid/support/v4/app/Fragment;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/camera/fragment/FragmentBeauty;->showHideExtraLayout(ZLandroid/support/v4/app/Fragment;Ljava/lang/String;)V
+
+    return-void
 .end method
 
 .method private extraEnterAnim()V
@@ -323,9 +282,170 @@
     return-void
 .end method
 
+.method private hideBeautyLayout(II)Z
+    .locals 3
+
+    iget v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mCurrentState:I
+
+    const/4 v1, -0x1
+
+    const/4 v2, 0x0
+
+    if-ne v0, v1, :cond_0
+
+    return v2
+
+    :cond_0
+    const/4 v0, 0x3
+
+    if-ne v0, p1, :cond_1
+
+    invoke-direct {p0}, Lcom/android/camera/fragment/FragmentBeauty;->isHiddenBeautyPanelOnShutter()Z
+
+    move-result p1
+
+    if-nez p1, :cond_1
+
+    return v2
+
+    :cond_1
+    iput v1, p0, Lcom/android/camera/fragment/FragmentBeauty;->mCurrentState:I
+
+    invoke-virtual {p0}, Lcom/android/camera/fragment/FragmentBeauty;->getView()Landroid/view/View;
+
+    move-result-object p1
+
+    if-nez p1, :cond_2
+
+    return v2
+
+    :cond_2
+    const/16 v0, 0xc5
+
+    packed-switch p2, :pswitch_data_0
+
+    goto :goto_0
+
+    :pswitch_0
+    invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
+
+    move-result-object p2
+
+    invoke-virtual {p2, v0}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getAttachProtocol(I)Lcom/android/camera/protocol/ModeProtocol$BaseProtocol;
+
+    move-result-object p2
+
+    check-cast p2, Lcom/android/camera/protocol/ModeProtocol$BottomMenuProtocol;
+
+    invoke-interface {p2, v2}, Lcom/android/camera/protocol/ModeProtocol$BottomMenuProtocol;->onSwitchCameraActionMenu(I)V
+
+    new-instance p2, Lcom/android/camera/animation/type/AlphaOutOnSubscribe;
+
+    invoke-direct {p2, p1}, Lcom/android/camera/animation/type/AlphaOutOnSubscribe;-><init>(Landroid/view/View;)V
+
+    const/16 p1, 0xfa
+
+    invoke-virtual {p2, p1}, Lcom/android/camera/animation/type/AlphaOutOnSubscribe;->setDurationTime(I)Lcom/android/camera/animation/type/BaseOnSubScribe;
+
+    move-result-object p1
+
+    new-instance p2, Landroid/view/animation/DecelerateInterpolator;
+
+    invoke-direct {p2}, Landroid/view/animation/DecelerateInterpolator;-><init>()V
+
+    invoke-virtual {p1, p2}, Lcom/android/camera/animation/type/BaseOnSubScribe;->setInterpolator(Landroid/view/animation/Interpolator;)Lcom/android/camera/animation/type/BaseOnSubScribe;
+
+    move-result-object p1
+
+    invoke-static {p1}, Lio/reactivex/Completable;->create(Lio/reactivex/CompletableOnSubscribe;)Lio/reactivex/Completable;
+
+    move-result-object p1
+
+    new-instance p2, Lcom/android/camera/fragment/-$$Lambda$FragmentBeauty$CzbOmoUE8j0crboHOZzPux34_CY;
+
+    invoke-direct {p2, p0}, Lcom/android/camera/fragment/-$$Lambda$FragmentBeauty$CzbOmoUE8j0crboHOZzPux34_CY;-><init>(Lcom/android/camera/fragment/FragmentBeauty;)V
+
+    invoke-virtual {p1, p2}, Lio/reactivex/Completable;->subscribe(Lio/reactivex/functions/Action;)Lio/reactivex/disposables/Disposable;
+
+    goto :goto_0
+
+    :pswitch_1
+    invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
+
+    move-result-object p2
+
+    invoke-virtual {p2, v0}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getAttachProtocol(I)Lcom/android/camera/protocol/ModeProtocol$BaseProtocol;
+
+    move-result-object p2
+
+    check-cast p2, Lcom/android/camera/protocol/ModeProtocol$BottomMenuProtocol;
+
+    invoke-interface {p2, v2}, Lcom/android/camera/protocol/ModeProtocol$BottomMenuProtocol;->onSwitchCameraActionMenu(I)V
+
+    new-instance p2, Lcom/android/camera/animation/type/SlideOutOnSubscribe;
+
+    const/16 v0, 0x50
+
+    invoke-direct {p2, p1, v0}, Lcom/android/camera/animation/type/SlideOutOnSubscribe;-><init>(Landroid/view/View;I)V
+
+    const/16 p1, 0x8c
+
+    invoke-virtual {p2, p1}, Lcom/android/camera/animation/type/SlideOutOnSubscribe;->setDurationTime(I)Lcom/android/camera/animation/type/BaseOnSubScribe;
+
+    move-result-object p1
+
+    new-instance p2, Lmiui/view/animation/QuinticEaseInInterpolator;
+
+    invoke-direct {p2}, Lmiui/view/animation/QuinticEaseInInterpolator;-><init>()V
+
+    invoke-virtual {p1, p2}, Lcom/android/camera/animation/type/BaseOnSubScribe;->setInterpolator(Landroid/view/animation/Interpolator;)Lcom/android/camera/animation/type/BaseOnSubScribe;
+
+    move-result-object p1
+
+    invoke-static {p1}, Lio/reactivex/Completable;->create(Lio/reactivex/CompletableOnSubscribe;)Lio/reactivex/Completable;
+
+    move-result-object p1
+
+    new-instance p2, Lcom/android/camera/fragment/-$$Lambda$FragmentBeauty$g0NfeEgDEJ0JffLJyEuXT9d-4_Q;
+
+    invoke-direct {p2, p0}, Lcom/android/camera/fragment/-$$Lambda$FragmentBeauty$g0NfeEgDEJ0JffLJyEuXT9d-4_Q;-><init>(Lcom/android/camera/fragment/FragmentBeauty;)V
+
+    invoke-virtual {p1, p2}, Lio/reactivex/Completable;->subscribe(Lio/reactivex/functions/Action;)Lio/reactivex/disposables/Disposable;
+
+    goto :goto_0
+
+    :pswitch_2
+    invoke-direct {p0}, Lcom/android/camera/fragment/FragmentBeauty;->resetFragment()V
+
+    const/4 p2, 0x4
+
+    invoke-virtual {p1, p2}, Landroid/view/View;->setVisibility(I)V
+
+    :goto_0
+    const/4 p1, 0x1
+
+    return p1
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
+.end method
+
 .method private initAdjustSeekBar()V
     .locals 3
 
+    iget-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mSeekBarDisposable:Lio/reactivex/disposables/Disposable;
+
+    if-eqz v0, :cond_0
+
+    return-void
+
+    :cond_0
     new-instance v0, Lcom/android/camera/fragment/FragmentBeauty$2;
 
     invoke-direct {v0, p0}, Lcom/android/camera/fragment/FragmentBeauty$2;-><init>(Lcom/android/camera/fragment/FragmentBeauty;)V
@@ -362,7 +482,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0201e9
+    const v2, 0x7f0201f2
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -390,7 +510,80 @@
 .end method
 
 .method private initShineType()V
-    .locals 1
+    .locals 3
+
+    invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemRunning()Lcom/android/camera/data/data/runing/DataItemRunning;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/camera/data/data/runing/DataItemRunning;->getUiStyle()I
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x3
+
+    if-eq v0, v2, :cond_1
+
+    if-eq v0, v1, :cond_1
+
+    iget v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mCurrentMode:I
+
+    const/16 v2, 0xab
+
+    if-eq v0, v2, :cond_1
+
+    iget v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mCurrentMode:I
+
+    const/16 v2, 0xb0
+
+    if-ne v0, v2, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mBeautyContent:Landroid/view/View;
+
+    const v2, 0x7f0b0068
+
+    invoke-virtual {v0, v2}, Landroid/view/View;->setBackgroundResource(I)V
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    iget-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mBeautyContent:Landroid/view/View;
+
+    const v2, 0x7f0b004b
+
+    invoke-virtual {v0, v2}, Landroid/view/View;->setBackgroundResource(I)V
+
+    :goto_1
+    iget-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mBeautySettingManager:Lcom/android/camera/fragment/beauty/BeautySettingManager;
+
+    if-nez v0, :cond_2
+
+    new-instance v0, Lcom/android/camera/fragment/beauty/BeautySettingManager;
+
+    invoke-direct {v0}, Lcom/android/camera/fragment/beauty/BeautySettingManager;-><init>()V
+
+    iput-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mBeautySettingManager:Lcom/android/camera/fragment/beauty/BeautySettingManager;
+
+    :cond_2
+    iput v1, p0, Lcom/android/camera/fragment/FragmentBeauty;->mCurrentState:I
+
+    invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemRunning()Lcom/android/camera/data/data/runing/DataItemRunning;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/camera/data/data/runing/DataItemRunning;->getComponentRunningShine()Lcom/android/camera/data/data/runing/ComponentRunningShine;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mComponentRunningShine:Lcom/android/camera/data/data/runing/ComponentRunningShine;
+
+    invoke-direct {p0}, Lcom/android/camera/fragment/FragmentBeauty;->initAdjustSeekBar()V
 
     iget-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mComponentRunningShine:Lcom/android/camera/data/data/runing/ComponentRunningShine;
 
@@ -398,173 +591,179 @@
 
     move-result-object v0
 
-    invoke-virtual {p0, v0}, Lcom/android/camera/fragment/FragmentBeauty;->switchShineType(Ljava/lang/String;)V
+    const/4 v1, 0x0
+
+    invoke-direct {p0, v0, v1}, Lcom/android/camera/fragment/FragmentBeauty;->initShineType(Ljava/lang/String;Z)V
+
+    invoke-direct {p0}, Lcom/android/camera/fragment/FragmentBeauty;->initViewPager()V
+
+    invoke-direct {p0, v0}, Lcom/android/camera/fragment/FragmentBeauty;->setViewPagerPageByType(Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method private initShineType(Ljava/lang/String;)V
-    .locals 5
+.method private initShineType(Ljava/lang/String;Z)V
+    .locals 4
 
-    iget-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mComponentRunningShine:Lcom/android/camera/data/data/runing/ComponentRunningShine;
+    iget-object p2, p0, Lcom/android/camera/fragment/FragmentBeauty;->mComponentRunningShine:Lcom/android/camera/data/data/runing/ComponentRunningShine;
 
-    invoke-virtual {v0, p1}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->setCurrentType(Ljava/lang/String;)V
+    invoke-virtual {p2, p1}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->setCurrentType(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/android/camera/fragment/FragmentBeauty;->isEyeLightShow()Z
 
-    move-result v0
+    move-result p2
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz p2, :cond_0
 
-    invoke-direct {p0, v1}, Lcom/android/camera/fragment/FragmentBeauty;->showHideEyeLighting(Z)V
+    invoke-direct {p0, v0}, Lcom/android/camera/fragment/FragmentBeauty;->showHideEyeLighting(Z)V
 
     :cond_0
-    const/4 v0, -0x1
+    const/4 p2, -0x1
 
     invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
 
-    move-result v2
+    move-result v1
 
-    const/16 v3, 0x39
+    const/16 v2, 0x39
 
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
-    if-eq v2, v3, :cond_2
+    if-eq v1, v2, :cond_2
 
-    const/16 v3, 0x620
+    const/16 v2, 0x620
 
-    if-eq v2, v3, :cond_1
+    if-eq v1, v2, :cond_1
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v1, :pswitch_data_0
 
     goto :goto_0
 
     :pswitch_0
-    const-string v2, "6"
+    const-string v1, "6"
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_3
+    if-eqz v1, :cond_3
 
-    const/4 v0, 0x6
+    const/4 p2, 0x6
 
     goto :goto_0
 
     :pswitch_1
-    const-string v2, "5"
+    const-string v1, "5"
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_3
+    if-eqz v1, :cond_3
 
-    const/4 v0, 0x5
+    const/4 p2, 0x5
 
     goto :goto_0
 
     :pswitch_2
-    const-string v2, "4"
+    const-string v1, "4"
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_3
+    if-eqz v1, :cond_3
 
-    const/4 v0, 0x4
+    const/4 p2, 0x4
 
     goto :goto_0
 
     :pswitch_3
-    const-string v2, "3"
+    const-string v1, "3"
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_3
+    if-eqz v1, :cond_3
 
-    const/4 v0, 0x3
+    const/4 p2, 0x3
 
     goto :goto_0
 
     :pswitch_4
-    const-string v2, "2"
+    const-string v1, "2"
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_3
+    if-eqz v1, :cond_3
 
-    const/4 v0, 0x2
+    const/4 p2, 0x2
 
     goto :goto_0
 
     :pswitch_5
-    const-string v2, "1"
+    const-string v1, "1"
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_3
+    if-eqz v1, :cond_3
 
-    move v0, v4
+    move p2, v3
 
     goto :goto_0
 
     :cond_1
-    const-string v2, "11"
+    const-string v1, "11"
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_3
+    if-eqz v1, :cond_3
 
-    const/4 v0, 0x7
+    const/4 p2, 0x7
 
     goto :goto_0
 
     :cond_2
-    const-string v2, "9"
+    const-string v1, "9"
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_3
+    if-eqz v1, :cond_3
 
-    move v0, v1
+    move p2, v0
 
     :cond_3
     :goto_0
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    packed-switch v0, :pswitch_data_1
+    packed-switch p2, :pswitch_data_1
 
-    iput-object v2, p0, Lcom/android/camera/fragment/FragmentBeauty;->mCurrentSettingBusiness:Lcom/android/camera/fragment/beauty/IBeautySettingBusiness;
+    iput-object v1, p0, Lcom/android/camera/fragment/FragmentBeauty;->mCurrentSettingBusiness:Lcom/android/camera/fragment/beauty/IBeautySettingBusiness;
 
-    invoke-direct {p0, v1, v4}, Lcom/android/camera/fragment/FragmentBeauty;->setAdjustSeekBarVisible(ZZ)V
+    invoke-direct {p0, v0, v3}, Lcom/android/camera/fragment/FragmentBeauty;->setAdjustSeekBarVisible(ZZ)V
 
     goto :goto_1
 
     :pswitch_6
-    iget-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mBeautySettingManager:Lcom/android/camera/fragment/beauty/BeautySettingManager;
+    iget-object p2, p0, Lcom/android/camera/fragment/FragmentBeauty;->mBeautySettingManager:Lcom/android/camera/fragment/beauty/BeautySettingManager;
 
-    iget-object v1, p0, Lcom/android/camera/fragment/FragmentBeauty;->mComponentRunningShine:Lcom/android/camera/data/data/runing/ComponentRunningShine;
+    iget-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mComponentRunningShine:Lcom/android/camera/data/data/runing/ComponentRunningShine;
 
-    invoke-virtual {v1}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->getTypeElementsBeauty()Lcom/android/camera/data/data/runing/TypeElementsBeauty;
+    invoke-virtual {v0}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->getTypeElementsBeauty()Lcom/android/camera/data/data/runing/TypeElementsBeauty;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v0, p1, v1}, Lcom/android/camera/fragment/beauty/BeautySettingManager;->constructAndGetSetting(Ljava/lang/String;Lcom/android/camera/data/data/runing/TypeElementsBeauty;)Lcom/android/camera/fragment/beauty/IBeautySettingBusiness;
+    invoke-virtual {p2, p1, v0}, Lcom/android/camera/fragment/beauty/BeautySettingManager;->constructAndGetSetting(Ljava/lang/String;Lcom/android/camera/data/data/runing/TypeElementsBeauty;)Lcom/android/camera/fragment/beauty/IBeautySettingBusiness;
 
     move-result-object p1
 
@@ -573,18 +772,18 @@
     goto :goto_1
 
     :pswitch_7
-    iput-object v2, p0, Lcom/android/camera/fragment/FragmentBeauty;->mCurrentSettingBusiness:Lcom/android/camera/fragment/beauty/IBeautySettingBusiness;
+    iput-object v1, p0, Lcom/android/camera/fragment/FragmentBeauty;->mCurrentSettingBusiness:Lcom/android/camera/fragment/beauty/IBeautySettingBusiness;
 
-    invoke-direct {p0, v1, v4}, Lcom/android/camera/fragment/FragmentBeauty;->setAdjustSeekBarVisible(ZZ)V
+    invoke-direct {p0, v0, v3}, Lcom/android/camera/fragment/FragmentBeauty;->setAdjustSeekBarVisible(ZZ)V
 
     goto :goto_1
 
     :pswitch_8
     new-instance p1, Ljava/lang/RuntimeException;
 
-    const-string v0, "not allowed, see onMakeupItemSelected"
+    const-string p2, "not allowed, see onMakeupItemSelected"
 
-    invoke-direct {p1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw p1
 
@@ -615,202 +814,200 @@
 .end method
 
 .method private initViewPager()V
-    .locals 6
+    .locals 7
 
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mFragments:Ljava/util/List;
+    iget-object v1, p0, Lcom/android/camera/fragment/FragmentBeauty;->mComponentRunningShine:Lcom/android/camera/data/data/runing/ComponentRunningShine;
 
-    iget-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mComponentRunningShine:Lcom/android/camera/data/data/runing/ComponentRunningShine;
-
-    invoke-virtual {v0}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->getItems()Ljava/util/List;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    const/4 v2, 0x0
-
-    const/4 v3, 0x2
-
-    if-eqz v1, :cond_1
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-virtual {v1}, Lcom/android/camera/data/data/runing/ComponentRunningShine;->getItems()Ljava/util/List;
 
     move-result-object v1
 
-    check-cast v1, Lcom/android/camera/data/data/ComponentDataItem;
+    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    iget-object v1, v1, Lcom/android/camera/data/data/ComponentDataItem;->mValue:Ljava/lang/String;
+    move-result-object v1
 
-    const/4 v4, -0x1
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
+    move-result v2
 
-    move-result v5
+    const/4 v3, 0x0
 
-    packed-switch v5, :pswitch_data_0
+    const/4 v4, 0x2
 
-    packed-switch v5, :pswitch_data_1
+    if-eqz v2, :cond_1
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/camera/data/data/ComponentDataItem;
+
+    iget-object v2, v2, Lcom/android/camera/data/data/ComponentDataItem;->mValue:Ljava/lang/String;
+
+    const/4 v5, -0x1
+
+    invoke-virtual {v2}, Ljava/lang/String;->hashCode()I
+
+    move-result v6
+
+    packed-switch v6, :pswitch_data_0
+
+    packed-switch v6, :pswitch_data_1
 
     goto/16 :goto_1
 
     :pswitch_0
-    const-string v2, "13"
+    const-string v3, "13"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    const/16 v2, 0xa
+    const/16 v3, 0xa
 
     goto/16 :goto_2
 
     :pswitch_1
-    const-string v2, "12"
+    const-string v3, "12"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    const/16 v2, 0x9
+    const/16 v3, 0x9
 
     goto :goto_2
 
     :pswitch_2
-    const-string v2, "11"
+    const-string v3, "11"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    const/16 v2, 0x8
+    const/16 v3, 0x8
 
     goto :goto_2
 
     :pswitch_3
-    const-string v2, "10"
+    const-string v3, "10"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    const/4 v2, 0x7
+    const/4 v3, 0x7
 
     goto :goto_2
 
     :pswitch_4
-    const-string v2, "7"
+    const-string v3, "7"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    const/4 v2, 0x6
+    const/4 v3, 0x6
 
     goto :goto_2
 
     :pswitch_5
-    const-string v2, "6"
+    const-string v3, "6"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    const/4 v2, 0x5
+    const/4 v3, 0x5
 
     goto :goto_2
 
     :pswitch_6
-    const-string v2, "5"
+    const-string v3, "5"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    const/4 v2, 0x4
+    const/4 v3, 0x4
 
     goto :goto_2
 
     :pswitch_7
-    const-string v2, "4"
+    const-string v3, "4"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    const/4 v2, 0x3
+    const/4 v3, 0x3
 
     goto :goto_2
 
     :pswitch_8
-    const-string v2, "3"
+    const-string v3, "3"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    move v2, v3
+    move v3, v4
 
     goto :goto_2
 
     :pswitch_9
-    const-string v2, "2"
+    const-string v3, "2"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
     goto :goto_2
 
     :pswitch_a
-    const-string v3, "1"
+    const-string v4, "1"
 
-    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
     goto :goto_2
 
     :cond_0
     :goto_1
-    move v2, v4
+    move v3, v5
 
     :goto_2
-    packed-switch v2, :pswitch_data_2
+    packed-switch v3, :pswitch_data_2
 
     new-instance v0, Ljava/lang/RuntimeException;
 
@@ -821,123 +1018,101 @@
     throw v0
 
     :pswitch_b
-    iget-object v1, p0, Lcom/android/camera/fragment/FragmentBeauty;->mFragments:Ljava/util/List;
-
     new-instance v2, Lcom/android/camera/fragment/live/FragmentLiveSpeed;
 
     invoke-direct {v2}, Lcom/android/camera/fragment/live/FragmentLiveSpeed;-><init>()V
 
-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_3
+    goto :goto_3
 
     :pswitch_c
-    iget-object v1, p0, Lcom/android/camera/fragment/FragmentBeauty;->mFragments:Ljava/util/List;
-
     new-instance v2, Lcom/android/camera/fragment/live/FragmentLiveSticker;
 
     invoke-direct {v2}, Lcom/android/camera/fragment/live/FragmentLiveSticker;-><init>()V
 
-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_3
 
     :pswitch_d
-    iget-object v1, p0, Lcom/android/camera/fragment/FragmentBeauty;->mFragments:Ljava/util/List;
-
     new-instance v2, Lcom/android/camera/fragment/beauty/LiveBeautyModeFragment;
 
     invoke-direct {v2}, Lcom/android/camera/fragment/beauty/LiveBeautyModeFragment;-><init>()V
 
-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_3
 
     :pswitch_e
-    iget-object v1, p0, Lcom/android/camera/fragment/FragmentBeauty;->mFragments:Ljava/util/List;
-
     new-instance v2, Lcom/android/camera/fragment/beauty/LiveBeautyFilterFragment;
 
     invoke-direct {v2}, Lcom/android/camera/fragment/beauty/LiveBeautyFilterFragment;-><init>()V
 
-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_3
 
     :pswitch_f
-    iget-object v1, p0, Lcom/android/camera/fragment/FragmentBeauty;->mFragments:Ljava/util/List;
-
     new-instance v2, Lcom/android/camera/fragment/FragmentFilter;
 
     invoke-direct {v2}, Lcom/android/camera/fragment/FragmentFilter;-><init>()V
 
-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_3
 
     :pswitch_10
-    iget-object v1, p0, Lcom/android/camera/fragment/FragmentBeauty;->mFragments:Ljava/util/List;
-
     new-instance v2, Lcom/android/camera/fragment/beauty/BeautyBodyFragment;
 
     invoke-direct {v2}, Lcom/android/camera/fragment/beauty/BeautyBodyFragment;-><init>()V
 
-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_3
 
     :pswitch_11
-    iget-object v1, p0, Lcom/android/camera/fragment/FragmentBeauty;->mFragments:Ljava/util/List;
-
     new-instance v2, Lcom/android/camera/fragment/beauty/MakeupBeautyFragment;
 
     invoke-direct {v2}, Lcom/android/camera/fragment/beauty/MakeupBeautyFragment;-><init>()V
 
-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_3
 
     :pswitch_12
-    iget-object v1, p0, Lcom/android/camera/fragment/FragmentBeauty;->mFragments:Ljava/util/List;
-
     new-instance v2, Lcom/android/camera/fragment/beauty/RemodelingParamsFragment;
 
     invoke-direct {v2}, Lcom/android/camera/fragment/beauty/RemodelingParamsFragment;-><init>()V
 
-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_3
 
     :pswitch_13
-    iget-object v1, p0, Lcom/android/camera/fragment/FragmentBeauty;->mFragments:Ljava/util/List;
-
     new-instance v2, Lcom/android/camera/fragment/beauty/MakeupParamsFragment;
 
     invoke-direct {v2}, Lcom/android/camera/fragment/beauty/MakeupParamsFragment;-><init>()V
 
-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_3
 
     :pswitch_14
-    iget-object v1, p0, Lcom/android/camera/fragment/FragmentBeauty;->mFragments:Ljava/util/List;
-
     new-instance v2, Lcom/android/camera/fragment/beauty/BeautySmoothLevelFragment;
 
     invoke-direct {v2}, Lcom/android/camera/fragment/beauty/BeautySmoothLevelFragment;-><init>()V
 
-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_3
 
     :pswitch_15
-    iget-object v1, p0, Lcom/android/camera/fragment/FragmentBeauty;->mFragments:Ljava/util/List;
-
     new-instance v2, Lcom/android/camera/fragment/beauty/BeautyLevelFragment;
 
     invoke-direct {v2}, Lcom/android/camera/fragment/beauty/BeautyLevelFragment;-><init>()V
 
-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     nop
 
@@ -945,17 +1120,15 @@
     goto/16 :goto_0
 
     :cond_1
-    new-instance v0, Lcom/android/camera/fragment/FragmentBeauty$BeautyPagerAdapter;
+    new-instance v1, Lcom/android/camera/fragment/FragmentBeauty$BeautyPagerAdapter;
 
     invoke-virtual {p0}, Lcom/android/camera/fragment/FragmentBeauty;->getChildFragmentManager()Landroid/support/v4/app/FragmentManager;
 
-    move-result-object v1
+    move-result-object v2
 
-    iget-object v4, p0, Lcom/android/camera/fragment/FragmentBeauty;->mFragments:Ljava/util/List;
+    invoke-direct {v1, v2, v0}, Lcom/android/camera/fragment/FragmentBeauty$BeautyPagerAdapter;-><init>(Landroid/support/v4/app/FragmentManager;Ljava/util/List;)V
 
-    invoke-direct {v0, p0, v1, v4}, Lcom/android/camera/fragment/FragmentBeauty$BeautyPagerAdapter;-><init>(Lcom/android/camera/fragment/FragmentBeauty;Landroid/support/v4/app/FragmentManager;Ljava/util/List;)V
-
-    iput-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mBeautyPagerAdapter:Lcom/android/camera/fragment/FragmentBeauty$BeautyPagerAdapter;
+    iput-object v1, p0, Lcom/android/camera/fragment/FragmentBeauty;->mBeautyPagerAdapter:Lcom/android/camera/fragment/FragmentBeauty$BeautyPagerAdapter;
 
     iget-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mViewPager:Lcom/android/camera/ui/NoScrollViewPager;
 
@@ -965,11 +1138,11 @@
 
     iget-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mViewPager:Lcom/android/camera/ui/NoScrollViewPager;
 
-    invoke-virtual {v0, v3}, Lcom/android/camera/ui/NoScrollViewPager;->setOffscreenPageLimit(I)V
+    invoke-virtual {v0, v4}, Lcom/android/camera/ui/NoScrollViewPager;->setOffscreenPageLimit(I)V
 
     iget-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mViewPager:Lcom/android/camera/ui/NoScrollViewPager;
 
-    invoke-virtual {v0, v2}, Lcom/android/camera/ui/NoScrollViewPager;->setFocusable(Z)V
+    invoke-virtual {v0, v3}, Lcom/android/camera/ui/NoScrollViewPager;->setFocusable(Z)V
 
     iget-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mViewPager:Lcom/android/camera/ui/NoScrollViewPager;
 
@@ -978,8 +1151,6 @@
     invoke-virtual {v0, v1}, Lcom/android/camera/ui/NoScrollViewPager;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
     return-void
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x31
@@ -1016,6 +1187,74 @@
     .end packed-switch
 .end method
 
+.method private isHiddenBeautyPanelOnShutter()Z
+    .locals 2
+
+    iget v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mCurrentMode:I
+
+    const/16 v1, 0xa2
+
+    if-eq v0, v1, :cond_1
+
+    iget v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mCurrentMode:I
+
+    const/16 v1, 0xa1
+
+    if-eq v0, v1, :cond_1
+
+    iget v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mCurrentMode:I
+
+    const/16 v1, 0xae
+
+    if-eq v0, v1, :cond_1
+
+    iget v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mCurrentMode:I
+
+    const/16 v1, 0xb0
+
+    if-ne v0, v1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    const/4 v0, 0x1
+
+    :goto_1
+    return v0
+.end method
+
+.method public static synthetic lambda$hideBeautyLayout$1(Lcom/android/camera/fragment/FragmentBeauty;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
+
+    invoke-direct {p0}, Lcom/android/camera/fragment/FragmentBeauty;->onDismissFinished()V
+
+    return-void
+.end method
+
+.method public static synthetic lambda$hideBeautyLayout$2(Lcom/android/camera/fragment/FragmentBeauty;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
+
+    invoke-direct {p0}, Lcom/android/camera/fragment/FragmentBeauty;->onDismissFinished()V
+
+    return-void
+.end method
+
 .method static synthetic lambda$initViewPager$0(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 0
 
@@ -1024,18 +1263,86 @@
     return p0
 .end method
 
-.method private notifyTipsMargin(I)V
+.method private onDismissFinished()V
     .locals 2
 
-    invoke-static {}, Lcom/android/camera/module/ModuleManager;->isSquareModule()Z
+    invoke-direct {p0}, Lcom/android/camera/fragment/FragmentBeauty;->resetFragment()V
+
+    invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
+
+    move-result-object v0
+
+    const/16 v1, 0xa1
+
+    invoke-virtual {v0, v1}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getAttachProtocol(I)Lcom/android/camera/protocol/ModeProtocol$BaseProtocol;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/camera/protocol/ModeProtocol$CameraAction;
+
+    invoke-direct {p0}, Lcom/android/camera/fragment/FragmentBeauty;->isHiddenBeautyPanelOnShutter()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {v0}, Lcom/android/camera/protocol/ModeProtocol$CameraAction;->isDoingAction()Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    invoke-interface {v0}, Lcom/android/camera/protocol/ModeProtocol$CameraAction;->isRecording()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
-
-    const/4 p1, 0x0
+    if-nez v0, :cond_1
 
     :cond_0
+    invoke-direct {p0}, Lcom/android/camera/fragment/FragmentBeauty;->resetTips()V
+
+    :cond_1
+    return-void
+.end method
+
+.method private resetFragment()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mAdjustSeekBar:Lcom/android/camera/ui/SeekBarCompat;
+
+    const/4 v1, 0x4
+
+    invoke-virtual {v0, v1}, Lcom/android/camera/ui/SeekBarCompat;->setVisibility(I)V
+
+    iget-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mViewPager:Lcom/android/camera/ui/NoScrollViewPager;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/camera/ui/NoScrollViewPager;->setAdapter(Landroid/support/v4/view/PagerAdapter;)V
+
+    iget-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mBeautyPagerAdapter:Lcom/android/camera/fragment/FragmentBeauty$BeautyPagerAdapter;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mBeautyPagerAdapter:Lcom/android/camera/fragment/FragmentBeauty$BeautyPagerAdapter;
+
+    invoke-virtual {p0}, Lcom/android/camera/fragment/FragmentBeauty;->getChildFragmentManager()Landroid/support/v4/app/FragmentManager;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Lcom/android/camera/fragment/FragmentBeauty$BeautyPagerAdapter;->recycleFragmentList(Landroid/support/v4/app/FragmentManager;)V
+
+    iput-object v1, p0, Lcom/android/camera/fragment/FragmentBeauty;->mBeautyPagerAdapter:Lcom/android/camera/fragment/FragmentBeauty$BeautyPagerAdapter;
+
+    :cond_0
+    return-void
+.end method
+
+.method private resetTips()V
+    .locals 3
+
     invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
 
     move-result-object v0
@@ -1048,126 +1355,113 @@
 
     check-cast v0, Lcom/android/camera/protocol/ModeProtocol$BottomPopupTips;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
-    const/4 v1, 0x1
-
-    invoke-interface {v0, p1, v1}, Lcom/android/camera/protocol/ModeProtocol$BottomPopupTips;->updateTipBottomMargin(IZ)V
-
-    :cond_1
-    return-void
-.end method
-
-.method private removeFragmentBeauty(I)Z
-    .locals 3
-
-    const/4 v0, 0x0
-
-    const/4 v1, 0x3
-
-    if-ne v1, p1, :cond_0
-
-    invoke-static {}, Lcom/android/camera/fragment/beauty/BeautyParameters;->isHiddenBeautyPanelOnShutter()Z
-
-    move-result p1
-
-    if-nez p1, :cond_0
-
-    return v0
+    invoke-interface {v0}, Lcom/android/camera/protocol/ModeProtocol$BottomPopupTips;->reInitTipImage()V
 
     :cond_0
-    invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
+    iget v1, p0, Lcom/android/camera/fragment/FragmentBeauty;->mCurrentMode:I
 
-    move-result-object p1
+    invoke-static {v1}, Lcom/android/camera/CameraSettings;->shouldShowUltraWideStickyTip(I)Z
 
-    const/16 v1, 0xa0
+    move-result v1
 
-    invoke-virtual {p1, v1}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getAttachProtocol(I)Lcom/android/camera/protocol/ModeProtocol$BaseProtocol;
+    if-eqz v1, :cond_1
 
-    move-result-object p1
+    if-eqz v0, :cond_1
 
-    check-cast p1, Lcom/android/camera/protocol/ModeProtocol$BaseDelegate;
+    const/16 v1, 0xd
 
-    if-nez p1, :cond_1
+    const v2, 0x7f090242
 
-    return v0
+    invoke-interface {v0, v1, v2}, Lcom/android/camera/protocol/ModeProtocol$BottomPopupTips;->directlyShowTips(II)V
 
     :cond_1
-    const v1, 0x7f0d0028
+    const/4 v1, 0x1
 
-    invoke-interface {p1, v1}, Lcom/android/camera/protocol/ModeProtocol$BaseDelegate;->getActiveFragment(I)I
+    if-eqz v0, :cond_2
 
-    move-result p1
+    const/4 v2, 0x0
 
-    const/16 v1, 0xfb
-
-    if-eq p1, v1, :cond_2
-
-    return v0
+    invoke-interface {v0, v2, v1}, Lcom/android/camera/protocol/ModeProtocol$BottomPopupTips;->updateTipBottomMargin(IZ)V
 
     :cond_2
-    invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
+    invoke-direct {p0}, Lcom/android/camera/fragment/FragmentBeauty;->showZoomTipImage()V
 
-    move-result-object p1
+    iget v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mCurrentMode:I
 
-    const/16 v1, 0xc5
+    const/16 v2, 0xa3
 
-    invoke-virtual {p1, v1}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getAttachProtocol(I)Lcom/android/camera/protocol/ModeProtocol$BaseProtocol;
+    if-eq v0, v2, :cond_5
 
-    move-result-object p1
+    const/16 v2, 0xa7
 
-    check-cast p1, Lcom/android/camera/protocol/ModeProtocol$BottomMenuProtocol;
+    if-eq v0, v2, :cond_4
 
-    invoke-interface {p1, v0}, Lcom/android/camera/protocol/ModeProtocol$BottomMenuProtocol;->onSwitchCameraActionMenu(I)V
+    const/16 v2, 0xab
 
-    invoke-virtual {p0}, Lcom/android/camera/fragment/FragmentBeauty;->getView()Landroid/view/View;
+    if-eq v0, v2, :cond_3
 
-    move-result-object p1
-
-    if-nez p1, :cond_3
-
-    return v0
+    goto :goto_0
 
     :cond_3
-    new-instance v0, Lcom/android/camera/fragment/FragmentBeauty$ExitAnimationListener;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, p0, v1}, Lcom/android/camera/fragment/FragmentBeauty$ExitAnimationListener;-><init>(Lcom/android/camera/fragment/FragmentBeauty;Lcom/android/camera/fragment/FragmentBeauty$1;)V
-
-    const/4 v1, 0x2
-
-    new-array v1, v1, [I
-
-    fill-array-data v1, :array_0
-
-    invoke-static {v0, v1}, Lcom/android/camera/animation/FragmentAnimationFactory;->wrapperAnimation(Landroid/view/animation/Animation$AnimationListener;[I)Landroid/view/animation/Animation;
+    invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
 
     move-result-object v0
 
-    const-wide/16 v1, 0x8c
+    const/16 v2, 0xd2
 
-    invoke-virtual {v0, v1, v2}, Landroid/view/animation/Animation;->setDuration(J)V
+    invoke-virtual {v0, v2}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getAttachProtocol(I)Lcom/android/camera/protocol/ModeProtocol$BaseProtocol;
 
-    new-instance v1, Lmiui/view/animation/QuinticEaseInInterpolator;
+    move-result-object v0
 
-    invoke-direct {v1}, Lmiui/view/animation/QuinticEaseInInterpolator;-><init>()V
+    check-cast v0, Lcom/android/camera/protocol/ModeProtocol$BokehFNumberController;
 
-    invoke-virtual {v0, v1}, Landroid/view/animation/Animation;->setInterpolator(Landroid/view/animation/Interpolator;)V
+    if-eqz v0, :cond_6
 
-    invoke-virtual {p1, v0}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
+    invoke-interface {v0, v1}, Lcom/android/camera/protocol/ModeProtocol$BokehFNumberController;->showFNumberPanel(Z)V
 
-    const/4 p1, 0x1
+    goto :goto_0
 
-    iput-boolean p1, p0, Lcom/android/camera/fragment/FragmentBeauty;->mRemoveFragmentBeauty:Z
+    :cond_4
+    invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
 
-    return p1
+    move-result-object v0
 
-    :array_0
-    .array-data 4
-        0xa8
-        0xa2
-    .end array-data
+    const/16 v2, 0xb5
+
+    invoke-virtual {v0, v2}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getAttachProtocol(I)Lcom/android/camera/protocol/ModeProtocol$BaseProtocol;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/camera/protocol/ModeProtocol$ManuallyAdjust;
+
+    if-eqz v0, :cond_6
+
+    invoke-interface {v0, v1}, Lcom/android/camera/protocol/ModeProtocol$ManuallyAdjust;->setManuallyLayoutVisible(Z)V
+
+    goto :goto_0
+
+    :cond_5
+    invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
+
+    move-result-object v0
+
+    const/16 v2, 0xc3
+
+    invoke-virtual {v0, v2}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getAttachProtocol(I)Lcom/android/camera/protocol/ModeProtocol$BaseProtocol;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/camera/protocol/ModeProtocol$CameraModuleSpecial;
+
+    if-eqz v0, :cond_6
+
+    invoke-interface {v0, v1}, Lcom/android/camera/protocol/ModeProtocol$CameraModuleSpecial;->showOrHideChip(Z)V
+
+    :cond_6
+    :goto_0
+    return-void
 .end method
 
 .method private setAdjustSeekBarVisible(ZZ)V
@@ -1249,6 +1543,13 @@
 .method private setSeekBarMode(II)V
     .locals 4
 
+    iget-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mCurrentSettingBusiness:Lcom/android/camera/fragment/beauty/IBeautySettingBusiness;
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
     nop
 
     const/16 v0, 0x64
@@ -1276,7 +1577,7 @@
 
     move-result-object p2
 
-    const v2, 0x7f020026
+    const v2, 0x7f02002c
 
     invoke-virtual {p2, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1301,7 +1602,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f0201e9
+    const v3, 0x7f0201f2
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1339,6 +1640,8 @@
     invoke-virtual {p2, p1}, Lcom/android/camera/ui/SeekBarCompat;->setProgress(I)V
 
     return-void
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -1471,7 +1774,7 @@
 
     if-eqz p1, :cond_1
 
-    const v2, 0x7f090219
+    const v2, 0x7f090218
 
     invoke-interface {v1, v0, v2}, Lcom/android/camera/protocol/ModeProtocol$TopAlert;->alertTopHint(II)V
 
@@ -1652,6 +1955,13 @@
 
     iget-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mCurrentSettingBusiness:Lcom/android/camera/fragment/beauty/IBeautySettingBusiness;
 
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mCurrentSettingBusiness:Lcom/android/camera/fragment/beauty/IBeautySettingBusiness;
+
     invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
     move-result p1
@@ -1680,6 +1990,21 @@
     return-void
 .end method
 
+.method public clearBeauty()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mCurrentSettingBusiness:Lcom/android/camera/fragment/beauty/IBeautySettingBusiness;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mCurrentSettingBusiness:Lcom/android/camera/fragment/beauty/IBeautySettingBusiness;
+
+    invoke-interface {v0}, Lcom/android/camera/fragment/beauty/IBeautySettingBusiness;->clearBeauty()V
+
+    :cond_0
+    return-void
+.end method
+
 .method public closeEyeLight()V
     .locals 1
 
@@ -1695,12 +2020,12 @@
     return-void
 .end method
 
-.method public dismiss()V
+.method public dismiss(I)V
     .locals 1
 
     const/4 v0, 0x1
 
-    invoke-virtual {p0, v0}, Lcom/android/camera/fragment/FragmentBeauty;->onBackEvent(I)Z
+    invoke-direct {p0, v0, p1}, Lcom/android/camera/fragment/FragmentBeauty;->hideBeautyLayout(II)Z
 
     return-void
 .end method
@@ -1716,7 +2041,7 @@
 .method protected getLayoutResourceId()I
     .locals 1
 
-    const v0, 0x7f040009
+    const v0, 0x7f04000a
 
     return v0
 .end method
@@ -1758,7 +2083,7 @@
 .end method
 
 .method protected initView(Landroid/view/View;)V
-    .locals 2
+    .locals 1
 
     invoke-virtual {p0}, Lcom/android/camera/fragment/FragmentBeauty;->getContext()Landroid/content/Context;
 
@@ -1770,10 +2095,6 @@
 
     iput-boolean v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mIsRTL:Z
 
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mRemoveFragmentBeauty:Z
-
     const v0, 0x7f0d001f
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -1782,54 +2103,6 @@
 
     iput-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mBeautyContent:Landroid/view/View;
 
-    invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemRunning()Lcom/android/camera/data/data/runing/DataItemRunning;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/camera/data/data/runing/DataItemRunning;->getUiStyle()I
-
-    move-result v0
-
-    const/4 v1, 0x3
-
-    if-eq v0, v1, :cond_1
-
-    const/4 v1, 0x1
-
-    if-eq v0, v1, :cond_1
-
-    iget v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mCurrentMode:I
-
-    const/16 v1, 0xab
-
-    if-eq v0, v1, :cond_1
-
-    iget v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mCurrentMode:I
-
-    const/16 v1, 0xb0
-
-    if-ne v0, v1, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mBeautyContent:Landroid/view/View;
-
-    const v1, 0x7f0b0066
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    iget-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mBeautyContent:Landroid/view/View;
-
-    const v1, 0x7f0b0049
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
-
-    :goto_1
     const v0, 0x7f0d0022
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -1858,31 +2131,27 @@
 
     iput-object p1, p0, Lcom/android/camera/fragment/FragmentBeauty;->mAdjustSeekBar:Lcom/android/camera/ui/SeekBarCompat;
 
-    invoke-static {}, Lcom/android/camera/data/DataRepository;->dataItemRunning()Lcom/android/camera/data/data/runing/DataItemRunning;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Lcom/android/camera/data/data/runing/DataItemRunning;->getComponentRunningShine()Lcom/android/camera/data/data/runing/ComponentRunningShine;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/camera/fragment/FragmentBeauty;->mComponentRunningShine:Lcom/android/camera/data/data/runing/ComponentRunningShine;
-
-    invoke-direct {p0}, Lcom/android/camera/fragment/FragmentBeauty;->initAdjustSeekBar()V
-
-    invoke-direct {p0}, Lcom/android/camera/fragment/FragmentBeauty;->initViewPager()V
-
     invoke-direct {p0}, Lcom/android/camera/fragment/FragmentBeauty;->initShineType()V
 
     return-void
 .end method
 
 .method public isBeautyPanelShow()Z
-    .locals 1
+    .locals 2
 
-    iget-boolean v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mBeautyPanelShow:Z
+    iget v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mCurrentState:I
 
-    return v0
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x0
+
+    :goto_0
+    return v1
 .end method
 
 .method public isEyeLightShow()Z
@@ -1941,13 +2210,36 @@
 .end method
 
 .method public onBackEvent(I)Z
-    .locals 0
+    .locals 1
 
-    invoke-direct {p0, p1}, Lcom/android/camera/fragment/FragmentBeauty;->removeFragmentBeauty(I)Z
+    packed-switch p1, :pswitch_data_0
+
+    const/4 v0, 0x2
+
+    goto :goto_0
+
+    :pswitch_0
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :pswitch_1
+    const/4 v0, 0x3
+
+    nop
+
+    :goto_0
+    invoke-direct {p0, p1, v0}, Lcom/android/camera/fragment/FragmentBeauty;->hideBeautyLayout(II)Z
 
     move-result p1
 
     return p1
+
+    :pswitch_data_0
+    .packed-switch 0x3
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method
 
 .method public onClick(Landroid/view/View;)V
@@ -2094,6 +2386,15 @@
 
     invoke-super {p0, p1, p2, p3}, Lcom/android/camera/fragment/BaseFragment;->provideAnimateElement(ILjava/util/List;I)V
 
+    iget p1, p0, Lcom/android/camera/fragment/FragmentBeauty;->mCurrentState:I
+
+    const/4 p2, -0x1
+
+    if-ne p1, p2, :cond_0
+
+    return-void
+
+    :cond_0
     const/4 p1, 0x4
 
     invoke-virtual {p0, p1}, Lcom/android/camera/fragment/FragmentBeauty;->onBackEvent(I)Z
@@ -2156,19 +2457,9 @@
 
     invoke-interface {p1, v0, p0}, Lcom/android/camera/protocol/ModeProtocol$ModeCoordinator;->attachProtocol(ILcom/android/camera/protocol/ModeProtocol$BaseProtocol;)V
 
-    const/4 p1, 0x1
-
-    iput-boolean p1, p0, Lcom/android/camera/fragment/FragmentBeauty;->mBeautyPanelShow:Z
-
     const/4 p1, 0x0
 
     iput-boolean p1, p0, Lcom/android/camera/fragment/FragmentBeauty;->mIsEyeLightShow:Z
-
-    new-instance p1, Lcom/android/camera/fragment/beauty/BeautySettingManager;
-
-    invoke-direct {p1}, Lcom/android/camera/fragment/beauty/BeautySettingManager;-><init>()V
-
-    iput-object p1, p0, Lcom/android/camera/fragment/FragmentBeauty;->mBeautySettingManager:Lcom/android/camera/fragment/beauty/BeautySettingManager;
 
     return-void
 .end method
@@ -2178,8 +2469,13 @@
 
     iget-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mCurrentSettingBusiness:Lcom/android/camera/fragment/beauty/IBeautySettingBusiness;
 
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mCurrentSettingBusiness:Lcom/android/camera/fragment/beauty/IBeautySettingBusiness;
+
     invoke-interface {v0}, Lcom/android/camera/fragment/beauty/IBeautySettingBusiness;->resetBeauty()V
 
+    :cond_0
     return-void
 .end method
 
@@ -2188,11 +2484,17 @@
 
     invoke-super {p0, p1}, Lcom/android/camera/fragment/BaseFragment;->setClickEnable(Z)V
 
-    iget-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mFragments:Ljava/util/List;
+    iget-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mBeautyPagerAdapter:Lcom/android/camera/fragment/FragmentBeauty$BeautyPagerAdapter;
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mFragments:Ljava/util/List;
+    iget-object v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mBeautyPagerAdapter:Lcom/android/camera/fragment/FragmentBeauty$BeautyPagerAdapter;
+
+    invoke-virtual {v0}, Lcom/android/camera/fragment/FragmentBeauty$BeautyPagerAdapter;->getFragmentList()Ljava/util/List;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -2229,10 +2531,82 @@
     return-void
 .end method
 
-.method public switchShineType(Ljava/lang/String;)V
+.method public show()V
+    .locals 3
+
+    iget v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mCurrentState:I
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_0
+
+    return-void
+
+    :cond_0
+    iget v0, p0, Lcom/android/camera/fragment/FragmentBeauty;->mCurrentMode:I
+
+    const/16 v1, 0xa3
+
+    if-ne v0, v1, :cond_1
+
+    invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
+
+    move-result-object v0
+
+    const/16 v1, 0xc3
+
+    invoke-virtual {v0, v1}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getAttachProtocol(I)Lcom/android/camera/protocol/ModeProtocol$BaseProtocol;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/camera/protocol/ModeProtocol$CameraModuleSpecial;
+
+    if-eqz v0, :cond_1
+
+    const/4 v1, 0x0
+
+    invoke-interface {v0, v1}, Lcom/android/camera/protocol/ModeProtocol$CameraModuleSpecial;->showOrHideChip(Z)V
+
+    :cond_1
+    invoke-direct {p0}, Lcom/android/camera/fragment/FragmentBeauty;->initShineType()V
+
+    invoke-virtual {p0}, Lcom/android/camera/fragment/FragmentBeauty;->getView()Landroid/view/View;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/camera/animation/type/SlideInOnSubscribe;
+
+    const/16 v2, 0x50
+
+    invoke-direct {v1, v0, v2}, Lcom/android/camera/animation/type/SlideInOnSubscribe;-><init>(Landroid/view/View;I)V
+
+    const/16 v0, 0x118
+
+    invoke-virtual {v1, v0}, Lcom/android/camera/animation/type/SlideInOnSubscribe;->setDurationTime(I)Lcom/android/camera/animation/type/BaseOnSubScribe;
+
+    move-result-object v0
+
+    new-instance v1, Lmiui/view/animation/QuinticEaseOutInterpolator;
+
+    invoke-direct {v1}, Lmiui/view/animation/QuinticEaseOutInterpolator;-><init>()V
+
+    invoke-virtual {v0, v1}, Lcom/android/camera/animation/type/BaseOnSubScribe;->setInterpolator(Landroid/view/animation/Interpolator;)Lcom/android/camera/animation/type/BaseOnSubScribe;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lio/reactivex/Completable;->create(Lio/reactivex/CompletableOnSubscribe;)Lio/reactivex/Completable;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lio/reactivex/Completable;->subscribe()Lio/reactivex/disposables/Disposable;
+
+    return-void
+.end method
+
+.method public switchShineType(Ljava/lang/String;Z)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/camera/fragment/FragmentBeauty;->initShineType(Ljava/lang/String;)V
+    invoke-direct {p0, p1, p2}, Lcom/android/camera/fragment/FragmentBeauty;->initShineType(Ljava/lang/String;Z)V
 
     invoke-direct {p0, p1}, Lcom/android/camera/fragment/FragmentBeauty;->setViewPagerPageByType(Ljava/lang/String;)V
 
@@ -2272,8 +2646,6 @@
 
     :cond_0
     const/4 p1, 0x0
-
-    iput-boolean p1, p0, Lcom/android/camera/fragment/FragmentBeauty;->mBeautyPanelShow:Z
 
     iput-boolean p1, p0, Lcom/android/camera/fragment/FragmentBeauty;->mIsEyeLightShow:Z
 

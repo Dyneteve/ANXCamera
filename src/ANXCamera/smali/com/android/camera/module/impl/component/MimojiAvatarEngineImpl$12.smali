@@ -37,25 +37,21 @@
 .method public run()V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$12;->this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
-
-    invoke-static {v0}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$1600(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;)Lcom/android/camera/ActivityBase;
+    invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/camera/ActivityBase;->getCurrentModule()Lcom/android/camera/module/Module;
+    const/16 v1, 0xa2
+
+    invoke-virtual {v0, v1}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getAttachProtocol(I)Lcom/android/camera/protocol/ModeProtocol$BaseProtocol;
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/camera/module/LiveModule;
+    check-cast v0, Lcom/android/camera/protocol/ModeProtocol$ActionProcessing;
 
-    const/4 v1, 0x1
+    const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/android/camera/module/LiveModule;->setDisableSingleTapUp(Z)V
-
-    iget-object v0, p0, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl$12;->this$0:Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;
-
-    invoke-static {v0}, Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;->access$2100(Lcom/android/camera/module/impl/component/MimojiAvatarEngineImpl;)V
+    invoke-interface {v0, v1}, Lcom/android/camera/protocol/ModeProtocol$ActionProcessing;->showOrHideMimojiProgress(Z)V
 
     return-void
 .end method

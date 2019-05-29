@@ -12,7 +12,7 @@
 
 
 # instance fields
-.field private gW:Z
+.field private gX:Z
 
 .field private final handler:Landroid/os/Handler;
 
@@ -54,7 +54,7 @@
 
     invoke-static {}, Lcom/bumptech/glide/util/k;->eL()V
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/s;->gW:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/s;->gX:Z
 
     const/4 v1, 0x1
 
@@ -71,13 +71,13 @@
     goto :goto_0
 
     :cond_0
-    iput-boolean v1, p0, Lcom/bumptech/glide/load/engine/s;->gW:Z
+    iput-boolean v1, p0, Lcom/bumptech/glide/load/engine/s;->gX:Z
 
     invoke-interface {p1}, Lcom/bumptech/glide/load/engine/p;->recycle()V
 
     const/4 p1, 0x0
 
-    iput-boolean p1, p0, Lcom/bumptech/glide/load/engine/s;->gW:Z
+    iput-boolean p1, p0, Lcom/bumptech/glide/load/engine/s;->gX:Z
 
     :goto_0
     return-void

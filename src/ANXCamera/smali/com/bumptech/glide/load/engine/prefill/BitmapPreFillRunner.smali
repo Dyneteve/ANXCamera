@@ -25,27 +25,27 @@
     .end annotation
 .end field
 
-.field private static final jb:Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner$Clock;
+.field private static final jc:Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner$Clock;
 
-.field static final jc:I = 0x4
+.field static final jd:I = 0x4
 
-.field static final jd:J
+.field static final je:J
 
 
 # instance fields
-.field private final ak:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
+.field private final al:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
-.field private final al:Lcom/bumptech/glide/load/engine/a/j;
+.field private final am:Lcom/bumptech/glide/load/engine/a/j;
 
-.field private ea:Z
+.field private eb:Z
 
 .field private final handler:Landroid/os/Handler;
 
-.field private final je:Lcom/bumptech/glide/load/engine/prefill/b;
+.field private final jf:Lcom/bumptech/glide/load/engine/prefill/b;
 
-.field private final jf:Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner$Clock;
+.field private final jg:Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner$Clock;
 
-.field private final jg:Ljava/util/Set;
+.field private final jh:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set<",
@@ -55,7 +55,7 @@
     .end annotation
 .end field
 
-.field private jh:J
+.field private ji:J
 
 
 # direct methods
@@ -66,7 +66,7 @@
 
     invoke-direct {v0}, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner$Clock;-><init>()V
 
-    sput-object v0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->jb:Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner$Clock;
+    sput-object v0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->jc:Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner$Clock;
 
     sget-object v0, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
 
@@ -76,7 +76,7 @@
 
     move-result-wide v0
 
-    sput-wide v0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->jd:J
+    sput-wide v0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->je:J
 
     return-void
 .end method
@@ -84,7 +84,7 @@
 .method public constructor <init>(Lcom/bumptech/glide/load/engine/bitmap_recycle/d;Lcom/bumptech/glide/load/engine/a/j;Lcom/bumptech/glide/load/engine/prefill/b;)V
     .locals 6
 
-    sget-object v4, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->jb:Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner$Clock;
+    sget-object v4, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->jc:Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner$Clock;
 
     new-instance v5, Landroid/os/Handler;
 
@@ -118,19 +118,19 @@
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->jg:Ljava/util/Set;
+    iput-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->jh:Ljava/util/Set;
 
     const-wide/16 v0, 0x28
 
-    iput-wide v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->jh:J
+    iput-wide v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->ji:J
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->ak:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->al:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
-    iput-object p2, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->al:Lcom/bumptech/glide/load/engine/a/j;
+    iput-object p2, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->am:Lcom/bumptech/glide/load/engine/a/j;
 
-    iput-object p3, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->je:Lcom/bumptech/glide/load/engine/prefill/b;
+    iput-object p3, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->jf:Lcom/bumptech/glide/load/engine/prefill/b;
 
-    iput-object p4, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->jf:Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner$Clock;
+    iput-object p4, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->jg:Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner$Clock;
 
     iput-object p5, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->handler:Landroid/os/Handler;
 
@@ -140,13 +140,13 @@
 .method private bT()J
     .locals 4
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->al:Lcom/bumptech/glide/load/engine/a/j;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->am:Lcom/bumptech/glide/load/engine/a/j;
 
     invoke-interface {v0}, Lcom/bumptech/glide/load/engine/a/j;->getMaxSize()J
 
     move-result-wide v0
 
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->al:Lcom/bumptech/glide/load/engine/a/j;
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->am:Lcom/bumptech/glide/load/engine/a/j;
 
     invoke-interface {v2}, Lcom/bumptech/glide/load/engine/a/j;->bF()J
 
@@ -160,21 +160,21 @@
 .method private bU()J
     .locals 6
 
-    iget-wide v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->jh:J
+    iget-wide v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->ji:J
 
-    iget-wide v2, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->jh:J
+    iget-wide v2, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->ji:J
 
     const-wide/16 v4, 0x4
 
     mul-long/2addr v2, v4
 
-    sget-wide v4, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->jd:J
+    sget-wide v4, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->je:J
 
     invoke-static {v2, v3, v4, v5}, Ljava/lang/Math;->min(JJ)J
 
     move-result-wide v2
 
-    iput-wide v2, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->jh:J
+    iput-wide v2, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->ji:J
 
     return-wide v0
 .end method
@@ -182,7 +182,7 @@
 .method private c(J)Z
     .locals 2
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->jf:Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner$Clock;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->jg:Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner$Clock;
 
     invoke-virtual {v0}, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner$Clock;->now()J
 
@@ -214,14 +214,14 @@
     .annotation build Landroid/support/annotation/VisibleForTesting;
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->jf:Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner$Clock;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->jg:Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner$Clock;
 
     invoke-virtual {v0}, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner$Clock;->now()J
 
     move-result-wide v0
 
     :goto_0
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->je:Lcom/bumptech/glide/load/engine/prefill/b;
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->jf:Lcom/bumptech/glide/load/engine/prefill/b;
 
     invoke-virtual {v2}, Lcom/bumptech/glide/load/engine/prefill/b;->isEmpty()Z
 
@@ -235,13 +235,13 @@
 
     if-nez v2, :cond_3
 
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->je:Lcom/bumptech/glide/load/engine/prefill/b;
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->jf:Lcom/bumptech/glide/load/engine/prefill/b;
 
     invoke-virtual {v2}, Lcom/bumptech/glide/load/engine/prefill/b;->bV()Lcom/bumptech/glide/load/engine/prefill/c;
 
     move-result-object v2
 
-    iget-object v3, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->jg:Ljava/util/Set;
+    iget-object v3, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->jh:Ljava/util/Set;
 
     invoke-interface {v3, v2}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
@@ -249,11 +249,11 @@
 
     if-nez v3, :cond_0
 
-    iget-object v3, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->jg:Ljava/util/Set;
+    iget-object v3, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->jh:Ljava/util/Set;
 
     invoke-interface {v3, v2}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    iget-object v3, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->ak:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
+    iget-object v3, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->al:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
     invoke-virtual {v2}, Lcom/bumptech/glide/load/engine/prefill/c;->getWidth()I
 
@@ -311,9 +311,9 @@
 
     invoke-direct {v5}, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner$a;-><init>()V
 
-    iget-object v6, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->al:Lcom/bumptech/glide/load/engine/a/j;
+    iget-object v6, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->am:Lcom/bumptech/glide/load/engine/a/j;
 
-    iget-object v7, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->ak:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
+    iget-object v7, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->al:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
     invoke-static {v3, v7}, Lcom/bumptech/glide/load/resource/bitmap/f;->a(Landroid/graphics/Bitmap;Lcom/bumptech/glide/load/engine/bitmap_recycle/d;)Lcom/bumptech/glide/load/resource/bitmap/f;
 
@@ -324,7 +324,7 @@
     goto :goto_2
 
     :cond_1
-    iget-object v5, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->ak:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
+    iget-object v5, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->al:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
     invoke-interface {v5, v3}, Lcom/bumptech/glide/load/engine/bitmap_recycle/d;->d(Landroid/graphics/Bitmap;)V
 
@@ -391,11 +391,11 @@
     goto/16 :goto_0
 
     :cond_3
-    iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->ea:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->eb:Z
 
     if-nez v0, :cond_4
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->je:Lcom/bumptech/glide/load/engine/prefill/b;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->jf:Lcom/bumptech/glide/load/engine/prefill/b;
 
     invoke-virtual {v0}, Lcom/bumptech/glide/load/engine/prefill/b;->isEmpty()Z
 
@@ -419,7 +419,7 @@
 
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->ea:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->eb:Z
 
     return-void
 .end method

@@ -12,7 +12,7 @@ import java.io.InputStream;
 
 /* compiled from: StringLoader */
 public class t<Data> implements m<String, Data> {
-    private final m<Uri, Data> kn;
+    private final m<Uri, Data> ko;
 
     /* compiled from: StringLoader */
     public static final class a implements n<String, AssetFileDescriptor> {
@@ -47,7 +47,7 @@ public class t<Data> implements m<String, Data> {
     }
 
     public t(m<Uri, Data> mVar) {
-        this.kn = mVar;
+        this.ko = mVar;
     }
 
     @Nullable
@@ -80,6 +80,6 @@ public class t<Data> implements m<String, Data> {
         if (B == null) {
             return null;
         }
-        return this.kn.b(B, i, i2, fVar);
+        return this.ko.b(B, i, i2, fVar);
     }
 }

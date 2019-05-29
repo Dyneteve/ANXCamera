@@ -4,15 +4,15 @@
 
 
 # instance fields
-.field private final ak:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
+.field private final al:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
-.field private final al:Lcom/bumptech/glide/load/engine/a/j;
+.field private final am:Lcom/bumptech/glide/load/engine/a/j;
 
 .field private final handler:Landroid/os/Handler;
 
-.field private final ji:Lcom/bumptech/glide/load/DecodeFormat;
+.field private final jj:Lcom/bumptech/glide/load/DecodeFormat;
 
-.field private jj:Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;
+.field private jk:Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;
 
 
 # direct methods
@@ -31,11 +31,11 @@
 
     iput-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/a;->handler:Landroid/os/Handler;
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/engine/prefill/a;->al:Lcom/bumptech/glide/load/engine/a/j;
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/prefill/a;->am:Lcom/bumptech/glide/load/engine/a/j;
 
-    iput-object p2, p0, Lcom/bumptech/glide/load/engine/prefill/a;->ak:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
+    iput-object p2, p0, Lcom/bumptech/glide/load/engine/prefill/a;->al:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
-    iput-object p3, p0, Lcom/bumptech/glide/load/engine/prefill/a;->ji:Lcom/bumptech/glide/load/DecodeFormat;
+    iput-object p3, p0, Lcom/bumptech/glide/load/engine/prefill/a;->jj:Lcom/bumptech/glide/load/DecodeFormat;
 
     return-void
 .end method
@@ -67,11 +67,11 @@
 .method public varargs b([Lcom/bumptech/glide/load/engine/prefill/c$a;)V
     .locals 5
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/a;->jj:Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/a;->jk:Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/a;->jj:Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/a;->jk:Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;
 
     invoke-virtual {v0}, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->cancel()V
 
@@ -97,15 +97,15 @@
 
     nop
 
-    iget-object v3, p0, Lcom/bumptech/glide/load/engine/prefill/a;->ji:Lcom/bumptech/glide/load/DecodeFormat;
+    iget-object v3, p0, Lcom/bumptech/glide/load/engine/prefill/a;->jj:Lcom/bumptech/glide/load/DecodeFormat;
 
-    sget-object v4, Lcom/bumptech/glide/load/DecodeFormat;->di:Lcom/bumptech/glide/load/DecodeFormat;
+    sget-object v4, Lcom/bumptech/glide/load/DecodeFormat;->dj:Lcom/bumptech/glide/load/DecodeFormat;
 
     if-eq v3, v4, :cond_2
 
-    iget-object v3, p0, Lcom/bumptech/glide/load/engine/prefill/a;->ji:Lcom/bumptech/glide/load/DecodeFormat;
+    iget-object v3, p0, Lcom/bumptech/glide/load/engine/prefill/a;->jj:Lcom/bumptech/glide/load/DecodeFormat;
 
-    sget-object v4, Lcom/bumptech/glide/load/DecodeFormat;->dj:Lcom/bumptech/glide/load/DecodeFormat;
+    sget-object v4, Lcom/bumptech/glide/load/DecodeFormat;->dk:Lcom/bumptech/glide/load/DecodeFormat;
 
     if-ne v3, v4, :cond_1
 
@@ -141,17 +141,17 @@
 
     new-instance v0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/prefill/a;->ak:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/prefill/a;->al:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/prefill/a;->al:Lcom/bumptech/glide/load/engine/a/j;
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/prefill/a;->am:Lcom/bumptech/glide/load/engine/a/j;
 
     invoke-direct {v0, v1, v2, p1}, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;-><init>(Lcom/bumptech/glide/load/engine/bitmap_recycle/d;Lcom/bumptech/glide/load/engine/a/j;Lcom/bumptech/glide/load/engine/prefill/b;)V
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/a;->jj:Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;
+    iput-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/a;->jk:Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;
 
     iget-object p1, p0, Lcom/bumptech/glide/load/engine/prefill/a;->handler:Landroid/os/Handler;
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/a;->jj:Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/a;->jk:Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;
 
     invoke-virtual {p1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
@@ -163,13 +163,13 @@
     .annotation build Landroid/support/annotation/VisibleForTesting;
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/a;->al:Lcom/bumptech/glide/load/engine/a/j;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/a;->am:Lcom/bumptech/glide/load/engine/a/j;
 
     invoke-interface {v0}, Lcom/bumptech/glide/load/engine/a/j;->getMaxSize()J
 
     move-result-wide v0
 
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/prefill/a;->al:Lcom/bumptech/glide/load/engine/a/j;
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/prefill/a;->am:Lcom/bumptech/glide/load/engine/a/j;
 
     invoke-interface {v2}, Lcom/bumptech/glide/load/engine/a/j;->bF()J
 
@@ -177,7 +177,7 @@
 
     sub-long/2addr v0, v2
 
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/prefill/a;->ak:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/prefill/a;->al:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
     invoke-interface {v2}, Lcom/bumptech/glide/load/engine/bitmap_recycle/d;->getMaxSize()J
 

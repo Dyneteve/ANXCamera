@@ -14,8 +14,6 @@
 
 
 # static fields
-.field public static final enum dc:Lcom/bumptech/glide/load/DataSource;
-
 .field public static final enum dd:Lcom/bumptech/glide/load/DataSource;
 
 .field public static final enum de:Lcom/bumptech/glide/load/DataSource;
@@ -24,7 +22,9 @@
 
 .field public static final enum dg:Lcom/bumptech/glide/load/DataSource;
 
-.field private static final synthetic dh:[Lcom/bumptech/glide/load/DataSource;
+.field public static final enum dh:Lcom/bumptech/glide/load/DataSource;
+
+.field private static final synthetic di:[Lcom/bumptech/glide/load/DataSource;
 
 
 # direct methods
@@ -39,7 +39,7 @@
 
     invoke-direct {v0, v1, v2}, Lcom/bumptech/glide/load/DataSource;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/bumptech/glide/load/DataSource;->dc:Lcom/bumptech/glide/load/DataSource;
+    sput-object v0, Lcom/bumptech/glide/load/DataSource;->dd:Lcom/bumptech/glide/load/DataSource;
 
     new-instance v0, Lcom/bumptech/glide/load/DataSource;
 
@@ -49,7 +49,7 @@
 
     invoke-direct {v0, v1, v3}, Lcom/bumptech/glide/load/DataSource;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/bumptech/glide/load/DataSource;->dd:Lcom/bumptech/glide/load/DataSource;
+    sput-object v0, Lcom/bumptech/glide/load/DataSource;->de:Lcom/bumptech/glide/load/DataSource;
 
     new-instance v0, Lcom/bumptech/glide/load/DataSource;
 
@@ -59,7 +59,7 @@
 
     invoke-direct {v0, v1, v4}, Lcom/bumptech/glide/load/DataSource;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/bumptech/glide/load/DataSource;->de:Lcom/bumptech/glide/load/DataSource;
+    sput-object v0, Lcom/bumptech/glide/load/DataSource;->df:Lcom/bumptech/glide/load/DataSource;
 
     new-instance v0, Lcom/bumptech/glide/load/DataSource;
 
@@ -69,7 +69,7 @@
 
     invoke-direct {v0, v1, v5}, Lcom/bumptech/glide/load/DataSource;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/bumptech/glide/load/DataSource;->df:Lcom/bumptech/glide/load/DataSource;
+    sput-object v0, Lcom/bumptech/glide/load/DataSource;->dg:Lcom/bumptech/glide/load/DataSource;
 
     new-instance v0, Lcom/bumptech/glide/load/DataSource;
 
@@ -79,33 +79,33 @@
 
     invoke-direct {v0, v1, v6}, Lcom/bumptech/glide/load/DataSource;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/bumptech/glide/load/DataSource;->dg:Lcom/bumptech/glide/load/DataSource;
+    sput-object v0, Lcom/bumptech/glide/load/DataSource;->dh:Lcom/bumptech/glide/load/DataSource;
 
     const/4 v0, 0x5
 
     new-array v0, v0, [Lcom/bumptech/glide/load/DataSource;
 
-    sget-object v1, Lcom/bumptech/glide/load/DataSource;->dc:Lcom/bumptech/glide/load/DataSource;
+    sget-object v1, Lcom/bumptech/glide/load/DataSource;->dd:Lcom/bumptech/glide/load/DataSource;
 
     aput-object v1, v0, v2
 
-    sget-object v1, Lcom/bumptech/glide/load/DataSource;->dd:Lcom/bumptech/glide/load/DataSource;
+    sget-object v1, Lcom/bumptech/glide/load/DataSource;->de:Lcom/bumptech/glide/load/DataSource;
 
     aput-object v1, v0, v3
 
-    sget-object v1, Lcom/bumptech/glide/load/DataSource;->de:Lcom/bumptech/glide/load/DataSource;
+    sget-object v1, Lcom/bumptech/glide/load/DataSource;->df:Lcom/bumptech/glide/load/DataSource;
 
     aput-object v1, v0, v4
 
-    sget-object v1, Lcom/bumptech/glide/load/DataSource;->df:Lcom/bumptech/glide/load/DataSource;
+    sget-object v1, Lcom/bumptech/glide/load/DataSource;->dg:Lcom/bumptech/glide/load/DataSource;
 
     aput-object v1, v0, v5
 
-    sget-object v1, Lcom/bumptech/glide/load/DataSource;->dg:Lcom/bumptech/glide/load/DataSource;
+    sget-object v1, Lcom/bumptech/glide/load/DataSource;->dh:Lcom/bumptech/glide/load/DataSource;
 
     aput-object v1, v0, v6
 
-    sput-object v0, Lcom/bumptech/glide/load/DataSource;->dh:[Lcom/bumptech/glide/load/DataSource;
+    sput-object v0, Lcom/bumptech/glide/load/DataSource;->di:[Lcom/bumptech/glide/load/DataSource;
 
     return-void
 .end method
@@ -140,7 +140,7 @@
 .method public static values()[Lcom/bumptech/glide/load/DataSource;
     .locals 1
 
-    sget-object v0, Lcom/bumptech/glide/load/DataSource;->dh:[Lcom/bumptech/glide/load/DataSource;
+    sget-object v0, Lcom/bumptech/glide/load/DataSource;->di:[Lcom/bumptech/glide/load/DataSource;
 
     invoke-virtual {v0}, [Lcom/bumptech/glide/load/DataSource;->clone()Ljava/lang/Object;
 

@@ -2,7 +2,7 @@ package com.bumptech.glide.load.engine.bitmap_recycle;
 
 /* compiled from: ArrayPool */
 public interface b {
-    public static final int hc = 65536;
+    public static final int hd = 65536;
 
     <T> T a(int i, Class<T> cls);
 

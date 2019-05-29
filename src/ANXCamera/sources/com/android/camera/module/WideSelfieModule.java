@@ -408,7 +408,9 @@ public class WideSelfieModule extends BaseModule implements CameraAction, WideSe
     }
 
     private void keepScreenOnAwhile() {
-        this.mHandler.sendEmptyMessageDelayed(17, 1000);
+        if (this.mHandler != null) {
+            this.mHandler.sendEmptyMessageDelayed(17, 1000);
+        }
     }
 
     /* access modifiers changed from: private */
@@ -665,7 +667,7 @@ public class WideSelfieModule extends BaseModule implements CameraAction, WideSe
     }
 
     public void onBeautyParameterChanged() {
-        if (b.is()) {
+        if (b.iv()) {
             updatePreferenceInWorkThread(13, 34, 42);
             return;
         }
@@ -716,7 +718,7 @@ public class WideSelfieModule extends BaseModule implements CameraAction, WideSe
 
     public void onFaceDetected(CameraHardwareFace[] cameraHardwareFaceArr, FaceAnalyzeInfo faceAnalyzeInfo) {
         if (isCreated() && cameraHardwareFaceArr != null) {
-            if (!b.hg() || cameraHardwareFaceArr.length <= 0 || cameraHardwareFaceArr[0].faceType != 64206) {
+            if (!b.hj() || cameraHardwareFaceArr.length <= 0 || cameraHardwareFaceArr[0].faceType != 64206) {
                 if (!this.mMainProtocol.setFaces(1, cameraHardwareFaceArr, getActiveArraySize(), getDeviceBasedZoomRatio())) {
                 }
             } else if (this.mObjectTrackingStarted) {
@@ -1153,6 +1155,7 @@ public class WideSelfieModule extends BaseModule implements CameraAction, WideSe
         this.mCamera2Device.setDualCamWaterMarkEnable(false);
         this.mCamera2Device.setErrorCallback(this.mErrorCallback);
         this.mCamera2Device.setPreviewSize(this.mPreviewSize);
+        this.mCamera2Device.setAlgorithmPreviewSize(this.mPreviewSize);
         this.mCamera2Device.setPictureSize(this.mPictureSize);
         this.mCamera2Device.setPictureMaxImages(3);
         this.mCamera2Device.setPictureFormat(35);

@@ -12,7 +12,7 @@
 
 
 # static fields
-.field public static final du:I = -0x1
+.field public static final dv:I = -0x1
 
 
 # virtual methods

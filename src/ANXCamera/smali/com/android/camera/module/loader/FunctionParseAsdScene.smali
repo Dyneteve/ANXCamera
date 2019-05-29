@@ -123,7 +123,7 @@
 
     if-ne p1, v0, :cond_3
 
-    invoke-static {}, Lcom/mi/config/b;->hj()Z
+    invoke-static {}, Lcom/mi/config/b;->hm()Z
 
     move-result p1
 

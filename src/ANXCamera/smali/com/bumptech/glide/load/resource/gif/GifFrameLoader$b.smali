@@ -18,20 +18,20 @@
 
 
 # static fields
-.field static final mC:I = 0x1
+.field static final mD:I = 0x1
 
-.field static final mD:I = 0x2
+.field static final mE:I = 0x2
 
 
 # instance fields
-.field final synthetic mE:Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;
+.field final synthetic mF:Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;
 
 
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$b;->mE:Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;
+    iput-object p1, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$b;->mF:Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -53,7 +53,7 @@
 
     check-cast p1, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$b;->mE:Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$b;->mF:Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;
 
     invoke-virtual {v0, p1}, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;->onFrameReady(Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;)V
 
@@ -70,9 +70,9 @@
 
     check-cast p1, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$b;->mE:Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$b;->mF:Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;
 
-    iget-object v0, v0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;->aH:Lcom/bumptech/glide/i;
+    iget-object v0, v0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;->aI:Lcom/bumptech/glide/i;
 
     invoke-virtual {v0, p1}, Lcom/bumptech/glide/i;->d(Lcom/bumptech/glide/request/target/n;)V
 

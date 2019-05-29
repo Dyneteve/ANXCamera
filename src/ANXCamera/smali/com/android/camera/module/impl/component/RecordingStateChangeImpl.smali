@@ -250,52 +250,15 @@
 
     check-cast v0, Lcom/android/camera/protocol/ModeProtocol$MimojiAvatarEngine;
 
+    if-eqz v0, :cond_0
+
     const/4 v1, 0x0
-
-    invoke-interface {v0, v1}, Lcom/android/camera/protocol/ModeProtocol$MimojiAvatarEngine;->backToPreview(Z)V
-
-    invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
-
-    move-result-object v0
-
-    const/16 v2, 0xac
-
-    invoke-virtual {v0, v2}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getAttachProtocol(I)Lcom/android/camera/protocol/ModeProtocol$BaseProtocol;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/camera/protocol/ModeProtocol$TopAlert;
-
-    invoke-interface {v0}, Lcom/android/camera/protocol/ModeProtocol$TopAlert;->showConfigMenu()V
-
-    invoke-interface {v0, v1}, Lcom/android/camera/protocol/ModeProtocol$TopAlert;->showOrHideMimojiCreateTitle(Z)V
-
-    const/4 v1, 0x2
-
-    new-array v1, v1, [I
-
-    fill-array-data v1, :array_0
 
     const/4 v2, 0x1
 
-    invoke-interface {v0, v2, v1}, Lcom/android/camera/protocol/ModeProtocol$TopAlert;->enableMenuItem(Z[I)V
+    invoke-interface {v0, v1, v2}, Lcom/android/camera/protocol/ModeProtocol$MimojiAvatarEngine;->backToPreview(ZZ)V
 
-    invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
-
-    move-result-object v0
-
-    const/16 v1, 0xaf
-
-    invoke-virtual {v0, v1}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getAttachProtocol(I)Lcom/android/camera/protocol/ModeProtocol$BaseProtocol;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/camera/protocol/ModeProtocol$BottomPopupTips;
-
-    invoke-interface {v0}, Lcom/android/camera/protocol/ModeProtocol$BottomPopupTips;->reInitTipImage()V
-
-    invoke-interface {v0}, Lcom/android/camera/protocol/ModeProtocol$BottomPopupTips;->directlyHideTips()V
-
+    :cond_0
     invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
 
     move-result-object v0
@@ -311,14 +274,6 @@
     invoke-interface {v0}, Lcom/android/camera/protocol/ModeProtocol$MainContentProtocol;->mimojiEnd()V
 
     return-void
-
-    nop
-
-    :array_0
-    .array-data 4
-        0xe1
-        0xc1
-    .end array-data
 .end method
 
 .method public onPause()V
@@ -1271,7 +1226,7 @@
 .end method
 
 .method public prepareCreateMimoji()V
-    .locals 2
+    .locals 3
 
     invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
 
@@ -1322,11 +1277,15 @@
 
     check-cast v0, Lcom/android/camera/protocol/ModeProtocol$TopAlert;
 
-    invoke-interface {v0}, Lcom/android/camera/protocol/ModeProtocol$TopAlert;->hideConfigMenu()V
-
     const/4 v1, 0x1
 
-    invoke-interface {v0, v1}, Lcom/android/camera/protocol/ModeProtocol$TopAlert;->showOrHideMimojiCreateTitle(Z)V
+    const/4 v2, 0x2
+
+    new-array v2, v2, [I
+
+    fill-array-data v2, :array_0
+
+    invoke-interface {v0, v1, v2}, Lcom/android/camera/protocol/ModeProtocol$TopAlert;->disableMenuItem(Z[I)V
 
     invoke-static {}, Lcom/android/camera/protocol/ModeCoordinatorImpl;->getInstance()Lcom/android/camera/protocol/ModeCoordinatorImpl;
 
@@ -1351,6 +1310,14 @@
     invoke-interface {v0}, Lcom/android/camera/protocol/ModeProtocol$BottomPopupTips;->directlyHideTips()V
 
     return-void
+
+    nop
+
+    :array_0
+    .array-data 4
+        0xe1
+        0xc1
+    .end array-data
 .end method
 
 .method public registerProtocol()V

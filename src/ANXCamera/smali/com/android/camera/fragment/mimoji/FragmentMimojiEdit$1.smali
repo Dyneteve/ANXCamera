@@ -3,12 +3,12 @@
 .source "FragmentMimojiEdit.java"
 
 # interfaces
-.implements Lcom/android/camera/fragment/mimoji/ItfGvOnItemClickListener;
+.implements Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;->initMimojiEdit(Landroid/view/View;)V
+    value = Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;->startMimojiEdit()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,29 +34,30 @@
 
 
 # virtual methods
-.method public notifyUIChanged()V
+.method public onGlobalLayout()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit$1;->this$0:Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;
 
-    invoke-static {v0}, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;->access$000(Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;)Z
+    invoke-static {v0}, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;->access$000(Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;)Landroid/view/View;
 
-    move-result v0
+    move-result-object v0
 
-    if-nez v0, :cond_0
+    invoke-virtual {v0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
-    iget-object v0, p0, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit$1;->this$0:Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;
+    move-result-object v0
 
-    const/4 v1, 0x1
-
-    invoke-static {v0, v1}, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;->access$002(Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;Z)Z
+    invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->removeOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
 
     iget-object v0, p0, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit$1;->this$0:Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;
 
-    const/4 v1, 0x3
+    invoke-static {v0}, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;->access$100(Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;)Lcom/android/camera/ui/MimojiEditGLSurfaceView;
 
-    invoke-virtual {v0, v1}, Lcom/android/camera/fragment/mimoji/FragmentMimojiEdit;->updateTitleState(I)V
+    move-result-object v0
 
-    :cond_0
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/camera/ui/MimojiEditGLSurfaceView;->setVisibility(I)V
+
     return-void
 .end method

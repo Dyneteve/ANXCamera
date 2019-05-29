@@ -8,12 +8,12 @@ import com.bumptech.glide.util.k;
 
 /* compiled from: ResourceRecycler */
 class s {
-    private boolean gW;
+    private boolean gX;
     private final Handler handler = new Handler(Looper.getMainLooper(), new a());
 
     /* compiled from: ResourceRecycler */
     private static final class a implements Callback {
-        static final int gX = 1;
+        static final int gY = 1;
 
         a() {
         }
@@ -33,12 +33,12 @@ class s {
     /* access modifiers changed from: 0000 */
     public void h(p<?> pVar) {
         k.eL();
-        if (this.gW) {
+        if (this.gX) {
             this.handler.obtainMessage(1, pVar).sendToTarget();
             return;
         }
-        this.gW = true;
+        this.gX = true;
         pVar.recycle();
-        this.gW = false;
+        this.gX = false;
     }
 }

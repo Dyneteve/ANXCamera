@@ -6,14 +6,14 @@ import java.util.List;
 
 /* compiled from: GifHeader */
 public class c {
-    public static final int cj = 0;
-    public static final int ck = -1;
+    public static final int ck = 0;
+    public static final int cl = -1;
     @ColorInt
     int bgColor;
     int bgIndex;
-    int cl = 0;
-    b cm;
-    final List<b> cn = new ArrayList();
+    int cm = 0;
+    b cn;
+    final List<b> cp = new ArrayList();
     @ColorInt
     int[] gct = null;
     boolean gctFlag;
@@ -25,7 +25,7 @@ public class c {
     int width;
 
     public int ab() {
-        return this.cl;
+        return this.cm;
     }
 
     public int getHeight() {

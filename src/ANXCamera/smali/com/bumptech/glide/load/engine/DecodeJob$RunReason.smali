@@ -23,13 +23,13 @@
 
 
 # static fields
-.field public static final enum fD:Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;
-
 .field public static final enum fE:Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;
 
 .field public static final enum fF:Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;
 
-.field private static final synthetic fG:[Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;
+.field public static final enum fG:Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;
+
+.field private static final synthetic fH:[Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;
 
 
 # direct methods
@@ -44,7 +44,7 @@
 
     invoke-direct {v0, v1, v2}, Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;->fD:Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;
+    sput-object v0, Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;->fE:Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;
 
     new-instance v0, Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;
 
@@ -54,7 +54,7 @@
 
     invoke-direct {v0, v1, v3}, Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;->fE:Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;
+    sput-object v0, Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;->fF:Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;
 
     new-instance v0, Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;
 
@@ -64,25 +64,25 @@
 
     invoke-direct {v0, v1, v4}, Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;-><init>(Ljava/lang/String;I)V
 
-    sput-object v0, Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;->fF:Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;
+    sput-object v0, Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;->fG:Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;
 
     const/4 v0, 0x3
 
     new-array v0, v0, [Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;
 
-    sget-object v1, Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;->fD:Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;
+    sget-object v1, Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;->fE:Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;
 
     aput-object v1, v0, v2
 
-    sget-object v1, Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;->fE:Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;
+    sget-object v1, Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;->fF:Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;
 
     aput-object v1, v0, v3
 
-    sget-object v1, Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;->fF:Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;
+    sget-object v1, Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;->fG:Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;
 
     aput-object v1, v0, v4
 
-    sput-object v0, Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;->fG:[Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;
+    sput-object v0, Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;->fH:[Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;
 
     return-void
 .end method
@@ -117,7 +117,7 @@
 .method public static values()[Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;
     .locals 1
 
-    sget-object v0, Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;->fG:[Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;
+    sget-object v0, Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;->fH:[Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;
 
     invoke-virtual {v0}, [Lcom/bumptech/glide/load/engine/DecodeJob$RunReason;->clone()Ljava/lang/Object;
 

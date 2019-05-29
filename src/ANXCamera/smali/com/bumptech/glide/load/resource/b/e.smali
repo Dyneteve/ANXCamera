@@ -19,15 +19,15 @@
 
 
 # static fields
-.field private static final lY:I = 0x2
+.field private static final lZ:I = 0x2
 
-.field private static final lZ:I = 0x0
-
-.field private static final ma:I = 0x1
+.field private static final ma:I = 0x0
 
 .field private static final mb:I = 0x1
 
-.field private static final mc:I
+.field private static final mc:I = 0x1
+
+.field private static final md:I
 
 
 # instance fields

@@ -26,25 +26,25 @@
 # static fields
 .field private static final TAG:Ljava/lang/String; = "ViewTarget"
 
-.field private static pl:Z
+.field private static pm:Z
 
-.field private static pm:Ljava/lang/Integer;
+.field private static pn:Ljava/lang/Integer;
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 .end field
 
 
 # instance fields
-.field private final pn:Lcom/bumptech/glide/request/target/ViewTarget$SizeDeterminer;
+.field private final po:Lcom/bumptech/glide/request/target/ViewTarget$SizeDeterminer;
 
-.field private po:Landroid/view/View$OnAttachStateChangeListener;
+.field private pp:Landroid/view/View$OnAttachStateChangeListener;
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 .end field
 
-.field private pp:Z
-
 .field private pq:Z
+
+.field private pr:Z
 
 .field protected final view:Landroid/view/View;
     .annotation system Ldalvik/annotation/Signature;
@@ -82,7 +82,7 @@
 
     invoke-direct {v0, p1}, Lcom/bumptech/glide/request/target/ViewTarget$SizeDeterminer;-><init>(Landroid/view/View;)V
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/target/ViewTarget;->pn:Lcom/bumptech/glide/request/target/ViewTarget$SizeDeterminer;
+    iput-object v0, p0, Lcom/bumptech/glide/request/target/ViewTarget;->po:Lcom/bumptech/glide/request/target/ViewTarget$SizeDeterminer;
 
     return-void
 .end method
@@ -115,11 +115,11 @@
 .method public static U(I)V
     .locals 1
 
-    sget-object v0, Lcom/bumptech/glide/request/target/ViewTarget;->pm:Ljava/lang/Integer;
+    sget-object v0, Lcom/bumptech/glide/request/target/ViewTarget;->pn:Ljava/lang/Integer;
 
     if-nez v0, :cond_0
 
-    sget-boolean v0, Lcom/bumptech/glide/request/target/ViewTarget;->pl:Z
+    sget-boolean v0, Lcom/bumptech/glide/request/target/ViewTarget;->pm:Z
 
     if-nez v0, :cond_0
 
@@ -127,7 +127,7 @@
 
     move-result-object p0
 
-    sput-object p0, Lcom/bumptech/glide/request/target/ViewTarget;->pm:Ljava/lang/Integer;
+    sput-object p0, Lcom/bumptech/glide/request/target/ViewTarget;->pn:Ljava/lang/Integer;
 
     return-void
 
@@ -144,11 +144,11 @@
 .method private ex()V
     .locals 2
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/target/ViewTarget;->po:Landroid/view/View$OnAttachStateChangeListener;
+    iget-object v0, p0, Lcom/bumptech/glide/request/target/ViewTarget;->pp:Landroid/view/View$OnAttachStateChangeListener;
 
     if-eqz v0, :cond_1
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/target/ViewTarget;->pq:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/target/ViewTarget;->pr:Z
 
     if-eqz v0, :cond_0
 
@@ -157,13 +157,13 @@
     :cond_0
     iget-object v0, p0, Lcom/bumptech/glide/request/target/ViewTarget;->view:Landroid/view/View;
 
-    iget-object v1, p0, Lcom/bumptech/glide/request/target/ViewTarget;->po:Landroid/view/View$OnAttachStateChangeListener;
+    iget-object v1, p0, Lcom/bumptech/glide/request/target/ViewTarget;->pp:Landroid/view/View$OnAttachStateChangeListener;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->addOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
 
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/request/target/ViewTarget;->pq:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/request/target/ViewTarget;->pr:Z
 
     return-void
 
@@ -175,11 +175,11 @@
 .method private ey()V
     .locals 2
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/target/ViewTarget;->po:Landroid/view/View$OnAttachStateChangeListener;
+    iget-object v0, p0, Lcom/bumptech/glide/request/target/ViewTarget;->pp:Landroid/view/View$OnAttachStateChangeListener;
 
     if-eqz v0, :cond_1
 
-    iget-boolean v0, p0, Lcom/bumptech/glide/request/target/ViewTarget;->pq:Z
+    iget-boolean v0, p0, Lcom/bumptech/glide/request/target/ViewTarget;->pr:Z
 
     if-nez v0, :cond_0
 
@@ -188,13 +188,13 @@
     :cond_0
     iget-object v0, p0, Lcom/bumptech/glide/request/target/ViewTarget;->view:Landroid/view/View;
 
-    iget-object v1, p0, Lcom/bumptech/glide/request/target/ViewTarget;->po:Landroid/view/View$OnAttachStateChangeListener;
+    iget-object v1, p0, Lcom/bumptech/glide/request/target/ViewTarget;->pp:Landroid/view/View$OnAttachStateChangeListener;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->removeOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
 
     const/4 v0, 0x0
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/request/target/ViewTarget;->pq:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/request/target/ViewTarget;->pr:Z
 
     return-void
 
@@ -208,7 +208,7 @@
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
-    sget-object v0, Lcom/bumptech/glide/request/target/ViewTarget;->pm:Ljava/lang/Integer;
+    sget-object v0, Lcom/bumptech/glide/request/target/ViewTarget;->pn:Ljava/lang/Integer;
 
     if-nez v0, :cond_0
 
@@ -223,7 +223,7 @@
     :cond_0
     iget-object v0, p0, Lcom/bumptech/glide/request/target/ViewTarget;->view:Landroid/view/View;
 
-    sget-object v1, Lcom/bumptech/glide/request/target/ViewTarget;->pm:Ljava/lang/Integer;
+    sget-object v1, Lcom/bumptech/glide/request/target/ViewTarget;->pn:Ljava/lang/Integer;
 
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
@@ -243,13 +243,13 @@
         .end annotation
     .end param
 
-    sget-object v0, Lcom/bumptech/glide/request/target/ViewTarget;->pm:Ljava/lang/Integer;
+    sget-object v0, Lcom/bumptech/glide/request/target/ViewTarget;->pn:Ljava/lang/Integer;
 
     if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
-    sput-boolean v0, Lcom/bumptech/glide/request/target/ViewTarget;->pl:Z
+    sput-boolean v0, Lcom/bumptech/glide/request/target/ViewTarget;->pm:Z
 
     iget-object v0, p0, Lcom/bumptech/glide/request/target/ViewTarget;->view:Landroid/view/View;
 
@@ -260,7 +260,7 @@
     :cond_0
     iget-object v0, p0, Lcom/bumptech/glide/request/target/ViewTarget;->view:Landroid/view/View;
 
-    sget-object v1, Lcom/bumptech/glide/request/target/ViewTarget;->pm:Ljava/lang/Integer;
+    sget-object v1, Lcom/bumptech/glide/request/target/ViewTarget;->pn:Ljava/lang/Integer;
 
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
@@ -283,7 +283,7 @@
     .annotation build Landroid/support/annotation/CallSuper;
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/target/ViewTarget;->pn:Lcom/bumptech/glide/request/target/ViewTarget$SizeDeterminer;
+    iget-object v0, p0, Lcom/bumptech/glide/request/target/ViewTarget;->po:Lcom/bumptech/glide/request/target/ViewTarget$SizeDeterminer;
 
     invoke-virtual {v0, p1}, Lcom/bumptech/glide/request/target/ViewTarget$SizeDeterminer;->a(Lcom/bumptech/glide/request/target/m;)V
 
@@ -299,7 +299,7 @@
     .annotation build Landroid/support/annotation/CallSuper;
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/target/ViewTarget;->pn:Lcom/bumptech/glide/request/target/ViewTarget$SizeDeterminer;
+    iget-object v0, p0, Lcom/bumptech/glide/request/target/ViewTarget;->po:Lcom/bumptech/glide/request/target/ViewTarget$SizeDeterminer;
 
     invoke-virtual {v0, p1}, Lcom/bumptech/glide/request/target/ViewTarget$SizeDeterminer;->b(Lcom/bumptech/glide/request/target/m;)V
 
@@ -317,11 +317,11 @@
 
     invoke-super {p0, p1}, Lcom/bumptech/glide/request/target/b;->d(Landroid/graphics/drawable/Drawable;)V
 
-    iget-object p1, p0, Lcom/bumptech/glide/request/target/ViewTarget;->pn:Lcom/bumptech/glide/request/target/ViewTarget$SizeDeterminer;
+    iget-object p1, p0, Lcom/bumptech/glide/request/target/ViewTarget;->po:Lcom/bumptech/glide/request/target/ViewTarget$SizeDeterminer;
 
     invoke-virtual {p1}, Lcom/bumptech/glide/request/target/ViewTarget$SizeDeterminer;->eA()V
 
-    iget-boolean p1, p0, Lcom/bumptech/glide/request/target/ViewTarget;->pp:Z
+    iget-boolean p1, p0, Lcom/bumptech/glide/request/target/ViewTarget;->pq:Z
 
     if-nez p1, :cond_0
 
@@ -397,7 +397,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/target/ViewTarget;->po:Landroid/view/View$OnAttachStateChangeListener;
+    iget-object v0, p0, Lcom/bumptech/glide/request/target/ViewTarget;->pp:Landroid/view/View$OnAttachStateChangeListener;
 
     if-eqz v0, :cond_0
 
@@ -408,7 +408,7 @@
 
     invoke-direct {v0, p0}, Lcom/bumptech/glide/request/target/ViewTarget$1;-><init>(Lcom/bumptech/glide/request/target/ViewTarget;)V
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/target/ViewTarget;->po:Landroid/view/View$OnAttachStateChangeListener;
+    iput-object v0, p0, Lcom/bumptech/glide/request/target/ViewTarget;->pp:Landroid/view/View$OnAttachStateChangeListener;
 
     invoke-direct {p0}, Lcom/bumptech/glide/request/target/ViewTarget;->ex()V
 
@@ -459,13 +459,13 @@
 
     const/4 v1, 0x1
 
-    iput-boolean v1, p0, Lcom/bumptech/glide/request/target/ViewTarget;->pp:Z
+    iput-boolean v1, p0, Lcom/bumptech/glide/request/target/ViewTarget;->pq:Z
 
     invoke-interface {v0}, Lcom/bumptech/glide/request/c;->pause()V
 
     const/4 v0, 0x0
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/request/target/ViewTarget;->pp:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/request/target/ViewTarget;->pq:Z
 
     :cond_0
     return-void
@@ -484,11 +484,11 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/target/ViewTarget;->pn:Lcom/bumptech/glide/request/target/ViewTarget$SizeDeterminer;
+    iget-object v0, p0, Lcom/bumptech/glide/request/target/ViewTarget;->po:Lcom/bumptech/glide/request/target/ViewTarget$SizeDeterminer;
 
     const/4 v1, 0x1
 
-    iput-boolean v1, v0, Lcom/bumptech/glide/request/target/ViewTarget$SizeDeterminer;->pt:Z
+    iput-boolean v1, v0, Lcom/bumptech/glide/request/target/ViewTarget$SizeDeterminer;->pu:Z
 
     return-object p0
 .end method

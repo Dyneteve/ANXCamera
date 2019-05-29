@@ -31,6 +31,16 @@ public class ComponentMultiple extends ComponentData {
         return null;
     }
 
+    public void putInt(TypeItem<Integer> typeItem, int i) {
+        putValue(typeItem, Integer.valueOf(i));
+    }
+
+    public void putString(TypeItem<String> typeItem, String str) {
+        putValue(typeItem, str);
+    }
+
     public <T> void putValue(TypeItem<T> typeItem, T t) {
+        String str = typeItem.mKeyOrType;
+        boolean z = t instanceof String;
     }
 }

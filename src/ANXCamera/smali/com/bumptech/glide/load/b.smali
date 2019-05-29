@@ -4,7 +4,7 @@
 
 
 # static fields
-.field private static final dE:I = 0x500000
+.field private static final dF:I = 0x500000
 
 
 # direct methods
@@ -54,7 +54,7 @@
 
     if-nez p1, :cond_0
 
-    sget-object p0, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dC:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
+    sget-object p0, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dD:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
 
     return-object p0
 
@@ -96,7 +96,7 @@
 
     move-result-object v1
 
-    sget-object v2, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dC:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
+    sget-object v2, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dD:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -125,7 +125,7 @@
     throw p0
 
     :cond_3
-    sget-object p0, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dC:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
+    sget-object p0, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dD:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
 
     return-object p0
 .end method
@@ -163,7 +163,7 @@
 
     if-nez p1, :cond_0
 
-    sget-object p0, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dC:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
+    sget-object p0, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dD:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
 
     return-object p0
 
@@ -187,7 +187,7 @@
 
     move-result-object v2
 
-    sget-object v3, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dC:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
+    sget-object v3, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dD:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
 
     if-eq v2, v3, :cond_1
 
@@ -199,7 +199,7 @@
     goto :goto_0
 
     :cond_2
-    sget-object p0, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dC:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
+    sget-object p0, Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;->dD:Lcom/bumptech/glide/load/ImageHeaderParser$ImageType;
 
     return-object p0
 .end method

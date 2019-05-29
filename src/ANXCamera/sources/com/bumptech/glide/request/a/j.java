@@ -4,7 +4,7 @@ import android.view.View;
 
 /* compiled from: ViewPropertyTransition */
 public class j<R> implements f<R> {
-    private final a pH;
+    private final a pI;
 
     /* compiled from: ViewPropertyTransition */
     public interface a {
@@ -12,12 +12,12 @@ public class j<R> implements f<R> {
     }
 
     public j(a aVar) {
-        this.pH = aVar;
+        this.pI = aVar;
     }
 
     public boolean a(R r, com.bumptech.glide.request.a.f.a aVar) {
         if (aVar.getView() != null) {
-            this.pH.d(aVar.getView());
+            this.pI.d(aVar.getView());
         }
         return false;
     }

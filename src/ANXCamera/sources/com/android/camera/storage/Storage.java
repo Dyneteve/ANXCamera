@@ -65,7 +65,7 @@ public class Storage {
     private static final String CAMERA_STORAGE_PATH_TEMP = "/DCIM/Camera/temp";
     public static String CAMERA_TEMP_DIRECTORY = null;
     public static String DIRECTORY = null;
-    public static String FIRST_CONSIDER_STORAGE_PATH = (b.qA ? SECONDARY_STORAGE_PATH : PRIMARY_STORAGE_PATH);
+    public static String FIRST_CONSIDER_STORAGE_PATH = (b.qB ? SECONDARY_STORAGE_PATH : PRIMARY_STORAGE_PATH);
     public static String HIDEDIRECTORY = null;
     private static final String HIDE_CAMERA_STORAGE_PATH_SUFFIX = "/DCIM/Camera/.ubifocus";
     public static final String HSR_120_SUFFIX = "_HSR_120";
@@ -749,12 +749,12 @@ public class Storage {
     public static boolean hasSecondaryStorage() {
         boolean z = false;
         if (VERSION.SDK_INT == 28) {
-            if (UserHandle.myUserId() == 0 && b.hb() && SECONDARY_STORAGE_PATH != null) {
+            if (UserHandle.myUserId() == 0 && b.he() && SECONDARY_STORAGE_PATH != null) {
                 z = true;
             }
             return z;
         }
-        if (b.hb() && SECONDARY_STORAGE_PATH != null) {
+        if (b.he() && SECONDARY_STORAGE_PATH != null) {
             z = true;
         }
         return z;
@@ -785,7 +785,7 @@ public class Storage {
 
     public static void initStorage(Context context) {
         initQuota(context);
-        if (b.hb()) {
+        if (b.he()) {
             FileCompat.updateSDPath();
             String sdcardPath = CompatibilityUtils.getSdcardPath(context);
             String str = TAG;

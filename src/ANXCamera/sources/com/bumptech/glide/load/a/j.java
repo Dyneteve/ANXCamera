@@ -23,12 +23,12 @@ public class j implements d<InputStream> {
     @VisibleForTesting
     static final b DEFAULT_CONNECTION_FACTORY = new a();
     private static final String TAG = "HttpUrlFetcher";
-    private static final int dV = 5;
-    private static final int dW = -1;
-    private final g dX;
-    private final b dY;
-    private InputStream dZ;
-    private volatile boolean ea;
+    private static final int dW = 5;
+    private static final int dX = -1;
+    private final g dY;
+    private final b dZ;
+    private InputStream ea;
+    private volatile boolean eb;
     private final int timeout;
     private HttpURLConnection urlConnection;
 
@@ -53,14 +53,14 @@ public class j implements d<InputStream> {
 
     @VisibleForTesting
     j(g gVar, int i, b bVar) {
-        this.dX = gVar;
+        this.dY = gVar;
         this.timeout = i;
-        this.dY = bVar;
+        this.dZ = bVar;
     }
 
     private InputStream a(HttpURLConnection httpURLConnection) throws IOException {
         if (TextUtils.isEmpty(httpURLConnection.getContentEncoding())) {
-            this.dZ = com.bumptech.glide.util.b.a(httpURLConnection.getInputStream(), (long) httpURLConnection.getContentLength());
+            this.ea = com.bumptech.glide.util.b.a(httpURLConnection.getInputStream(), (long) httpURLConnection.getContentLength());
         } else {
             if (Log.isLoggable(TAG, 3)) {
                 String str = TAG;
@@ -69,9 +69,9 @@ public class j implements d<InputStream> {
                 sb.append(httpURLConnection.getContentEncoding());
                 Log.d(str, sb.toString());
             }
-            this.dZ = httpURLConnection.getInputStream();
+            this.ea = httpURLConnection.getInputStream();
         }
-        return this.dZ;
+        return this.ea;
     }
 
     private InputStream a(URL url, int i, URL url2, Map<String, String> map) throws IOException {
@@ -84,7 +84,7 @@ public class j implements d<InputStream> {
                 } catch (URISyntaxException e) {
                 }
             }
-            this.urlConnection = this.dY.c(url);
+            this.urlConnection = this.dZ.c(url);
             for (Entry entry : map.entrySet()) {
                 this.urlConnection.addRequestProperty((String) entry.getKey(), (String) entry.getValue());
             }
@@ -94,8 +94,8 @@ public class j implements d<InputStream> {
             this.urlConnection.setDoInput(true);
             this.urlConnection.setInstanceFollowRedirects(false);
             this.urlConnection.connect();
-            this.dZ = this.urlConnection.getInputStream();
-            if (this.ea) {
+            this.ea = this.urlConnection.getInputStream();
+            if (this.eb) {
                 return null;
             }
             int responseCode = this.urlConnection.getResponseCode();
@@ -133,7 +133,7 @@ public class j implements d<InputStream> {
         String str;
         long eK = e.eK();
         try {
-            aVar.k(a(this.dX.toURL(), 0, null, this.dX.getHeaders()));
+            aVar.k(a(this.dY.toURL(), 0, null, this.dY.getHeaders()));
             if (Log.isLoggable(TAG, 2)) {
                 str = TAG;
                 sb = new StringBuilder();
@@ -172,13 +172,13 @@ public class j implements d<InputStream> {
     }
 
     public void cancel() {
-        this.ea = true;
+        this.eb = true;
     }
 
     public void cleanup() {
-        if (this.dZ != null) {
+        if (this.ea != null) {
             try {
-                this.dZ.close();
+                this.ea.close();
             } catch (IOException e) {
             }
         }

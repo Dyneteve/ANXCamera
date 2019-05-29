@@ -34,29 +34,29 @@ import java.util.Set;
 /* compiled from: Downsampler */
 public final class n {
     static final String TAG = "Downsampler";
-    private static final int dE = 10485760;
-    public static final e<DecodeFormat> lm = e.a("com.bumptech.glide.load.resource.bitmap.Downsampler.DecodeFormat", DecodeFormat.dl);
+    private static final int dF = 10485760;
+    public static final e<DecodeFormat> ln = e.a("com.bumptech.glide.load.resource.bitmap.Downsampler.DecodeFormat", DecodeFormat.dm);
     @Deprecated
-    public static final e<DownsampleStrategy> ln = DownsampleStrategy.li;
-    public static final e<Boolean> lo = e.a("com.bumptech.glide.load.resource.bitmap.Downsampler.FixBitmapSize", Boolean.valueOf(false));
-    public static final e<Boolean> lp = e.q("com.bumtpech.glide.load.resource.bitmap.Downsampler.AllowHardwareDecode");
-    private static final String lq = "image/vnd.wap.wbmp";
-    private static final String lr = "image/x-ico";
-    private static final Set<String> ls = Collections.unmodifiableSet(new HashSet(Arrays.asList(new String[]{lq, lr})));
-    private static final a lt = new a() {
+    public static final e<DownsampleStrategy> lo = DownsampleStrategy.lj;
+    public static final e<Boolean> lp = e.a("com.bumptech.glide.load.resource.bitmap.Downsampler.FixBitmapSize", Boolean.valueOf(false));
+    public static final e<Boolean> lq = e.q("com.bumtpech.glide.load.resource.bitmap.Downsampler.AllowHardwareDecode");
+    private static final String lr = "image/vnd.wap.wbmp";
+    private static final String ls = "image/x-ico";
+    private static final Set<String> lt = Collections.unmodifiableSet(new HashSet(Arrays.asList(new String[]{lr, ls})));
+    private static final a lu = new a() {
         public void a(d dVar, Bitmap bitmap) {
         }
 
         public void ct() {
         }
     };
-    private static final Set<ImageType> lu = Collections.unmodifiableSet(EnumSet.of(ImageType.JPEG, ImageType.PNG_A, ImageType.PNG));
-    private static final Queue<Options> lv = k.Y(0);
-    private final d ak;
-    private final b ed;
-    private final List<ImageHeaderParser> eu;
-    private final DisplayMetrics iC;
-    private final r lw = r.cv();
+    private static final Set<ImageType> lv = Collections.unmodifiableSet(EnumSet.of(ImageType.JPEG, ImageType.PNG_A, ImageType.PNG));
+    private static final Queue<Options> lw = k.Y(0);
+    private final d al;
+    private final b ee;
+    private final List<ImageHeaderParser> ev;
+    private final DisplayMetrics iD;
+    private final r lx = r.cv();
 
     /* compiled from: Downsampler */
     public interface a {
@@ -66,10 +66,10 @@ public final class n {
     }
 
     public n(List<ImageHeaderParser> list, DisplayMetrics displayMetrics, d dVar, b bVar) {
-        this.eu = list;
-        this.iC = (DisplayMetrics) i.checkNotNull(displayMetrics);
-        this.ak = (d) i.checkNotNull(dVar);
-        this.ed = (b) i.checkNotNull(bVar);
+        this.ev = list;
+        this.iD = (DisplayMetrics) i.checkNotNull(displayMetrics);
+        this.al = (d) i.checkNotNull(dVar);
+        this.ee = (b) i.checkNotNull(bVar);
     }
 
     private static int a(double d) {
@@ -86,22 +86,22 @@ public final class n {
         Options options2 = options;
         a aVar2 = aVar;
         long eK = com.bumptech.glide.util.e.eK();
-        int[] a2 = a(inputStream2, options2, aVar2, this.ak);
+        int[] a2 = a(inputStream2, options2, aVar2, this.al);
         boolean z3 = false;
         int i6 = a2[0];
         int i7 = a2[1];
         String str = options2.outMimeType;
         boolean z4 = (i6 == -1 || i7 == -1) ? false : z;
-        int b = com.bumptech.glide.load.b.b(this.eu, inputStream2, this.ed);
+        int b = com.bumptech.glide.load.b.b(this.ev, inputStream2, this.ee);
         int E = w.E(b);
         boolean F = w.F(b);
         int i8 = i;
         int i9 = i8 == Integer.MIN_VALUE ? i6 : i8;
         int i10 = i2;
         int i11 = i10 == Integer.MIN_VALUE ? i7 : i10;
-        ImageType a3 = com.bumptech.glide.load.b.a(this.eu, inputStream2, this.ed);
+        ImageType a3 = com.bumptech.glide.load.b.a(this.ev, inputStream2, this.ee);
         ImageType imageType = a3;
-        a(a3, inputStream2, aVar2, this.ak, downsampleStrategy, E, i6, i7, i9, i11, options2);
+        a(a3, inputStream2, aVar2, this.al, downsampleStrategy, E, i6, i7, i9, i11, options2);
         int i12 = b;
         String str2 = str;
         int i13 = i7;
@@ -147,11 +147,11 @@ public final class n {
                 i4 = i11;
             }
             if (i5 > 0 && i4 > 0) {
-                a(options3, this.ak, i5, i4);
+                a(options3, this.al, i5, i4);
             }
         }
-        Bitmap b2 = b(inputStream, options3, aVar3, this.ak);
-        aVar3.a(this.ak, b2);
+        Bitmap b2 = b(inputStream, options3, aVar3, this.al);
+        aVar3.a(this.al, b2);
         if (Log.isLoggable(TAG, 2)) {
             i3 = i12;
             a(i14, i13, str2, options3, b2, i, i2, eK);
@@ -160,10 +160,10 @@ public final class n {
         }
         Bitmap bitmap = null;
         if (b2 != null) {
-            b2.setDensity(this.iC.densityDpi);
-            bitmap = w.a(this.ak, b2, i3);
+            b2.setDensity(this.iD.densityDpi);
+            bitmap = w.a(this.al, b2, i3);
             if (!b2.equals(bitmap)) {
-                this.ak.d(b2);
+                this.al.d(b2);
             }
         }
         return bitmap;
@@ -264,7 +264,7 @@ public final class n {
                 int c = i10 / c((double) (a2 * f));
                 int c2 = i11 / c((double) (a2 * f2));
                 int max = b == SampleSizeRounding.MEMORY ? Math.max(c, c2) : Math.min(c, c2);
-                if (VERSION.SDK_INT > 23 || !ls.contains(options2.outMimeType)) {
+                if (VERSION.SDK_INT > 23 || !lt.contains(options2.outMimeType)) {
                     int max2 = Math.max(1, Integer.highestOneBit(max));
                     i6 = (b != SampleSizeRounding.MEMORY || ((float) max2) >= 1.0f / a2) ? max2 : max2 << 1;
                 } else {
@@ -363,13 +363,13 @@ public final class n {
 
     private void a(InputStream inputStream, DecodeFormat decodeFormat, boolean z, boolean z2, Options options, int i, int i2) {
         boolean z3;
-        if (!this.lw.a(i, i2, options, decodeFormat, z, z2)) {
+        if (!this.lx.a(i, i2, options, decodeFormat, z, z2)) {
             if (decodeFormat == DecodeFormat.PREFER_ARGB_8888 || decodeFormat == DecodeFormat.PREFER_ARGB_8888_DISALLOW_HARDWARE || VERSION.SDK_INT == 16) {
                 options.inPreferredConfig = Config.ARGB_8888;
                 return;
             }
             try {
-                z3 = com.bumptech.glide.load.b.a(this.eu, inputStream, this.ed).hasAlpha();
+                z3 = com.bumptech.glide.load.b.a(this.ev, inputStream, this.ee).hasAlpha();
             } catch (IOException e) {
                 if (Log.isLoggable(TAG, 3)) {
                     String str = TAG;
@@ -395,7 +395,7 @@ public final class n {
         if (VERSION.SDK_INT >= 19) {
             return true;
         }
-        return lu.contains(imageType);
+        return lv.contains(imageType);
     }
 
     private static int[] a(InputStream inputStream, Options options, a aVar, d dVar) throws IOException {
@@ -415,7 +415,7 @@ public final class n {
     private static Bitmap b(InputStream inputStream, Options options, a aVar, d dVar) throws IOException {
         IOException a2;
         if (options.inJustDecodeBounds) {
-            inputStream.mark(dE);
+            inputStream.mark(dF);
         } else {
             aVar.ct();
         }
@@ -462,16 +462,16 @@ public final class n {
 
     private static void c(Options options) {
         d(options);
-        synchronized (lv) {
-            lv.offer(options);
+        synchronized (lw) {
+            lw.offer(options);
         }
     }
 
     private static synchronized Options cs() {
         Options options;
         synchronized (n.class) {
-            synchronized (lv) {
-                options = (Options) lv.poll();
+            synchronized (lw) {
+                options = (Options) lw.poll();
             }
             if (options == null) {
                 options = new Options();
@@ -525,24 +525,24 @@ public final class n {
     }
 
     public p<Bitmap> a(InputStream inputStream, int i, int i2, f fVar) throws IOException {
-        return a(inputStream, i, i2, fVar, lt);
+        return a(inputStream, i, i2, fVar, lu);
     }
 
     public p<Bitmap> a(InputStream inputStream, int i, int i2, f fVar, a aVar) throws IOException {
         f fVar2 = fVar;
         i.a(inputStream.markSupported(), "You must provide an InputStream that supports mark()");
-        byte[] bArr = (byte[]) this.ed.a(65536, byte[].class);
+        byte[] bArr = (byte[]) this.ee.a(65536, byte[].class);
         Options cs = cs();
         cs.inTempStorage = bArr;
-        DecodeFormat decodeFormat = (DecodeFormat) fVar2.a(lm);
-        DownsampleStrategy downsampleStrategy = (DownsampleStrategy) fVar2.a(DownsampleStrategy.li);
-        boolean booleanValue = ((Boolean) fVar2.a(lo)).booleanValue();
-        boolean z = fVar2.a(lp) != null && ((Boolean) fVar2.a(lp)).booleanValue();
+        DecodeFormat decodeFormat = (DecodeFormat) fVar2.a(ln);
+        DownsampleStrategy downsampleStrategy = (DownsampleStrategy) fVar2.a(DownsampleStrategy.lj);
+        boolean booleanValue = ((Boolean) fVar2.a(lp)).booleanValue();
+        boolean z = fVar2.a(lq) != null && ((Boolean) fVar2.a(lq)).booleanValue();
         try {
-            return f.a(a(inputStream, cs, downsampleStrategy, decodeFormat, decodeFormat == DecodeFormat.PREFER_ARGB_8888_DISALLOW_HARDWARE ? false : z, i, i2, booleanValue, aVar), this.ak);
+            return f.a(a(inputStream, cs, downsampleStrategy, decodeFormat, decodeFormat == DecodeFormat.PREFER_ARGB_8888_DISALLOW_HARDWARE ? false : z, i, i2, booleanValue, aVar), this.al);
         } finally {
             c(cs);
-            this.ed.put(bArr);
+            this.ee.put(bArr);
         }
     }
 

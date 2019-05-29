@@ -10,7 +10,7 @@ import java.net.URL;
 
 /* compiled from: UrlLoader */
 public class f implements m<URL, InputStream> {
-    private final m<g, InputStream> kx;
+    private final m<g, InputStream> ky;
 
     /* compiled from: UrlLoader */
     public static class a implements n<URL, InputStream> {
@@ -24,12 +24,12 @@ public class f implements m<URL, InputStream> {
     }
 
     public f(m<g, InputStream> mVar) {
-        this.kx = mVar;
+        this.ky = mVar;
     }
 
     /* renamed from: a */
     public com.bumptech.glide.load.model.m.a<InputStream> b(@NonNull URL url, int i, int i2, @NonNull com.bumptech.glide.load.f fVar) {
-        return this.kx.b(new g(url), i, i2, fVar);
+        return this.ky.b(new g(url), i, i2, fVar);
     }
 
     /* renamed from: d */

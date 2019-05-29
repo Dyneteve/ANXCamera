@@ -10,22 +10,22 @@ import java.util.NavigableMap;
 
 @RequiresApi(19)
 final class SizeStrategy implements k {
-    private static final int hC = 8;
-    private final KeyPool hL = new KeyPool();
-    private final NavigableMap<Integer, Integer> hM = new PrettyPrintTreeMap();
-    private final g<Key, Bitmap> he = new g<>();
+    private static final int hD = 8;
+    private final KeyPool hM = new KeyPool();
+    private final NavigableMap<Integer, Integer> hN = new PrettyPrintTreeMap();
+    private final g<Key, Bitmap> hf = new g<>();
 
     @VisibleForTesting
     static final class Key implements l {
-        private final KeyPool hN;
+        private final KeyPool hO;
         int size;
 
         Key(KeyPool keyPool) {
-            this.hN = keyPool;
+            this.hO = keyPool;
         }
 
         public void bm() {
-            this.hN.a(this);
+            this.hO.a(this);
         }
 
         public boolean equals(Object obj) {
@@ -74,11 +74,11 @@ final class SizeStrategy implements k {
     }
 
     private void c(Integer num) {
-        Integer num2 = (Integer) this.hM.get(num);
+        Integer num2 = (Integer) this.hN.get(num);
         if (num2.intValue() == 1) {
-            this.hM.remove(num);
+            this.hN.remove(num);
         } else {
-            this.hM.put(num, Integer.valueOf(num2.intValue() - 1));
+            this.hN.put(num, Integer.valueOf(num2.intValue() - 1));
         }
     }
 
@@ -97,13 +97,13 @@ final class SizeStrategy implements k {
     @Nullable
     public Bitmap b(int i, int i2, Config config) {
         int i3 = k.i(i, i2, config);
-        Key v = this.hL.v(i3);
-        Integer num = (Integer) this.hM.ceilingKey(Integer.valueOf(i3));
+        Key v = this.hM.v(i3);
+        Integer num = (Integer) this.hN.ceilingKey(Integer.valueOf(i3));
         if (!(num == null || num.intValue() == i3 || num.intValue() > i3 * 8)) {
-            this.hL.a(v);
-            v = this.hL.v(num.intValue());
+            this.hM.a(v);
+            v = this.hM.v(num.intValue());
         }
-        Bitmap bitmap = (Bitmap) this.he.b(v);
+        Bitmap bitmap = (Bitmap) this.hf.b(v);
         if (bitmap != null) {
             bitmap.reconfigure(i, i2, config);
             c(num);
@@ -113,7 +113,7 @@ final class SizeStrategy implements k {
 
     @Nullable
     public Bitmap bl() {
-        Bitmap bitmap = (Bitmap) this.he.removeLast();
+        Bitmap bitmap = (Bitmap) this.hf.removeLast();
         if (bitmap != null) {
             c(Integer.valueOf(k.p(bitmap)));
         }
@@ -125,10 +125,10 @@ final class SizeStrategy implements k {
     }
 
     public void d(Bitmap bitmap) {
-        Key v = this.hL.v(k.p(bitmap));
-        this.he.a(v, bitmap);
-        Integer num = (Integer) this.hM.get(Integer.valueOf(v.size));
-        NavigableMap<Integer, Integer> navigableMap = this.hM;
+        Key v = this.hM.v(k.p(bitmap));
+        this.hf.a(v, bitmap);
+        Integer num = (Integer) this.hN.get(Integer.valueOf(v.size));
+        NavigableMap<Integer, Integer> navigableMap = this.hN;
         Integer valueOf = Integer.valueOf(v.size);
         int i = 1;
         if (num != null) {
@@ -148,9 +148,9 @@ final class SizeStrategy implements k {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("SizeStrategy:\n  ");
-        sb.append(this.he);
+        sb.append(this.hf);
         sb.append("\n  SortedSizes");
-        sb.append(this.hM);
+        sb.append(this.hN);
         return sb.toString();
     }
 }

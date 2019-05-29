@@ -11,12 +11,12 @@ import java.security.MessageDigest;
 
 /* compiled from: DrawableTransformation */
 public class p implements i<Drawable> {
-    private final i<Bitmap> kA;
-    private final boolean ly;
+    private final i<Bitmap> kB;
+    private final boolean lz;
 
     public p(i<Bitmap> iVar, boolean z) {
-        this.kA = iVar;
-        this.ly = z;
+        this.kB = iVar;
+        this.lz = z;
     }
 
     private com.bumptech.glide.load.engine.p<Drawable> a(Context context, com.bumptech.glide.load.engine.p<Bitmap> pVar) {
@@ -31,11 +31,11 @@ public class p implements i<Drawable> {
         if (!(obj instanceof p)) {
             return false;
         }
-        return this.kA.equals(((p) obj).kA);
+        return this.kB.equals(((p) obj).kB);
     }
 
     public int hashCode() {
-        return this.kA.hashCode();
+        return this.kB.hashCode();
     }
 
     @NonNull
@@ -43,13 +43,13 @@ public class p implements i<Drawable> {
         Drawable drawable = (Drawable) pVar.get();
         com.bumptech.glide.load.engine.p a = o.a(c.c(context).k(), drawable, i, i2);
         if (a != null) {
-            com.bumptech.glide.load.engine.p transform = this.kA.transform(context, a, i, i2);
+            com.bumptech.glide.load.engine.p transform = this.kB.transform(context, a, i, i2);
             if (!transform.equals(a)) {
                 return a(context, transform);
             }
             transform.recycle();
             return pVar;
-        } else if (!this.ly) {
+        } else if (!this.lz) {
             return pVar;
         } else {
             StringBuilder sb = new StringBuilder();
@@ -61,6 +61,6 @@ public class p implements i<Drawable> {
     }
 
     public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
-        this.kA.updateDiskCacheKey(messageDigest);
+        this.kB.updateDiskCacheKey(messageDigest);
     }
 }

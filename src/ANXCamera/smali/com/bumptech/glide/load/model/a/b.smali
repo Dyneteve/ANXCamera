@@ -25,7 +25,7 @@
 
 
 # static fields
-.field public static final kw:Lcom/bumptech/glide/load/e;
+.field public static final kx:Lcom/bumptech/glide/load/e;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/e<",
@@ -37,7 +37,7 @@
 
 
 # instance fields
-.field private final kv:Lcom/bumptech/glide/load/model/ModelCache;
+.field private final kw:Lcom/bumptech/glide/load/model/ModelCache;
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
@@ -68,7 +68,7 @@
 
     move-result-object v0
 
-    sput-object v0, Lcom/bumptech/glide/load/model/a/b;->kw:Lcom/bumptech/glide/load/e;
+    sput-object v0, Lcom/bumptech/glide/load/model/a/b;->kx:Lcom/bumptech/glide/load/e;
 
     return-void
 .end method
@@ -101,7 +101,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/model/a/b;->kv:Lcom/bumptech/glide/load/model/ModelCache;
+    iput-object p1, p0, Lcom/bumptech/glide/load/model/a/b;->kw:Lcom/bumptech/glide/load/model/ModelCache;
 
     return-void
 .end method
@@ -133,11 +133,11 @@
 
     nop
 
-    iget-object p2, p0, Lcom/bumptech/glide/load/model/a/b;->kv:Lcom/bumptech/glide/load/model/ModelCache;
+    iget-object p2, p0, Lcom/bumptech/glide/load/model/a/b;->kw:Lcom/bumptech/glide/load/model/ModelCache;
 
     if-eqz p2, :cond_1
 
-    iget-object p2, p0, Lcom/bumptech/glide/load/model/a/b;->kv:Lcom/bumptech/glide/load/model/ModelCache;
+    iget-object p2, p0, Lcom/bumptech/glide/load/model/a/b;->kw:Lcom/bumptech/glide/load/model/ModelCache;
 
     const/4 p3, 0x0
 
@@ -149,7 +149,7 @@
 
     if-nez p2, :cond_0
 
-    iget-object p2, p0, Lcom/bumptech/glide/load/model/a/b;->kv:Lcom/bumptech/glide/load/model/ModelCache;
+    iget-object p2, p0, Lcom/bumptech/glide/load/model/a/b;->kw:Lcom/bumptech/glide/load/model/ModelCache;
 
     invoke-virtual {p2, p1, p3, p3, p1}, Lcom/bumptech/glide/load/model/ModelCache;->a(Ljava/lang/Object;IILjava/lang/Object;)V
 
@@ -160,7 +160,7 @@
 
     :cond_1
     :goto_0
-    sget-object p2, Lcom/bumptech/glide/load/model/a/b;->kw:Lcom/bumptech/glide/load/e;
+    sget-object p2, Lcom/bumptech/glide/load/model/a/b;->kx:Lcom/bumptech/glide/load/e;
 
     invoke-virtual {p4, p2}, Lcom/bumptech/glide/load/f;->a(Lcom/bumptech/glide/load/e;)Ljava/lang/Object;
 

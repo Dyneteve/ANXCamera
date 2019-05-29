@@ -57,17 +57,15 @@ public abstract class ImageProcessor {
 
     public abstract List<Surface> configOutputSurfaces(BufferFormat bufferFormat);
 
-    public void dispatchTask(CaptureDataBean captureDataBean) {
-        if (captureDataBean == null) {
-            Log.w(TAG, "dispatchTask: data is null");
-        } else if (isAlive()) {
+    public void dispatchTask(@NonNull List<CaptureDataBean> list) {
+        if (isAlive()) {
             Message obtainMessage = this.mHandler.obtainMessage();
             obtainMessage.what = 1;
-            obtainMessage.obj = captureDataBean;
+            obtainMessage.obj = list;
             this.mHandler.sendMessage(obtainMessage);
-        } else {
-            throw new RuntimeException("Thread already die!");
+            return;
         }
+        throw new RuntimeException("Thread already die!");
     }
 
     /* access modifiers changed from: 0000 */
@@ -80,9 +78,13 @@ public abstract class ImageProcessor {
         return this.mImageBufferQueueSize;
     }
 
+    public int getProcessingRequestNumber() {
+        return this.mNeedProcessNormalImageSize.get();
+    }
+
     public abstract boolean isIdle();
 
-    public abstract void processImage(CaptureDataBean captureDataBean);
+    public abstract void processImage(List<CaptureDataBean> list);
 
     public void releaseResource() {
         this.mImageProcessorStatusCallback = null;
@@ -120,7 +122,7 @@ public abstract class ImageProcessor {
                     Log.d(access$000, sb.toString());
                     return;
                 }
-                ImageProcessor.this.processImage((CaptureDataBean) message.obj);
+                ImageProcessor.this.processImage((List) message.obj);
             }
         };
     }

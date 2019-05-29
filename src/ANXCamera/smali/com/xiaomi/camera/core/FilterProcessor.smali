@@ -133,6 +133,12 @@
 
     if-nez v0, :cond_1
 
+    invoke-virtual {p1}, Lcom/xiaomi/camera/core/ParallelTaskDataParameter;->isHasFrontWaterMark()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
     invoke-virtual {p1}, Lcom/xiaomi/camera/core/ParallelTaskDataParameter;->getTimeWaterMarkString()Ljava/lang/String;
 
     move-result-object v0
@@ -171,7 +177,7 @@
 
     move-result-object v1
 
-    invoke-virtual {p1}, Lcom/xiaomi/camera/core/ParallelTaskDataParameter;->getDualWatermarkParam()Lcom/android/camera/effect/renders/DualWatermarkParam;
+    invoke-virtual {p1}, Lcom/xiaomi/camera/core/ParallelTaskDataParameter;->getDeviceWatermarkParam()Lcom/android/camera/effect/renders/DeviceWatermarkParam;
 
     move-result-object p1
 
@@ -215,7 +221,7 @@
 
     iget-object v1, p0, Lcom/xiaomi/camera/core/FilterProcessor;->mYuvSnapshotRender:Lcom/android/camera/effect/renders/SnapshotRender;
 
-    invoke-virtual {v1, p1, v0}, Lcom/android/camera/effect/renders/SnapshotRender;->prepareEffectRender(Lcom/android/camera/effect/renders/DualWatermarkParam;I)V
+    invoke-virtual {v1, p1, v0}, Lcom/android/camera/effect/renders/SnapshotRender;->prepareEffectRender(Lcom/android/camera/effect/renders/DeviceWatermarkParam;I)V
 
     return-void
 .end method

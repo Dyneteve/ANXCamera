@@ -87,7 +87,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a006b
+    const v3, 0x7f0a00b8
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -285,7 +285,7 @@
 
     new-instance v2, Lcom/android/camera/fragment/beauty/SingleCheckAdapter$LevelItem;
 
-    const v3, 0x7f0200e4
+    const v3, 0x7f0200ea
 
     invoke-direct {v2, v3}, Lcom/android/camera/fragment/beauty/SingleCheckAdapter$LevelItem;-><init>(I)V
 
@@ -363,7 +363,7 @@
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
-    const p3, 0x7f04000a
+    const p3, 0x7f04000b
 
     const/4 v0, 0x0
 
@@ -383,7 +383,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a006c
+    const v1, 0x7f0a00b9
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

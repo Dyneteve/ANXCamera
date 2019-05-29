@@ -63,6 +63,8 @@
 
 .field public static final FRECKLES:I = 0x7
 
+.field public static final GENDER:I = 0x1d
+
 .field public static final HAIR_COLOR:I = 0x2
 
 .field public static final HAIR_HIGHLIGHT_COLOR:I = 0x6

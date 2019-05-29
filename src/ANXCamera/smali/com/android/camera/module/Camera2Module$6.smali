@@ -42,7 +42,7 @@
         }
     .end annotation
 
-    invoke-static {}, Lcom/android/camera/module/Camera2Module;->access$500()Ljava/lang/String;
+    invoke-static {}, Lcom/android/camera/module/Camera2Module;->access$400()Ljava/lang/String;
 
     move-result-object v0
 

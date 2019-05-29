@@ -12,7 +12,7 @@
 
 
 # instance fields
-.field private final nw:Ljava/util/List;
+.field private final nx:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -33,7 +33,7 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/bumptech/glide/d/f;->nw:Ljava/util/List;
+    iput-object v0, p0, Lcom/bumptech/glide/d/f;->nx:Ljava/util/List;
 
     return-void
 .end method
@@ -65,7 +65,7 @@
     monitor-enter p0
 
     :try_start_0
-    iget-object v0, p0, Lcom/bumptech/glide/d/f;->nw:Ljava/util/List;
+    iget-object v0, p0, Lcom/bumptech/glide/d/f;->nx:Ljava/util/List;
 
     new-instance v1, Lcom/bumptech/glide/d/f$a;
 
@@ -112,7 +112,7 @@
     monitor-enter p0
 
     :try_start_0
-    iget-object v0, p0, Lcom/bumptech/glide/d/f;->nw:Ljava/util/List;
+    iget-object v0, p0, Lcom/bumptech/glide/d/f;->nx:Ljava/util/List;
 
     const/4 v1, 0x0
 
@@ -162,7 +162,7 @@
     const/4 v0, 0x0
 
     :try_start_0
-    iget-object v1, p0, Lcom/bumptech/glide/d/f;->nw:Ljava/util/List;
+    iget-object v1, p0, Lcom/bumptech/glide/d/f;->nx:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->size()I
 
@@ -171,7 +171,7 @@
     :goto_0
     if-ge v0, v1, :cond_1
 
-    iget-object v2, p0, Lcom/bumptech/glide/d/f;->nw:Ljava/util/List;
+    iget-object v2, p0, Lcom/bumptech/glide/d/f;->nx:Ljava/util/List;
 
     invoke-interface {v2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -185,7 +185,7 @@
 
     if-eqz v3, :cond_0
 
-    iget-object p1, v2, Lcom/bumptech/glide/d/f$a;->fy:Lcom/bumptech/glide/load/h;
+    iget-object p1, v2, Lcom/bumptech/glide/d/f$a;->fz:Lcom/bumptech/glide/load/h;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

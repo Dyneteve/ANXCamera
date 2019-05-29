@@ -154,9 +154,7 @@
 
     new-instance p1, Lcom/android/camera/module/VideoBase$MainHandler;
 
-    const/4 v0, 0x0
-
-    invoke-direct {p1, p0, v0}, Lcom/android/camera/module/VideoBase$MainHandler;-><init>(Lcom/android/camera/module/VideoBase;Lcom/android/camera/module/VideoBase$1;)V
+    invoke-direct {p1, p0}, Lcom/android/camera/module/VideoBase$MainHandler;-><init>(Lcom/android/camera/module/VideoBase;)V
 
     iput-object p1, p0, Lcom/android/camera/module/VideoBase;->mHandler:Landroid/os/Handler;
 
@@ -941,6 +939,10 @@
     iget-object v0, p0, Lcom/android/camera/module/VideoBase;->mCamera2Device:Lcom/android/camera2/Camera2Proxy;
 
     const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/camera2/Camera2Proxy;->setMetaDataCallback(Lcom/android/camera2/Camera2Proxy$CameraMetaDataCallback;)V
+
+    iget-object v0, p0, Lcom/android/camera/module/VideoBase;->mCamera2Device:Lcom/android/camera2/Camera2Proxy;
 
     invoke-virtual {v0, v1}, Lcom/android/camera2/Camera2Proxy;->setFocusCallback(Lcom/android/camera2/Camera2Proxy$FocusCallback;)V
 
@@ -2592,7 +2594,7 @@
     return-void
 
     :cond_1
-    invoke-static {}, Lcom/mi/config/b;->iF()Z
+    invoke-static {}, Lcom/mi/config/b;->iI()Z
 
     move-result p2
 

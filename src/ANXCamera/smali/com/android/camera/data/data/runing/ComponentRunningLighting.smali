@@ -86,11 +86,11 @@
 
     new-instance v1, Lcom/android/camera/data/data/ComponentDataItem;
 
-    const v2, 0x7f09020b
+    const v2, 0x7f090209
 
     const-string v3, "0"
 
-    const v4, 0x7f020112
+    const v4, 0x7f020118
 
     invoke-direct {v1, v4, v4, v2, v3}, Lcom/android/camera/data/data/ComponentDataItem;-><init>(IIILjava/lang/String;)V
 
@@ -119,11 +119,11 @@
 
     new-instance v1, Lcom/android/camera/data/data/ComponentDataItem;
 
-    const v2, 0x7f09020c
+    const v2, 0x7f09020a
 
     const-string v3, "1"
 
-    const v4, 0x7f020111
+    const v4, 0x7f020117
 
     invoke-direct {v1, v4, v4, v2, v3}, Lcom/android/camera/data/data/ComponentDataItem;-><init>(IIILjava/lang/String;)V
 
@@ -134,11 +134,11 @@
 
     new-instance v1, Lcom/android/camera/data/data/ComponentDataItem;
 
-    const v2, 0x7f09020d
+    const v2, 0x7f09020b
 
     const-string v3, "2"
 
-    const v4, 0x7f020115
+    const v4, 0x7f02011b
 
     invoke-direct {v1, v4, v4, v2, v3}, Lcom/android/camera/data/data/ComponentDataItem;-><init>(IIILjava/lang/String;)V
 
@@ -148,11 +148,11 @@
 
     new-instance v1, Lcom/android/camera/data/data/ComponentDataItem;
 
-    const v2, 0x7f09020e
+    const v2, 0x7f09020c
 
     const-string v3, "3"
 
-    const v4, 0x7f020110
+    const v4, 0x7f020116
 
     invoke-direct {v1, v4, v4, v2, v3}, Lcom/android/camera/data/data/ComponentDataItem;-><init>(IIILjava/lang/String;)V
 
@@ -162,39 +162,11 @@
 
     new-instance v1, Lcom/android/camera/data/data/ComponentDataItem;
 
-    const v2, 0x7f09020f
+    const v2, 0x7f09020d
 
     const-string v3, "4"
 
-    const v4, 0x7f020113
-
-    invoke-direct {v1, v4, v4, v2, v3}, Lcom/android/camera/data/data/ComponentDataItem;-><init>(IIILjava/lang/String;)V
-
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    iget-object v0, p0, Lcom/android/camera/data/data/runing/ComponentRunningLighting;->mItems:Ljava/util/List;
-
-    new-instance v1, Lcom/android/camera/data/data/ComponentDataItem;
-
-    const v2, 0x7f090212
-
-    const-string v3, "5"
-
-    const v4, 0x7f020114
-
-    invoke-direct {v1, v4, v4, v2, v3}, Lcom/android/camera/data/data/ComponentDataItem;-><init>(IIILjava/lang/String;)V
-
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    iget-object v0, p0, Lcom/android/camera/data/data/runing/ComponentRunningLighting;->mItems:Ljava/util/List;
-
-    new-instance v1, Lcom/android/camera/data/data/ComponentDataItem;
-
-    const v2, 0x7f090211
-
-    const-string v3, "6"
-
-    const v4, 0x7f02010d
+    const v4, 0x7f020119
 
     invoke-direct {v1, v4, v4, v2, v3}, Lcom/android/camera/data/data/ComponentDataItem;-><init>(IIILjava/lang/String;)V
 
@@ -206,9 +178,37 @@
 
     const v2, 0x7f090210
 
+    const-string v3, "5"
+
+    const v4, 0x7f02011a
+
+    invoke-direct {v1, v4, v4, v2, v3}, Lcom/android/camera/data/data/ComponentDataItem;-><init>(IIILjava/lang/String;)V
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Lcom/android/camera/data/data/runing/ComponentRunningLighting;->mItems:Ljava/util/List;
+
+    new-instance v1, Lcom/android/camera/data/data/ComponentDataItem;
+
+    const v2, 0x7f09020f
+
+    const-string v3, "6"
+
+    const v4, 0x7f020113
+
+    invoke-direct {v1, v4, v4, v2, v3}, Lcom/android/camera/data/data/ComponentDataItem;-><init>(IIILjava/lang/String;)V
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Lcom/android/camera/data/data/runing/ComponentRunningLighting;->mItems:Ljava/util/List;
+
+    new-instance v1, Lcom/android/camera/data/data/ComponentDataItem;
+
+    const v2, 0x7f09020e
+
     const-string v3, "7"
 
-    const v4, 0x7f02010f
+    const v4, 0x7f020115
 
     invoke-direct {v1, v4, v4, v2, v3}, Lcom/android/camera/data/data/ComponentDataItem;-><init>(IIILjava/lang/String;)V
 
@@ -228,11 +228,11 @@
 
     new-instance v1, Lcom/android/camera/data/data/ComponentDataItem;
 
-    const v2, 0x7f090213
+    const v2, 0x7f090211
 
     const-string v3, "8"
 
-    const v4, 0x7f02010e
+    const v4, 0x7f020114
 
     invoke-direct {v1, v4, v4, v2, v3}, Lcom/android/camera/data/data/ComponentDataItem;-><init>(IIILjava/lang/String;)V
 

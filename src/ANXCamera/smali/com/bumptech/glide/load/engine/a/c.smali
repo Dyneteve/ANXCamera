@@ -13,7 +13,7 @@
 
 
 # instance fields
-.field private final hP:Ljava/util/Map;
+.field private final hQ:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -24,7 +24,7 @@
     .end annotation
 .end field
 
-.field private final hQ:Lcom/bumptech/glide/load/engine/a/c$b;
+.field private final hR:Lcom/bumptech/glide/load/engine/a/c$b;
 
 
 # direct methods
@@ -37,13 +37,13 @@
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/a/c;->hP:Ljava/util/Map;
+    iput-object v0, p0, Lcom/bumptech/glide/load/engine/a/c;->hQ:Ljava/util/Map;
 
     new-instance v0, Lcom/bumptech/glide/load/engine/a/c$b;
 
     invoke-direct {v0}, Lcom/bumptech/glide/load/engine/a/c$b;-><init>()V
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/engine/a/c;->hQ:Lcom/bumptech/glide/load/engine/a/c$b;
+    iput-object v0, p0, Lcom/bumptech/glide/load/engine/a/c;->hR:Lcom/bumptech/glide/load/engine/a/c$b;
 
     return-void
 .end method
@@ -56,7 +56,7 @@
     monitor-enter p0
 
     :try_start_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a/c;->hP:Ljava/util/Map;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a/c;->hQ:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -66,22 +66,22 @@
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a/c;->hQ:Lcom/bumptech/glide/load/engine/a/c$b;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a/c;->hR:Lcom/bumptech/glide/load/engine/a/c$b;
 
     invoke-virtual {v0}, Lcom/bumptech/glide/load/engine/a/c$b;->bA()Lcom/bumptech/glide/load/engine/a/c$a;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/a/c;->hP:Ljava/util/Map;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/a/c;->hQ:Ljava/util/Map;
 
     invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_0
-    iget p1, v0, Lcom/bumptech/glide/load/engine/a/c$a;->hR:I
+    iget p1, v0, Lcom/bumptech/glide/load/engine/a/c$a;->hS:I
 
     add-int/lit8 p1, p1, 0x1
 
-    iput p1, v0, Lcom/bumptech/glide/load/engine/a/c$a;->hR:I
+    iput p1, v0, Lcom/bumptech/glide/load/engine/a/c$a;->hS:I
 
     monitor-exit p0
     :try_end_0
@@ -110,7 +110,7 @@
     monitor-enter p0
 
     :try_start_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a/c;->hP:Ljava/util/Map;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a/c;->hQ:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -122,23 +122,23 @@
 
     check-cast v0, Lcom/bumptech/glide/load/engine/a/c$a;
 
-    iget v1, v0, Lcom/bumptech/glide/load/engine/a/c$a;->hR:I
+    iget v1, v0, Lcom/bumptech/glide/load/engine/a/c$a;->hS:I
 
     const/4 v2, 0x1
 
     if-lt v1, v2, :cond_2
 
-    iget v1, v0, Lcom/bumptech/glide/load/engine/a/c$a;->hR:I
+    iget v1, v0, Lcom/bumptech/glide/load/engine/a/c$a;->hS:I
 
     sub-int/2addr v1, v2
 
-    iput v1, v0, Lcom/bumptech/glide/load/engine/a/c$a;->hR:I
+    iput v1, v0, Lcom/bumptech/glide/load/engine/a/c$a;->hS:I
 
-    iget v1, v0, Lcom/bumptech/glide/load/engine/a/c$a;->hR:I
+    iget v1, v0, Lcom/bumptech/glide/load/engine/a/c$a;->hS:I
 
     if-nez v1, :cond_1
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/a/c;->hP:Ljava/util/Map;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/a/c;->hQ:Ljava/util/Map;
 
     invoke-interface {v1, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -152,7 +152,7 @@
 
     if-eqz v2, :cond_0
 
-    iget-object p1, p0, Lcom/bumptech/glide/load/engine/a/c;->hQ:Lcom/bumptech/glide/load/engine/a/c$b;
+    iget-object p1, p0, Lcom/bumptech/glide/load/engine/a/c;->hR:Lcom/bumptech/glide/load/engine/a/c$b;
 
     invoke-virtual {p1, v1}, Lcom/bumptech/glide/load/engine/a/c$b;->a(Lcom/bumptech/glide/load/engine/a/c$a;)V
 
@@ -221,7 +221,7 @@
 
     invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget p1, v0, Lcom/bumptech/glide/load/engine/a/c$a;->hR:I
+    iget p1, v0, Lcom/bumptech/glide/load/engine/a/c$a;->hS:I
 
     invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 

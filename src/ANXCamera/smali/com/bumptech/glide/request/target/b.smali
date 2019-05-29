@@ -20,7 +20,7 @@
 
 
 # instance fields
-.field private nK:Lcom/bumptech/glide/request/c;
+.field private nL:Lcom/bumptech/glide/request/c;
 
 
 # direct methods
@@ -49,7 +49,7 @@
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/target/b;->nK:Lcom/bumptech/glide/request/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/target/b;->nL:Lcom/bumptech/glide/request/c;
 
     return-object v0
 .end method
@@ -81,7 +81,7 @@
         .end annotation
     .end param
 
-    iput-object p1, p0, Lcom/bumptech/glide/request/target/b;->nK:Lcom/bumptech/glide/request/c;
+    iput-object p1, p0, Lcom/bumptech/glide/request/target/b;->nL:Lcom/bumptech/glide/request/c;
 
     return-void
 .end method

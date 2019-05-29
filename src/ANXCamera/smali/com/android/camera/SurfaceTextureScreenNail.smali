@@ -59,6 +59,8 @@
 
 .field private mIsRatio16_9:Z
 
+.field protected final mLock:Ljava/lang/Object;
+
 .field protected mModuleSwitching:Z
 
 .field private mNeedCropped:Z
@@ -114,7 +116,7 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    invoke-static {}, Lcom/mi/config/b;->gZ()Z
+    invoke-static {}, Lcom/mi/config/b;->hc()Z
 
     move-result v0
 
@@ -134,7 +136,7 @@
     :goto_0
     sput v0, Lcom/android/camera/SurfaceTextureScreenNail;->MOVIE_SOLID_CROPPED_X:F
 
-    invoke-static {}, Lcom/mi/config/b;->gZ()Z
+    invoke-static {}, Lcom/mi/config/b;->hc()Z
 
     move-result v0
 
@@ -204,6 +206,12 @@
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/camera/SurfaceTextureScreenNail;->mTargetRatio:I
+
+    new-instance v0, Ljava/lang/Object;
+
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+
+    iput-object v0, p0, Lcom/android/camera/SurfaceTextureScreenNail;->mLock:Ljava/lang/Object;
 
     iput-object p1, p0, Lcom/android/camera/SurfaceTextureScreenNail;->mScreenNailCallback:Lcom/android/camera/SurfaceTextureScreenNail$SurfaceTextureScreenNailCallback;
 
@@ -788,7 +796,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/gallery3d/ui/ExtTexture;->setSize(II)V
 
-    invoke-static {}, Lcom/mi/config/b;->hH()Z
+    invoke-static {}, Lcom/mi/config/b;->hK()Z
 
     move-result v0
 
@@ -872,7 +880,7 @@
 
     if-lt v0, v1, :cond_3
 
-    invoke-static {}, Lcom/mi/config/b;->hH()Z
+    invoke-static {}, Lcom/mi/config/b;->hK()Z
 
     move-result v0
 
@@ -1125,6 +1133,10 @@
 
     iget-object v0, p0, Lcom/android/camera/SurfaceTextureScreenNail;->mSurfaceTexture:Landroid/graphics/SurfaceTexture;
 
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/camera/SurfaceTextureScreenNail;->mSurfaceTexture:Landroid/graphics/SurfaceTexture;
+
     invoke-virtual {v0}, Landroid/graphics/SurfaceTexture;->updateTexImage()V
 
     invoke-virtual {p0}, Lcom/android/camera/SurfaceTextureScreenNail;->isAnimationRunning()Z
@@ -1156,7 +1168,7 @@
 
     if-eqz v0, :cond_3
 
-    invoke-static {}, Lcom/mi/config/b;->gR()Z
+    invoke-static {}, Lcom/mi/config/b;->gU()Z
 
     move-result v0
 
@@ -1224,7 +1236,7 @@
     return-void
 
     :cond_0
-    invoke-static {}, Lcom/mi/config/b;->hH()Z
+    invoke-static {}, Lcom/mi/config/b;->hK()Z
 
     move-result v0
 
@@ -1325,11 +1337,27 @@
 .end method
 
 .method public getExtTexture()Lcom/android/gallery3d/ui/ExtTexture;
-    .locals 1
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/camera/SurfaceTextureScreenNail;->mExtTexture:Lcom/android/gallery3d/ui/ExtTexture;
+    iget-object v0, p0, Lcom/android/camera/SurfaceTextureScreenNail;->mLock:Ljava/lang/Object;
 
-    return-object v0
+    monitor-enter v0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/camera/SurfaceTextureScreenNail;->mExtTexture:Lcom/android/gallery3d/ui/ExtTexture;
+
+    monitor-exit v0
+
+    return-object v1
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v1
 .end method
 
 .method public getHeight()I
@@ -1373,11 +1401,27 @@
 .end method
 
 .method public getSurfaceTexture()Landroid/graphics/SurfaceTexture;
-    .locals 1
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/camera/SurfaceTextureScreenNail;->mSurfaceTexture:Landroid/graphics/SurfaceTexture;
+    iget-object v0, p0, Lcom/android/camera/SurfaceTextureScreenNail;->mLock:Ljava/lang/Object;
 
-    return-object v0
+    monitor-enter v0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/camera/SurfaceTextureScreenNail;->mSurfaceTexture:Landroid/graphics/SurfaceTexture;
+
+    monitor-exit v0
+
+    return-object v1
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v1
 .end method
 
 .method public getWidth()I
@@ -1569,7 +1613,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/android/camera/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/android/camera/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v0, p0, Lcom/android/camera/SurfaceTextureScreenNail;->mSurfaceTexture:Landroid/graphics/SurfaceTexture;
 
@@ -1610,7 +1654,7 @@
 .method public setVideoStabilizationCropped(Z)V
     .locals 1
 
-    invoke-static {}, Lcom/mi/config/b;->gH()Z
+    invoke-static {}, Lcom/mi/config/b;->gK()Z
 
     move-result v0
 

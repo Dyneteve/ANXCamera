@@ -1,6 +1,8 @@
 package com.android.camera.fragment.mimoji;
 
+import android.app.AlertDialog.Builder;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,7 +17,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import com.android.camera.CameraSettings;
 import com.android.camera.R;
-import com.android.camera.ToastUtils;
+import com.android.camera.data.DataRepository;
 import com.android.camera.fragment.CommonRecyclerViewHolder;
 import com.android.camera.fragment.DefaultItemAnimator;
 import com.android.camera.fragment.live.FragmentLiveBase;
@@ -23,6 +25,8 @@ import com.android.camera.fragment.music.RoundedCornersTransformation;
 import com.android.camera.log.Log;
 import com.android.camera.module.impl.component.FileUtils;
 import com.android.camera.protocol.ModeCoordinatorImpl;
+import com.android.camera.protocol.ModeProtocol.ActionProcessing;
+import com.android.camera.protocol.ModeProtocol.MimojiAlert;
 import com.android.camera.protocol.ModeProtocol.MimojiAvatarEngine;
 import com.android.camera.protocol.ModeProtocol.MimojiEditor;
 import com.android.camera.protocol.ModeProtocol.ModeCoordinator;
@@ -31,28 +35,35 @@ import com.bumptech.glide.load.i;
 import com.bumptech.glide.request.f;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-public class FragmentMimoji extends FragmentLiveBase implements OnClickListener {
+public class FragmentMimoji extends FragmentLiveBase implements OnClickListener, MimojiAlert {
     public static final String ADD_STATE = "add_state";
     public static final String CLOSE_STATE = "close_state";
+    private static final String FAKE_ADD_CONFIGPATH = "add";
     private static final int FRAGMENT_INFO = 4095;
     private static final String TAG = FragmentMimoji.class.getSimpleName();
     /* access modifiers changed from: private */
     public BubbleEditMimojiPresenter bubbleEditMimojiPresenter;
-    private View mAddItemView;
     private Context mContext;
+    private int mItemWidth;
     private LinearLayoutManager mLayoutManager;
     /* access modifiers changed from: private */
     public List<MimojiInfo> mMimojiInfoList;
-    private MimojiInfo mMimojiInfoSelect;
+    /* access modifiers changed from: private */
+    public MimojiInfo mMimojiInfoSelect;
     /* access modifiers changed from: private */
     public MimojiItemAdapter mMimojiItemAdapter;
     private RecyclerView mMimojiRecylerView;
     private View mNoneItemView;
     /* access modifiers changed from: private */
     public View mNoneSelectItemView;
+    private int mSelectIndex;
     private String mSelectState = CLOSE_STATE;
+    private int mTotalWidth;
+    private RelativeLayout popContainer;
+    private RelativeLayout popParent;
 
     public class MimojiItemAdapter extends Adapter<MimojiItemHolder> {
         private String adapterSelectState;
@@ -100,16 +111,26 @@ public class FragmentMimoji extends FragmentLiveBase implements OnClickListener 
             View view = mimojiItemHolder.getView(R.id.mimoji_long_item_selected_indicator);
             MimojiInfo mimojiInfo = (MimojiInfo) this.datas.get(i);
             mimojiItemHolder.itemView.setTag(mimojiInfo);
-            c.g(this.mContext).l(mimojiInfo.mThumbnailUrl).b(f.a((i<Bitmap>) new RoundedCornersTransformation<Bitmap>(10, 1))).a(imageView);
-            if (mimojiInfo == null || !mimojiInfo.mConfigPath.equals(this.adapterSelectState)) {
-                this.mSelectItemView.setVisibility(8);
-                view.setVisibility(8);
-                this.mimojiInfoSelected = null;
-                return;
+            if (mimojiInfo != null && mimojiInfo.mConfigPath != null) {
+                if (FragmentMimoji.FAKE_ADD_CONFIGPATH.equals(mimojiInfo.mConfigPath)) {
+                    c.g(this.mContext).a(Integer.valueOf(R.drawable.mimoji_add)).b(f.a((i<Bitmap>) new RoundedCornersTransformation<Bitmap>(10, 1))).a(imageView);
+                } else {
+                    c.g(this.mContext).l(mimojiInfo.mThumbnailUrl).b(f.a((i<Bitmap>) new RoundedCornersTransformation<Bitmap>(10, 1))).a(imageView);
+                }
+                if (mimojiInfo == null || TextUtils.isEmpty(this.adapterSelectState) || TextUtils.isEmpty(mimojiInfo.mConfigPath) || !this.adapterSelectState.equals(mimojiInfo.mConfigPath) || mimojiInfo.mConfigPath.equals(FragmentMimoji.FAKE_ADD_CONFIGPATH)) {
+                    this.mSelectItemView.setVisibility(8);
+                    view.setVisibility(8);
+                    this.mimojiInfoSelected = null;
+                } else {
+                    this.mSelectItemView.setVisibility(0);
+                    if (AvatarEngineManager.isPrefabModel(mimojiInfo.mConfigPath)) {
+                        view.setVisibility(8);
+                    } else {
+                        view.setVisibility(0);
+                    }
+                    this.mimojiInfoSelected = mimojiInfo;
+                }
             }
-            this.mSelectItemView.setVisibility(0);
-            view.setVisibility(0);
-            this.mimojiInfoSelected = mimojiInfo;
         }
 
         public MimojiItemHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
@@ -127,24 +148,59 @@ public class FragmentMimoji extends FragmentLiveBase implements OnClickListener 
         }
     }
 
-    private void scrollIfNeed(int i) {
+    private boolean scrollIfNeed(int i) {
         if (i == this.mLayoutManager.findFirstVisibleItemPosition() || i == this.mLayoutManager.findFirstCompletelyVisibleItemPosition()) {
             this.mLayoutManager.scrollToPosition(Math.max(0, i - 1));
-        } else if (i == this.mLayoutManager.findLastVisibleItemPosition() || i == this.mLayoutManager.findLastCompletelyVisibleItemPosition()) {
+            return true;
+        } else if (i != this.mLayoutManager.findLastVisibleItemPosition() && i != this.mLayoutManager.findLastCompletelyVisibleItemPosition()) {
+            return false;
+        } else {
             this.mLayoutManager.scrollToPosition(Math.min(i + 1, this.mMimojiItemAdapter.getItemCount() - 1));
+            return true;
         }
+    }
+
+    private void setItemInCenter(int i) {
+        this.mLayoutManager.scrollToPositionWithOffset(i, (this.mTotalWidth / 2) - (this.mItemWidth / 2));
+    }
+
+    private void showAlertDialog() {
+        Builder builder = new Builder(getActivity());
+        builder.setTitle(R.string.mimoji_delete_dialog_title);
+        builder.setCancelable(false);
+        builder.setPositiveButton(R.string.mimoji_delete, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogInterface, int i) {
+                if (FragmentMimoji.this.mMimojiInfoSelect != null && !TextUtils.isEmpty(FragmentMimoji.this.mMimojiInfoSelect.mPackPath)) {
+                    FileUtils.deleteFile(FragmentMimoji.this.mMimojiInfoSelect.mPackPath);
+                    FragmentMimoji.this.bubbleEditMimojiPresenter.processBubbleAni(-2, -2, null);
+                    FragmentMimoji.this.mMimojiItemAdapter.setSelectState(FragmentMimoji.CLOSE_STATE);
+                    FragmentMimoji.this.mMimojiItemAdapter.notifyDataSetChanged();
+                    FragmentMimoji.this.filelistToMinojiInfo();
+                    DataRepository.dataItemLive().getMimojiStatusManager().mCurrentMimojiInfo = null;
+                }
+            }
+        });
+        builder.setNegativeButton(R.string.mimoji_cancle, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogInterface, int i) {
+            }
+        });
+        builder.show();
     }
 
     public void filelistToMinojiInfo() {
         File[] listFiles;
         this.mMimojiInfoList = new ArrayList();
+        MimojiInfo mimojiInfo = new MimojiInfo();
+        mimojiInfo.mConfigPath = FAKE_ADD_CONFIGPATH;
+        mimojiInfo.mDirectoryName = Long.MAX_VALUE;
+        this.mMimojiInfoList.add(mimojiInfo);
         ArrayList arrayList = new ArrayList();
         try {
             File file = new File(MimojiHelper.CUSTOM_DIR);
             if (file.isDirectory()) {
                 for (File file2 : file.listFiles()) {
-                    MimojiInfo mimojiInfo = new MimojiInfo();
-                    mimojiInfo.mAvatarTemplatePath = AvatarEngineManager.PersonTemplatePath;
+                    MimojiInfo mimojiInfo2 = new MimojiInfo();
+                    mimojiInfo2.mAvatarTemplatePath = AvatarEngineManager.PersonTemplatePath;
                     String name = file2.getName();
                     String absolutePath = file2.getAbsolutePath();
                     StringBuilder sb = new StringBuilder();
@@ -171,19 +227,45 @@ public class FragmentMimoji extends FragmentLiveBase implements OnClickListener 
                         if (!FileUtils.checkFileConsist(sb6) || !FileUtils.checkFileConsist(sb8)) {
                             arrayList.add(absolutePath);
                         } else {
-                            mimojiInfo.mConfigPath = sb6;
-                            mimojiInfo.mThumbnailUrl = sb8;
-                            mimojiInfo.mPackPath = absolutePath;
-                            this.mMimojiInfoList.add(mimojiInfo);
+                            mimojiInfo2.mConfigPath = sb6;
+                            mimojiInfo2.mThumbnailUrl = sb8;
+                            mimojiInfo2.mPackPath = absolutePath;
+                            mimojiInfo2.mDirectoryName = Long.valueOf(name).longValue();
+                            this.mMimojiInfoList.add(mimojiInfo2);
                         }
                     } else {
                         arrayList.add(absolutePath);
                     }
                 }
+                Collections.sort(this.mMimojiInfoList);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+        MimojiInfo mimojiInfo3 = new MimojiInfo();
+        mimojiInfo3.mAvatarTemplatePath = AvatarEngineManager.RoyanTemplatePath;
+        mimojiInfo3.mConfigPath = AvatarEngineManager.FAKE_ROYAN_CONFIGPATH;
+        StringBuilder sb9 = new StringBuilder();
+        sb9.append(MimojiHelper.MIMOJI_DIR);
+        sb9.append("/royan.png");
+        mimojiInfo3.mThumbnailUrl = sb9.toString();
+        this.mMimojiInfoList.add(mimojiInfo3);
+        MimojiInfo mimojiInfo4 = new MimojiInfo();
+        mimojiInfo4.mAvatarTemplatePath = AvatarEngineManager.PigTemplatePath;
+        mimojiInfo4.mConfigPath = AvatarEngineManager.FAKE_PIG_CONFIGPATH;
+        StringBuilder sb10 = new StringBuilder();
+        sb10.append(MimojiHelper.MIMOJI_DIR);
+        sb10.append("/pig.png");
+        mimojiInfo4.mThumbnailUrl = sb10.toString();
+        this.mMimojiInfoList.add(mimojiInfo4);
+        MimojiInfo mimojiInfo5 = new MimojiInfo();
+        mimojiInfo5.mAvatarTemplatePath = AvatarEngineManager.BearTemplatePath;
+        mimojiInfo5.mConfigPath = AvatarEngineManager.FAKE_BEAR_CONFIGPATH;
+        StringBuilder sb11 = new StringBuilder();
+        sb11.append(MimojiHelper.MIMOJI_DIR);
+        sb11.append("/bear.png");
+        mimojiInfo5.mThumbnailUrl = sb11.toString();
+        this.mMimojiInfoList.add(mimojiInfo5);
         this.mMimojiItemAdapter.setMimojiInfoList(this.mMimojiInfoList);
         this.mMimojiItemAdapter.notifyDataSetChanged();
         for (int i = 0; i < arrayList.size(); i++) {
@@ -202,26 +284,29 @@ public class FragmentMimoji extends FragmentLiveBase implements OnClickListener 
 
     /* access modifiers changed from: protected */
     public void initView(View view) {
+        this.mItemWidth = getResources().getDimensionPixelSize(R.dimen.live_sticker_item_size);
+        this.mTotalWidth = getResources().getDisplayMetrics().widthPixels;
         this.mContext = getContext();
         this.mNoneItemView = view.findViewById(R.id.mimoji_none_item);
         this.mMimojiRecylerView = (RecyclerView) view.findViewById(R.id.mimoji_list);
-        RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(R.id.ll_bubble_pop_occupation);
+        this.popContainer = (RelativeLayout) view.findViewById(R.id.ll_bubble_pop_occupation);
+        this.popParent = (RelativeLayout) view.findViewById(R.id.rl_bubble_pop_parent);
         DefaultItemAnimator defaultItemAnimator = new DefaultItemAnimator();
         defaultItemAnimator.setChangeDuration(150);
         defaultItemAnimator.setMoveDuration(150);
         defaultItemAnimator.setAddDuration(150);
         this.mMimojiRecylerView.setItemAnimator(defaultItemAnimator);
         this.mNoneSelectItemView = view.findViewById(R.id.mimoji_none_selected_indicator);
-        this.bubbleEditMimojiPresenter = new BubbleEditMimojiPresenter(getContext(), this, relativeLayout);
+        this.bubbleEditMimojiPresenter = new BubbleEditMimojiPresenter(getContext(), this, this.popParent);
         this.mMimojiRecylerView.addOnScrollListener(new OnScrollListener() {
             public void onScrollStateChanged(RecyclerView recyclerView, int i) {
                 super.onScrollStateChanged(recyclerView, i);
-                FragmentMimoji.this.bubbleEditMimojiPresenter.processBubbleAni(-2, -2);
+                FragmentMimoji.this.bubbleEditMimojiPresenter.processBubbleAni(-2, -2, null);
             }
         });
         this.mNoneItemView.setOnClickListener(new OnClickListener() {
             public void onClick(View view) {
-                FragmentMimoji.this.bubbleEditMimojiPresenter.processBubbleAni(-2, -2);
+                FragmentMimoji.this.bubbleEditMimojiPresenter.processBubbleAni(-2, -2, null);
                 CameraSettings.setCurrentMimojiState(FragmentMimoji.CLOSE_STATE);
                 FragmentMimoji.this.mNoneSelectItemView.setVisibility(0);
                 MimojiAvatarEngine mimojiAvatarEngine = (MimojiAvatarEngine) ModeCoordinatorImpl.getInstance().getAttachProtocol(217);
@@ -233,40 +318,64 @@ public class FragmentMimoji extends FragmentLiveBase implements OnClickListener 
                 }
             }
         });
-        this.mAddItemView = view.findViewById(R.id.mimoji_add_item);
-        this.mAddItemView.setOnClickListener(new OnClickListener() {
-            public void onClick(View view) {
-                FragmentMimoji.this.bubbleEditMimojiPresenter.processBubbleAni(-2, -2);
-                FragmentMimoji.this.onAddItemSelected(view);
-            }
-        });
         this.mMimojiItemAdapter = new MimojiItemAdapter(getContext(), this.mSelectState);
         filelistToMinojiInfo();
         this.mLayoutManager = new LinearLayoutManager(getContext());
         this.mLayoutManager.setOrientation(0);
         this.mMimojiRecylerView.setLayoutManager(this.mLayoutManager);
         this.mMimojiRecylerView.setAdapter(this.mMimojiItemAdapter);
+        this.mSelectIndex = -1;
         String currentMimojiState = CameraSettings.getCurrentMimojiState();
+        int i = 1;
+        while (true) {
+            if (i >= this.mMimojiInfoList.size()) {
+                break;
+            } else if (currentMimojiState.equals(((MimojiInfo) this.mMimojiInfoList.get(i)).mConfigPath)) {
+                this.mSelectIndex = i;
+                break;
+            } else {
+                i++;
+            }
+        }
+        setItemInCenter(this.mSelectIndex);
         if (currentMimojiState.equals(CLOSE_STATE)) {
             this.mNoneSelectItemView.setVisibility(0);
-            return;
+        } else {
+            this.mMimojiItemAdapter.setSelectState(currentMimojiState);
+            this.mMimojiItemAdapter.notifyDataSetChanged();
+            MimojiInfo mimojiInfoSelected = this.mMimojiItemAdapter.getMimojiInfoSelected();
+            if (mimojiInfoSelected != null) {
+                onItemSelected(mimojiInfoSelected, -1, null, true);
+            }
         }
-        this.mMimojiItemAdapter.setSelectState(currentMimojiState);
-        this.mMimojiItemAdapter.notifyDataSetChanged();
-        MimojiInfo mimojiInfoSelected = this.mMimojiItemAdapter.getMimojiInfoSelected();
-        if (mimojiInfoSelected != null) {
-            onItemSelected(mimojiInfoSelected, -1, null, true);
-        }
+        CameraSettings.setMimojiPannelState(true);
     }
 
     /* access modifiers changed from: protected */
-    public void onAddItemSelected(View view) {
+    public void onAddItemSelected() {
         this.mIsNeedShowWhenExit = false;
         CameraSettings.setCurrentMimojiState(ADD_STATE);
         MimojiAvatarEngine mimojiAvatarEngine = (MimojiAvatarEngine) ModeCoordinatorImpl.getInstance().getAttachProtocol(217);
         if (mimojiAvatarEngine != null) {
             mimojiAvatarEngine.onMimojiCreate();
         }
+        ActionProcessing actionProcessing = (ActionProcessing) ModeCoordinatorImpl.getInstance().getAttachProtocol(162);
+        if (actionProcessing != null) {
+            actionProcessing.forceSwitchFront();
+        }
+    }
+
+    public boolean onBackEvent(int i) {
+        String str = TAG;
+        StringBuilder sb = new StringBuilder();
+        sb.append("onBackEvent = ");
+        sb.append(i);
+        Log.d(str, sb.toString());
+        if (DataRepository.dataItemLive().getMimojiStatusManager().IsInMimojiEdit() && i != 4) {
+            return false;
+        }
+        CameraSettings.setMimojiPannelState(false);
+        return super.onBackEvent(i);
     }
 
     public void onClick(View view) {
@@ -278,20 +387,12 @@ public class FragmentMimoji extends FragmentLiveBase implements OnClickListener 
                 }
                 MimojiEditor mimojiEditor = (MimojiEditor) ModeCoordinatorImpl.getInstance().getAttachProtocol(224);
                 if (mimojiEditor != null) {
-                    mimojiEditor.directlyEnterEditMode(this.mMimojiInfoSelect.mConfigPath);
+                    mimojiEditor.directlyEnterEditMode(this.mMimojiInfoSelect, 101);
                 }
-                this.bubbleEditMimojiPresenter.processBubbleAni(-2, -2);
+                this.bubbleEditMimojiPresenter.processBubbleAni(-2, -2, null);
                 return;
             case 102:
-                if (this.mMimojiInfoSelect != null && !TextUtils.isEmpty(this.mMimojiInfoSelect.mPackPath)) {
-                    FileUtils.deleteFile(this.mMimojiInfoSelect.mPackPath);
-                    this.bubbleEditMimojiPresenter.processBubbleAni(-2, -2);
-                    this.mMimojiItemAdapter.setSelectState(CLOSE_STATE);
-                    this.mMimojiItemAdapter.notifyDataSetChanged();
-                    ToastUtils.showToast((Context) getActivity(), getResources().getString(R.string.mimoji_delete_success));
-                    filelistToMinojiInfo();
-                    return;
-                }
+                showAlertDialog();
                 return;
             default:
                 return;
@@ -311,32 +412,74 @@ public class FragmentMimoji extends FragmentLiveBase implements OnClickListener 
             sb.append(" lastState:");
             sb.append(currentMimojiState);
             Log.i(str2, sb.toString());
-            this.bubbleEditMimojiPresenter.processBubbleAni(-2, -2);
-            if (!z) {
-                scrollIfNeed(i);
-            }
-            if (!str.equals(currentMimojiState) || currentMimojiState.equals(ADD_STATE) || currentMimojiState.equals(CLOSE_STATE) || z) {
-                this.mNoneSelectItemView.setVisibility(8);
-                this.mMimojiItemAdapter.setSelectState(mimojiInfo.mConfigPath);
-                this.mMimojiItemAdapter.notifyDataSetChanged();
-                MimojiAvatarEngine mimojiAvatarEngine = (MimojiAvatarEngine) ModeCoordinatorImpl.getInstance().getAttachProtocol(217);
-                if (mimojiAvatarEngine != null) {
-                    mimojiAvatarEngine.onMimojiSelect(mimojiInfo);
-                }
+            this.bubbleEditMimojiPresenter.processBubbleAni(-2, -2, null);
+            if (FAKE_ADD_CONFIGPATH.equals(mimojiInfo.mConfigPath)) {
+                onAddItemSelected();
                 return;
             }
+            if (!z) {
+                if (i == this.mLayoutManager.findFirstVisibleItemPosition() || i == this.mLayoutManager.findFirstCompletelyVisibleItemPosition()) {
+                    this.mLayoutManager.scrollToPosition(Math.max(0, i - 1));
+                } else if (i == this.mLayoutManager.findLastVisibleItemPosition() || i == this.mLayoutManager.findLastCompletelyVisibleItemPosition()) {
+                    this.mLayoutManager.scrollToPosition(Math.min(i + 1, this.mMimojiItemAdapter.getItemCount() - 1));
+                } else {
+                    processBubble(mimojiInfo, str, currentMimojiState, view, z);
+                }
+                setAvatarAndSelect(str, mimojiInfo);
+            } else {
+                processBubble(mimojiInfo, str, currentMimojiState, view, z);
+                setAvatarAndSelect(str, mimojiInfo);
+            }
+        }
+    }
+
+    public void processBubble(MimojiInfo mimojiInfo, String str, String str2, View view, boolean z) {
+        boolean z2 = mimojiInfo.mAvatarTemplatePath.equals(AvatarEngineManager.BearTemplatePath) || mimojiInfo.mAvatarTemplatePath.equals(AvatarEngineManager.PigTemplatePath) || mimojiInfo.mAvatarTemplatePath.equals(AvatarEngineManager.RoyanTemplatePath);
+        if (str.equals(str2) && !str2.equals(ADD_STATE) && !str2.equals(CLOSE_STATE) && !z && !z2) {
             this.mMimojiInfoSelect = mimojiInfo;
             int width = view.getWidth();
             int[] iArr = new int[2];
             view.getLocationOnScreen(iArr);
-            int i2 = (iArr[0] + (width / 2)) - 40;
-            this.bubbleEditMimojiPresenter.processBubbleAni(i2, 70 + view.getHeight());
+            int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(R.dimen.mimoji_edit_bubble_width) / 2;
+            int i = (iArr[0] + (width / 2)) - dimensionPixelSize;
+            int height = (this.popContainer.getHeight() + (view.getHeight() / 2)) - dimensionPixelSize;
+            String str3 = TAG;
+            StringBuilder sb = new StringBuilder();
+            sb.append("coordinateY:");
+            sb.append(height);
+            Log.i(str3, sb.toString());
+            this.bubbleEditMimojiPresenter.processBubbleAni(i, height, view);
+        }
+    }
+
+    public void refreshMimojiList() {
+        if (this.mMimojiItemAdapter != null) {
+            Log.d(TAG, "refreshMimojiList");
+            filelistToMinojiInfo();
+            this.mMimojiItemAdapter.notifyDataSetChanged();
+        }
+    }
+
+    /* access modifiers changed from: protected */
+    public void register(ModeCoordinator modeCoordinator) {
+        super.register(modeCoordinator);
+        ModeCoordinatorImpl.getInstance().attachProtocol(226, this);
+    }
+
+    public void setAvatarAndSelect(String str, MimojiInfo mimojiInfo) {
+        this.mNoneSelectItemView.setVisibility(8);
+        this.mMimojiItemAdapter.setSelectState(str);
+        this.mMimojiItemAdapter.notifyDataSetChanged();
+        MimojiAvatarEngine mimojiAvatarEngine = (MimojiAvatarEngine) ModeCoordinatorImpl.getInstance().getAttachProtocol(217);
+        if (mimojiAvatarEngine != null) {
+            mimojiAvatarEngine.onMimojiSelect(mimojiInfo);
         }
     }
 
     /* access modifiers changed from: protected */
     public void unRegister(ModeCoordinator modeCoordinator) {
         super.unRegister(modeCoordinator);
-        this.bubbleEditMimojiPresenter.processBubbleAni(-2, -2);
+        this.bubbleEditMimojiPresenter.processBubbleAni(-2, -2, null);
+        ModeCoordinatorImpl.getInstance().detachProtocol(226, this);
     }
 }

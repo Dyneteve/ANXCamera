@@ -78,7 +78,7 @@ public class AsvloffscreenUtil {
     }
 
     public static ASVLOFFSCREEN buildRGBA(Bitmap bitmap) {
-        if (bitmap == null || bitmap.isRecycled() || !bitmap.hasAlpha()) {
+        if (bitmap == null || bitmap.isRecycled()) {
             return null;
         }
         int width = bitmap.getWidth();

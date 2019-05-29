@@ -150,7 +150,7 @@ public class ComponentRunningUltraPixel extends ComponentData {
         }
         if (cameraCapabilities != null) {
             if (i == 163 || i == 165) {
-                if (i2 == 0 && !DataRepository.dataItemFeature().gz()) {
+                if (i2 == 0 && !DataRepository.dataItemFeature().gA()) {
                     int gb = DataRepository.dataItemFeature().gb();
                     if (gb > 0 && gb == 48000000) {
                         this.mItems.add(new ComponentDataItem(R.drawable.ic_menu_ultra_pixel_photography_48mp, R.drawable.ic_menu_ultra_pixel_photography_48mp, R.string.pref_menu_ultra_pixel_photography_48mp, "OFF"));

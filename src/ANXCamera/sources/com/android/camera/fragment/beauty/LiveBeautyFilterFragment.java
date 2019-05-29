@@ -39,7 +39,6 @@ import com.android.camera.protocol.ModeCoordinatorImpl;
 import com.android.camera.protocol.ModeProtocol.CameraAction;
 import com.android.camera.protocol.ModeProtocol.ConfigChanges;
 import com.android.camera.protocol.ModeProtocol.LiveConfigChanges;
-import com.android.camera.ui.RoundImageView;
 import java.util.List;
 import miui.view.animation.CubicEaseOutInterpolator;
 
@@ -121,15 +120,13 @@ public class LiveBeautyFilterFragment extends Fragment implements OnClickListene
     }
 
     protected class FilterStillItemHolder extends FilterItemHolder {
-        private RoundImageView mImageView;
-        private ImageView mSelectedInnerIndicator;
+        private ImageView mImageView;
         private ImageView mSelectedOuterIndicator;
 
         public FilterStillItemHolder(View view) {
             super(view);
-            this.mImageView = (RoundImageView) view.findViewById(R.id.effect_item_image);
+            this.mImageView = (ImageView) view.findViewById(R.id.effect_item_image);
             this.mSelectedOuterIndicator = (ImageView) view.findViewById(R.id.effect_item_selected_indicator);
-            this.mSelectedInnerIndicator = (ImageView) view.findViewById(R.id.effect_item_selected_inner_indicator);
         }
 
         private void normalAnim(View view) {
@@ -178,25 +175,19 @@ public class LiveBeautyFilterFragment extends Fragment implements OnClickListene
                 }
                 if (LiveBeautyFilterFragment.this.isAnimation) {
                     selectAnim(this.mSelectedOuterIndicator);
-                    selectAnim(this.mSelectedInnerIndicator);
                     return;
                 }
                 this.mSelectedOuterIndicator.setVisibility(0);
                 this.mSelectedOuterIndicator.setAlpha(1.0f);
-                this.mSelectedInnerIndicator.setVisibility(0);
-                this.mSelectedInnerIndicator.setAlpha(1.0f);
                 return;
             }
             this.itemView.setActivated(false);
             if (!LiveBeautyFilterFragment.this.isAnimation || i != LiveBeautyFilterFragment.this.mLastIndex) {
                 this.mSelectedOuterIndicator.setVisibility(8);
                 this.mSelectedOuterIndicator.setAlpha(0.0f);
-                this.mSelectedInnerIndicator.setVisibility(8);
-                this.mSelectedInnerIndicator.setAlpha(0.0f);
                 return;
             }
             normalAnim(this.mSelectedOuterIndicator);
-            normalAnim(this.mSelectedInnerIndicator);
         }
     }
 

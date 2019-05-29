@@ -202,7 +202,7 @@
     return-object v0
 
     :cond_0
-    invoke-static {}, Lcom/mi/config/b;->iy()Z
+    invoke-static {}, Lcom/mi/config/b;->iB()Z
 
     move-result v0
 
@@ -543,7 +543,7 @@
 .method public isSupportedTorch()Z
     .locals 2
 
-    invoke-static {}, Lcom/mi/config/b;->ht()Z
+    invoke-static {}, Lcom/mi/config/b;->hw()Z
 
     move-result v0
 

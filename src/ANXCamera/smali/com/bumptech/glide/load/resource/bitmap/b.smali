@@ -18,9 +18,9 @@
 
 
 # instance fields
-.field private final ak:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
+.field private final al:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
-.field private final fy:Lcom/bumptech/glide/load/h;
+.field private final fz:Lcom/bumptech/glide/load/h;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/h<",
@@ -46,9 +46,9 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/b;->ak:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
+    iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/b;->al:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
-    iput-object p2, p0, Lcom/bumptech/glide/load/resource/bitmap/b;->fy:Lcom/bumptech/glide/load/h;
+    iput-object p2, p0, Lcom/bumptech/glide/load/resource/bitmap/b;->fz:Lcom/bumptech/glide/load/h;
 
     return-void
 .end method
@@ -81,7 +81,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/b;->fy:Lcom/bumptech/glide/load/h;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/b;->fz:Lcom/bumptech/glide/load/h;
 
     new-instance v1, Lcom/bumptech/glide/load/resource/bitmap/f;
 
@@ -95,7 +95,7 @@
 
     move-result-object p1
 
-    iget-object v2, p0, Lcom/bumptech/glide/load/resource/bitmap/b;->ak:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
+    iget-object v2, p0, Lcom/bumptech/glide/load/resource/bitmap/b;->al:Lcom/bumptech/glide/load/engine/bitmap_recycle/d;
 
     invoke-direct {v1, p1, v2}, Lcom/bumptech/glide/load/resource/bitmap/f;-><init>(Landroid/graphics/Bitmap;Lcom/bumptech/glide/load/engine/bitmap_recycle/d;)V
 
@@ -139,7 +139,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/b;->fy:Lcom/bumptech/glide/load/h;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/b;->fz:Lcom/bumptech/glide/load/h;
 
     invoke-interface {v0, p1}, Lcom/bumptech/glide/load/h;->b(Lcom/bumptech/glide/load/f;)Lcom/bumptech/glide/load/EncodeStrategy;
 

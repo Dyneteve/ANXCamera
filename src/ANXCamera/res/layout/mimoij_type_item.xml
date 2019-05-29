@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.camera.ui.autoselectview.AlphaView android:textSize="17.5sp" android:id="@id/tv_type" android:layout_width="fill_parent" android:layout_height="wrap_content" app:av_tabText="眼睛" app:av_tabTextSize="17.0sp" app:av_textColorNormal="#ffffffff" app:av_textColorSelected="#ff0095ff"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" />

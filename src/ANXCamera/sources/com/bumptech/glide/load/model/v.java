@@ -17,15 +17,15 @@ import java.util.Set;
 
 /* compiled from: UriLoader */
 public class v<Data> implements m<Uri, Data> {
-    private static final Set<String> kr = Collections.unmodifiableSet(new HashSet(Arrays.asList(new String[]{ComposerHelper.COMPOSER_PATH, "android.resource", ComposerHelper.COMPOSER_CONTENT})));
-    private final c<Data> ks;
+    private static final Set<String> ks = Collections.unmodifiableSet(new HashSet(Arrays.asList(new String[]{ComposerHelper.COMPOSER_PATH, "android.resource", ComposerHelper.COMPOSER_CONTENT})));
+    private final c<Data> kt;
 
     /* compiled from: UriLoader */
     public static final class a implements n<Uri, AssetFileDescriptor>, c<AssetFileDescriptor> {
-        private final ContentResolver ee;
+        private final ContentResolver ef;
 
         public a(ContentResolver contentResolver) {
-            this.ee = contentResolver;
+            this.ef = contentResolver;
         }
 
         public m<Uri, AssetFileDescriptor> a(q qVar) {
@@ -36,16 +36,16 @@ public class v<Data> implements m<Uri, Data> {
         }
 
         public com.bumptech.glide.load.a.d<AssetFileDescriptor> l(Uri uri) {
-            return new com.bumptech.glide.load.a.a(this.ee, uri);
+            return new com.bumptech.glide.load.a.a(this.ef, uri);
         }
     }
 
     /* compiled from: UriLoader */
     public static class b implements n<Uri, ParcelFileDescriptor>, c<ParcelFileDescriptor> {
-        private final ContentResolver ee;
+        private final ContentResolver ef;
 
         public b(ContentResolver contentResolver) {
-            this.ee = contentResolver;
+            this.ef = contentResolver;
         }
 
         @NonNull
@@ -57,7 +57,7 @@ public class v<Data> implements m<Uri, Data> {
         }
 
         public com.bumptech.glide.load.a.d<ParcelFileDescriptor> l(Uri uri) {
-            return new i(this.ee, uri);
+            return new i(this.ef, uri);
         }
     }
 
@@ -68,10 +68,10 @@ public class v<Data> implements m<Uri, Data> {
 
     /* compiled from: UriLoader */
     public static class d implements n<Uri, InputStream>, c<InputStream> {
-        private final ContentResolver ee;
+        private final ContentResolver ef;
 
         public d(ContentResolver contentResolver) {
-            this.ee = contentResolver;
+            this.ef = contentResolver;
         }
 
         @NonNull
@@ -83,21 +83,21 @@ public class v<Data> implements m<Uri, Data> {
         }
 
         public com.bumptech.glide.load.a.d<InputStream> l(Uri uri) {
-            return new n(this.ee, uri);
+            return new n(this.ef, uri);
         }
     }
 
     public v(c<Data> cVar) {
-        this.ks = cVar;
+        this.kt = cVar;
     }
 
     /* renamed from: a */
     public com.bumptech.glide.load.model.m.a<Data> b(@NonNull Uri uri, int i, int i2, @NonNull f fVar) {
-        return new com.bumptech.glide.load.model.m.a<>(new com.bumptech.glide.e.d(uri), this.ks.l(uri));
+        return new com.bumptech.glide.load.model.m.a<>(new com.bumptech.glide.e.d(uri), this.kt.l(uri));
     }
 
     /* renamed from: k */
     public boolean q(@NonNull Uri uri) {
-        return kr.contains(uri.getScheme());
+        return ks.contains(uri.getScheme());
     }
 }
