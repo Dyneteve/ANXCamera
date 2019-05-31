@@ -6,6 +6,6 @@ rem ..\ANXMiuiPortTools\hub.exe release edit -a .\out\ANXCameraMagisk.zip -m sin
 rem ..\ANXMiuiPortTools\hub.exe release create -a .\out\ANXCameraMagisk.zip -m %anxversion% %anxversioncode%
 REM ..\ANXMiuiPortTools\hub.exe release create -a .\out\ANXCameraMagisk_%anxversion%.zip -m singularity.%anxversion% %anxversioncode%.singularity
 ..\ANXMiuiPortTools\hub.exe release create -a .\out\ANXCameraUnity_%anxversion%.zip -m singularity.%anxversion% %anxversioncode%.singularity
-..\ANXMiuiPortTools\hub.exe release edit -a .\out\ANXCameraPerseusStockLibsUnity_%anxversion%.zip -m singularity.%anxversion% %anxversioncode%.singularity
+REM ..\ANXMiuiPortTools\hub.exe release edit -a .\out\ANXCameraPerseusStockLibsUnity_%anxversion%.zip -m singularity.%anxversion% %anxversioncode%.singularity
 rem ..\ANXMiuiPortTools\hub.exe release edit -a .\out\ANX4K60Unity_%anxversion%.zip -m singularity.%anxversion% %anxversioncode%.singularity
 rem ..\ANXMiuiPortTools\hub.exe release edit -a .\out\ANX4K60Unity_%anxversion%.zip -m singularity.%anxversion% %anxversioncode%.singularity
