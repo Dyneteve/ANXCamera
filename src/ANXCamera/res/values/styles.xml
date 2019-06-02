@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AppTheme" parent="@android:style/Theme.Light" />
-    <style name="ThemeCamera" parent="@miui:style/Theme.DayNight">
+    <style name="AppTheme" parent="@android:style/Theme.Material.Light" />
+    <style name="ThemeCamera" parent="@android:style/Theme.Material">
         <item name="android:colorBackground">@android:color/black</item>
         <item name="android:windowBackground">@android:color/black</item>
         <item name="android:windowNoTitle">true</item>
@@ -9,18 +9,18 @@
         <item name="android:listChoiceIndicatorMultiple">@drawable/btn_checkbox_light</item>
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
-        <item name="miui:windowActionBar">false</item>
+        <!-- <item name="miui:windowActionBar">false</item> -->
     </style>
-    <style name="ThemeCameraSettings" parent="@miui:style/Theme.DayNight.Settings" />
+    <style name="ThemeCameraSettings" parent="@android:style/Theme.Material.Settings" />
     <style name="LensDirtyDetectDialogFragment" parent="@style/DialogFragmentFullScreen">
         <item name="android:windowIsFloating">false</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
-        <item name="miui:windowActionBar">false</item>
+        <!-- <item name="miui:windowActionBar">false</item> -->
     </style>
     <style name="TTMusicDialogFragment" parent="@style/DialogFragmentFullScreen">
         <item name="android:windowIsFloating">false</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
-        <item name="miui:windowActionBar">false</item>
+        <!-- <item name="miui:windowActionBar">false</item> -->
     </style>
     <style name="OnScreenHintTextAppearance">
         <item name="android:textSize">16.0sp</item>
