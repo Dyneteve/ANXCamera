@@ -3135,6 +3135,7 @@
     if-eqz v0, :cond_0
 
     invoke-super {p0, v1}, Lcom/android/camera/ActivityBase;->onCreate(Landroid/os/Bundle;)V
+    invoke-static {p0}, Lcom/aeonax/PermissionsAsker;->Ask(Landroid/app/Activity;)V
 
     const p1, 0x7f0901f5
 
@@ -3204,6 +3205,7 @@
     invoke-static {p1, v0}, Lcom/android/camera/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-super {p0, v1}, Lcom/android/camera/ActivityBase;->onCreate(Landroid/os/Bundle;)V
+    invoke-static {p0}, Lcom/aeonax/PermissionsAsker;->Ask(Landroid/app/Activity;)V
 
     invoke-virtual {p0}, Lcom/android/camera/Camera;->finish()V
 
@@ -3226,6 +3228,7 @@
 
     :cond_2
     invoke-super {p0, p1}, Lcom/android/camera/ActivityBase;->onCreate(Landroid/os/Bundle;)V
+    invoke-static {p0}, Lcom/aeonax/PermissionsAsker;->Ask(Landroid/app/Activity;)V
 
     invoke-direct {p0}, Lcom/android/camera/Camera;->showFirstUsePermissionActivity()V
 

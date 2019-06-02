@@ -15,14 +15,12 @@ import com.android.camera.statistic.CameraStatUtil;
 import com.android.camera.ui.PreviewListPreference;
 import com.android.camera2.DetachableClickListener;
 import com.mi.config.b;
-import miui.app.ActionBar;
 
 public class CameraPreferenceActivity extends BasePreferenceActivity {
     public static final String IS_IMAGE_CAPTURE_INTENT = "IsCaptureIntent";
     /* access modifiers changed from: private */
     public AlertDialog mDoubleConfirmActionChooseDialog = null;
 
-    /* JADX WARNING: type inference failed for: r1v0, types: [android.content.Context, com.android.camera.CameraPreferenceActivity] */
     private void bringUpDoubleConfirmDlg(final PreviewListPreference previewListPreference, final String str) {
         if (this.mDoubleConfirmActionChooseDialog == null) {
             DetachableClickListener wrap = DetachableClickListener.wrap(new OnClickListener() {
@@ -61,16 +59,9 @@ public class CameraPreferenceActivity extends BasePreferenceActivity {
 
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (getIntent().getCharSequenceExtra(":miui:starting_window_label") != null) {
-            ActionBar actionBar = getActionBar();
-            if (actionBar != null) {
-                actionBar.setTitle(R.string.pref_camera_settings_category);
-            }
-        }
         changeRequestOrientation();
     }
 
-    /* JADX WARNING: type inference failed for: r5v0, types: [android.content.Context, com.android.camera.CameraPreferenceActivity, com.android.camera.BasePreferenceActivity] */
     public boolean onPreferenceChange(Preference preference, Object obj) {
         if (!preference.getKey().equals(CameraSettings.KEY_CAMERA_SNAP) || obj == null) {
             return super.onPreferenceChange(preference, obj);

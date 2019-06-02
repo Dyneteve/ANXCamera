@@ -10449,24 +10449,24 @@
 
     sput v0, Lcom/android/camera/Util;->sFullScreenExtraMargin:I
 
-    invoke-static {p0}, Lcom/android/camera/Util;->checkDeviceHasNavigationBar(Landroid/content/Context;)Z
+    # invoke-static {p0}, Lcom/android/camera/Util;->checkDeviceHasNavigationBar(Landroid/content/Context;)Z
 
-    move-result v0
+    # move-result v0
 
-    if-eqz v0, :cond_4
+    # if-eqz v0, :cond_4
 
     invoke-static {p0}, Lcom/android/camera/Util;->getNavigationBarHeight(Landroid/content/Context;)I
 
     move-result v0
 
-    goto :goto_2
+    # goto :goto_2
 
-    :cond_4
-    invoke-static {p0}, Lcom/android/camera/Util;->calcNavigationBarHeight(Landroid/content/Context;)I
+    # :cond_4
+    # invoke-static {p0}, Lcom/android/camera/Util;->calcNavigationBarHeight(Landroid/content/Context;)I
 
-    move-result v0
+    # move-result v0
 
-    :goto_2
+    # :goto_2
     sput v0, Lcom/android/camera/Util;->sNavigationBarHeight:I
 
     sget-boolean v0, Lcom/android/camera/Util;->isNotchDevice:Z
@@ -11404,17 +11404,20 @@
 .method public static isFullScreenNavBarHidden(Landroid/content/Context;)Z
     .locals 1
 
-    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    # invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object p0
+    # move-result-object p0
 
-    const-string v0, "force_fsg_nav_bar"
+    # const-string v0, "force_fsg_nav_bar"
 
-    invoke-static {p0, v0}, Landroid/provider/MiuiSettings$Global;->getBoolean(Landroid/content/ContentResolver;Ljava/lang/String;)Z
+    # invoke-static {p0, v0}, Landroid/provider/MiuiSettings$Global;->getBoolean(Landroid/content/ContentResolver;Ljava/lang/String;)Z
 
-    move-result p0
+    # move-result p0
 
-    return p0
+    # return p0
+    const/4 v0, 0x1 #isFullScreenNavBarHidden True
+ 
+    return v0
 .end method
 
 .method public static isGlobalVersion()Z

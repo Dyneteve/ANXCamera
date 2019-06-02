@@ -2689,7 +2689,7 @@ EDGE_INSN: B:64:0x0104->B:47:0x0104 ?: BREAK  , SYNTHETIC] */
         }
         isLongRatioScreen = isLongRatioScreen(sWindowWidth, sWindowHeight);
         sFullScreenExtraMargin = context.getResources().getDimensionPixelSize(R.dimen.fullscreen_extra_margin);
-        sNavigationBarHeight = checkDeviceHasNavigationBar(context) ? getNavigationBarHeight(context) : calcNavigationBarHeight(context);
+        sNavigationBarHeight = getNavigationBarHeight(context);
         if (isNotchDevice) {
             if (isLongRatioScreen) {
                 sStatusBarHeight = getStatusBarHeight(context);
@@ -2904,7 +2904,7 @@ EDGE_INSN: B:64:0x0104->B:47:0x0104 ?: BREAK  , SYNTHETIC] */
     }
 
     public static boolean isFullScreenNavBarHidden(Context context) {
-        return MiuiSettings.Global.getBoolean(context.getContentResolver(), MiuiSettings.Global.FORCE_FSG_NAV_BAR);
+        return true;
     }
 
     public static boolean isGlobalVersion() {
