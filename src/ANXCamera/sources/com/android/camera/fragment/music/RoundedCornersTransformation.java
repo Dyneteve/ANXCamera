@@ -8,7 +8,6 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.Shader.TileMode;
 import android.support.annotation.NonNull;
-import com.android.camera.constant.DurationConstant;
 import com.bumptech.glide.load.engine.bitmap_recycle.d;
 import com.bumptech.glide.load.resource.bitmap.g;
 import java.security.MessageDigest;
@@ -198,7 +197,7 @@ public class RoundedCornersTransformation extends g {
     }
 
     public int hashCode() {
-        return ID.hashCode() + (this.radius * DurationConstant.DURATION_VIDEO_RECORDING_CIRCLE) + (this.diameter * 1000) + (this.margin * 100) + (this.cornerType.ordinal() * 10);
+        return ID.hashCode() + (this.radius * 10000) + (this.diameter * 1000) + (this.margin * 100) + (this.cornerType.ordinal() * 10);
     }
 
     public String toString() {

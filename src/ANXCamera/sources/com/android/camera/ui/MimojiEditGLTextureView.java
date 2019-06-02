@@ -9,7 +9,6 @@ import android.util.AttributeSet;
 import com.android.camera.fragment.mimoji.AvatarEngineManager;
 import com.android.camera.log.Log;
 import com.android.camera.ui.GLTextureView.EGLConfigChooser;
-import com.android.gallery3d.exif.ExifInterface.GpsLatitudeRef;
 import com.android.gallery3d.exif.ExifInterface.GpsStatus;
 import com.arcsoft.avatar.AvatarEngine;
 import com.mi.config.b;
@@ -17,6 +16,7 @@ import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.opengles.GL10;
+import miui.reflect.Field;
 
 public class MimojiEditGLTextureView extends GLTextureView implements Renderer {
     private static float[] BACKGROUND_COLOR = {0.0f, 0.0f, 0.0f, 0.0f};
@@ -59,7 +59,7 @@ public class MimojiEditGLTextureView extends GLTextureView implements Renderer {
             iArr[12] = 12344;
             this.mConfigSpec = iArr;
             this.ATTR_ID = new int[]{12324, 12323, 12322, 12321, 12325, 12326, 12328, 12327};
-            this.ATTR_NAME = new String[]{"R", "G", "B", GpsStatus.IN_PROGRESS, "D", GpsLatitudeRef.SOUTH, "ID", "CAVEAT"};
+            this.ATTR_NAME = new String[]{"R", "G", Field.BYTE_SIGNATURE_PRIMITIVE, GpsStatus.IN_PROGRESS, Field.DOUBLE_SIGNATURE_PRIMITIVE, "S", "ID", "CAVEAT"};
         }
 
         private EGLConfig chooseConfig(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig[] eGLConfigArr) {

@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.provider.MiuiSettings.ScreenEffect;
+import android.provider.MiuiSettings.System;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import com.android.camera.CameraAppImpl;
@@ -88,7 +90,7 @@ public class CameraStatUtil {
         sExposureTimeLessThan1sToName.put(0, "auto");
         sExposureTimeLessThan1sToName.put(1000, "1/1000s");
         sExposureTimeLessThan1sToName.put(2000, "1/500s");
-        sExposureTimeLessThan1sToName.put(4000, "1/250s");
+        sExposureTimeLessThan1sToName.put(System.STATUS_BAR_UPDATE_NETWORK_SPEED_INTERVAL_DEFAULT, "1/250s");
         sExposureTimeLessThan1sToName.put(5000, "1/250s");
         sExposureTimeLessThan1sToName.put(BaseModule.LENS_DIRTY_DETECT_HINT_DURATION, "1/125s");
         sExposureTimeLessThan1sToName.put(16667, "1/60s");
@@ -1259,7 +1261,7 @@ public class CameraStatUtil {
     public static void trackLyingDirectPictureTaken(int i) {
         if (i != -1) {
             int i2 = i - 1;
-            int i3 = (360 - (i2 >= 0 ? i2 % 360 : (i2 % 360) + 360)) % 360;
+            int i3 = (360 - (i2 >= 0 ? i2 % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT : (i2 % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT) + ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT)) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT;
             HashMap hashMap = new HashMap();
             if (i % 2 == 0) {
                 hashMap.put(CameraStat.PARAM_LYING_DIRECT, CameraStat.LOCATION_WITHOUT);

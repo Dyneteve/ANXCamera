@@ -10,6 +10,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
+import android.provider.MiuiSettings.ScreenEffect;
 import android.support.annotation.StringRes;
 import android.util.AttributeSet;
 import android.util.Range;
@@ -399,10 +400,10 @@ public class FocusView extends View implements FocusIndicator, Rotatable, V6Func
 
     private int getCurrentAngle() {
         if (this.mCursorState == 2 && this.mCurrentViewState != 3 && this.mCurrentViewState != 4) {
-            return 360 - Util.clamp(this.mCurrentItem >= this.mAdapter.getCenterIndex() ? ((this.mCurrentItem - this.mAdapter.getCenterIndex()) * 360) / this.mAdapter.getCenterIndex() : 0, 0, 360);
+            return 360 - Util.clamp(this.mCurrentItem >= this.mAdapter.getCenterIndex() ? ((this.mCurrentItem - this.mAdapter.getCenterIndex()) * ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT) / this.mAdapter.getCenterIndex() : 0, 0, (int) ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT);
         } else if (this.mCurrentViewState == 1) {
             int clamp = Util.clamp(this.mBottomRelative - this.mCurrentDistanceY, 0, MAX_SLIDE_DISTANCE);
-            return 360 - Util.clamp(clamp >= MAX_SLIDE_DISTANCE / 2 ? ((clamp - (MAX_SLIDE_DISTANCE / 2)) * 360) / (MAX_SLIDE_DISTANCE / 2) : 0, 0, 360);
+            return 360 - Util.clamp(clamp >= MAX_SLIDE_DISTANCE / 2 ? ((clamp - (MAX_SLIDE_DISTANCE / 2)) * ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT) / (MAX_SLIDE_DISTANCE / 2) : 0, 0, (int) ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT);
         } else if (this.mCurrentViewState == 3) {
             return Util.clamp((int) (135.0f * this.mEVAnimationRatio * 2.0f), 0, 135);
         } else {

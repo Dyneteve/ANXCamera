@@ -15,6 +15,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
+import android.provider.MiuiSettings.ScreenEffect;
 import android.support.annotation.NonNull;
 import android.util.Size;
 import com.android.camera.CameraAppImpl;
@@ -179,7 +180,7 @@ public class SnapshotRender {
                 bArr = null;
                 iArr = null;
             } else {
-                int[] watermarkRange = Util.getWatermarkRange(drawYuvAttribute4.mPictureSize.getWidth(), drawYuvAttribute4.mPictureSize.getHeight(), (drawYuvAttribute4.mJpegRotation + 270) % 360, drawYuvAttribute4.mApplyWaterMark, drawYuvAttribute4.mTimeWatermark != null, 0.11f);
+                int[] watermarkRange = Util.getWatermarkRange(drawYuvAttribute4.mPictureSize.getWidth(), drawYuvAttribute4.mPictureSize.getHeight(), (drawYuvAttribute4.mJpegRotation + 270) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT, drawYuvAttribute4.mApplyWaterMark, drawYuvAttribute4.mTimeWatermark != null, 0.11f);
                 byte[] yuvData = ImageUtil.getYuvData(drawYuvAttribute4.mImage);
                 MiYuvImage subYuvImage = Util.getSubYuvImage(yuvData, width, height, rowStride, rowStride2, watermarkRange);
                 String access$4002 = SnapshotRender.TAG;
@@ -245,7 +246,7 @@ public class SnapshotRender {
                     }
                     long currentTimeMillis3 = System.currentTimeMillis();
                     if (!z) {
-                        iArr = Util.getWatermarkRange(i6, i5, (drawYuvAttribute2.mJpegRotation + 270) % 360, drawYuvAttribute2.mApplyWaterMark, drawYuvAttribute2.mTimeWatermark != null ? r8 : 0, 0.11f);
+                        iArr = Util.getWatermarkRange(i6, i5, (drawYuvAttribute2.mJpegRotation + 270) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT, drawYuvAttribute2.mApplyWaterMark, drawYuvAttribute2.mTimeWatermark != null ? r8 : 0, 0.11f);
                         int i16 = iArr[0];
                         i10 = iArr[r8];
                         i11 = i16;
@@ -331,7 +332,7 @@ public class SnapshotRender {
                 this.mGLCanvas.recycledResources();
                 drawYuvAttribute3 = drawYuvAttribute;
                 if (drawYuvAttribute3.mApplyWaterMark) {
-                    int[] watermarkRange2 = Util.getWatermarkRange(drawYuvAttribute3.mOutputSize.getWidth(), drawYuvAttribute3.mOutputSize.getHeight(), (drawYuvAttribute3.mJpegRotation + 270) % 360, drawYuvAttribute3.mApplyWaterMark, drawYuvAttribute3.mTimeWatermark != null, 0.11f);
+                    int[] watermarkRange2 = Util.getWatermarkRange(drawYuvAttribute3.mOutputSize.getWidth(), drawYuvAttribute3.mOutputSize.getHeight(), (drawYuvAttribute3.mJpegRotation + 270) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT, drawYuvAttribute3.mApplyWaterMark, drawYuvAttribute3.mTimeWatermark != null, 0.11f);
                     drawYuvAttribute3.mDataOfTheRegionUnderWatermarks = bArr2;
                     drawYuvAttribute3.mCoordinatesOfTheRegionUnderWatermarks = watermarkRange2;
                 }
@@ -438,7 +439,7 @@ public class SnapshotRender {
                 i4 = height;
             }
             if (drawYuvAttribute2.mApplyWaterMark) {
-                int[] watermarkRange = Util.getWatermarkRange(i3, i4, (drawYuvAttribute2.mJpegRotation + 270) % 360, drawYuvAttribute2.mApplyWaterMark, drawYuvAttribute2.mTimeWatermark != null, 0.11f);
+                int[] watermarkRange = Util.getWatermarkRange(i3, i4, (drawYuvAttribute2.mJpegRotation + 270) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT, drawYuvAttribute2.mApplyWaterMark, drawYuvAttribute2.mTimeWatermark != null, 0.11f);
                 rectF = new RectF((float) (watermarkRange[0] + i2), (float) (watermarkRange[1] + i), (float) (watermarkRange[0] + watermarkRange[2] + i2), (float) (watermarkRange[1] + watermarkRange[3] + i));
                 ShaderNativeUtil.genWaterMarkRange(watermarkRange[0] + i2, watermarkRange[1] + i, watermarkRange[2], watermarkRange[3], 4);
             } else {
@@ -560,7 +561,7 @@ public class SnapshotRender {
             this.mGLCanvas.recycledResources();
             if (drawYuvAttribute2.mApplyWaterMark) {
                 byte[] waterMarkRange = ShaderNativeUtil.getWaterMarkRange(SnapshotRender.this.mQuality, 4);
-                int[] watermarkRange2 = Util.getWatermarkRange(drawYuvAttribute2.mOutputSize.getWidth(), drawYuvAttribute2.mOutputSize.getHeight(), (drawYuvAttribute2.mJpegRotation + 270) % 360, drawYuvAttribute2.mApplyWaterMark, drawYuvAttribute2.mTimeWatermark != null, 0.11f);
+                int[] watermarkRange2 = Util.getWatermarkRange(drawYuvAttribute2.mOutputSize.getWidth(), drawYuvAttribute2.mOutputSize.getHeight(), (drawYuvAttribute2.mJpegRotation + 270) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT, drawYuvAttribute2.mApplyWaterMark, drawYuvAttribute2.mTimeWatermark != null, 0.11f);
                 drawYuvAttribute2.mDataOfTheRegionUnderWatermarks = waterMarkRange;
                 drawYuvAttribute2.mCoordinatesOfTheRegionUnderWatermarks = watermarkRange2;
             }

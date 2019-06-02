@@ -3,7 +3,6 @@ package com.ss.android.ugc.effectmanager;
 import android.text.TextUtils;
 import android.util.Log;
 import com.android.camera.module.impl.component.FileUtils;
-import com.bytedance.frameworks.core.monitor.MonitorCommonConstants;
 import com.ss.android.ugc.effectmanager.common.EffectConstants;
 import com.ss.android.ugc.effectmanager.common.ErrorConstants;
 import com.ss.android.ugc.effectmanager.common.Preconditions;
@@ -307,7 +306,7 @@ public class EffectManager {
         if (!TextUtils.isEmpty(str)) {
             this.mEffectChannelRepository.fetchList(str, currentTaskID, false);
         } else {
-            this.mEffectChannelRepository.fetchList(MonitorCommonConstants.DEFAULT_AID, currentTaskID, false);
+            this.mEffectChannelRepository.fetchList("default", currentTaskID, false);
         }
     }
 
@@ -390,7 +389,7 @@ public class EffectManager {
         if (!TextUtils.isEmpty(str)) {
             this.mEffectChannelRepository.fetchList(str, currentTaskID, true);
         } else {
-            this.mEffectChannelRepository.fetchList(MonitorCommonConstants.DEFAULT_AID, currentTaskID, true);
+            this.mEffectChannelRepository.fetchList("default", currentTaskID, true);
         }
     }
 
@@ -406,7 +405,7 @@ public class EffectManager {
         if (!TextUtils.isEmpty(str)) {
             this.mEffectChannelRepository.fetchExistEffectList(str, currentTaskID);
         } else {
-            this.mEffectChannelRepository.fetchExistEffectList(MonitorCommonConstants.DEFAULT_AID, currentTaskID);
+            this.mEffectChannelRepository.fetchExistEffectList("default", currentTaskID);
         }
     }
 

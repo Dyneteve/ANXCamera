@@ -198,7 +198,7 @@ public class ScenarioTrackUtil {
 
     public static void trackCaptureTimeStart(@NonNull boolean z, @NonNull int i) {
         E2EScenarioPayload e2EScenarioPayload = new E2EScenarioPayload();
-        e2EScenarioPayload.putValues(new Object[]{"CameraID", CameraStatUtil.cameraIdToName(z), "Module", CameraStatUtil.modeIdToName(i)});
+        e2EScenarioPayload.putValues("CameraID", CameraStatUtil.cameraIdToName(z), "Module", CameraStatUtil.modeIdToName(i));
         beginScenario(sCaptureTimeScenario, e2EScenarioPayload);
     }
 
@@ -212,7 +212,7 @@ public class ScenarioTrackUtil {
 
     public static void trackStartVideoRecordStart(@NonNull String str, @NonNull boolean z) {
         E2EScenarioPayload e2EScenarioPayload = new E2EScenarioPayload();
-        e2EScenarioPayload.putValues(new Object[]{"mode", str, "cameraId", CameraStatUtil.cameraIdToName(z)});
+        e2EScenarioPayload.putValues("mode", str, "cameraId", CameraStatUtil.cameraIdToName(z));
         beginScenario(sStartVideoRecordTimeScenario, e2EScenarioPayload);
     }
 
@@ -222,7 +222,7 @@ public class ScenarioTrackUtil {
 
     public static void trackStopVideoRecordStart(@NonNull String str, @NonNull boolean z) {
         E2EScenarioPayload e2EScenarioPayload = new E2EScenarioPayload();
-        e2EScenarioPayload.putValues(new Object[]{"mode", str, "cameraId", CameraStatUtil.cameraIdToName(z)});
+        e2EScenarioPayload.putValues("mode", str, "cameraId", CameraStatUtil.cameraIdToName(z));
         beginScenario(sStopVideoRecordTimeScenario, e2EScenarioPayload);
     }
 
@@ -232,7 +232,7 @@ public class ScenarioTrackUtil {
 
     public static void trackSwitchCameraStart(@NonNull boolean z, @NonNull boolean z2, @NonNull int i) {
         E2EScenarioPayload e2EScenarioPayload = new E2EScenarioPayload();
-        e2EScenarioPayload.putValues(new Object[]{"from", CameraStatUtil.cameraIdToName(z), "to", CameraStatUtil.cameraIdToName(z2), "inMode", CameraStatUtil.modeIdToName(i)});
+        e2EScenarioPayload.putValues("from", CameraStatUtil.cameraIdToName(z), "to", CameraStatUtil.cameraIdToName(z2), "inMode", CameraStatUtil.modeIdToName(i));
         beginScenario(sSwitchCameraTimeScenario, e2EScenarioPayload);
     }
 
@@ -242,7 +242,7 @@ public class ScenarioTrackUtil {
 
     public static void trackSwitchModeStart(@NonNull int i, @NonNull int i2, @NonNull boolean z) {
         E2EScenarioPayload e2EScenarioPayload = new E2EScenarioPayload();
-        e2EScenarioPayload.putValues(new Object[]{"from", CameraStatUtil.modeIdToName(i), "to", CameraStatUtil.modeIdToName(i2), "cameraId", CameraStatUtil.cameraIdToName(z)});
+        e2EScenarioPayload.putValues("from", CameraStatUtil.modeIdToName(i), "to", CameraStatUtil.modeIdToName(i2), "cameraId", CameraStatUtil.cameraIdToName(z));
         beginScenario(sSwitchModeTimeScenario, e2EScenarioPayload);
     }
 }

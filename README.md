@@ -102,6 +102,7 @@ Steps to Port MiuiCamera from scratch:
       1. `android` and `com`
 9.  Set required = false in AndroidManifest of these libs as their code is now included
 10. Add missing smali files from decompiled miui rom
+    1.  Check `copymiuiclasses.bat` for more info
 11. Add native libs
 12. Edit Smali
    4. ...

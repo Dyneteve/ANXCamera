@@ -1,5 +1,6 @@
 package com.google.zxing.oned;
 
+import android.provider.MiuiSettings.ScreenEffect;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.ChecksumException;
 import com.google.zxing.DecodeHintType;
@@ -278,7 +279,7 @@ public abstract class OneDReader implements Reader {
             Map resultMetadata = doDecode.getResultMetadata();
             int i = 270;
             if (resultMetadata != null && resultMetadata.containsKey(ResultMetadataType.ORIENTATION)) {
-                i = (((Integer) resultMetadata.get(ResultMetadataType.ORIENTATION)).intValue() + 270) % 360;
+                i = (((Integer) resultMetadata.get(ResultMetadataType.ORIENTATION)).intValue() + 270) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT;
             }
             doDecode.putMetadata(ResultMetadataType.ORIENTATION, Integer.valueOf(i));
             ResultPoint[] resultPoints = doDecode.getResultPoints();

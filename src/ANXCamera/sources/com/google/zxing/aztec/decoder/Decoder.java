@@ -1,7 +1,6 @@
 package com.google.zxing.aztec.decoder;
 
 import com.android.camera.data.data.config.SupportedConfigFactory;
-import com.android.gallery3d.exif.ExifInterface.GpsLatitudeRef;
 import com.android.gallery3d.exif.ExifInterface.GpsLongitudeRef;
 import com.android.gallery3d.exif.ExifInterface.GpsSpeedRef;
 import com.android.gallery3d.exif.ExifInterface.GpsStatus;
@@ -14,6 +13,7 @@ import com.google.zxing.common.reedsolomon.GenericGF;
 import com.google.zxing.common.reedsolomon.ReedSolomonDecoder;
 import com.google.zxing.common.reedsolomon.ReedSolomonException;
 import java.util.Arrays;
+import miui.reflect.Field;
 
 public final class Decoder {
     private static /* synthetic */ int[] $SWITCH_TABLE$com$google$zxing$aztec$decoder$Decoder$Table;
@@ -21,7 +21,7 @@ public final class Decoder {
     private static final String[] LOWER_TABLE = {"CTRL_PS", " ", SupportedConfigFactory.CLOSE_BY_HHT, SupportedConfigFactory.CLOSE_BY_GROUP, SupportedConfigFactory.CLOSE_BY_SUPER_RESOLUTION, SupportedConfigFactory.CLOSE_BY_BURST_SHOOT, SupportedConfigFactory.CLOSE_BY_AI, SupportedConfigFactory.CLOSE_BY_BOKEH, SupportedConfigFactory.CLOSE_BY_HDR, SupportedConfigFactory.CLOSE_BY_VIDEO, SupportedConfigFactory.CLOSE_BY_ULTRA_WIDE, SupportedConfigFactory.CLOSE_BY_ULTRA_PIXEL, SupportedConfigFactory.CLOSE_BY_FILTER, SupportedConfigFactory.CLOSE_BY_SQUARE, SupportedConfigFactory.CLOSE_BY_MACRO_MODE, "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "CTRL_US", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
     private static final String[] MIXED_TABLE = {"CTRL_PS", " ", "\u0001", "\u0002", "\u0003", "\u0004", "\u0005", "\u0006", "\u0007", "\b", "\t", "\n", "\u000b", "\f", "\r", "\u001b", "\u001c", "\u001d", "\u001e", "\u001f", "@", "\\", "^", "_", "`", "|", "~", "", "CTRL_LL", "CTRL_UL", "CTRL_PL", "CTRL_BS"};
     private static final String[] PUNCT_TABLE = {"", "\r", "\r\n", ". ", ", ", ": ", "!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "[", "]", "{", "}", "CTRL_UL"};
-    private static final String[] UPPER_TABLE = {"CTRL_PS", " ", GpsStatus.IN_PROGRESS, "B", "C", "D", GpsLongitudeRef.EAST, "F", "G", "H", "I", "J", GpsSpeedRef.KILOMETERS, "L", "M", "N", "O", "P", "Q", "R", GpsLatitudeRef.SOUTH, GpsTrackRef.TRUE_DIRECTION, "U", GpsStatus.INTEROPERABILITY, GpsLongitudeRef.WEST, "X", "Y", "Z", "CTRL_LL", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
+    private static final String[] UPPER_TABLE = {"CTRL_PS", " ", GpsStatus.IN_PROGRESS, Field.BYTE_SIGNATURE_PRIMITIVE, Field.CHAR_SIGNATURE_PRIMITIVE, Field.DOUBLE_SIGNATURE_PRIMITIVE, GpsLongitudeRef.EAST, Field.FLOAT_SIGNATURE_PRIMITIVE, "G", "H", Field.INT_SIGNATURE_PRIMITIVE, Field.LONG_SIGNATURE_PRIMITIVE, GpsSpeedRef.KILOMETERS, "L", "M", "N", "O", "P", "Q", "R", "S", GpsTrackRef.TRUE_DIRECTION, "U", "V", GpsLongitudeRef.WEST, "X", "Y", Field.BOOLEAN_SIGNATURE_PRIMITIVE, "CTRL_LL", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
     private AztecDetectorResult ddata;
 
     private enum Table {

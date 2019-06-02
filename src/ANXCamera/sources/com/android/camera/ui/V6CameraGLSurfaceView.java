@@ -14,7 +14,6 @@ import com.android.camera.CameraScreenNail.ExternalFrameProcessor;
 import com.android.camera.Util;
 import com.android.camera.log.Log;
 import com.android.camera.module.BaseModule;
-import com.android.gallery3d.exif.ExifInterface.GpsLatitudeRef;
 import com.android.gallery3d.exif.ExifInterface.GpsStatus;
 import com.android.gallery3d.ui.BasicTexture;
 import com.android.gallery3d.ui.GLCanvasImpl;
@@ -28,6 +27,7 @@ import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.khronos.opengles.GL11;
+import miui.reflect.Field;
 
 public class V6CameraGLSurfaceView extends GLSurfaceView implements Renderer {
     private static final boolean DEBUG_FPS = false;
@@ -69,7 +69,7 @@ public class V6CameraGLSurfaceView extends GLSurfaceView implements Renderer {
             iArr[12] = 12344;
             this.mConfigSpec = iArr;
             this.ATTR_ID = new int[]{12324, 12323, 12322, 12321, 12325, 12326, 12328, 12327};
-            this.ATTR_NAME = new String[]{"R", "G", "B", GpsStatus.IN_PROGRESS, "D", GpsLatitudeRef.SOUTH, "ID", "CAVEAT"};
+            this.ATTR_NAME = new String[]{"R", "G", Field.BYTE_SIGNATURE_PRIMITIVE, GpsStatus.IN_PROGRESS, Field.DOUBLE_SIGNATURE_PRIMITIVE, "S", "ID", "CAVEAT"};
         }
 
         private EGLConfig chooseConfig(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig[] eGLConfigArr) {

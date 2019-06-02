@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.Writer;
 import java.lang.reflect.Array;
 import java.util.List;
+import miui.reflect.Field;
 
 public final class CameraMetadataSerializer {
     private static final String TAG = CameraMetadataSerializer.class.getSimpleName();
@@ -126,7 +127,7 @@ public final class CameraMetadataSerializer {
     private static String toString(LensShadingMap lensShadingMap) {
         StringBuilder sb = new StringBuilder();
         sb.append("LensShadingMap{");
-        String[] strArr = {"R", "G_even", "G_odd", "B"};
+        String[] strArr = {"R", "G_even", "G_odd", Field.BYTE_SIGNATURE_PRIMITIVE};
         int rowCount = lensShadingMap.getRowCount();
         int columnCount = lensShadingMap.getColumnCount();
         for (int i = 0; i < 4; i++) {

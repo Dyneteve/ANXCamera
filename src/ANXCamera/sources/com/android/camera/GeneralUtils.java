@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.miui.R.array;
 import android.miui.R.bool;
 import android.net.Uri;
+import android.provider.MiuiSettings;
 import android.provider.Settings.Secure;
 import android.support.v4.animation.AnimatorCompatHelper;
 import android.view.View;
@@ -35,7 +36,7 @@ public class GeneralUtils {
 
     public static final boolean isAppLocked(Context context, String str) {
         boolean z = false;
-        if (!(Secure.getInt(context.getApplicationContext().getContentResolver(), "access_control_lock_enabled", -1) == 1)) {
+        if (!(Secure.getInt(context.getApplicationContext().getContentResolver(), MiuiSettings.Secure.ACCESS_CONTROL_LOCK_ENABLED, -1) == 1)) {
             return false;
         }
         SecurityManager securityManager = (SecurityManager) context.getSystemService("security");

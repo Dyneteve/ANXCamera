@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
 import android.graphics.Point;
+import android.provider.MiuiSettings.ScreenEffect;
 import android.support.v4.internal.view.SupportMenu;
 import android.util.Log;
 import android.util.SparseIntArray;
@@ -465,13 +466,13 @@ public class ExifInterface {
     public static double convertLatOrLongToDouble(Rational[] rationalArr, String str) {
         try {
             double d = rationalArr[0].toDouble() + (rationalArr[1].toDouble() / 60.0d) + (rationalArr[2].toDouble() / 3600.0d);
-            return (str.equals(GpsLatitudeRef.SOUTH) || str.equals(GpsLongitudeRef.WEST)) ? -d : d;
+            return (str.equals("S") || str.equals(GpsLongitudeRef.WEST)) ? -d : d;
         } catch (ArrayIndexOutOfBoundsException e) {
             throw new IllegalArgumentException();
         }
     }
 
-    /* JADX WARNING: Incorrect type for immutable var: ssa=short, code=int, for r2v0, types: [short, int] */
+    /* JADX WARNING: Incorrect type for immutable var: ssa=short, code=int, for r2v0, types: [int, short] */
     /* Code decompiled incorrectly, please refer to instructions dump. */
     public static int defineTag(int i, int i2) {
         return (i << 16) | (i2 & SupportMenu.USER_MASK);
@@ -528,9 +529,9 @@ public class ExifInterface {
     }
 
     public static short getExifOrientationValue(int i) {
-        int i2 = i % 360;
+        int i2 = i % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT;
         if (i2 < 0) {
-            i2 += 360;
+            i2 += ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT;
         }
         if (i2 < 90) {
             return 1;
@@ -914,7 +915,7 @@ public class ExifInterface {
     public boolean addGpsTags(double d, double d2) {
         ExifTag buildTag = buildTag(TAG_GPS_LATITUDE, toExifLatLong(d));
         ExifTag buildTag2 = buildTag(TAG_GPS_LONGITUDE, toExifLatLong(d2));
-        ExifTag buildTag3 = buildTag(TAG_GPS_LATITUDE_REF, d >= 0.0d ? "N" : GpsLatitudeRef.SOUTH);
+        ExifTag buildTag3 = buildTag(TAG_GPS_LATITUDE_REF, d >= 0.0d ? "N" : "S");
         ExifTag buildTag4 = buildTag(TAG_GPS_LONGITUDE_REF, d2 >= 0.0d ? GpsLongitudeRef.EAST : GpsLongitudeRef.WEST);
         if (buildTag == null || buildTag2 == null || buildTag3 == null || buildTag4 == null) {
             return false;

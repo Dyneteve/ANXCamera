@@ -13,6 +13,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
+import android.provider.MiuiSettings.ScreenEffect;
 import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.Size;
 import android.widget.Toast;
@@ -98,13 +99,13 @@ public class MimojiAvatarEngineImpl implements ExternalFrameProcessor, MimojiAva
             }
             Bitmap createBitmap2 = Bitmap.createBitmap(createBitmap, 0, 0, MimojiAvatarEngineImpl.this.mDrawSize.getWidth(), MimojiAvatarEngineImpl.this.mDrawSize.getHeight(), matrix, false);
             byte[] bitmapData = Util.getBitmapData(createBitmap2, BaseModule.getJpegQuality(false));
-            int access$2200 = (!MimojiAvatarEngineImpl.this.mIsFrontCamera || MimojiAvatarEngineImpl.this.mDeviceRotation % 180 != 0) ? MimojiAvatarEngineImpl.this.mDeviceRotation : (MimojiAvatarEngineImpl.this.mDeviceRotation + 180) % 360;
+            int access$2200 = (!MimojiAvatarEngineImpl.this.mIsFrontCamera || MimojiAvatarEngineImpl.this.mDeviceRotation % 180 != 0) ? MimojiAvatarEngineImpl.this.mDeviceRotation : (MimojiAvatarEngineImpl.this.mDeviceRotation + 180) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT;
             Thumbnail createThumbnail = Thumbnail.createThumbnail(null, MimojiAvatarEngineImpl.this.mIsFrontCamera ? createBitmap : createBitmap2, access$2200, MimojiAvatarEngineImpl.this.mIsFrontCamera);
             createThumbnail.startWaitingForUri();
             MimojiAvatarEngineImpl.this.mActivityBase.getThumbnailUpdater().setThumbnail(createThumbnail, true, true);
             ParallelTaskData parallelTaskData = new ParallelTaskData(System.currentTimeMillis(), -4, null);
             parallelTaskData.fillJpegData(bitmapData, 0);
-            parallelTaskData.fillParameter(new Builder(MimojiAvatarEngineImpl.this.mDrawSize, MimojiAvatarEngineImpl.this.mDrawSize, MimojiAvatarEngineImpl.this.mDrawSize).setHasDualWaterMark(CameraSettings.isDualCameraWaterMarkOpen()).setJpegRotation((Util.getJpegRotation(MimojiAvatarEngineImpl.this.mIsFrontCamera ? 1 : 0, MimojiAvatarEngineImpl.this.mDeviceRotation) + 270) % 360).setJpegQuality(BaseModule.getJpegQuality(false)).setFilterId(FilterInfo.FILTER_ID_NONE).setLocation(LocationManager.instance().getCurrentLocation()).build());
+            parallelTaskData.fillParameter(new Builder(MimojiAvatarEngineImpl.this.mDrawSize, MimojiAvatarEngineImpl.this.mDrawSize, MimojiAvatarEngineImpl.this.mDrawSize).setHasDualWaterMark(CameraSettings.isDualCameraWaterMarkOpen()).setJpegRotation((Util.getJpegRotation(MimojiAvatarEngineImpl.this.mIsFrontCamera ? 1 : 0, MimojiAvatarEngineImpl.this.mDeviceRotation) + 270) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT).setJpegQuality(BaseModule.getJpegQuality(false)).setFilterId(FilterInfo.FILTER_ID_NONE).setLocation(LocationManager.instance().getCurrentLocation()).build());
             MimojiAvatarEngineImpl.this.mActivityBase.getImageSaver().onParallelProcessFinish(parallelTaskData);
             createBitmap.recycle();
             createBitmap2.recycle();
