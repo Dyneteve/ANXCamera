@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bottom_control_height">204.44dip</dimen>
+    <dimen name="pano_preview_hint_frame_margin_top">228.73999dip</dimen>
+    <dimen name="face_rect_width">2.0dip</dimen>
+    <dimen name="top_control_panel_height">32.589996dip</dimen>
+    <dimen name="config_item_height">69.91998dip</dimen>
+    <dimen name="config_item_icon_margin_top">13.039978dip</dimen>
+    <dimen name="config_item_text_margin_top">7.1099854dip</dimen>
+    <dimen name="config_extra_margin">0.0dip</dimen>
+    <dimen name="config_extra_recycler_margin">5.919983dip</dimen>
+    <dimen name="config_extra_recycler_margin_vertical">18.959991dip</dimen>
+    <dimen name="bottom_margin_bottom">9.47998dip</dimen>
+    <dimen name="bottom_roll_down_height">5.919983dip</dimen>
+    <dimen name="mode_select_layout_height">49.179993dip</dimen>
+    <dimen name="preview_edge_touch_slop">25.0dip</dimen>
+    <dimen name="top_control_panel_extra_margin_top">10.369995dip</dimen>
+    <dimen name="top_alert_margin_top">70.03998dip</dimen>
+    <dimen name="top_alert_lower_margin_top">112.59dip</dimen>
+</resources>

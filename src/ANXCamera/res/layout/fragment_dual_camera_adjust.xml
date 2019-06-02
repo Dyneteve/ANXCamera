@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:id="@id/dual_layout_parent" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/sat_optical_zoom_switch_simulator" android:background="@color/transparent" android:focusable="false" android:focusableInTouchMode="false" android:layout_width="1.0px" android:layout_height="1.0px" android:layout_centerInParent="true" android:importantForAccessibility="no" />
+    <include android:id="@id/zoom_ratio_toggle_button" android:layout_width="fill_parent" android:layout_height="@dimen/manually_indicator_layout_height" android:layout_marginBottom="@dimen/popup_indicator_button_extra_margin_bottom" layout="@layout/zoom_ratio_toggle_view" />
+    <LinearLayout android:orientation="vertical" android:id="@id/dual_camera_zoom_slider_container" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/manual_popup_layout_height" android:layout_below="@id/zoom_ratio_toggle_button">
+        <View android:background="@color/effect_divider_color" android:layout_width="fill_parent" android:layout_height="1.0px" />
+        <com.android.camera.ui.HorizontalSlideView android:id="@id/dual_camera_zoom_slider" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+        <View android:background="@color/effect_divider_color" android:layout_width="fill_parent" android:layout_height="1.0px" />
+    </LinearLayout>
+</RelativeLayout>

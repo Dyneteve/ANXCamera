@@ -72,6 +72,7 @@ Steps to Port MiuiCamera from scratch:
    3. Run `jadx.bat` to create java code from compiled apk. This fails, don't worry, it does whatever it can
 7. Next we will Deodex rom and decompile the required libs
    1. Run in WSL or Linux `$ /<path to vdexExtractor>/tools/deodex/run.sh -i /<path to system>/framework -o /<path to deodex destination>/framework`
+      1. for e.g. `/mnt/g/Downloads/Android/vdex/vdexExtractor/tools/deodex/run.sh -i /mnt/g/Downloads/Android/systemperseus9530/system/framework -o /mnt/g/Downloads/Android/systempersues9530deodex/framework`
    2. Above will deodex the system framework
    3. Now we decompile the required libs
       1. Copy latest baksmali.*.jar to `<path to deodex destination>`
