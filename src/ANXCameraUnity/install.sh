@@ -55,7 +55,9 @@ REPLACE_EXAMPLE="
 "
 
 # Construct your own list here
-REPLACE="/system/priv-app/MiuiCamera
+REPLACE="
+/system/priv-app/MiuiCamera
+/system/priv-app/Snap
 "
 
 ##########################################################################################
