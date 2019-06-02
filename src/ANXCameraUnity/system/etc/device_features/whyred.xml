@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <features>
-
     <!--whether the device is xiaomi-->
-    <bool name="is_xiaomi">false</bool>
+    <bool name="is_xiaomi">true</bool>
     <!--whether the device is hongmi-->
-    <bool name="is_hongmi">true</bool>
+    <bool name="is_hongmi">false</bool>
     <!--whether the device is android_one-->
 	   <bool name="is_android_one_device">true</bool>
     <!--whether use the lgacy filter in camera-->
@@ -402,4 +401,24 @@
     <bool name="is_front_video_quality_1080p">true</bool>
     <bool name="is_rgb888_egl_prefer">true</bool>
     <bool name="support_camera_beauty_menu_in_back_portrait_mode">true</bool>
+       <!--These region support face unlock-->
+    <string-array name="support_face_unlock_region_global">
+        <item>IN</item>
+        <item>ID</item>
+        <item>RU</item>
+        <item>HK</item>
+        <item>TW</item>
+        <item>TR</item>
+        <item>TH</item>
+        <item>SG</item>
+        <item>MY</item>
+        <item>VN</item>
+        <item>AE</item>
+        <item>QA</item>
+        <item>UA</item>
+    </string-array>
+    <!--These region support face unlock-->
+    <string-array name="support_face_unlock_region_dom">
+        <item>CN</item>
+    </string-array>
 </features>

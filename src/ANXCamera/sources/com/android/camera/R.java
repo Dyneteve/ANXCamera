@@ -1570,6 +1570,14 @@ public final class R {
 
     public static final class mipmap {
         public static final int ic_launcher_camera = 2130903040;
+        /* added by JADX */
+        public static final int ic_launcher = 2130903041;
+        /* added by JADX */
+        public static final int ic_launcher_background = 2130903042;
+        /* added by JADX */
+        public static final int ic_launcher_foreground = 2130903043;
+        /* added by JADX */
+        public static final int ic_launcher_round = 2130903044;
     }
 
     public static final class plurals {
@@ -1583,6 +1591,20 @@ public final class R {
         public static final int feature_perseus = 2131230722;
         public static final int goofy_face = 2131230723;
         public static final int xiaomi_static_config = 2131230724;
+        /* added by JADX */
+        public static final int feature_beryllium = 2131230725;
+        /* added by JADX */
+        public static final int feature_cepheus = 2131230726;
+        /* added by JADX */
+        public static final int feature_dipper = 2131230727;
+        /* added by JADX */
+        public static final int feature_lavender = 2131230728;
+        /* added by JADX */
+        public static final int feature_polaris = 2131230729;
+        /* added by JADX */
+        public static final int feature_violet = 2131230730;
+        /* added by JADX */
+        public static final int feature_whyred = 2131230731;
     }
 
     public static final class string {

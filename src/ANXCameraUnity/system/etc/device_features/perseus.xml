@@ -442,4 +442,10 @@
     </string-array>
     <!-- whether support display gamemode -->
     <bool name="support_displayfeature_gamemode">true</bool>
+    <!-- whether support dc backlight -->
+    <bool name="support_dc_backlight">true</bool>
+    <!-- whether support dc backlight dimming -->
+    <bool name="support_dc_backlight_dimming">false</bool>
+    <!-- dimming level for dc backlight -->
+    <float name="dc_backlight_dimming_level">1.0</float>
 </features>
