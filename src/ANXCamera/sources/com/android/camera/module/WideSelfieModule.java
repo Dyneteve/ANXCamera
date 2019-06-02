@@ -207,30 +207,6 @@ public class WideSelfieModule extends BaseModule implements CameraAction, WideSe
             this.mActivityRef = new WeakReference<>(camera);
         }
 
-        /* JADX WARNING: type inference failed for: r9v4, types: [android.content.Context, com.android.camera.Camera] */
-        /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r9v4, types: [android.content.Context, com.android.camera.Camera]
-  assigns: [com.android.camera.Camera]
-  uses: [?[int, boolean, OBJECT, ARRAY, byte, short, char], com.android.camera.Camera, android.content.Context]
-  mth insns count: 53
-        	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-        	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-        	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-        	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-        	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-        	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$0(DepthTraversal.java:13)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:13)
-        	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-        	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-        	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-        	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-         */
-        /* JADX WARNING: Unknown variable types count: 1 */
-        /* Code decompiled incorrectly, please refer to instructions dump. */
         private void addImageAsApplication(String str, String str2, int i, int i2, int i3) {
             long currentTimeMillis = System.currentTimeMillis();
             Location currentLocation = LocationManager.instance().getCurrentLocation();
@@ -251,19 +227,19 @@ public class WideSelfieModule extends BaseModule implements CameraAction, WideSe
             sb2.append(", path = ");
             sb2.append(str);
             Log.d(str4, sb2.toString());
-            ? r9 = (Camera) this.mActivityRef.get();
-            if (r9 != 0) {
-                r9.getScreenHint().updateHint();
+            Camera camera = (Camera) this.mActivityRef.get();
+            if (camera != null) {
+                camera.getScreenHint().updateHint();
                 if (addImageForGroupOrPanorama != null) {
-                    r9.onNewUriArrived(addImageForGroupOrPanorama, str2);
-                    Thumbnail createThumbnailFromUri = Thumbnail.createThumbnailFromUri(r9.getContentResolver(), addImageForGroupOrPanorama, false);
+                    camera.onNewUriArrived(addImageForGroupOrPanorama, str2);
+                    Thumbnail createThumbnailFromUri = Thumbnail.createThumbnailFromUri(camera.getContentResolver(), addImageForGroupOrPanorama, false);
                     String str5 = WideSelfieModule.TAG;
                     StringBuilder sb3 = new StringBuilder();
                     sb3.append("addImageAsApplication Thumbnail = ");
                     sb3.append(createThumbnailFromUri);
                     Log.d(str5, sb3.toString());
-                    Util.broadcastNewPicture(r9, addImageForGroupOrPanorama);
-                    r9.getThumbnailUpdater().setThumbnail(createThumbnailFromUri, true, false);
+                    Util.broadcastNewPicture(camera, addImageForGroupOrPanorama);
+                    camera.getThumbnailUpdater().setThumbnail(createThumbnailFromUri, true, false);
                 }
             }
         }
@@ -520,27 +496,6 @@ public class WideSelfieModule extends BaseModule implements CameraAction, WideSe
         this.mIsPrepareSaveTask = false;
     }
 
-    /* JADX WARNING: type inference failed for: r3v3, types: [android.content.Context, com.android.camera.Camera] */
-    /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r3v3, types: [android.content.Context, com.android.camera.Camera]
-  assigns: [com.android.camera.Camera]
-  uses: [android.content.Context]
-  mth insns count: 25
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-    	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-    	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-    	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-    	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-    	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-     */
-    /* JADX WARNING: Unknown variable types count: 1 */
-    /* Code decompiled incorrectly, please refer to instructions dump. */
     private void stopWideSelfieShooting(boolean z, boolean z2, String str) {
         if (!this.mIsShooting) {
             Log.w(TAG, "stopWideSelfieShooting return, is not shooting");
@@ -732,31 +687,6 @@ public class WideSelfieModule extends BaseModule implements CameraAction, WideSe
         Log.v(TAG, "SetupCameraThread done");
     }
 
-    /* JADX WARNING: type inference failed for: r2v2, types: [android.content.Context, com.android.camera.Camera] */
-    /* JADX WARNING: type inference failed for: r2v17, types: [android.content.Context, com.android.camera.Camera] */
-    /* JADX WARNING: type inference failed for: r3v4, types: [android.content.Context, com.android.camera.Camera] */
-    /* JADX WARNING: type inference failed for: r2v22, types: [android.content.Context, com.android.camera.Camera] */
-    /* JADX WARNING: type inference failed for: r3v7, types: [android.content.Context, com.android.camera.Camera] */
-    /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r2v2, types: [android.content.Context, com.android.camera.Camera]
-  assigns: [com.android.camera.Camera]
-  uses: [android.content.Context]
-  mth insns count: 68
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-    	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-    	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-    	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-    	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-    	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-     */
-    /* JADX WARNING: Unknown variable types count: 5 */
-    /* Code decompiled incorrectly, please refer to instructions dump. */
     public void onCreate(int i, int i2) {
         super.onCreate(i, i2);
         this.mHandler = new MainHandler(this.mActivity.getMainLooper());
@@ -878,30 +808,6 @@ public class WideSelfieModule extends BaseModule implements CameraAction, WideSe
         return super.onKeyUp(i, keyEvent);
     }
 
-    /* JADX WARNING: type inference failed for: r1v10, types: [android.content.Context, com.android.camera.Camera] */
-    /* JADX WARNING: type inference failed for: r11v13, types: [android.content.Context, com.android.camera.Camera] */
-    /* JADX WARNING: type inference failed for: r10v19, types: [android.content.Context, com.android.camera.Camera] */
-    /* JADX WARNING: type inference failed for: r9v9, types: [android.content.Context, com.android.camera.Camera] */
-    /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r1v10, types: [android.content.Context, com.android.camera.Camera]
-  assigns: [com.android.camera.Camera]
-  uses: [android.content.Context]
-  mth insns count: 138
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-    	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-    	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-    	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-    	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-    	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-     */
-    /* JADX WARNING: Unknown variable types count: 4 */
-    /* Code decompiled incorrectly, please refer to instructions dump. */
     @UiThread
     public void onMove(int i, int i2, Point point, Point point2, boolean z) {
         WideSelfieProtocol wideSelfieProtocol = (WideSelfieProtocol) ModeCoordinatorImpl.getInstance().getAttachProtocol(216);
@@ -1149,28 +1055,7 @@ public class WideSelfieModule extends BaseModule implements CameraAction, WideSe
         Log.d(TAG, "onWideSelfCompleted");
     }
 
-    /* JADX WARNING: type inference failed for: r1v0, types: [android.content.Context, com.android.camera.Camera] */
     /* access modifiers changed from: protected */
-    /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r1v0, types: [android.content.Context, com.android.camera.Camera]
-  assigns: [com.android.camera.Camera]
-  uses: [android.content.Context]
-  mth insns count: 23
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-    	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-    	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-    	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-    	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-    	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-     */
-    /* JADX WARNING: Unknown variable types count: 1 */
-    /* Code decompiled incorrectly, please refer to instructions dump. */
     public void openSettingActivity() {
         Intent intent = new Intent();
         intent.setClass(this.mActivity, CameraPreferenceActivity.class);
@@ -1280,27 +1165,6 @@ public class WideSelfieModule extends BaseModule implements CameraAction, WideSe
         this.mCamera2Device.startPreviewSession(new Surface(this.mActivity.getCameraScreenNail().getSurfaceTexture()), true, false, getOperatingMode(), false, this);
     }
 
-    /* JADX WARNING: type inference failed for: r0v4, types: [android.content.Context, com.android.camera.Camera] */
-    /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r0v4, types: [android.content.Context, com.android.camera.Camera]
-  assigns: [com.android.camera.Camera]
-  uses: [android.content.Context]
-  mth insns count: 66
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-    	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-    	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-    	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-    	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-    	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-     */
-    /* JADX WARNING: Unknown variable types count: 1 */
-    /* Code decompiled incorrectly, please refer to instructions dump. */
     public void startWideSelfieShooting() {
         this.mShowWarningToast = false;
         this.mFirstFrameNv21Data = null;

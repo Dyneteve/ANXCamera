@@ -186,7 +186,7 @@ public class AutoSelectHorizontalView extends RecyclerView {
     }
 
     public void computeScroll() {
-        AutoSelectHorizontalView.super.computeScroll();
+        super.computeScroll();
         if (this.mScroller.computeScrollOffset()) {
             int currX = this.mScroller.getCurrX() - this.mLastMoveX;
             this.mLastMoveX += currX;
@@ -221,7 +221,7 @@ public class AutoSelectHorizontalView extends RecyclerView {
 
     /* access modifiers changed from: protected */
     public void onDetachedFromWindow() {
-        AutoSelectHorizontalView.super.onDetachedFromWindow();
+        super.onDetachedFromWindow();
         if (this.mAutoSelectAdapter != null) {
             this.mAutoSelectAdapter = null;
         }
@@ -232,7 +232,7 @@ public class AutoSelectHorizontalView extends RecyclerView {
     }
 
     public void onScrollStateChanged(int i) {
-        AutoSelectHorizontalView.super.onScrollStateChanged(i);
+        super.onScrollStateChanged(i);
         if (i == 0 && this.mWrapAdapter != null) {
             int itemWidth = this.mWrapAdapter.getItemWidth();
             if (itemWidth != 0) {
@@ -254,7 +254,7 @@ public class AutoSelectHorizontalView extends RecyclerView {
     }
 
     public void onScrolled(int i, int i2) {
-        AutoSelectHorizontalView.super.onScrolled(i, i2);
+        super.onScrolled(i, i2);
         this.mTempSelectPosition = this.mSelectPosition;
         this.mDeltaX += i;
         calculateSelectedPos();
@@ -283,13 +283,13 @@ public class AutoSelectHorizontalView extends RecyclerView {
         this.mWrapAdapter = new WrapperAdapter(adapter, getContext(), this.mItemPageCount);
         adapter.registerAdapterDataObserver(new AdapterDataObserver() {
             public void onChanged() {
-                AutoSelectHorizontalView.super.onChanged();
+                super.onChanged();
                 AutoSelectHorizontalView.this.mWrapAdapter.notifyDataSetChanged();
                 AutoSelectHorizontalView.this.onDataChanged();
             }
 
             public void onItemRangeChanged(int i, int i2) {
-                AutoSelectHorizontalView.super.onItemRangeChanged(i, i2);
+                super.onItemRangeChanged(i, i2);
                 AutoSelectHorizontalView.this.mWrapAdapter.notifyItemRangeChanged(i + 1, i2);
             }
 
@@ -306,8 +306,8 @@ public class AutoSelectHorizontalView extends RecyclerView {
             this.mLinearLayoutManager = new LinearLayoutManager(getContext());
         }
         this.mLinearLayoutManager.setOrientation(0);
-        AutoSelectHorizontalView.super.setLayoutManager(this.mLinearLayoutManager);
-        AutoSelectHorizontalView.super.setAdapter(this.mWrapAdapter);
+        super.setLayoutManager(this.mLinearLayoutManager);
+        super.setAdapter(this.mWrapAdapter);
         this.isInit = true;
     }
 

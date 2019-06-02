@@ -63,12 +63,12 @@ public abstract class BaseBeautyMakeupFragment extends BaseBeautyFragment {
         }
 
         public boolean canScrollHorizontally() {
-            return this.isScrollEnabled && BaseBeautyMakeupFragment.super.canScrollHorizontally();
+            return this.isScrollEnabled && super.canScrollHorizontally();
         }
 
         public void onLayoutChildren(Recycler recycler, State state) {
             try {
-                BaseBeautyMakeupFragment.super.onLayoutChildren(recycler, state);
+                super.onLayoutChildren(recycler, state);
             } catch (IndexOutOfBoundsException e) {
                 e.printStackTrace();
             }
@@ -92,7 +92,7 @@ public abstract class BaseBeautyMakeupFragment extends BaseBeautyFragment {
         view.setRotation(0.0f);
         ViewCompat.animate(view).rotation(360.0f).setDuration(500).setListener(new ViewPropertyAnimatorListenerAdapter() {
             public void onAnimationEnd(View view) {
-                BaseBeautyMakeupFragment.super.onAnimationEnd(view);
+                super.onAnimationEnd(view);
                 view.setRotation(0.0f);
             }
         }).start();
@@ -255,7 +255,7 @@ public abstract class BaseBeautyMakeupFragment extends BaseBeautyFragment {
     /* access modifiers changed from: protected */
     public void initView(View view) {
         this.mHeaderRecyclerView = (LinearLayout) view.findViewById(R.id.header_recyclerView);
-        this.mMakeupItemList = view.findViewById(R.id.makeup_item_list);
+        this.mMakeupItemList = (RecyclerView) view.findViewById(R.id.makeup_item_list);
         this.mLayoutManager = new MyLayoutManager(getActivity());
         this.mLayoutManager.setOrientation(0);
         this.mLayoutManager.setScrollEnabled(true);

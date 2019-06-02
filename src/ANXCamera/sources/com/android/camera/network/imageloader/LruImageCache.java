@@ -2,7 +2,7 @@ package com.android.camera.network.imageloader;
 
 import android.graphics.Bitmap;
 import android.util.LruCache;
-import com.android.volley.toolbox.ImageLoader.ImageCache;
+import com.android.volley.toolbox.C0047ImageLoader.ImageCache;
 
 class LruImageCache implements ImageCache {
     private LruCache<String, Bitmap> lruCache = new LruCache<String, Bitmap>(this.max) {

@@ -131,34 +131,6 @@ public class Camera extends ActivityBase implements OnRequestPermissionsResultCa
     private Disposable mCameraPendingSetupDisposable;
     private final Object mCameraPendingSetupDisposableGuard = new Object();
     private Consumer<NullHolder<BaseModule>> mCameraSetupConsumer = new Consumer<NullHolder<BaseModule>>() {
-        /* JADX WARNING: type inference failed for: r3v7, types: [android.content.Context, com.android.camera.Camera] */
-        /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r3v7, types: [android.content.Context, com.android.camera.Camera]
-  assigns: [com.android.camera.Camera]
-  uses: [android.content.Context]
-  mth insns count: 36
-        	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-        	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-        	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-        	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-        	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-        	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$0(DepthTraversal.java:13)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:13)
-        	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-        	at jadx.core.ProcessClass.lambda$processDependencies$0(ProcessClass.java:49)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.ProcessClass.processDependencies(ProcessClass.java:49)
-        	at jadx.core.ProcessClass.process(ProcessClass.java:35)
-        	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-        	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-        	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-         */
-        /* JADX WARNING: Unknown variable types count: 1 */
-        /* Code decompiled incorrectly, please refer to instructions dump. */
         public void accept(@NonNull NullHolder<BaseModule> nullHolder) throws Exception {
             if (!nullHolder.isPresent()) {
                 Camera.this.showCameraError(nullHolder.getException());
@@ -220,34 +192,6 @@ public class Camera extends ActivityBase implements OnRequestPermissionsResultCa
             return true;
         }
 
-        /* JADX WARNING: type inference failed for: r4v5, types: [android.content.Context, com.android.camera.Camera] */
-        /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r4v5, types: [android.content.Context, com.android.camera.Camera]
-  assigns: [com.android.camera.Camera]
-  uses: [android.content.Context]
-  mth insns count: 25
-        	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-        	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-        	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-        	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-        	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-        	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$0(DepthTraversal.java:13)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:13)
-        	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-        	at jadx.core.ProcessClass.lambda$processDependencies$0(ProcessClass.java:49)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.ProcessClass.processDependencies(ProcessClass.java:49)
-        	at jadx.core.ProcessClass.process(ProcessClass.java:35)
-        	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-        	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-        	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-         */
-        /* JADX WARNING: Unknown variable types count: 1 */
-        /* Code decompiled incorrectly, please refer to instructions dump. */
         public void onChange(boolean z) {
             super.onChange(z);
             if (!Camera.this.mHasFocus && !Camera.this.mActivityPaused) {
@@ -311,34 +255,6 @@ public class Camera extends ActivityBase implements OnRequestPermissionsResultCa
             super(context);
         }
 
-        /* JADX WARNING: type inference failed for: r0v4, types: [android.app.Activity, com.android.camera.Camera] */
-        /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r0v4, types: [android.app.Activity, com.android.camera.Camera]
-  assigns: [com.android.camera.Camera]
-  uses: [android.app.Activity]
-  mth insns count: 58
-        	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-        	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-        	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-        	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-        	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-        	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$0(DepthTraversal.java:13)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:13)
-        	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-        	at jadx.core.ProcessClass.lambda$processDependencies$0(ProcessClass.java:49)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.ProcessClass.processDependencies(ProcessClass.java:49)
-        	at jadx.core.ProcessClass.process(ProcessClass.java:35)
-        	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-        	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-        	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-         */
-        /* JADX WARNING: Unknown variable types count: 1 */
-        /* Code decompiled incorrectly, please refer to instructions dump. */
         public void onOrientationChanged(int i) {
             if (i != -1) {
                 Camera.this.mOrientation = Util.roundOrientation(i, Camera.this.mOrientation);
@@ -373,35 +289,6 @@ public class Camera extends ActivityBase implements OnRequestPermissionsResultCa
         private WatchDogThread() {
         }
 
-        /* JADX WARNING: type inference failed for: r0v16, types: [android.content.Context, com.android.camera.Camera] */
-        /* JADX WARNING: type inference failed for: r0v17, types: [android.content.Context, com.android.camera.Camera] */
-        /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r0v16, types: [android.content.Context, com.android.camera.Camera]
-  assigns: [com.android.camera.Camera]
-  uses: [android.content.Context]
-  mth insns count: 57
-        	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-        	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-        	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-        	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-        	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-        	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$0(DepthTraversal.java:13)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:13)
-        	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-        	at jadx.core.ProcessClass.lambda$processDependencies$0(ProcessClass.java:49)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.ProcessClass.processDependencies(ProcessClass.java:49)
-        	at jadx.core.ProcessClass.process(ProcessClass.java:35)
-        	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-        	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-        	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-         */
-        /* JADX WARNING: Unknown variable types count: 2 */
-        /* Code decompiled incorrectly, please refer to instructions dump. */
         public void run() {
             setName("ANR-WatchDog");
             while (!isInterrupted()) {
@@ -500,9 +387,9 @@ public class Camera extends ActivityBase implements OnRequestPermissionsResultCa
     }
 
     private void hideHibernationFragment() {
-        DialogFragment findFragmentByTag = getSupportFragmentManager().findFragmentByTag(HibernationFragment.TAG);
+        Fragment findFragmentByTag = getSupportFragmentManager().findFragmentByTag(HibernationFragment.TAG);
         if (findFragmentByTag != null && (findFragmentByTag instanceof DialogFragment)) {
-            findFragmentByTag.dismissAllowingStateLoss();
+            ((DialogFragment) findFragmentByTag).dismissAllowingStateLoss();
         }
     }
 
@@ -551,9 +438,9 @@ public class Camera extends ActivityBase implements OnRequestPermissionsResultCa
     /* access modifiers changed from: private */
     public void onDisplayRotationChanged() {
         if (b.im()) {
-            FrontRotateNewbieDialogFragment findFragmentByTag = getSupportFragmentManager().findFragmentByTag(FrontRotateNewbieDialogFragment.TAG);
-            if (findFragmentByTag != null) {
-                findFragmentByTag.animateOut(0);
+            FrontRotateNewbieDialogFragment frontRotateNewbieDialogFragment = (FrontRotateNewbieDialogFragment) getSupportFragmentManager().findFragmentByTag(FrontRotateNewbieDialogFragment.TAG);
+            if (frontRotateNewbieDialogFragment != null) {
+                frontRotateNewbieDialogFragment.animateOut(0);
             }
         }
     }
@@ -660,7 +547,6 @@ public class Camera extends ActivityBase implements OnRequestPermissionsResultCa
         }
     }
 
-    /* JADX WARNING: type inference failed for: r2v0, types: [android.content.Context, com.android.camera.Camera] */
     private void setTranslucentNavigation(boolean z) {
         if (Util.checkDeviceHasNavigationBar(this)) {
             Window window = getWindow();
@@ -771,10 +657,9 @@ public class Camera extends ActivityBase implements OnRequestPermissionsResultCa
     private void showHibernationFragment() {
         HibernationFragment hibernationFragment = new HibernationFragment();
         hibernationFragment.setStyle(2, R.style.DialogFragmentFullScreen);
-        getSupportFragmentManager().beginTransaction().add(hibernationFragment, HibernationFragment.TAG).commitAllowingStateLoss();
+        getSupportFragmentManager().beginTransaction().add((Fragment) hibernationFragment, HibernationFragment.TAG).commitAllowingStateLoss();
     }
 
-    /* JADX WARNING: type inference failed for: r1v0, types: [android.content.Context, com.android.camera.Camera] */
     private void switchEdgeFingerMode(boolean z) {
         if (b.hQ()) {
             CameraSettings.setEdgeMode(this, z);
@@ -933,9 +818,9 @@ public class Camera extends ActivityBase implements OnRequestPermissionsResultCa
 
     public void hideLensDirtyDetectedHint() {
         if (!DataRepository.dataItemFeature().fU()) {
-            DialogFragment findFragmentByTag = getSupportFragmentManager().findFragmentByTag(LensDirtyDetectDialogFragment.TAG);
+            Fragment findFragmentByTag = getSupportFragmentManager().findFragmentByTag(LensDirtyDetectDialogFragment.TAG);
             if (findFragmentByTag != null && (findFragmentByTag instanceof DialogFragment)) {
-                findFragmentByTag.dismissAllowingStateLoss();
+                ((DialogFragment) findFragmentByTag).dismissAllowingStateLoss();
             }
         }
     }
@@ -1007,7 +892,6 @@ public class Camera extends ActivityBase implements OnRequestPermissionsResultCa
         }
     }
 
-    /* JADX WARNING: type inference failed for: r2v0, types: [com.android.camera.ActivityBase, android.content.Context, android.app.Activity, com.android.camera.Camera] */
     /* access modifiers changed from: protected */
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
@@ -1042,7 +926,6 @@ public class Camera extends ActivityBase implements OnRequestPermissionsResultCa
         }
     }
 
-    /* JADX WARNING: type inference failed for: r3v0, types: [com.android.camera.ActivityBase, android.content.Context, com.android.camera.module.loader.SurfaceStateListener, java.lang.Object, android.app.Activity, com.android.camera.Camera] */
     public void onCreate(Bundle bundle) {
         Log.d(TAG, "onCreate start");
         this.mApplication = (CameraAppImpl) getApplication();
@@ -1123,7 +1006,6 @@ public class Camera extends ActivityBase implements OnRequestPermissionsResultCa
         }
     }
 
-    /* JADX WARNING: type inference failed for: r3v0, types: [com.android.camera.ActivityBase, android.content.Context, java.lang.Object, com.android.camera.Camera] */
     public void onDestroy() {
         Log.d(TAG, "onDestroy start");
         super.onDestroy();
@@ -1167,7 +1049,6 @@ public class Camera extends ActivityBase implements OnRequestPermissionsResultCa
         return true;
     }
 
-    /* JADX WARNING: type inference failed for: r2v0, types: [android.content.Context, com.android.camera.Camera] */
     public void onHibernate() {
         Log.d(TAG, "onHibernate");
         if (isDestroyed()) {
@@ -1312,7 +1193,6 @@ public class Camera extends ActivityBase implements OnRequestPermissionsResultCa
         Log.d(str2, sb.toString());
     }
 
-    /* JADX WARNING: type inference failed for: r11v0, types: [android.content.Context, com.android.camera.ActivityBase, com.android.camera.fragment.lifeCircle.BaseLifecycleListener, com.android.camera.Camera] */
     @MainThread
     public void onModeSelected(StartControl startControl) {
         int currentModuleIndex = getCurrentModuleIndex();
@@ -1363,7 +1243,6 @@ public class Camera extends ActivityBase implements OnRequestPermissionsResultCa
         }
     }
 
-    /* JADX WARNING: type inference failed for: r2v0, types: [com.android.camera.ActivityBase, android.app.Activity, com.android.camera.Camera] */
     /* access modifiers changed from: protected */
     public void onNewIntent(Intent intent) {
         Log.d(TAG, "onNewIntent start");
@@ -1376,7 +1255,6 @@ public class Camera extends ActivityBase implements OnRequestPermissionsResultCa
         Log.d(TAG, "onNewIntent end");
     }
 
-    /* JADX WARNING: type inference failed for: r4v0, types: [android.content.Context, com.android.camera.ActivityBase, com.android.camera.Camera] */
     public void onPause() {
         Log.d(TAG, "onPause start");
         HybridZoomingSystem.clearZoomRatioHistory();
@@ -1442,7 +1320,6 @@ public class Camera extends ActivityBase implements OnRequestPermissionsResultCa
         this.mAppStartTime = System.currentTimeMillis();
     }
 
-    /* JADX WARNING: type inference failed for: r5v0, types: [android.content.Context, com.android.camera.ActivityBase, android.app.Activity, com.android.camera.storage.ImageSaver$ImageSaverCallback, com.android.camera.Camera] */
     public void onResume() {
         Log.d(TAG, "onResume start");
         if (getKeyguardFlag() && !PermissionManager.checkCameraLaunchPermissions()) {
@@ -1523,7 +1400,6 @@ public class Camera extends ActivityBase implements OnRequestPermissionsResultCa
         Log.d(TAG, "onStop end");
     }
 
-    /* JADX WARNING: type inference failed for: r2v0, types: [com.android.camera.ActivityBase, android.content.Context, com.android.camera.Camera] */
     public void onUserInteraction() {
         super.onUserInteraction();
         Log.d(TAG, "onUserInteraction");
@@ -1533,7 +1409,6 @@ public class Camera extends ActivityBase implements OnRequestPermissionsResultCa
         }
     }
 
-    /* JADX WARNING: type inference failed for: r3v0, types: [com.android.camera.ActivityBase, android.app.Activity, com.android.camera.Camera] */
     public void onWindowFocusChanged(boolean z) {
         String str = TAG;
         StringBuilder sb = new StringBuilder();
@@ -1701,7 +1576,7 @@ public class Camera extends ActivityBase implements OnRequestPermissionsResultCa
         } else if (getSupportFragmentManager().findFragmentByTag(LensDirtyDetectDialogFragment.TAG) == null) {
             LensDirtyDetectDialogFragment lensDirtyDetectDialogFragment = new LensDirtyDetectDialogFragment();
             lensDirtyDetectDialogFragment.setStyle(2, R.style.LensDirtyDetectDialogFragment);
-            getSupportFragmentManager().beginTransaction().add(lensDirtyDetectDialogFragment, LensDirtyDetectDialogFragment.TAG).commitAllowingStateLoss();
+            getSupportFragmentManager().beginTransaction().add((Fragment) lensDirtyDetectDialogFragment, LensDirtyDetectDialogFragment.TAG).commitAllowingStateLoss();
         }
     }
 
@@ -1713,13 +1588,13 @@ public class Camera extends ActivityBase implements OnRequestPermissionsResultCa
             case 1:
                 PortraitNewbieDialogFragment portraitNewbieDialogFragment = new PortraitNewbieDialogFragment();
                 portraitNewbieDialogFragment.setStyle(2, R.style.DialogFragmentFullScreen);
-                getSupportFragmentManager().beginTransaction().add(portraitNewbieDialogFragment, PortraitNewbieDialogFragment.TAG).commitAllowingStateLoss();
+                getSupportFragmentManager().beginTransaction().add((Fragment) portraitNewbieDialogFragment, PortraitNewbieDialogFragment.TAG).commitAllowingStateLoss();
                 this.newbieDialogFragmentTag = PortraitNewbieDialogFragment.TAG;
                 return true;
             case 2:
                 FrontRotateNewbieDialogFragment frontRotateNewbieDialogFragment = new FrontRotateNewbieDialogFragment();
                 frontRotateNewbieDialogFragment.setStyle(2, R.style.DialogFragmentFullScreen);
-                getSupportFragmentManager().beginTransaction().add(frontRotateNewbieDialogFragment, FrontRotateNewbieDialogFragment.TAG).commitAllowingStateLoss();
+                getSupportFragmentManager().beginTransaction().add((Fragment) frontRotateNewbieDialogFragment, FrontRotateNewbieDialogFragment.TAG).commitAllowingStateLoss();
                 this.newbieDialogFragmentTag = FrontRotateNewbieDialogFragment.TAG;
                 return true;
             case 3:
@@ -1728,7 +1603,7 @@ public class Camera extends ActivityBase implements OnRequestPermissionsResultCa
                 }
                 AiSceneNewbieDialogFragment aiSceneNewbieDialogFragment = new AiSceneNewbieDialogFragment();
                 aiSceneNewbieDialogFragment.setStyle(2, R.style.DialogFragmentFullScreen);
-                getSupportFragmentManager().beginTransaction().add(aiSceneNewbieDialogFragment, AiSceneNewbieDialogFragment.TAG).commitAllowingStateLoss();
+                getSupportFragmentManager().beginTransaction().add((Fragment) aiSceneNewbieDialogFragment, AiSceneNewbieDialogFragment.TAG).commitAllowingStateLoss();
                 this.newbieDialogFragmentTag = AiSceneNewbieDialogFragment.TAG;
                 DataRepository.dataItemGlobal().editor().putBoolean("pref_camera_first_ai_scene_use_hint_shown_key", false).apply();
                 return true;
@@ -1738,7 +1613,7 @@ public class Camera extends ActivityBase implements OnRequestPermissionsResultCa
                 }
                 UltraWideNewbieDialogFragment ultraWideNewbieDialogFragment = new UltraWideNewbieDialogFragment();
                 ultraWideNewbieDialogFragment.setStyle(2, R.style.DialogFragmentFullScreen);
-                getSupportFragmentManager().beginTransaction().add(ultraWideNewbieDialogFragment, UltraWideNewbieDialogFragment.TAG).commitAllowingStateLoss();
+                getSupportFragmentManager().beginTransaction().add((Fragment) ultraWideNewbieDialogFragment, UltraWideNewbieDialogFragment.TAG).commitAllowingStateLoss();
                 this.newbieDialogFragmentTag = UltraWideNewbieDialogFragment.TAG;
                 DataRepository.dataItemGlobal().editor().putBoolean("pref_camera_first_ultra_wide_use_hint_shown_key", false).apply();
                 return true;

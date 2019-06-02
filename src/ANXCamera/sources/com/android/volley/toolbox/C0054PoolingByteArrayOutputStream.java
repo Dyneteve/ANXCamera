@@ -1,0 +1,48 @@
+package com.android.volley.toolbox;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+
+/* renamed from: com.android.volley.toolbox.PoolingByteArrayOutputStream reason: case insensitive filesystem */
+public class C0054PoolingByteArrayOutputStream extends ByteArrayOutputStream {
+    private static final int DEFAULT_SIZE = 256;
+    private final C0040ByteArrayPool mPool;
+
+    public C0054PoolingByteArrayOutputStream(C0040ByteArrayPool byteArrayPool) {
+        this(byteArrayPool, 256);
+    }
+
+    public C0054PoolingByteArrayOutputStream(C0040ByteArrayPool byteArrayPool, int i) {
+        this.mPool = byteArrayPool;
+        this.buf = this.mPool.getBuf(Math.max(i, 256));
+    }
+
+    private void expand(int i) {
+        if (this.count + i > this.buf.length) {
+            byte[] buf = this.mPool.getBuf((this.count + i) * 2);
+            System.arraycopy(this.buf, 0, buf, 0, this.count);
+            this.mPool.returnBuf(this.buf);
+            this.buf = buf;
+        }
+    }
+
+    public void close() throws IOException {
+        this.mPool.returnBuf(this.buf);
+        this.buf = null;
+        super.close();
+    }
+
+    public void finalize() {
+        this.mPool.returnBuf(this.buf);
+    }
+
+    public synchronized void write(int i) {
+        expand(1);
+        super.write(i);
+    }
+
+    public synchronized void write(byte[] bArr, int i, int i2) {
+        expand(i2);
+        super.write(bArr, i, i2);
+    }
+}

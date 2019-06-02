@@ -66,7 +66,7 @@ public class BaseDialogFragment extends DialogFragment implements OnKeyListener,
     }
 
     public void onActivityCreated(@Nullable Bundle bundle) {
-        BaseDialogFragment.super.onActivityCreated(bundle);
+        super.onActivityCreated(bundle);
         Dialog dialog = getDialog();
         if (dialog != null && dialog.getWindow() != null) {
             Window window = dialog.getWindow();
@@ -79,9 +79,9 @@ public class BaseDialogFragment extends DialogFragment implements OnKeyListener,
     }
 
     public boolean onBackEvent(int i) {
-        Camera activity = getActivity();
-        if (activity != null) {
-            activity.getCameraScreenNail().drawBlackFrame(false);
+        Camera camera = (Camera) getActivity();
+        if (camera != null) {
+            camera.getCameraScreenNail().drawBlackFrame(false);
         }
         return false;
     }

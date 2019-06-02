@@ -22,7 +22,7 @@ public class BaseGridLayoutManager extends GridLayoutManager {
 
     public void onLayoutChildren(Recycler recycler, State state) {
         try {
-            BaseGridLayoutManager.super.onLayoutChildren(recycler, state);
+            super.onLayoutChildren(recycler, state);
         } catch (IndexOutOfBoundsException e) {
             Log.i("BaseGridLayoutManager", "IndexOutOfBoundsException ");
         }

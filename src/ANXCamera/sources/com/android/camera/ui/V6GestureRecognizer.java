@@ -319,41 +319,12 @@ public class V6GestureRecognizer {
         }
     }
 
-    /* JADX WARNING: type inference failed for: r5v0, types: [com.android.camera.ActivityBase, android.content.Context] */
-    /* JADX WARNING: type inference failed for: r1v0 */
-    /* JADX WARNING: type inference failed for: r1v2, types: [android.content.Context, com.android.camera.Camera] */
-    /* JADX WARNING: type inference failed for: r2v0, types: [android.content.Context, com.android.camera.Camera] */
-    /* JADX WARNING: Incorrect type for immutable var: ssa=com.android.camera.ActivityBase, code=null, for r5v0, types: [com.android.camera.ActivityBase, android.content.Context] */
-    /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r1v2, types: [android.content.Context, com.android.camera.Camera]
-  assigns: [com.android.camera.Camera]
-  uses: [android.content.Context]
-  mth insns count: 26
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-    	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-    	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-    	at jadx.core.ProcessClass.lambda$processDependencies$0(ProcessClass.java:49)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.ProcessClass.processDependencies(ProcessClass.java:49)
-    	at jadx.core.ProcessClass.process(ProcessClass.java:35)
-    	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-    	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-    	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-     */
-    /* JADX WARNING: Unknown variable types count: 4 */
-    /* Code decompiled incorrectly, please refer to instructions dump. */
-    private V6GestureRecognizer(ActivityBase r5) {
-        this.mActivity = (Camera) r5;
+    private V6GestureRecognizer(ActivityBase activityBase) {
+        this.mActivity = (Camera) activityBase;
         this.MIN_DETECT_DISTANCE = ViewConfiguration.get(this.mActivity).getScaledTouchSlop() * ViewConfiguration.get(this.mActivity).getScaledTouchSlop();
-        this.mGestureDetector = new GestureDetector(r5, new MyGestureListener(), null, true);
+        this.mGestureDetector = new GestureDetector(activityBase, new MyGestureListener(), null, true);
         this.mEdgeGestureDetector = new EdgeGestureDetector(new MyEdgeGestureListener());
-        this.mScaleDetector = new ScaleGestureDetector(r5, new MyScaleListener());
+        this.mScaleDetector = new ScaleGestureDetector(activityBase, new MyScaleListener());
         this.mCameraGestureDetector = new CameraGestureDetector();
     }
 

@@ -2,9 +2,9 @@ package com.android.camera.network.net.json;
 
 import com.android.camera.network.net.base.ErrorCode;
 import com.android.camera.network.net.base.VolleyRequest;
-import com.android.volley.Request;
-import com.android.volley.Response.ErrorListener;
-import com.android.volley.Response.Listener;
+import com.android.volley.C0028Request;
+import com.android.volley.C0030Response.ErrorListener;
+import com.android.volley.C0030Response.Listener;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.HashMap;
@@ -65,7 +65,7 @@ public abstract class BaseJsonRequest<T> extends VolleyRequest<JSONObject, T> {
     }
 
     /* access modifiers changed from: protected */
-    public final Request<JSONObject> createVolleyRequest(Listener<JSONObject> listener, ErrorListener errorListener) {
+    public final C0028Request<JSONObject> createVolleyRequest(Listener<JSONObject> listener, ErrorListener errorListener) {
         String str = this.mUrl;
         String appendUrlParams = appendUrlParams();
         if (this.mMethod == 0) {

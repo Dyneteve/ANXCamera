@@ -1,8 +1,8 @@
 package com.android.camera.network.net.base;
 
-import com.android.volley.VolleyError;
+import com.android.volley.C0035VolleyError;
 
-public class RequestError extends VolleyError {
+public class RequestError extends C0035VolleyError {
     private ErrorCode mErrorCode;
     private Object mResponseData;
 

@@ -414,7 +414,7 @@ public class FragmentLiveSticker extends FragmentLiveBase implements OnCtaNotice
         this.mTotalWidth = getResources().getDisplayMetrics().widthPixels;
         final boolean isLayoutRTL = Util.isLayoutRTL(getContext());
         this.mUpdatingView = this.mRootView.findViewById(R.id.live_sticker_updating);
-        this.mStickerListView = this.mRootView.findViewById(R.id.live_sticker_list);
+        this.mStickerListView = (RecyclerView) this.mRootView.findViewById(R.id.live_sticker_list);
         this.mNoneItemView = this.mRootView.findViewById(R.id.live_sticker_none_item);
         this.mNoneSelectView = this.mRootView.findViewById(R.id.live_sticker_none_selected_indicator);
         this.mSelectIndex = -1;

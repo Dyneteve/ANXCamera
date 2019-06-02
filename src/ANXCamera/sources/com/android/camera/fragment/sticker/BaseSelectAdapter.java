@@ -77,7 +77,7 @@ public abstract class BaseSelectAdapter<T> extends Adapter<BaseSelectHolder> imp
 
     public void onBindViewHolder(BaseSelectHolder baseSelectHolder, int i, List<Object> list) {
         if (list == null || list.size() <= 0) {
-            BaseSelectAdapter.super.onBindViewHolder(baseSelectHolder, i, list);
+            super.onBindViewHolder(baseSelectHolder, i, list);
         } else {
             setSelected(baseSelectHolder, i == this.mSelectedItemPosition);
         }

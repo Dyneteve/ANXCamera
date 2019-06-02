@@ -52,7 +52,7 @@ public class LensDirtyDetectDialogFragment extends DialogFragment implements OnK
     }
 
     public Dialog onCreateDialog(Bundle bundle) {
-        Dialog onCreateDialog = LensDirtyDetectDialogFragment.super.onCreateDialog(bundle);
+        Dialog onCreateDialog = super.onCreateDialog(bundle);
         onCreateDialog.getWindow().setGravity(48);
         return onCreateDialog;
     }
@@ -76,7 +76,7 @@ public class LensDirtyDetectDialogFragment extends DialogFragment implements OnK
         if (backStack != null) {
             backStack.removeBackStack(this);
         }
-        LensDirtyDetectDialogFragment.super.onDestroyView();
+        super.onDestroyView();
     }
 
     public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
@@ -88,7 +88,7 @@ public class LensDirtyDetectDialogFragment extends DialogFragment implements OnK
     }
 
     public void onResume() {
-        LensDirtyDetectDialogFragment.super.onResume();
+        super.onResume();
         Dialog dialog = getDialog();
         if (dialog != null) {
             dialog.setOnKeyListener(this);
@@ -96,7 +96,7 @@ public class LensDirtyDetectDialogFragment extends DialogFragment implements OnK
     }
 
     public void onViewCreated(View view, @Nullable Bundle bundle) {
-        LensDirtyDetectDialogFragment.super.onViewCreated(view, bundle);
+        super.onViewCreated(view, bundle);
         BackStack backStack = (BackStack) ModeCoordinatorImpl.getInstance().getAttachProtocol(171);
         if (backStack != null) {
             backStack.addInBackStack(this);

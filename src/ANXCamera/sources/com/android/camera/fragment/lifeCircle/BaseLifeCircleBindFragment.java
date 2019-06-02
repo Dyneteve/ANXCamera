@@ -21,17 +21,17 @@ public class BaseLifeCircleBindFragment extends Fragment {
     }
 
     public void onDestroy() {
-        BaseLifeCircleBindFragment.super.onDestroy();
+        super.onDestroy();
         this.mLifecycle.onDestroy(FRAGMENT_TAG);
     }
 
     public void onStart() {
-        BaseLifeCircleBindFragment.super.onStart();
+        super.onStart();
         this.mLifecycle.onStart(FRAGMENT_TAG);
     }
 
     public void onStop() {
-        BaseLifeCircleBindFragment.super.onStop();
+        super.onStop();
         this.mLifecycle.onStop(FRAGMENT_TAG);
     }
 }

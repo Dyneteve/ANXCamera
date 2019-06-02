@@ -92,7 +92,7 @@ public class FragmentStickerPager extends Fragment {
     private RecyclerView mRecyclerView;
 
     private void initView(View view) {
-        this.mRecyclerView = view.findViewById(R.id.sticker_item_list);
+        this.mRecyclerView = (RecyclerView) view.findViewById(R.id.sticker_item_list);
         this.mRecyclerView.setLayoutManager(new LinearLayoutManagerWrapper(getContext(), 0, false, "sticker_item_list"));
         this.mAdapter = new StickerAdapter(getContext());
         this.mRecyclerView.setAdapter(this.mAdapter);
@@ -198,12 +198,12 @@ public class FragmentStickerPager extends Fragment {
     }
 
     public void onDestroy() {
-        FragmentStickerPager.super.onDestroy();
+        super.onDestroy();
         ResourceDownloadManager.getInstance().removeDownloadListener(this.mDownloadListener);
     }
 
     public void setUserVisibleHint(boolean z) {
-        FragmentStickerPager.super.setUserVisibleHint(z);
+        super.setUserVisibleHint(z);
         if (z && this.mRecyclerView != null) {
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
             alphaAnimation.setDuration(300);

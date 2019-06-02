@@ -154,7 +154,7 @@ public class SupportRequestManagerFragment extends Fragment {
     }
 
     public void onAttach(Context context) {
-        SupportRequestManagerFragment.super.onAttach(context);
+        super.onAttach(context);
         try {
             d(getActivity());
         } catch (IllegalStateException e) {
@@ -165,30 +165,30 @@ public class SupportRequestManagerFragment extends Fragment {
     }
 
     public void onDestroy() {
-        SupportRequestManagerFragment.super.onDestroy();
+        super.onDestroy();
         this.nb.onDestroy();
         dc();
     }
 
     public void onDetach() {
-        SupportRequestManagerFragment.super.onDetach();
+        super.onDetach();
         this.nu = null;
         dc();
     }
 
     public void onStart() {
-        SupportRequestManagerFragment.super.onStart();
+        super.onStart();
         this.nb.onStart();
     }
 
     public void onStop() {
-        SupportRequestManagerFragment.super.onStop();
+        super.onStop();
         this.nb.onStop();
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(SupportRequestManagerFragment.super.toString());
+        sb.append(super.toString());
         sb.append("{parent=");
         sb.append(df());
         sb.append("}");

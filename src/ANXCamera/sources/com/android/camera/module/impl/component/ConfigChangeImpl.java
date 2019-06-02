@@ -786,32 +786,6 @@ public class ConfigChangeImpl implements ConfigChanges {
         }
     }
 
-    /* JADX WARNING: type inference failed for: r0v7, types: [com.android.camera.ActivityBase, android.content.Context] */
-    /* JADX WARNING: type inference failed for: r0v8, types: [com.android.camera.ActivityBase, android.content.Context] */
-    /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r0v7, types: [com.android.camera.ActivityBase, android.content.Context]
-  assigns: [com.android.camera.ActivityBase]
-  uses: [android.content.Context]
-  mth insns count: 40
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-    	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-    	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-    	at jadx.core.ProcessClass.lambda$processDependencies$0(ProcessClass.java:49)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.ProcessClass.processDependencies(ProcessClass.java:49)
-    	at jadx.core.ProcessClass.process(ProcessClass.java:35)
-    	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-    	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-    	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-     */
-    /* JADX WARNING: Unknown variable types count: 2 */
-    /* Code decompiled incorrectly, please refer to instructions dump. */
     private void updateFlashModeAndRefreshUI(BaseModule baseModule, String str) {
         int moduleIndex = baseModule.getModuleIndex();
         String str2 = TAG;
@@ -1904,47 +1878,22 @@ public class ConfigChangeImpl implements ConfigChanges {
         }
     }
 
-    /* JADX WARNING: type inference failed for: r0v0, types: [com.android.camera.ActivityBase, android.content.Context] */
-    /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r0v0, types: [com.android.camera.ActivityBase, android.content.Context]
-  assigns: [com.android.camera.ActivityBase]
-  uses: [?[int, boolean, OBJECT, ARRAY, byte, short, char], android.content.Context, com.android.camera.ActivityBase]
-  mth insns count: 30
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-    	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-    	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-    	at jadx.core.ProcessClass.lambda$processDependencies$0(ProcessClass.java:49)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.ProcessClass.processDependencies(ProcessClass.java:49)
-    	at jadx.core.ProcessClass.process(ProcessClass.java:35)
-    	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-    	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-    	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-     */
-    /* JADX WARNING: Unknown variable types count: 1 */
-    /* Code decompiled incorrectly, please refer to instructions dump. */
     public void showSetting() {
-        ? r0 = this.mActivity;
-        if (r0 != 0) {
+        ActivityBase activityBase = this.mActivity;
+        if (activityBase != null) {
             Intent intent = new Intent();
-            intent.setClass(r0, CameraPreferenceActivity.class);
+            intent.setClass(activityBase, CameraPreferenceActivity.class);
             intent.putExtra(BasePreferenceActivity.FROM_WHERE, DataRepository.dataItemGlobal().getCurrentMode());
             if (DataRepository.dataItemGlobal().getIntentType() == 1) {
                 intent.putExtra(CameraPreferenceActivity.IS_IMAGE_CAPTURE_INTENT, true);
             }
-            intent.putExtra(":miui:starting_window_label", r0.getResources().getString(R.string.pref_camera_settings_category));
-            if (r0.startFromKeyguard()) {
+            intent.putExtra(":miui:starting_window_label", activityBase.getResources().getString(R.string.pref_camera_settings_category));
+            if (activityBase.startFromKeyguard()) {
                 intent.putExtra("StartActivityWhenLocked", true);
             }
-            r0.getIntent().removeExtra(CameraIntentManager.EXTRAS_CAMERA_FACING);
-            r0.startActivity(intent);
-            r0.setJumpFlag(2);
+            activityBase.getIntent().removeExtra(CameraIntentManager.EXTRAS_CAMERA_FACING);
+            activityBase.startActivity(intent);
+            activityBase.setJumpFlag(2);
             trackGotoSettings();
         }
     }

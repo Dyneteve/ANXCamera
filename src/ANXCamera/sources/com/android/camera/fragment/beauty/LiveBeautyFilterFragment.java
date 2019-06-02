@@ -213,7 +213,7 @@ public class LiveBeautyFilterFragment extends Fragment implements OnClickListene
     }
 
     private void initView() {
-        this.mRecyclerView = this.mView.findViewById(R.id.effect_list);
+        this.mRecyclerView = (RecyclerView) this.mView.findViewById(R.id.effect_list);
         this.mCubicEaseOut = new CubicEaseOutInterpolator();
         this.mFilterItemAdapter = new FilterItemAdapter(getContext());
         this.mLayoutManager = new LinearLayoutManagerWrapper(getContext(), "effect_list");
@@ -224,7 +224,7 @@ public class LiveBeautyFilterFragment extends Fragment implements OnClickListene
         this.mRecyclerView.setAdapter(this.mFilterItemAdapter);
         this.mRecyclerView.addOnScrollListener(new OnScrollListener() {
             public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-                LiveBeautyFilterFragment.super.onScrollStateChanged(recyclerView, i);
+                super.onScrollStateChanged(recyclerView, i);
                 LiveBeautyFilterFragment.this.isAnimation = false;
             }
         });
@@ -293,7 +293,7 @@ public class LiveBeautyFilterFragment extends Fragment implements OnClickListene
         Bitmap createBitmap = Bitmap.createBitmap(i2, i2, Config.ARGB_8888);
         Canvas canvas = new Canvas(createBitmap);
         Paint paint = new Paint();
-        paint.setColor(-16777216);
+        paint.setColor(ViewCompat.MEASURED_STATE_MASK);
         canvas.drawRoundRect(new RectF(4.0f, 4.0f, dimension, dimension), dimension2, dimension2, paint);
         Bitmap decodeResource = BitmapFactory.decodeResource(getResources(), i);
         Bitmap createBitmap2 = Bitmap.createBitmap(createBitmap.getWidth(), createBitmap.getHeight(), Config.ARGB_8888);
@@ -344,7 +344,7 @@ public class LiveBeautyFilterFragment extends Fragment implements OnClickListene
     }
 
     public void onViewCreated(@NonNull View view, @Nullable Bundle bundle) {
-        LiveBeautyFilterFragment.super.onViewCreated(view, bundle);
+        super.onViewCreated(view, bundle);
         int i = (this.mTotalWidth / 2) - (this.mHolderWidth / 2);
         this.mFilterItemAdapter.notifyDataSetChanged();
         this.mLayoutManager.scrollToPositionWithOffset(this.mCurrentIndex, i);

@@ -4,15 +4,15 @@ import android.os.Looper;
 import com.android.camera.constant.DurationConstant;
 import com.android.camera.network.net.HttpManager;
 import com.android.camera.network.threadpool.ThreadManager;
-import com.android.volley.DefaultRetryPolicy;
-import com.android.volley.Request;
-import com.android.volley.Response.ErrorListener;
-import com.android.volley.Response.Listener;
-import com.android.volley.VolleyError;
+import com.android.volley.C0020DefaultRetryPolicy;
+import com.android.volley.C0028Request;
+import com.android.volley.C0030Response.ErrorListener;
+import com.android.volley.C0030Response.Listener;
+import com.android.volley.C0035VolleyError;
 import java.util.concurrent.CountDownLatch;
 
 public abstract class VolleyRequest<T, E> extends BaseRequest<E> implements ErrorListener, Listener<T> {
-    private Request<T> mRequest;
+    private C0028Request<T> mRequest;
     private CountDownLatch mSyncExecuteLock = null;
 
     private void releaseSyncExecuteLock() {
@@ -30,12 +30,12 @@ public abstract class VolleyRequest<T, E> extends BaseRequest<E> implements Erro
         }
     }
 
-    public abstract Request<T> createVolleyRequest(Listener<T> listener, ErrorListener errorListener);
+    public abstract C0028Request<T> createVolleyRequest(Listener<T> listener, ErrorListener errorListener);
 
     public void execute() {
         this.mRequest = createVolleyRequest(this, this);
         if (this.mRequest != null) {
-            this.mRequest.setRetryPolicy(new DefaultRetryPolicy(DurationConstant.DURATION_VIDEO_RECORDING_CIRCLE, 1, 1.0f));
+            this.mRequest.setRetryPolicy(new C0020DefaultRetryPolicy(DurationConstant.DURATION_VIDEO_RECORDING_CIRCLE, 1, 1.0f));
             this.mRequest.setShouldCache(isUseCache());
             Object tag = getTag();
             if (this.mRequest.getTag() == null && tag != null) {
@@ -74,7 +74,7 @@ public abstract class VolleyRequest<T, E> extends BaseRequest<E> implements Erro
     /* JADX WARNING: Multi-variable type inference failed */
     /* JADX WARNING: Unknown variable types count: 1 */
     /* Code decompiled incorrectly, please refer to instructions dump. */
-    public final void onErrorResponse(VolleyError volleyError) {
+    public final void onErrorResponse(C0035VolleyError volleyError) {
         ErrorCode errorCode = ErrorCode.NET_ERROR;
         if (volleyError instanceof RequestError) {
             errorCode = ((RequestError) volleyError).getErrorCode();

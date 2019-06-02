@@ -4,9 +4,9 @@ import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
 import android.graphics.Point;
+import android.support.v4.internal.view.SupportMenu;
 import android.util.Log;
 import android.util.SparseIntArray;
-import com.sensetime.stmobile.STMobileHumanActionNative;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -471,10 +471,10 @@ public class ExifInterface {
         }
     }
 
-    /* JADX WARNING: Incorrect type for immutable var: ssa=short, code=int, for r2v0, types: [int, short] */
+    /* JADX WARNING: Incorrect type for immutable var: ssa=short, code=int, for r2v0, types: [short, int] */
     /* Code decompiled incorrectly, please refer to instructions dump. */
     public static int defineTag(int i, int i2) {
-        return (i << 16) | (i2 & 65535);
+        return (i << 16) | (i2 & SupportMenu.USER_MASK);
     }
 
     private void doExifStreamIO(InputStream inputStream, OutputStream outputStream) throws IOException {
@@ -514,7 +514,7 @@ public class ExifInterface {
     }
 
     protected static int getComponentCountFromInfo(int i) {
-        return i & 65535;
+        return i & SupportMenu.USER_MASK;
     }
 
     public static ExifInterface getExif(byte[] bArr) {
@@ -615,10 +615,10 @@ public class ExifInterface {
 
     private void initTagInfo() {
         int flagsFromAllowedIfds = getFlagsFromAllowedIfds(new int[]{0, 1}) << 24;
-        int i = flagsFromAllowedIfds | STMobileHumanActionNative.ST_MOBILE_HAND_CONGRATULATE;
+        int i = flagsFromAllowedIfds | 131072;
         int i2 = i | 0;
         this.mTagInfo.put(TAG_MAKE, i2);
-        int i3 = flagsFromAllowedIfds | STMobileHumanActionNative.ST_MOBILE_HAND_FINGER_HEART;
+        int i3 = flagsFromAllowedIfds | 262144;
         int i4 = i3 | 1;
         this.mTagInfo.put(TAG_IMAGE_WIDTH, i4);
         this.mTagInfo.put(TAG_IMAGE_LENGTH, i4);
@@ -656,7 +656,7 @@ public class ExifInterface {
         this.mTagInfo.put(TAG_COPYRIGHT, i2);
         this.mTagInfo.put(TAG_EXIF_IFD, i4);
         this.mTagInfo.put(TAG_GPS_IFD, i4);
-        int flagsFromAllowedIfds2 = (getFlagsFromAllowedIfds(new int[]{1}) << 24) | STMobileHumanActionNative.ST_MOBILE_HAND_FINGER_HEART | 1;
+        int flagsFromAllowedIfds2 = (getFlagsFromAllowedIfds(new int[]{1}) << 24) | 262144 | 1;
         this.mTagInfo.put(TAG_JPEG_INTERCHANGE_FORMAT, flagsFromAllowedIfds2);
         this.mTagInfo.put(TAG_JPEG_INTERCHANGE_FORMAT_LENGTH, flagsFromAllowedIfds2);
         int flagsFromAllowedIfds3 = getFlagsFromAllowedIfds(new int[]{2}) << 24;
@@ -676,7 +676,7 @@ public class ExifInterface {
         int i17 = i11 | 0;
         this.mTagInfo.put(TAG_MAKER_NOTE, i17);
         this.mTagInfo.put(TAG_USER_COMMENT, i17);
-        int i18 = flagsFromAllowedIfds3 | STMobileHumanActionNative.ST_MOBILE_HAND_CONGRATULATE;
+        int i18 = flagsFromAllowedIfds3 | 131072;
         this.mTagInfo.put(TAG_RELATED_SOUND_FILE, i18 | 13);
         int i19 = i18 | 20;
         this.mTagInfo.put(TAG_DATE_TIME_ORIGINAL, i19);
@@ -747,7 +747,7 @@ public class ExifInterface {
         int flagsFromAllowedIfds4 = getFlagsFromAllowedIfds(new int[]{4}) << 24;
         int i26 = 65536 | flagsFromAllowedIfds4;
         this.mTagInfo.put(TAG_GPS_VERSION_ID, i26 | 4);
-        int i27 = flagsFromAllowedIfds4 | STMobileHumanActionNative.ST_MOBILE_HAND_CONGRATULATE;
+        int i27 = flagsFromAllowedIfds4 | 131072;
         int i28 = i27 | 2;
         this.mTagInfo.put(TAG_GPS_LATITUDE_REF, i28);
         this.mTagInfo.put(TAG_GPS_LONGITUDE_REF, i28);
@@ -782,7 +782,7 @@ public class ExifInterface {
         this.mTagInfo.put(TAG_GPS_AREA_INFORMATION, i33);
         this.mTagInfo.put(TAG_GPS_DATE_STAMP, i27 | 11);
         this.mTagInfo.put(TAG_GPS_DIFFERENTIAL, flagsFromAllowedIfds4 | 196608 | 11);
-        this.mTagInfo.put(TAG_INTEROPERABILITY_INDEX, (getFlagsFromAllowedIfds(new int[]{3}) << 24) | STMobileHumanActionNative.ST_MOBILE_HAND_CONGRATULATE | 0);
+        this.mTagInfo.put(TAG_INTEROPERABILITY_INDEX, (getFlagsFromAllowedIfds(new int[]{3}) << 24) | 131072 | 0);
     }
 
     protected static boolean isIfdAllowed(int i, int i2) {

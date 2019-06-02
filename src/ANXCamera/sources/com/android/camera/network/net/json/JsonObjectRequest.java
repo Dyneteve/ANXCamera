@@ -1,21 +1,21 @@
 package com.android.camera.network.net.json;
 
 import com.android.camera.network.net.base.Cacheable;
-import com.android.volley.AuthFailureError;
-import com.android.volley.NetworkResponse;
-import com.android.volley.ParseError;
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.Response.ErrorListener;
-import com.android.volley.Response.Listener;
-import com.android.volley.toolbox.HttpHeaderParser;
+import com.android.volley.C0017AuthFailureError;
+import com.android.volley.C0025NetworkResponse;
+import com.android.volley.C0027ParseError;
+import com.android.volley.C0028Request;
+import com.android.volley.C0030Response;
+import com.android.volley.C0030Response.ErrorListener;
+import com.android.volley.C0030Response.Listener;
+import com.android.volley.toolbox.C0044HttpHeaderParser;
 import com.ss.android.vesdk.runtime.cloudconfig.HttpRequest;
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class JsonObjectRequest extends Request<JSONObject> implements Cacheable {
+public class JsonObjectRequest extends C0028Request<JSONObject> implements Cacheable {
     private String mCacheKey = null;
     private volatile byte[] mData = null;
     private Map<String, String> mHeaders = null;
@@ -57,11 +57,11 @@ public class JsonObjectRequest extends Request<JSONObject> implements Cacheable 
         return this.mData;
     }
 
-    public Map<String, String> getHeaders() throws AuthFailureError {
+    public Map<String, String> getHeaders() throws C0017AuthFailureError {
         return this.mHeaders != null ? this.mHeaders : super.getHeaders();
     }
 
-    public Map<String, String> getParams() throws AuthFailureError {
+    public Map<String, String> getParams() throws C0017AuthFailureError {
         return this.mParams != null ? this.mParams : super.getParams();
     }
 
@@ -70,15 +70,15 @@ public class JsonObjectRequest extends Request<JSONObject> implements Cacheable 
     }
 
     /* access modifiers changed from: protected */
-    public Response<JSONObject> parseNetworkResponse(NetworkResponse networkResponse) {
+    public C0030Response<JSONObject> parseNetworkResponse(C0025NetworkResponse networkResponse) {
         try {
             this.mIsFromCache = networkResponse.headers.containsKey(Cacheable.HEADER_FROM_CACHE);
             this.mData = networkResponse.data;
-            return Response.success(new JSONObject(new String(networkResponse.data, parseCharset(networkResponse.headers, "utf-8"))), HttpHeaderParser.parseCacheHeaders(networkResponse));
+            return C0030Response.success(new JSONObject(new String(networkResponse.data, parseCharset(networkResponse.headers, "utf-8"))), C0044HttpHeaderParser.parseCacheHeaders(networkResponse));
         } catch (UnsupportedEncodingException e) {
-            return Response.error(new ParseError((Throwable) e));
+            return C0030Response.error(new C0027ParseError((Throwable) e));
         } catch (JSONException e2) {
-            return Response.error(new ParseError((Throwable) e2));
+            return C0030Response.error(new C0027ParseError((Throwable) e2));
         }
     }
 

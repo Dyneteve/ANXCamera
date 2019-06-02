@@ -7,7 +7,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import com.bumptech.glide.b.a.C0003a;
-import com.sensetime.stmobile.STMobileHumanActionNative;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -600,7 +599,7 @@ public class e implements a {
         if (inputStream != null) {
             try {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(i > 0 ? i + 4096 : 16384);
-                byte[] bArr = new byte[STMobileHumanActionNative.ST_MOBILE_HAND_LOVE];
+                byte[] bArr = new byte[16384];
                 while (true) {
                     int read = inputStream.read(bArr, 0, bArr.length);
                     if (read == -1) {

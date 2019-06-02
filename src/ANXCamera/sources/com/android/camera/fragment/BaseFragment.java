@@ -122,7 +122,7 @@ public abstract class BaseFragment extends Fragment implements AnimationResource
     }
 
     public void onDestroyView() {
-        BaseFragment.super.onDestroyView();
+        super.onDestroyView();
         if (this.mRegistered) {
             this.mRegistered = false;
             unRegisterProtocol();
@@ -134,7 +134,7 @@ public abstract class BaseFragment extends Fragment implements AnimationResource
     }
 
     public void onResume() {
-        BaseFragment.super.onResume();
+        super.onResume();
         if (!(this.mIsnotchScreenHidden == Util.sIsnotchScreenHidden && this.mIsFullScreenNavBarHidden == Util.sIsFullScreenNavBarHidden)) {
             initView(getView());
         }
@@ -143,21 +143,21 @@ public abstract class BaseFragment extends Fragment implements AnimationResource
     }
 
     public void onStart() {
-        BaseFragment.super.onStart();
+        super.onStart();
         if (this.mLifecycleListener != null) {
             this.mLifecycleListener.onLifeStart(getFragmentTag());
         }
     }
 
     public void onStop() {
-        BaseFragment.super.onStop();
+        super.onStop();
         if (this.mLifecycleListener != null) {
             this.mLifecycleListener.onLifeStop(getFragmentTag());
         }
     }
 
     public void onViewCreated(View view, @Nullable Bundle bundle) {
-        BaseFragment.super.onViewCreated(view, bundle);
+        super.onViewCreated(view, bundle);
     }
 
     public void pendingGone(boolean z) {

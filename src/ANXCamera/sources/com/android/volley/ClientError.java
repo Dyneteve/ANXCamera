@@ -1,10 +1,10 @@
 package com.android.volley;
 
-public class ClientError extends ServerError {
+public class ClientError extends C0033ServerError {
     public ClientError() {
     }
 
-    public ClientError(NetworkResponse networkResponse) {
+    public ClientError(C0025NetworkResponse networkResponse) {
         super(networkResponse);
     }
 }

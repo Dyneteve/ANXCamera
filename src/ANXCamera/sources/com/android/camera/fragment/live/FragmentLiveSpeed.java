@@ -129,7 +129,7 @@ public class FragmentLiveSpeed extends FragmentLiveBase {
     public void initView(View view) {
         this.mRootView = view;
         final boolean isLayoutRTL = Util.isLayoutRTL(getContext());
-        this.mSpeedListView = this.mRootView.findViewById(R.id.live_speed_list);
+        this.mSpeedListView = (RecyclerView) this.mRootView.findViewById(R.id.live_speed_list);
         this.mSelectIndex = Integer.valueOf(CameraSettings.getCurrentLiveSpeed()).intValue();
         this.mAdapter = new SpeedItemAdapter(getContext(), getSpeedItemList(), this.mSelectIndex, new OnItemClickListener() {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {

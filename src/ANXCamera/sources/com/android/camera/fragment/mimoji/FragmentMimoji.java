@@ -321,7 +321,7 @@ public class FragmentMimoji extends FragmentLiveBase implements OnClickListener,
         this.mTotalWidth = getResources().getDisplayMetrics().widthPixels;
         this.mContext = getContext();
         this.mNoneItemView = view.findViewById(R.id.mimoji_none_item);
-        this.mMimojiRecylerView = view.findViewById(R.id.mimoji_list);
+        this.mMimojiRecylerView = (RecyclerView) view.findViewById(R.id.mimoji_list);
         this.popContainer = (RelativeLayout) view.findViewById(R.id.ll_bubble_pop_occupation);
         this.popParent = (RelativeLayout) view.findViewById(R.id.rl_bubble_pop_parent);
         this.mLlProgress = (LinearLayout) view.findViewById(R.id.ll_updating);
@@ -334,7 +334,7 @@ public class FragmentMimoji extends FragmentLiveBase implements OnClickListener,
         this.bubbleEditMimojiPresenter = new BubbleEditMimojiPresenter(getContext(), this, this.popParent);
         this.mMimojiRecylerView.addOnScrollListener(new OnScrollListener() {
             public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-                FragmentMimoji.super.onScrollStateChanged(recyclerView, i);
+                super.onScrollStateChanged(recyclerView, i);
                 FragmentMimoji.this.bubbleEditMimojiPresenter.processBubbleAni(-2, -2, null);
             }
         });

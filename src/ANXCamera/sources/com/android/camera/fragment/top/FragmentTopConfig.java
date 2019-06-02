@@ -8,6 +8,7 @@ import android.graphics.drawable.RotateDrawable;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.SparseBooleanArray;
@@ -244,7 +245,7 @@ public class FragmentTopConfig extends BaseFragment implements OnClickListener, 
         LayoutParams layoutParams = (LayoutParams) imageView.getLayoutParams();
         layoutParams.gravity = 0;
         int i2 = 8388611;
-        int i3 = 8388613;
+        int i3 = GravityCompat.END;
         switch (configsSize) {
             case 1:
                 layoutParams.leftMargin = 0;
@@ -282,7 +283,7 @@ public class FragmentTopConfig extends BaseFragment implements OnClickListener, 
                     return (((this.mTotalWidth - (this.mViewPadding * 2)) / i4) * i) + this.mViewPadding;
                 }
                 layoutParams.leftMargin = 0;
-                layoutParams.gravity = 8388613;
+                layoutParams.gravity = GravityCompat.END;
                 imageView.setLayoutParams(layoutParams);
                 return 0;
         }
@@ -325,7 +326,7 @@ public class FragmentTopConfig extends BaseFragment implements OnClickListener, 
     }
 
     private FragmentTopConfigExtra getTopExtra() {
-        return getChildFragmentManager().findFragmentByTag(String.valueOf(245));
+        return (FragmentTopConfigExtra) getChildFragmentManager().findFragmentByTag(String.valueOf(245));
     }
 
     private int[] getUltraPixelPhotographyResources() {
@@ -875,7 +876,7 @@ public class FragmentTopConfig extends BaseFragment implements OnClickListener, 
         this.mTopConfigMenu = view.findViewById(R.id.top_config_menu);
         ((MarginLayoutParams) this.mTopConfigMenu.getLayoutParams()).topMargin = Util.isNotchDevice ? Util.sStatusBarHeight : getResources().getDimensionPixelOffset(R.dimen.top_control_panel_extra_margin_top);
         initTopView();
-        this.mExpandView = view.findViewById(R.id.top_config_expand_view);
+        this.mExpandView = (RecyclerView) view.findViewById(R.id.top_config_expand_view);
         LinearLayoutManagerWrapper linearLayoutManagerWrapper = new LinearLayoutManagerWrapper(getContext(), "top_config_expand_view");
         linearLayoutManagerWrapper.setOrientation(0);
         this.mExpandView.setLayoutManager(linearLayoutManagerWrapper);
@@ -1002,7 +1003,7 @@ public class FragmentTopConfig extends BaseFragment implements OnClickListener, 
                                 if (fragmentByTag == null) {
                                     FragmentLiveMusic fragmentLiveMusic = new FragmentLiveMusic();
                                     fragmentLiveMusic.setStyle(2, R.style.TTMusicDialogFragment);
-                                    getFragmentManager().beginTransaction().add(fragmentLiveMusic, FragmentLiveMusic.TAG).commitAllowingStateLoss();
+                                    getFragmentManager().beginTransaction().add((Fragment) fragmentLiveMusic, FragmentLiveMusic.TAG).commitAllowingStateLoss();
                                 }
                             } else if (i != 253) {
                                 switch (i) {

@@ -6,6 +6,7 @@ import android.graphics.Rect;
 import android.graphics.SurfaceTexture;
 import android.opengl.GLES20;
 import android.opengl.Matrix;
+import android.support.v4.view.ViewCompat;
 import com.android.camera.SurfaceTextureScreenNail.SurfaceTextureScreenNailCallback;
 import com.android.camera.effect.FrameBuffer;
 import com.android.camera.effect.draw_mode.DrawBasicTexAttribute;
@@ -449,7 +450,7 @@ public class CameraScreenNail extends SurfaceTextureScreenNail {
                 this.mBitmapTexture.draw(gLCanvas2, i9, i8, i7, i6);
             } else if (this.mIsDrawBlackFrame) {
                 Log.d(TAG, "draw: skip frame...");
-                FillRectAttribute fillRectAttribute = new FillRectAttribute((float) i10, (float) i11, (float) i12, (float) i13, -16777216);
+                FillRectAttribute fillRectAttribute = new FillRectAttribute((float) i10, (float) i11, (float) i12, (float) i13, ViewCompat.MEASURED_STATE_MASK);
                 gLCanvas2.draw(fillRectAttribute);
                 postRequestListener();
             } else {

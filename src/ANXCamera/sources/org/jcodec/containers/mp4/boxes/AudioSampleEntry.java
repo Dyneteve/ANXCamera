@@ -1,5 +1,6 @@
 package org.jcodec.containers.mp4.boxes;
 
+import android.support.v4.internal.view.SupportMenu;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.ArrayList;
@@ -99,7 +100,7 @@ public class AudioSampleEntry extends SampleEntry {
 
     public static AudioSampleEntry audioSampleEntry(String str, int i, int i2, int i3, int i4, ByteOrder byteOrder) {
         int i5 = i3;
-        AudioSampleEntry createAudioSampleEntry = createAudioSampleEntry(Header.createHeader(str, 0), (short) i, (short) i5, 16, i4, 0, 0, 65535, 0, 1, i2, i5 * i2, i2, 1);
+        AudioSampleEntry createAudioSampleEntry = createAudioSampleEntry(Header.createHeader(str, 0), (short) i, (short) i5, 16, i4, 0, 0, SupportMenu.USER_MASK, 0, 1, i2, i5 * i2, i2, 1);
         NodeBox nodeBox = new NodeBox(new Header("wave"));
         createAudioSampleEntry.add(nodeBox);
         nodeBox.add(FormatBox.createFormatBox(str));
@@ -157,7 +158,7 @@ public class AudioSampleEntry extends SampleEntry {
         long channelLayout = (long) channelBox.getChannelLayout();
         int i = 0;
         if ((channelLayout >> 16) == 147) {
-            int i2 = ((int) channelLayout) & 65535;
+            int i2 = ((int) channelLayout) & SupportMenu.USER_MASK;
             Label[] labelArr = new Label[i2];
             while (i < i2) {
                 labelArr[i] = Label.getByVal(65536 | i);

@@ -1,6 +1,8 @@
 package com.bumptech.glide.load.resource.bitmap;
 
 import android.support.annotation.NonNull;
+import android.support.v4.internal.view.SupportMenu;
+import android.support.v4.view.MotionEventCompat;
 import android.util.Log;
 import com.bumptech.glide.load.ImageHeaderParser;
 import com.bumptech.glide.load.ImageHeaderParser.ImageType;
@@ -47,7 +49,7 @@ public final class m implements ImageHeaderParser {
         }
 
         public int cq() {
-            return ((getByte() << 8) & 65280) | (getByte() & 255);
+            return ((getByte() << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK) | (getByte() & 255);
         }
 
         public short cr() {
@@ -138,7 +140,7 @@ public final class m implements ImageHeaderParser {
         }
 
         public int cq() throws IOException {
-            return ((this.is.read() << 8) & 65280) | (this.is.read() & 255);
+            return ((this.is.read() << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK) | (this.is.read() & 255);
         }
 
         public short cr() throws IOException {
@@ -328,7 +330,7 @@ public final class m implements ImageHeaderParser {
         if (cq == kJ) {
             return ImageType.JPEG;
         }
-        int cq2 = ((cq << 16) & -65536) | (cVar.cq() & 65535);
+        int cq2 = ((cq << 16) & SupportMenu.CATEGORY_MASK) | (cVar.cq() & SupportMenu.USER_MASK);
         if (cq2 == kI) {
             cVar.skip(21);
             return cVar.getByte() >= 3 ? ImageType.PNG_A : ImageType.PNG;
@@ -339,11 +341,11 @@ public final class m implements ImageHeaderParser {
                 return ImageType.UNKNOWN;
             }
             cVar.skip(4);
-            if ((((cVar.cq() << 16) & -65536) | (cVar.cq() & 65535)) != kV) {
+            if ((((cVar.cq() << 16) & SupportMenu.CATEGORY_MASK) | (cVar.cq() & SupportMenu.USER_MASK)) != kV) {
                 return ImageType.UNKNOWN;
             }
-            int cq3 = ((cVar.cq() << 16) & -65536) | (cVar.cq() & 65535);
-            if ((cq3 & kX) != kW) {
+            int cq3 = ((cVar.cq() << 16) & SupportMenu.CATEGORY_MASK) | (cVar.cq() & SupportMenu.USER_MASK);
+            if ((cq3 & -256) != kW) {
                 return ImageType.UNKNOWN;
             }
             int i = cq3 & 255;

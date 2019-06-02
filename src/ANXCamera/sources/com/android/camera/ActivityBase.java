@@ -115,33 +115,9 @@ public abstract class ActivityBase extends FragmentActivity implements AppContro
             this.mActivity = new WeakReference<>(activityBase);
         }
 
-        /* JADX WARNING: type inference failed for: r0v2, types: [com.android.camera.ActivityBase, android.app.Activity] */
-        /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r0v2, types: [com.android.camera.ActivityBase, android.app.Activity]
-  assigns: [com.android.camera.ActivityBase]
-  uses: [?[int, boolean, OBJECT, ARRAY, byte, short, char], android.app.Activity, com.android.camera.ActivityBase]
-  mth insns count: 42
-        	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-        	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-        	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-        	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-        	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-        	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$0(DepthTraversal.java:13)
-        	at java.util.ArrayList.forEach(Unknown Source)
-        	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:13)
-        	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-        	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-        	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-        	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-         */
-        /* JADX WARNING: Unknown variable types count: 1 */
-        /* Code decompiled incorrectly, please refer to instructions dump. */
         public void handleMessage(Message message) {
-            ? r0 = (ActivityBase) this.mActivity.get();
-            if (r0 != 0) {
+            ActivityBase activityBase = (ActivityBase) this.mActivity.get();
+            if (activityBase != null) {
                 int i = message.what;
                 if (i == 10) {
                     int i2 = message.arg1;
@@ -153,26 +129,26 @@ public abstract class ActivityBase extends FragmentActivity implements AppContro
                         case 231:
                         case 236:
                         case 237:
-                            int i3 = Util.isInVideoCall(r0) ? R.string.cannot_connect_camera_volte_call : CameraSettings.updateOpenCameraFailTimes() > 1 ? R.string.cannot_connect_camera_twice : R.string.cannot_connect_camera_once;
-                            Util.showErrorAndFinish(r0, i3);
-                            r0.showErrorDialog();
+                            int i3 = Util.isInVideoCall(activityBase) ? R.string.cannot_connect_camera_volte_call : CameraSettings.updateOpenCameraFailTimes() > 1 ? R.string.cannot_connect_camera_twice : R.string.cannot_connect_camera_once;
+                            Util.showErrorAndFinish(activityBase, i3);
+                            activityBase.showErrorDialog();
                             break;
                         case 227:
-                            Util.showErrorAndFinish(r0, R.string.camera_disabled);
-                            r0.showErrorDialog();
+                            Util.showErrorAndFinish(activityBase, R.string.camera_disabled);
+                            activityBase.showErrorDialog();
                             break;
                     }
                 } else {
                     switch (i) {
                         case 0:
-                            if (!r0.isActivityPaused()) {
-                                r0.showDebugInfo((String) message.obj);
+                            if (!activityBase.isActivityPaused()) {
+                                activityBase.showDebugInfo((String) message.obj);
                                 break;
                             }
                             break;
                         case 1:
                             Log.d(ActivityBase.TAG, "handleMessage:  set mIsFinishInKeyguard = true;");
-                            r0.mIsFinishInKeyguard = true;
+                            activityBase.mIsFinishInKeyguard = true;
                             break;
                         case 2:
                             CameraStatUtil.trackModeSwitch();
@@ -192,7 +168,6 @@ public abstract class ActivityBase extends FragmentActivity implements AppContro
         }
     }
 
-    /* JADX WARNING: type inference failed for: r1v0, types: [com.android.camera.ActivityBase, android.content.Context] */
     private void checkGalleryLock() {
         this.mGalleryLocked = Util.isAppLocked(this, Util.REVIEW_ACTIVITY_PACKAGE);
     }
@@ -377,7 +352,6 @@ public abstract class ActivityBase extends FragmentActivity implements AppContro
         return this.mCurrentModule;
     }
 
-    /* JADX WARNING: type inference failed for: r1v0, types: [com.android.camera.ActivityBase, android.app.Activity] */
     public int getDisplayRotation() {
         return Util.getDisplayRotation(this);
     }
@@ -418,7 +392,6 @@ public abstract class ActivityBase extends FragmentActivity implements AppContro
         return this.mThumbnailUpdater;
     }
 
-    /* JADX WARNING: type inference failed for: r5v0, types: [com.android.camera.ActivityBase, android.content.Context] */
     public void gotoGallery() {
         if (!isActivityPaused()) {
             Thumbnail thumbnail = this.mThumbnailUpdater.getThumbnail();
@@ -574,13 +547,12 @@ public abstract class ActivityBase extends FragmentActivity implements AppContro
         this.mCurrentModule.onActivityResult(i, i2, intent);
     }
 
-    /* JADX WARNING: type inference failed for: r2v0, types: [com.android.camera.ActivityBase, android.support.v4.app.FragmentActivity, android.app.Activity] */
     public void onCreate(Bundle bundle) {
         if (Util.isNotchDevice) {
             CompatibilityUtils.setCutoutModeShortEdges(getWindow());
         }
         getWindow().addFlags(1024);
-        ActivityBase.super.onCreate(bundle);
+        super.onCreate(bundle);
         boolean z = true;
         setVolumeControlStream(1);
         this.mScreenHint = new ScreenHint(this);
@@ -601,30 +573,6 @@ public abstract class ActivityBase extends FragmentActivity implements AppContro
         this.mCameraBrightness = new CameraBrightness(this);
         this.mLocationManager = LocationManager.instance();
         this.mCloseActivityThread = new Thread(new Runnable() {
-            /* JADX WARNING: type inference failed for: r1v0, types: [com.android.camera.ActivityBase, android.app.Activity] */
-            /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r1v0, types: [com.android.camera.ActivityBase, android.app.Activity]
-  assigns: [com.android.camera.ActivityBase]
-  uses: [android.app.Activity]
-  mth insns count: 5
-            	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-            	at java.util.ArrayList.forEach(Unknown Source)
-            	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-            	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-            	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-            	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-            	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-            	at java.util.ArrayList.forEach(Unknown Source)
-            	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-            	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$0(DepthTraversal.java:13)
-            	at java.util.ArrayList.forEach(Unknown Source)
-            	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:13)
-            	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-            	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-            	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-            	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-             */
-            /* JADX WARNING: Unknown variable types count: 1 */
-            /* Code decompiled incorrectly, please refer to instructions dump. */
             public void run() {
                 ActivityBase.this.mApplication.closeAllActivitiesBut(ActivityBase.this);
             }
@@ -636,7 +584,6 @@ public abstract class ActivityBase extends FragmentActivity implements AppContro
         }
     }
 
-    /* JADX WARNING: type inference failed for: r3v0, types: [com.android.camera.ActivityBase, android.content.Context, android.support.v4.app.FragmentActivity, android.app.Activity] */
     /* access modifiers changed from: protected */
     public void onDestroy() {
         if (!DataRepository.dataItemFeature().gp() && this.mCameraScreenNail != null) {
@@ -659,17 +606,16 @@ public abstract class ActivityBase extends FragmentActivity implements AppContro
             this.mCameraSound.release();
             this.mCameraSound = null;
         }
-        ActivityBase.super.onDestroy();
+        super.onDestroy();
     }
 
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i != 84 || !keyEvent.isLongPress()) {
-            return ActivityBase.super.onKeyDown(i, keyEvent);
+            return super.onKeyDown(i, keyEvent);
         }
         return true;
     }
 
-    /* JADX WARNING: type inference failed for: r2v0, types: [com.android.camera.ActivityBase, android.app.Activity] */
     public void onLayoutChange(Rect rect) {
         this.mCameraScreenNail.setDisplayArea(rect);
         if (Util.getDisplayRotation(this) % 180 == 0) {
@@ -681,7 +627,7 @@ public abstract class ActivityBase extends FragmentActivity implements AppContro
 
     /* access modifiers changed from: protected */
     public void onNewIntent(Intent intent) {
-        ActivityBase.super.onNewIntent(intent);
+        super.onNewIntent(intent);
         checkGalleryLock();
         checkKeyguardFlag();
     }
@@ -695,7 +641,7 @@ public abstract class ActivityBase extends FragmentActivity implements AppContro
 
     /* access modifiers changed from: protected */
     public void onPause() {
-        ActivityBase.super.onPause();
+        super.onPause();
         getWindow().clearFlags(1024);
         if (this.mCameraScreenNail != null && !isShowBottomIntentDone() && !DataRepository.dataItemFeature().gp()) {
             Log.d(TAG, "onPause: readLastFrameGaussian...");
@@ -726,7 +672,7 @@ public abstract class ActivityBase extends FragmentActivity implements AppContro
 
     /* access modifiers changed from: protected */
     public void onResume() {
-        ActivityBase.super.onResume();
+        super.onResume();
         getWindow().addFlags(1024);
         showBlurCover();
         this.mLastJumpFlag = this.mJumpFlag;
@@ -738,7 +684,7 @@ public abstract class ActivityBase extends FragmentActivity implements AppContro
 
     /* access modifiers changed from: protected */
     public void onSaveInstanceState(Bundle bundle) {
-        ActivityBase.super.onSaveInstanceState(bundle);
+        super.onSaveInstanceState(bundle);
         if (this.mCurrentModule != null) {
             this.mCurrentModule.onSaveInstanceState(bundle);
         }
@@ -750,13 +696,13 @@ public abstract class ActivityBase extends FragmentActivity implements AppContro
 
     /* access modifiers changed from: protected */
     public void onStart() {
-        ActivityBase.super.onStart();
+        super.onStart();
         this.mGLView.onResume();
     }
 
     /* access modifiers changed from: protected */
     public void onStop() {
-        ActivityBase.super.onStop();
+        super.onStop();
         if (this.mGLView != null) {
             this.mGLView.onPause();
         }
@@ -809,7 +755,6 @@ public abstract class ActivityBase extends FragmentActivity implements AppContro
         this.mAppStartTime = 0;
     }
 
-    /* JADX WARNING: type inference failed for: r2v0, types: [com.android.camera.ActivityBase, android.content.Context] */
     public void resume() {
         if (this.mCameraSound == null) {
             this.mCameraSound = new MiuiCameraSound(this);

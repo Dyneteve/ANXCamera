@@ -13,6 +13,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
+import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.Size;
 import android.widget.Toast;
 import com.android.camera.ActivityBase;
@@ -57,7 +58,6 @@ import com.arcsoft.avatar.recoder.RecordingListener;
 import com.arcsoft.avatar.util.ASVLOFFSCREEN;
 import com.arcsoft.avatar.util.AsvloffscreenUtil;
 import com.arcsoft.avatar.util.LOG;
-import com.sensetime.stmobile.STMobileHumanActionNative;
 import com.ss.android.ttve.common.TEDefine;
 import com.xiaomi.camera.core.ParallelTaskData;
 import com.xiaomi.camera.core.ParallelTaskDataParameter.Builder;
@@ -193,11 +193,11 @@ public class MimojiAvatarEngineImpl implements ExternalFrameProcessor, MimojiAva
                     obtainMessage.what = 1;
                     break;
                 case 259:
-                    obtainMessage.arg1 = (int) (((Long) obj).longValue() / 1024);
+                    obtainMessage.arg1 = (int) (((Long) obj).longValue() / PlaybackStateCompat.ACTION_PLAY_FROM_MEDIA_ID);
                     obtainMessage.what = 4;
                     break;
                 case 260:
-                    obtainMessage.arg1 = (int) (((Long) obj).longValue() / 1024);
+                    obtainMessage.arg1 = (int) (((Long) obj).longValue() / PlaybackStateCompat.ACTION_PLAY_FROM_MEDIA_ID);
                     obtainMessage.what = 3;
                     break;
             }
@@ -615,7 +615,7 @@ public class MimojiAvatarEngineImpl implements ExternalFrameProcessor, MimojiAva
                 }
             }
             GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-            GLES20.glClear(STMobileHumanActionNative.ST_MOBILE_HAND_LOVE);
+            GLES20.glClear(16384);
             this.mRecordModule.startRender(90, this.mIsFrontCamera, this.mDeviceRotation, 0, false, this.mTextureId, null, this.mShowAvatar);
         }
     }

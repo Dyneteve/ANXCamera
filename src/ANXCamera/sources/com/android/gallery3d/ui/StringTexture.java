@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint.FontMetricsInt;
 import android.graphics.Typeface;
 import android.os.Build.VERSION;
+import android.support.v4.view.ViewCompat;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.TextUtils.TruncateAt;
@@ -37,14 +38,14 @@ public class StringTexture extends CanvasTexture {
         textPaint.setColor(i);
         if (i2 == 1) {
             textPaint.setTypeface(Util.getMiuiTypeface(CameraAppImpl.getAndroidContext()));
-            textPaint.setShadowLayer(0.1f, 5.0f, 5.0f, -16777216);
+            textPaint.setShadowLayer(0.1f, 5.0f, 5.0f, ViewCompat.MEASURED_STATE_MASK);
             setLongshotMode(textPaint, 0.1f);
         } else if (i2 == 2) {
             textPaint.setTypeface(Util.getMiuiTimeTypeface(CameraAppImpl.getAndroidContext()));
             textPaint.setShadowLayer(0.1f, 0.0f, 3.0f, 771751936);
             setLongshotMode(textPaint, 0.1f);
         } else {
-            textPaint.setShadowLayer(2.0f, 0.0f, 0.0f, -16777216);
+            textPaint.setShadowLayer(2.0f, 0.0f, 0.0f, ViewCompat.MEASURED_STATE_MASK);
         }
         return textPaint;
     }

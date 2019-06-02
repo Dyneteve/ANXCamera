@@ -1,6 +1,7 @@
 package org.a.a;
 
 import android.media.AudioTrack;
+import android.support.v4.media.session.PlaybackStateCompat;
 
 /* compiled from: AudioPlayer */
 public class a {
@@ -81,7 +82,7 @@ public class a {
         }
         this.mStatus = 1;
         if (this.wc != null) {
-            this.wc.setAudioMinSize(this.mHandle, 4096);
+            this.wc.setAudioMinSize(this.mHandle, PlaybackStateCompat.ACTION_SKIP_TO_QUEUE_ITEM);
         }
         return true;
     }

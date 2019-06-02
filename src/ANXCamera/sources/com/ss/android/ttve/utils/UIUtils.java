@@ -9,6 +9,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build.VERSION;
 import android.os.Looper;
+import android.support.v4.view.ViewCompat;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
@@ -343,7 +344,7 @@ public class UIUtils {
         } else if (i2 < 0) {
             i2 = 0;
         }
-        return (i & 16777215) | (i2 * 16777216);
+        return (i & ViewCompat.MEASURED_SIZE_MASK) | (i2 * ViewCompat.MEASURED_STATE_TOO_SMALL);
     }
 
     public static void setLayoutParams(View view, int i, int i2) {

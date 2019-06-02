@@ -41,7 +41,10 @@ public final class Settings {
 
     /* access modifiers changed from: 0000 */
     public int getInitialWindowSize() {
-        return (this.set & 128) != 0 ? this.values[7] : DEFAULT_INITIAL_WINDOW_SIZE;
+        if ((this.set & 128) != 0) {
+            return this.values[7];
+        }
+        return 65535;
     }
 
     /* access modifiers changed from: 0000 */

@@ -1,6 +1,7 @@
 package com.android.camera.ui;
 
 import android.os.SystemProperties;
+import android.support.v4.view.MotionEventCompat;
 import android.view.MotionEvent;
 import android.view.MotionEvent.PointerCoords;
 import com.android.camera.Util;
@@ -212,7 +213,7 @@ public class EdgeGestureDetector {
                 str2 = "OUTSIDE";
                 break;
             case 5:
-                if (i2 != ((i & 65280) >> 8)) {
+                if (i2 != ((i & MotionEventCompat.ACTION_POINTER_INDEX_MASK) >> 8)) {
                     str2 = "MOVE";
                     break;
                 } else {
@@ -220,7 +221,7 @@ public class EdgeGestureDetector {
                     break;
                 }
             case 6:
-                if (i2 != ((i & 65280) >> 8)) {
+                if (i2 != ((i & MotionEventCompat.ACTION_POINTER_INDEX_MASK) >> 8)) {
                     str2 = "MOVE";
                     break;
                 } else {
@@ -259,7 +260,7 @@ public class EdgeGestureDetector {
         int size = this.mPointers.size();
         int i5 = 1;
         if (action == 0 || (action & 255) == 5) {
-            int i6 = (action & 65280) >> 8;
+            int i6 = (action & MotionEventCompat.ACTION_POINTER_INDEX_MASK) >> 8;
             if (action == 0) {
                 for (int i7 = 0; i7 < size; i7++) {
                     ((PointerState) this.mPointers.get(i7)).mCurDown = false;

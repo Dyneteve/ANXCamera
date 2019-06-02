@@ -504,7 +504,7 @@ public class FragmentBottomPopupTips extends BaseFragment implements OnClickList
         char c = 1;
         if (i != 174) {
             if (i == 177) {
-                if (getActivity().startFromKeyguard()) {
+                if (((ActivityBase) getActivity()).startFromKeyguard()) {
                     if (!this.INIT_TAG) {
                         this.INIT_TAG = true;
                         CameraSettings.setCurrentMimojiState(FragmentMimoji.CLOSE_STATE);

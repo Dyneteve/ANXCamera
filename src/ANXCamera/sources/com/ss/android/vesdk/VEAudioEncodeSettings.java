@@ -4,7 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.Parcelable.Creator;
 import android.support.annotation.NonNull;
-import com.sensetime.stmobile.STMobileHumanActionNative;
 
 public class VEAudioEncodeSettings implements Parcelable {
     public static final Creator<VEAudioEncodeSettings> CREATOR = new Creator<VEAudioEncodeSettings>() {
@@ -24,7 +23,7 @@ public class VEAudioEncodeSettings implements Parcelable {
 
     public static final class Builder {
         /* access modifiers changed from: private */
-        public int mBps = STMobileHumanActionNative.ST_MOBILE_HAND_CONGRATULATE;
+        public int mBps = 131072;
         /* access modifiers changed from: private */
         public int mChannelCount = 2;
         /* access modifiers changed from: private */
@@ -95,18 +94,18 @@ public class VEAudioEncodeSettings implements Parcelable {
     @Deprecated
     public VEAudioEncodeSettings() {
         this.mSampleRate = 44100;
-        this.mBps = STMobileHumanActionNative.ST_MOBILE_HAND_CONGRATULATE;
+        this.mBps = 131072;
         this.mChannelCount = 2;
         this.mHwEnc = false;
         this.mSampleRate = 44100;
-        this.mBps = STMobileHumanActionNative.ST_MOBILE_HAND_CONGRATULATE;
+        this.mBps = 131072;
         this.mChannelCount = 2;
         this.mHwEnc = false;
     }
 
     protected VEAudioEncodeSettings(Parcel parcel) {
         this.mSampleRate = 44100;
-        this.mBps = STMobileHumanActionNative.ST_MOBILE_HAND_CONGRATULATE;
+        this.mBps = 131072;
         this.mChannelCount = 2;
         boolean z = false;
         this.mHwEnc = false;
@@ -122,7 +121,7 @@ public class VEAudioEncodeSettings implements Parcelable {
 
     private VEAudioEncodeSettings(Builder builder) {
         this.mSampleRate = 44100;
-        this.mBps = STMobileHumanActionNative.ST_MOBILE_HAND_CONGRATULATE;
+        this.mBps = 131072;
         this.mChannelCount = 2;
         this.mHwEnc = false;
         this.mCodec = builder.mCodec;
