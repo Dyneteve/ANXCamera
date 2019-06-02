@@ -8,7 +8,7 @@
     <string name="cannot_connect_camera_once">ಕ್ಯಾಮರಾಗೆ ಸಂಪರ್ಕಿಸಲಾಗುವುದಿಲ್ಲ</string>
     <string name="cannot_connect_camera_twice">ಇನ್ನೂ ಕ್ಯಾಮರಾಗೆ ಸಂಪರ್ಕಿಸಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ. ನಿಮ್ಮ ಫೋನ್ ಮರುಪ್ರಾರಂಭಿಸಿ.</string>
     <string name="camera_disabled">ಕ್ಯಾಮರಾ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ</string>
-    <string name="camera_label">ಕ್ಯಾಮರಾ</string>
+    <string name="camera_label">ANXಕ್ಯಾಮರಾ</string>
     <string name="video_camera_label">ಕ್ಯಾಮ್‌ಕೋಡರ್</string>
     <string name="no_storage">ಕ್ಯಾಮರಾ ಬಳಸುವ ಮುನ್ನ SD ಕಾರ್ಡ್ ಸೇರಿಸಿ</string>
     <string name="not_enough_space">SD ಕಾರ್ಡ್ ಭರ್ತಿಯಾಗಿದೆ</string>
