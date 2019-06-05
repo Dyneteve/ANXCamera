@@ -2904,7 +2904,7 @@ EDGE_INSN: B:64:0x0104->B:47:0x0104 ?: BREAK  , SYNTHETIC] */
     }
 
     public static boolean isFullScreenNavBarHidden(Context context) {
-        return true;
+        return false;
     }
 
     public static boolean isGlobalVersion() {

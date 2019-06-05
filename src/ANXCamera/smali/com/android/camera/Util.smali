@@ -11415,7 +11415,7 @@
     # move-result p0
 
     # return p0
-    const/4 v0, 0x1 #isFullScreenNavBarHidden True
+    const/4 v0, 0x0 #isFullScreenNavBarHidden False
  
     return v0
 .end method
