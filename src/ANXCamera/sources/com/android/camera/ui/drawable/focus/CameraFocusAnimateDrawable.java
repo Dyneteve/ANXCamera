@@ -203,30 +203,6 @@ public class CameraFocusAnimateDrawable extends Drawable implements Animatable {
         this.mFocusingAnimator.start();
     }
 
-    /* JADX WARNING: type inference failed for: r1v5, types: [android.animation.TimeInterpolator, com.android.camera.ui.drawable.focus.CameraFocusAnimateDrawable$5] */
-    /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r1v5, types: [android.animation.TimeInterpolator, com.android.camera.ui.drawable.focus.CameraFocusAnimateDrawable$5]
-  assigns: [com.android.camera.ui.drawable.focus.CameraFocusAnimateDrawable$5]
-  uses: [android.animation.TimeInterpolator]
-  mth insns count: 25
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-    	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-    	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-    	at jadx.core.ProcessClass.lambda$processDependencies$0(ProcessClass.java:49)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.ProcessClass.processDependencies(ProcessClass.java:49)
-    	at jadx.core.ProcessClass.process(ProcessClass.java:35)
-    	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-    	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-    	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-     */
-    /* JADX WARNING: Unknown variable types count: 1 */
     private void startNormalFocusSuccessAnimation() {
         if (this.mIsTouchFocus) {
             this.mPaintEvAdjust.setVisible(0);
@@ -239,7 +215,7 @@ public class CameraFocusAnimateDrawable extends Drawable implements Animatable {
         ofFloat.setDuration(200);
         ofFloat.setInterpolator(new CubicEaseInOutInterpolator() {
             public float getInterpolation(float f) {
-                float interpolation = CameraFocusAnimateDrawable.super.getInterpolation(f);
+                float interpolation = super.getInterpolation(f);
                 CameraFocusAnimateDrawable.this.mPaintBigCircle.updateValue(interpolation);
                 CameraFocusAnimateDrawable.this.mPaintCenterIndicator.updateValue(interpolation);
                 CameraFocusAnimateDrawable.this.mPaintEvAdjust.updateValue(interpolation);
@@ -410,30 +386,6 @@ public class CameraFocusAnimateDrawable extends Drawable implements Animatable {
     public void start() {
     }
 
-    /* JADX WARNING: type inference failed for: r1v3, types: [android.animation.TimeInterpolator, com.android.camera.ui.drawable.focus.CameraFocusAnimateDrawable$14] */
-    /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r1v3, types: [android.animation.TimeInterpolator, com.android.camera.ui.drawable.focus.CameraFocusAnimateDrawable$14]
-  assigns: [com.android.camera.ui.drawable.focus.CameraFocusAnimateDrawable$14]
-  uses: [android.animation.TimeInterpolator]
-  mth insns count: 25
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-    	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-    	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-    	at jadx.core.ProcessClass.lambda$processDependencies$0(ProcessClass.java:49)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.ProcessClass.processDependencies(ProcessClass.java:49)
-    	at jadx.core.ProcessClass.process(ProcessClass.java:35)
-    	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-    	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-    	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-     */
-    /* JADX WARNING: Unknown variable types count: 1 */
     public void startFocusFailAnimation() {
         cancelFocusingAnimation();
         if (isAnimatorRunning(this.mTouchDownAnimator)) {
@@ -447,7 +399,7 @@ public class CameraFocusAnimateDrawable extends Drawable implements Animatable {
             ofFloat.setDuration(200);
             ofFloat.setInterpolator(new CubicEaseInOutInterpolator() {
                 public float getInterpolation(float f) {
-                    float interpolation = CameraFocusAnimateDrawable.super.getInterpolation(f);
+                    float interpolation = super.getInterpolation(f);
                     CameraFocusAnimateDrawable.this.mPaintBigCircle.updateValue(interpolation);
                     CameraFocusAnimateDrawable.this.mPaintCenterIndicator.updateValue(interpolation);
                     CameraFocusAnimateDrawable.this.invalidateSelf();
@@ -481,30 +433,6 @@ public class CameraFocusAnimateDrawable extends Drawable implements Animatable {
         }
     }
 
-    /* JADX WARNING: type inference failed for: r1v9, types: [android.animation.TimeInterpolator, com.android.camera.ui.drawable.focus.CameraFocusAnimateDrawable$1] */
-    /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r1v9, types: [android.animation.TimeInterpolator, com.android.camera.ui.drawable.focus.CameraFocusAnimateDrawable$1]
-  assigns: [com.android.camera.ui.drawable.focus.CameraFocusAnimateDrawable$1]
-  uses: [android.animation.TimeInterpolator]
-  mth insns count: 34
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.fillTypeCandidates(TypeSearch.java:237)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.typeinference.TypeSearch.run(TypeSearch.java:53)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.runMultiVariableSearch(TypeInferenceVisitor.java:99)
-    	at jadx.core.dex.visitors.typeinference.TypeInferenceVisitor.visit(TypeInferenceVisitor.java:92)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:27)
-    	at jadx.core.dex.visitors.DepthTraversal.lambda$visit$1(DepthTraversal.java:14)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.dex.visitors.DepthTraversal.visit(DepthTraversal.java:14)
-    	at jadx.core.ProcessClass.process(ProcessClass.java:30)
-    	at jadx.core.ProcessClass.lambda$processDependencies$0(ProcessClass.java:49)
-    	at java.util.ArrayList.forEach(Unknown Source)
-    	at jadx.core.ProcessClass.processDependencies(ProcessClass.java:49)
-    	at jadx.core.ProcessClass.process(ProcessClass.java:35)
-    	at jadx.api.JadxDecompiler.processClass(JadxDecompiler.java:311)
-    	at jadx.api.JavaClass.decompile(JavaClass.java:62)
-    	at jadx.api.JadxDecompiler.lambda$appendSourcesSave$0(JadxDecompiler.java:217)
-     */
-    /* JADX WARNING: Unknown variable types count: 1 */
     public void startTouchDownAnimation() {
         cancelFocusingAnimation();
         cancelSuccessAnimation();
@@ -521,7 +449,7 @@ public class CameraFocusAnimateDrawable extends Drawable implements Animatable {
         this.mTouchDownAnimator.setDuration(300);
         this.mTouchDownAnimator.setInterpolator(new CubicEaseOutInterpolator() {
             public float getInterpolation(float f) {
-                float interpolation = CameraFocusAnimateDrawable.super.getInterpolation(f);
+                float interpolation = super.getInterpolation(f);
                 CameraFocusAnimateDrawable.this.mPaintBigCircle.updateValue(interpolation);
                 CameraFocusAnimateDrawable.this.mPaintCenterIndicator.updateValue(interpolation);
                 CameraFocusAnimateDrawable.this.invalidateSelf();

@@ -8,6 +8,7 @@ import android.graphics.Rect;
 import android.media.Image;
 import android.media.Image.Plane;
 import android.os.Environment;
+import android.provider.MiuiSettings.ScreenEffect;
 import com.android.camera.R;
 import com.android.camera.log.Log;
 import java.io.File;
@@ -174,7 +175,7 @@ public class MimojiHelper {
 
     public static int getOutlineOrientation(int i, int i2, boolean z) {
         mCurrentOrientation = roundOrientation(i2, mCurrentOrientation);
-        int i3 = z ? ((i - mCurrentOrientation) + 360) % 360 : (mCurrentOrientation + i) % 360;
+        int i3 = z ? ((i - mCurrentOrientation) + ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT : (mCurrentOrientation + i) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT;
         StringBuilder sb = new StringBuilder();
         sb.append("cameraRotation = ");
         sb.append(i);
@@ -237,6 +238,6 @@ public class MimojiHelper {
                 z = false;
             }
         }
-        return z ? (((i + 45) / 90) * 90) % 360 : i2;
+        return z ? (((i + 45) / 90) * 90) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT : i2;
     }
 }

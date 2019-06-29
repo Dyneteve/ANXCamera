@@ -21,7 +21,6 @@ import android.view.ViewGroup.LayoutParams;
 import android.view.ViewGroup.MarginLayoutParams;
 import android.view.ViewParent;
 import android.widget.TextView;
-import com.android.camera.constant.DurationConstant;
 
 public class UIUtils {
     public static final boolean API_ET_20 = (VERSION.SDK_INT > 19);
@@ -163,7 +162,7 @@ public class UIUtils {
     }
 
     public static int getDiggBuryWidth(Context context) {
-        return ((context.getResources().getDisplayMetrics().widthPixels * 1375) / DurationConstant.DURATION_VIDEO_RECORDING_CIRCLE) + ((int) dip2Px(context, 20.0f));
+        return ((context.getResources().getDisplayMetrics().widthPixels * 1375) / 10000) + ((int) dip2Px(context, 20.0f));
     }
 
     public static final String getDisplayCount(int i) {

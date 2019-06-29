@@ -18,6 +18,7 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.NavigableSet;
 import java.util.zip.ZipException;
+import miui.hardware.display.DisplayFeatureManager;
 import miui.util.IOUtils;
 
 public class SensitiveFilter implements Serializable {
@@ -274,8 +275,8 @@ public class SensitiveFilter implements Serializable {
         try {
             httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
             try {
-                httpURLConnection.setConnectTimeout(20000);
-                httpURLConnection.setReadTimeout(20000);
+                httpURLConnection.setConnectTimeout(DisplayFeatureManager.UPDATE_PCC_LEVEL);
+                httpURLConnection.setReadTimeout(DisplayFeatureManager.UPDATE_PCC_LEVEL);
                 httpURLConnection.setRequestMethod("GET");
                 httpURLConnection.setDoOutput(false);
                 httpURLConnection.connect();

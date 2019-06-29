@@ -2,6 +2,7 @@ package com.android.camera.module.impl.component;
 
 import android.content.Context;
 import android.content.Intent;
+import android.provider.MiuiSettings.System;
 import android.support.annotation.StringRes;
 import android.text.TextUtils;
 import com.android.camera.ActivityBase;
@@ -533,9 +534,9 @@ public class ConfigChangeImpl implements ConfigChanges {
         if (!z2) {
             bottomPopupTips.showTips(13, R.string.ultra_wide_close_tip, 6);
         } else if (CameraSettings.shouldShowUltraWideStickyTip(moduleIndex)) {
-            bottomPopupTips.showTips(13, R.string.ultra_wide_open_tip, 4, 500);
+            bottomPopupTips.showTips(13, R.string.ultra_wide_open_tip, 4, System.SCREEN_KEY_LONG_PRESS_TIMEOUT_DEFAULT);
         } else {
-            bottomPopupTips.showTips(13, R.string.ultra_wide_open_tip, 7, 500);
+            bottomPopupTips.showTips(13, R.string.ultra_wide_open_tip, 7, System.SCREEN_KEY_LONG_PRESS_TIMEOUT_DEFAULT);
         }
     }
 

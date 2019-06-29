@@ -472,6 +472,7 @@ class DecodeJob<R> implements com.bumptech.glide.load.engine.d.a, com.bumptech.g
         return this;
     }
 
+    /* JADX WARNING: type inference failed for: r12v5, types: [com.bumptech.glide.load.c] */
     /* JADX WARNING: type inference failed for: r12v6, types: [com.bumptech.glide.load.engine.b] */
     /* access modifiers changed from: 0000 */
     /* JADX WARNING: Multi-variable type inference failed */

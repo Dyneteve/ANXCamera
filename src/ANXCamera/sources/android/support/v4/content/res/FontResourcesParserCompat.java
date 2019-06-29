@@ -176,7 +176,7 @@ public class FontResourcesParserCompat {
         String string3 = obtainAttributes.getString(R.styleable.FontFamily_fontProviderQuery);
         int resourceId = obtainAttributes.getResourceId(R.styleable.FontFamily_fontProviderCerts, 0);
         int integer = obtainAttributes.getInteger(R.styleable.FontFamily_fontProviderFetchStrategy, 1);
-        int integer2 = obtainAttributes.getInteger(R.styleable.FontFamily_fontProviderFetchTimeout, DEFAULT_TIMEOUT_MILLIS);
+        int integer2 = obtainAttributes.getInteger(R.styleable.FontFamily_fontProviderFetchTimeout, 500);
         obtainAttributes.recycle();
         if (string == null || string2 == null || string3 == null) {
             ArrayList arrayList = new ArrayList();

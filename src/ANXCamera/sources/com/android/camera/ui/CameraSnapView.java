@@ -11,6 +11,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.MiuiSettings.System;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -347,7 +348,7 @@ public class CameraSnapView extends View {
             }
         }
         if (i == 177) {
-            this.mLongPressTime = 500;
+            this.mLongPressTime = System.SCREEN_KEY_LONG_PRESS_TIMEOUT_DEFAULT;
         }
     }
 

@@ -12,7 +12,6 @@ import com.android.camera.R;
 import com.android.camera.Util;
 import com.android.camera.data.data.DataItemBase;
 import com.android.camera.log.Log;
-import com.bytedance.frameworks.core.monitor.MonitorCommonConstants;
 import com.ss.android.ttve.BuildConfig;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -50,7 +49,7 @@ public class a extends DataItemBase implements c {
         String sb2 = sb.toString();
         try {
             String string = resources.getString(R.string.device_feature_configuration_file_name);
-            return (string == null || string.length() == 0 || MonitorCommonConstants.DEFAULT_AID.equals(string)) ? sb2 : string;
+            return (string == null || string.length() == 0 || "default".equals(string)) ? sb2 : string;
         } catch (NotFoundException e) {
             Log.d(TAG, "Device feature configuration file name undefined", e);
             return sb2;

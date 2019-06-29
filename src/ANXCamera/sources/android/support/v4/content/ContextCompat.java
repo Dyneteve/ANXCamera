@@ -50,6 +50,7 @@ import android.os.UserManager;
 import android.os.Vibrator;
 import android.os.storage.StorageManager;
 import android.print.PrintManager;
+import android.provider.MiuiSettings.System;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
@@ -139,7 +140,7 @@ public class ContextCompat {
             SERVICES.put(Vibrator.class, "vibrator");
             SERVICES.put(WallpaperManager.class, "wallpaper");
             SERVICES.put(WifiP2pManager.class, "wifip2p");
-            SERVICES.put(WifiManager.class, "wifi");
+            SERVICES.put(WifiManager.class, System.WIFI_SHARE);
             SERVICES.put(WindowManager.class, "window");
         }
 

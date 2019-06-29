@@ -7,6 +7,7 @@ import android.animation.ValueAnimator.AnimatorUpdateListener;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
+import android.provider.MiuiSettings.System;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
@@ -41,7 +42,7 @@ class FastScroller extends ItemDecoration implements OnItemTouchListener {
     private int mDragState = 0;
     private final Runnable mHideRunnable = new Runnable() {
         public void run() {
-            FastScroller.this.hide(500);
+            FastScroller.this.hide(System.SCREEN_KEY_LONG_PRESS_TIMEOUT_DEFAULT);
         }
     };
     @VisibleForTesting

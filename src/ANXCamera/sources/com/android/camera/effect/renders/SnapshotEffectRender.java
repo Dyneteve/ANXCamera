@@ -14,6 +14,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
+import android.provider.MiuiSettings.ScreenEffect;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import com.android.camera.CameraAppImpl;
@@ -273,7 +274,7 @@ public class SnapshotEffectRender {
                 }
                 if (drawJPEGAttribute2.mApplyWaterMark) {
                     if (!z2) {
-                        int[] watermarkRange = Util.getWatermarkRange(i6, i2, (drawJPEGAttribute2.mJpegOrientation + 270) % 360, drawJPEGAttribute2.mDeviceWaterMarkEnabled, drawJPEGAttribute2.mTimeWaterMarkText != null, 0.11f);
+                        int[] watermarkRange = Util.getWatermarkRange(i6, i2, (drawJPEGAttribute2.mJpegOrientation + 270) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT, drawJPEGAttribute2.mDeviceWaterMarkEnabled, drawJPEGAttribute2.mTimeWaterMarkText != null, 0.11f);
                         i9 = 1;
                         i8 = i17;
                         i10 = i18;
@@ -371,7 +372,7 @@ public class SnapshotEffectRender {
                 ShaderNativeUtil.getCenterSquareImage(i, i4);
                 return ShaderNativeUtil.compressPicture(i3, i2, SnapshotEffectRender.this.mQuality);
             }
-            int[] watermarkRange = Util.getWatermarkRange(drawJPEGAttribute2.mWidth, drawJPEGAttribute2.mHeight, (drawJPEGAttribute2.mJpegOrientation + 270) % 360, drawJPEGAttribute2.mDeviceWaterMarkEnabled, drawJPEGAttribute2.mTimeWaterMarkText != null, 0.11f);
+            int[] watermarkRange = Util.getWatermarkRange(drawJPEGAttribute2.mWidth, drawJPEGAttribute2.mHeight, (drawJPEGAttribute2.mJpegOrientation + 270) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT, drawJPEGAttribute2.mDeviceWaterMarkEnabled, drawJPEGAttribute2.mTimeWaterMarkText != null, 0.11f);
             int i9 = watermarkRange[2];
             int i10 = watermarkRange[3];
             SnapshotEffectRender.this.mRenderSurface.makeCurrent();
@@ -537,7 +538,7 @@ public class SnapshotEffectRender {
                 WaterMark waterMark = null;
                 if (!drawJPEGAttribute2.mApplyWaterMark) {
                     i7 = i3;
-                    int[] watermarkRange = Util.getWatermarkRange(drawJPEGAttribute2.mWidth, drawJPEGAttribute2.mHeight, (drawJPEGAttribute2.mJpegOrientation + 270) % 360, drawJPEGAttribute2.mDeviceWaterMarkEnabled, drawJPEGAttribute2.mTimeWaterMarkText != null, 0.11f);
+                    int[] watermarkRange = Util.getWatermarkRange(drawJPEGAttribute2.mWidth, drawJPEGAttribute2.mHeight, (drawJPEGAttribute2.mJpegOrientation + 270) % ScreenEffect.SCREEN_PAPER_MODE_TWILIGHT_START_DEAULT, drawJPEGAttribute2.mDeviceWaterMarkEnabled, drawJPEGAttribute2.mTimeWaterMarkText != null, 0.11f);
                     i6 = i2;
                     RectF rectF2 = new RectF((float) (watermarkRange[0] + i4), (float) (watermarkRange[1] + i5), (float) (watermarkRange[0] + i4 + watermarkRange[2]), (float) (watermarkRange[1] + i5 + watermarkRange[3]));
                     ShaderNativeUtil.genWaterMarkRange(watermarkRange[0] + i4, watermarkRange[1] + i5, watermarkRange[2], watermarkRange[3], 3);
@@ -1247,7 +1248,7 @@ public class SnapshotEffectRender {
         this.mEglThread = new HandlerThread("SnapshotEffectProcessor");
         this.mEglThread.start();
         this.mSplitter = new Splitter();
-        this.mBlockWidth = DEFAULT_BLOCK_WIDTH;
+        this.mBlockWidth = 4000;
         this.mBlockHeight = DEFAULT_BLOCK_HEIGHT;
         this.mEglHandler = new EGLHandler(this.mEglThread.getLooper());
         this.mEglHandler.sendMessageSync(0);

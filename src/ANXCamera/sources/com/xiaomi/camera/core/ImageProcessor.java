@@ -10,7 +10,6 @@ import android.os.Message;
 import android.support.annotation.NonNull;
 import android.util.Size;
 import com.android.camera.log.Log;
-import com.android.gallery3d.exif.ExifInterface.GpsLatitudeRef;
 import com.xiaomi.camera.core.CaptureData.CaptureDataBean;
 import com.xiaomi.camera.imagecodec.ImagePool;
 import com.xiaomi.camera.imagecodec.ImagePool.ImageFormat;
@@ -19,6 +18,7 @@ import com.xiaomi.engine.TaskSession;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.atomic.AtomicInteger;
+import miui.reflect.Field;
 
 public abstract class ImageProcessor {
     private static final int DEFAULT_IMAGE_BUFFER_QUEUE_SIZE = 4;
@@ -74,7 +74,7 @@ public abstract class ImageProcessor {
         Locale locale = Locale.ENGLISH;
         String str = "_%s_%dx%d_%d";
         Object[] objArr = new Object[4];
-        objArr[0] = this.mIsBokehMode ? "D" : GpsLatitudeRef.SOUTH;
+        objArr[0] = this.mIsBokehMode ? Field.DOUBLE_SIGNATURE_PRIMITIVE : "S";
         objArr[1] = Integer.valueOf(bufferFormat.getBufferWidth());
         objArr[2] = Integer.valueOf(bufferFormat.getBufferHeight());
         objArr[3] = Integer.valueOf(hashCode());

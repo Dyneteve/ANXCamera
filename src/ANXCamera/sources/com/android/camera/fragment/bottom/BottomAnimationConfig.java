@@ -40,7 +40,7 @@ public class BottomAnimationConfig {
         } else if (this.mCurrentMode == 174) {
             this.mDuration = DurationConstant.DURATION_LIVE_RECORD;
         } else {
-            this.mDuration = DurationConstant.DURATION_VIDEO_RECORDING_CIRCLE;
+            this.mDuration = 10000;
         }
         boolean z = false;
         this.mShouldRepeat = (this.mCurrentMode == 161 || this.mCurrentMode == 177 || (this.mCurrentMode == 162 && this.mIsVideoBokeh) || this.mCurrentMode == 173 || this.mIsFPS960) ? false : true;

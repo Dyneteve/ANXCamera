@@ -17,7 +17,6 @@ import android.os.Message;
 import android.text.TextUtils;
 import android.util.SizeF;
 import com.android.camera.R;
-import com.android.camera.constant.DurationConstant;
 import com.android.camera.log.Log;
 import com.arcsoft.camera.wideselfie.AwsInitParameter;
 import com.arcsoft.camera.wideselfie.ProcessResult;
@@ -210,7 +209,7 @@ public class WideSelfieEngineWrapper {
     }
 
     public void resume() {
-        this.mSensorManager.registerListener(this.mSensorEventListener, this.mSensor, DurationConstant.DURATION_VIDEO_RECORDING_CIRCLE);
+        this.mSensorManager.registerListener(this.mSensorEventListener, this.mSensor, 10000);
     }
 
     public void setCameraParameter(String str, int i, int i2, int i3, int i4) {

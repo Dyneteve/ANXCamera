@@ -1,6 +1,5 @@
 package okhttp3;
 
-import com.android.camera.constant.DurationConstant;
 import java.net.MalformedURLException;
 import java.net.Proxy;
 import java.net.ProxySelector;
@@ -123,9 +122,9 @@ public class OkHttpClient implements Cloneable, Factory, WebSocket.Factory {
             this.followSslRedirects = true;
             this.followRedirects = true;
             this.retryOnConnectionFailure = true;
-            this.connectTimeout = DurationConstant.DURATION_VIDEO_RECORDING_CIRCLE;
-            this.readTimeout = DurationConstant.DURATION_VIDEO_RECORDING_CIRCLE;
-            this.writeTimeout = DurationConstant.DURATION_VIDEO_RECORDING_CIRCLE;
+            this.connectTimeout = 10000;
+            this.readTimeout = 10000;
+            this.writeTimeout = 10000;
             this.pingInterval = 0;
         }
 
