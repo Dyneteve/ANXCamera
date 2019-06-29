@@ -3,7 +3,7 @@ MiuiCamera Port for Xiaomi's Devices
 
 Self sufficient repository to decompile to smali, recompile, sign, decompile to java, push to device app port.
 
-miui_MIMIX3Global_9.5.30_c4ad17b25c_9.0.zip was used as src.
+miui_CEPHEUSGlobal_9.6.27_2b17a775d2_9.0.zip.zip was used as src.
 
 Recommended to open this Repository in VSCode
 
@@ -39,15 +39,15 @@ Steps to Port MiuiCamera from scratch:
    2. Use Brotli Extracter as below
       1. `brotli.exe --decompress --in E:\system.new.dat.br --out <PathToExtractTo>\system.new.dat`
    3. We then use IMG_Extracter to extract `system.new.dat`
-      1. For me it doesn't extract properly. So we use 7zip to re-extract the img file it creates
-   4. Similarly di for vendor
+      1. For me it doesn't extract properly. So we use 7zip to re-extract the img file it creates, &z should only throw errors about symlink, nothing else. This you can ignore
+   4. Similarly do it for vendor
 2. Setup Original files for Decompiling
    1. Copy following to ANXCamera\orig\MiuiFrameworks. Files to be taken from Unpacked ROM above 
       1. framework\framework-ext-res\framework-ext-res.apk
       2. framework\framework-res.apk
       3. app\miui\miui.apk
       4. app\miuisystem\miuisystem.apk
-   2. Copy following to ANXCamera10\orig
+   2. Copy following to ANXCamera\orig
       1. priv-app\MiuiCamera\MiuiCamera.apk
 3. Prepare APKTool for decompiling
    1. Install above framework files by running following commands
