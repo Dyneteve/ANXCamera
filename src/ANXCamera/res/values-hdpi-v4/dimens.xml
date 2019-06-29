@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="top_toast_tip_height">46.666656dip</dimen>
+    <dimen name="screen_on_proximity_sensor_hint_height">388.0dip</dimen>
+</resources>

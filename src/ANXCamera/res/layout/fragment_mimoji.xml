@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/rl_bubble_pop_parent" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/ll_bubble_pop_occupation" android:layout_width="fill_parent" android:layout_height="70.0dip" />
+    <LinearLayout android:orientation="vertical" android:background="@color/fullscreen_background" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/ll_bubble_pop_occupation">
+        <View android:background="@color/beauty_divider_line" android:layout_width="fill_parent" android:layout_height="1.0px" />
+        <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <FrameLayout android:layout_gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="@dimen/live_sticker_list_height">
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                    <RelativeLayout android:id="@id/mimoji_none_item" android:layout_width="@dimen/live_mimoji_none_item_size" android:layout_height="fill_parent">
+                        <ImageView android:layout_width="@dimen/live_none_image_size" android:layout_height="@dimen/live_none_image_size" android:layout_marginLeft="2.0dip" android:layout_marginRight="2.0dip" android:src="@drawable/ic_mimoji_off" android:scaleType="centerInside" android:layout_centerInParent="true" android:contentDescription="@null" />
+                        <ImageView android:id="@id/mimoji_none_selected_indicator" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/bg_mimoji_animal_selected" android:layout_centerInParent="true" android:contentDescription="@null" />
+                    </RelativeLayout>
+                    <TextView android:background="@color/beauty_divider_line" android:layout_width="@dimen/beauty_divider_stroke" android:layout_height="@dimen/live_sticker_divider_height" android:includeFontPadding="false" android:layout_centerInParent="true" />
+                    <android.support.v7.widget.RecyclerView android:layout_gravity="center_vertical" android:id="@id/mimoji_list" android:focusable="false" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+                    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/ll_updating" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                        <ProgressBar android:layout_width="20.0dip" android:layout_height="20.0dip" android:indeterminateDrawable="@drawable/post_process_progress" android:indeterminateDuration="700" style="?android:attr/progressBarStyleLarge" />
+                        <TextView android:textSize="@dimen/live_speed_item_textSize" android:textColor="@android:color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/live_sticker_updating" android:layout_marginStart="20.0dip" />
+                    </LinearLayout>
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+        <View android:background="@color/beauty_divider_line" android:layout_width="fill_parent" android:layout_height="1.0px" />
+    </LinearLayout>
+</RelativeLayout>

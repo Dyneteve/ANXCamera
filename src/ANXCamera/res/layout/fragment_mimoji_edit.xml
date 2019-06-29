@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/rl_fragment_mimoji_edit_container" android:background="@color/mimoji_edit_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:gravity="center_vertical" android:id="@id/rv_navigation_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/mimoji_edit_back_left" android:layout_marginTop="@dimen/mimoji_edit_back_top" android:layout_marginRight="@dimen/mimoji_edit_back_left" android:layout_alignParentTop="true">
+        <TextView android:textSize="@dimen/mimoji_edit_back_text_size" android:textStyle="bold" android:gravity="center" android:id="@id/tv_back" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/mimoji_back" />
+        <TextView android:textSize="@dimen/mimoji_edit_back_text_size" android:textStyle="bold" android:gravity="center" android:id="@id/btn_confirm" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/mimoji_confirm" android:layout_alignParentRight="true" />
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="1000.0dip" android:layout_below="@id/rv_navigation_layout">
+        <com.android.camera.ui.MimojiEditGLTextureView android:id="@id/mimoji_edit_preview" android:layout_width="@dimen/mimoji_edit_surface_width" android:layout_height="@dimen/mimoji_edit_surface_width" />
+        <LinearLayout android:orientation="vertical" android:id="@id/ll_bottom_editoperate_content" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/mimoji_edit_preview">
+            <RelativeLayout android:id="@id/rl_tablayout" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="@dimen/mimoji_edit_tab_height">
+                <com.android.camera.ui.autoselectview.AutoSelectHorizontalView android:id="@id/mimoji_type_view" android:paddingTop="40.0dip" android:layout_width="fill_parent" android:layout_height="120.0dip" android:layout_marginTop="-40.0dip" />
+                <View android:background="@drawable/bg_mimoji_type_side" android:focusable="false" android:clickable="false" android:layout_width="50.0dip" android:layout_height="@dimen/mimoji_edit_tab_height" android:layout_alignParentLeft="true" />
+                <View android:background="@drawable/bg_mimoji_type_side" android:focusable="false" android:clickable="false" android:layout_width="50.0dip" android:layout_height="@dimen/mimoji_edit_tab_height" android:layout_alignParentRight="true" android:rotation="180.0" />
+            </RelativeLayout>
+            <android.support.v7.widget.RecyclerView android:id="@id/color_level" android:background="@color/mimoji_edit_adjust_bg" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginBottom="@dimen/mimoji_edit_config_bottom" />
+        </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/operate_select_layout" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="18.199982dip" android:layout_marginRight="18.199982dip" android:layout_marginBottom="83.0dip" android:layout_alignParentBottom="true" android:layout_centerInParent="true">
+        <TextView android:textSize="@dimen/mimoji_edit_back_text_size" android:textColor="@color/white" android:gravity="center" android:id="@id/tv_recapture" android:background="@drawable/shape_round_corner_default" android:layout_width="fill_parent" android:layout_height="46.5dip" android:text="@string/mimoji_recapture" />
+        <TextView android:textSize="@dimen/mimoji_edit_back_text_size" android:textColor="@color/white" android:gravity="center" android:id="@id/tv_edit" android:background="@drawable/shape_round_corner_default" android:layout_width="fill_parent" android:layout_height="46.5dip" android:layout_marginTop="14.5dip" android:text="@string/mimoji_editor" />
+        <TextView android:textSize="@dimen/mimoji_edit_back_text_size" android:textColor="@color/white" android:gravity="center" android:id="@id/tv_save" android:background="@drawable/shape_round_corner_save_default" android:layout_width="fill_parent" android:layout_height="46.5dip" android:layout_marginTop="14.5dip" android:text="@string/mimoji_save" />
+    </LinearLayout>
+</RelativeLayout>

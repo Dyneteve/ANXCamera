@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/pref_watermark_title"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:camera="http://schemas.android.com/apk/res/com.android.camera">
+    <CheckBoxPreference android:persistent="false" android:title="@string/pref_camera_watermark_title" android:key="pref_time_watermark_key" android:defaultValue="false" />
+    <CheckBoxPreference android:persistent="false" android:title="@string/pref_camera_device_watermark_title" android:key="pref_dualcamera_watermark_key" android:defaultValue="@bool/pref_device_watermark_default" />
+    <com.android.camera.ui.ValuePreference android:persistent="false" android:title="@string/pref_userdefine_watermark_title" android:key="user_define_watermark_key" android:shouldDisableView="true" camera:maxEms="9" />
+</PreferenceScreen>

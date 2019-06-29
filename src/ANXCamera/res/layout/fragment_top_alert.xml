@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="@dimen/top_alert_layout_height"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:miui="http://schemas.android.com/apk/res-auto">
+    <TextView android:layout_gravity="center_horizontal" android:id="@id/alert_recording_time_view" android:layout_width="wrap_content" android:layout_height="@dimen/top_control_panel_height" android:layout_marginTop="@dimen/top_control_panel_extra_margin_top" style="@style/RecordingTimeStyle" />
+    <TextView android:textSize="@dimen/video_ultra_tip_size" android:textColor="@color/white" android:gravity="center" android:layout_gravity="end" android:id="@id/video_ultra_clear_tip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:shadowColor="#bb000000" android:shadowRadius="2.75" android:layout_marginEnd="@dimen/video_ultra_tip_margin_end" />
+    <include android:id="@id/top_tip_layout" layout="@layout/fragment_top_tip_layout" />
+</FrameLayout>

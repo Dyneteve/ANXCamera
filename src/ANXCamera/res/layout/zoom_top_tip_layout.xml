@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView android:textStyle="normal" android:gravity="center" android:layout_gravity="center_horizontal" android:background="@android:color/transparent" android:visibility="visible" style="@style/SettingStatusBarText"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

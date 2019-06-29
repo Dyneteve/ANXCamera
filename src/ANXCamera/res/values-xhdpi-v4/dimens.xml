@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bottom_control_height">220.0dip</dimen>
+    <dimen name="top_control_panel_height">24.0dip</dimen>
+    <dimen name="config_extra_recycler_margin_vertical">29.089996dip</dimen>
+    <dimen name="bottom_margin_bottom">11.0dip</dimen>
+    <dimen name="manually_indicator_layout_width">62.0dip</dimen>
+    <dimen name="manually_indicator_layout_height">62.0dip</dimen>
+    <dimen name="wide_selfie_thumbnail_border_size">3.0px</dimen>
+    <dimen name="wide_selfie_use_hint_area_top_margin">196.85dip</dimen>
+    <dimen name="wide_selfie_progress_thumbnail_background_width">110.0dip</dimen>
+    <dimen name="wide_selfie_progress_thumbnail_background_height">80.0dip</dimen>
+    <dimen name="wide_selfie_progress_thumbnail_background_top_margin">103.5dip</dimen>
+    <dimen name="wide_selfie_progress_thumbnail_background_width_vertical">60.0dip</dimen>
+    <dimen name="wide_selfie_progress_thumbnail_background_height_vertical">127.0dip</dimen>
+    <dimen name="wide_selfie_progress_thumbnail_background_top_margin_vertical">103.32999dip</dimen>
+    <dimen name="wide_selfie_still_preview_height">80.0dip</dimen>
+    <dimen name="wide_selfie_still_preview_width">60.0dip</dimen>
+    <dimen name="wideselfie_use_hint_text_width">200.0dip</dimen>
+    <dimen name="wideselfie_use_hint_text_height">30.0dip</dimen>
+    <dimen name="wideselfie_use_hint_text_marginStart">21.649994dip</dimen>
+    <dimen name="wideselfie_use_hint_text_marginTop">163.15dip</dimen>
+    <dimen name="wideselfie_toast_offset_y">115.0dip</dimen>
+    <dimen name="wideselfie_guide_image_marginTop">237.69998dip</dimen>
+    <dimen name="top_toast_tip_height">35.0dip</dimen>
+    <dimen name="screen_on_proximity_sensor_hint_height">291.0dip</dimen>
+    <dimen name="top_control_panel_extra_margin_top">0.0dip</dimen>
+    <dimen name="square_delay_number_offset_extra">21.329987dip</dimen>
+    <dimen name="dialog_userdefine_watermark_tip_top">15.0dip</dimen>
+</resources>

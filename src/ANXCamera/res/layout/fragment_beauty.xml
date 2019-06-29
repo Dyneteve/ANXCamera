@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:focusable="false" android:layout_width="fill_parent" android:layout_height="@dimen/beautycamera_popup_fragment_height">
+        <com.android.camera.ui.SeekBarCompat android:layout_gravity="center" android:id="@id/beauty_adjust_seekbar" android:focusable="false" android:visibility="invisible" android:layout_width="@dimen/beautycamera_beauty_params_level_seekbar_width" android:layout_height="fill_parent" android:progress="@integer/beauty_params_level_seekbar_progress" android:progressDrawable="@drawable/center_seekbar_style" android:thumb="@drawable/makeup_seekbar_thumb_background" android:splitTrack="true" />
+    </FrameLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/beauty_content" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <View android:id="@id/beauty_divider_top" android:background="#33ffffff" android:layout_width="fill_parent" android:layout_height="1.0px" />
+        <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <com.android.camera.ui.NoScrollViewPager android:id="@id/beauty_viewPager" android:focusable="false" android:layout_width="wrap_content" android:layout_height="@dimen/beauty_fragment_height" />
+            <FrameLayout android:id="@id/beauty_extra" android:layout_width="wrap_content" android:layout_height="@dimen/beauty_fragment_height" />
+        </FrameLayout>
+        <View android:id="@id/beauty_divider_bottom" android:background="#33ffffff" android:layout_width="fill_parent" android:layout_height="1.0px" />
+    </LinearLayout>
+</LinearLayout>

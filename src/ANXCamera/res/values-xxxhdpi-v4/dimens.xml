@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bottom_control_height">195.79999dip</dimen>
+    <dimen name="face_rect_width">2.0dip</dimen>
+    <dimen name="top_control_panel_height">26.619995dip</dimen>
+    <dimen name="config_extra_recycler_margin_vertical">18.959991dip</dimen>
+    <dimen name="bottom_margin_bottom">13.349976dip</dimen>
+    <dimen name="preview_edge_touch_slop">25.0dip</dimen>
+    <dimen name="top_toast_tip_height">17.5dip</dimen>
+    <dimen name="top_control_panel_extra_margin_top">0.0dip</dimen>
+    <dimen name="square_delay_number_offset_extra">25.809998dip</dimen>
+    <dimen name="dialog_userdefine_watermark_tip_top">7.5dip</dimen>
+</resources>
