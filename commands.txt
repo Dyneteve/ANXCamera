@@ -73,6 +73,8 @@ xcopy /s /y .\out\MiuiCamera.apk .\src\ANXMiuiCameraMagisk\system\priv-app\MiuiC
 copy .\out\ANXMiuiCameraMagisk.zip /B .\out\ANXMiuiCameraMagisk_%anxversion%.zip
 
 
+decompile 
+java  -jar ..\ANXMiuiPortTools\apktool.jar d -p ..\ANXMiuiPortTools\MiuiFrameworks -f -b  -o "G:\Downloads\Android\miuicompare\MiuiCameraequu81213" "G:\Downloads\Android\miuicompare\MiuiCameraequu81213.apk"
 
 deodex system
 cd /mnt/g/downloads/android/vdex/vdexExtractor
