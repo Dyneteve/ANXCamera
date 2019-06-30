@@ -387,7 +387,7 @@ e depois criará uma com o menor ruído possível."</string>
     <string name="popup_tip_3d_beauty_intro_text">Beleza 3D</string>
     <string name="sticker_tab1">Fofo</string>
     <string name="sticker_tab2">Engraçado</string>
-    <string name="pref_privacy_title">Política de Privacidade</string>
+    <string name="pref_privacy_title">ANXCamera Info</string>
     <string name="user_agree">Concordo</string>
     <string name="do_not_remind_me">Não mostrar novamente</string>
     <string name="user_notice_identify_summary_format">Antes de utilizar a Câmara, tem de concordar com nosso <a href="http://www.miui.com/res/doc/eula.html?lang=pt_PT">Contrato do Utilizador</a> e a <a href="http://www.miui.com/res/doc/privacy.html?lang=pt_PT">Política de Privacidade</a>. A Câmara também precisa de uma ligação com a internet para funcionar normalmente. Aceitar?</string>

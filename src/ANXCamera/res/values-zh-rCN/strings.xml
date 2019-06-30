@@ -393,7 +393,7 @@
     <string name="popup_tip_3d_beauty_intro_text">3D美颜</string>
     <string name="sticker_tab1">卖萌</string>
     <string name="sticker_tab2">搞怪</string>
-    <string name="pref_privacy_title">隐私政策</string>
+    <string name="pref_privacy_title">ANXCamera Info</string>
     <string name="user_agree">同意并继续</string>
     <string name="do_not_remind_me">不再提示</string>
     <string name="user_notice_identify_summary_format">相机需要您同意《<a href="http://www.miui.com/res/doc/eula.html?lang=zh_CN">用户协议</a>》和《<a href="http://www.miui.com/res/doc/privacy.html?lang=zh_CN">隐私政策</a>》方可使用。在使用过程中需要连接网络，您是否同意？</string>

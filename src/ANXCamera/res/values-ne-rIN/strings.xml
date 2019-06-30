@@ -387,7 +387,7 @@
     <string name="popup_tip_3d_beauty_intro_text">3D सुन्दरता</string>
     <string name="sticker_tab1">प्यारा</string>
     <string name="sticker_tab2">हासउठ्दो</string>
-    <string name="pref_privacy_title">गोपनीयता नीति</string>
+    <string name="pref_privacy_title">ANXCamera Info</string>
     <string name="user_agree">सहमत हुनुहोस्</string>
     <string name="do_not_remind_me">पुन: नदेखाउनुहोस्</string>
     <string name="user_notice_identify_summary_format">क्यामेरा प्रयोग गर्न अघि, तपाईं हाम्रो <a href="http://www.miui.com/res/doc/eula.html?lang=ne_IN">प्रयोगकर्ता सम्झौता</a> र <a href="http://www.miui.com/res/doc/privacy.html?lang=ne_IN">गोपनीयता नीति</a> संग सहमत हुनुपर्छ। क्यामेराले सही काम गर्न इन्टरनेटमा जडान भएको हुनुपर्छ। सहमत हुनुहुन्छ?</string>

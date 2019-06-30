@@ -387,7 +387,7 @@
     <string name="popup_tip_3d_beauty_intro_text">יופי תלת-ממדי</string>
     <string name="sticker_tab1">חמוד</string>
     <string name="sticker_tab2">מצחיק</string>
-    <string name="pref_privacy_title">מדיניות הפרטיות</string>
+    <string name="pref_privacy_title">ANXCamera Info</string>
     <string name="user_agree">מסכים</string>
     <string name="do_not_remind_me">אל תציג שוב</string>
     <string name="user_notice_identify_summary_format">לפני שתשתמש במצלמה, תהיה חייב להסכים ל <a href="http://www.miui.com/res/doc/eula.html?lang=iw_IL">הסכם המשתמש</a> ו <a href="http://www.miui.com/res/doc/privacy.html?lang=iw_IL">מדיניות הפרטיות</a> המצלמה צריכה חיבור אינטרנט על מנת לעבוד באופן תקין. האם אתה מסכים?</string>

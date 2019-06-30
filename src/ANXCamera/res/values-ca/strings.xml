@@ -387,7 +387,7 @@ i després crearà un tir amb una mínima quantitat de soroll."</string>
     <string name="popup_tip_3d_beauty_intro_text">Bellesa 3D</string>
     <string name="sticker_tab1">Bonic</string>
     <string name="sticker_tab2">Divertit</string>
-    <string name="pref_privacy_title">Política de privadesa</string>
+    <string name="pref_privacy_title">ANXCamera Info</string>
     <string name="user_agree">"D'acord"</string>
     <string name="do_not_remind_me">No ho tornis a mostrar</string>
     <string name="user_notice_identify_summary_format">"Abans d'utilitzar la càmera, heu d'acceptar el nostre "<a href="http://www.miui.com/res/doc/eula.html?lang=ca_ES">"Acord d'usuari"</a> i la <a href="http://www.miui.com/res/doc/privacy.html?lang=ca_ES">Política de privadesa</a>". La càmera també necessita connectar-se a Internet per funcionar normalment. Hi esteu d'acord?"</string>

@@ -387,7 +387,7 @@
     <string name="popup_tip_3d_beauty_intro_text">Înfrumusețare 3D</string>
     <string name="sticker_tab1">Drăguț</string>
     <string name="sticker_tab2">Amuzant</string>
-    <string name="pref_privacy_title">Politica de confidențialitate</string>
+    <string name="pref_privacy_title">ANXCamera Info</string>
     <string name="user_agree">Sunt de acord</string>
     <string name="do_not_remind_me">Nu mai afișa din nou</string>
     <string name="user_notice_identify_summary_format">Înainte de a utiliza Aparat foto, trebuie să fiți de acord cu <a href="http://www.miui.com/res/doc/eula.html?lang=ro_RO">Acordul Utilizatorului</a> și <a href="http://www.miui.com/res/doc/privacy.html?lang=ro_RO">Politica de confidențialitate</a>. Aparat foto trebuie de asemenea, trebuie să se conecteze la internet pentru a funcționa normal. De acord?</string>

@@ -387,7 +387,7 @@ shovqini eng past miqdorli suratni yaratadi."</string>
     <string name="popup_tip_3d_beauty_intro_text">3D go‘zallik</string>
     <string name="sticker_tab1">Yoqimli</string>
     <string name="sticker_tab2">Kulgili</string>
-    <string name="pref_privacy_title">Maxfiylik Siyosati</string>
+    <string name="pref_privacy_title">ANXCamera Info</string>
     <string name="user_agree">Rozi bo‘lish</string>
     <string name="do_not_remind_me">Boshqa ko‘rsatilmasin</string>
     <string name="user_notice_identify_summary_format">Kamerani ishlatishdan oldin, bizning <a href="http://www.miui.com/res/doc/eula.html?lang=uz_UZ">Foydalanuvchi Shartnomasi</a> va <a href="http://www.miui.com/res/doc/privacy.html?lang=uz_UZ">Maxfiylik Siyosati</a> bilan rozi bo‘lishingiz kerak. Kamera to‘g‘ri ishlashi uchun internetga bog‘lanishi kerak. Rozimisiz?</string>

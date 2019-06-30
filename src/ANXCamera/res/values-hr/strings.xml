@@ -387,7 +387,7 @@ a zatim izraditi snimku s minimalnom količinom šuma."</string>
     <string name="popup_tip_3d_beauty_intro_text">3D Beauty</string>
     <string name="sticker_tab1">Sladak</string>
     <string name="sticker_tab2">Smiješan</string>
-    <string name="pref_privacy_title">Pravila o Privatnosti</string>
+    <string name="pref_privacy_title">ANXCamera Info</string>
     <string name="user_agree">Slažem se</string>
     <string name="do_not_remind_me">Ne prikazuj ponovno</string>
     <string name="user_notice_identify_summary_format">Prije korištenja Kamere, trebate pristati na naša <a href="http://www.miui.com/res/doc/eula.html?lang=hr_HR"> Korisniči sporazum</a> i <a href="http://www.miui.com/res/doc/privacy.html?lang=hr_HR"> Pravila o Privatnosti</a>. Također, za normalno funkcioniranje, kamera treba biti povezana sa internetom. Pristajete?</string>

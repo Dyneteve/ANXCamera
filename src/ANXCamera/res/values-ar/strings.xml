@@ -387,7 +387,7 @@
     <string name="popup_tip_3d_beauty_intro_text">تجميل 3D</string>
     <string name="sticker_tab1">لطيف</string>
     <string name="sticker_tab2">مضحك</string>
-    <string name="pref_privacy_title">سياسة الخصوصية</string>
+    <string name="pref_privacy_title">ANXCamera Info</string>
     <string name="user_agree">موافق</string>
     <string name="do_not_remind_me">عدم الإظهار مرة أخرى</string>
     <string name="user_notice_identify_summary_format">قبل إستخدام الكاميرا، يجب عليك أن تقرأ وتوافق على <a href="http://www.miui.com/res/doc/eula.html?lang=ar_EG">اتفاقية المستخدم</a> وسياسة الخصوصية<a href="http://www.miui.com/res/doc/privacy.html?lang=ar_EG"> لدينا</a>. تحتاج الكاميرا ايضا الاتصال بالإنترنت للعمل بشكل طبيعي. موافق؟</string>

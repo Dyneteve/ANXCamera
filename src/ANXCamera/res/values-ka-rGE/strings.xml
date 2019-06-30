@@ -387,7 +387,7 @@
     <string name="popup_tip_3d_beauty_intro_text">3D სილამაზე</string>
     <string name="sticker_tab1">საყვარელი</string>
     <string name="sticker_tab2">სასაცილო</string>
-    <string name="pref_privacy_title">კონფიდენციალურობის პოლიტიკა</string>
+    <string name="pref_privacy_title">ANXCamera Info</string>
     <string name="user_agree">ვეთანხმები</string>
     <string name="do_not_remind_me">მეორედ არ აჩვენო</string>
     <string name="user_notice_identify_summary_format">კამერის გამოყენებამდე, თქვენ აუცილებლად უნდა დაეთანხმოთ ჩვენს, <a href="http://www.miui.com/res/doc/eula.html?lang=ka_GE">სამომხმარებლო შეთანხმებასა</a> და <a href="http://www.miui.com/res/doc/privacy.html?lang=ka_GE">კონფიდენციალურობის პოლიტიკას</a>. კამერას ასევე ესაჭიროება ინტერნეტთან ნორმალური კავშირი. ეთანხმებით?</string>

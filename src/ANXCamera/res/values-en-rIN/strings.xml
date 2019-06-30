@@ -387,7 +387,7 @@ and then create a shot with a minimal amount of noise."</string>
     <string name="popup_tip_3d_beauty_intro_text">3D Beauty</string>
     <string name="sticker_tab1">Cute</string>
     <string name="sticker_tab2">Funny</string>
-    <string name="pref_privacy_title">Privacy Policy</string>
+    <string name="pref_privacy_title">ANXCamera Info</string>
     <string name="user_agree">Agree</string>
     <string name="do_not_remind_me">"Don't show again"</string>
     <string name="user_notice_identify_summary_format">Before using Camera, you must agree to our <a href="http://www.miui.com/res/doc/eula.html?lang=en_US">User Agreement</a> and <a href="http://www.miui.com/res/doc/privacy.html?lang=en_US">Privacy Policy</a>. Camera also needs to connect to the internet to work normally. Agree?</string>

@@ -389,7 +389,7 @@ ve parazitin en az seviyede olduğu bir kare oluşturacaktır."</string>
     <string name="popup_tip_3d_beauty_intro_text">3D Güzellik</string>
     <string name="sticker_tab1">Şirin</string>
     <string name="sticker_tab2">Komik</string>
-    <string name="pref_privacy_title">Gizlilik Politikası</string>
+    <string name="pref_privacy_title">ANXCamera Info</string>
     <string name="user_agree">Kabul et</string>
     <string name="do_not_remind_me">Tekrar gösterme</string>
     <string name="user_notice_identify_summary_format">Kamera uygulamasını kullanmadan önce, <a href="http://www.miui.com/res/doc/eula.html?lang=tr_TR">Kullanıcı Sözleşmesi</a> ve <a href="http://www.miui.com/res/doc/privacy.html?lang=tr_TR">Gizlilik Politikasını</a> kabul etmelisiniz. Kamera ayrıca normal çalışabilmek için internete bağlanmalıdır. Kabul ediyor musunuz?</string>

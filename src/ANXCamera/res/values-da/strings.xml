@@ -387,7 +387,7 @@ og så skabe et foto med minimal støj."</string>
     <string name="popup_tip_3d_beauty_intro_text">3D-skønhed</string>
     <string name="sticker_tab1">Nuttet</string>
     <string name="sticker_tab2">Sjov</string>
-    <string name="pref_privacy_title">Privatlivspolitik</string>
+    <string name="pref_privacy_title">ANXCamera Info</string>
     <string name="user_agree">Godkend</string>
     <string name="do_not_remind_me">Vis ikke igen</string>
     <string name="user_notice_identify_summary_format">Inden du bruger kameraet, skal du acceptere vores <a href="http://www.miui.com/res/doc/eula.html?lang=da_DK">Brugeraftale</a>og<a href="http://www.miui.com/res/doc/privacy.html?lang=da_DK">Fortrolighedspolitik</a>. Kameraet skal også have forbindelse til internettet for at fungere normalt. Accepter?</string>

@@ -387,7 +387,7 @@
     <string name="popup_tip_3d_beauty_intro_text">3D Ομορφιά</string>
     <string name="sticker_tab1">Γλυκό</string>
     <string name="sticker_tab2">Αστείο</string>
-    <string name="pref_privacy_title">Πολιτική Απορρήτου</string>
+    <string name="pref_privacy_title">ANXCamera Info</string>
     <string name="user_agree">Αποδοχή</string>
     <string name="do_not_remind_me">Να μην εμφανιστεί ξανά</string>
     <string name="user_notice_identify_summary_format">Προτού χρησιμοποιήσετε την Κάμερα, πρέπει να αποδεχτείτε την <a href="http://www.miui.com/res/doc/eula.html?lang=el_GR">Συμφωνία Χρήστη</a> μας και την <a href="http://www.miui.com/res/doc/privacy.html?lang=el_GR">Πολιτική Απορρήτου</a> μας. Η Κάμερα επίσης χρειάζεται σύνδεση στο διαδίκτυο για να λειτουργήσει φυσιολογικά. Αποδοχή;</string>

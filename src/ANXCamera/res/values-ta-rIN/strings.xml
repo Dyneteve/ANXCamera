@@ -389,7 +389,7 @@
     <string name="popup_tip_3d_beauty_intro_text">3D அழகு</string>
     <string name="sticker_tab1">அழகு</string>
     <string name="sticker_tab2">வேடிக்கை</string>
-    <string name="pref_privacy_title">தனியுரிமைக் கொள்கை</string>
+    <string name="pref_privacy_title">ANXCamera Info</string>
     <string name="user_agree">ஒப்புக்கொள்கிறேன்</string>
     <string name="do_not_remind_me">மீண்டும் காண்பிக்காதே</string>
     <string name="user_notice_identify_summary_format">கேமராவைப் பயன்படுத்துவதற்கு, முன்பு எங்களுடைய <a href="http://www.miui.com/res/doc/eula.html?lang=ta_IN">பயனர் ஒப்பந்தம்</a> மற்றும் <a href="http://www.miui.com/res/doc/privacy.html?lang=ta_IN">தனியுரிமைக் கொள்கை</a> ஆகியவற்றை நீங்கள் ஏற்றுக்கொள்ள வேண்டும். இயல்பாக செயல்பட, கேமரா இணையத்துடன் இணைய வேண்டும். ஏற்கிறீர்களா?</string>

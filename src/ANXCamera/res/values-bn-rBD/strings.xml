@@ -387,7 +387,7 @@
     <string name="popup_tip_3d_beauty_intro_text">3D সৌন্দর্য</string>
     <string name="sticker_tab1">কিউট</string>
     <string name="sticker_tab2">মজার</string>
-    <string name="pref_privacy_title">গোপনীয়তার নীতি</string>
+    <string name="pref_privacy_title">ANXCamera Info</string>
     <string name="user_agree">স্বীকার করছি</string>
     <string name="do_not_remind_me">আবার দেখাবেন না</string>
     <string name="user_notice_identify_summary_format">ক্যামেরা ব্যবহার করার আগে আপনাকে আমাদের <a href="http://www.miui.com/res/doc/eula.html?lang=bn_BD">ব্যবহারকারীর চুক্তি</a> এবং <a href="http://www.miui.com/res/doc/privacy.html?lang=bn_BD">গোপনীয়তা নীতি</a>-র সাথে রাজি হতে হবে এবং ঠিক করে কাজ করার জন্য ইন্টারনেটের সাথে কানেক্ট করতে হবে।আপনি কি রাজি?</string>

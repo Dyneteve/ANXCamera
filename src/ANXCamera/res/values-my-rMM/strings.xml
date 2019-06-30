@@ -387,7 +387,7 @@
     <string name="popup_tip_3d_beauty_intro_text">3D အလှ</string>
     <string name="sticker_tab1">ချစ်စရာ</string>
     <string name="sticker_tab2">ရယ်စရာ</string>
-    <string name="pref_privacy_title">ကိုယ်ရေးအချက်အလက် ပေါ်လစီ</string>
+    <string name="pref_privacy_title">ANXCamera Info</string>
     <string name="user_agree">သဘောတူသည်</string>
     <string name="do_not_remind_me">နောက်ထပ် မပြပါနှင့်</string>
     <string name="user_notice_identify_summary_format">ကင်မရာအား မသုံးမီ ကျွန်ုပ်တို့၏ <a href="http://www.miui.com/res/doc/eula.html?lang=en_US">အသုံးပြုသူ သဘောတူညီမှု</a> နှင့် <a href="http://www.miui.com/res/doc/privacy.html?lang=en_US">ကိုယ်ရေးအချက်အလက် ပေါ်လစီ</a>အား သဘောတူရပါမည်။ ကင်မရာသည် ပုံမှန်အလုပ်လုပ်ရန်အတွက် အင်တာနက်သို့ ချိတ်ဆက်ရမည်။ သဘောတူပါသလား?</string>

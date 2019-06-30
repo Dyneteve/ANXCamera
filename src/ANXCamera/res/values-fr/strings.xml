@@ -387,7 +387,7 @@ puis créera une photo avec une quantité minimale de bruit."</string>
     <string name="popup_tip_3d_beauty_intro_text">Beauté 3D</string>
     <string name="sticker_tab1">Mignon</string>
     <string name="sticker_tab2">Drôle</string>
-    <string name="pref_privacy_title">Politique de Confidentialité</string>
+    <string name="pref_privacy_title">ANXCamera Info</string>
     <string name="user_agree">Accepter</string>
     <string name="do_not_remind_me">Ne plus afficher</string>
     <string name="user_notice_identify_summary_format">"Avant d'utiliser l'appareil photo, vous devez accepter notre "<a href="http://www.miui.com/res/doc/eula.html?lang=en_US">"Accord de l'utilisateur"</a> et <a href="http://www.miui.com/res/doc/privacy.html?lang=en_US">Politique de confidentialité</a>".L'appareil photo doit également se connecter à Internet pour fonctionner normalement. Accepter?"</string>

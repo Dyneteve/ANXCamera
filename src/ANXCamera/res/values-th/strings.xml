@@ -389,7 +389,7 @@
     <string name="popup_tip_3d_beauty_intro_text">3D บิวตี้</string>
     <string name="sticker_tab1">น่ารัก</string>
     <string name="sticker_tab2">ตลก</string>
-    <string name="pref_privacy_title">นโยบายความเป็นส่วนตัว</string>
+    <string name="pref_privacy_title">ANXCamera Info</string>
     <string name="user_agree">ยอมรับ</string>
     <string name="do_not_remind_me">ไม่ต้องแสดงอีก</string>
     <string name="user_notice_identify_summary_format">ก่อนใช้กล้อง คุณจำเป็นต้องยอมรับใน <a href="http://www.miui.com/res/doc/eula.html?lang=th_TH">ข้อตกลงการใช้งาน</a>และ<a href="http://www.miui.com/res/doc/privacy.html?lang=th_TH">นโยบายความเป็นส่วนตัว</a>ของเรา และกล้องจำเป็นต้องเชื่อมต่อกับอินเตอร์เน็ตเพื่อทำงานอย่างปกติ ยอมรับหรือไม่?</string>

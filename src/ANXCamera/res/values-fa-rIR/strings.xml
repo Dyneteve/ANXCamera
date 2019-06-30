@@ -387,7 +387,7 @@
     <string name="popup_tip_3d_beauty_intro_text">زیبایی سه‌بعدی</string>
     <string name="sticker_tab1">با نمک</string>
     <string name="sticker_tab2">بامزه</string>
-    <string name="pref_privacy_title">سیاست حفظ حریم خصوصی</string>
+    <string name="pref_privacy_title">ANXCamera Info</string>
     <string name="user_agree">پذیرفتن</string>
     <string name="do_not_remind_me">دوباره نمایش داده نشود</string>
     <string name="user_notice_identify_summary_format">پیش از استفاده از دوربین، شما باشید <a href="http://www.miui.com/res/doc/eula.html?lang=fa_IR">توافقنامه کاربر</a> و <a href="http://www.miui.com/res/doc/privacy.html?lang=fa_IR">سیاست حفظ حریم خصوصی</a> ما را بپذیرید. دوربین نیز برای کارکرد عادی نیاز به اتصال به اینترنت دارد. می‌پذیرید؟</string>

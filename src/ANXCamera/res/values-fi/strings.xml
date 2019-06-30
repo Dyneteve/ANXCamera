@@ -387,7 +387,7 @@ ja luo sitten kuvan, jossa on mahdollisimman vähän kohinaa."</string>
     <string name="popup_tip_3d_beauty_intro_text">3D-kauneus</string>
     <string name="sticker_tab1">Söpö</string>
     <string name="sticker_tab2">Hauska</string>
-    <string name="pref_privacy_title">Tietosuojakäytäntö</string>
+    <string name="pref_privacy_title">ANXCamera Info</string>
     <string name="user_agree">Hyväksy</string>
     <string name="do_not_remind_me">Älä näytä uudelleen</string>
     <string name="user_notice_identify_summary_format">Ennen kuin käytät kameraa, sinun on hyväksyttävä <a href="http://www.miui.com/res/doc/eula.html?lang=fi_FI">käyttöehtosopimuksemme</a> ja <a href="http://www.miui.com/res/doc/privacy.html?lang=fi_FI">tietosuojakäytäntömme</a>. Kameran on myös oltava yhteydessä Internetiin ja toimittava normaalisti. Hyväksytkö?</string>

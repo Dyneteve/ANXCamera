@@ -387,7 +387,7 @@ i następnie utworzy zdjęcie z minimalną ilością szumów."</string>
     <string name="popup_tip_3d_beauty_intro_text">Upiększanie 3D</string>
     <string name="sticker_tab1">Uroczy</string>
     <string name="sticker_tab2">Zabawny</string>
-    <string name="pref_privacy_title">Polityka prywatności</string>
+    <string name="pref_privacy_title">ANXCamera Info</string>
     <string name="user_agree">Zgadzam się</string>
     <string name="do_not_remind_me">Nie pokazuj ponownie</string>
     <string name="user_notice_identify_summary_format">Przed skorzystaniem z Aparatu musisz zgodzić się na naszą <a href="http://www.miui.com/res/doc/eula.html?lang=pl_PL">Umowę użytkownika</a> oraz <a href="http://www.miui.com/res/doc/privacy.html?lang=pl_PL">Politykę prywatności</a>. Aparat wymaga także połączenia z Internetem do poprawnego działania. Wyrażasz zgodę?</string>

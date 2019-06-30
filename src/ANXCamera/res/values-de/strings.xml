@@ -387,7 +387,7 @@ und dann ein Foto mit minimalem Rauschen erstellt."</string>
     <string name="popup_tip_3d_beauty_intro_text">3D-Schönheit</string>
     <string name="sticker_tab1">Süß</string>
     <string name="sticker_tab2">Lustig</string>
-    <string name="pref_privacy_title">Datenschutzerklärung</string>
+    <string name="pref_privacy_title">ANXCamera Info</string>
     <string name="user_agree">Zustimmen</string>
     <string name="do_not_remind_me">Nicht mehr anzeigen</string>
     <string name="user_notice_identify_summary_format">Vor der Verwendung der Kamera musst du unserer <a href="http://www.miui.com/res/doc/eula.html?lang=de_DE">Nutzungsvereinbarung</a> und <a href="http://www.miui.com/res/doc/privacy.html?lang=de_DE">Datenschutzerklärung</a> zustimmen. Die Kamera muss auch eine Verbindung zum Internet herstellen, um normal zu funktionieren. Zustimmen?</string>

@@ -387,7 +387,7 @@
     <string name="popup_tip_3d_beauty_intro_text">3D покращення</string>
     <string name="sticker_tab1">Милий</string>
     <string name="sticker_tab2">Кумедний</string>
-    <string name="pref_privacy_title">Політика конфіденційності</string>
+    <string name="pref_privacy_title">ANXCamera Info</string>
     <string name="user_agree">Прийняти</string>
     <string name="do_not_remind_me">Більше не показувати</string>
     <string name="user_notice_identify_summary_format">Перш ніж користуватися камерою, потрібно погодитися з нашою <a href="http://www.miui.com/res/doc/eula.html?lang=uk_UA"> Угодою користувача </a> і <a href="http://www.miui.com/res/doc/privacy.html?lang=uk_UA">Політикою конфіденційності</a>. Камера також має мати доступ до інтернету для нормальної роботи. Згоднi?</string>

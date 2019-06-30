@@ -387,7 +387,7 @@
     <string name="popup_tip_3d_beauty_intro_text">សម្រស់ 3D</string>
     <string name="sticker_tab1">គួរឱ្យស្រលាញ់</string>
     <string name="sticker_tab2">កំប្លែង</string>
-    <string name="pref_privacy_title">គោលការណ៍ឯកជនភាព</string>
+    <string name="pref_privacy_title">ANXCamera Info</string>
     <string name="user_agree">យល់ស្រប</string>
     <string name="do_not_remind_me">កុំបង្ហាញម្តងទៀត</string>
     <string name="user_notice_identify_summary_format">មុននឹងប្រើ កាមេរ៉ា អ្នកត្រូវយល់ព្រមជាមួយ <a href="http://www.miui.com/res/doc/eula.html?lang=en_US">កិច្ចព្រមព្រៀងអ្នកប្រើប្រាស់</a> និង <a href="http://www.miui.com/res/doc/privacy.html?lang=en_US">គោលការណ៍ឯកជនភាព</a> របស់យើងជាមុនសិន។ កាមេរ៉ា ក៏ត្រូវការតភ្ជាប់ទៅអ៊ីនធឺរណែតដើម្បីដំណើរការបានជាធម្មតាផងដែរ។ យល់ព្រមដែរឬទេ?</string>

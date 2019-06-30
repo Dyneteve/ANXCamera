@@ -387,7 +387,7 @@
     <string name="popup_tip_3d_beauty_intro_text">3D улепшање</string>
     <string name="sticker_tab1">Слатко</string>
     <string name="sticker_tab2">Смешно</string>
-    <string name="pref_privacy_title">Правила о приватности</string>
+    <string name="pref_privacy_title">ANXCamera Info</string>
     <string name="user_agree">Прихватам</string>
     <string name="do_not_remind_me">Не приказуј поново</string>
     <string name="user_notice_identify_summary_format">Пре коришћења Камере, морате прихватити наш <a href="http://www.miui.com/res/doc/eula.html?lang=sr_RS"> Кориснички уговор</a> и <a href="http://www.miui.com/res/doc/privacy.html?lang=sr_RS"> Правила о приватности</a>. Камеру је потребно повезати на интернет да би исправно функционисала. Прихватате?</string>

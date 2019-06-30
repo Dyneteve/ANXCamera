@@ -387,7 +387,7 @@ y creará una con la mínima cantidad de ruido."</string>
     <string name="popup_tip_3d_beauty_intro_text">Belleza 3D</string>
     <string name="sticker_tab1">Adorable</string>
     <string name="sticker_tab2">Gracioso</string>
-    <string name="pref_privacy_title">Política de Privacidad</string>
+    <string name="pref_privacy_title">ANXCamera Info</string>
     <string name="user_agree">Aceptar</string>
     <string name="do_not_remind_me">No mostrar de nuevo</string>
     <string name="user_notice_identify_summary_format">Antes de usar la cámara debes aceptar nuestro <a href="http://www.miui.com/res/doc/eula.html?lang=es_ES">Acuerdo de Usuario</a> y nuestra <a href="http://www.miui.com/res/doc/privacy.html?lang=es_ES">Política de Privacidad</a>. La cámara también necesita acceder a internet para funcionar correctamente. ¿Aceptar?</string>

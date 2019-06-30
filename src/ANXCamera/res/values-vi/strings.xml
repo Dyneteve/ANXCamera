@@ -387,7 +387,7 @@ và tạo ra một ảnh đẹp nhất với độ nhiễu thấp nhất."</stri
     <string name="popup_tip_3d_beauty_intro_text">Làm đẹp 3D</string>
     <string name="sticker_tab1">Đáng yêu</string>
     <string name="sticker_tab2">Hài hước</string>
-    <string name="pref_privacy_title">Chính sách Riêng tư</string>
+    <string name="pref_privacy_title">ANXCamera Info</string>
     <string name="user_agree">Đồng ý</string>
     <string name="do_not_remind_me">Không hiển thị lại</string>
     <string name="user_notice_identify_summary_format">Trước khi sử dụng Máy ảnh, bạn phải đồng ý với <a href="http://www.miui.com/res/doc/eula.html?lang=vi_VN">Thỏa thuận Người dùng</a> và <a href="http://www.miui.com/res/doc/privacy.html?lang=vi_VN">Chính sách Riêng tư</a> của chúng tôi. Máy ảnh cũng cần kết nối internet để làm việc bình thường. Đồng ý?</string>

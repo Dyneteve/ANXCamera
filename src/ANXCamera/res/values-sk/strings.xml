@@ -387,7 +387,7 @@ a následne z nich vytvorí fotografiu s minimálnym šumom."</string>
     <string name="popup_tip_3d_beauty_intro_text">3D Skrášlenie</string>
     <string name="sticker_tab1">Roztomilé</string>
     <string name="sticker_tab2">Vtipné</string>
-    <string name="pref_privacy_title">Zásady ochrany osobných údajov</string>
+    <string name="pref_privacy_title">ANXCamera Info</string>
     <string name="user_agree">Súhlasím</string>
     <string name="do_not_remind_me">Viac nezobrazovať</string>
     <string name="user_notice_identify_summary_format">Pred použitím Fotoaparátu musíte súhlasiť s našimi dokumentami <a href="http://www.miui.com/res/doc/eula.html?lang=sk_SK">Podmienky používania</a>a<a href="http://www.miui.com/res/doc/privacy.html?lang=sk_SK">Zásady ochrany osobných údajov</a>. Fotoaparát si tiež pre správne fungovanie vyžaduje pripojenie na internet. Súhlasíte?</string>

@@ -387,7 +387,7 @@
     <string name="popup_tip_3d_beauty_intro_text">3D Сұлулық</string>
     <string name="sticker_tab1">Сүйкімді</string>
     <string name="sticker_tab2">Күлкімді</string>
-    <string name="pref_privacy_title">Құпиялылық Саясаты</string>
+    <string name="pref_privacy_title">ANXCamera Info</string>
     <string name="user_agree">Келісемін</string>
     <string name="do_not_remind_me">Тағы бір рет көрсетпеу</string>
     <string name="user_notice_identify_summary_format">Камераны қолданбас бұрын, сіз біздің <a href="http://www.miui.com/res/doc/eula.html?lang=en_US">Пайдаланушы Келісімімізбен</a> және <a href="http://www.miui.com/res/doc/privacy.html?lang=en_US">Құпиялылық Саясатымызбен</a> келісу керексіз. Сондай-ақ камера ның қалыпты жұмыс істеуі үшін желі байланысы қажет. Сіз келісесіз бе?</string>

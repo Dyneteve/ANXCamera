@@ -387,7 +387,7 @@ per poi creare uno scatto con il minor rumore possibile."</string>
     <string name="popup_tip_3d_beauty_intro_text">3D Beauty</string>
     <string name="sticker_tab1">Carino</string>
     <string name="sticker_tab2">Divertente</string>
-    <string name="pref_privacy_title">Informativa sulla Privacy</string>
+    <string name="pref_privacy_title">ANXCamera Info</string>
     <string name="user_agree">Accetto</string>
     <string name="do_not_remind_me">Non chiedere più</string>
     <string name="user_notice_identify_summary_format">Prima di utilizzare Fotocamera, devi accettare i nostri <a href="http://www.miui.com/res/doc/eula.html?lang=it_IT">Accordo Utente</a> e <a href="http://www.miui.com/res/doc/privacy.html?lang=it_IT">Informativa sulla Privacy</a>. Fotocamera deve anche connettersi a Internet per funzionare correttamente. Accetti?</string>
