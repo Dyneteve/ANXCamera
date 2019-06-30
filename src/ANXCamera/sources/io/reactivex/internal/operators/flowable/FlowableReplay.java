@@ -145,7 +145,6 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements D
             setFirst(node);
         }
 
-        /* JADX INFO: used method not loaded: io.reactivex.internal.util.NotificationLite.accept(java.lang.Object, org.reactivestreams.Subscriber):null, types can be incorrect */
         /* JADX WARNING: Code restructure failed: missing block: B:10:0x0011, code lost:
             if (r14.isDisposed() == false) goto L_0x0014;
          */
@@ -191,7 +190,7 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements D
             r5 = leaveTransform(r10.value);
          */
         /* JADX WARNING: Code restructure failed: missing block: B:27:0x0057, code lost:
-            if (io.reactivex.internal.util.NotificationLite.accept(r5, (org.reactivestreams.Subscriber) r14.child) == false) goto L_0x005c;
+            if (io.reactivex.internal.util.NotificationLite.accept(r5, r14.child) == false) goto L_0x005c;
          */
         /* JADX WARNING: Code restructure failed: missing block: B:28:0x0059, code lost:
             r14.index = null;
@@ -813,7 +812,6 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements D
             this.size++;
         }
 
-        /* JADX INFO: used method not loaded: io.reactivex.internal.util.NotificationLite.accept(java.lang.Object, org.reactivestreams.Subscriber):null, types can be incorrect */
         /* JADX WARNING: Code restructure failed: missing block: B:11:0x0013, code lost:
             if (r15.isDisposed() == false) goto L_0x0016;
          */
@@ -848,7 +846,7 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements D
             r12 = get(r2);
          */
         /* JADX WARNING: Code restructure failed: missing block: B:24:0x003f, code lost:
-            if (io.reactivex.internal.util.NotificationLite.accept(r12, (org.reactivestreams.Subscriber) r0) == false) goto L_0x0042;
+            if (io.reactivex.internal.util.NotificationLite.accept(r12, r0) == false) goto L_0x0042;
          */
         /* JADX WARNING: Code restructure failed: missing block: B:25:0x0041, code lost:
             return;

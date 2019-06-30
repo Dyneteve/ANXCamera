@@ -39,6 +39,7 @@ import java.util.Iterator;
 public class CameraPreferenceActivity extends BasePreferenceActivity {
     public static final String FROM_WHERE = "from_where";
     public static final String IS_IMAGE_CAPTURE_INTENT = "IsCaptureIntent";
+    protected static final String PREF_KEY_BOUNCE = "pref_bounce";
     protected static final String PREF_KEY_PRIVACY = "pref_privacy";
     protected static final String PREF_KEY_RESTORE = "pref_restore";
     public static final String REMOVE_KEYS = "remove_keys";
@@ -424,6 +425,10 @@ public class CameraPreferenceActivity extends BasePreferenceActivity {
         if (this.mWatermark != null) {
             this.mWatermark.setOnPreferenceClickListener(this);
         }
+        Preference findPreference6 = this.mPreferenceGroup.findPreference(PREF_KEY_BOUNCE);
+        if (findPreference6 != null) {
+            findPreference6.setOnPreferenceClickListener(this);
+        }
     }
 
     private void removeIncompatibleAdvancePreference() {
@@ -627,7 +632,10 @@ public class CameraPreferenceActivity extends BasePreferenceActivity {
             }, getString(17039360), null);
             return true;
         } else if (preference.getKey().equals(PREF_KEY_PRIVACY)) {
-            ActivityLauncher.launchPrivacyPolicyWebpage(this);
+            ActivityLauncher.launchANXCameraInfo(this);
+            return true;
+        } else if (preference.getKey().equals(PREF_KEY_BOUNCE)) {
+            ActivityLauncher.launchANXBounceInfo(this);
             return true;
         } else if (preference.getKey().equals(CameraSettings.KEY_WATERMARK)) {
             Intent intent = new Intent(this, WatermarkActivity.class);

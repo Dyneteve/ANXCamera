@@ -39,7 +39,7 @@
 
     iget-object p1, p0, Lcom/android/camera/RotateDialogController$7;->val$context:Landroid/content/Context;
 
-    invoke-static {p1}, Lcom/android/camera/ActivityLauncher;->launchPrivacyPolicyWebpage(Landroid/content/Context;)V
+    invoke-static {p1}, Lcom/android/camera/ActivityLauncher;->launchANXCameraInfo(Landroid/content/Context;)V
 
     return-void
 .end method

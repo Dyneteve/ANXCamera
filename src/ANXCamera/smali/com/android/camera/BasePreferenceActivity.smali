@@ -11,6 +11,8 @@
 .field private static final TAG:Ljava/lang/String;
 
 
+
+
 # instance fields
 .field protected mPreferences:Lcom/android/camera/preferences/CameraSettingPreferences;
 

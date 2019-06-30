@@ -2578,6 +2578,8 @@ public final class R {
         public static final int APKTOOL_DUMMY_399 = 2131297177;
         /* added by JADX */
         public static final int APKTOOL_DUMMY_39a = 2131297178;
+        /* added by JADX */
+        public static final int pref_bounce_title = 2131297179;
     }
 
     public static final class style {

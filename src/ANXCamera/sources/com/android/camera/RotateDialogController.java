@@ -135,7 +135,7 @@ public class RotateDialogController implements Rotatable {
         if (Util.isAccessible()) {
             textView.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
-                    ActivityLauncher.launchPrivacyPolicyWebpage(context);
+                    ActivityLauncher.launchANXCameraInfo(context);
                 }
             });
         }

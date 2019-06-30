@@ -4,16 +4,21 @@
 
 
 # static fields
-.field private static URL_MIUI_PRIVACY_POLICY:Ljava/lang/String;
+.field private static URL_ANXCAMERACHAT:Ljava/lang/String;
+.field private static URL_ANXBOUNCECHAT:Ljava/lang/String;
 
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
 
-    const-string v0, "http://www.miui.com/res/doc/privacy.html"
+    const-string v0, "https://telegram.me/ANXMiuiCameraChat"
 
-    sput-object v0, Lcom/android/camera/ActivityLauncher;->URL_MIUI_PRIVACY_POLICY:Ljava/lang/String;
+    sput-object v0, Lcom/android/camera/ActivityLauncher;->URL_ANXCAMERACHAT:Ljava/lang/String;
+
+    const-string v0, "https://telegram.me/ANXBounceChat"
+
+    sput-object v0, Lcom/android/camera/ActivityLauncher;->URL_ANXBOUNCECHAT:Ljava/lang/String;
 
     return-void
 .end method
@@ -22,6 +27,50 @@
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+.method public static launchANXCameraInfo(Landroid/content/Context;)V
+    .locals 2
+
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v1, "android.intent.action.VIEW"
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    sget-object v1, Lcom/android/camera/ActivityLauncher;->URL_ANXCAMERACHAT:Ljava/lang/String;
+
+    invoke-static {v1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+
+    return-void
+.end method
+
+.method public static launchANXBounceInfo(Landroid/content/Context;)V
+    .locals 2
+
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v1, "android.intent.action.VIEW"
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    sget-object v1, Lcom/android/camera/ActivityLauncher;->URL_ANXBOUNCECHAT:Ljava/lang/String;
+
+    invoke-static {v1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
     return-void
 .end method
@@ -55,7 +104,7 @@
 
     new-array v5, v5, [Ljava/lang/Object;
 
-    sget-object v6, Lcom/android/camera/ActivityLauncher;->URL_MIUI_PRIVACY_POLICY:Ljava/lang/String;
+    sget-object v6, Lcom/android/camera/ActivityLauncher;->URL_ANXCAMERACHAT:Ljava/lang/String;
 
     const/4 v7, 0x0
 
