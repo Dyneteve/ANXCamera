@@ -1641,11 +1641,13 @@ public final class R {
         /* added by JADX */
         public static final int feature_raphaelin = 2131230736;
         /* added by JADX */
-        public static final int feature_tulip = 2131230737;
+        public static final int feature_sirius = 2131230737;
         /* added by JADX */
-        public static final int feature_violet = 2131230738;
+        public static final int feature_tulip = 2131230738;
         /* added by JADX */
-        public static final int feature_whyred = 2131230739;
+        public static final int feature_violet = 2131230739;
+        /* added by JADX */
+        public static final int feature_whyred = 2131230740;
     }
 
     public static final class string {
