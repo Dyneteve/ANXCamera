@@ -24,24 +24,24 @@
 
     invoke-direct {p0}, Landroid/app/Application;-><init>()V
 
-    invoke-direct {p0}, Lmiui/external/Application;->loadSdk()Z
+    # invoke-direct {p0}, Lmiui/external/Application;->loadSdk()Z
 
-    move-result v0
+    # move-result v0
 
-    if-nez v0, :cond_0
+    # if-nez v0, :cond_0
 
-    return-void
+    # return-void
 
-    :cond_0
-    invoke-direct {p0}, Lmiui/external/Application;->initializeSdk()Z
+    # :cond_0
+    # invoke-direct {p0}, Lmiui/external/Application;->initializeSdk()Z
 
-    move-result v0
+    # move-result v0
 
-    if-nez v0, :cond_1
+    # if-nez v0, :cond_1
 
-    return-void
+    # return-void
 
-    :cond_1
+    # :cond_1
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lmiui/external/Application;->mInitialized:Z
@@ -362,15 +362,15 @@
     return-void
 
     :cond_0
-    invoke-direct {p0}, Lmiui/external/Application;->startSdk()Z
+    # invoke-direct {p0}, Lmiui/external/Application;->startSdk()Z
 
-    move-result p1
+    # move-result p1
 
-    if-nez p1, :cond_1
+    # if-nez p1, :cond_1
 
-    return-void
+    # return-void
 
-    :cond_1
+    # :cond_1
     invoke-virtual {p0}, Lmiui/external/Application;->onCreateApplicationDelegate()Lmiui/external/ApplicationDelegate;
 
     move-result-object p1

@@ -8,6 +8,7 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.PreferenceActivity;
 import android.preference.PreferenceGroup;
 import com.android.camera.log.Log;
 import com.android.camera.preferences.CameraSettingPreferences;
@@ -15,7 +16,6 @@ import com.android.camera.statistic.CameraStatUtil;
 import com.android.camera.ui.PreviewListPreference;
 import com.mi.config.b;
 import java.util.List;
-import miui.preference.PreferenceActivity;
 
 public abstract class BasePreferenceActivity extends PreferenceActivity implements OnPreferenceChangeListener, OnPreferenceClickListener {
     private static final String TAG = BasePreferenceActivity.class.getSimpleName();
@@ -57,9 +57,8 @@ public abstract class BasePreferenceActivity extends PreferenceActivity implemen
     /* access modifiers changed from: protected */
     public abstract int getPreferenceXml();
 
-    /* JADX WARNING: type inference failed for: r0v0, types: [android.content.Context, miui.preference.PreferenceActivity, com.android.camera.BasePreferenceActivity] */
     public void onCreate(Bundle bundle) {
-        BasePreferenceActivity.super.onCreate(bundle);
+        super.onCreate(bundle);
         Util.updateDeviceConfig(this);
         this.mPreferences = CameraSettingPreferences.instance();
         changeRequestOrientation();

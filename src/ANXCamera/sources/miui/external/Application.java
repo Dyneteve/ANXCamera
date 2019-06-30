@@ -11,14 +11,8 @@ import miui.external.SdkConstants.SdkError;
 public class Application extends android.app.Application implements SdkConstants {
     private static final String PACKAGE_NAME = "com.miui.core";
     private ApplicationDelegate mApplicationDelegate;
-    private boolean mInitialized;
+    private boolean mInitialized = true;
     private boolean mStarted;
-
-    public Application() {
-        if (loadSdk() && initializeSdk()) {
-            this.mInitialized = true;
-        }
-    }
 
     private void handleGenericError(Throwable th) {
         while (th != null && th.getCause() != null) {
@@ -96,7 +90,7 @@ public class Application extends android.app.Application implements SdkConstants
     /* access modifiers changed from: protected */
     public void attachBaseContext(Context context) {
         super.attachBaseContext(context);
-        if (this.mInitialized && startSdk()) {
+        if (this.mInitialized) {
             this.mApplicationDelegate = onCreateApplicationDelegate();
             if (this.mApplicationDelegate != null) {
                 this.mApplicationDelegate.attach(this);

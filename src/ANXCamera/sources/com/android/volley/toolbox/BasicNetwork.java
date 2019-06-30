@@ -188,6 +188,7 @@ public class BasicNetwork implements Network {
         VolleyLog.v("HTTP ERROR(%s) %d ms to fetch %s", str, Long.valueOf(SystemClock.elapsedRealtime() - j), str2);
     }
 
+    /* JADX INFO: used method not loaded: com.android.volley.NetworkResponse.<init>(int, byte[], boolean, long, java.util.List):null, types can be incorrect */
     /* JADX INFO: used method not loaded: com.android.volley.AuthFailureError.<init>(com.android.volley.NetworkResponse):null, types can be incorrect */
     /* JADX WARNING: Code restructure failed: missing block: B:15:0x0060, code lost:
         r0 = e;
