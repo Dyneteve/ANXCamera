@@ -1596,6 +1596,14 @@ public final class R {
 
     public static final class mipmap {
         public static final int ic_launcher_camera = 2130903040;
+        /* added by JADX */
+        public static final int ic_launcher = 2130903041;
+        /* added by JADX */
+        public static final int ic_launcher_background = 2130903042;
+        /* added by JADX */
+        public static final int ic_launcher_foreground = 2130903043;
+        /* added by JADX */
+        public static final int ic_launcher_round = 2130903044;
     }
 
     public static final class plurals {
@@ -1610,6 +1618,34 @@ public final class R {
         public static final int feature_crux = 2131230723;
         public static final int goofy_face = 2131230724;
         public static final int xiaomi_static_config = 2131230725;
+        /* added by JADX */
+        public static final int feature_beryllium = 2131230726;
+        /* added by JADX */
+        public static final int feature_dipper = 2131230727;
+        /* added by JADX */
+        public static final int feature_equuleus = 2131230728;
+        /* added by JADX */
+        public static final int feature_gemini = 2131230729;
+        /* added by JADX */
+        public static final int feature_grus = 2131230730;
+        /* added by JADX */
+        public static final int feature_lavender = 2131230731;
+        /* added by JADX */
+        public static final int feature_perseus = 2131230732;
+        /* added by JADX */
+        public static final int feature_platina = 2131230733;
+        /* added by JADX */
+        public static final int feature_polaris = 2131230734;
+        /* added by JADX */
+        public static final int feature_raphael = 2131230735;
+        /* added by JADX */
+        public static final int feature_raphaelin = 2131230736;
+        /* added by JADX */
+        public static final int feature_tulip = 2131230737;
+        /* added by JADX */
+        public static final int feature_violet = 2131230738;
+        /* added by JADX */
+        public static final int feature_whyred = 2131230739;
     }
 
     public static final class string {
