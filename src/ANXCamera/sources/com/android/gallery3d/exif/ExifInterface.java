@@ -472,7 +472,7 @@ public class ExifInterface {
         }
     }
 
-    /* JADX WARNING: Incorrect type for immutable var: ssa=short, code=int, for r2v0, types: [int, short] */
+    /* JADX WARNING: Incorrect type for immutable var: ssa=short, code=int, for r2v0, types: [short, int] */
     public static int defineTag(int i, int i2) {
         return (i << 16) | (i2 & SupportMenu.USER_MASK);
     }
