@@ -12,4 +12,6 @@ call ..\ANXMiuiPortTools\versionizer.exe v=".\VERSION" incrementversionname=true
 
 ..\ANXMiuiPortTools\versionizer.exe v=".\VERSION" am=".\src\ANXCamera\AndroidManifest.xml" mm=".\src\Arnob48MPFix\module.prop"
 
+..\ANXMiuiPortTools\versionizer.exe v=".\VERSION" am=".\src\ANXCamera\AndroidManifest.xml" mm=".\src\Arnob48MPFix\module.prop"
+
 ..\ANXMiuiPortTools\versionizer.exe v=".\VERSION" am=".\src\ANXCamera\AndroidManifest.xml" mm=".\src\KubilWhyredyFix\module.prop"

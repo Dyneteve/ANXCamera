@@ -39,7 +39,7 @@ public class MimojiHelper {
         MIMOJI_DIR = sb2.toString();
         StringBuilder sb3 = new StringBuilder();
         sb3.append(MIMOJI_DIR);
-        sb3.append("data/");
+        sb3.append("");
         DATA_DIR = sb3.toString();
         StringBuilder sb4 = new StringBuilder();
         sb4.append(MIMOJI_DIR);

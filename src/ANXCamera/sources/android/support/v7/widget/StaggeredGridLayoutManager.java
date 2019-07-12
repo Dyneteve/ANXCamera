@@ -994,7 +994,7 @@ public class StaggeredGridLayoutManager extends LayoutManager implements ScrollV
     }
 
     /* JADX WARNING: type inference failed for: r9v0 */
-    /* JADX WARNING: type inference failed for: r9v1, types: [boolean, int] */
+    /* JADX WARNING: type inference failed for: r9v1, types: [int, boolean] */
     /* JADX WARNING: type inference failed for: r3v0, types: [int] */
     /* JADX WARNING: type inference failed for: r3v2 */
     /* JADX WARNING: type inference failed for: r3v4 */
@@ -1006,7 +1006,7 @@ public class StaggeredGridLayoutManager extends LayoutManager implements ScrollV
     /* JADX WARNING: type inference failed for: r9v9 */
     /* JADX WARNING: type inference failed for: r3v12 */
     /* JADX WARNING: type inference failed for: r3v13 */
-    /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r9v1, types: [boolean, int]
+    /* JADX WARNING: Multi-variable type inference failed. Error: jadx.core.utils.exceptions.JadxRuntimeException: No candidate types for var: r9v1, types: [int, boolean]
   assigns: []
   uses: [?[int, float, boolean, short, byte, char, OBJECT, ARRAY], boolean, int, ?[int, short, byte, char]]
   mth insns count: 226
